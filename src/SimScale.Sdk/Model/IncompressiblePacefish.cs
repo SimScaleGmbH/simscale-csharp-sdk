@@ -29,8 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class IncompressiblePacefish : Analysis, IEquatable<IncompressiblePacefish>
     {
         /// <summary>
-        /// Defines TurbulenceModel
+        /// Choose between RANS, LES, or DES turbulence models. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#turbulence-models-in-incompressible-lbm&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
+        /// <value>Choose between RANS, LES, or DES turbulence models. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#turbulence-models-in-incompressible-lbm&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TurbulenceModelEnum
         {
@@ -73,8 +74,9 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets TurbulenceModel
+        /// Choose between RANS, LES, or DES turbulence models. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#turbulence-models-in-incompressible-lbm&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
+        /// <value>Choose between RANS, LES, or DES turbulence models. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#turbulence-models-in-incompressible-lbm&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
         [DataMember(Name="turbulenceModel", EmitDefaultValue=false)]
         public TurbulenceModelEnum? TurbulenceModel { get; set; }
         /// <summary>
@@ -87,7 +89,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">type (required) (default to &quot;INCOMPRESSIBLE_PACEFISH&quot;).</param>
         /// <param name="boundingBoxUuid">boundingBoxUuid.</param>
-        /// <param name="turbulenceModel">turbulenceModel (default to TurbulenceModelEnum.KOMEGASSTDDES).</param>
+        /// <param name="turbulenceModel">Choose between RANS, LES, or DES turbulence models. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#turbulence-models-in-incompressible-lbm&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to TurbulenceModelEnum.KOMEGASSTDDES).</param>
         /// <param name="material">material.</param>
         /// <param name="flowDomainBoundaries">flowDomainBoundaries.</param>
         /// <param name="simulationControl">simulationControl.</param>

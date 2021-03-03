@@ -38,16 +38,15 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">type (required) (default to &quot;WAVE_TRANSMISSIVE&quot;).</param>
         /// <param name="specificHeatRatio">specificHeatRatio (default to 1.4M).</param>
-        /// <param name="relaxBoundary">relaxBoundary (required) (default to false).</param>
+        /// <param name="relaxBoundary">relaxBoundary (default to false).</param>
         /// <param name="farFieldValue">farFieldValue.</param>
         /// <param name="relaxationLengthScale">relaxationLengthScale.</param>
-        public WaveTransmissivePBC(string type = "WAVE_TRANSMISSIVE", decimal? specificHeatRatio = default(decimal?), bool? relaxBoundary = false, DimensionalPressure farFieldValue = default(DimensionalPressure), DimensionalLength relaxationLengthScale = default(DimensionalLength))
+        public WaveTransmissivePBC(string type = "WAVE_TRANSMISSIVE", decimal? specificHeatRatio = default(decimal?), bool? relaxBoundary = default(bool?), DimensionalPressure farFieldValue = default(DimensionalPressure), DimensionalLength relaxationLengthScale = default(DimensionalLength))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for WaveTransmissivePBC and cannot be null");
-            // to ensure "relaxBoundary" is required (not null)
-            this.RelaxBoundary = relaxBoundary ?? throw new ArgumentNullException("relaxBoundary is a required property for WaveTransmissivePBC and cannot be null");
             this.SpecificHeatRatio = specificHeatRatio;
+            this.RelaxBoundary = relaxBoundary;
             this.FarFieldValue = farFieldValue;
             this.RelaxationLengthScale = relaxationLengthScale;
         }

@@ -110,15 +110,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="IncompletePreconditioner" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;INCOMPLETE_LDLT&quot;).</param>
-        /// <param name="matrixCompleteness">matrixCompleteness (required) (default to 0).</param>
+        /// <param name="matrixCompleteness">matrixCompleteness (default to 0).</param>
         /// <param name="preconditionerMatrixGrowth">preconditionerMatrixGrowth (default to 1M).</param>
         /// <param name="renumberingMethod">renumberingMethod (default to RenumberingMethodEnum.RCMK).</param>
-        public IncompletePreconditioner(string type = "INCOMPLETE_LDLT", int? matrixCompleteness = 0, decimal? preconditionerMatrixGrowth = default(decimal?), RenumberingMethodEnum? renumberingMethod = default(RenumberingMethodEnum?))
+        public IncompletePreconditioner(string type = "INCOMPLETE_LDLT", int? matrixCompleteness = default(int?), decimal? preconditionerMatrixGrowth = default(decimal?), RenumberingMethodEnum? renumberingMethod = default(RenumberingMethodEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IncompletePreconditioner and cannot be null");
-            // to ensure "matrixCompleteness" is required (not null)
-            this.MatrixCompleteness = matrixCompleteness ?? throw new ArgumentNullException("matrixCompleteness is a required property for IncompletePreconditioner and cannot be null");
+            this.MatrixCompleteness = matrixCompleteness;
             this.PreconditionerMatrixGrowth = preconditionerMatrixGrowth;
             this.RenumberingMethod = renumberingMethod;
         }

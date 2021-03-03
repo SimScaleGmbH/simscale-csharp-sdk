@@ -47,7 +47,7 @@ namespace SimScale.Sdk.Model
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public VelocityInletBC(string type = "VELOCITY_INLET_V3", string name = default(string), OneOfVelocityInletBCVelocity velocity = default(OneOfVelocityInletBCVelocity), FixedValueTBC temperature = default(FixedValueTBC), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), OneOfVelocityInletBCTurbulenceIntensity turbulenceIntensity = default(OneOfVelocityInletBCTurbulenceIntensity), OneOfVelocityInletBCDissipationType dissipationType = default(OneOfVelocityInletBCDissipationType), OneOfVelocityInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityInletBCNetRadiativeHeatFlux), OpenBoundaryRayBC radiativeIntensityRay = default(OpenBoundaryRayBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public VelocityInletBC(string type = "VELOCITY_INLET_V3", string name = default(string), OneOfVelocityInletBCVelocity velocity = default(OneOfVelocityInletBCVelocity), OneOfVelocityInletBCTemperature temperature = default(OneOfVelocityInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), OneOfVelocityInletBCTurbulenceIntensity turbulenceIntensity = default(OneOfVelocityInletBCTurbulenceIntensity), OneOfVelocityInletBCDissipationType dissipationType = default(OneOfVelocityInletBCDissipationType), OneOfVelocityInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityInletBCNetRadiativeHeatFlux), OpenBoundaryRayBC radiativeIntensityRay = default(OpenBoundaryRayBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VelocityInletBC and cannot be null");
@@ -85,7 +85,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Temperature
         /// </summary>
         [DataMember(Name="temperature", EmitDefaultValue=false)]
-        public FixedValueTBC Temperature { get; set; }
+        public OneOfVelocityInletBCTemperature Temperature { get; set; }
 
         /// <summary>
         /// Please choose a boundary condition for passive scalar (T).

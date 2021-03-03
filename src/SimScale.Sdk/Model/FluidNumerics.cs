@@ -64,7 +64,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="relaxationType">relaxationType (default to &quot;AUTOMATIC&quot;).</param>
         /// <param name="relaxationFactor">relaxationFactor.</param>
-        /// <param name="radiationResolution">radiationResolution (default to RadiationResolutionEnum.COARSE).</param>
+        /// <param name="radiationResolution">radiationResolution (default to RadiationResolutionEnum.MODERATE).</param>
         /// <param name="momentumPredictor">momentumPredictor (default to true).</param>
         /// <param name="transonic">transonic (default to false).</param>
         /// <param name="numOuterCorrectors">numOuterCorrectors (default to 3).</param>

@@ -38,15 +38,14 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">type (required) (default to &quot;TRUE_SEMI_IMPLICIT&quot;).</param>
         /// <param name="limiterIterations">limiterIterations (default to 8).</param>
-        /// <param name="compressionCorrection">compressionCorrection (required) (default to true).</param>
+        /// <param name="compressionCorrection">compressionCorrection (default to true).</param>
         /// <param name="solver">solver.</param>
-        public TrueSemiImplicit(string type = "TRUE_SEMI_IMPLICIT", int? limiterIterations = default(int?), bool? compressionCorrection = true, OneOfTrueSemiImplicitSolver solver = default(OneOfTrueSemiImplicitSolver))
+        public TrueSemiImplicit(string type = "TRUE_SEMI_IMPLICIT", int? limiterIterations = default(int?), bool? compressionCorrection = default(bool?), OneOfTrueSemiImplicitSolver solver = default(OneOfTrueSemiImplicitSolver))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TrueSemiImplicit and cannot be null");
-            // to ensure "compressionCorrection" is required (not null)
-            this.CompressionCorrection = compressionCorrection ?? throw new ArgumentNullException("compressionCorrection is a required property for TrueSemiImplicit and cannot be null");
             this.LimiterIterations = limiterIterations;
+            this.CompressionCorrection = compressionCorrection;
             this.Solver = solver;
         }
         

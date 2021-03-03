@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This boundary condition is suitable for inlet and open boundaries where the value of pressure is known. For Incompressible and Passive Scalar Transport analysis the specific Pressure i.e. Pressure/Density is used.
     /// </summary>
     [DataContract]
-    public partial class PressureInletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, IEquatable<PressureInletBC>
+    public partial class PressureInletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<PressureInletBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureInletBC" /> class.
@@ -47,7 +47,7 @@ namespace SimScale.Sdk.Model
         /// <param name="phaseFraction">phaseFraction.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), FixedValueTBC temperature = default(FixedValueTBC), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureInletBC and cannot be null");
@@ -103,7 +103,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Temperature
         /// </summary>
         [DataMember(Name="temperature", EmitDefaultValue=false)]
-        public FixedValueTBC Temperature { get; set; }
+        public OneOfPressureInletBCTemperature Temperature { get; set; }
 
         /// <summary>
         /// Please choose a boundary condition for passive scalar (T).

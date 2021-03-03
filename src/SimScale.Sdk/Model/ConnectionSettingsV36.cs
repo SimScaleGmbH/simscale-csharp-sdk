@@ -31,32 +31,23 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectionSettingsV36" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ConnectionSettingsV36() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConnectionSettingsV36" /> class.
-        /// </summary>
         /// <param name="nonlinearityResolution">nonlinearityResolution.</param>
         /// <param name="friction">friction.</param>
         /// <param name="contactNonLinearityResolution">contactNonLinearityResolution.</param>
-        /// <param name="convergenceStabilization">convergenceStabilization (required) (default to true).</param>
-        /// <param name="contactSmoothing">contactSmoothing (required) (default to false).</param>
-        /// <param name="stopIfInterpenetration">stopIfInterpenetration (required) (default to false).</param>
-        /// <param name="verifyNorms">verifyNorms (required) (default to true).</param>
+        /// <param name="convergenceStabilization">convergenceStabilization (default to true).</param>
+        /// <param name="contactSmoothing">contactSmoothing (default to false).</param>
+        /// <param name="stopIfInterpenetration">stopIfInterpenetration (default to false).</param>
+        /// <param name="verifyNorms">verifyNorms (default to true).</param>
         /// <param name="enableHeatTransfer">enableHeatTransfer (default to false).</param>
-        public ConnectionSettingsV36(OneOfConnectionSettingsV36NonlinearityResolution nonlinearityResolution = default(OneOfConnectionSettingsV36NonlinearityResolution), OneOfConnectionSettingsV36Friction friction = default(OneOfConnectionSettingsV36Friction), OneOfConnectionSettingsV36ContactNonLinearityResolution contactNonLinearityResolution = default(OneOfConnectionSettingsV36ContactNonLinearityResolution), bool? convergenceStabilization = true, bool? contactSmoothing = false, bool? stopIfInterpenetration = false, bool? verifyNorms = true, bool? enableHeatTransfer = default(bool?))
+        public ConnectionSettingsV36(OneOfConnectionSettingsV36NonlinearityResolution nonlinearityResolution = default(OneOfConnectionSettingsV36NonlinearityResolution), OneOfConnectionSettingsV36Friction friction = default(OneOfConnectionSettingsV36Friction), OneOfConnectionSettingsV36ContactNonLinearityResolution contactNonLinearityResolution = default(OneOfConnectionSettingsV36ContactNonLinearityResolution), bool? convergenceStabilization = default(bool?), bool? contactSmoothing = default(bool?), bool? stopIfInterpenetration = default(bool?), bool? verifyNorms = default(bool?), bool? enableHeatTransfer = default(bool?))
         {
-            // to ensure "convergenceStabilization" is required (not null)
-            this.ConvergenceStabilization = convergenceStabilization ?? throw new ArgumentNullException("convergenceStabilization is a required property for ConnectionSettingsV36 and cannot be null");
-            // to ensure "contactSmoothing" is required (not null)
-            this.ContactSmoothing = contactSmoothing ?? throw new ArgumentNullException("contactSmoothing is a required property for ConnectionSettingsV36 and cannot be null");
-            // to ensure "stopIfInterpenetration" is required (not null)
-            this.StopIfInterpenetration = stopIfInterpenetration ?? throw new ArgumentNullException("stopIfInterpenetration is a required property for ConnectionSettingsV36 and cannot be null");
-            // to ensure "verifyNorms" is required (not null)
-            this.VerifyNorms = verifyNorms ?? throw new ArgumentNullException("verifyNorms is a required property for ConnectionSettingsV36 and cannot be null");
             this.NonlinearityResolution = nonlinearityResolution;
             this.Friction = friction;
             this.ContactNonLinearityResolution = contactNonLinearityResolution;
+            this.ConvergenceStabilization = convergenceStabilization;
+            this.ContactSmoothing = contactSmoothing;
+            this.StopIfInterpenetration = stopIfInterpenetration;
+            this.VerifyNorms = verifyNorms;
             this.EnableHeatTransfer = enableHeatTransfer;
         }
         

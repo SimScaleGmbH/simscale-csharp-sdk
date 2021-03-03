@@ -97,7 +97,7 @@ class IncompressibleLbmExample
         var csvUploadRequest = new RestRequest(csvStorage.Url, Method.PUT);
         csvUploadRequest.AddParameter("application/octet-stream", File.ReadAllBytes(@"../fixtures/ProbePoint.csv"), ParameterType.RequestBody);
         restClient.Execute(csvUploadRequest);
-        Console.WriteLine("Probepoint storageId: " + csvStorageId);
+        Console.WriteLine("Probe Point table storageId: " + csvStorageId);
         
         // import probe points
         var tableImportRequest = new TableImportRequest(new TableImportRequestLocation(csvStorageId));
@@ -138,7 +138,6 @@ class IncompressibleLbmExample
         // Define simulation spec
         var model = new IncompressiblePacefish(
             boundingBoxUuid: externalFlowDomainUuid,
-            turbulenceModel: IncompressiblePacefish.TurbulenceModelEnum.KOMEGASSTDDES,
             material: new IncompressibleMaterial(
                         name: "Air",
                         viscosityModel: new NewtonianViscosityModel(
@@ -151,9 +150,18 @@ class IncompressibleLbmExample
             flowDomainBoundaries: new FlowDomainBoundaries(
                 xMIN: new VelocityInletBC(
                     name: "Velocity inlet (A)",
-                    velocity: new FixedMagnitudeVBC(value: new DimensionalFunctionSpeed(value: new ConstantFunction(value: 10), unit: DimensionalFunctionSpeed.UnitEnum.MS)),
-                    turbulenceIntensity: new TurbulenceIntensityTIBC(value: new DimensionalFunctionDimensionless(
-                        value: new ConstantFunction(value: 0.01m), unit: DimensionalFunctionDimensionless.UnitEnum.Empty)),
+                    velocity: new FixedMagnitudeVBC(
+                        value: new DimensionalFunctionSpeed(
+                            value: new ConstantFunction(value: 10.5m),
+                            unit: DimensionalFunctionSpeed.UnitEnum.MS
+                            )
+                        ),
+                    turbulenceIntensity: new TurbulenceIntensityTIBC(
+                        value: new DimensionalFunctionDimensionless(
+                            value: new ConstantFunction(value: 0.015m),
+                            unit: DimensionalFunctionDimensionless.UnitEnum.Empty
+                            )
+                        ),
                     dissipationType: new AutomaticOmegaDissipation()
                 ),
                 xMAX: new PressureOutletBC(name: "Pressure outlet (B)"),
@@ -165,68 +173,49 @@ class IncompressibleLbmExample
                 zMAX: new WallBC(name: "Top (F)", velocity: new SlipVBC())
             ),
             simulationControl: new FluidSimulationControl(
-                endTime: new DimensionalTime(value: 5, unit: DimensionalTime.UnitEnum.S),
-                maxRunTime: new DimensionalTime(value: 10000, unit: DimensionalTime.UnitEnum.S)
+                endTime: new DimensionalTime(value: 5, unit: DimensionalTime.UnitEnum.S)
             ),
-            advancedModelling: new AdvancedModelling(
-                surfaceRoughness: new List<SurfaceRoughness>(),
-                porousObjects: new List<OneOfAdvancedModellingPorousObjects>(),
-                rotatingWalls: new List<RotatingWall>()
-            ),
+            advancedModelling: new AdvancedModelling(),
             resultControl: new FluidResultControls(
                 transientResultControl: new TransientResultControl(
                     writeControl: new CoarseResolution(),
-                    fractionFromEnd: 0.2m,
-                    exportFluid: true,
                     exportSurface: true,
                     geometryPrimitiveUuids: new List<Guid?> {localSlice1Uuid, localSlice2Uuid}
                 ),
                 statisticalAveragingResultControl: new StatisticalAveragingResultControlV2(
                     samplingInterval: new CoarseResolution(),
-                    fractionFromEnd: 0.2m,
-                    exportFluid: true,
                     exportSurface: true,
                     geometryPrimitiveUuids: new List<Guid?> {localSlice1Uuid, localSlice2Uuid}
                 ),
                 snapshotResultControl: new SnapshotResultControl(
-                    exportFluid: true,
                     exportSurface: true,
                     geometryPrimitiveUuids: new List<Guid?> {localSlice1Uuid, localSlice2Uuid}
                 ),
                 probePoints: new List<ProbePointsResultControl> {
                     new ProbePointsResultControl(
-                        type: "PROBE_POINTS",
                         name: "Probe point 1",
                         writeControl: new ModerateResolution(),
-                        fractionFromEnd: 0.2m,
-                        exportStatistics: true,
-                        probeLocations: new TableDefinedProbeLocations(type:"TABULAR", objectId: tableId.ToString())
+                        probeLocations: new TableDefinedProbeLocations(tableId: tableId)
                         )
                 },
-                fieldCalculations: new List<OneOfFluidResultControlsFieldCalculations>(),
                 forcesMoments: new List<OneOfFluidResultControlsForcesMoments> {
                     new ForcesMomentsResultControl(
                         name: "Forces and moments 1",
                         centerOfRotation: new DimensionalVectorLength(value: new DecimalVector(x:0m, y:0m, z:0m), unit:DimensionalVectorLength.UnitEnum.M),
                         writeControl: new HighResolution(),
-                        fractionFromEnd: 0.2m,
                         exportStatistics: false,
                         groupAssignments: false,
                         topologicalReference: new TopologicalReference(
-                            entities: entities, 
-                            sets: new List<Guid?>() // TODO: default value null fails to load workbench
+                            entities: entities
                         )
                     ),
                     new ForcesMomentsResultControl(
                         name: "Forces and moments 2",
                         centerOfRotation: new DimensionalVectorLength(value: new DecimalVector(x:0m, y:0m, z:0m), unit:DimensionalVectorLength.UnitEnum.M),
                         writeControl: new HighResolution(),
-                        fractionFromEnd: 0.2m,
-                        exportStatistics: true,
-                        groupAssignments: true,
+                        fractionFromEnd: 0.3m,
                         topologicalReference: new TopologicalReference(
-                            entities: entities,
-                            sets: new List<Guid?>() // TODO: default value null fails to load workbench
+                            entities: entities
                         )
                     )
                 }

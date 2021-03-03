@@ -37,15 +37,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="WallFunctionTKEBC" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;WALL_FUNCTION&quot;).</param>
-        /// <param name="wallRoughness">wallRoughness (required) (default to false).</param>
+        /// <param name="wallRoughness">wallRoughness (default to false).</param>
         /// <param name="roughnessHeight">roughnessHeight.</param>
         /// <param name="roughnessConstant">roughnessConstant (default to 0.5M).</param>
-        public WallFunctionTKEBC(string type = "WALL_FUNCTION", bool? wallRoughness = false, DimensionalLength roughnessHeight = default(DimensionalLength), decimal? roughnessConstant = default(decimal?))
+        public WallFunctionTKEBC(string type = "WALL_FUNCTION", bool? wallRoughness = default(bool?), DimensionalLength roughnessHeight = default(DimensionalLength), decimal? roughnessConstant = default(decimal?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for WallFunctionTKEBC and cannot be null");
-            // to ensure "wallRoughness" is required (not null)
-            this.WallRoughness = wallRoughness ?? throw new ArgumentNullException("wallRoughness is a required property for WallFunctionTKEBC and cannot be null");
+            this.WallRoughness = wallRoughness;
             this.RoughnessHeight = roughnessHeight;
             this.RoughnessConstant = roughnessConstant;
         }

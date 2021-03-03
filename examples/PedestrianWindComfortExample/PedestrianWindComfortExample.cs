@@ -134,19 +134,13 @@ class PedestrianWindComfortExample
             ),
             advancedModelling: new AdvancedModelling(),
             additionalResultExport: new FluidResultControls(
-                forcesMoments: new List<OneOfFluidResultControlsForcesMoments>(),
-                probePoints: new List<ProbePointsResultControl>(),
                 transientResultControl: new TransientResultControl(
                     writeControl: new CoarseResolution(),
-                    fractionFromEnd: 0.1m,
-                    exportFluid: true,
-                    exportSurface: false
+                    fractionFromEnd: 0.1m
                 ),
                 statisticalAveragingResultControl: new StatisticalAveragingResultControlV2(
                     samplingInterval: new CoarseResolution(),
-                    fractionFromEnd: 0.1m,
-                    exportFluid: true,
-                    exportSurface: false
+                    fractionFromEnd: 0.1m
                 )
             ),
             meshSettings: new WindComfortMesh(

@@ -37,17 +37,17 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="RestrictedTableDefinedFunction" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;RESTRICTED_TABLE_DEFINED&quot;).</param>
-        /// <param name="label">label.</param>
-        /// <param name="objectId">objectId.</param>
-        /// <param name="resultIndex">resultIndex.</param>
+        /// <param name="label">label (default to &quot;Table&quot;).</param>
+        /// <param name="tableId">The ID of the imported table..</param>
+        /// <param name="resultIndex">Indicates which column(s) of the table contains the result values. One-based indexing must be used. For example, set this field to &#39;[2]&#39; if the second column of the table contains the dependent variable values..</param>
         /// <param name="independentVariables">independentVariables.</param>
-        /// <param name="separator">separator.</param>
-        public RestrictedTableDefinedFunction(string type = "RESTRICTED_TABLE_DEFINED", string label = default(string), string objectId = default(string), List<int?> resultIndex = default(List<int?>), List<TableFunctionParameter> independentVariables = default(List<TableFunctionParameter>), string separator = default(string))
+        /// <param name="separator">Values in each row are separated by this character. Also known as a delimiter. (default to &quot;,&quot;).</param>
+        public RestrictedTableDefinedFunction(string type = "RESTRICTED_TABLE_DEFINED", string label = default(string), Guid? tableId = default(Guid?), List<int?> resultIndex = default(List<int?>), List<TableFunctionParameter> independentVariables = default(List<TableFunctionParameter>), string separator = default(string))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RestrictedTableDefinedFunction and cannot be null");
             this.Label = label;
-            this.ObjectId = objectId;
+            this.TableId = tableId;
             this.ResultIndex = resultIndex;
             this.IndependentVariables = independentVariables;
             this.Separator = separator;
@@ -66,14 +66,16 @@ namespace SimScale.Sdk.Model
         public string Label { get; set; }
 
         /// <summary>
-        /// Gets or Sets ObjectId
+        /// The ID of the imported table.
         /// </summary>
-        [DataMember(Name="objectId", EmitDefaultValue=false)]
-        public string ObjectId { get; set; }
+        /// <value>The ID of the imported table.</value>
+        [DataMember(Name="tableId", EmitDefaultValue=false)]
+        public Guid? TableId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ResultIndex
+        /// Indicates which column(s) of the table contains the result values. One-based indexing must be used. For example, set this field to &#39;[2]&#39; if the second column of the table contains the dependent variable values.
         /// </summary>
+        /// <value>Indicates which column(s) of the table contains the result values. One-based indexing must be used. For example, set this field to &#39;[2]&#39; if the second column of the table contains the dependent variable values.</value>
         [DataMember(Name="resultIndex", EmitDefaultValue=false)]
         public List<int?> ResultIndex { get; set; }
 
@@ -84,8 +86,9 @@ namespace SimScale.Sdk.Model
         public List<TableFunctionParameter> IndependentVariables { get; set; }
 
         /// <summary>
-        /// Gets or Sets Separator
+        /// Values in each row are separated by this character. Also known as a delimiter.
         /// </summary>
+        /// <value>Values in each row are separated by this character. Also known as a delimiter.</value>
         [DataMember(Name="separator", EmitDefaultValue=false)]
         public string Separator { get; set; }
 
@@ -99,7 +102,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class RestrictedTableDefinedFunction {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
+            sb.Append("  TableId: ").Append(TableId).Append("\n");
             sb.Append("  ResultIndex: ").Append(ResultIndex).Append("\n");
             sb.Append("  IndependentVariables: ").Append(IndependentVariables).Append("\n");
             sb.Append("  Separator: ").Append(Separator).Append("\n");
@@ -148,9 +151,9 @@ namespace SimScale.Sdk.Model
                     this.Label.Equals(input.Label))
                 ) && 
                 (
-                    this.ObjectId == input.ObjectId ||
-                    (this.ObjectId != null &&
-                    this.ObjectId.Equals(input.ObjectId))
+                    this.TableId == input.TableId ||
+                    (this.TableId != null &&
+                    this.TableId.Equals(input.TableId))
                 ) && 
                 (
                     this.ResultIndex == input.ResultIndex ||
@@ -184,8 +187,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Label != null)
                     hashCode = hashCode * 59 + this.Label.GetHashCode();
-                if (this.ObjectId != null)
-                    hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
+                if (this.TableId != null)
+                    hashCode = hashCode * 59 + this.TableId.GetHashCode();
                 if (this.ResultIndex != null)
                     hashCode = hashCode * 59 + this.ResultIndex.GetHashCode();
                 if (this.IndependentVariables != null)

@@ -28,9 +28,7 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(HhtTimeIntegrationScheme), "HHT")]
-    [JsonSubtypes.KnownSubType(typeof(KrenkTimeIntegrationScheme), "KRENK")]
     [JsonSubtypes.KnownSubType(typeof(NewmarkTimeIntegrationScheme), "NEWMARK")]
-    [JsonSubtypes.KnownSubType(typeof(ThetaTimeIntegrationScheme), "THETA_METHOD")]
     public interface OneOfImplicitTimeIntegrationTypeScheme
     {
         /// <summary>

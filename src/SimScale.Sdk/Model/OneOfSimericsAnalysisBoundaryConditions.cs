@@ -28,6 +28,8 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(VelocityInletBC), "VELOCITY_INLET_V3")]
+    [JsonSubtypes.KnownSubType(typeof(VelocityOutletBC), "VELOCITY_OUTLET_V7")]
+    [JsonSubtypes.KnownSubType(typeof(PressureInletBC), "PRESSURE_INLET_V31")]
     [JsonSubtypes.KnownSubType(typeof(PressureOutletBC), "PRESSURE_OUTLET_V30")]
     [JsonSubtypes.KnownSubType(typeof(WallBC), "WALL_V34")]
     public interface OneOfSimericsAnalysisBoundaryConditions

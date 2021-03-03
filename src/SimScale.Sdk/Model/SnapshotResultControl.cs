@@ -37,17 +37,15 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SnapshotResultControl" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;SNAPSHOT&quot;).</param>
-        /// <param name="exportFluid">When this switch is activated, simulation data of the flow-field enclosed in the assignments will be exported (required) (default to true).</param>
-        /// <param name="exportSurface">When this switch is activated, simulation data on all surfaces enclosed in the assignments will be exported (required) (default to false).</param>
+        /// <param name="exportFluid">When this switch is activated, simulation data of the flow-field enclosed in the assignments will be exported (default to true).</param>
+        /// <param name="exportSurface">When this switch is activated, simulation data on all surfaces enclosed in the assignments will be exported (default to false).</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public SnapshotResultControl(string type = "SNAPSHOT", bool? exportFluid = true, bool? exportSurface = false, List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public SnapshotResultControl(string type = "SNAPSHOT", bool? exportFluid = default(bool?), bool? exportSurface = default(bool?), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SnapshotResultControl and cannot be null");
-            // to ensure "exportFluid" is required (not null)
-            this.ExportFluid = exportFluid ?? throw new ArgumentNullException("exportFluid is a required property for SnapshotResultControl and cannot be null");
-            // to ensure "exportSurface" is required (not null)
-            this.ExportSurface = exportSurface ?? throw new ArgumentNullException("exportSurface is a required property for SnapshotResultControl and cannot be null");
+            this.ExportFluid = exportFluid;
+            this.ExportSurface = exportSurface;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         

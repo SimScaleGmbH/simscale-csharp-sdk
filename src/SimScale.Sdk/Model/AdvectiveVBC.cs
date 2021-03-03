@@ -37,15 +37,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="AdvectiveVBC" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;ADVECTIVE&quot;).</param>
-        /// <param name="relaxBoundary">relaxBoundary (required) (default to false).</param>
+        /// <param name="relaxBoundary">relaxBoundary (default to false).</param>
         /// <param name="farFieldValue">farFieldValue.</param>
         /// <param name="relaxationLengthScale">relaxationLengthScale.</param>
-        public AdvectiveVBC(string type = "ADVECTIVE", bool? relaxBoundary = false, DimensionalVectorSpeed farFieldValue = default(DimensionalVectorSpeed), DimensionalLength relaxationLengthScale = default(DimensionalLength))
+        public AdvectiveVBC(string type = "ADVECTIVE", bool? relaxBoundary = default(bool?), DimensionalVectorSpeed farFieldValue = default(DimensionalVectorSpeed), DimensionalLength relaxationLengthScale = default(DimensionalLength))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AdvectiveVBC and cannot be null");
-            // to ensure "relaxBoundary" is required (not null)
-            this.RelaxBoundary = relaxBoundary ?? throw new ArgumentNullException("relaxBoundary is a required property for AdvectiveVBC and cannot be null");
+            this.RelaxBoundary = relaxBoundary;
             this.FarFieldValue = farFieldValue;
             this.RelaxationLengthScale = relaxationLengthScale;
         }

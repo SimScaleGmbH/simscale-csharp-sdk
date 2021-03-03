@@ -34,11 +34,13 @@ namespace SimScale.Sdk.Model
         /// <param name="path">The path from the root of the model..</param>
         /// <param name="body">The original body name..</param>
         /// <param name="entity">The original entity name..</param>
-        public OriginalEntityReference(List<BodyPath> path = default(List<BodyPath>), string body = default(string), string entity = default(string))
+        /// <param name="attributeList">The attributes assigned to the entity..</param>
+        public OriginalEntityReference(List<BodyPath> path = default(List<BodyPath>), string body = default(string), string entity = default(string), List<EntityAttribute> attributeList = default(List<EntityAttribute>))
         {
             this.Path = path;
             this.Body = body;
             this.Entity = entity;
+            this.AttributeList = attributeList;
         }
         
         /// <summary>
@@ -63,6 +65,13 @@ namespace SimScale.Sdk.Model
         public string Entity { get; set; }
 
         /// <summary>
+        /// The attributes assigned to the entity.
+        /// </summary>
+        /// <value>The attributes assigned to the entity.</value>
+        [DataMember(Name="attributeList", EmitDefaultValue=false)]
+        public List<EntityAttribute> AttributeList { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  Entity: ").Append(Entity).Append("\n");
+            sb.Append("  AttributeList: ").Append(AttributeList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +132,12 @@ namespace SimScale.Sdk.Model
                     this.Entity == input.Entity ||
                     (this.Entity != null &&
                     this.Entity.Equals(input.Entity))
+                ) && 
+                (
+                    this.AttributeList == input.AttributeList ||
+                    this.AttributeList != null &&
+                    input.AttributeList != null &&
+                    this.AttributeList.SequenceEqual(input.AttributeList)
                 );
         }
 
@@ -140,6 +156,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Body.GetHashCode();
                 if (this.Entity != null)
                     hashCode = hashCode * 59 + this.Entity.GetHashCode();
+                if (this.AttributeList != null)
+                    hashCode = hashCode * 59 + this.AttributeList.GetHashCode();
                 return hashCode;
             }
         }

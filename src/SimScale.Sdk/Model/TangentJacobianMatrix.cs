@@ -37,18 +37,16 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="TangentJacobianMatrix" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;TANGENT&quot;).</param>
-        /// <param name="maxNewtonIteration">&lt;p&gt;Maximum number of allowed Newton iterations per time increment. If this value is reached the simulation is considered non-converging. If an automatic time stepping is activated the time increment is reduced in order to reach convergence.&lt;/p&gt; (required).</param>
-        /// <param name="reactualizationIteration">&lt;p&gt;Select how often the Jacobian matrix should be recomputed. If this parameter is set to 10, the Jacobian matrix is recomputed every 10th iteration within a given time step. If it is set to 0, the Jacobian matrix is not updated within any time step.&lt;/p&gt; (required).</param>
+        /// <param name="maxNewtonIteration">&lt;p&gt;Maximum number of allowed Newton iterations per time increment. If this value is reached the simulation is considered non-converging. If an automatic time stepping is activated the time increment is reduced in order to reach convergence.&lt;/p&gt;.</param>
+        /// <param name="reactualizationIteration">&lt;p&gt;Select how often the Jacobian matrix should be recomputed. If this parameter is set to 10, the Jacobian matrix is recomputed every 10th iteration within a given time step. If it is set to 0, the Jacobian matrix is not updated within any time step.&lt;/p&gt;.</param>
         /// <param name="reactualizationIncrement">&lt;p&gt;Select how often the Jacobian matrix should be recomputed. If this parameter is set to 10, the Jacobian matrix is recomputed every 10th time step. If it is set to 0, the Jacobian matrix is never updated.&lt;/p&gt; (default to 1).</param>
         /// <param name="changeJacobianMatrix">changeJacobianMatrix.</param>
         public TangentJacobianMatrix(string type = "TANGENT", int? maxNewtonIteration = default(int?), int? reactualizationIteration = default(int?), int? reactualizationIncrement = default(int?), OneOfTangentJacobianMatrixChangeJacobianMatrix changeJacobianMatrix = default(OneOfTangentJacobianMatrixChangeJacobianMatrix))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TangentJacobianMatrix and cannot be null");
-            // to ensure "maxNewtonIteration" is required (not null)
-            this.MaxNewtonIteration = maxNewtonIteration ?? throw new ArgumentNullException("maxNewtonIteration is a required property for TangentJacobianMatrix and cannot be null");
-            // to ensure "reactualizationIteration" is required (not null)
-            this.ReactualizationIteration = reactualizationIteration ?? throw new ArgumentNullException("reactualizationIteration is a required property for TangentJacobianMatrix and cannot be null");
+            this.MaxNewtonIteration = maxNewtonIteration;
+            this.ReactualizationIteration = reactualizationIteration;
             this.ReactualizationIncrement = reactualizationIncrement;
             this.ChangeJacobianMatrix = changeJacobianMatrix;
         }

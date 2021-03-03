@@ -39,19 +39,17 @@ namespace SimScale.Sdk.Model
         /// <param name="type">type (required) (default to &quot;TRANSIENT&quot;).</param>
         /// <param name="writeControl">writeControl.</param>
         /// <param name="fractionFromEnd">It defines the point in simulation where the result output data extraction starts. For instance, &lt;i&gt;Fraction from end&lt;/i&gt; of 1 (100%) extracts all data from the beginning of the simulation while default 0.2 extracts 20% data from the end of the simulation. (default to 0.2M).</param>
-        /// <param name="exportFluid">When this switch is activated, simulation data of the flow-field enclosed in the assignments will be exported (required) (default to true).</param>
-        /// <param name="exportSurface">When this switch is activated, simulation data on all surfaces enclosed in the assignments will be exported (required) (default to false).</param>
+        /// <param name="exportFluid">When this switch is activated, simulation data of the flow-field enclosed in the assignments will be exported (default to true).</param>
+        /// <param name="exportSurface">When this switch is activated, simulation data on all surfaces enclosed in the assignments will be exported (default to false).</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public TransientResultControl(string type = "TRANSIENT", OneOfTransientResultControlWriteControl writeControl = default(OneOfTransientResultControlWriteControl), decimal? fractionFromEnd = default(decimal?), bool? exportFluid = true, bool? exportSurface = false, List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public TransientResultControl(string type = "TRANSIENT", OneOfTransientResultControlWriteControl writeControl = default(OneOfTransientResultControlWriteControl), decimal? fractionFromEnd = default(decimal?), bool? exportFluid = default(bool?), bool? exportSurface = default(bool?), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TransientResultControl and cannot be null");
-            // to ensure "exportFluid" is required (not null)
-            this.ExportFluid = exportFluid ?? throw new ArgumentNullException("exportFluid is a required property for TransientResultControl and cannot be null");
-            // to ensure "exportSurface" is required (not null)
-            this.ExportSurface = exportSurface ?? throw new ArgumentNullException("exportSurface is a required property for TransientResultControl and cannot be null");
             this.WriteControl = writeControl;
             this.FractionFromEnd = fractionFromEnd;
+            this.ExportFluid = exportFluid;
+            this.ExportSurface = exportSurface;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         

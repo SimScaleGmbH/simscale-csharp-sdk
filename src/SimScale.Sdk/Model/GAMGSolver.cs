@@ -63,20 +63,19 @@ namespace SimScale.Sdk.Model
         /// <param name="smoother">&lt;p&gt;Choose a smoother for your solver.&lt;/p&gt; (default to SmootherEnum.GAUSSSEIDEL).</param>
         /// <param name="numPreSweeps">numPreSweeps.</param>
         /// <param name="numPostSweeps">numPostSweeps (default to 1).</param>
-        /// <param name="cacheAgglomerationOn">cacheAgglomerationOn (required) (default to true).</param>
+        /// <param name="cacheAgglomerationOn">cacheAgglomerationOn (default to true).</param>
         /// <param name="numCellsCoarsestLevel">numCellsCoarsestLevel (default to 100).</param>
         /// <param name="numMergeLevels">numMergeLevels (default to 1).</param>
-        public GAMGSolver(string type = "GAMG", decimal? absoluteTolerance = default(decimal?), decimal? relativeTolerance = default(decimal?), SmootherEnum? smoother = default(SmootherEnum?), int? numPreSweeps = default(int?), int? numPostSweeps = default(int?), bool? cacheAgglomerationOn = true, int? numCellsCoarsestLevel = default(int?), int? numMergeLevels = default(int?))
+        public GAMGSolver(string type = "GAMG", decimal? absoluteTolerance = default(decimal?), decimal? relativeTolerance = default(decimal?), SmootherEnum? smoother = default(SmootherEnum?), int? numPreSweeps = default(int?), int? numPostSweeps = default(int?), bool? cacheAgglomerationOn = default(bool?), int? numCellsCoarsestLevel = default(int?), int? numMergeLevels = default(int?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for GAMGSolver and cannot be null");
-            // to ensure "cacheAgglomerationOn" is required (not null)
-            this.CacheAgglomerationOn = cacheAgglomerationOn ?? throw new ArgumentNullException("cacheAgglomerationOn is a required property for GAMGSolver and cannot be null");
             this.AbsoluteTolerance = absoluteTolerance;
             this.RelativeTolerance = relativeTolerance;
             this.Smoother = smoother;
             this.NumPreSweeps = numPreSweeps;
             this.NumPostSweeps = numPostSweeps;
+            this.CacheAgglomerationOn = cacheAgglomerationOn;
             this.NumCellsCoarsestLevel = numCellsCoarsestLevel;
             this.NumMergeLevels = numMergeLevels;
         }

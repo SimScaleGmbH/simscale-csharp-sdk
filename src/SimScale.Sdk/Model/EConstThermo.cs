@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Model
         /// <param name="specificHeat">specificHeat.</param>
         /// <param name="heatOfFormation">heatOfFormation.</param>
         /// <param name="equationOfState">equationOfState.</param>
-        public EConstThermo(string type = "ECONST", DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalSpecificEnergy heatOfFormation = default(DimensionalSpecificEnergy), PerfectGasEquationOfStateEConstThermo equationOfState = default(PerfectGasEquationOfStateEConstThermo))
+        public EConstThermo(string type = "ECONST", DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalSpecificEnergy heatOfFormation = default(DimensionalSpecificEnergy), PerfectGasEquationOfState equationOfState = default(PerfectGasEquationOfState))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for EConstThermo and cannot be null");
@@ -71,7 +71,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets EquationOfState
         /// </summary>
         [DataMember(Name="equationOfState", EmitDefaultValue=false)]
-        public PerfectGasEquationOfStateEConstThermo EquationOfState { get; set; }
+        public PerfectGasEquationOfState EquationOfState { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

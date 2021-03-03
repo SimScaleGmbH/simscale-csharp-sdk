@@ -31,18 +31,12 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EigenModeVerification" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected EigenModeVerification() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EigenModeVerification" /> class.
-        /// </summary>
-        /// <param name="stopError">stopError (required) (default to false).</param>
+        /// <param name="stopError">stopError (default to false).</param>
         /// <param name="threshold">threshold (default to 0.0000010M).</param>
         /// <param name="precisionShift">precisionShift (default to 0.05M).</param>
-        public EigenModeVerification(bool? stopError = false, decimal? threshold = default(decimal?), decimal? precisionShift = default(decimal?))
+        public EigenModeVerification(bool? stopError = default(bool?), decimal? threshold = default(decimal?), decimal? precisionShift = default(decimal?))
         {
-            // to ensure "stopError" is required (not null)
-            this.StopError = stopError ?? throw new ArgumentNullException("stopError is a required property for EigenModeVerification and cannot be null");
+            this.StopError = stopError;
             this.Threshold = threshold;
             this.PrecisionShift = precisionShift;
         }

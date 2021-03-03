@@ -2,8 +2,8 @@
 
 API access is currently part of our paid Enterprise plan. However, if you have an idea for an integration or app and would like to become a development partner, please contact us at api@simscale.com!
 
-<a name="frameworks-supported"></a>
-## Frameworks supported
+<a name="supported-frameworks"></a>
+## Supported frameworks
 - .NET Core >=1.0
 - .NET Framework >=4.6
 - Mono/Xamarin >=vNext

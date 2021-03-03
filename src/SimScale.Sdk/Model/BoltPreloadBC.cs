@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// BoltPreloadBC
+    /// &lt;b&gt;Bolt preload&lt;/b&gt; boundary condition helps to model pre-stressed bolts in a CAD geometry for structural analysis. Enter a preload &lt;i&gt;force&lt;/i&gt; to be assigned to cylindrical faces representing the shank of the bolt. &lt;br&gt;&lt;b&gt;Note:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;These faces should be continuous and not be assigned to contact definitions.&lt;/li&gt;&lt;li&gt;Each bolt gets only one load, if multiple faces for the same bolt are assigned, they get ignored.&lt;/li&gt;&lt;/ul&gt; &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/bolt_preload_help_text.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/bolt-preload/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
     public partial class BoltPreloadBC : OneOfDynamicAnalysisBoundaryConditions, OneOfFrequencyAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<BoltPreloadBC>

@@ -41,20 +41,18 @@ namespace SimScale.Sdk.Model
         /// <param name="interfaceThermal">interfaceThermal.</param>
         /// <param name="masterTopologicalReference">masterTopologicalReference.</param>
         /// <param name="slaveTopologicalReference">slaveTopologicalReference.</param>
-        /// <param name="isPartial">isPartial (required) (default to false).</param>
-        /// <param name="customModified">customModified (required) (default to false).</param>
-        public RegionInterface(string type = "REGION_INTERFACE", string name = default(string), OneOfRegionInterfaceInterfaceThermal interfaceThermal = default(OneOfRegionInterfaceInterfaceThermal), TopologicalReference masterTopologicalReference = default(TopologicalReference), TopologicalReference slaveTopologicalReference = default(TopologicalReference), bool? isPartial = false, bool? customModified = false)
+        /// <param name="isPartial">isPartial (default to false).</param>
+        /// <param name="customModified">customModified (default to false).</param>
+        public RegionInterface(string type = "REGION_INTERFACE", string name = default(string), OneOfRegionInterfaceInterfaceThermal interfaceThermal = default(OneOfRegionInterfaceInterfaceThermal), TopologicalReference masterTopologicalReference = default(TopologicalReference), TopologicalReference slaveTopologicalReference = default(TopologicalReference), bool? isPartial = default(bool?), bool? customModified = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RegionInterface and cannot be null");
-            // to ensure "isPartial" is required (not null)
-            this.IsPartial = isPartial ?? throw new ArgumentNullException("isPartial is a required property for RegionInterface and cannot be null");
-            // to ensure "customModified" is required (not null)
-            this.CustomModified = customModified ?? throw new ArgumentNullException("customModified is a required property for RegionInterface and cannot be null");
             this.Name = name;
             this.InterfaceThermal = interfaceThermal;
             this.MasterTopologicalReference = masterTopologicalReference;
             this.SlaveTopologicalReference = slaveTopologicalReference;
+            this.IsPartial = isPartial;
+            this.CustomModified = customModified;
         }
         
         /// <summary>

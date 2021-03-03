@@ -36,8 +36,8 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableFunctionParameter" /> class.
         /// </summary>
-        /// <param name="reference">reference (required).</param>
-        /// <param name="_parameter">_parameter.</param>
+        /// <param name="reference">Indicates which column of the table contains the values of this independent variable. One-based indexing must be used. For example, set this property to &#39;1&#39; if the first column of the table contains the values of this independent variable. (required).</param>
+        /// <param name="_parameter">The name of the independent variable. Possible values: &#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;HEIGHT&#39;, &#39;Temperature&#39;, &#39;T&#39; (time), &#39;Q&#39; (mass flow rate), &#39;V_DOT&#39; (volumetric flow rate), &#39;F&#39; (frequency), &#39;E&#39; (strain).</param>
         /// <param name="unit">unit (required).</param>
         public TableFunctionParameter(int? reference = default(int?), string _parameter = default(string), string unit = default(string))
         {
@@ -49,14 +49,16 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Reference
+        /// Indicates which column of the table contains the values of this independent variable. One-based indexing must be used. For example, set this property to &#39;1&#39; if the first column of the table contains the values of this independent variable.
         /// </summary>
+        /// <value>Indicates which column of the table contains the values of this independent variable. One-based indexing must be used. For example, set this property to &#39;1&#39; if the first column of the table contains the values of this independent variable.</value>
         [DataMember(Name="reference", EmitDefaultValue=false)]
         public int? Reference { get; set; }
 
         /// <summary>
-        /// Gets or Sets Parameter
+        /// The name of the independent variable. Possible values: &#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;HEIGHT&#39;, &#39;Temperature&#39;, &#39;T&#39; (time), &#39;Q&#39; (mass flow rate), &#39;V_DOT&#39; (volumetric flow rate), &#39;F&#39; (frequency), &#39;E&#39; (strain)
         /// </summary>
+        /// <value>The name of the independent variable. Possible values: &#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;HEIGHT&#39;, &#39;Temperature&#39;, &#39;T&#39; (time), &#39;Q&#39; (mass flow rate), &#39;V_DOT&#39; (volumetric flow rate), &#39;F&#39; (frequency), &#39;E&#39; (strain)</value>
         [DataMember(Name="parameter", EmitDefaultValue=false)]
         public string Parameter { get; set; }
 

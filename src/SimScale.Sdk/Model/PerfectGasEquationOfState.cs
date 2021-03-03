@@ -29,33 +29,6 @@ namespace SimScale.Sdk.Model
     public partial class PerfectGasEquationOfState : OneOfHConstThermoEquationOfState, IEquatable<PerfectGasEquationOfState>
     {
         /// <summary>
-        /// &lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt;</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum EnergyEnum
-        {
-            /// <summary>
-            /// Enum ENTHALPY for value: SENSIBLE_ENTHALPY
-            /// </summary>
-            [EnumMember(Value = "SENSIBLE_ENTHALPY")]
-            ENTHALPY = 1,
-
-            /// <summary>
-            /// Enum INTERNALENERGY for value: SENSIBLE_INTERNAL_ENERGY
-            /// </summary>
-            [EnumMember(Value = "SENSIBLE_INTERNAL_ENERGY")]
-            INTERNALENERGY = 2
-
-        }
-
-        /// <summary>
-        /// &lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt;</value>
-        [DataMember(Name="energy", EmitDefaultValue=false)]
-        public EnergyEnum? Energy { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PerfectGasEquationOfState" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -64,8 +37,8 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="PerfectGasEquationOfState" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;PERFECT_GAS&quot;).</param>
-        /// <param name="energy">&lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt; (default to EnergyEnum.ENTHALPY).</param>
-        public PerfectGasEquationOfState(string type = "PERFECT_GAS", EnergyEnum? energy = default(EnergyEnum?))
+        /// <param name="energy">&lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt; (default to &quot;SENSIBLE_ENTHALPY&quot;).</param>
+        public PerfectGasEquationOfState(string type = "PERFECT_GAS", string energy = default(string))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PerfectGasEquationOfState and cannot be null");
@@ -77,6 +50,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// &lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt;</value>
+        [DataMember(Name="energy", EmitDefaultValue=false)]
+        public string Energy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -129,7 +109,8 @@ namespace SimScale.Sdk.Model
                 ) && 
                 (
                     this.Energy == input.Energy ||
-                    this.Energy.Equals(input.Energy)
+                    (this.Energy != null &&
+                    this.Energy.Equals(input.Energy))
                 );
         }
 
@@ -144,7 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.Energy.GetHashCode();
+                if (this.Energy != null)
+                    hashCode = hashCode * 59 + this.Energy.GetHashCode();
                 return hashCode;
             }
         }

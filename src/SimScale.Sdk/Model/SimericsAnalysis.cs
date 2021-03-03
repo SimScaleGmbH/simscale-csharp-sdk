@@ -29,6 +29,31 @@ namespace SimScale.Sdk.Model
     public partial class SimericsAnalysis : Analysis, IEquatable<SimericsAnalysis>
     {
         /// <summary>
+        /// Defines TurbulenceModel
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TurbulenceModelEnum
+        {
+            /// <summary>
+            /// Enum NONE for value: NONE
+            /// </summary>
+            [EnumMember(Value = "NONE")]
+            NONE = 1,
+
+            /// <summary>
+            /// Enum KEPSILON for value: KEPSILON
+            /// </summary>
+            [EnumMember(Value = "KEPSILON")]
+            KEPSILON = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets TurbulenceModel
+        /// </summary>
+        [DataMember(Name="turbulenceModel", EmitDefaultValue=false)]
+        public TurbulenceModelEnum? TurbulenceModel { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SimericsAnalysis" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -38,19 +63,23 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">type (required) (default to &quot;SIMERICS_ANALYSIS&quot;).</param>
         /// <param name="materials">materials.</param>
-        /// <param name="initialConditions">initialConditions.</param>
+        /// <param name="isCompressible">isCompressible (default to false).</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
-        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", IncompressibleFluidMaterials materials = default(IncompressibleFluidMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
+        /// <param name="turbulenceModel">turbulenceModel (default to TurbulenceModelEnum.NONE).</param>
+        /// <param name="meshSettings">meshSettings.</param>
+        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", SimericsFluidMaterials materials = default(SimericsFluidMaterials), bool? isCompressible = default(bool?), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), ManualSimericsMeshSettings meshSettings = default(ManualSimericsMeshSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimericsAnalysis and cannot be null");
             this.Materials = materials;
-            this.InitialConditions = initialConditions;
+            this.IsCompressible = isCompressible;
             this.BoundaryConditions = boundaryConditions;
             this.SimulationControl = simulationControl;
             this.ResultControl = resultControl;
+            this.TurbulenceModel = turbulenceModel;
+            this.MeshSettings = meshSettings;
         }
         
         /// <summary>
@@ -63,13 +92,13 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Materials
         /// </summary>
         [DataMember(Name="materials", EmitDefaultValue=false)]
-        public IncompressibleFluidMaterials Materials { get; set; }
+        public SimericsFluidMaterials Materials { get; set; }
 
         /// <summary>
-        /// Gets or Sets InitialConditions
+        /// Gets or Sets IsCompressible
         /// </summary>
-        [DataMember(Name="initialConditions", EmitDefaultValue=false)]
-        public FluidInitialConditions InitialConditions { get; set; }
+        [DataMember(Name="isCompressible", EmitDefaultValue=false)]
+        public bool? IsCompressible { get; set; }
 
         /// <summary>
         /// Gets or Sets BoundaryConditions
@@ -90,6 +119,12 @@ namespace SimScale.Sdk.Model
         public FluidResultControls ResultControl { get; set; }
 
         /// <summary>
+        /// Gets or Sets MeshSettings
+        /// </summary>
+        [DataMember(Name="meshSettings", EmitDefaultValue=false)]
+        public ManualSimericsMeshSettings MeshSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,10 +134,12 @@ namespace SimScale.Sdk.Model
             sb.Append("class SimericsAnalysis {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
-            sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
+            sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
             sb.Append("  SimulationControl: ").Append(SimulationControl).Append("\n");
             sb.Append("  ResultControl: ").Append(ResultControl).Append("\n");
+            sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
+            sb.Append("  MeshSettings: ").Append(MeshSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,9 +185,9 @@ namespace SimScale.Sdk.Model
                     this.Materials.Equals(input.Materials))
                 ) && 
                 (
-                    this.InitialConditions == input.InitialConditions ||
-                    (this.InitialConditions != null &&
-                    this.InitialConditions.Equals(input.InitialConditions))
+                    this.IsCompressible == input.IsCompressible ||
+                    (this.IsCompressible != null &&
+                    this.IsCompressible.Equals(input.IsCompressible))
                 ) && 
                 (
                     this.BoundaryConditions == input.BoundaryConditions ||
@@ -167,6 +204,15 @@ namespace SimScale.Sdk.Model
                     this.ResultControl == input.ResultControl ||
                     (this.ResultControl != null &&
                     this.ResultControl.Equals(input.ResultControl))
+                ) && 
+                (
+                    this.TurbulenceModel == input.TurbulenceModel ||
+                    this.TurbulenceModel.Equals(input.TurbulenceModel)
+                ) && 
+                (
+                    this.MeshSettings == input.MeshSettings ||
+                    (this.MeshSettings != null &&
+                    this.MeshSettings.Equals(input.MeshSettings))
                 );
         }
 
@@ -183,14 +229,17 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Materials != null)
                     hashCode = hashCode * 59 + this.Materials.GetHashCode();
-                if (this.InitialConditions != null)
-                    hashCode = hashCode * 59 + this.InitialConditions.GetHashCode();
+                if (this.IsCompressible != null)
+                    hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
                 if (this.BoundaryConditions != null)
                     hashCode = hashCode * 59 + this.BoundaryConditions.GetHashCode();
                 if (this.SimulationControl != null)
                     hashCode = hashCode * 59 + this.SimulationControl.GetHashCode();
                 if (this.ResultControl != null)
                     hashCode = hashCode * 59 + this.ResultControl.GetHashCode();
+                hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
+                if (this.MeshSettings != null)
+                    hashCode = hashCode * 59 + this.MeshSettings.GetHashCode();
                 return hashCode;
             }
         }

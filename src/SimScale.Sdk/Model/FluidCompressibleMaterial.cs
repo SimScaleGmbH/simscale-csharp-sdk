@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// FluidCompressibleMaterial
     /// </summary>
     [DataContract]
-    public partial class FluidCompressibleMaterial : OneOfConvectiveHeatTransferMaterialsFluids, OneOfCoupledConjugateHeatTransferMaterialsFluids, IEquatable<FluidCompressibleMaterial>
+    public partial class FluidCompressibleMaterial : OneOfConvectiveHeatTransferMaterialsFluids, OneOfCoupledConjugateHeatTransferMaterialsFluids, OneOfSimericsFluidMaterialsFluids, IEquatable<FluidCompressibleMaterial>
     {
         /// <summary>
         /// &lt;p&gt;&lt;b&gt;pure mixtures:&lt;/b&gt; This represents a mixture with fixed chemical composition.&lt;/p&gt;

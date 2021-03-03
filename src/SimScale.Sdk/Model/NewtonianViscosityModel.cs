@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Choose a viscosity model.
+    /// Choose between &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/#newtonian-model&#39; target&#x3D;&#39;_blank&#39;&gt;Newtonian&lt;/a&gt; and &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/non-newtonian-models/&#39; target&#x3D;&#39;_blank&#39;&gt;Non-Newtonian&lt;/a&gt; viscosity models.
     /// </summary>
     [DataContract]
     public partial class NewtonianViscosityModel : OneOfIncompressibleMaterialViscosityModel, IEquatable<NewtonianViscosityModel>

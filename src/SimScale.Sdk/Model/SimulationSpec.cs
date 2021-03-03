@@ -37,10 +37,11 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SimulationSpec" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        /// <param name="version">version (required) (default to &quot;77&quot;).</param>
+        /// <param name="version">version (required) (default to &quot;0.7&quot;).</param>
         /// <param name="geometryId">geometryId (required).</param>
+        /// <param name="meshId">The generated mesh ID which is to be used in the simualtion. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, &#39;SIMERICS_ANALYSIS&#39; etc..</param>
         /// <param name="model">model (required).</param>
-        public SimulationSpec(string name = default(string), string version = "77", Guid? geometryId = default(Guid?), Analysis model = default(Analysis))
+        public SimulationSpec(string name = default(string), string version = "0.7", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SimulationSpec and cannot be null");
@@ -50,6 +51,7 @@ namespace SimScale.Sdk.Model
             this.GeometryId = geometryId ?? throw new ArgumentNullException("geometryId is a required property for SimulationSpec and cannot be null");
             // to ensure "model" is required (not null)
             this.Model = model ?? throw new ArgumentNullException("model is a required property for SimulationSpec and cannot be null");
+            this.MeshId = meshId;
         }
         
         /// <summary>
@@ -89,6 +91,13 @@ namespace SimScale.Sdk.Model
         public Guid? GeometryId { get; set; }
 
         /// <summary>
+        /// The generated mesh ID which is to be used in the simualtion. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, &#39;SIMERICS_ANALYSIS&#39; etc.
+        /// </summary>
+        /// <value>The generated mesh ID which is to be used in the simualtion. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, &#39;SIMERICS_ANALYSIS&#39; etc.</value>
+        [DataMember(Name="meshId", EmitDefaultValue=false)]
+        public Guid? MeshId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Model
         /// </summary>
         [DataMember(Name="model", EmitDefaultValue=false)]
@@ -108,6 +117,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("  GeometryId: ").Append(GeometryId).Append("\n");
+            sb.Append("  MeshId: ").Append(MeshId).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -174,6 +184,11 @@ namespace SimScale.Sdk.Model
                     this.GeometryId.Equals(input.GeometryId))
                 ) && 
                 (
+                    this.MeshId == input.MeshId ||
+                    (this.MeshId != null &&
+                    this.MeshId.Equals(input.MeshId))
+                ) && 
+                (
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
@@ -201,6 +216,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 if (this.GeometryId != null)
                     hashCode = hashCode * 59 + this.GeometryId.GetHashCode();
+                if (this.MeshId != null)
+                    hashCode = hashCode * 59 + this.MeshId.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
                 return hashCode;

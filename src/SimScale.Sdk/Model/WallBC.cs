@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;This boundary provides several Solid Wall conditions.&lt;/P&gt;The default &lt;b&gt;no-slip&lt;/b&gt; corresponds to friction wall with no movement. The &lt;b&gt;slip wall&lt;/b&gt; models a surface with no friction. The &lt;b&gt;rotating wall&lt;/b&gt; and &lt;b&gt;moving wall&lt;/b&gt; models rotation and translation by prescribing velocities at the wall.
+    /// &lt;p&gt;This boundary provides several Solid Wall conditions.&lt;/P&gt;The default &lt;b&gt;no-slip&lt;/b&gt; corresponds to friction wall with no movement. The &lt;b&gt;slip wall&lt;/b&gt; models a surface with no friction. The &lt;b&gt;rotating wall&lt;/b&gt; and &lt;b&gt;moving wall&lt;/b&gt; models rotation and translation by prescribing velocities at the wall. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wall/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
     public partial class WallBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<WallBC>

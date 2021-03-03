@@ -37,12 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="TableDefinedProbeLocations" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;TABULAR&quot;).</param>
-        /// <param name="objectId">objectId.</param>
-        public TableDefinedProbeLocations(string type = "TABULAR", string objectId = default(string))
+        /// <param name="tableId">The ID of the imported table..</param>
+        public TableDefinedProbeLocations(string type = "TABULAR", Guid? tableId = default(Guid?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TableDefinedProbeLocations and cannot be null");
-            this.ObjectId = objectId;
+            this.TableId = tableId;
         }
         
         /// <summary>
@@ -52,10 +52,11 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets ObjectId
+        /// The ID of the imported table.
         /// </summary>
-        [DataMember(Name="objectId", EmitDefaultValue=false)]
-        public string ObjectId { get; set; }
+        /// <value>The ID of the imported table.</value>
+        [DataMember(Name="tableId", EmitDefaultValue=false)]
+        public Guid? TableId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,7 +67,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class TableDefinedProbeLocations {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
+            sb.Append("  TableId: ").Append(TableId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.ObjectId == input.ObjectId ||
-                    (this.ObjectId != null &&
-                    this.ObjectId.Equals(input.ObjectId))
+                    this.TableId == input.TableId ||
+                    (this.TableId != null &&
+                    this.TableId.Equals(input.TableId))
                 );
         }
 
@@ -124,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.ObjectId != null)
-                    hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
+                if (this.TableId != null)
+                    hashCode = hashCode * 59 + this.TableId.GetHashCode();
                 return hashCode;
             }
         }

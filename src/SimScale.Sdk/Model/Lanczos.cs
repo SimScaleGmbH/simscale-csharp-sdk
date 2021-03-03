@@ -41,17 +41,16 @@ namespace SimScale.Sdk.Model
         /// <param name="nmaxIterOrtho">nmaxIterOrtho (default to 5).</param>
         /// <param name="precLanczos">precLanczos (default to 1.0E-8M).</param>
         /// <param name="maxIterQR">maxIterQR (default to 30).</param>
-        /// <param name="modeRigid">modeRigid (required) (default to true).</param>
-        public Lanczos(string type = "TRI_DIAG", decimal? precOrtho = default(decimal?), int? nmaxIterOrtho = default(int?), decimal? precLanczos = default(decimal?), int? maxIterQR = default(int?), bool? modeRigid = true)
+        /// <param name="modeRigid">modeRigid (default to true).</param>
+        public Lanczos(string type = "TRI_DIAG", decimal? precOrtho = default(decimal?), int? nmaxIterOrtho = default(int?), decimal? precLanczos = default(decimal?), int? maxIterQR = default(int?), bool? modeRigid = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for Lanczos and cannot be null");
-            // to ensure "modeRigid" is required (not null)
-            this.ModeRigid = modeRigid ?? throw new ArgumentNullException("modeRigid is a required property for Lanczos and cannot be null");
             this.PrecOrtho = precOrtho;
             this.NmaxIterOrtho = nmaxIterOrtho;
             this.PrecLanczos = precLanczos;
             this.MaxIterQR = maxIterQR;
+            this.ModeRigid = modeRigid;
         }
         
         /// <summary>

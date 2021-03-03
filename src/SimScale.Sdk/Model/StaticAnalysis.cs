@@ -69,7 +69,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">type (required) (default to &quot;STATIC_ANALYSIS&quot;).</param>
         /// <param name="meshSpecId">meshSpecId.</param>
-        /// <param name="nonLinearAnalysis">nonLinearAnalysis (required) (default to false).</param>
+        /// <param name="nonLinearAnalysis">&lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt; (default to false).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
         /// <param name="model">model.</param>
@@ -80,13 +80,12 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.NONE).</param>
-        public StaticAnalysis(string type = "STATIC_ANALYSIS", Guid? meshSpecId = default(Guid?), bool? nonLinearAnalysis = false, List<OneOfStaticAnalysisConnectionGroups> connectionGroups = default(List<OneOfStaticAnalysisConnectionGroups>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfStaticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfStaticAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public StaticAnalysis(string type = "STATIC_ANALYSIS", Guid? meshSpecId = default(Guid?), bool? nonLinearAnalysis = default(bool?), List<OneOfStaticAnalysisConnectionGroups> connectionGroups = default(List<OneOfStaticAnalysisConnectionGroups>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfStaticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfStaticAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for StaticAnalysis and cannot be null");
-            // to ensure "nonLinearAnalysis" is required (not null)
-            this.NonLinearAnalysis = nonLinearAnalysis ?? throw new ArgumentNullException("nonLinearAnalysis is a required property for StaticAnalysis and cannot be null");
             this.MeshSpecId = meshSpecId;
+            this.NonLinearAnalysis = nonLinearAnalysis;
             this.ConnectionGroups = connectionGroups;
             this.ElementTechnology = elementTechnology;
             this.Model = model;
@@ -112,8 +111,9 @@ namespace SimScale.Sdk.Model
         public Guid? MeshSpecId { get; set; }
 
         /// <summary>
-        /// Gets or Sets NonLinearAnalysis
+        /// &lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt;
         /// </summary>
+        /// <value>&lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt;</value>
         [DataMember(Name="nonLinearAnalysis", EmitDefaultValue=false)]
         public bool? NonLinearAnalysis { get; set; }
 

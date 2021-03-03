@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// IncompressibleMaterial
     /// </summary>
     [DataContract]
-    public partial class IncompressibleMaterial : OneOfConvectiveHeatTransferMaterialsFluids, OneOfCoupledConjugateHeatTransferMaterialsFluids, IEquatable<IncompressibleMaterial>
+    public partial class IncompressibleMaterial : OneOfConvectiveHeatTransferMaterialsFluids, OneOfCoupledConjugateHeatTransferMaterialsFluids, OneOfSimericsFluidMaterialsFluids, IEquatable<IncompressibleMaterial>
     {
         /// <summary>
         /// &lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;

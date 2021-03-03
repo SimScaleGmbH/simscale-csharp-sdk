@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfCompressibleTimeDependency
+    /// &lt;p&gt;&lt;strong&gt;Steady-state&lt;/strong&gt;: Steady-state simulations are time-independent, that is, the equations solved do not include time derivatives. If you are only interested in the converged solution, consider a steady-state simulation.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Transient&lt;/strong&gt;: Transient simulations account for time-dependent effects, that is, the associated flow variables vary with respect to time.&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(TransientTimeDependency), "TRANSIENT")]

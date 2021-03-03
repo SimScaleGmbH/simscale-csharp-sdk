@@ -60,16 +60,15 @@ namespace SimScale.Sdk.Model
         /// <param name="type">type (required) (default to &quot;EXPLICIT&quot;).</param>
         /// <param name="scheme">scheme.</param>
         /// <param name="schemeFormulation">&lt;p&gt;Choose the primary variable for the time integration scheme.&lt;/p&gt; (default to SchemeFormulationEnum.ACCELERATION).</param>
-        /// <param name="stopOnCFLCriterion">&lt;p&gt;If activated the simulation run is stopped when at some point the Courant-Friedrichs-Lewy (CFL) condition is violated.&lt;/p&gt; (required) (default to true).</param>
+        /// <param name="stopOnCFLCriterion">&lt;p&gt;If activated the simulation run is stopped when at some point the Courant-Friedrichs-Lewy (CFL) condition is violated.&lt;/p&gt; (default to true).</param>
         /// <param name="massMatrixShift">&lt;p&gt;This parameter c&lt;sub&gt;K&lt;/sub&gt; allows the shifting of the mass matrix with the stiffness matrix multiplied by c&lt;sub&gt;K&lt;/sub&gt;: &lt;b&gt;M&lt;/b&gt;&lt;sup&gt;&#39;&lt;/sup&gt;&#x3D;&lt;b&gt;M&lt;/b&gt; + c&lt;sub&gt;K&lt;/sub&gt;*&lt;b&gt;K&lt;/b&gt;. This makes it possible to strongly improve convergence in dynamics with implicit time scheme by imposing a cut-off frequency inversely proportional to the value of c&lt;sub&gt;K&lt;/sub&gt; (at the cost of a light distortion of all the eigen frequencies of the system).&lt;/p&gt; (default to 0M).</param>
-        public ExplicitTimeIntegrationType(string type = "EXPLICIT", OneOfExplicitTimeIntegrationTypeScheme scheme = default(OneOfExplicitTimeIntegrationTypeScheme), SchemeFormulationEnum? schemeFormulation = default(SchemeFormulationEnum?), bool? stopOnCFLCriterion = true, decimal? massMatrixShift = default(decimal?))
+        public ExplicitTimeIntegrationType(string type = "EXPLICIT", OneOfExplicitTimeIntegrationTypeScheme scheme = default(OneOfExplicitTimeIntegrationTypeScheme), SchemeFormulationEnum? schemeFormulation = default(SchemeFormulationEnum?), bool? stopOnCFLCriterion = default(bool?), decimal? massMatrixShift = default(decimal?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ExplicitTimeIntegrationType and cannot be null");
-            // to ensure "stopOnCFLCriterion" is required (not null)
-            this.StopOnCFLCriterion = stopOnCFLCriterion ?? throw new ArgumentNullException("stopOnCFLCriterion is a required property for ExplicitTimeIntegrationType and cannot be null");
             this.Scheme = scheme;
             this.SchemeFormulation = schemeFormulation;
+            this.StopOnCFLCriterion = stopOnCFLCriterion;
             this.MassMatrixShift = massMatrixShift;
         }
         
