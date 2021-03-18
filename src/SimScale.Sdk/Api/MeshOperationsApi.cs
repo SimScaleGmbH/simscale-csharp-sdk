@@ -35,7 +35,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns></returns>
-        void CancelMeshOperation (string projectId, Guid? meshOperationId);
+        void CancelMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?));
 
         /// <summary>
         /// Cancel the mesh operation
@@ -47,7 +47,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CancelMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId);
+        ApiResponse<Object> CancelMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?));
         /// <summary>
         /// Check the mesh operation setup
         /// </summary>
@@ -58,9 +58,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>CheckResponse</returns>
-        CheckResponse CheckMeshOperationSetup (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?));
+        CheckResponse CheckMeshOperationSetup (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?));
 
         /// <summary>
         /// Check the mesh operation setup
@@ -72,9 +71,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>ApiResponse of CheckResponse</returns>
-        ApiResponse<CheckResponse> CheckMeshOperationSetupWithHttpInfo (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?));
+        ApiResponse<CheckResponse> CheckMeshOperationSetupWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?));
         /// <summary>
         /// Create a mesh operation
         /// </summary>
@@ -85,7 +83,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperation">Mesh operation to be created</param>
         /// <returns>MeshOperation</returns>
-        MeshOperation CreateMeshOperation (string projectId, MeshOperation meshOperation);
+        MeshOperation CreateMeshOperation (string projectId = default(string), MeshOperation meshOperation = default(MeshOperation));
 
         /// <summary>
         /// Create a mesh operation
@@ -97,7 +95,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperation">Mesh operation to be created</param>
         /// <returns>ApiResponse of MeshOperation</returns>
-        ApiResponse<MeshOperation> CreateMeshOperationWithHttpInfo (string projectId, MeshOperation meshOperation);
+        ApiResponse<MeshOperation> CreateMeshOperationWithHttpInfo (string projectId = default(string), MeshOperation meshOperation = default(MeshOperation));
         /// <summary>
         /// Estimate the mesh operation
         /// </summary>
@@ -108,7 +106,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Estimation</returns>
-        Estimation EstimateMeshOperation (string projectId, Guid? meshOperationId);
+        Estimation EstimateMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?));
 
         /// <summary>
         /// Estimate the mesh operation
@@ -120,7 +118,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>ApiResponse of Estimation</returns>
-        ApiResponse<Estimation> EstimateMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId);
+        ApiResponse<Estimation> EstimateMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?));
         /// <summary>
         /// Get information about the mesh operation
         /// </summary>
@@ -132,7 +130,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>MeshOperation</returns>
-        MeshOperation GetMeshOperation (string projectId, Guid? meshOperationId, string meshingSpecSchemaVersion);
+        MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.3");
 
         /// <summary>
         /// Get information about the mesh operation
@@ -145,7 +143,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>ApiResponse of MeshOperation</returns>
-        ApiResponse<MeshOperation> GetMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId, string meshingSpecSchemaVersion);
+        ApiResponse<MeshOperation> GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.3");
         /// <summary>
         /// Get the mesh operation event log
         /// </summary>
@@ -156,7 +154,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>EventLogResponse</returns>
-        EventLogResponse GetMeshOperationEventLog (string projectId, Guid? meshOperationId);
+        EventLogResponse GetMeshOperationEventLog (string projectId = default(string), Guid? meshOperationId = default(Guid?));
 
         /// <summary>
         /// Get the mesh operation event log
@@ -168,7 +166,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>ApiResponse of EventLogResponse</returns>
-        ApiResponse<EventLogResponse> GetMeshOperationEventLogWithHttpInfo (string projectId, Guid? meshOperationId);
+        ApiResponse<EventLogResponse> GetMeshOperationEventLogWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?));
         /// <summary>
         /// List mesh operations for a project
         /// </summary>
@@ -180,7 +178,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>MeshOperations</returns>
-        MeshOperations GetMeshOperations (string projectId, int? limit = default(int?), int? page = default(int?));
+        MeshOperations GetMeshOperations (string projectId = default(string), int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List mesh operations for a project
@@ -193,7 +191,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of MeshOperations</returns>
-        ApiResponse<MeshOperations> GetMeshOperationsWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?));
+        ApiResponse<MeshOperations> GetMeshOperationsWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1);
         /// <summary>
         /// Start the mesh operation
         /// </summary>
@@ -204,9 +202,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns></returns>
-        void StartMeshOperation (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?));
+        void StartMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?));
 
         /// <summary>
         /// Start the mesh operation
@@ -218,9 +215,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> StartMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?));
+        ApiResponse<Object> StartMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?));
         /// <summary>
         /// Update information about the mesh operation
         /// </summary>
@@ -232,7 +228,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshOperation">Mesh operation to be updated</param>
         /// <returns></returns>
-        void UpdateMeshOperation (string projectId, Guid? meshOperationId, MeshOperation meshOperation);
+        void UpdateMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), MeshOperation meshOperation = default(MeshOperation));
 
         /// <summary>
         /// Update information about the mesh operation
@@ -245,7 +241,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshOperation">Mesh operation to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId, MeshOperation meshOperation);
+        ApiResponse<Object> UpdateMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), MeshOperation meshOperation = default(MeshOperation));
         #endregion Synchronous Operations
     }
 
@@ -265,7 +261,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CancelMeshOperationAsync (string projectId, Guid? meshOperationId);
+        System.Threading.Tasks.Task CancelMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?));
 
         /// <summary>
         /// Cancel the mesh operation
@@ -277,7 +273,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CancelMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?));
         /// <summary>
         /// Check the mesh operation setup
         /// </summary>
@@ -288,9 +284,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>Task of CheckResponse</returns>
-        System.Threading.Tasks.Task<CheckResponse> CheckMeshOperationSetupAsync (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?));
+        System.Threading.Tasks.Task<CheckResponse> CheckMeshOperationSetupAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?));
 
         /// <summary>
         /// Check the mesh operation setup
@@ -302,9 +297,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (CheckResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CheckResponse>> CheckMeshOperationSetupAsyncWithHttpInfo (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?));
+        System.Threading.Tasks.Task<ApiResponse<CheckResponse>> CheckMeshOperationSetupAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?));
         /// <summary>
         /// Create a mesh operation
         /// </summary>
@@ -315,7 +309,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperation">Mesh operation to be created</param>
         /// <returns>Task of MeshOperation</returns>
-        System.Threading.Tasks.Task<MeshOperation> CreateMeshOperationAsync (string projectId, MeshOperation meshOperation);
+        System.Threading.Tasks.Task<MeshOperation> CreateMeshOperationAsync (string projectId = default(string), MeshOperation meshOperation = default(MeshOperation));
 
         /// <summary>
         /// Create a mesh operation
@@ -327,7 +321,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperation">Mesh operation to be created</param>
         /// <returns>Task of ApiResponse (MeshOperation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeshOperation>> CreateMeshOperationAsyncWithHttpInfo (string projectId, MeshOperation meshOperation);
+        System.Threading.Tasks.Task<ApiResponse<MeshOperation>> CreateMeshOperationAsyncWithHttpInfo (string projectId = default(string), MeshOperation meshOperation = default(MeshOperation));
         /// <summary>
         /// Estimate the mesh operation
         /// </summary>
@@ -338,7 +332,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of Estimation</returns>
-        System.Threading.Tasks.Task<Estimation> EstimateMeshOperationAsync (string projectId, Guid? meshOperationId);
+        System.Threading.Tasks.Task<Estimation> EstimateMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?));
 
         /// <summary>
         /// Estimate the mesh operation
@@ -350,7 +344,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of ApiResponse (Estimation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Estimation>> EstimateMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId);
+        System.Threading.Tasks.Task<ApiResponse<Estimation>> EstimateMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?));
         /// <summary>
         /// Get information about the mesh operation
         /// </summary>
@@ -362,7 +356,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>Task of MeshOperation</returns>
-        System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId, Guid? meshOperationId, string meshingSpecSchemaVersion);
+        System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.3");
 
         /// <summary>
         /// Get information about the mesh operation
@@ -375,7 +369,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>Task of ApiResponse (MeshOperation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId, string meshingSpecSchemaVersion);
+        System.Threading.Tasks.Task<ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.3");
         /// <summary>
         /// Get the mesh operation event log
         /// </summary>
@@ -386,7 +380,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of EventLogResponse</returns>
-        System.Threading.Tasks.Task<EventLogResponse> GetMeshOperationEventLogAsync (string projectId, Guid? meshOperationId);
+        System.Threading.Tasks.Task<EventLogResponse> GetMeshOperationEventLogAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?));
 
         /// <summary>
         /// Get the mesh operation event log
@@ -398,7 +392,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of ApiResponse (EventLogResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventLogResponse>> GetMeshOperationEventLogAsyncWithHttpInfo (string projectId, Guid? meshOperationId);
+        System.Threading.Tasks.Task<ApiResponse<EventLogResponse>> GetMeshOperationEventLogAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?));
         /// <summary>
         /// List mesh operations for a project
         /// </summary>
@@ -410,7 +404,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of MeshOperations</returns>
-        System.Threading.Tasks.Task<MeshOperations> GetMeshOperationsAsync (string projectId, int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<MeshOperations> GetMeshOperationsAsync (string projectId = default(string), int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List mesh operations for a project
@@ -423,7 +417,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (MeshOperations)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeshOperations>> GetMeshOperationsAsyncWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<MeshOperations>> GetMeshOperationsAsyncWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1);
         /// <summary>
         /// Start the mesh operation
         /// </summary>
@@ -434,9 +428,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task StartMeshOperationAsync (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?));
+        System.Threading.Tasks.Task StartMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?));
 
         /// <summary>
         /// Start the mesh operation
@@ -448,9 +441,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> StartMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?));
+        System.Threading.Tasks.Task<ApiResponse<Object>> StartMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?));
         /// <summary>
         /// Update information about the mesh operation
         /// </summary>
@@ -462,7 +454,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshOperation">Mesh operation to be updated</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateMeshOperationAsync (string projectId, Guid? meshOperationId, MeshOperation meshOperation);
+        System.Threading.Tasks.Task UpdateMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), MeshOperation meshOperation = default(MeshOperation));
 
         /// <summary>
         /// Update information about the mesh operation
@@ -475,7 +467,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshOperation">Mesh operation to be updated</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId, MeshOperation meshOperation);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), MeshOperation meshOperation = default(MeshOperation));
         #endregion Asynchronous Operations
     }
 
@@ -603,7 +595,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns></returns>
-        public void CancelMeshOperation (string projectId, Guid? meshOperationId)
+        public void CancelMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
              CancelMeshOperationWithHttpInfo(projectId, meshOperationId);
         }
@@ -615,7 +607,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public SimScale.Sdk.Client.ApiResponse<Object> CancelMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId)
+        public SimScale.Sdk.Client.ApiResponse<Object> CancelMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -669,7 +661,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CancelMeshOperationAsync (string projectId, Guid? meshOperationId)
+        public async System.Threading.Tasks.Task CancelMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
              await CancelMeshOperationAsyncWithHttpInfo(projectId, meshOperationId);
 
@@ -682,7 +674,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> CancelMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> CancelMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -738,11 +730,10 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>CheckResponse</returns>
-        public CheckResponse CheckMeshOperationSetup (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?))
+        public CheckResponse CheckMeshOperationSetup (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?))
         {
-             SimScale.Sdk.Client.ApiResponse<CheckResponse> localVarResponse = CheckMeshOperationSetupWithHttpInfo(projectId, meshOperationId, simulationId, physicsBasedMeshing);
+             SimScale.Sdk.Client.ApiResponse<CheckResponse> localVarResponse = CheckMeshOperationSetupWithHttpInfo(projectId, meshOperationId, simulationId);
              return localVarResponse.Data;
         }
 
@@ -753,9 +744,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>ApiResponse of CheckResponse</returns>
-        public SimScale.Sdk.Client.ApiResponse< CheckResponse > CheckMeshOperationSetupWithHttpInfo (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?))
+        public SimScale.Sdk.Client.ApiResponse< CheckResponse > CheckMeshOperationSetupWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -787,10 +777,6 @@ namespace SimScale.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "simulationId", simulationId));
             }
-            if (physicsBasedMeshing != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "physicsBasedMeshing", physicsBasedMeshing));
-            }
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -817,11 +803,10 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>Task of CheckResponse</returns>
-        public async System.Threading.Tasks.Task<CheckResponse> CheckMeshOperationSetupAsync (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?))
+        public async System.Threading.Tasks.Task<CheckResponse> CheckMeshOperationSetupAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?))
         {
-             SimScale.Sdk.Client.ApiResponse<CheckResponse> localVarResponse = await CheckMeshOperationSetupAsyncWithHttpInfo(projectId, meshOperationId, simulationId, physicsBasedMeshing);
+             SimScale.Sdk.Client.ApiResponse<CheckResponse> localVarResponse = await CheckMeshOperationSetupAsyncWithHttpInfo(projectId, meshOperationId, simulationId);
              return localVarResponse.Data;
 
         }
@@ -833,9 +818,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (CheckResponse)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<CheckResponse>> CheckMeshOperationSetupAsyncWithHttpInfo (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<CheckResponse>> CheckMeshOperationSetupAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -868,10 +852,6 @@ namespace SimScale.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "simulationId", simulationId));
             }
-            if (physicsBasedMeshing != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "physicsBasedMeshing", physicsBasedMeshing));
-            }
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -899,7 +879,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperation">Mesh operation to be created</param>
         /// <returns>MeshOperation</returns>
-        public MeshOperation CreateMeshOperation (string projectId, MeshOperation meshOperation)
+        public MeshOperation CreateMeshOperation (string projectId = default(string), MeshOperation meshOperation = default(MeshOperation))
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperation> localVarResponse = CreateMeshOperationWithHttpInfo(projectId, meshOperation);
              return localVarResponse.Data;
@@ -912,7 +892,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperation">Mesh operation to be created</param>
         /// <returns>ApiResponse of MeshOperation</returns>
-        public SimScale.Sdk.Client.ApiResponse< MeshOperation > CreateMeshOperationWithHttpInfo (string projectId, MeshOperation meshOperation)
+        public SimScale.Sdk.Client.ApiResponse< MeshOperation > CreateMeshOperationWithHttpInfo (string projectId = default(string), MeshOperation meshOperation = default(MeshOperation))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -967,7 +947,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperation">Mesh operation to be created</param>
         /// <returns>Task of MeshOperation</returns>
-        public async System.Threading.Tasks.Task<MeshOperation> CreateMeshOperationAsync (string projectId, MeshOperation meshOperation)
+        public async System.Threading.Tasks.Task<MeshOperation> CreateMeshOperationAsync (string projectId = default(string), MeshOperation meshOperation = default(MeshOperation))
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperation> localVarResponse = await CreateMeshOperationAsyncWithHttpInfo(projectId, meshOperation);
              return localVarResponse.Data;
@@ -981,7 +961,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperation">Mesh operation to be created</param>
         /// <returns>Task of ApiResponse (MeshOperation)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperation>> CreateMeshOperationAsyncWithHttpInfo (string projectId, MeshOperation meshOperation)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperation>> CreateMeshOperationAsyncWithHttpInfo (string projectId = default(string), MeshOperation meshOperation = default(MeshOperation))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1038,7 +1018,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Estimation</returns>
-        public Estimation EstimateMeshOperation (string projectId, Guid? meshOperationId)
+        public Estimation EstimateMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<Estimation> localVarResponse = EstimateMeshOperationWithHttpInfo(projectId, meshOperationId);
              return localVarResponse.Data;
@@ -1051,7 +1031,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>ApiResponse of Estimation</returns>
-        public SimScale.Sdk.Client.ApiResponse< Estimation > EstimateMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId)
+        public SimScale.Sdk.Client.ApiResponse< Estimation > EstimateMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1105,7 +1085,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of Estimation</returns>
-        public async System.Threading.Tasks.Task<Estimation> EstimateMeshOperationAsync (string projectId, Guid? meshOperationId)
+        public async System.Threading.Tasks.Task<Estimation> EstimateMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<Estimation> localVarResponse = await EstimateMeshOperationAsyncWithHttpInfo(projectId, meshOperationId);
              return localVarResponse.Data;
@@ -1119,7 +1099,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of ApiResponse (Estimation)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Estimation>> EstimateMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Estimation>> EstimateMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1176,7 +1156,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>MeshOperation</returns>
-        public MeshOperation GetMeshOperation (string projectId, Guid? meshOperationId, string meshingSpecSchemaVersion)
+        public MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.3")
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperation> localVarResponse = GetMeshOperationWithHttpInfo(projectId, meshOperationId, meshingSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1190,7 +1170,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>ApiResponse of MeshOperation</returns>
-        public SimScale.Sdk.Client.ApiResponse< MeshOperation > GetMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId, string meshingSpecSchemaVersion)
+        public SimScale.Sdk.Client.ApiResponse< MeshOperation > GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.3")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1250,7 +1230,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>Task of MeshOperation</returns>
-        public async System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId, Guid? meshOperationId, string meshingSpecSchemaVersion)
+        public async System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.3")
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperation> localVarResponse = await GetMeshOperationAsyncWithHttpInfo(projectId, meshOperationId, meshingSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1265,7 +1245,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>Task of ApiResponse (MeshOperation)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId, string meshingSpecSchemaVersion)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.3")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1326,7 +1306,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>EventLogResponse</returns>
-        public EventLogResponse GetMeshOperationEventLog (string projectId, Guid? meshOperationId)
+        public EventLogResponse GetMeshOperationEventLog (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<EventLogResponse> localVarResponse = GetMeshOperationEventLogWithHttpInfo(projectId, meshOperationId);
              return localVarResponse.Data;
@@ -1339,7 +1319,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>ApiResponse of EventLogResponse</returns>
-        public SimScale.Sdk.Client.ApiResponse< EventLogResponse > GetMeshOperationEventLogWithHttpInfo (string projectId, Guid? meshOperationId)
+        public SimScale.Sdk.Client.ApiResponse< EventLogResponse > GetMeshOperationEventLogWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1393,7 +1373,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of EventLogResponse</returns>
-        public async System.Threading.Tasks.Task<EventLogResponse> GetMeshOperationEventLogAsync (string projectId, Guid? meshOperationId)
+        public async System.Threading.Tasks.Task<EventLogResponse> GetMeshOperationEventLogAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<EventLogResponse> localVarResponse = await GetMeshOperationEventLogAsyncWithHttpInfo(projectId, meshOperationId);
              return localVarResponse.Data;
@@ -1407,7 +1387,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <returns>Task of ApiResponse (EventLogResponse)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<EventLogResponse>> GetMeshOperationEventLogAsyncWithHttpInfo (string projectId, Guid? meshOperationId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<EventLogResponse>> GetMeshOperationEventLogAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1464,7 +1444,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>MeshOperations</returns>
-        public MeshOperations GetMeshOperations (string projectId, int? limit = default(int?), int? page = default(int?))
+        public MeshOperations GetMeshOperations (string projectId = default(string), int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperations> localVarResponse = GetMeshOperationsWithHttpInfo(projectId, limit, page);
              return localVarResponse.Data;
@@ -1478,7 +1458,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of MeshOperations</returns>
-        public SimScale.Sdk.Client.ApiResponse< MeshOperations > GetMeshOperationsWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?))
+        public SimScale.Sdk.Client.ApiResponse< MeshOperations > GetMeshOperationsWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1536,7 +1516,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of MeshOperations</returns>
-        public async System.Threading.Tasks.Task<MeshOperations> GetMeshOperationsAsync (string projectId, int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<MeshOperations> GetMeshOperationsAsync (string projectId = default(string), int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperations> localVarResponse = await GetMeshOperationsAsyncWithHttpInfo(projectId, limit, page);
              return localVarResponse.Data;
@@ -1551,7 +1531,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (MeshOperations)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperations>> GetMeshOperationsAsyncWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperations>> GetMeshOperationsAsyncWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1610,11 +1590,10 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns></returns>
-        public void StartMeshOperation (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?))
+        public void StartMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?))
         {
-             StartMeshOperationWithHttpInfo(projectId, meshOperationId, simulationId, physicsBasedMeshing);
+             StartMeshOperationWithHttpInfo(projectId, meshOperationId, simulationId);
         }
 
         /// <summary>
@@ -1624,9 +1603,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public SimScale.Sdk.Client.ApiResponse<Object> StartMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?))
+        public SimScale.Sdk.Client.ApiResponse<Object> StartMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1658,10 +1636,6 @@ namespace SimScale.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "simulationId", simulationId));
             }
-            if (physicsBasedMeshing != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "physicsBasedMeshing", physicsBasedMeshing));
-            }
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -1688,11 +1662,10 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task StartMeshOperationAsync (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?))
+        public async System.Threading.Tasks.Task StartMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?))
         {
-             await StartMeshOperationAsyncWithHttpInfo(projectId, meshOperationId, simulationId, physicsBasedMeshing);
+             await StartMeshOperationAsyncWithHttpInfo(projectId, meshOperationId, simulationId);
 
         }
 
@@ -1703,9 +1676,8 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="simulationId">The related simulation ID of a physics based mesh operation (optional)</param>
-        /// <param name="physicsBasedMeshing">Whether the mesh operation is physics based or not. A physics based mesh operation requires a simulationId. (optional, default to false)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> StartMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId, Guid? simulationId = default(Guid?), bool? physicsBasedMeshing = default(bool?))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> StartMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), Guid? simulationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1738,10 +1710,6 @@ namespace SimScale.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "simulationId", simulationId));
             }
-            if (physicsBasedMeshing != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "physicsBasedMeshing", physicsBasedMeshing));
-            }
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -1770,7 +1738,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshOperation">Mesh operation to be updated</param>
         /// <returns></returns>
-        public void UpdateMeshOperation (string projectId, Guid? meshOperationId, MeshOperation meshOperation)
+        public void UpdateMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), MeshOperation meshOperation = default(MeshOperation))
         {
              UpdateMeshOperationWithHttpInfo(projectId, meshOperationId, meshOperation);
         }
@@ -1783,7 +1751,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshOperation">Mesh operation to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public SimScale.Sdk.Client.ApiResponse<Object> UpdateMeshOperationWithHttpInfo (string projectId, Guid? meshOperationId, MeshOperation meshOperation)
+        public SimScale.Sdk.Client.ApiResponse<Object> UpdateMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), MeshOperation meshOperation = default(MeshOperation))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1844,7 +1812,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshOperation">Mesh operation to be updated</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateMeshOperationAsync (string projectId, Guid? meshOperationId, MeshOperation meshOperation)
+        public async System.Threading.Tasks.Task UpdateMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), MeshOperation meshOperation = default(MeshOperation))
         {
              await UpdateMeshOperationAsyncWithHttpInfo(projectId, meshOperationId, meshOperation);
 
@@ -1858,7 +1826,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshOperation">Mesh operation to be updated</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> UpdateMeshOperationAsyncWithHttpInfo (string projectId, Guid? meshOperationId, MeshOperation meshOperation)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> UpdateMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), MeshOperation meshOperation = default(MeshOperation))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

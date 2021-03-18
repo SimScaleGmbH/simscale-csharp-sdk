@@ -64,22 +64,24 @@ namespace SimScale.Sdk.Model
         /// <param name="type">type (required) (default to &quot;SIMERICS_ANALYSIS&quot;).</param>
         /// <param name="materials">materials.</param>
         /// <param name="isCompressible">isCompressible (default to false).</param>
+        /// <param name="turbulenceModel">turbulenceModel (default to TurbulenceModelEnum.NONE).</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
         /// <param name="simulationControl">simulationControl.</param>
-        /// <param name="resultControl">resultControl.</param>
-        /// <param name="turbulenceModel">turbulenceModel (default to TurbulenceModelEnum.NONE).</param>
         /// <param name="meshSettings">meshSettings.</param>
-        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", SimericsFluidMaterials materials = default(SimericsFluidMaterials), bool? isCompressible = default(bool?), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), ManualSimericsMeshSettings meshSettings = default(ManualSimericsMeshSettings))
+        /// <param name="resultControl">resultControl.</param>
+        /// <param name="advancedConcepts">advancedConcepts.</param>
+        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", SimericsFluidMaterials materials = default(SimericsFluidMaterials), bool? isCompressible = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), FluidSimulationControl simulationControl = default(FluidSimulationControl), ManualSimericsMeshSettings meshSettings = default(ManualSimericsMeshSettings), FluidResultControls resultControl = default(FluidResultControls), AdvancedConcepts advancedConcepts = default(AdvancedConcepts))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimericsAnalysis and cannot be null");
             this.Materials = materials;
             this.IsCompressible = isCompressible;
+            this.TurbulenceModel = turbulenceModel;
             this.BoundaryConditions = boundaryConditions;
             this.SimulationControl = simulationControl;
-            this.ResultControl = resultControl;
-            this.TurbulenceModel = turbulenceModel;
             this.MeshSettings = meshSettings;
+            this.ResultControl = resultControl;
+            this.AdvancedConcepts = advancedConcepts;
         }
         
         /// <summary>
@@ -113,16 +115,22 @@ namespace SimScale.Sdk.Model
         public FluidSimulationControl SimulationControl { get; set; }
 
         /// <summary>
+        /// Gets or Sets MeshSettings
+        /// </summary>
+        [DataMember(Name="meshSettings", EmitDefaultValue=false)]
+        public ManualSimericsMeshSettings MeshSettings { get; set; }
+
+        /// <summary>
         /// Gets or Sets ResultControl
         /// </summary>
         [DataMember(Name="resultControl", EmitDefaultValue=false)]
         public FluidResultControls ResultControl { get; set; }
 
         /// <summary>
-        /// Gets or Sets MeshSettings
+        /// Gets or Sets AdvancedConcepts
         /// </summary>
-        [DataMember(Name="meshSettings", EmitDefaultValue=false)]
-        public ManualSimericsMeshSettings MeshSettings { get; set; }
+        [DataMember(Name="advancedConcepts", EmitDefaultValue=false)]
+        public AdvancedConcepts AdvancedConcepts { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,11 +143,12 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
+            sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
             sb.Append("  SimulationControl: ").Append(SimulationControl).Append("\n");
-            sb.Append("  ResultControl: ").Append(ResultControl).Append("\n");
-            sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("  MeshSettings: ").Append(MeshSettings).Append("\n");
+            sb.Append("  ResultControl: ").Append(ResultControl).Append("\n");
+            sb.Append("  AdvancedConcepts: ").Append(AdvancedConcepts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -190,6 +199,10 @@ namespace SimScale.Sdk.Model
                     this.IsCompressible.Equals(input.IsCompressible))
                 ) && 
                 (
+                    this.TurbulenceModel == input.TurbulenceModel ||
+                    this.TurbulenceModel.Equals(input.TurbulenceModel)
+                ) && 
+                (
                     this.BoundaryConditions == input.BoundaryConditions ||
                     this.BoundaryConditions != null &&
                     input.BoundaryConditions != null &&
@@ -201,18 +214,19 @@ namespace SimScale.Sdk.Model
                     this.SimulationControl.Equals(input.SimulationControl))
                 ) && 
                 (
+                    this.MeshSettings == input.MeshSettings ||
+                    (this.MeshSettings != null &&
+                    this.MeshSettings.Equals(input.MeshSettings))
+                ) && 
+                (
                     this.ResultControl == input.ResultControl ||
                     (this.ResultControl != null &&
                     this.ResultControl.Equals(input.ResultControl))
                 ) && 
                 (
-                    this.TurbulenceModel == input.TurbulenceModel ||
-                    this.TurbulenceModel.Equals(input.TurbulenceModel)
-                ) && 
-                (
-                    this.MeshSettings == input.MeshSettings ||
-                    (this.MeshSettings != null &&
-                    this.MeshSettings.Equals(input.MeshSettings))
+                    this.AdvancedConcepts == input.AdvancedConcepts ||
+                    (this.AdvancedConcepts != null &&
+                    this.AdvancedConcepts.Equals(input.AdvancedConcepts))
                 );
         }
 
@@ -231,15 +245,17 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Materials.GetHashCode();
                 if (this.IsCompressible != null)
                     hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
+                hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 if (this.BoundaryConditions != null)
                     hashCode = hashCode * 59 + this.BoundaryConditions.GetHashCode();
                 if (this.SimulationControl != null)
                     hashCode = hashCode * 59 + this.SimulationControl.GetHashCode();
-                if (this.ResultControl != null)
-                    hashCode = hashCode * 59 + this.ResultControl.GetHashCode();
-                hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 if (this.MeshSettings != null)
                     hashCode = hashCode * 59 + this.MeshSettings.GetHashCode();
+                if (this.ResultControl != null)
+                    hashCode = hashCode * 59 + this.ResultControl.GetHashCode();
+                if (this.AdvancedConcepts != null)
+                    hashCode = hashCode * 59 + this.AdvancedConcepts.GetHashCode();
                 return hashCode;
             }
         }

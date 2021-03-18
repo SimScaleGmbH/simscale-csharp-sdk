@@ -68,7 +68,6 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="HarmonicAnalysis" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;HARMONIC_ANALYSIS&quot;).</param>
-        /// <param name="meshSpecId">meshSpecId.</param>
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
         /// <param name="model">model.</param>
@@ -79,11 +78,10 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.NONE).</param>
-        public HarmonicAnalysis(string type = "HARMONIC_ANALYSIS", Guid? meshSpecId = default(Guid?), List<Contact> connectionGroups = default(List<Contact>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfHarmonicAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfHarmonicAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public HarmonicAnalysis(string type = "HARMONIC_ANALYSIS", List<Contact> connectionGroups = default(List<Contact>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfHarmonicAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfHarmonicAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for HarmonicAnalysis and cannot be null");
-            this.MeshSpecId = meshSpecId;
             this.ConnectionGroups = connectionGroups;
             this.ElementTechnology = elementTechnology;
             this.Model = model;
@@ -101,12 +99,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MeshSpecId
-        /// </summary>
-        [DataMember(Name="meshSpecId", EmitDefaultValue=false)]
-        public Guid? MeshSpecId { get; set; }
 
         /// <summary>
         /// Gets or Sets ConnectionGroups
@@ -171,7 +163,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class HarmonicAnalysis {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  MeshSpecId: ").Append(MeshSpecId).Append("\n");
             sb.Append("  ConnectionGroups: ").Append(ConnectionGroups).Append("\n");
             sb.Append("  ElementTechnology: ").Append(ElementTechnology).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
@@ -220,11 +211,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.MeshSpecId == input.MeshSpecId ||
-                    (this.MeshSpecId != null &&
-                    this.MeshSpecId.Equals(input.MeshSpecId))
                 ) && 
                 (
                     this.ConnectionGroups == input.ConnectionGroups ||
@@ -291,8 +277,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.MeshSpecId != null)
-                    hashCode = hashCode * 59 + this.MeshSpecId.GetHashCode();
                 if (this.ConnectionGroups != null)
                     hashCode = hashCode * 59 + this.ConnectionGroups.GetHashCode();
                 if (this.ElementTechnology != null)

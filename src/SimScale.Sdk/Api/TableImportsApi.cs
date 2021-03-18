@@ -35,7 +35,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="tableImportRequest">Table import specification.</param>
         /// <returns>TableImportResponse</returns>
-        TableImportResponse ImportTable (string projectId, TableImportRequest tableImportRequest);
+        TableImportResponse ImportTable (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest));
 
         /// <summary>
         /// Import a new table for reference within a Simulation spec.
@@ -47,7 +47,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="tableImportRequest">Table import specification.</param>
         /// <returns>ApiResponse of TableImportResponse</returns>
-        ApiResponse<TableImportResponse> ImportTableWithHttpInfo (string projectId, TableImportRequest tableImportRequest);
+        ApiResponse<TableImportResponse> ImportTableWithHttpInfo (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest));
         #endregion Synchronous Operations
     }
 
@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="tableImportRequest">Table import specification.</param>
         /// <returns>Task of TableImportResponse</returns>
-        System.Threading.Tasks.Task<TableImportResponse> ImportTableAsync (string projectId, TableImportRequest tableImportRequest);
+        System.Threading.Tasks.Task<TableImportResponse> ImportTableAsync (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest));
 
         /// <summary>
         /// Import a new table for reference within a Simulation spec.
@@ -79,7 +79,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="tableImportRequest">Table import specification.</param>
         /// <returns>Task of ApiResponse (TableImportResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TableImportResponse>> ImportTableAsyncWithHttpInfo (string projectId, TableImportRequest tableImportRequest);
+        System.Threading.Tasks.Task<ApiResponse<TableImportResponse>> ImportTableAsyncWithHttpInfo (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest));
         #endregion Asynchronous Operations
     }
 
@@ -207,7 +207,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="tableImportRequest">Table import specification.</param>
         /// <returns>TableImportResponse</returns>
-        public TableImportResponse ImportTable (string projectId, TableImportRequest tableImportRequest)
+        public TableImportResponse ImportTable (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest))
         {
              SimScale.Sdk.Client.ApiResponse<TableImportResponse> localVarResponse = ImportTableWithHttpInfo(projectId, tableImportRequest);
              return localVarResponse.Data;
@@ -220,7 +220,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="tableImportRequest">Table import specification.</param>
         /// <returns>ApiResponse of TableImportResponse</returns>
-        public SimScale.Sdk.Client.ApiResponse< TableImportResponse > ImportTableWithHttpInfo (string projectId, TableImportRequest tableImportRequest)
+        public SimScale.Sdk.Client.ApiResponse< TableImportResponse > ImportTableWithHttpInfo (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -275,7 +275,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="tableImportRequest">Table import specification.</param>
         /// <returns>Task of TableImportResponse</returns>
-        public async System.Threading.Tasks.Task<TableImportResponse> ImportTableAsync (string projectId, TableImportRequest tableImportRequest)
+        public async System.Threading.Tasks.Task<TableImportResponse> ImportTableAsync (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest))
         {
              SimScale.Sdk.Client.ApiResponse<TableImportResponse> localVarResponse = await ImportTableAsyncWithHttpInfo(projectId, tableImportRequest);
              return localVarResponse.Data;
@@ -289,7 +289,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="tableImportRequest">Table import specification.</param>
         /// <returns>Task of ApiResponse (TableImportResponse)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<TableImportResponse>> ImportTableAsyncWithHttpInfo (string projectId, TableImportRequest tableImportRequest)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<TableImportResponse>> ImportTableAsyncWithHttpInfo (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

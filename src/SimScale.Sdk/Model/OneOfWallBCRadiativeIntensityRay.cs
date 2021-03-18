@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(GreybodyDiffusiveRayBC), "GREYBODY_DIFFUSIVE_RAY")]
     [JsonSubtypes.KnownSubType(typeof(OpenBoundaryRayBC), "OPEN_BOUNDARY_RAY")]
+    [JsonSubtypes.KnownSubType(typeof(SemiOpenBoundaryRayBC), "SEMI_OPEN_BOUNDARY_RAY")]
     public interface OneOfWallBCRadiativeIntensityRay
     {
         /// <summary>

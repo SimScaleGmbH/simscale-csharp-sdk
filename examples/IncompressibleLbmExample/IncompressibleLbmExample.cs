@@ -63,7 +63,7 @@ class IncompressibleLbmExample
             location: new GeometryImportRequestLocation(storageId),
             format: GeometryImportRequest.FormatEnum.STL,
             inputUnit: GeometryUnit.M,
-            options: new GeometryImportRequestOptions(facetSplit: false, sewing: true, improve: true, optimizeForLBMSolver: true)
+            options: new GeometryImportRequestOptions(facetSplit: false, sewing: false, improve: true, optimizeForLBMSolver: true)
         );
         var geometryImport = geometryImportApi.ImportGeometry(projectId, geometryImportRequest);
         var geometryImportId = geometryImport.GeometryImportId;
@@ -91,18 +91,31 @@ class IncompressibleLbmExample
         var entities = geometry_mappings.Embedded.Select(mapping => mapping.Name).ToList();;
         Console.WriteLine("entities: " + String.Join(",", entities));
 
-        // upload probe points
-        var csvStorage = storageApi.CreateStorage();
-        var csvStorageId = csvStorage.StorageId;
-        var csvUploadRequest = new RestRequest(csvStorage.Url, Method.PUT);
-        csvUploadRequest.AddParameter("application/octet-stream", File.ReadAllBytes(@"../fixtures/ProbePoint.csv"), ParameterType.RequestBody);
-        restClient.Execute(csvUploadRequest);
-        Console.WriteLine("Probe Point table storageId: " + csvStorageId);
+        // Upload table containing Probe Points information
+        var probePointsCsvStorage = storageApi.CreateStorage();
+        var probePointsCsvStorageId = probePointsCsvStorage.StorageId;
+        var probePointsCsvUploadRequest = new RestRequest(probePointsCsvStorage.Url, Method.PUT);
+        probePointsCsvUploadRequest.AddParameter("application/octet-stream", File.ReadAllBytes(@"../fixtures/ProbePoints.csv"), ParameterType.RequestBody);
+        restClient.Execute(probePointsCsvUploadRequest);
+        Console.WriteLine("Probe Points table storageId: " + probePointsCsvStorageId);
         
-        // import probe points
-        var tableImportRequest = new TableImportRequest(new TableImportRequestLocation(csvStorageId));
-        var tableImport = tableImportApi.ImportTable(projectId, tableImportRequest);
-        var tableId = tableImport.TableId;
+        // Import table containing Probe Points information
+        var probePointsTableImportRequest = new TableImportRequest(new TableImportRequestLocation(probePointsCsvStorageId));
+        var probePointsTableImport = tableImportApi.ImportTable(projectId, probePointsTableImportRequest);
+        var probePointsTableId = probePointsTableImport.TableId;
+
+        // Upload table containing Inlet Profile information
+        var inletProfileCsvStorage = storageApi.CreateStorage();
+        var inletProfileCsvStorageId = inletProfileCsvStorage.StorageId;
+        var inletProfileCsvUploadRequest = new RestRequest(inletProfileCsvStorage.Url, Method.PUT);
+        inletProfileCsvUploadRequest.AddParameter("application/octet-stream", File.ReadAllBytes(@"../fixtures/InletProfile.csv"), ParameterType.RequestBody);
+        restClient.Execute(inletProfileCsvUploadRequest);
+        Console.WriteLine("Inlet Profile table storageId: " + inletProfileCsvStorageId);
+
+        // Import table containing Inlet Profile information
+        var inletProfileTableImportRequest = new TableImportRequest(new TableImportRequestLocation(inletProfileCsvStorageId));
+        var inletProfileTableImport = tableImportApi.ImportTable(projectId, inletProfileTableImportRequest);
+        var inletProfileTableId = inletProfileTableImport.TableId;
 
         // Create geometry primitives
         var localSlice1 = new LocalHalfSpace(
@@ -152,17 +165,34 @@ class IncompressibleLbmExample
                     name: "Velocity inlet (A)",
                     velocity: new FixedMagnitudeVBC(
                         value: new DimensionalFunctionSpeed(
-                            value: new ConstantFunction(value: 10.5m),
+                            value: new TableDefinedFunction(
+                                tableId: inletProfileTableId,
+                                resultIndex: new List<int?> {2},
+                                independentVariables: new List<TableFunctionParameter> {
+                                    new TableFunctionParameter(reference: 1, _parameter: "HEIGHT", unit: "m")
+                                }
+                            ),
                             unit: DimensionalFunctionSpeed.UnitEnum.MS
-                            )
-                        ),
+                        )
+                    ),
                     turbulenceIntensity: new TurbulenceIntensityTIBC(
                         value: new DimensionalFunctionDimensionless(
                             value: new ConstantFunction(value: 0.015m),
                             unit: DimensionalFunctionDimensionless.UnitEnum.Empty
-                            )
-                        ),
-                    dissipationType: new AutomaticOmegaDissipation()
+                        )
+                    ),
+                    dissipationType: new CustomOmegaDissipation(
+                        value: new DimensionalFunctionSpecificTurbulenceDissipationRate(
+                            value: new TableDefinedFunction(
+                                tableId: inletProfileTableId,
+                                resultIndex: new List<int?> {3},
+                                independentVariables: new List<TableFunctionParameter> {
+                                    new TableFunctionParameter(reference: 1, _parameter: "HEIGHT", unit: "m")
+                                }
+                            ),
+                            unit: DimensionalFunctionSpecificTurbulenceDissipationRate.UnitEnum._1S
+                        )
+                    )
                 ),
                 xMAX: new PressureOutletBC(name: "Pressure outlet (B)"),
                 yMIN: new WallBC(name: "Side (C)", velocity: new SlipVBC()),
@@ -195,7 +225,7 @@ class IncompressibleLbmExample
                     new ProbePointsResultControl(
                         name: "Probe point 1",
                         writeControl: new ModerateResolution(),
-                        probeLocations: new TableDefinedProbeLocations(tableId: tableId)
+                        probeLocations: new TableDefinedProbeLocations(tableId: probePointsTableId)
                         )
                 },
                 forcesMoments: new List<OneOfFluidResultControlsForcesMoments> {

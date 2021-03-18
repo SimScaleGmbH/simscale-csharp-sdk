@@ -29,25 +29,6 @@ namespace SimScale.Sdk.Model
     public partial class TransientTimeDependency : OneOfCompressibleTimeDependency, OneOfConjugateHeatTransferTimeDependency, OneOfConvectiveHeatTransferTimeDependency, OneOfHeatTransferTimeDependency, OneOfIncompressibleTimeDependency, OneOfThermalMechanicalTimeDependency, IEquatable<TransientTimeDependency>
     {
         /// <summary>
-        /// Defines BasedOn
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum BasedOnEnum
-        {
-            /// <summary>
-            /// Enum PRESSURE for value: PRESSURE
-            /// </summary>
-            [EnumMember(Value = "PRESSURE")]
-            PRESSURE = 1
-
-        }
-
-        /// <summary>
-        /// Gets or Sets BasedOn
-        /// </summary>
-        [DataMember(Name="basedOn", EmitDefaultValue=false)]
-        public BasedOnEnum? BasedOn { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="TransientTimeDependency" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -56,12 +37,10 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="TransientTimeDependency" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;TRANSIENT&quot;).</param>
-        /// <param name="basedOn">basedOn (default to BasedOnEnum.PRESSURE).</param>
-        public TransientTimeDependency(string type = "TRANSIENT", BasedOnEnum? basedOn = default(BasedOnEnum?))
+        public TransientTimeDependency(string type = "TRANSIENT")
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TransientTimeDependency and cannot be null");
-            this.BasedOn = basedOn;
         }
         
         /// <summary>
@@ -79,7 +58,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class TransientTimeDependency {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  BasedOn: ").Append(BasedOn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,10 +96,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.BasedOn == input.BasedOn ||
-                    this.BasedOn.Equals(input.BasedOn)
                 );
         }
 
@@ -136,7 +110,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.BasedOn.GetHashCode();
                 return hashCode;
             }
         }

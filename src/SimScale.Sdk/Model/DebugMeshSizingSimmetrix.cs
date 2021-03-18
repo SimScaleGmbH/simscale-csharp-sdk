@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// DebugMeshSizingSimmetrix
     /// </summary>
     [DataContract]
-    public partial class DebugMeshSizingSimmetrix : OneOfSimmetrixMeshingFluidSizing, OneOfSimmetrixMeshingSolidSizing, IEquatable<DebugMeshSizingSimmetrix>
+    public partial class DebugMeshSizingSimmetrix : IEquatable<DebugMeshSizingSimmetrix>
     {
         /// <summary>
         /// Defines LayerAdjustmentBehaviour

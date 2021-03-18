@@ -34,7 +34,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
         /// <returns>Project</returns>
-        Project CreateProject (Project project);
+        Project CreateProject (Project project = default(Project));
 
         /// <summary>
         /// Create a new project
@@ -45,7 +45,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
         /// <returns>ApiResponse of Project</returns>
-        ApiResponse<Project> CreateProjectWithHttpInfo (Project project);
+        ApiResponse<Project> CreateProjectWithHttpInfo (Project project = default(Project));
         /// <summary>
         /// Get information about an existing project
         /// </summary>
@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <returns>Project</returns>
-        Project GetProject (string projectId);
+        Project GetProject (string projectId = default(string));
 
         /// <summary>
         /// Get information about an existing project
@@ -66,7 +66,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <returns>ApiResponse of Project</returns>
-        ApiResponse<Project> GetProjectWithHttpInfo (string projectId);
+        ApiResponse<Project> GetProjectWithHttpInfo (string projectId = default(string));
         /// <summary>
         /// List projects
         /// </summary>
@@ -77,7 +77,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Projects</returns>
-        Projects GetProjects (int? limit = default(int?), int? page = default(int?));
+        Projects GetProjects (int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List projects
@@ -89,7 +89,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of Projects</returns>
-        ApiResponse<Projects> GetProjectsWithHttpInfo (int? limit = default(int?), int? page = default(int?));
+        ApiResponse<Projects> GetProjectsWithHttpInfo (int? limit = 100, int? page = 1);
         /// <summary>
         /// Update an existing project
         /// </summary>
@@ -100,7 +100,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="project">Project to be updated</param>
         /// <returns></returns>
-        void UpdateProject (string projectId, Project project);
+        void UpdateProject (string projectId = default(string), Project project = default(Project));
 
         /// <summary>
         /// Update an existing project
@@ -112,7 +112,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="project">Project to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateProjectWithHttpInfo (string projectId, Project project);
+        ApiResponse<Object> UpdateProjectWithHttpInfo (string projectId = default(string), Project project = default(Project));
         #endregion Synchronous Operations
     }
 
@@ -131,7 +131,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
         /// <returns>Task of Project</returns>
-        System.Threading.Tasks.Task<Project> CreateProjectAsync (Project project);
+        System.Threading.Tasks.Task<Project> CreateProjectAsync (Project project = default(Project));
 
         /// <summary>
         /// Create a new project
@@ -142,7 +142,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
         /// <returns>Task of ApiResponse (Project)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Project>> CreateProjectAsyncWithHttpInfo (Project project);
+        System.Threading.Tasks.Task<ApiResponse<Project>> CreateProjectAsyncWithHttpInfo (Project project = default(Project));
         /// <summary>
         /// Get information about an existing project
         /// </summary>
@@ -152,7 +152,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <returns>Task of Project</returns>
-        System.Threading.Tasks.Task<Project> GetProjectAsync (string projectId);
+        System.Threading.Tasks.Task<Project> GetProjectAsync (string projectId = default(string));
 
         /// <summary>
         /// Get information about an existing project
@@ -163,7 +163,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <returns>Task of ApiResponse (Project)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Project>> GetProjectAsyncWithHttpInfo (string projectId);
+        System.Threading.Tasks.Task<ApiResponse<Project>> GetProjectAsyncWithHttpInfo (string projectId = default(string));
         /// <summary>
         /// List projects
         /// </summary>
@@ -174,7 +174,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of Projects</returns>
-        System.Threading.Tasks.Task<Projects> GetProjectsAsync (int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<Projects> GetProjectsAsync (int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List projects
@@ -186,7 +186,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (Projects)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Projects>> GetProjectsAsyncWithHttpInfo (int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<Projects>> GetProjectsAsyncWithHttpInfo (int? limit = 100, int? page = 1);
         /// <summary>
         /// Update an existing project
         /// </summary>
@@ -197,7 +197,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="project">Project to be updated</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateProjectAsync (string projectId, Project project);
+        System.Threading.Tasks.Task UpdateProjectAsync (string projectId = default(string), Project project = default(Project));
 
         /// <summary>
         /// Update an existing project
@@ -209,7 +209,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="project">Project to be updated</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateProjectAsyncWithHttpInfo (string projectId, Project project);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateProjectAsyncWithHttpInfo (string projectId = default(string), Project project = default(Project));
         #endregion Asynchronous Operations
     }
 
@@ -336,7 +336,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
         /// <returns>Project</returns>
-        public Project CreateProject (Project project)
+        public Project CreateProject (Project project = default(Project))
         {
              SimScale.Sdk.Client.ApiResponse<Project> localVarResponse = CreateProjectWithHttpInfo(project);
              return localVarResponse.Data;
@@ -348,7 +348,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
         /// <returns>ApiResponse of Project</returns>
-        public SimScale.Sdk.Client.ApiResponse< Project > CreateProjectWithHttpInfo (Project project)
+        public SimScale.Sdk.Client.ApiResponse< Project > CreateProjectWithHttpInfo (Project project = default(Project))
         {
             // verify the required parameter 'project' is set
             if (project == null)
@@ -397,7 +397,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
         /// <returns>Task of Project</returns>
-        public async System.Threading.Tasks.Task<Project> CreateProjectAsync (Project project)
+        public async System.Threading.Tasks.Task<Project> CreateProjectAsync (Project project = default(Project))
         {
              SimScale.Sdk.Client.ApiResponse<Project> localVarResponse = await CreateProjectAsyncWithHttpInfo(project);
              return localVarResponse.Data;
@@ -410,7 +410,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
         /// <returns>Task of ApiResponse (Project)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Project>> CreateProjectAsyncWithHttpInfo (Project project)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Project>> CreateProjectAsyncWithHttpInfo (Project project = default(Project))
         {
             // verify the required parameter 'project' is set
             if (project == null)
@@ -461,7 +461,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <returns>Project</returns>
-        public Project GetProject (string projectId)
+        public Project GetProject (string projectId = default(string))
         {
              SimScale.Sdk.Client.ApiResponse<Project> localVarResponse = GetProjectWithHttpInfo(projectId);
              return localVarResponse.Data;
@@ -473,7 +473,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <returns>ApiResponse of Project</returns>
-        public SimScale.Sdk.Client.ApiResponse< Project > GetProjectWithHttpInfo (string projectId)
+        public SimScale.Sdk.Client.ApiResponse< Project > GetProjectWithHttpInfo (string projectId = default(string))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -521,7 +521,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <returns>Task of Project</returns>
-        public async System.Threading.Tasks.Task<Project> GetProjectAsync (string projectId)
+        public async System.Threading.Tasks.Task<Project> GetProjectAsync (string projectId = default(string))
         {
              SimScale.Sdk.Client.ApiResponse<Project> localVarResponse = await GetProjectAsyncWithHttpInfo(projectId);
              return localVarResponse.Data;
@@ -534,7 +534,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <returns>Task of ApiResponse (Project)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Project>> GetProjectAsyncWithHttpInfo (string projectId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Project>> GetProjectAsyncWithHttpInfo (string projectId = default(string))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -585,7 +585,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Projects</returns>
-        public Projects GetProjects (int? limit = default(int?), int? page = default(int?))
+        public Projects GetProjects (int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<Projects> localVarResponse = GetProjectsWithHttpInfo(limit, page);
              return localVarResponse.Data;
@@ -598,7 +598,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of Projects</returns>
-        public SimScale.Sdk.Client.ApiResponse< Projects > GetProjectsWithHttpInfo (int? limit = default(int?), int? page = default(int?))
+        public SimScale.Sdk.Client.ApiResponse< Projects > GetProjectsWithHttpInfo (int? limit = 100, int? page = 1)
         {
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
 
@@ -650,7 +650,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of Projects</returns>
-        public async System.Threading.Tasks.Task<Projects> GetProjectsAsync (int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<Projects> GetProjectsAsync (int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<Projects> localVarResponse = await GetProjectsAsyncWithHttpInfo(limit, page);
              return localVarResponse.Data;
@@ -664,7 +664,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (Projects)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Projects>> GetProjectsAsyncWithHttpInfo (int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Projects>> GetProjectsAsyncWithHttpInfo (int? limit = 100, int? page = 1)
         {
 
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
@@ -718,7 +718,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="project">Project to be updated</param>
         /// <returns></returns>
-        public void UpdateProject (string projectId, Project project)
+        public void UpdateProject (string projectId = default(string), Project project = default(Project))
         {
              UpdateProjectWithHttpInfo(projectId, project);
         }
@@ -730,7 +730,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="project">Project to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public SimScale.Sdk.Client.ApiResponse<Object> UpdateProjectWithHttpInfo (string projectId, Project project)
+        public SimScale.Sdk.Client.ApiResponse<Object> UpdateProjectWithHttpInfo (string projectId = default(string), Project project = default(Project))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -785,7 +785,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="project">Project to be updated</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateProjectAsync (string projectId, Project project)
+        public async System.Threading.Tasks.Task UpdateProjectAsync (string projectId = default(string), Project project = default(Project))
         {
              await UpdateProjectAsyncWithHttpInfo(projectId, project);
 
@@ -798,7 +798,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="project">Project to be updated</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> UpdateProjectAsyncWithHttpInfo (string projectId, Project project)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> UpdateProjectAsyncWithHttpInfo (string projectId = default(string), Project project = default(Project))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

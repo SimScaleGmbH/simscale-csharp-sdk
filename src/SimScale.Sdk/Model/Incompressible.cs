@@ -83,7 +83,6 @@ namespace SimScale.Sdk.Model
         /// Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
         /// <value>Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
         public enum NumOfPassiveSpeciesEnum
         {
             /// <summary>
@@ -158,8 +157,6 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Incompressible" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;INCOMPRESSIBLE&quot;).</param>
-        /// <param name="meshSpecId">meshSpecId.</param>
-        /// <param name="isCompressible">isCompressible (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="algorithm">algorithm (default to &quot;SIMPLE&quot;).</param>
@@ -172,12 +169,10 @@ namespace SimScale.Sdk.Model
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
-        public Incompressible(string type = "INCOMPRESSIBLE", Guid? meshSpecId = default(Guid?), bool? isCompressible = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfIncompressibleTimeDependency timeDependency = default(OneOfIncompressibleTimeDependency), string algorithm = default(string), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), FluidModel model = default(FluidModel), IncompressibleFluidMaterials materials = default(IncompressibleFluidMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfIncompressibleBoundaryConditions> boundaryConditions = default(List<OneOfIncompressibleBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
+        public Incompressible(string type = "INCOMPRESSIBLE", TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfIncompressibleTimeDependency timeDependency = default(OneOfIncompressibleTimeDependency), string algorithm = default(string), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), FluidModel model = default(FluidModel), IncompressibleFluidMaterials materials = default(IncompressibleFluidMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfIncompressibleBoundaryConditions> boundaryConditions = default(List<OneOfIncompressibleBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for Incompressible and cannot be null");
-            this.MeshSpecId = meshSpecId;
-            this.IsCompressible = isCompressible;
             this.TurbulenceModel = turbulenceModel;
             this.TimeDependency = timeDependency;
             this.Algorithm = algorithm;
@@ -197,18 +192,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MeshSpecId
-        /// </summary>
-        [DataMember(Name="meshSpecId", EmitDefaultValue=false)]
-        public Guid? MeshSpecId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsCompressible
-        /// </summary>
-        [DataMember(Name="isCompressible", EmitDefaultValue=false)]
-        public bool? IsCompressible { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeDependency
@@ -279,8 +262,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class Incompressible {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  MeshSpecId: ").Append(MeshSpecId).Append("\n");
-            sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
             sb.Append("  Algorithm: ").Append(Algorithm).Append("\n");
@@ -331,16 +312,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.MeshSpecId == input.MeshSpecId ||
-                    (this.MeshSpecId != null &&
-                    this.MeshSpecId.Equals(input.MeshSpecId))
-                ) && 
-                (
-                    this.IsCompressible == input.IsCompressible ||
-                    (this.IsCompressible != null &&
-                    this.IsCompressible.Equals(input.IsCompressible))
                 ) && 
                 (
                     this.TurbulenceModel == input.TurbulenceModel ||
@@ -414,10 +385,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.MeshSpecId != null)
-                    hashCode = hashCode * 59 + this.MeshSpecId.GetHashCode();
-                if (this.IsCompressible != null)
-                    hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 if (this.TimeDependency != null)
                     hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();

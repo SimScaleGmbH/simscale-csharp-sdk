@@ -29,30 +29,96 @@ namespace SimScale.Sdk.Model
     public partial class GeometryImportRequest : IEquatable<GeometryImportRequest>
     {
         /// <summary>
-        /// The CAD format. Currently only STL is supported, additional formats will be added in future.
+        /// The CAD format.
         /// </summary>
-        /// <value>The CAD format. Currently only STL is supported, additional formats will be added in future.</value>
+        /// <value>The CAD format.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FormatEnum
         {
             /// <summary>
-            /// Enum STL for value: STL
+            /// Enum ACIS for value: ACIS
             /// </summary>
-            [EnumMember(Value = "STL")]
-            STL = 1,
+            [EnumMember(Value = "ACIS")]
+            ACIS = 1,
+
+            /// <summary>
+            /// Enum AUTODESK for value: AUTODESK
+            /// </summary>
+            [EnumMember(Value = "AUTODESK")]
+            AUTODESK = 2,
+
+            /// <summary>
+            /// Enum CATIA for value: CATIA
+            /// </summary>
+            [EnumMember(Value = "CATIA")]
+            CATIA = 3,
+
+            /// <summary>
+            /// Enum CREO for value: CREO
+            /// </summary>
+            [EnumMember(Value = "CREO")]
+            CREO = 4,
+
+            /// <summary>
+            /// Enum IGES for value: IGES
+            /// </summary>
+            [EnumMember(Value = "IGES")]
+            IGES = 5,
+
+            /// <summary>
+            /// Enum NX for value: NX
+            /// </summary>
+            [EnumMember(Value = "NX")]
+            NX = 6,
 
             /// <summary>
             /// Enum PARASOLID for value: PARASOLID
             /// </summary>
             [EnumMember(Value = "PARASOLID")]
-            PARASOLID = 2
+            PARASOLID = 7,
+
+            /// <summary>
+            /// Enum REVIT for value: REVIT
+            /// </summary>
+            [EnumMember(Value = "REVIT")]
+            REVIT = 8,
+
+            /// <summary>
+            /// Enum RHINOCEROS for value: RHINOCEROS
+            /// </summary>
+            [EnumMember(Value = "RHINOCEROS")]
+            RHINOCEROS = 9,
+
+            /// <summary>
+            /// Enum SOLIDEDGE for value: SOLIDEDGE
+            /// </summary>
+            [EnumMember(Value = "SOLIDEDGE")]
+            SOLIDEDGE = 10,
+
+            /// <summary>
+            /// Enum SOLIDWORKS for value: SOLIDWORKS
+            /// </summary>
+            [EnumMember(Value = "SOLIDWORKS")]
+            SOLIDWORKS = 11,
+
+            /// <summary>
+            /// Enum STEP for value: STEP
+            /// </summary>
+            [EnumMember(Value = "STEP")]
+            STEP = 12,
+
+            /// <summary>
+            /// Enum STL for value: STL
+            /// </summary>
+            [EnumMember(Value = "STL")]
+            STL = 13
 
         }
 
         /// <summary>
-        /// The CAD format. Currently only STL is supported, additional formats will be added in future.
+        /// The CAD format.
         /// </summary>
-        /// <value>The CAD format. Currently only STL is supported, additional formats will be added in future.</value>
+        /// <value>The CAD format.</value>
         [DataMember(Name="format", EmitDefaultValue=false)]
         public FormatEnum Format { get; set; }
         /// <summary>
@@ -70,7 +136,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="name">The name of the imported geometry. (required).</param>
         /// <param name="location">location (required).</param>
-        /// <param name="format">The CAD format. Currently only STL is supported, additional formats will be added in future. (required).</param>
+        /// <param name="format">The CAD format. (required).</param>
         /// <param name="inputUnit">inputUnit (required).</param>
         /// <param name="options">options (required).</param>
         public GeometryImportRequest(string name = default(string), GeometryImportRequestLocation location = default(GeometryImportRequestLocation), FormatEnum format = default(FormatEnum), GeometryUnit inputUnit = default(GeometryUnit), GeometryImportRequestOptions options = default(GeometryImportRequestOptions))

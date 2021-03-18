@@ -38,7 +38,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">type (required) (default to &quot;SPECIFIC&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="passiveScalarVariable">passiveScalarVariable.</param>
+        /// <param name="passiveScalarVariable">passiveScalarVariable (default to &quot;passive_scalar_one&quot;).</param>
         /// <param name="flux">flux.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>

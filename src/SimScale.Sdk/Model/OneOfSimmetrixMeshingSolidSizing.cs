@@ -29,7 +29,6 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(AutomaticMeshSizingSimmetrix), "AUTOMATIC_V9")]
     [JsonSubtypes.KnownSubType(typeof(ManualMeshSizingSimmetrix), "MANUAL")]
-    [JsonSubtypes.KnownSubType(typeof(DebugMeshSizingSimmetrix), "DEBUG")]
     public interface OneOfSimmetrixMeshingSolidSizing
     {
         /// <summary>

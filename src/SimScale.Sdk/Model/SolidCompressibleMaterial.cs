@@ -29,44 +29,19 @@ namespace SimScale.Sdk.Model
     public partial class SolidCompressibleMaterial : IEquatable<SolidCompressibleMaterial>
     {
         /// <summary>
-        /// &lt;p&gt;&lt;b&gt;pure mixtures:&lt;/b&gt; This represents a mixture with fixed chemical composition.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;&lt;b&gt;pure mixtures:&lt;/b&gt; This represents a mixture with fixed chemical composition.&lt;/p&gt;</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MixtureEnum
-        {
-            /// <summary>
-            /// Enum PUREMIXTURE for value: PURE_MIXTURE
-            /// </summary>
-            [EnumMember(Value = "PURE_MIXTURE")]
-            PUREMIXTURE = 1
-
-        }
-
-        /// <summary>
-        /// &lt;p&gt;&lt;b&gt;pure mixtures:&lt;/b&gt; This represents a mixture with fixed chemical composition.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;&lt;b&gt;pure mixtures:&lt;/b&gt; This represents a mixture with fixed chemical composition.&lt;/p&gt;</value>
-        [DataMember(Name="mixture", EmitDefaultValue=false)]
-        public MixtureEnum? Mixture { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="SolidCompressibleMaterial" /> class.
         /// </summary>
         /// <param name="type">type (default to &quot;COMPRESSIBLE&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="thermoType">&lt;br&gt;&lt;b&gt;Thermophysical models &lt;/b&gt;&lt;p&gt;&lt;b&gt;PsiThermo model:&lt;/b&gt; This is for a all compressible fluid with fixed chemical composition. based on the compressibility &amp;psi; and the changes in pressure, the density is then determined by the selected Equation of State.&lt;/p&gt;&lt;p&gt;&lt;b&gt;RhoThermo model:&lt;/b&gt; This model is for natural or forced convection heat transfer in compressible fluid with fixed chemical composition.&lt;/p&gt; (default to &quot;HE_SOLID_THERMO&quot;).</param>
-        /// <param name="mixture">&lt;p&gt;&lt;b&gt;pure mixtures:&lt;/b&gt; This represents a mixture with fixed chemical composition.&lt;/p&gt; (default to MixtureEnum.PUREMIXTURE).</param>
         /// <param name="specie">specie.</param>
         /// <param name="transport">transport.</param>
         /// <param name="emissivity">emissivity (default to 0.9M).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
-        public SolidCompressibleMaterial(string type = default(string), string name = default(string), string thermoType = default(string), MixtureEnum? mixture = default(MixtureEnum?), SpecieDefault specie = default(SpecieDefault), OneOfSolidCompressibleMaterialTransport transport = default(OneOfSolidCompressibleMaterialTransport), decimal? emissivity = default(decimal?), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string))
+        public SolidCompressibleMaterial(string type = default(string), string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfSolidCompressibleMaterialTransport transport = default(OneOfSolidCompressibleMaterialTransport), decimal? emissivity = default(decimal?), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string))
         {
             this.Type = type;
             this.Name = name;
-            this.ThermoType = thermoType;
-            this.Mixture = mixture;
             this.Specie = specie;
             this.Transport = transport;
             this.Emissivity = emissivity;
@@ -85,13 +60,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
-
-        /// <summary>
-        /// &lt;br&gt;&lt;b&gt;Thermophysical models &lt;/b&gt;&lt;p&gt;&lt;b&gt;PsiThermo model:&lt;/b&gt; This is for a all compressible fluid with fixed chemical composition. based on the compressibility &amp;psi; and the changes in pressure, the density is then determined by the selected Equation of State.&lt;/p&gt;&lt;p&gt;&lt;b&gt;RhoThermo model:&lt;/b&gt; This model is for natural or forced convection heat transfer in compressible fluid with fixed chemical composition.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;br&gt;&lt;b&gt;Thermophysical models &lt;/b&gt;&lt;p&gt;&lt;b&gt;PsiThermo model:&lt;/b&gt; This is for a all compressible fluid with fixed chemical composition. based on the compressibility &amp;psi; and the changes in pressure, the density is then determined by the selected Equation of State.&lt;/p&gt;&lt;p&gt;&lt;b&gt;RhoThermo model:&lt;/b&gt; This model is for natural or forced convection heat transfer in compressible fluid with fixed chemical composition.&lt;/p&gt;</value>
-        [DataMember(Name="thermoType", EmitDefaultValue=false)]
-        public string ThermoType { get; set; }
 
         /// <summary>
         /// Gets or Sets Specie
@@ -133,8 +101,6 @@ namespace SimScale.Sdk.Model
             sb.Append("class SolidCompressibleMaterial {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ThermoType: ").Append(ThermoType).Append("\n");
-            sb.Append("  Mixture: ").Append(Mixture).Append("\n");
             sb.Append("  Specie: ").Append(Specie).Append("\n");
             sb.Append("  Transport: ").Append(Transport).Append("\n");
             sb.Append("  Emissivity: ").Append(Emissivity).Append("\n");
@@ -185,15 +151,6 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.ThermoType == input.ThermoType ||
-                    (this.ThermoType != null &&
-                    this.ThermoType.Equals(input.ThermoType))
-                ) && 
-                (
-                    this.Mixture == input.Mixture ||
-                    this.Mixture.Equals(input.Mixture)
-                ) && 
-                (
                     this.Specie == input.Specie ||
                     (this.Specie != null &&
                     this.Specie.Equals(input.Specie))
@@ -233,9 +190,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.ThermoType != null)
-                    hashCode = hashCode * 59 + this.ThermoType.GetHashCode();
-                hashCode = hashCode * 59 + this.Mixture.GetHashCode();
                 if (this.Specie != null)
                     hashCode = hashCode * 59 + this.Specie.GetHashCode();
                 if (this.Transport != null)

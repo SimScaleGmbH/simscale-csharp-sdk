@@ -62,7 +62,7 @@ class PedestrianWindComfortExample
             location: new GeometryImportRequestLocation(storageId),
             format: GeometryImportRequest.FormatEnum.STL,
             inputUnit: GeometryUnit.M,
-            options: new GeometryImportRequestOptions(facetSplit: false, sewing: true, improve: true, optimizeForLBMSolver: true)
+            options: new GeometryImportRequestOptions(facetSplit: false, sewing: false, improve: true, optimizeForLBMSolver: true)
         );
         var geometryImport = geometryImportApi.ImportGeometry(projectId, geometryImportRequest);
         var geometryImportId = geometryImport.GeometryImportId;

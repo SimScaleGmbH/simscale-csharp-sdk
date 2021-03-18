@@ -35,7 +35,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>CheckResponse</returns>
-        CheckResponse CheckSimulationSetup (string projectId, Guid? simulationId);
+        CheckResponse CheckSimulationSetup (string projectId = default(string), Guid? simulationId = default(Guid?));
 
         /// <summary>
         /// Check the simulation setup
@@ -47,7 +47,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>ApiResponse of CheckResponse</returns>
-        ApiResponse<CheckResponse> CheckSimulationSetupWithHttpInfo (string projectId, Guid? simulationId);
+        ApiResponse<CheckResponse> CheckSimulationSetupWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?));
         /// <summary>
         /// Create a geometry primitive for reference within a Simulation spec.
         /// </summary>
@@ -58,7 +58,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryPrimitive">Geometry primitive specification.</param>
         /// <returns>GeometryPrimitiveResponse</returns>
-        GeometryPrimitiveResponse CreateGeometryPrimitive (string projectId, GeometryPrimitive geometryPrimitive);
+        GeometryPrimitiveResponse CreateGeometryPrimitive (string projectId = default(string), GeometryPrimitive geometryPrimitive = default(GeometryPrimitive));
 
         /// <summary>
         /// Create a geometry primitive for reference within a Simulation spec.
@@ -70,7 +70,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryPrimitive">Geometry primitive specification.</param>
         /// <returns>ApiResponse of GeometryPrimitiveResponse</returns>
-        ApiResponse<GeometryPrimitiveResponse> CreateGeometryPrimitiveWithHttpInfo (string projectId, GeometryPrimitive geometryPrimitive);
+        ApiResponse<GeometryPrimitiveResponse> CreateGeometryPrimitiveWithHttpInfo (string projectId = default(string), GeometryPrimitive geometryPrimitive = default(GeometryPrimitive));
         /// <summary>
         /// Create a simulation setup
         /// </summary>
@@ -81,7 +81,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationSpec">Simulation to be created</param>
         /// <returns>Simulation</returns>
-        Simulation CreateSimulation (string projectId, SimulationSpec simulationSpec);
+        Simulation CreateSimulation (string projectId = default(string), SimulationSpec simulationSpec = default(SimulationSpec));
 
         /// <summary>
         /// Create a simulation setup
@@ -93,7 +93,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationSpec">Simulation to be created</param>
         /// <returns>ApiResponse of Simulation</returns>
-        ApiResponse<Simulation> CreateSimulationWithHttpInfo (string projectId, SimulationSpec simulationSpec);
+        ApiResponse<Simulation> CreateSimulationWithHttpInfo (string projectId = default(string), SimulationSpec simulationSpec = default(SimulationSpec));
         /// <summary>
         /// Estimate the simulation setup
         /// </summary>
@@ -104,7 +104,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Estimation</returns>
-        Estimation EstimateSimulationSetup (string projectId, Guid? simulationId);
+        Estimation EstimateSimulationSetup (string projectId = default(string), Guid? simulationId = default(Guid?));
 
         /// <summary>
         /// Estimate the simulation setup
@@ -116,7 +116,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>ApiResponse of Estimation</returns>
-        ApiResponse<Estimation> EstimateSimulationSetupWithHttpInfo (string projectId, Guid? simulationId);
+        ApiResponse<Estimation> EstimateSimulationSetupWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?));
         /// <summary>
         /// Get information about the simulation setup
         /// </summary>
@@ -126,9 +126,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.7&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.8&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        SimulationSpec GetSimulation (string projectId, Guid? simulationId, string simulationSpecSchemaVersion = default(string));
+        SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.8");
 
         /// <summary>
         /// Get information about the simulation setup
@@ -139,9 +139,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.7&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.8&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        ApiResponse<SimulationSpec> GetSimulationWithHttpInfo (string projectId, Guid? simulationId, string simulationSpecSchemaVersion = default(string));
+        ApiResponse<SimulationSpec> GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.8");
         /// <summary>
         /// List simulation setups within a project
         /// </summary>
@@ -153,7 +153,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Simulations</returns>
-        Simulations GetSimulations (string projectId, int? limit = default(int?), int? page = default(int?));
+        Simulations GetSimulations (string projectId = default(string), int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List simulation setups within a project
@@ -166,7 +166,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of Simulations</returns>
-        ApiResponse<Simulations> GetSimulationsWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?));
+        ApiResponse<Simulations> GetSimulationsWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1);
         /// <summary>
         /// Update information about the simulation setup
         /// </summary>
@@ -178,7 +178,7 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns></returns>
-        void UpdateSimulation (string projectId, Guid? simulationId, SimulationSpec simulationSpec);
+        void UpdateSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec));
 
         /// <summary>
         /// Update information about the simulation setup
@@ -191,7 +191,7 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateSimulationWithHttpInfo (string projectId, Guid? simulationId, SimulationSpec simulationSpec);
+        ApiResponse<Object> UpdateSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec));
         #endregion Synchronous Operations
     }
 
@@ -211,7 +211,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Task of CheckResponse</returns>
-        System.Threading.Tasks.Task<CheckResponse> CheckSimulationSetupAsync (string projectId, Guid? simulationId);
+        System.Threading.Tasks.Task<CheckResponse> CheckSimulationSetupAsync (string projectId = default(string), Guid? simulationId = default(Guid?));
 
         /// <summary>
         /// Check the simulation setup
@@ -223,7 +223,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Task of ApiResponse (CheckResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CheckResponse>> CheckSimulationSetupAsyncWithHttpInfo (string projectId, Guid? simulationId);
+        System.Threading.Tasks.Task<ApiResponse<CheckResponse>> CheckSimulationSetupAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?));
         /// <summary>
         /// Create a geometry primitive for reference within a Simulation spec.
         /// </summary>
@@ -234,7 +234,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryPrimitive">Geometry primitive specification.</param>
         /// <returns>Task of GeometryPrimitiveResponse</returns>
-        System.Threading.Tasks.Task<GeometryPrimitiveResponse> CreateGeometryPrimitiveAsync (string projectId, GeometryPrimitive geometryPrimitive);
+        System.Threading.Tasks.Task<GeometryPrimitiveResponse> CreateGeometryPrimitiveAsync (string projectId = default(string), GeometryPrimitive geometryPrimitive = default(GeometryPrimitive));
 
         /// <summary>
         /// Create a geometry primitive for reference within a Simulation spec.
@@ -246,7 +246,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryPrimitive">Geometry primitive specification.</param>
         /// <returns>Task of ApiResponse (GeometryPrimitiveResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GeometryPrimitiveResponse>> CreateGeometryPrimitiveAsyncWithHttpInfo (string projectId, GeometryPrimitive geometryPrimitive);
+        System.Threading.Tasks.Task<ApiResponse<GeometryPrimitiveResponse>> CreateGeometryPrimitiveAsyncWithHttpInfo (string projectId = default(string), GeometryPrimitive geometryPrimitive = default(GeometryPrimitive));
         /// <summary>
         /// Create a simulation setup
         /// </summary>
@@ -257,7 +257,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationSpec">Simulation to be created</param>
         /// <returns>Task of Simulation</returns>
-        System.Threading.Tasks.Task<Simulation> CreateSimulationAsync (string projectId, SimulationSpec simulationSpec);
+        System.Threading.Tasks.Task<Simulation> CreateSimulationAsync (string projectId = default(string), SimulationSpec simulationSpec = default(SimulationSpec));
 
         /// <summary>
         /// Create a simulation setup
@@ -269,7 +269,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationSpec">Simulation to be created</param>
         /// <returns>Task of ApiResponse (Simulation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Simulation>> CreateSimulationAsyncWithHttpInfo (string projectId, SimulationSpec simulationSpec);
+        System.Threading.Tasks.Task<ApiResponse<Simulation>> CreateSimulationAsyncWithHttpInfo (string projectId = default(string), SimulationSpec simulationSpec = default(SimulationSpec));
         /// <summary>
         /// Estimate the simulation setup
         /// </summary>
@@ -280,7 +280,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Task of Estimation</returns>
-        System.Threading.Tasks.Task<Estimation> EstimateSimulationSetupAsync (string projectId, Guid? simulationId);
+        System.Threading.Tasks.Task<Estimation> EstimateSimulationSetupAsync (string projectId = default(string), Guid? simulationId = default(Guid?));
 
         /// <summary>
         /// Estimate the simulation setup
@@ -292,7 +292,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Task of ApiResponse (Estimation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Estimation>> EstimateSimulationSetupAsyncWithHttpInfo (string projectId, Guid? simulationId);
+        System.Threading.Tasks.Task<ApiResponse<Estimation>> EstimateSimulationSetupAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?));
         /// <summary>
         /// Get information about the simulation setup
         /// </summary>
@@ -302,9 +302,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.7&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.8&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId, Guid? simulationId, string simulationSpecSchemaVersion = default(string));
+        System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.8");
 
         /// <summary>
         /// Get information about the simulation setup
@@ -315,9 +315,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.7&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.8&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId, Guid? simulationId, string simulationSpecSchemaVersion = default(string));
+        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.8");
         /// <summary>
         /// List simulation setups within a project
         /// </summary>
@@ -329,7 +329,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of Simulations</returns>
-        System.Threading.Tasks.Task<Simulations> GetSimulationsAsync (string projectId, int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<Simulations> GetSimulationsAsync (string projectId = default(string), int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List simulation setups within a project
@@ -342,7 +342,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (Simulations)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Simulations>> GetSimulationsAsyncWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<Simulations>> GetSimulationsAsyncWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1);
         /// <summary>
         /// Update information about the simulation setup
         /// </summary>
@@ -354,7 +354,7 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateSimulationAsync (string projectId, Guid? simulationId, SimulationSpec simulationSpec);
+        System.Threading.Tasks.Task UpdateSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec));
 
         /// <summary>
         /// Update information about the simulation setup
@@ -367,7 +367,7 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSimulationAsyncWithHttpInfo (string projectId, Guid? simulationId, SimulationSpec simulationSpec);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec));
         #endregion Asynchronous Operations
     }
 
@@ -495,7 +495,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>CheckResponse</returns>
-        public CheckResponse CheckSimulationSetup (string projectId, Guid? simulationId)
+        public CheckResponse CheckSimulationSetup (string projectId = default(string), Guid? simulationId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<CheckResponse> localVarResponse = CheckSimulationSetupWithHttpInfo(projectId, simulationId);
              return localVarResponse.Data;
@@ -508,7 +508,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>ApiResponse of CheckResponse</returns>
-        public SimScale.Sdk.Client.ApiResponse< CheckResponse > CheckSimulationSetupWithHttpInfo (string projectId, Guid? simulationId)
+        public SimScale.Sdk.Client.ApiResponse< CheckResponse > CheckSimulationSetupWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -562,7 +562,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Task of CheckResponse</returns>
-        public async System.Threading.Tasks.Task<CheckResponse> CheckSimulationSetupAsync (string projectId, Guid? simulationId)
+        public async System.Threading.Tasks.Task<CheckResponse> CheckSimulationSetupAsync (string projectId = default(string), Guid? simulationId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<CheckResponse> localVarResponse = await CheckSimulationSetupAsyncWithHttpInfo(projectId, simulationId);
              return localVarResponse.Data;
@@ -576,7 +576,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Task of ApiResponse (CheckResponse)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<CheckResponse>> CheckSimulationSetupAsyncWithHttpInfo (string projectId, Guid? simulationId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<CheckResponse>> CheckSimulationSetupAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -632,7 +632,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryPrimitive">Geometry primitive specification.</param>
         /// <returns>GeometryPrimitiveResponse</returns>
-        public GeometryPrimitiveResponse CreateGeometryPrimitive (string projectId, GeometryPrimitive geometryPrimitive)
+        public GeometryPrimitiveResponse CreateGeometryPrimitive (string projectId = default(string), GeometryPrimitive geometryPrimitive = default(GeometryPrimitive))
         {
              SimScale.Sdk.Client.ApiResponse<GeometryPrimitiveResponse> localVarResponse = CreateGeometryPrimitiveWithHttpInfo(projectId, geometryPrimitive);
              return localVarResponse.Data;
@@ -645,7 +645,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryPrimitive">Geometry primitive specification.</param>
         /// <returns>ApiResponse of GeometryPrimitiveResponse</returns>
-        public SimScale.Sdk.Client.ApiResponse< GeometryPrimitiveResponse > CreateGeometryPrimitiveWithHttpInfo (string projectId, GeometryPrimitive geometryPrimitive)
+        public SimScale.Sdk.Client.ApiResponse< GeometryPrimitiveResponse > CreateGeometryPrimitiveWithHttpInfo (string projectId = default(string), GeometryPrimitive geometryPrimitive = default(GeometryPrimitive))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -700,7 +700,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryPrimitive">Geometry primitive specification.</param>
         /// <returns>Task of GeometryPrimitiveResponse</returns>
-        public async System.Threading.Tasks.Task<GeometryPrimitiveResponse> CreateGeometryPrimitiveAsync (string projectId, GeometryPrimitive geometryPrimitive)
+        public async System.Threading.Tasks.Task<GeometryPrimitiveResponse> CreateGeometryPrimitiveAsync (string projectId = default(string), GeometryPrimitive geometryPrimitive = default(GeometryPrimitive))
         {
              SimScale.Sdk.Client.ApiResponse<GeometryPrimitiveResponse> localVarResponse = await CreateGeometryPrimitiveAsyncWithHttpInfo(projectId, geometryPrimitive);
              return localVarResponse.Data;
@@ -714,7 +714,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryPrimitive">Geometry primitive specification.</param>
         /// <returns>Task of ApiResponse (GeometryPrimitiveResponse)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<GeometryPrimitiveResponse>> CreateGeometryPrimitiveAsyncWithHttpInfo (string projectId, GeometryPrimitive geometryPrimitive)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<GeometryPrimitiveResponse>> CreateGeometryPrimitiveAsyncWithHttpInfo (string projectId = default(string), GeometryPrimitive geometryPrimitive = default(GeometryPrimitive))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -771,7 +771,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationSpec">Simulation to be created</param>
         /// <returns>Simulation</returns>
-        public Simulation CreateSimulation (string projectId, SimulationSpec simulationSpec)
+        public Simulation CreateSimulation (string projectId = default(string), SimulationSpec simulationSpec = default(SimulationSpec))
         {
              SimScale.Sdk.Client.ApiResponse<Simulation> localVarResponse = CreateSimulationWithHttpInfo(projectId, simulationSpec);
              return localVarResponse.Data;
@@ -784,7 +784,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationSpec">Simulation to be created</param>
         /// <returns>ApiResponse of Simulation</returns>
-        public SimScale.Sdk.Client.ApiResponse< Simulation > CreateSimulationWithHttpInfo (string projectId, SimulationSpec simulationSpec)
+        public SimScale.Sdk.Client.ApiResponse< Simulation > CreateSimulationWithHttpInfo (string projectId = default(string), SimulationSpec simulationSpec = default(SimulationSpec))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -839,7 +839,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationSpec">Simulation to be created</param>
         /// <returns>Task of Simulation</returns>
-        public async System.Threading.Tasks.Task<Simulation> CreateSimulationAsync (string projectId, SimulationSpec simulationSpec)
+        public async System.Threading.Tasks.Task<Simulation> CreateSimulationAsync (string projectId = default(string), SimulationSpec simulationSpec = default(SimulationSpec))
         {
              SimScale.Sdk.Client.ApiResponse<Simulation> localVarResponse = await CreateSimulationAsyncWithHttpInfo(projectId, simulationSpec);
              return localVarResponse.Data;
@@ -853,7 +853,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationSpec">Simulation to be created</param>
         /// <returns>Task of ApiResponse (Simulation)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Simulation>> CreateSimulationAsyncWithHttpInfo (string projectId, SimulationSpec simulationSpec)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Simulation>> CreateSimulationAsyncWithHttpInfo (string projectId = default(string), SimulationSpec simulationSpec = default(SimulationSpec))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -910,7 +910,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Estimation</returns>
-        public Estimation EstimateSimulationSetup (string projectId, Guid? simulationId)
+        public Estimation EstimateSimulationSetup (string projectId = default(string), Guid? simulationId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<Estimation> localVarResponse = EstimateSimulationSetupWithHttpInfo(projectId, simulationId);
              return localVarResponse.Data;
@@ -923,7 +923,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>ApiResponse of Estimation</returns>
-        public SimScale.Sdk.Client.ApiResponse< Estimation > EstimateSimulationSetupWithHttpInfo (string projectId, Guid? simulationId)
+        public SimScale.Sdk.Client.ApiResponse< Estimation > EstimateSimulationSetupWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -977,7 +977,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Task of Estimation</returns>
-        public async System.Threading.Tasks.Task<Estimation> EstimateSimulationSetupAsync (string projectId, Guid? simulationId)
+        public async System.Threading.Tasks.Task<Estimation> EstimateSimulationSetupAsync (string projectId = default(string), Guid? simulationId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<Estimation> localVarResponse = await EstimateSimulationSetupAsyncWithHttpInfo(projectId, simulationId);
              return localVarResponse.Data;
@@ -991,7 +991,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <returns>Task of ApiResponse (Estimation)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Estimation>> EstimateSimulationSetupAsyncWithHttpInfo (string projectId, Guid? simulationId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Estimation>> EstimateSimulationSetupAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1046,9 +1046,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.7&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.8&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        public SimulationSpec GetSimulation (string projectId, Guid? simulationId, string simulationSpecSchemaVersion = default(string))
+        public SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.8")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = GetSimulationWithHttpInfo(projectId, simulationId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1060,9 +1060,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.7&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.8&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationWithHttpInfo (string projectId, Guid? simulationId, string simulationSpecSchemaVersion = default(string))
+        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.8")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1119,9 +1119,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.7&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.8&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId, Guid? simulationId, string simulationSpecSchemaVersion = default(string))
+        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.8")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = await GetSimulationAsyncWithHttpInfo(projectId, simulationId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1134,9 +1134,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.7&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.8&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId, Guid? simulationId, string simulationSpecSchemaVersion = default(string))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.8")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1197,7 +1197,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Simulations</returns>
-        public Simulations GetSimulations (string projectId, int? limit = default(int?), int? page = default(int?))
+        public Simulations GetSimulations (string projectId = default(string), int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<Simulations> localVarResponse = GetSimulationsWithHttpInfo(projectId, limit, page);
              return localVarResponse.Data;
@@ -1211,7 +1211,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of Simulations</returns>
-        public SimScale.Sdk.Client.ApiResponse< Simulations > GetSimulationsWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?))
+        public SimScale.Sdk.Client.ApiResponse< Simulations > GetSimulationsWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1269,7 +1269,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of Simulations</returns>
-        public async System.Threading.Tasks.Task<Simulations> GetSimulationsAsync (string projectId, int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<Simulations> GetSimulationsAsync (string projectId = default(string), int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<Simulations> localVarResponse = await GetSimulationsAsyncWithHttpInfo(projectId, limit, page);
              return localVarResponse.Data;
@@ -1284,7 +1284,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (Simulations)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Simulations>> GetSimulationsAsyncWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Simulations>> GetSimulationsAsyncWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1344,7 +1344,7 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns></returns>
-        public void UpdateSimulation (string projectId, Guid? simulationId, SimulationSpec simulationSpec)
+        public void UpdateSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec))
         {
              UpdateSimulationWithHttpInfo(projectId, simulationId, simulationSpec);
         }
@@ -1357,7 +1357,7 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public SimScale.Sdk.Client.ApiResponse<Object> UpdateSimulationWithHttpInfo (string projectId, Guid? simulationId, SimulationSpec simulationSpec)
+        public SimScale.Sdk.Client.ApiResponse<Object> UpdateSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1418,7 +1418,7 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateSimulationAsync (string projectId, Guid? simulationId, SimulationSpec simulationSpec)
+        public async System.Threading.Tasks.Task UpdateSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec))
         {
              await UpdateSimulationAsyncWithHttpInfo(projectId, simulationId, simulationSpec);
 
@@ -1432,7 +1432,7 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> UpdateSimulationAsyncWithHttpInfo (string projectId, Guid? simulationId, SimulationSpec simulationSpec)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> UpdateSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

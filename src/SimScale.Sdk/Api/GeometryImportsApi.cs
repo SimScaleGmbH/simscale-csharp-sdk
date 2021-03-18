@@ -35,7 +35,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>GeometryImportResponse</returns>
-        GeometryImportResponse GetGeometryImport (string projectId, Guid? geometryImportId);
+        GeometryImportResponse GetGeometryImport (string projectId = default(string), Guid? geometryImportId = default(Guid?));
 
         /// <summary>
         /// Get information about the geometry import
@@ -47,7 +47,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>ApiResponse of GeometryImportResponse</returns>
-        ApiResponse<GeometryImportResponse> GetGeometryImportWithHttpInfo (string projectId, Guid? geometryImportId);
+        ApiResponse<GeometryImportResponse> GetGeometryImportWithHttpInfo (string projectId = default(string), Guid? geometryImportId = default(Guid?));
         /// <summary>
         /// Get the geometry import event log
         /// </summary>
@@ -58,7 +58,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>EventLogResponse</returns>
-        EventLogResponse GetGeometryImportEventLog (string projectId, Guid? geometryImportId);
+        EventLogResponse GetGeometryImportEventLog (string projectId = default(string), Guid? geometryImportId = default(Guid?));
 
         /// <summary>
         /// Get the geometry import event log
@@ -70,7 +70,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>ApiResponse of EventLogResponse</returns>
-        ApiResponse<EventLogResponse> GetGeometryImportEventLogWithHttpInfo (string projectId, Guid? geometryImportId);
+        ApiResponse<EventLogResponse> GetGeometryImportEventLogWithHttpInfo (string projectId = default(string), Guid? geometryImportId = default(Guid?));
         /// <summary>
         /// Import a new geometry
         /// </summary>
@@ -81,7 +81,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportRequest">Geometry import specification.</param>
         /// <returns>GeometryImportResponse</returns>
-        GeometryImportResponse ImportGeometry (string projectId, GeometryImportRequest geometryImportRequest);
+        GeometryImportResponse ImportGeometry (string projectId = default(string), GeometryImportRequest geometryImportRequest = default(GeometryImportRequest));
 
         /// <summary>
         /// Import a new geometry
@@ -93,7 +93,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportRequest">Geometry import specification.</param>
         /// <returns>ApiResponse of GeometryImportResponse</returns>
-        ApiResponse<GeometryImportResponse> ImportGeometryWithHttpInfo (string projectId, GeometryImportRequest geometryImportRequest);
+        ApiResponse<GeometryImportResponse> ImportGeometryWithHttpInfo (string projectId = default(string), GeometryImportRequest geometryImportRequest = default(GeometryImportRequest));
         #endregion Synchronous Operations
     }
 
@@ -113,7 +113,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>Task of GeometryImportResponse</returns>
-        System.Threading.Tasks.Task<GeometryImportResponse> GetGeometryImportAsync (string projectId, Guid? geometryImportId);
+        System.Threading.Tasks.Task<GeometryImportResponse> GetGeometryImportAsync (string projectId = default(string), Guid? geometryImportId = default(Guid?));
 
         /// <summary>
         /// Get information about the geometry import
@@ -125,7 +125,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>Task of ApiResponse (GeometryImportResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GeometryImportResponse>> GetGeometryImportAsyncWithHttpInfo (string projectId, Guid? geometryImportId);
+        System.Threading.Tasks.Task<ApiResponse<GeometryImportResponse>> GetGeometryImportAsyncWithHttpInfo (string projectId = default(string), Guid? geometryImportId = default(Guid?));
         /// <summary>
         /// Get the geometry import event log
         /// </summary>
@@ -136,7 +136,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>Task of EventLogResponse</returns>
-        System.Threading.Tasks.Task<EventLogResponse> GetGeometryImportEventLogAsync (string projectId, Guid? geometryImportId);
+        System.Threading.Tasks.Task<EventLogResponse> GetGeometryImportEventLogAsync (string projectId = default(string), Guid? geometryImportId = default(Guid?));
 
         /// <summary>
         /// Get the geometry import event log
@@ -148,7 +148,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>Task of ApiResponse (EventLogResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventLogResponse>> GetGeometryImportEventLogAsyncWithHttpInfo (string projectId, Guid? geometryImportId);
+        System.Threading.Tasks.Task<ApiResponse<EventLogResponse>> GetGeometryImportEventLogAsyncWithHttpInfo (string projectId = default(string), Guid? geometryImportId = default(Guid?));
         /// <summary>
         /// Import a new geometry
         /// </summary>
@@ -159,7 +159,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportRequest">Geometry import specification.</param>
         /// <returns>Task of GeometryImportResponse</returns>
-        System.Threading.Tasks.Task<GeometryImportResponse> ImportGeometryAsync (string projectId, GeometryImportRequest geometryImportRequest);
+        System.Threading.Tasks.Task<GeometryImportResponse> ImportGeometryAsync (string projectId = default(string), GeometryImportRequest geometryImportRequest = default(GeometryImportRequest));
 
         /// <summary>
         /// Import a new geometry
@@ -171,7 +171,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportRequest">Geometry import specification.</param>
         /// <returns>Task of ApiResponse (GeometryImportResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GeometryImportResponse>> ImportGeometryAsyncWithHttpInfo (string projectId, GeometryImportRequest geometryImportRequest);
+        System.Threading.Tasks.Task<ApiResponse<GeometryImportResponse>> ImportGeometryAsyncWithHttpInfo (string projectId = default(string), GeometryImportRequest geometryImportRequest = default(GeometryImportRequest));
         #endregion Asynchronous Operations
     }
 
@@ -299,7 +299,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>GeometryImportResponse</returns>
-        public GeometryImportResponse GetGeometryImport (string projectId, Guid? geometryImportId)
+        public GeometryImportResponse GetGeometryImport (string projectId = default(string), Guid? geometryImportId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<GeometryImportResponse> localVarResponse = GetGeometryImportWithHttpInfo(projectId, geometryImportId);
              return localVarResponse.Data;
@@ -312,7 +312,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>ApiResponse of GeometryImportResponse</returns>
-        public SimScale.Sdk.Client.ApiResponse< GeometryImportResponse > GetGeometryImportWithHttpInfo (string projectId, Guid? geometryImportId)
+        public SimScale.Sdk.Client.ApiResponse< GeometryImportResponse > GetGeometryImportWithHttpInfo (string projectId = default(string), Guid? geometryImportId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -366,7 +366,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>Task of GeometryImportResponse</returns>
-        public async System.Threading.Tasks.Task<GeometryImportResponse> GetGeometryImportAsync (string projectId, Guid? geometryImportId)
+        public async System.Threading.Tasks.Task<GeometryImportResponse> GetGeometryImportAsync (string projectId = default(string), Guid? geometryImportId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<GeometryImportResponse> localVarResponse = await GetGeometryImportAsyncWithHttpInfo(projectId, geometryImportId);
              return localVarResponse.Data;
@@ -380,7 +380,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>Task of ApiResponse (GeometryImportResponse)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<GeometryImportResponse>> GetGeometryImportAsyncWithHttpInfo (string projectId, Guid? geometryImportId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<GeometryImportResponse>> GetGeometryImportAsyncWithHttpInfo (string projectId = default(string), Guid? geometryImportId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -436,7 +436,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>EventLogResponse</returns>
-        public EventLogResponse GetGeometryImportEventLog (string projectId, Guid? geometryImportId)
+        public EventLogResponse GetGeometryImportEventLog (string projectId = default(string), Guid? geometryImportId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<EventLogResponse> localVarResponse = GetGeometryImportEventLogWithHttpInfo(projectId, geometryImportId);
              return localVarResponse.Data;
@@ -449,7 +449,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>ApiResponse of EventLogResponse</returns>
-        public SimScale.Sdk.Client.ApiResponse< EventLogResponse > GetGeometryImportEventLogWithHttpInfo (string projectId, Guid? geometryImportId)
+        public SimScale.Sdk.Client.ApiResponse< EventLogResponse > GetGeometryImportEventLogWithHttpInfo (string projectId = default(string), Guid? geometryImportId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -503,7 +503,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>Task of EventLogResponse</returns>
-        public async System.Threading.Tasks.Task<EventLogResponse> GetGeometryImportEventLogAsync (string projectId, Guid? geometryImportId)
+        public async System.Threading.Tasks.Task<EventLogResponse> GetGeometryImportEventLogAsync (string projectId = default(string), Guid? geometryImportId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<EventLogResponse> localVarResponse = await GetGeometryImportEventLogAsyncWithHttpInfo(projectId, geometryImportId);
              return localVarResponse.Data;
@@ -517,7 +517,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportId">The geometry import ID</param>
         /// <returns>Task of ApiResponse (EventLogResponse)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<EventLogResponse>> GetGeometryImportEventLogAsyncWithHttpInfo (string projectId, Guid? geometryImportId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<EventLogResponse>> GetGeometryImportEventLogAsyncWithHttpInfo (string projectId = default(string), Guid? geometryImportId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -573,7 +573,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportRequest">Geometry import specification.</param>
         /// <returns>GeometryImportResponse</returns>
-        public GeometryImportResponse ImportGeometry (string projectId, GeometryImportRequest geometryImportRequest)
+        public GeometryImportResponse ImportGeometry (string projectId = default(string), GeometryImportRequest geometryImportRequest = default(GeometryImportRequest))
         {
              SimScale.Sdk.Client.ApiResponse<GeometryImportResponse> localVarResponse = ImportGeometryWithHttpInfo(projectId, geometryImportRequest);
              return localVarResponse.Data;
@@ -586,7 +586,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportRequest">Geometry import specification.</param>
         /// <returns>ApiResponse of GeometryImportResponse</returns>
-        public SimScale.Sdk.Client.ApiResponse< GeometryImportResponse > ImportGeometryWithHttpInfo (string projectId, GeometryImportRequest geometryImportRequest)
+        public SimScale.Sdk.Client.ApiResponse< GeometryImportResponse > ImportGeometryWithHttpInfo (string projectId = default(string), GeometryImportRequest geometryImportRequest = default(GeometryImportRequest))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -641,7 +641,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportRequest">Geometry import specification.</param>
         /// <returns>Task of GeometryImportResponse</returns>
-        public async System.Threading.Tasks.Task<GeometryImportResponse> ImportGeometryAsync (string projectId, GeometryImportRequest geometryImportRequest)
+        public async System.Threading.Tasks.Task<GeometryImportResponse> ImportGeometryAsync (string projectId = default(string), GeometryImportRequest geometryImportRequest = default(GeometryImportRequest))
         {
              SimScale.Sdk.Client.ApiResponse<GeometryImportResponse> localVarResponse = await ImportGeometryAsyncWithHttpInfo(projectId, geometryImportRequest);
              return localVarResponse.Data;
@@ -655,7 +655,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryImportRequest">Geometry import specification.</param>
         /// <returns>Task of ApiResponse (GeometryImportResponse)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<GeometryImportResponse>> ImportGeometryAsyncWithHttpInfo (string projectId, GeometryImportRequest geometryImportRequest)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<GeometryImportResponse>> ImportGeometryAsyncWithHttpInfo (string projectId = default(string), GeometryImportRequest geometryImportRequest = default(GeometryImportRequest))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

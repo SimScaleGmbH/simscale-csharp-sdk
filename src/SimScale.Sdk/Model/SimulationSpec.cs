@@ -37,11 +37,11 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SimulationSpec" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        /// <param name="version">version (required) (default to &quot;0.7&quot;).</param>
+        /// <param name="version">version (required) (default to &quot;0.8&quot;).</param>
         /// <param name="geometryId">geometryId (required).</param>
-        /// <param name="meshId">The generated mesh ID which is to be used in the simualtion. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, &#39;SIMERICS_ANALYSIS&#39; etc..</param>
+        /// <param name="meshId">The generated mesh ID which is to be used in the simulation. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, and &#39;SIMERICS_ANALYSIS&#39;..</param>
         /// <param name="model">model (required).</param>
-        public SimulationSpec(string name = default(string), string version = "0.7", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis))
+        public SimulationSpec(string name = default(string), string version = "0.8", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SimulationSpec and cannot be null");
@@ -91,9 +91,9 @@ namespace SimScale.Sdk.Model
         public Guid? GeometryId { get; set; }
 
         /// <summary>
-        /// The generated mesh ID which is to be used in the simualtion. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, &#39;SIMERICS_ANALYSIS&#39; etc.
+        /// The generated mesh ID which is to be used in the simulation. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, and &#39;SIMERICS_ANALYSIS&#39;.
         /// </summary>
-        /// <value>The generated mesh ID which is to be used in the simualtion. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, &#39;SIMERICS_ANALYSIS&#39; etc.</value>
+        /// <value>The generated mesh ID which is to be used in the simulation. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, and &#39;SIMERICS_ANALYSIS&#39;.</value>
         [DataMember(Name="meshId", EmitDefaultValue=false)]
         public Guid? MeshId { get; set; }
 

@@ -68,7 +68,6 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ThermalMechanical" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;THERMAL_MECHANICAL&quot;).</param>
-        /// <param name="meshSpecId">meshSpecId.</param>
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="inertiaEffect">&lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading velocities or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt; (default to &quot;STATIC&quot;).</param>
         /// <param name="nonLinearAnalysis">&lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt; (default to false).</param>
@@ -82,11 +81,10 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.NONE).</param>
-        public ThermalMechanical(string type = "THERMAL_MECHANICAL", Guid? meshSpecId = default(Guid?), OneOfThermalMechanicalTimeDependency timeDependency = default(OneOfThermalMechanicalTimeDependency), string inertiaEffect = default(string), bool? nonLinearAnalysis = default(bool?), List<OneOfThermalMechanicalConnectionGroups> connectionGroups = default(List<OneOfThermalMechanicalConnectionGroups>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfThermalMechanicalBoundaryConditions> boundaryConditions = default(List<OneOfThermalMechanicalBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public ThermalMechanical(string type = "THERMAL_MECHANICAL", OneOfThermalMechanicalTimeDependency timeDependency = default(OneOfThermalMechanicalTimeDependency), string inertiaEffect = default(string), bool? nonLinearAnalysis = default(bool?), List<OneOfThermalMechanicalConnectionGroups> connectionGroups = default(List<OneOfThermalMechanicalConnectionGroups>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfThermalMechanicalBoundaryConditions> boundaryConditions = default(List<OneOfThermalMechanicalBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ThermalMechanical and cannot be null");
-            this.MeshSpecId = meshSpecId;
             this.TimeDependency = timeDependency;
             this.InertiaEffect = inertiaEffect;
             this.NonLinearAnalysis = nonLinearAnalysis;
@@ -107,12 +105,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MeshSpecId
-        /// </summary>
-        [DataMember(Name="meshSpecId", EmitDefaultValue=false)]
-        public Guid? MeshSpecId { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeDependency
@@ -197,7 +189,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ThermalMechanical {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  MeshSpecId: ").Append(MeshSpecId).Append("\n");
             sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
             sb.Append("  InertiaEffect: ").Append(InertiaEffect).Append("\n");
             sb.Append("  NonLinearAnalysis: ").Append(NonLinearAnalysis).Append("\n");
@@ -249,11 +240,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.MeshSpecId == input.MeshSpecId ||
-                    (this.MeshSpecId != null &&
-                    this.MeshSpecId.Equals(input.MeshSpecId))
                 ) && 
                 (
                     this.TimeDependency == input.TimeDependency ||
@@ -335,8 +321,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.MeshSpecId != null)
-                    hashCode = hashCode * 59 + this.MeshSpecId.GetHashCode();
                 if (this.TimeDependency != null)
                     hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
                 if (this.InertiaEffect != null)

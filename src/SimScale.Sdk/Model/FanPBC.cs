@@ -65,15 +65,13 @@ namespace SimScale.Sdk.Model
         /// <param name="fanPressure">fanPressure.</param>
         /// <param name="direction">direction (default to DirectionEnum.IN).</param>
         /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
-        /// <param name="gamma">gamma.</param>
-        public FanPBC(string type = "FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DirectionEnum? direction = default(DirectionEnum?), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure), DimensionalDimensionless gamma = default(DimensionalDimensionless))
+        public FanPBC(string type = "FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DirectionEnum? direction = default(DirectionEnum?), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPBC and cannot be null");
             this.FanPressure = fanPressure;
             this.Direction = direction;
             this.EnvironmentalTotalPressure = environmentalTotalPressure;
-            this.Gamma = gamma;
         }
         
         /// <summary>
@@ -95,12 +93,6 @@ namespace SimScale.Sdk.Model
         public DimensionalPressure EnvironmentalTotalPressure { get; set; }
 
         /// <summary>
-        /// Gets or Sets Gamma
-        /// </summary>
-        [DataMember(Name="gamma", EmitDefaultValue=false)]
-        public DimensionalDimensionless Gamma { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,7 +104,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
             sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  EnvironmentalTotalPressure: ").Append(EnvironmentalTotalPressure).Append("\n");
-            sb.Append("  Gamma: ").Append(Gamma).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,11 +156,6 @@ namespace SimScale.Sdk.Model
                     this.EnvironmentalTotalPressure == input.EnvironmentalTotalPressure ||
                     (this.EnvironmentalTotalPressure != null &&
                     this.EnvironmentalTotalPressure.Equals(input.EnvironmentalTotalPressure))
-                ) && 
-                (
-                    this.Gamma == input.Gamma ||
-                    (this.Gamma != null &&
-                    this.Gamma.Equals(input.Gamma))
                 );
         }
 
@@ -189,8 +175,6 @@ namespace SimScale.Sdk.Model
                 hashCode = hashCode * 59 + this.Direction.GetHashCode();
                 if (this.EnvironmentalTotalPressure != null)
                     hashCode = hashCode * 59 + this.EnvironmentalTotalPressure.GetHashCode();
-                if (this.Gamma != null)
-                    hashCode = hashCode * 59 + this.Gamma.GetHashCode();
                 return hashCode;
             }
         }

@@ -77,7 +77,6 @@ namespace SimScale.Sdk.Model
         /// Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
         /// <value>Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
         public enum NumOfPassiveSpeciesEnum
         {
             /// <summary>
@@ -152,7 +151,6 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ConvectiveHeatTransfer" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;CONVECTIVE_HEAT_TRANSFER&quot;).</param>
-        /// <param name="meshSpecId">meshSpecId.</param>
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.NONE).</param>
@@ -166,11 +164,10 @@ namespace SimScale.Sdk.Model
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
-        public ConvectiveHeatTransfer(string type = "CONVECTIVE_HEAT_TRANSFER", Guid? meshSpecId = default(Guid?), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfConvectiveHeatTransferTimeDependency timeDependency = default(OneOfConvectiveHeatTransferTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), FluidModel model = default(FluidModel), ConvectiveHeatTransferMaterials materials = default(ConvectiveHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfConvectiveHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfConvectiveHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
+        public ConvectiveHeatTransfer(string type = "CONVECTIVE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfConvectiveHeatTransferTimeDependency timeDependency = default(OneOfConvectiveHeatTransferTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), FluidModel model = default(FluidModel), ConvectiveHeatTransferMaterials materials = default(ConvectiveHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfConvectiveHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfConvectiveHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ConvectiveHeatTransfer and cannot be null");
-            this.MeshSpecId = meshSpecId;
             this.IsCompressible = isCompressible;
             this.EnableRadiation = enableRadiation;
             this.TurbulenceModel = turbulenceModel;
@@ -191,12 +188,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MeshSpecId
-        /// </summary>
-        [DataMember(Name="meshSpecId", EmitDefaultValue=false)]
-        public Guid? MeshSpecId { get; set; }
 
         /// <summary>
         /// &lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt;
@@ -275,7 +266,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ConvectiveHeatTransfer {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  MeshSpecId: ").Append(MeshSpecId).Append("\n");
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
@@ -327,11 +317,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.MeshSpecId == input.MeshSpecId ||
-                    (this.MeshSpecId != null &&
-                    this.MeshSpecId.Equals(input.MeshSpecId))
                 ) && 
                 (
                     this.IsCompressible == input.IsCompressible ||
@@ -410,8 +395,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.MeshSpecId != null)
-                    hashCode = hashCode * 59 + this.MeshSpecId.GetHashCode();
                 if (this.IsCompressible != null)
                     hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
                 if (this.EnableRadiation != null)

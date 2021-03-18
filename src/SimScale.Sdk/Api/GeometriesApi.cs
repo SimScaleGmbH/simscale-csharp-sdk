@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Geometries</returns>
-        Geometries GetGeometries (string projectId, int? limit = default(int?), int? page = default(int?));
+        Geometries GetGeometries (string projectId = default(string), int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List geometries within a project
@@ -49,7 +49,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of Geometries</returns>
-        ApiResponse<Geometries> GetGeometriesWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?));
+        ApiResponse<Geometries> GetGeometriesWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1);
         /// <summary>
         /// Get information about the geometry
         /// </summary>
@@ -60,7 +60,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryId">The geometry ID</param>
         /// <returns>Geometry</returns>
-        Geometry GetGeometry (string projectId, Guid? geometryId);
+        Geometry GetGeometry (string projectId = default(string), Guid? geometryId = default(Guid?));
 
         /// <summary>
         /// Get information about the geometry
@@ -72,12 +72,12 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryId">The geometry ID</param>
         /// <returns>ApiResponse of Geometry</returns>
-        ApiResponse<Geometry> GetGeometryWithHttpInfo (string projectId, Guid? geometryId);
+        ApiResponse<Geometry> GetGeometryWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?));
         /// <summary>
         /// Describe id mapping of the geometry
         /// </summary>
         /// <remarks>
-        /// Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
+        /// Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * Entity attributes like &#x60;SDL/TYSA_NAME&#x60; or &#x60;SDL/TYSA_COLOUR&#x60; * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -87,14 +87,16 @@ namespace SimScale.Sdk.Api
         /// <param name="_class">The entity class to filter. (optional)</param>
         /// <param name="bodies">The body names to filter. If multiple body names are provided any match. (optional)</param>
         /// <param name="entities">The entity names to filter. If multiple entity names are provided any match. (optional)</param>
+        /// <param name="attributes">The attribute names to filter. If multiple attribute names are provided any match. (optional)</param>
+        /// <param name="values">The attribute values to filter. If multiple attribute values are provided any match. (optional)</param>
         /// <returns>GeometryMappings</returns>
-        GeometryMappings GetGeometryMappings (string projectId, Guid? geometryId, int? limit = default(int?), int? page = default(int?), string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>));
+        GeometryMappings GetGeometryMappings (string projectId = default(string), Guid? geometryId = default(Guid?), int? limit = 100, int? page = 1, string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>), List<string> attributes = default(List<string>), List<string> values = default(List<string>));
 
         /// <summary>
         /// Describe id mapping of the geometry
         /// </summary>
         /// <remarks>
-        /// Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
+        /// Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * Entity attributes like &#x60;SDL/TYSA_NAME&#x60; or &#x60;SDL/TYSA_COLOUR&#x60; * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -104,8 +106,10 @@ namespace SimScale.Sdk.Api
         /// <param name="_class">The entity class to filter. (optional)</param>
         /// <param name="bodies">The body names to filter. If multiple body names are provided any match. (optional)</param>
         /// <param name="entities">The entity names to filter. If multiple entity names are provided any match. (optional)</param>
+        /// <param name="attributes">The attribute names to filter. If multiple attribute names are provided any match. (optional)</param>
+        /// <param name="values">The attribute values to filter. If multiple attribute values are provided any match. (optional)</param>
         /// <returns>ApiResponse of GeometryMappings</returns>
-        ApiResponse<GeometryMappings> GetGeometryMappingsWithHttpInfo (string projectId, Guid? geometryId, int? limit = default(int?), int? page = default(int?), string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>));
+        ApiResponse<GeometryMappings> GetGeometryMappingsWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?), int? limit = 100, int? page = 1, string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>), List<string> attributes = default(List<string>), List<string> values = default(List<string>));
         /// <summary>
         /// Update geometry information
         /// </summary>
@@ -117,7 +121,7 @@ namespace SimScale.Sdk.Api
         /// <param name="geometryId">The geometry ID</param>
         /// <param name="geometry">Geometry information to be updated</param>
         /// <returns></returns>
-        void UpdateGeometry (string projectId, Guid? geometryId, Geometry geometry);
+        void UpdateGeometry (string projectId = default(string), Guid? geometryId = default(Guid?), Geometry geometry = default(Geometry));
 
         /// <summary>
         /// Update geometry information
@@ -130,7 +134,7 @@ namespace SimScale.Sdk.Api
         /// <param name="geometryId">The geometry ID</param>
         /// <param name="geometry">Geometry information to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateGeometryWithHttpInfo (string projectId, Guid? geometryId, Geometry geometry);
+        ApiResponse<Object> UpdateGeometryWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?), Geometry geometry = default(Geometry));
         #endregion Synchronous Operations
     }
 
@@ -151,7 +155,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of Geometries</returns>
-        System.Threading.Tasks.Task<Geometries> GetGeometriesAsync (string projectId, int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<Geometries> GetGeometriesAsync (string projectId = default(string), int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List geometries within a project
@@ -164,7 +168,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (Geometries)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Geometries>> GetGeometriesAsyncWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<Geometries>> GetGeometriesAsyncWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1);
         /// <summary>
         /// Get information about the geometry
         /// </summary>
@@ -175,7 +179,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryId">The geometry ID</param>
         /// <returns>Task of Geometry</returns>
-        System.Threading.Tasks.Task<Geometry> GetGeometryAsync (string projectId, Guid? geometryId);
+        System.Threading.Tasks.Task<Geometry> GetGeometryAsync (string projectId = default(string), Guid? geometryId = default(Guid?));
 
         /// <summary>
         /// Get information about the geometry
@@ -187,12 +191,12 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryId">The geometry ID</param>
         /// <returns>Task of ApiResponse (Geometry)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Geometry>> GetGeometryAsyncWithHttpInfo (string projectId, Guid? geometryId);
+        System.Threading.Tasks.Task<ApiResponse<Geometry>> GetGeometryAsyncWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?));
         /// <summary>
         /// Describe id mapping of the geometry
         /// </summary>
         /// <remarks>
-        /// Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
+        /// Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * Entity attributes like &#x60;SDL/TYSA_NAME&#x60; or &#x60;SDL/TYSA_COLOUR&#x60; * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -202,14 +206,16 @@ namespace SimScale.Sdk.Api
         /// <param name="_class">The entity class to filter. (optional)</param>
         /// <param name="bodies">The body names to filter. If multiple body names are provided any match. (optional)</param>
         /// <param name="entities">The entity names to filter. If multiple entity names are provided any match. (optional)</param>
+        /// <param name="attributes">The attribute names to filter. If multiple attribute names are provided any match. (optional)</param>
+        /// <param name="values">The attribute values to filter. If multiple attribute values are provided any match. (optional)</param>
         /// <returns>Task of GeometryMappings</returns>
-        System.Threading.Tasks.Task<GeometryMappings> GetGeometryMappingsAsync (string projectId, Guid? geometryId, int? limit = default(int?), int? page = default(int?), string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>));
+        System.Threading.Tasks.Task<GeometryMappings> GetGeometryMappingsAsync (string projectId = default(string), Guid? geometryId = default(Guid?), int? limit = 100, int? page = 1, string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>), List<string> attributes = default(List<string>), List<string> values = default(List<string>));
 
         /// <summary>
         /// Describe id mapping of the geometry
         /// </summary>
         /// <remarks>
-        /// Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
+        /// Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * Entity attributes like &#x60;SDL/TYSA_NAME&#x60; or &#x60;SDL/TYSA_COLOUR&#x60; * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -219,8 +225,10 @@ namespace SimScale.Sdk.Api
         /// <param name="_class">The entity class to filter. (optional)</param>
         /// <param name="bodies">The body names to filter. If multiple body names are provided any match. (optional)</param>
         /// <param name="entities">The entity names to filter. If multiple entity names are provided any match. (optional)</param>
+        /// <param name="attributes">The attribute names to filter. If multiple attribute names are provided any match. (optional)</param>
+        /// <param name="values">The attribute values to filter. If multiple attribute values are provided any match. (optional)</param>
         /// <returns>Task of ApiResponse (GeometryMappings)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GeometryMappings>> GetGeometryMappingsAsyncWithHttpInfo (string projectId, Guid? geometryId, int? limit = default(int?), int? page = default(int?), string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>));
+        System.Threading.Tasks.Task<ApiResponse<GeometryMappings>> GetGeometryMappingsAsyncWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?), int? limit = 100, int? page = 1, string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>), List<string> attributes = default(List<string>), List<string> values = default(List<string>));
         /// <summary>
         /// Update geometry information
         /// </summary>
@@ -232,7 +240,7 @@ namespace SimScale.Sdk.Api
         /// <param name="geometryId">The geometry ID</param>
         /// <param name="geometry">Geometry information to be updated</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateGeometryAsync (string projectId, Guid? geometryId, Geometry geometry);
+        System.Threading.Tasks.Task UpdateGeometryAsync (string projectId = default(string), Guid? geometryId = default(Guid?), Geometry geometry = default(Geometry));
 
         /// <summary>
         /// Update geometry information
@@ -245,7 +253,7 @@ namespace SimScale.Sdk.Api
         /// <param name="geometryId">The geometry ID</param>
         /// <param name="geometry">Geometry information to be updated</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateGeometryAsyncWithHttpInfo (string projectId, Guid? geometryId, Geometry geometry);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateGeometryAsyncWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?), Geometry geometry = default(Geometry));
         #endregion Asynchronous Operations
     }
 
@@ -374,7 +382,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Geometries</returns>
-        public Geometries GetGeometries (string projectId, int? limit = default(int?), int? page = default(int?))
+        public Geometries GetGeometries (string projectId = default(string), int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<Geometries> localVarResponse = GetGeometriesWithHttpInfo(projectId, limit, page);
              return localVarResponse.Data;
@@ -388,7 +396,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of Geometries</returns>
-        public SimScale.Sdk.Client.ApiResponse< Geometries > GetGeometriesWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?))
+        public SimScale.Sdk.Client.ApiResponse< Geometries > GetGeometriesWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -446,7 +454,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of Geometries</returns>
-        public async System.Threading.Tasks.Task<Geometries> GetGeometriesAsync (string projectId, int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<Geometries> GetGeometriesAsync (string projectId = default(string), int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<Geometries> localVarResponse = await GetGeometriesAsyncWithHttpInfo(projectId, limit, page);
              return localVarResponse.Data;
@@ -461,7 +469,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (Geometries)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Geometries>> GetGeometriesAsyncWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Geometries>> GetGeometriesAsyncWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -520,7 +528,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryId">The geometry ID</param>
         /// <returns>Geometry</returns>
-        public Geometry GetGeometry (string projectId, Guid? geometryId)
+        public Geometry GetGeometry (string projectId = default(string), Guid? geometryId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<Geometry> localVarResponse = GetGeometryWithHttpInfo(projectId, geometryId);
              return localVarResponse.Data;
@@ -533,7 +541,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryId">The geometry ID</param>
         /// <returns>ApiResponse of Geometry</returns>
-        public SimScale.Sdk.Client.ApiResponse< Geometry > GetGeometryWithHttpInfo (string projectId, Guid? geometryId)
+        public SimScale.Sdk.Client.ApiResponse< Geometry > GetGeometryWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -587,7 +595,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryId">The geometry ID</param>
         /// <returns>Task of Geometry</returns>
-        public async System.Threading.Tasks.Task<Geometry> GetGeometryAsync (string projectId, Guid? geometryId)
+        public async System.Threading.Tasks.Task<Geometry> GetGeometryAsync (string projectId = default(string), Guid? geometryId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<Geometry> localVarResponse = await GetGeometryAsyncWithHttpInfo(projectId, geometryId);
              return localVarResponse.Data;
@@ -601,7 +609,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="geometryId">The geometry ID</param>
         /// <returns>Task of ApiResponse (Geometry)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Geometry>> GetGeometryAsyncWithHttpInfo (string projectId, Guid? geometryId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Geometry>> GetGeometryAsyncWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -651,7 +659,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Describe id mapping of the geometry Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
+        /// Describe id mapping of the geometry Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * Entity attributes like &#x60;SDL/TYSA_NAME&#x60; or &#x60;SDL/TYSA_COLOUR&#x60; * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -661,15 +669,17 @@ namespace SimScale.Sdk.Api
         /// <param name="_class">The entity class to filter. (optional)</param>
         /// <param name="bodies">The body names to filter. If multiple body names are provided any match. (optional)</param>
         /// <param name="entities">The entity names to filter. If multiple entity names are provided any match. (optional)</param>
+        /// <param name="attributes">The attribute names to filter. If multiple attribute names are provided any match. (optional)</param>
+        /// <param name="values">The attribute values to filter. If multiple attribute values are provided any match. (optional)</param>
         /// <returns>GeometryMappings</returns>
-        public GeometryMappings GetGeometryMappings (string projectId, Guid? geometryId, int? limit = default(int?), int? page = default(int?), string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>))
+        public GeometryMappings GetGeometryMappings (string projectId = default(string), Guid? geometryId = default(Guid?), int? limit = 100, int? page = 1, string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>), List<string> attributes = default(List<string>), List<string> values = default(List<string>))
         {
-             SimScale.Sdk.Client.ApiResponse<GeometryMappings> localVarResponse = GetGeometryMappingsWithHttpInfo(projectId, geometryId, limit, page, _class, bodies, entities);
+             SimScale.Sdk.Client.ApiResponse<GeometryMappings> localVarResponse = GetGeometryMappingsWithHttpInfo(projectId, geometryId, limit, page, _class, bodies, entities, attributes, values);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Describe id mapping of the geometry Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
+        /// Describe id mapping of the geometry Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * Entity attributes like &#x60;SDL/TYSA_NAME&#x60; or &#x60;SDL/TYSA_COLOUR&#x60; * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -679,8 +689,10 @@ namespace SimScale.Sdk.Api
         /// <param name="_class">The entity class to filter. (optional)</param>
         /// <param name="bodies">The body names to filter. If multiple body names are provided any match. (optional)</param>
         /// <param name="entities">The entity names to filter. If multiple entity names are provided any match. (optional)</param>
+        /// <param name="attributes">The attribute names to filter. If multiple attribute names are provided any match. (optional)</param>
+        /// <param name="values">The attribute values to filter. If multiple attribute values are provided any match. (optional)</param>
         /// <returns>ApiResponse of GeometryMappings</returns>
-        public SimScale.Sdk.Client.ApiResponse< GeometryMappings > GetGeometryMappingsWithHttpInfo (string projectId, Guid? geometryId, int? limit = default(int?), int? page = default(int?), string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>))
+        public SimScale.Sdk.Client.ApiResponse< GeometryMappings > GetGeometryMappingsWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?), int? limit = 100, int? page = 1, string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>), List<string> attributes = default(List<string>), List<string> values = default(List<string>))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -728,6 +740,14 @@ namespace SimScale.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "entities", entities));
             }
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "attributes", attributes));
+            }
+            if (values != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "values", values));
+            }
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -748,7 +768,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Describe id mapping of the geometry Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
+        /// Describe id mapping of the geometry Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * Entity attributes like &#x60;SDL/TYSA_NAME&#x60; or &#x60;SDL/TYSA_COLOUR&#x60; * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -758,16 +778,18 @@ namespace SimScale.Sdk.Api
         /// <param name="_class">The entity class to filter. (optional)</param>
         /// <param name="bodies">The body names to filter. If multiple body names are provided any match. (optional)</param>
         /// <param name="entities">The entity names to filter. If multiple entity names are provided any match. (optional)</param>
+        /// <param name="attributes">The attribute names to filter. If multiple attribute names are provided any match. (optional)</param>
+        /// <param name="values">The attribute values to filter. If multiple attribute values are provided any match. (optional)</param>
         /// <returns>Task of GeometryMappings</returns>
-        public async System.Threading.Tasks.Task<GeometryMappings> GetGeometryMappingsAsync (string projectId, Guid? geometryId, int? limit = default(int?), int? page = default(int?), string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>))
+        public async System.Threading.Tasks.Task<GeometryMappings> GetGeometryMappingsAsync (string projectId = default(string), Guid? geometryId = default(Guid?), int? limit = 100, int? page = 1, string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>), List<string> attributes = default(List<string>), List<string> values = default(List<string>))
         {
-             SimScale.Sdk.Client.ApiResponse<GeometryMappings> localVarResponse = await GetGeometryMappingsAsyncWithHttpInfo(projectId, geometryId, limit, page, _class, bodies, entities);
+             SimScale.Sdk.Client.ApiResponse<GeometryMappings> localVarResponse = await GetGeometryMappingsAsyncWithHttpInfo(projectId, geometryId, limit, page, _class, bodies, entities, attributes, values);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Describe id mapping of the geometry Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
+        /// Describe id mapping of the geometry Assignment of topological entities (faces, bodies) in the simulation setup is a non-trivial task. Complex models can consist of several assemblies which may contain multiple occurrences of bodies and their entities. In order to describe an assignment unambiguously the full path from the root part of the model to the actual topological entity is required.  SimScale generates unique internal names for all topological entities of a model during the geometry import which are used for assignments within the simulation spec. Examples of internal names are &#x60;B1_TE5&#x60; or &#x60;A1_I26_A5_I27_B102_TE196&#x60;.  This API endpoint allows to retrieve a mapping between the internal names and a detailed description of the entities which includes: * The topological entity class (body or face) * The original body and entity names * Entity attributes like &#x60;SDL/TYSA_NAME&#x60; or &#x60;SDL/TYSA_COLOUR&#x60; * The path from the root of the model  Please note that during geometry import the model&#39;s topology can be modified (e.g. facet split and other import options) which means that there is no 1:1 mapping between the internal and original names. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -777,8 +799,10 @@ namespace SimScale.Sdk.Api
         /// <param name="_class">The entity class to filter. (optional)</param>
         /// <param name="bodies">The body names to filter. If multiple body names are provided any match. (optional)</param>
         /// <param name="entities">The entity names to filter. If multiple entity names are provided any match. (optional)</param>
+        /// <param name="attributes">The attribute names to filter. If multiple attribute names are provided any match. (optional)</param>
+        /// <param name="values">The attribute values to filter. If multiple attribute values are provided any match. (optional)</param>
         /// <returns>Task of ApiResponse (GeometryMappings)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<GeometryMappings>> GetGeometryMappingsAsyncWithHttpInfo (string projectId, Guid? geometryId, int? limit = default(int?), int? page = default(int?), string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<GeometryMappings>> GetGeometryMappingsAsyncWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?), int? limit = 100, int? page = 1, string _class = default(string), List<string> bodies = default(List<string>), List<string> entities = default(List<string>), List<string> attributes = default(List<string>), List<string> values = default(List<string>))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -827,6 +851,14 @@ namespace SimScale.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "entities", entities));
             }
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "attributes", attributes));
+            }
+            if (values != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "values", values));
+            }
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -855,7 +887,7 @@ namespace SimScale.Sdk.Api
         /// <param name="geometryId">The geometry ID</param>
         /// <param name="geometry">Geometry information to be updated</param>
         /// <returns></returns>
-        public void UpdateGeometry (string projectId, Guid? geometryId, Geometry geometry)
+        public void UpdateGeometry (string projectId = default(string), Guid? geometryId = default(Guid?), Geometry geometry = default(Geometry))
         {
              UpdateGeometryWithHttpInfo(projectId, geometryId, geometry);
         }
@@ -868,7 +900,7 @@ namespace SimScale.Sdk.Api
         /// <param name="geometryId">The geometry ID</param>
         /// <param name="geometry">Geometry information to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public SimScale.Sdk.Client.ApiResponse<Object> UpdateGeometryWithHttpInfo (string projectId, Guid? geometryId, Geometry geometry)
+        public SimScale.Sdk.Client.ApiResponse<Object> UpdateGeometryWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?), Geometry geometry = default(Geometry))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -929,7 +961,7 @@ namespace SimScale.Sdk.Api
         /// <param name="geometryId">The geometry ID</param>
         /// <param name="geometry">Geometry information to be updated</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateGeometryAsync (string projectId, Guid? geometryId, Geometry geometry)
+        public async System.Threading.Tasks.Task UpdateGeometryAsync (string projectId = default(string), Guid? geometryId = default(Guid?), Geometry geometry = default(Geometry))
         {
              await UpdateGeometryAsyncWithHttpInfo(projectId, geometryId, geometry);
 
@@ -943,7 +975,7 @@ namespace SimScale.Sdk.Api
         /// <param name="geometryId">The geometry ID</param>
         /// <param name="geometry">Geometry information to be updated</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> UpdateGeometryAsyncWithHttpInfo (string projectId, Guid? geometryId, Geometry geometry)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> UpdateGeometryAsyncWithHttpInfo (string projectId = default(string), Guid? geometryId = default(Guid?), Geometry geometry = default(Geometry))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

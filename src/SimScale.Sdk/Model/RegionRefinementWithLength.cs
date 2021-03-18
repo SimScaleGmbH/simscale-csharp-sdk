@@ -40,15 +40,15 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
         /// <param name="refinement">refinement.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        /// <param name="geometryPrimitives">geometryPrimitives.</param>
-        public RegionRefinementWithLength(string type = "REGION_LENGTH", string name = default(string), OneOfRegionRefinementWithLengthRefinement refinement = default(OneOfRegionRefinementWithLengthRefinement), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitives = default(List<Guid?>))
+        /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
+        public RegionRefinementWithLength(string type = "REGION_LENGTH", string name = default(string), OneOfRegionRefinementWithLengthRefinement refinement = default(OneOfRegionRefinementWithLengthRefinement), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RegionRefinementWithLength and cannot be null");
             this.Name = name;
             this.Refinement = refinement;
             this.TopologicalReference = topologicalReference;
-            this.GeometryPrimitives = geometryPrimitives;
+            this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         
         /// <summary>
@@ -76,10 +76,10 @@ namespace SimScale.Sdk.Model
         public TopologicalReference TopologicalReference { get; set; }
 
         /// <summary>
-        /// Gets or Sets GeometryPrimitives
+        /// Gets or Sets GeometryPrimitiveUuids
         /// </summary>
-        [DataMember(Name="geometryPrimitives", EmitDefaultValue=false)]
-        public List<Guid?> GeometryPrimitives { get; set; }
+        [DataMember(Name="geometryPrimitiveUuids", EmitDefaultValue=false)]
+        public List<Guid?> GeometryPrimitiveUuids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,7 +93,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Refinement: ").Append(Refinement).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
-            sb.Append("  GeometryPrimitives: ").Append(GeometryPrimitives).Append("\n");
+            sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -149,10 +149,10 @@ namespace SimScale.Sdk.Model
                     this.TopologicalReference.Equals(input.TopologicalReference))
                 ) && 
                 (
-                    this.GeometryPrimitives == input.GeometryPrimitives ||
-                    this.GeometryPrimitives != null &&
-                    input.GeometryPrimitives != null &&
-                    this.GeometryPrimitives.SequenceEqual(input.GeometryPrimitives)
+                    this.GeometryPrimitiveUuids == input.GeometryPrimitiveUuids ||
+                    this.GeometryPrimitiveUuids != null &&
+                    input.GeometryPrimitiveUuids != null &&
+                    this.GeometryPrimitiveUuids.SequenceEqual(input.GeometryPrimitiveUuids)
                 );
         }
 
@@ -173,8 +173,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Refinement.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
-                if (this.GeometryPrimitives != null)
-                    hashCode = hashCode * 59 + this.GeometryPrimitives.GetHashCode();
+                if (this.GeometryPrimitiveUuids != null)
+                    hashCode = hashCode * 59 + this.GeometryPrimitiveUuids.GetHashCode();
                 return hashCode;
             }
         }

@@ -41,8 +41,9 @@ namespace SimScale.Sdk.Model
         /// <param name="velocity">velocity.</param>
         /// <param name="phaseFraction">phaseFraction.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
+        /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public VelocityOutletBC(string type = "VELOCITY_OUTLET_V7", string name = default(string), OneOfVelocityOutletBCVelocity velocity = default(OneOfVelocityOutletBCVelocity), OneOfVelocityOutletBCPhaseFraction phaseFraction = default(OneOfVelocityOutletBCPhaseFraction), OneOfVelocityOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityOutletBCNetRadiativeHeatFlux), TopologicalReference topologicalReference = default(TopologicalReference))
+        public VelocityOutletBC(string type = "VELOCITY_OUTLET_V7", string name = default(string), OneOfVelocityOutletBCVelocity velocity = default(OneOfVelocityOutletBCVelocity), OneOfVelocityOutletBCPhaseFraction phaseFraction = default(OneOfVelocityOutletBCPhaseFraction), OneOfVelocityOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityOutletBCNetRadiativeHeatFlux), OneOfVelocityOutletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfVelocityOutletBCRadiativeIntensityRay), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VelocityOutletBC and cannot be null");
@@ -50,6 +51,7 @@ namespace SimScale.Sdk.Model
             this.Velocity = velocity;
             this.PhaseFraction = phaseFraction;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
+            this.RadiativeIntensityRay = radiativeIntensityRay;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -84,6 +86,12 @@ namespace SimScale.Sdk.Model
         public OneOfVelocityOutletBCNetRadiativeHeatFlux NetRadiativeHeatFlux { get; set; }
 
         /// <summary>
+        /// Gets or Sets RadiativeIntensityRay
+        /// </summary>
+        [DataMember(Name="radiativeIntensityRay", EmitDefaultValue=false)]
+        public OneOfVelocityOutletBCRadiativeIntensityRay RadiativeIntensityRay { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -102,6 +110,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Velocity: ").Append(Velocity).Append("\n");
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
+            sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -163,6 +172,11 @@ namespace SimScale.Sdk.Model
                     this.NetRadiativeHeatFlux.Equals(input.NetRadiativeHeatFlux))
                 ) && 
                 (
+                    this.RadiativeIntensityRay == input.RadiativeIntensityRay ||
+                    (this.RadiativeIntensityRay != null &&
+                    this.RadiativeIntensityRay.Equals(input.RadiativeIntensityRay))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -188,6 +202,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PhaseFraction.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)
                     hashCode = hashCode * 59 + this.NetRadiativeHeatFlux.GetHashCode();
+                if (this.RadiativeIntensityRay != null)
+                    hashCode = hashCode * 59 + this.RadiativeIntensityRay.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

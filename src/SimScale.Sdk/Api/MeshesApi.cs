@@ -35,7 +35,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshId">The mesh ID</param>
         /// <returns>Mesh</returns>
-        Mesh GetMesh (string projectId, Guid? meshId);
+        Mesh GetMesh (string projectId = default(string), Guid? meshId = default(Guid?));
 
         /// <summary>
         /// Get information about the mesh
@@ -47,7 +47,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshId">The mesh ID</param>
         /// <returns>ApiResponse of Mesh</returns>
-        ApiResponse<Mesh> GetMeshWithHttpInfo (string projectId, Guid? meshId);
+        ApiResponse<Mesh> GetMeshWithHttpInfo (string projectId = default(string), Guid? meshId = default(Guid?));
         /// <summary>
         /// List meshes within a project
         /// </summary>
@@ -59,7 +59,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Meshes</returns>
-        Meshes GetMeshes (string projectId, int? limit = default(int?), int? page = default(int?));
+        Meshes GetMeshes (string projectId = default(string), int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List meshes within a project
@@ -72,7 +72,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of Meshes</returns>
-        ApiResponse<Meshes> GetMeshesWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?));
+        ApiResponse<Meshes> GetMeshesWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1);
         #endregion Synchronous Operations
     }
 
@@ -92,7 +92,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshId">The mesh ID</param>
         /// <returns>Task of Mesh</returns>
-        System.Threading.Tasks.Task<Mesh> GetMeshAsync (string projectId, Guid? meshId);
+        System.Threading.Tasks.Task<Mesh> GetMeshAsync (string projectId = default(string), Guid? meshId = default(Guid?));
 
         /// <summary>
         /// Get information about the mesh
@@ -104,7 +104,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshId">The mesh ID</param>
         /// <returns>Task of ApiResponse (Mesh)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Mesh>> GetMeshAsyncWithHttpInfo (string projectId, Guid? meshId);
+        System.Threading.Tasks.Task<ApiResponse<Mesh>> GetMeshAsyncWithHttpInfo (string projectId = default(string), Guid? meshId = default(Guid?));
         /// <summary>
         /// List meshes within a project
         /// </summary>
@@ -116,7 +116,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of Meshes</returns>
-        System.Threading.Tasks.Task<Meshes> GetMeshesAsync (string projectId, int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<Meshes> GetMeshesAsync (string projectId = default(string), int? limit = 100, int? page = 1);
 
         /// <summary>
         /// List meshes within a project
@@ -129,7 +129,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (Meshes)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Meshes>> GetMeshesAsyncWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<Meshes>> GetMeshesAsyncWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1);
         #endregion Asynchronous Operations
     }
 
@@ -257,7 +257,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshId">The mesh ID</param>
         /// <returns>Mesh</returns>
-        public Mesh GetMesh (string projectId, Guid? meshId)
+        public Mesh GetMesh (string projectId = default(string), Guid? meshId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<Mesh> localVarResponse = GetMeshWithHttpInfo(projectId, meshId);
              return localVarResponse.Data;
@@ -270,7 +270,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshId">The mesh ID</param>
         /// <returns>ApiResponse of Mesh</returns>
-        public SimScale.Sdk.Client.ApiResponse< Mesh > GetMeshWithHttpInfo (string projectId, Guid? meshId)
+        public SimScale.Sdk.Client.ApiResponse< Mesh > GetMeshWithHttpInfo (string projectId = default(string), Guid? meshId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -324,7 +324,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshId">The mesh ID</param>
         /// <returns>Task of Mesh</returns>
-        public async System.Threading.Tasks.Task<Mesh> GetMeshAsync (string projectId, Guid? meshId)
+        public async System.Threading.Tasks.Task<Mesh> GetMeshAsync (string projectId = default(string), Guid? meshId = default(Guid?))
         {
              SimScale.Sdk.Client.ApiResponse<Mesh> localVarResponse = await GetMeshAsyncWithHttpInfo(projectId, meshId);
              return localVarResponse.Data;
@@ -338,7 +338,7 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="meshId">The mesh ID</param>
         /// <returns>Task of ApiResponse (Mesh)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Mesh>> GetMeshAsyncWithHttpInfo (string projectId, Guid? meshId)
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Mesh>> GetMeshAsyncWithHttpInfo (string projectId = default(string), Guid? meshId = default(Guid?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -395,7 +395,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Meshes</returns>
-        public Meshes GetMeshes (string projectId, int? limit = default(int?), int? page = default(int?))
+        public Meshes GetMeshes (string projectId = default(string), int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<Meshes> localVarResponse = GetMeshesWithHttpInfo(projectId, limit, page);
              return localVarResponse.Data;
@@ -409,7 +409,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>ApiResponse of Meshes</returns>
-        public SimScale.Sdk.Client.ApiResponse< Meshes > GetMeshesWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?))
+        public SimScale.Sdk.Client.ApiResponse< Meshes > GetMeshesWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -467,7 +467,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of Meshes</returns>
-        public async System.Threading.Tasks.Task<Meshes> GetMeshesAsync (string projectId, int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<Meshes> GetMeshesAsync (string projectId = default(string), int? limit = 100, int? page = 1)
         {
              SimScale.Sdk.Client.ApiResponse<Meshes> localVarResponse = await GetMeshesAsyncWithHttpInfo(projectId, limit, page);
              return localVarResponse.Data;
@@ -482,7 +482,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (Meshes)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Meshes>> GetMeshesAsyncWithHttpInfo (string projectId, int? limit = default(int?), int? page = default(int?))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Meshes>> GetMeshesAsyncWithHttpInfo (string projectId = default(string), int? limit = 100, int? page = 1)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

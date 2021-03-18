@@ -38,13 +38,11 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">type (required) (default to &quot;TOTAL_PRESSURE&quot;).</param>
         /// <param name="totalPressure">totalPressure.</param>
-        /// <param name="gamma">gamma.</param>
-        public TotalPBC(string type = "TOTAL_PRESSURE", DimensionalFunctionPressure totalPressure = default(DimensionalFunctionPressure), DimensionalFunctionDimensionless gamma = default(DimensionalFunctionDimensionless))
+        public TotalPBC(string type = "TOTAL_PRESSURE", DimensionalFunctionPressure totalPressure = default(DimensionalFunctionPressure))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TotalPBC and cannot be null");
             this.TotalPressure = totalPressure;
-            this.Gamma = gamma;
         }
         
         /// <summary>
@@ -60,12 +58,6 @@ namespace SimScale.Sdk.Model
         public DimensionalFunctionPressure TotalPressure { get; set; }
 
         /// <summary>
-        /// Gets or Sets Gamma
-        /// </summary>
-        [DataMember(Name="gamma", EmitDefaultValue=false)]
-        public DimensionalFunctionDimensionless Gamma { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,7 +67,6 @@ namespace SimScale.Sdk.Model
             sb.Append("class TotalPBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  TotalPressure: ").Append(TotalPressure).Append("\n");
-            sb.Append("  Gamma: ").Append(Gamma).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,11 +110,6 @@ namespace SimScale.Sdk.Model
                     this.TotalPressure == input.TotalPressure ||
                     (this.TotalPressure != null &&
                     this.TotalPressure.Equals(input.TotalPressure))
-                ) && 
-                (
-                    this.Gamma == input.Gamma ||
-                    (this.Gamma != null &&
-                    this.Gamma.Equals(input.Gamma))
                 );
         }
 
@@ -140,8 +126,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.TotalPressure != null)
                     hashCode = hashCode * 59 + this.TotalPressure.GetHashCode();
-                if (this.Gamma != null)
-                    hashCode = hashCode * 59 + this.Gamma.GetHashCode();
                 return hashCode;
             }
         }

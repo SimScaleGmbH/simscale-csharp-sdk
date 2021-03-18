@@ -45,7 +45,7 @@ namespace SimScale.Sdk.Model
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureOutletBC(string type = "PRESSURE_OUTLET_V30", string name = default(string), OneOfPressureOutletBCPressure pressure = default(OneOfPressureOutletBCPressure), OneOfPressureOutletBCPressureRgh pressureRgh = default(OneOfPressureOutletBCPressureRgh), OneOfPressureOutletBCGaugePressure gaugePressure = default(OneOfPressureOutletBCGaugePressure), OneOfPressureOutletBCGaugePressureRgh gaugePressureRgh = default(OneOfPressureOutletBCGaugePressureRgh), OneOfPressureOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureOutletBCNetRadiativeHeatFlux), OpenBoundaryRayBC radiativeIntensityRay = default(OpenBoundaryRayBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureOutletBC(string type = "PRESSURE_OUTLET_V30", string name = default(string), OneOfPressureOutletBCPressure pressure = default(OneOfPressureOutletBCPressure), OneOfPressureOutletBCPressureRgh pressureRgh = default(OneOfPressureOutletBCPressureRgh), OneOfPressureOutletBCGaugePressure gaugePressure = default(OneOfPressureOutletBCGaugePressure), OneOfPressureOutletBCGaugePressureRgh gaugePressureRgh = default(OneOfPressureOutletBCGaugePressureRgh), OneOfPressureOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureOutletBCNetRadiativeHeatFlux), OneOfPressureOutletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureOutletBCRadiativeIntensityRay), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureOutletBC and cannot be null");
@@ -105,7 +105,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets RadiativeIntensityRay
         /// </summary>
         [DataMember(Name="radiativeIntensityRay", EmitDefaultValue=false)]
-        public OpenBoundaryRayBC RadiativeIntensityRay { get; set; }
+        public OneOfPressureOutletBCRadiativeIntensityRay RadiativeIntensityRay { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference

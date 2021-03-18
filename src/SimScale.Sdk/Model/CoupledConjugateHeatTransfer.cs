@@ -89,9 +89,9 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="CoupledConjugateHeatTransfer" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;COUPLED_CONJUGATE_HEAT_TRANSFER&quot;).</param>
-        /// <param name="meshSpecId">meshSpecId.</param>
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="model">model.</param>
+        /// <param name="solarCalculator">solarCalculator.</param>
         /// <param name="materials">materials.</param>
         /// <param name="initialConditions">initialConditions.</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
@@ -102,15 +102,15 @@ namespace SimScale.Sdk.Model
         /// <param name="contactHandlingMode">contactHandlingMode (default to ContactHandlingModeEnum.MANUAL).</param>
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
-        /// <param name="timeDependency">timeDependency.</param>
+        /// <param name="enableSolarLoad">enableSolarLoad (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.NONE).</param>
-        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", Guid? meshSpecId = default(Guid?), List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), StationaryTimeDependency timeDependency = default(StationaryTimeDependency), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?))
+        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CoupledConjugateHeatTransfer and cannot be null");
-            this.MeshSpecId = meshSpecId;
             this.ConnectionGroups = connectionGroups;
             this.Model = model;
+            this.SolarCalculator = solarCalculator;
             this.Materials = materials;
             this.InitialConditions = initialConditions;
             this.BoundaryConditions = boundaryConditions;
@@ -121,7 +121,7 @@ namespace SimScale.Sdk.Model
             this.ContactHandlingMode = contactHandlingMode;
             this.IsCompressible = isCompressible;
             this.EnableRadiation = enableRadiation;
-            this.TimeDependency = timeDependency;
+            this.EnableSolarLoad = enableSolarLoad;
             this.TurbulenceModel = turbulenceModel;
         }
         
@@ -130,12 +130,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MeshSpecId
-        /// </summary>
-        [DataMember(Name="meshSpecId", EmitDefaultValue=false)]
-        public Guid? MeshSpecId { get; set; }
 
         /// <summary>
         /// Gets or Sets ConnectionGroups
@@ -148,6 +142,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="model", EmitDefaultValue=false)]
         public FluidModel Model { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SolarCalculator
+        /// </summary>
+        [DataMember(Name="solarCalculator", EmitDefaultValue=false)]
+        public SolarCalculator SolarCalculator { get; set; }
 
         /// <summary>
         /// Gets or Sets Materials
@@ -206,10 +206,10 @@ namespace SimScale.Sdk.Model
         public bool? EnableRadiation { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeDependency
+        /// Gets or Sets EnableSolarLoad
         /// </summary>
-        [DataMember(Name="timeDependency", EmitDefaultValue=false)]
-        public StationaryTimeDependency TimeDependency { get; set; }
+        [DataMember(Name="enableSolarLoad", EmitDefaultValue=false)]
+        public bool? EnableSolarLoad { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -220,9 +220,9 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class CoupledConjugateHeatTransfer {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  MeshSpecId: ").Append(MeshSpecId).Append("\n");
             sb.Append("  ConnectionGroups: ").Append(ConnectionGroups).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
+            sb.Append("  SolarCalculator: ").Append(SolarCalculator).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
@@ -233,7 +233,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  ContactHandlingMode: ").Append(ContactHandlingMode).Append("\n");
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
-            sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
+            sb.Append("  EnableSolarLoad: ").Append(EnableSolarLoad).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -275,11 +275,6 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.MeshSpecId == input.MeshSpecId ||
-                    (this.MeshSpecId != null &&
-                    this.MeshSpecId.Equals(input.MeshSpecId))
-                ) && 
-                (
                     this.ConnectionGroups == input.ConnectionGroups ||
                     this.ConnectionGroups != null &&
                     input.ConnectionGroups != null &&
@@ -289,6 +284,11 @@ namespace SimScale.Sdk.Model
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
+                ) && 
+                (
+                    this.SolarCalculator == input.SolarCalculator ||
+                    (this.SolarCalculator != null &&
+                    this.SolarCalculator.Equals(input.SolarCalculator))
                 ) && 
                 (
                     this.Materials == input.Materials ||
@@ -341,9 +341,9 @@ namespace SimScale.Sdk.Model
                     this.EnableRadiation.Equals(input.EnableRadiation))
                 ) && 
                 (
-                    this.TimeDependency == input.TimeDependency ||
-                    (this.TimeDependency != null &&
-                    this.TimeDependency.Equals(input.TimeDependency))
+                    this.EnableSolarLoad == input.EnableSolarLoad ||
+                    (this.EnableSolarLoad != null &&
+                    this.EnableSolarLoad.Equals(input.EnableSolarLoad))
                 ) && 
                 (
                     this.TurbulenceModel == input.TurbulenceModel ||
@@ -362,12 +362,12 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.MeshSpecId != null)
-                    hashCode = hashCode * 59 + this.MeshSpecId.GetHashCode();
                 if (this.ConnectionGroups != null)
                     hashCode = hashCode * 59 + this.ConnectionGroups.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
+                if (this.SolarCalculator != null)
+                    hashCode = hashCode * 59 + this.SolarCalculator.GetHashCode();
                 if (this.Materials != null)
                     hashCode = hashCode * 59 + this.Materials.GetHashCode();
                 if (this.InitialConditions != null)
@@ -387,8 +387,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
                 if (this.EnableRadiation != null)
                     hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
-                if (this.TimeDependency != null)
-                    hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
+                if (this.EnableSolarLoad != null)
+                    hashCode = hashCode * 59 + this.EnableSolarLoad.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 return hashCode;
             }
