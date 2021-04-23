@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FalseLineSearch" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FALSE&quot;).</param>
+        /// <param name="type">&lt;p&gt;Line search can be used to improve convergence for nonlinear calculations with the Newton method.&lt;/p&gt;  Schema name: FalseLineSearch (required) (default to &quot;FALSE&quot;).</param>
         public FalseLineSearch(string type = "FALSE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Line search can be used to improve convergence for nonlinear calculations with the Newton method.&lt;/p&gt;  Schema name: FalseLineSearch
         /// </summary>
+        /// <value>&lt;p&gt;Line search can be used to improve convergence for nonlinear calculations with the Newton method.&lt;/p&gt;  Schema name: FalseLineSearch</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

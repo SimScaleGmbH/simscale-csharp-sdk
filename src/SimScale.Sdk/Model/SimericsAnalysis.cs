@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimericsAnalysis" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SIMERICS_ANALYSIS&quot;).</param>
+        /// <param name="type">Schema name: SimericsAnalysis (required) (default to &quot;SIMERICS_ANALYSIS&quot;).</param>
         /// <param name="materials">materials.</param>
         /// <param name="isCompressible">isCompressible (default to false).</param>
         /// <param name="turbulenceModel">turbulenceModel (default to TurbulenceModelEnum.NONE).</param>
@@ -85,8 +85,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SimericsAnalysis
         /// </summary>
+        /// <value>Schema name: SimericsAnalysis</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

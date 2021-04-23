@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CpuTimeWriteControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CPU_TIME&quot;).</param>
+        /// <param name="type">This option controls how the simulation results are written and how frequently.  Schema name: CpuTimeWriteControl (required) (default to &quot;CPU_TIME&quot;).</param>
         /// <param name="writeInterval">writeInterval.</param>
         public CpuTimeWriteControl(string type = "CPU_TIME", DimensionalTime writeInterval = default(DimensionalTime))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option controls how the simulation results are written and how frequently.  Schema name: CpuTimeWriteControl
         /// </summary>
+        /// <value>This option controls how the simulation results are written and how frequently.  Schema name: CpuTimeWriteControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

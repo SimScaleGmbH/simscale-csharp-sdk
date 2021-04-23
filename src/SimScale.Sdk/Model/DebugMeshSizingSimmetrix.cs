@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DebugMeshSizingSimmetrix" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DEBUG&quot;).</param>
+        /// <param name="type">Schema name: DebugMeshSizingSimmetrix (required) (default to &quot;DEBUG&quot;).</param>
         /// <param name="maximumEdgeLength">maximumEdgeLength.</param>
         /// <param name="minimumEdgeLength">minimumEdgeLength.</param>
         /// <param name="chordalError">chordalError (default to 0.4M).</param>
@@ -93,8 +93,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DebugMeshSizingSimmetrix
         /// </summary>
+        /// <value>Schema name: DebugMeshSizingSimmetrix</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

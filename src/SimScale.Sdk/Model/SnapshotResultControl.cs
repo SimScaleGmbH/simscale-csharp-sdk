@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SnapshotResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SNAPSHOT&quot;).</param>
+        /// <param name="type">Schema name: SnapshotResultControl (required) (default to &quot;SNAPSHOT&quot;).</param>
         /// <param name="exportFluid">When this switch is activated, simulation data of the flow-field enclosed in the assignments will be exported (default to true).</param>
         /// <param name="exportSurface">When this switch is activated, simulation data on all surfaces enclosed in the assignments will be exported (default to false).</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SnapshotResultControl
         /// </summary>
+        /// <value>Schema name: SnapshotResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

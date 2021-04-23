@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalReactionForceType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REACTION&quot;).</param>
+        /// <param name="type">Schema name: GlobalReactionForceType (required) (default to &quot;REACTION&quot;).</param>
         /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.REALANDIMAGINARY).</param>
         public GlobalReactionForceType(string type = "REACTION", ComplexNumberEnum? complexNumber = default(ComplexNumberEnum?))
         {
@@ -65,8 +65,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalReactionForceType
         /// </summary>
+        /// <value>Schema name: GlobalReactionForceType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

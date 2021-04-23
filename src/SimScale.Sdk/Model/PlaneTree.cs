@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaneTree" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PLANE_TREE&quot;).</param>
+        /// <param name="type">Schema name: PlaneTree (required) (default to &quot;PLANE_TREE&quot;).</param>
         /// <param name="averageTreeHeight">averageTreeHeight.</param>
         public PlaneTree(string type = "PLANE_TREE", DimensionalLength averageTreeHeight = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PlaneTree
         /// </summary>
+        /// <value>Schema name: PlaneTree</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

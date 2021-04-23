@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedHeatFlux" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED&quot;).</param>
+        /// <param name="type">Schema name: FixedHeatFlux (required) (default to &quot;FIXED&quot;).</param>
         /// <param name="value">value.</param>
         public FixedHeatFlux(string type = "FIXED", DimensionalHeatFlux value = default(DimensionalHeatFlux))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedHeatFlux
         /// </summary>
+        /// <value>Schema name: FixedHeatFlux</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ElasticJacobianMatrix" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ELASTIC&quot;).</param>
+        /// <param name="type">&lt;p&gt;Select which stiffnes matrix should be used for computing the Jacobian of the Newton method. Choosing the tangent stiffnes matrix via &lt;b&gt;tangent matrix&lt;/b&gt; allows a full Newton approach whereas the selection of the &lt;b&gt;elastic matrix&lt;/b&gt; results in a quasi-Newton approach.&lt;/p&gt;  Schema name: ElasticJacobianMatrix (required) (default to &quot;ELASTIC&quot;).</param>
         /// <param name="maxNewtonIteration">&lt;p&gt;Maximum number of allowed Newton iterations per time increment. If this value is reached the simulation is considered non-converging. If an automatic time stepping is activated the time increment is reduced in order to reach convergence.&lt;/p&gt; (default to 35).</param>
         public ElasticJacobianMatrix(string type = "ELASTIC", int? maxNewtonIteration = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Select which stiffnes matrix should be used for computing the Jacobian of the Newton method. Choosing the tangent stiffnes matrix via &lt;b&gt;tangent matrix&lt;/b&gt; allows a full Newton approach whereas the selection of the &lt;b&gt;elastic matrix&lt;/b&gt; results in a quasi-Newton approach.&lt;/p&gt;  Schema name: ElasticJacobianMatrix
         /// </summary>
+        /// <value>&lt;p&gt;Select which stiffnes matrix should be used for computing the Jacobian of the Newton method. Choosing the tangent stiffnes matrix via &lt;b&gt;tangent matrix&lt;/b&gt; allows a full Newton approach whereas the selection of the &lt;b&gt;elastic matrix&lt;/b&gt; results in a quasi-Newton approach.&lt;/p&gt;  Schema name: ElasticJacobianMatrix</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

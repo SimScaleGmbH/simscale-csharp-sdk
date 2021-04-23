@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AbsolutePassiveScalarSource" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ABSOLUTE&quot;).</param>
+        /// <param name="type">Schema name: AbsolutePassiveScalarSource (required) (default to &quot;ABSOLUTE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="passiveScalarVariable">passiveScalarVariable (default to &quot;passive_scalar_one&quot;).</param>
         /// <param name="flux">flux.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AbsolutePassiveScalarSource
         /// </summary>
+        /// <value>Schema name: AbsolutePassiveScalarSource</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

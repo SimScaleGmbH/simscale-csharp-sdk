@@ -75,7 +75,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DisplacementField" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DISPLACEMENT&quot;).</param>
+        /// <param name="type">&lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: DisplacementField (required) (default to &quot;DISPLACEMENT&quot;).</param>
         /// <param name="componentSelection">Choose a field component for which the data schould be extracted. (default to ComponentSelectionEnum.X).</param>
         public DisplacementField(string type = "DISPLACEMENT", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -85,8 +85,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: DisplacementField
         /// </summary>
+        /// <value>&lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: DisplacementField</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

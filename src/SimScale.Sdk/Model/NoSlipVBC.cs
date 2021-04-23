@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoSlipVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NO_SLIP&quot;).</param>
+        /// <param name="type">Schema name: NoSlipVBC (required) (default to &quot;NO_SLIP&quot;).</param>
         /// <param name="turbulenceWall">turbulenceWall (default to TurbulenceWallEnum.WALLFUNCTION).</param>
         /// <param name="surfaceRoughness">surfaceRoughness.</param>
         public NoSlipVBC(string type = "NO_SLIP", TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), DimensionalLength surfaceRoughness = default(DimensionalLength))
@@ -73,8 +73,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NoSlipVBC
         /// </summary>
+        /// <value>Schema name: NoSlipVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

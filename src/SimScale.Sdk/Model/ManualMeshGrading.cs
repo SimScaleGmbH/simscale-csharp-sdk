@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualMeshGrading" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MANUAL&quot;).</param>
+        /// <param name="type">Schema name: ManualMeshGrading (required) (default to &quot;MANUAL&quot;).</param>
         /// <param name="numberOfSegmentsPerEdge">&lt;p&gt;This value defines the minimum number of elements along a &lt;b&gt;geometry edge&lt;/b&gt;.&lt;/p&gt; (default to 0.5M).</param>
         /// <param name="numberOfSegmentsPerRadius">&lt;p&gt;This value defines the minimum number of elements along a &lt;b&gt;geometry radius&lt;/b&gt;.&lt;/p&gt; (default to 1.5M).</param>
         /// <param name="growthRate">&lt;p&gt;The &lt;b&gt;growth rate&lt;/b&gt; determines how large the allowed difference in element size between neighbouring elements is. For example a value of 0.2 allows the edges of neighbouring elements to differ by 20%.&lt;/p&gt;&lt;p&gt;If a large value is chosen, features requiring a finer mesh, like holes or fillets, will have a very local influence on the element size whereas for a small mesh grading those features will influence the element sizes in a wider area around them.&lt;/p&gt;&lt;p&gt;Choosing a smaller value will thus lead to a higher number of elements but also result in a better overall mesh quality.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/growth_rate_comparison.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows meshes for growth rate &lt;i&gt;2&lt;/i&gt; (left) and &lt;i&gt;0.2&lt;/i&gt; (right).&lt;/p&gt; (default to 0.5M).</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ManualMeshGrading
         /// </summary>
+        /// <value>Schema name: ManualMeshGrading</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

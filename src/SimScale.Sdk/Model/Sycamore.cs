@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Sycamore" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SYCAMORE&quot;).</param>
+        /// <param name="type">Schema name: Sycamore (required) (default to &quot;SYCAMORE&quot;).</param>
         /// <param name="averageTreeHeight">averageTreeHeight.</param>
         public Sycamore(string type = "SYCAMORE", DimensionalLength averageTreeHeight = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Sycamore
         /// </summary>
+        /// <value>Schema name: Sycamore</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

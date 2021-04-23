@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossPlaneOrthotropicConductivity" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CROSS_PLANE_ORTHOTROPIC&quot;).</param>
+        /// <param name="type">Schema name: CrossPlaneOrthotropicConductivity (required) (default to &quot;CROSS_PLANE_ORTHOTROPIC&quot;).</param>
         /// <param name="inPlaneConductivity">inPlaneConductivity.</param>
         /// <param name="crossPlaneConductivity">crossPlaneConductivity.</param>
         public CrossPlaneOrthotropicConductivity(string type = "CROSS_PLANE_ORTHOTROPIC", DimensionalFunctionThermalConductivity inPlaneConductivity = default(DimensionalFunctionThermalConductivity), DimensionalFunctionThermalConductivity crossPlaneConductivity = default(DimensionalFunctionThermalConductivity))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CrossPlaneOrthotropicConductivity
         /// </summary>
+        /// <value>Schema name: CrossPlaneOrthotropicConductivity</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

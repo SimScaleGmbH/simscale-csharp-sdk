@@ -91,7 +91,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnelasticStrainType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;UNELASTIC&quot;).</param>
+        /// <param name="type">Schema name: UnelasticStrainType (required) (default to &quot;UNELASTIC&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
         public UnelasticStrainType(string type = "UNELASTIC", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -101,8 +101,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: UnelasticStrainType
         /// </summary>
+        /// <value>Schema name: UnelasticStrainType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

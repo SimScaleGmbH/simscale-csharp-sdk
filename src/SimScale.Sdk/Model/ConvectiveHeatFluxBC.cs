@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConvectiveHeatFluxBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CONVECTIVE_HEAT_FLUX&quot;).</param>
+        /// <param name="type">This is a &lt;b&gt;heat flux&lt;/b&gt; boundary condition representing a &lt;b&gt;convective heat flux&lt;/b&gt; on the selected face groups. It is defined by the &lt;b&gt;reference temperature&lt;/b&gt; (surrounding temperature) and the &lt;b&gt;convection coefficient&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The convection coefficient is not only dependent on the material of the surrounding fluid but a property of the flow&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file) for the &lt;b&gt;reference temperature&lt;/b&gt; and the &lt;b&gt;convection coefficient&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;  Schema name: ConvectiveHeatFluxBC (required) (default to &quot;CONVECTIVE_HEAT_FLUX&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="referenceTemperature">referenceTemperature.</param>
         /// <param name="heatTransferCoefficient">heatTransferCoefficient.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a &lt;b&gt;heat flux&lt;/b&gt; boundary condition representing a &lt;b&gt;convective heat flux&lt;/b&gt; on the selected face groups. It is defined by the &lt;b&gt;reference temperature&lt;/b&gt; (surrounding temperature) and the &lt;b&gt;convection coefficient&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The convection coefficient is not only dependent on the material of the surrounding fluid but a property of the flow&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file) for the &lt;b&gt;reference temperature&lt;/b&gt; and the &lt;b&gt;convection coefficient&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;  Schema name: ConvectiveHeatFluxBC
         /// </summary>
+        /// <value>This is a &lt;b&gt;heat flux&lt;/b&gt; boundary condition representing a &lt;b&gt;convective heat flux&lt;/b&gt; on the selected face groups. It is defined by the &lt;b&gt;reference temperature&lt;/b&gt; (surrounding temperature) and the &lt;b&gt;convection coefficient&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The convection coefficient is not only dependent on the material of the surrounding fluid but a property of the flow&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file) for the &lt;b&gt;reference temperature&lt;/b&gt; and the &lt;b&gt;convection coefficient&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;  Schema name: ConvectiveHeatFluxBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

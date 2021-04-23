@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RotatingWallVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ROTATING_WALL_VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: RotatingWallVBC (required) (default to &quot;ROTATING_WALL_VELOCITY&quot;).</param>
         /// <param name="rotation">rotation.</param>
         /// <param name="turbulenceWall">turbulenceWall (default to TurbulenceWallEnum.WALLFUNCTION).</param>
         public RotatingWallVBC(string type = "ROTATING_WALL_VELOCITY", AngularRotation rotation = default(AngularRotation), TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?))
@@ -73,8 +73,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: RotatingWallVBC
         /// </summary>
+        /// <value>Schema name: RotatingWallVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

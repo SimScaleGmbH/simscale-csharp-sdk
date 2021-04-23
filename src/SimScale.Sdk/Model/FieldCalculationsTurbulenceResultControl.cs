@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldCalculationsTurbulenceResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TURBULENCE&quot;).</param>
+        /// <param name="type">Schema name: FieldCalculationsTurbulenceResultControl (required) (default to &quot;TURBULENCE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="resultType">resultType.</param>
         public FieldCalculationsTurbulenceResultControl(string type = "TURBULENCE", string name = default(string), OneOfFieldCalculationsTurbulenceResultControlResultType resultType = default(OneOfFieldCalculationsTurbulenceResultControlResultType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FieldCalculationsTurbulenceResultControl
         /// </summary>
+        /// <value>Schema name: FieldCalculationsTurbulenceResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

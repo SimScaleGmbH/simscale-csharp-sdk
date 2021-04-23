@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FlowRateInletVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FLOW_RATE_INLET_VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: FlowRateInletVBC (required) (default to &quot;FLOW_RATE_INLET_VELOCITY&quot;).</param>
         /// <param name="flowRate">flowRate.</param>
         public FlowRateInletVBC(string type = "FLOW_RATE_INLET_VELOCITY", OneOfFlowRateInletVBCFlowRate flowRate = default(OneOfFlowRateInletVBCFlowRate))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FlowRateInletVBC
         /// </summary>
+        /// <value>Schema name: FlowRateInletVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

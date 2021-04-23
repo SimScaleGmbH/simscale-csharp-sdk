@@ -81,7 +81,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticMeshGrading" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUTOMATIC&quot;).</param>
+        /// <param name="type">Schema name: AutomaticMeshGrading (required) (default to &quot;AUTOMATIC&quot;).</param>
         /// <param name="fineness">&lt;p&gt;The &lt;b&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/tet-dominant/#grading&#39; target&#x3D;&#39;_blank&#39;&gt;mesh grading&lt;/a&gt;&lt;/b&gt; specifies how fine details of the geometry are resolved and also influences the quality of the resulting elements.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;If you select the &lt;b&gt;automatic&lt;/b&gt; grading, you can specify how fine your mesh should be (ranging from &lt;i&gt;1 - very coarse&lt;/i&gt; to &lt;i&gt;5 - very fine&lt;/i&gt;) and all additional parameters will be set automatically.&lt;/li&gt;&lt;li&gt;&lt;p&gt;For full control over the underlying parameters &lt;i&gt;number of segements per edge&lt;/i&gt;, &lt;i&gt;number of segements per radius&lt;/i&gt; and &lt;i&gt;growth rate&lt;/i&gt; you can choose the &lt;b&gt;manual&lt;/b&gt; mesh grading option.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/mesh_grading_comparison.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows meshes for grading &lt;i&gt;1 - very coarse&lt;/i&gt; (left) and &lt;i&gt;5 - very fine&lt;/i&gt; (right).&lt;/p&gt; (default to FinenessEnum.COARSE).</param>
         public AutomaticMeshGrading(string type = "AUTOMATIC", FinenessEnum? fineness = default(FinenessEnum?))
         {
@@ -91,8 +91,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AutomaticMeshGrading
         /// </summary>
+        /// <value>Schema name: AutomaticMeshGrading</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

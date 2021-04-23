@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TrueChangeJacobianMatrix" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TRUE&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose if the Jacobian matrix should automatically change from tangent stiffnes matrix to elastic matrix if the time increment is falling below a given threshold. On the assumption that below a given time increment value the nonlinearities are not evolving within the time step one can strongly save computation time by switching to the elastic matrix.&lt;/p&gt;  Schema name: TrueChangeJacobianMatrix (required) (default to &quot;TRUE&quot;).</param>
         /// <param name="thresholdTimeStepValue">&lt;p&gt;Set the threshold value of the Jacobian matrix changing. If the time increment is lower than this value the elastic matrix is used.&lt;/p&gt; (default to 0.0000010M).</param>
         /// <param name="matrixReactualizationIteration">&lt;p&gt;Set how often the elastic stiffness matrix should be recomputed. If this parameter is set to 10, the elastic matrix is recomputed every 10th iteration within a given time step. If it is set to 0, the elastic stiffness matrix is not updated within any time step.&lt;/p&gt; (default to 0).</param>
         /// <param name="maxNewtonIterations">&lt;p&gt;Maximum number of allowed Newton iterations per time increment. If this value is reached the simulation is considered non-converging. If an automatic time stepping is activated the time increment is reduced in order to reach convergence.&lt;/p&gt; (default to 35).</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose if the Jacobian matrix should automatically change from tangent stiffnes matrix to elastic matrix if the time increment is falling below a given threshold. On the assumption that below a given time increment value the nonlinearities are not evolving within the time step one can strongly save computation time by switching to the elastic matrix.&lt;/p&gt;  Schema name: TrueChangeJacobianMatrix
         /// </summary>
+        /// <value>&lt;p&gt;Choose if the Jacobian matrix should automatically change from tangent stiffnes matrix to elastic matrix if the time increment is falling below a given threshold. On the assumption that below a given time increment value the nonlinearities are not evolving within the time step one can strongly save computation time by switching to the elastic matrix.&lt;/p&gt;  Schema name: TrueChangeJacobianMatrix</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

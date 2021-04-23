@@ -69,7 +69,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InternVariablesField" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INTERN_VARIABLES&quot;).</param>
+        /// <param name="type">&lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: InternVariablesField (required) (default to &quot;INTERN_VARIABLES&quot;).</param>
         /// <param name="componentSelection">&lt;p&gt;Choose a field component for which the data schould be extracted.&lt;/p&gt; (default to ComponentSelectionEnum.V1).</param>
         public InternVariablesField(string type = "INTERN_VARIABLES", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -79,8 +79,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: InternVariablesField
         /// </summary>
+        /// <value>&lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: InternVariablesField</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

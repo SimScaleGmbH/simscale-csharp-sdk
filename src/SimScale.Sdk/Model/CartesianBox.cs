@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartesianBox" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CARTESIAN_BOX&quot;).</param>
+        /// <param name="type">Schema name: CartesianBox (required) (default to &quot;CARTESIAN_BOX&quot;).</param>
         /// <param name="id">id.</param>
         /// <param name="name">name.</param>
         /// <param name="min">min.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CartesianBox
         /// </summary>
+        /// <value>Schema name: CartesianBox</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IncompletePreconditionerV33" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INCOMPLETE_LDLT_V33&quot;).</param>
+        /// <param name="type">Schema name: IncompletePreconditionerV33 (required) (default to &quot;INCOMPLETE_LDLT_V33&quot;).</param>
         /// <param name="matrixCompleteness">Set the level of completeness for the incomplete Cholesky decomposition. The larger this value is, the better the preconditioning Matrix P approximates K&lt;sup&gt;-1&lt;/sup&gt;, but also the memory usage and computation time increase. If the solution does not converge or uses a lot of iterations it could help to increase this parameter. (default to 0).</param>
         /// <param name="preconditionerMatrixGrowth">Set the growth rate of the filling for the incomplete decomposition matrix. If this parameter is set to 1.0 PETSc estimates the matrix storage size from the first level of completeness. If this estimate is too low, PETSC increases the allocated memory on the fly, but this is more expensive. (default to 1M).</param>
         public IncompletePreconditionerV33(string type = "INCOMPLETE_LDLT_V33", int? matrixCompleteness = default(int?), decimal? preconditionerMatrixGrowth = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: IncompletePreconditionerV33
         /// </summary>
+        /// <value>Schema name: IncompletePreconditionerV33</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TchamwaTimeIntegrationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TCHAMWA&quot;).</param>
+        /// <param name="type">Schema name: TchamwaTimeIntegrationScheme (required) (default to &quot;TCHAMWA&quot;).</param>
         /// <param name="phi">&lt;p&gt;The parameter &lt;b&gt;&amp;phi;&lt;/b&gt; allows inducing numerical damping. For &lt;b&gt;&amp;phi;&lt;/b&gt; &#x3D; 1.0 there is no numerical damping whereas for &lt;b&gt;&amp;phi;&lt;/b&gt; &gt; 1.0&lt;/p&gt; the damping grows with the parameter value. It is thus not recommended to use a value for &lt;b&gt;&amp;phi;&lt;/b&gt; greater than 1.1.&lt;/p&gt; (default to 1.05M).</param>
         public TchamwaTimeIntegrationScheme(string type = "TCHAMWA", decimal? phi = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TchamwaTimeIntegrationScheme
         /// </summary>
+        /// <value>Schema name: TchamwaTimeIntegrationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

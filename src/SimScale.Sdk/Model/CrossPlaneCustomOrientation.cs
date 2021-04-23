@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossPlaneCustomOrientation" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CROSS_PLANE&quot;).</param>
+        /// <param name="type">Schema name: CrossPlaneCustomOrientation (required) (default to &quot;CROSS_PLANE&quot;).</param>
         /// <param name="crossPlaneOrientation">crossPlaneOrientation.</param>
         public CrossPlaneCustomOrientation(string type = "CROSS_PLANE", DimensionalVectorLength crossPlaneOrientation = default(DimensionalVectorLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CrossPlaneCustomOrientation
         /// </summary>
+        /// <value>Schema name: CrossPlaneCustomOrientation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

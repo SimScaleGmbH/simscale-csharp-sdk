@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HarmonicResponseResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HARMONIC_RESPONSE&quot;).</param>
+        /// <param name="type">Schema name: HarmonicResponseResultControlItem (required) (default to &quot;HARMONIC_RESPONSE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="fieldSelection">fieldSelection.</param>
         /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.REALANDIMAGINARY).</param>
@@ -77,8 +77,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: HarmonicResponseResultControlItem
         /// </summary>
+        /// <value>Schema name: HarmonicResponseResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

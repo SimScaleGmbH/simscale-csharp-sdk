@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WithFictitiousClearance" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WITH_FICTITIOUS_CLEARANCE&quot;).</param>
+        /// <param name="type">Schema name: WithFictitiousClearance (required) (default to &quot;WITH_FICTITIOUS_CLEARANCE&quot;).</param>
         /// <param name="masterClearance">masterClearance.</param>
         /// <param name="slaveClearance">slaveClearance.</param>
         public WithFictitiousClearance(string type = "WITH_FICTITIOUS_CLEARANCE", DimensionalFunctionLength masterClearance = default(DimensionalFunctionLength), DimensionalFunctionLength slaveClearance = default(DimensionalFunctionLength))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WithFictitiousClearance
         /// </summary>
+        /// <value>Schema name: WithFictitiousClearance</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

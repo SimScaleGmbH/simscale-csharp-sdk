@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoTimestepDefinition" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUTOMATIC_V27&quot;).</param>
+        /// <param name="type">Schema name: AutoTimestepDefinition (required) (default to &quot;AUTOMATIC_V27&quot;).</param>
         /// <param name="simulationInterval">simulationInterval.</param>
         /// <param name="maximumTimestepLength">maximumTimestepLength.</param>
         /// <param name="minimumTimestepLength">minimumTimestepLength.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AutoTimestepDefinition
         /// </summary>
+        /// <value>Schema name: AutoTimestepDefinition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

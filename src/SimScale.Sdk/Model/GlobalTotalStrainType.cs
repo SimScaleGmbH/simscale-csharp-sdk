@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalTotalStrainType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL&quot;).</param>
+        /// <param name="type">Schema name: GlobalTotalStrainType (required) (default to &quot;TOTAL&quot;).</param>
         /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.REALANDIMAGINARY).</param>
         public GlobalTotalStrainType(string type = "TOTAL", ComplexNumberEnum? complexNumber = default(ComplexNumberEnum?))
         {
@@ -65,8 +65,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalTotalStrainType
         /// </summary>
+        /// <value>Schema name: GlobalTotalStrainType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SurfaceRefinementWindComfort" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SURFACE_REFINEMENT_WIND_COMFORT&quot;).</param>
+        /// <param name="type">Schema name: SurfaceRefinementWindComfort (required) (default to &quot;SURFACE_REFINEMENT_WIND_COMFORT&quot;).</param>
         /// <param name="name">name (default to &quot;Surface refinement&quot;).</param>
         /// <param name="newFineness">newFineness.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SurfaceRefinementWindComfort
         /// </summary>
+        /// <value>Schema name: SurfaceRefinementWindComfort</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

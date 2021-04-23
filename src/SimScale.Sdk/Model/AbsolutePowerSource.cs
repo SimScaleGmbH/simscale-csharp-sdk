@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AbsolutePowerSource" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ABSOLUTE_V23&quot;).</param>
+        /// <param name="type">Schema name: AbsolutePowerSource (required) (default to &quot;ABSOLUTE_V23&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="heatFlux">heatFlux.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AbsolutePowerSource
         /// </summary>
+        /// <value>Schema name: AbsolutePowerSource</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

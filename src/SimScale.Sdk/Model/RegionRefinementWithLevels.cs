@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionRefinementWithLevels" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REGION_LEVELS&quot;).</param>
+        /// <param name="type">A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#region-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;region refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the mesh in a given area. The refinement area needs to be defined either via a geometry primitive or an existing solid (Hex-dominant only).  Schema name: RegionRefinementWithLevels (required) (default to &quot;REGION_LEVELS&quot;).</param>
         /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
         /// <param name="refinement">refinement.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#region-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;region refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the mesh in a given area. The refinement area needs to be defined either via a geometry primitive or an existing solid (Hex-dominant only).  Schema name: RegionRefinementWithLevels
         /// </summary>
+        /// <value>A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#region-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;region refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the mesh in a given area. The refinement area needs to be defined either via a geometry primitive or an existing solid (Hex-dominant only).  Schema name: RegionRefinementWithLevels</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

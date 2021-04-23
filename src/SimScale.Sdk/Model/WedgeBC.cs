@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WedgeBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WEDGE&quot;).</param>
+        /// <param name="type">This boundary condition is applied to the front and back faces of an axisymmetric system (eg. cylinder). Note that the face elements of the mesh need to be congruent on both the faces. Works for uploaded 2D meshes only.  &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wedge/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: WedgeBC (required) (default to &quot;WEDGE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public WedgeBC(string type = "WEDGE", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This boundary condition is applied to the front and back faces of an axisymmetric system (eg. cylinder). Note that the face elements of the mesh need to be congruent on both the faces. Works for uploaded 2D meshes only.  &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wedge/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: WedgeBC
         /// </summary>
+        /// <value>This boundary condition is applied to the front and back faces of an axisymmetric system (eg. cylinder). Note that the face elements of the mesh need to be congruent on both the faces. Works for uploaded 2D meshes only.  &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wedge/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: WedgeBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

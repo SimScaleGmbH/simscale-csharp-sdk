@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MRFRotatingZone" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MULTI_REFERENCE_FRAME&quot;).</param>
+        /// <param name="type">Schema name: MRFRotatingZone (required) (default to &quot;MULTI_REFERENCE_FRAME&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="origin">origin.</param>
         /// <param name="axis">axis.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MRFRotatingZone
         /// </summary>
+        /// <value>Schema name: MRFRotatingZone</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

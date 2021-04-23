@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FalseSemiImplicit" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FALSE_SEMI_IMPLICIT&quot;).</param>
+        /// <param name="type">Schema name: FalseSemiImplicit (required) (default to &quot;FALSE_SEMI_IMPLICIT&quot;).</param>
         public FalseSemiImplicit(string type = "FALSE_SEMI_IMPLICIT")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FalseSemiImplicit
         /// </summary>
+        /// <value>Schema name: FalseSemiImplicit</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

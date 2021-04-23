@@ -79,7 +79,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PacefishMeshV38" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PACEFISH_MESH_V38&quot;).</param>
+        /// <param name="type">Schema name: PacefishMeshV38 (required) (default to &quot;PACEFISH_MESH_V38&quot;).</param>
         /// <param name="fineness">fineness (default to FinenessEnum.COARSE).</param>
         /// <param name="referenceLength">referenceLength.</param>
         /// <param name="primaryTopology">primaryTopology.</param>
@@ -95,8 +95,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PacefishMeshV38
         /// </summary>
+        /// <value>Schema name: PacefishMeshV38</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

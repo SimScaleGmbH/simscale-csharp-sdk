@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WindComfort" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WIND_COMFORT&quot;).</param>
+        /// <param name="type">Schema name: WindComfort (required) (default to &quot;WIND_COMFORT&quot;).</param>
         /// <param name="regionOfInterest">regionOfInterest.</param>
         /// <param name="windConditions">windConditions.</param>
         /// <param name="pedestrianComfortMap">pedestrianComfortMap.</param>
@@ -58,8 +58,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WindComfort
         /// </summary>
+        /// <value>Schema name: WindComfort</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

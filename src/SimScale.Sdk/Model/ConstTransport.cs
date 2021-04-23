@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstTransport" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CONST&quot;).</param>
+        /// <param name="type">Schema name: ConstTransport (required) (default to &quot;CONST&quot;).</param>
         /// <param name="dynamicViscosity">dynamicViscosity.</param>
         /// <param name="prandtlNumber">Prandtl number (&lt;i&gt;Pr&lt;/i&gt;) is the ratio of momentum transport to thermal tranport. Fluids with low &lt;i&gt;Pr&lt;/i&gt; are free flowing and good for heat conduction..</param>
         /// <param name="turbulentPrandtlNumber">Turbulent Prandtl number is used to calculate the heat transfer due to turbulent effects in the domain..</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ConstTransport
         /// </summary>
+        /// <value>Schema name: ConstTransport</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

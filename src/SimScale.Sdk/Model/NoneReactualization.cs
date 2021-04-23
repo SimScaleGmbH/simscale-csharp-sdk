@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoneReactualization" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NONE&quot;).</param>
+        /// <param name="type">Schema name: NoneReactualization (required) (default to &quot;NONE&quot;).</param>
         public NoneReactualization(string type = "NONE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NoneReactualization
         /// </summary>
+        /// <value>Schema name: NoneReactualization</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

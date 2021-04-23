@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PrincipalStrainType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRINCIPAL&quot;).</param>
+        /// <param name="type">Schema name: PrincipalStrainType (required) (default to &quot;PRINCIPAL&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
         public PrincipalStrainType(string type = "PRINCIPAL", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -83,8 +83,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PrincipalStrainType
         /// </summary>
+        /// <value>Schema name: PrincipalStrainType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

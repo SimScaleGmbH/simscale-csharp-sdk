@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldCalculationsThermalComfortResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;THERMAL_COMFORT&quot;).</param>
+        /// <param name="type">Schema name: FieldCalculationsThermalComfortResultControl (required) (default to &quot;THERMAL_COMFORT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="clothingCoefficientFactor">clothingCoefficientFactor (default to 1M).</param>
         /// <param name="metabolicRateFactor">metabolicRateFactor (default to 1M).</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FieldCalculationsThermalComfortResultControl
         /// </summary>
+        /// <value>Schema name: FieldCalculationsThermalComfortResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

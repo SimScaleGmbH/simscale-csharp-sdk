@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewtonFrictionNonLinearityResolution" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NEWTON_V29&quot;).</param>
+        /// <param name="type">Schema name: NewtonFrictionNonLinearityResolution (required) (default to &quot;NEWTON_V29&quot;).</param>
         /// <param name="iterationCriterion">iterationCriterion (default to 0.00010M).</param>
         public NewtonFrictionNonLinearityResolution(string type = "NEWTON_V29", decimal? iterationCriterion = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NewtonFrictionNonLinearityResolution
         /// </summary>
+        /// <value>Schema name: NewtonFrictionNonLinearityResolution</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

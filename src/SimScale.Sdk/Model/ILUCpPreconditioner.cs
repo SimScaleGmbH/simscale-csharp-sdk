@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ILUCpPreconditioner" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ILUCP&quot;).</param>
+        /// <param name="type">Crout&#39;s version of the incomplete lower-upper (ILU) algorithm with arbitrary level of fill-in.  Schema name: ILUCpPreconditioner (required) (default to &quot;ILUCP&quot;).</param>
         /// <param name="fillInLevel">Number of face-neighbour layers to fill in. Increasing the level of fill-in improves the performance of preconditioner at the expense of computational overhead. (default to 1).</param>
         public ILUCpPreconditioner(string type = "ILUCP", int? fillInLevel = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Crout&#39;s version of the incomplete lower-upper (ILU) algorithm with arbitrary level of fill-in.  Schema name: ILUCpPreconditioner
         /// </summary>
+        /// <value>Crout&#39;s version of the incomplete lower-upper (ILU) algorithm with arbitrary level of fill-in.  Schema name: ILUCpPreconditioner</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

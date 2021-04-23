@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MixingLengthInletEBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TURBULENCE_MIXING_LENGTH_DISSIPATION_RATE_INLET&quot;).</param>
+        /// <param name="type">Schema name: MixingLengthInletEBC (required) (default to &quot;TURBULENCE_MIXING_LENGTH_DISSIPATION_RATE_INLET&quot;).</param>
         /// <param name="mixingLength">mixingLength.</param>
         public MixingLengthInletEBC(string type = "TURBULENCE_MIXING_LENGTH_DISSIPATION_RATE_INLET", DimensionalLength mixingLength = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MixingLengthInletEBC
         /// </summary>
+        /// <value>Schema name: MixingLengthInletEBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

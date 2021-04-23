@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WallHeatTransferTBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WALL_HEAT_TRANSFER&quot;).</param>
+        /// <param name="type">Schema name: WallHeatTransferTBC (required) (default to &quot;WALL_HEAT_TRANSFER&quot;).</param>
         /// <param name="wallTemperature">wallTemperature.</param>
         /// <param name="thermalDiffusivity">thermalDiffusivity.</param>
         public WallHeatTransferTBC(string type = "WALL_HEAT_TRANSFER", DimensionalTemperature wallTemperature = default(DimensionalTemperature), DimensionalKinematicViscosity thermalDiffusivity = default(DimensionalKinematicViscosity))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WallHeatTransferTBC
         /// </summary>
+        /// <value>Schema name: WallHeatTransferTBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

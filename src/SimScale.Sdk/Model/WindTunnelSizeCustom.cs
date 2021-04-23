@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WindTunnelSizeCustom" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WIND_TUNNEL_SIZE_CUSTOM&quot;).</param>
+        /// <param name="type">Schema name: WindTunnelSizeCustom (required) (default to &quot;WIND_TUNNEL_SIZE_CUSTOM&quot;).</param>
         /// <param name="heightExtension">heightExtension.</param>
         /// <param name="sideExtension">sideExtension.</param>
         /// <param name="inflowExtension">inflowExtension.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WindTunnelSizeCustom
         /// </summary>
+        /// <value>Schema name: WindTunnelSizeCustom</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

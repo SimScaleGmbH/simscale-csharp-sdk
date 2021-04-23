@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SteppingListPseudoTimeStepping" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;STEPPING_LIST_V18&quot;).</param>
+        /// <param name="type">Schema name: SteppingListPseudoTimeStepping (required) (default to &quot;STEPPING_LIST_V18&quot;).</param>
         /// <param name="simulationIntervals">simulationIntervals.</param>
         /// <param name="timestepLength">timestepLength.</param>
         public SteppingListPseudoTimeStepping(string type = "STEPPING_LIST_V18", DimensionalTime simulationIntervals = default(DimensionalTime), RestrictedDimensionalFunctionTime timestepLength = default(RestrictedDimensionalFunctionTime))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SteppingListPseudoTimeStepping
         /// </summary>
+        /// <value>Schema name: SteppingListPseudoTimeStepping</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

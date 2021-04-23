@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoPrimaryTopology" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NO_PRIMARY_TOPOLOGY&quot;).</param>
+        /// <param name="type">Schema name: NoPrimaryTopology (required) (default to &quot;NO_PRIMARY_TOPOLOGY&quot;).</param>
         public NoPrimaryTopology(string type = "NO_PRIMARY_TOPOLOGY")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NoPrimaryTopology
         /// </summary>
+        /// <value>Schema name: NoPrimaryTopology</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

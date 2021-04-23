@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomOrientation" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUSTOM&quot;).</param>
+        /// <param name="type">Schema name: CustomOrientation (required) (default to &quot;CUSTOM&quot;).</param>
         /// <param name="unitVector1">unitVector1.</param>
         /// <param name="unitVector2">unitVector2.</param>
         public CustomOrientation(string type = "CUSTOM", DimensionalVectorLength unitVector1 = default(DimensionalVectorLength), DimensionalVectorLength unitVector2 = default(DimensionalVectorLength))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CustomOrientation
         /// </summary>
+        /// <value>Schema name: CustomOrientation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

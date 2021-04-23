@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoneDamping" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NONE&quot;).</param>
+        /// <param name="type">Schema name: NoneDamping (required) (default to &quot;NONE&quot;).</param>
         public NoneDamping(string type = "NONE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NoneDamping
         /// </summary>
+        /// <value>Schema name: NoneDamping</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

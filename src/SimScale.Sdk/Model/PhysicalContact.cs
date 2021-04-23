@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PhysicalContact" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PHYSICAL_CONTACT_V36&quot;).</param>
+        /// <param name="type">Schema name: PhysicalContact (required) (default to &quot;PHYSICAL_CONTACT_V36&quot;).</param>
         /// <param name="settings">settings.</param>
         /// <param name="connections">connections.</param>
         public PhysicalContact(string type = "PHYSICAL_CONTACT_V36", ConnectionSettingsV36 settings = default(ConnectionSettingsV36), List<OneOfPhysicalContactConnections> connections = default(List<OneOfPhysicalContactConnections>))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PhysicalContact
         /// </summary>
+        /// <value>Schema name: PhysicalContact</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

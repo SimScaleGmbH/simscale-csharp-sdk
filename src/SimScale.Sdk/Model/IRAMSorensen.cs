@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IRAMSorensen" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SORENSEN&quot;).</param>
+        /// <param name="type">Schema name: IRAMSorensen (required) (default to &quot;SORENSEN&quot;).</param>
         /// <param name="precSoren">precSoren (default to 0M).</param>
         /// <param name="nmaxIterSoren">nmaxIterSoren (default to 20).</param>
         public IRAMSorensen(string type = "SORENSEN", decimal? precSoren = default(decimal?), int? nmaxIterSoren = default(int?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: IRAMSorensen
         /// </summary>
+        /// <value>Schema name: IRAMSorensen</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

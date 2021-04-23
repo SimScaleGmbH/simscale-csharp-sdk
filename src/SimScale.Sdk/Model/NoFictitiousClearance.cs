@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoFictitiousClearance" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NO_FICTITIOUS_CLEARANCE&quot;).</param>
+        /// <param name="type">Schema name: NoFictitiousClearance (required) (default to &quot;NO_FICTITIOUS_CLEARANCE&quot;).</param>
         public NoFictitiousClearance(string type = "NO_FICTITIOUS_CLEARANCE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NoFictitiousClearance
         /// </summary>
+        /// <value>Schema name: NoFictitiousClearance</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

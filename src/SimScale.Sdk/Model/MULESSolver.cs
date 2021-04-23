@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MULESSolver" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MULES_V7&quot;).</param>
+        /// <param name="type">Schema name: MULESSolver (required) (default to &quot;MULES_V7&quot;).</param>
         /// <param name="alphaCorrectors">alphaCorrectors (default to 2).</param>
         /// <param name="alphaSubCycles">alphaSubCycles (default to 2).</param>
         /// <param name="compressionCoefficient">compressionCoefficient (default to 1M).</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MULESSolver
         /// </summary>
+        /// <value>Schema name: MULESSolver</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

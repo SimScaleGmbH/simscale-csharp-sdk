@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstCrossPlaneOrthotropicTransport" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CONST_CROSS_PLANE_ORTHO&quot;).</param>
+        /// <param name="type">&lt;p&gt;The thermal conductivity of a material is a measure of its ability to conduct heat.&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Isotropic&lt;/strong&gt;: the thermal conductivity &amp;kappa; is the same in all directions.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Orthotropic&lt;/strong&gt;: the thermal conductivity is unique and independent in three orthogonal directions. It is defined by &amp;kappa;&lt;sub&gt;x&lt;/sub&gt;, &amp;kappa;&lt;sub&gt;y&lt;/sub&gt;, and &amp;kappa;&lt;sub&gt;z&lt;/sub&gt;.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Cross-plane orthotropic&lt;/strong&gt;: it is defined by an &lt;em&gt;in-plane&lt;/em&gt; conductivity, which is an isotropic conductivity on a given plane, and a &lt;em&gt;cross-plane&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/em&gt;conductivity, which acts in the direction normal to the aforementioned plane.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: ConstCrossPlaneOrthotropicTransport (required) (default to &quot;CONST_CROSS_PLANE_ORTHO&quot;).</param>
         /// <param name="conductivity">conductivity.</param>
         /// <param name="orientation">orientation.</param>
         /// <param name="thermo">thermo.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;The thermal conductivity of a material is a measure of its ability to conduct heat.&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Isotropic&lt;/strong&gt;: the thermal conductivity &amp;kappa; is the same in all directions.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Orthotropic&lt;/strong&gt;: the thermal conductivity is unique and independent in three orthogonal directions. It is defined by &amp;kappa;&lt;sub&gt;x&lt;/sub&gt;, &amp;kappa;&lt;sub&gt;y&lt;/sub&gt;, and &amp;kappa;&lt;sub&gt;z&lt;/sub&gt;.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Cross-plane orthotropic&lt;/strong&gt;: it is defined by an &lt;em&gt;in-plane&lt;/em&gt; conductivity, which is an isotropic conductivity on a given plane, and a &lt;em&gt;cross-plane&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/em&gt;conductivity, which acts in the direction normal to the aforementioned plane.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: ConstCrossPlaneOrthotropicTransport
         /// </summary>
+        /// <value>&lt;p&gt;The thermal conductivity of a material is a measure of its ability to conduct heat.&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Isotropic&lt;/strong&gt;: the thermal conductivity &amp;kappa; is the same in all directions.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Orthotropic&lt;/strong&gt;: the thermal conductivity is unique and independent in three orthogonal directions. It is defined by &amp;kappa;&lt;sub&gt;x&lt;/sub&gt;, &amp;kappa;&lt;sub&gt;y&lt;/sub&gt;, and &amp;kappa;&lt;sub&gt;z&lt;/sub&gt;.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Cross-plane orthotropic&lt;/strong&gt;: it is defined by an &lt;em&gt;in-plane&lt;/em&gt; conductivity, which is an isotropic conductivity on a given plane, and a &lt;em&gt;cross-plane&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/em&gt;conductivity, which acts in the direction normal to the aforementioned plane.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: ConstCrossPlaneOrthotropicTransport</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

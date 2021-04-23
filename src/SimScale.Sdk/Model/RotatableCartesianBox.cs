@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RotatableCartesianBox" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ROTATABLE_CARTESIAN_BOX&quot;).</param>
+        /// <param name="type">Schema name: RotatableCartesianBox (required) (default to &quot;ROTATABLE_CARTESIAN_BOX&quot;).</param>
         /// <param name="id">id.</param>
         /// <param name="name">name.</param>
         /// <param name="min">min.</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: RotatableCartesianBox
         /// </summary>
+        /// <value>Schema name: RotatableCartesianBox</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

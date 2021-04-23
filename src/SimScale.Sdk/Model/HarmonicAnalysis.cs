@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HarmonicAnalysis" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HARMONIC_ANALYSIS&quot;).</param>
+        /// <param name="type">Schema name: HarmonicAnalysis (required) (default to &quot;HARMONIC_ANALYSIS&quot;).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
         /// <param name="model">model.</param>
@@ -95,8 +95,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: HarmonicAnalysis
         /// </summary>
+        /// <value>Schema name: HarmonicAnalysis</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

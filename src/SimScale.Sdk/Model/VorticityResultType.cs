@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VorticityResultType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VORTICITY&quot;).</param>
+        /// <param name="type">Schema name: VorticityResultType (required) (default to &quot;VORTICITY&quot;).</param>
         public VorticityResultType(string type = "VORTICITY")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: VorticityResultType
         /// </summary>
+        /// <value>Schema name: VorticityResultType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CelllimitedLeastSquaresGradientScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CELLLIMITED_LEASTSQUARES&quot;).</param>
+        /// <param name="type">Schema name: CelllimitedLeastSquaresGradientScheme (required) (default to &quot;CELLLIMITED_LEASTSQUARES&quot;).</param>
         /// <param name="limiterCoefficient">This property defines a limiter coefficient for the scheme. 1 ensures boundedness while 0 applies no limiting. (default to 1M).</param>
         public CelllimitedLeastSquaresGradientScheme(string type = "CELLLIMITED_LEASTSQUARES", decimal? limiterCoefficient = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CelllimitedLeastSquaresGradientScheme
         /// </summary>
+        /// <value>Schema name: CelllimitedLeastSquaresGradientScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

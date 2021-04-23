@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FullResolutionNBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FULL_RESOLUTION&quot;).</param>
+        /// <param name="type">Schema name: FullResolutionNBC (required) (default to &quot;FULL_RESOLUTION&quot;).</param>
         public FullResolutionNBC(string type = "FULL_RESOLUTION")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FullResolutionNBC
         /// </summary>
+        /// <value>Schema name: FullResolutionNBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

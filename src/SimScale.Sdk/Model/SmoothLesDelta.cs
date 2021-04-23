@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SmoothLesDelta" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SMOOTH&quot;).</param>
+        /// <param name="type">Schema name: SmoothLesDelta (required) (default to &quot;SMOOTH&quot;).</param>
         /// <param name="deltaCoefficient">deltaCoefficient.</param>
         /// <param name="maxDeltaRatio">maxDeltaRatio (default to 1.1M).</param>
         public SmoothLesDelta(string type = "SMOOTH", CubeRootVolLesDelta deltaCoefficient = default(CubeRootVolLesDelta), decimal? maxDeltaRatio = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SmoothLesDelta
         /// </summary>
+        /// <value>Schema name: SmoothLesDelta</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

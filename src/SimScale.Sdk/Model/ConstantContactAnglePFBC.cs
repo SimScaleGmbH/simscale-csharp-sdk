@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstantContactAnglePFBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CONSTANT_CONTACT_ANGLE&quot;).</param>
+        /// <param name="type">Schema name: ConstantContactAnglePFBC (required) (default to &quot;CONSTANT_CONTACT_ANGLE&quot;).</param>
         /// <param name="equilibriumContactAngle">equilibriumContactAngle.</param>
         /// <param name="limit">limit (default to LimitEnum.NONE).</param>
         public ConstantContactAnglePFBC(string type = "CONSTANT_CONTACT_ANGLE", DimensionalAngle equilibriumContactAngle = default(DimensionalAngle), LimitEnum? limit = default(LimitEnum?))
@@ -85,8 +85,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ConstantContactAnglePFBC
         /// </summary>
+        /// <value>Schema name: ConstantContactAnglePFBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

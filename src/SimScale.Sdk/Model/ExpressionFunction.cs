@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExpressionFunction" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;EXPRESSION&quot;).</param>
+        /// <param name="type">Schema name: ExpressionFunction (required) (default to &quot;EXPRESSION&quot;).</param>
         /// <param name="expression">expression.</param>
         /// <param name="availableVariables">availableVariables.</param>
         public ExpressionFunction(string type = "EXPRESSION", string expression = default(string), List<FunctionParameter> availableVariables = default(List<FunctionParameter>))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ExpressionFunction
         /// </summary>
+        /// <value>Schema name: ExpressionFunction</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

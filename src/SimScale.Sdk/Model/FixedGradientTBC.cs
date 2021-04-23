@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedGradientTBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
+        /// <param name="type">Schema name: FixedGradientTBC (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
         /// <param name="gradient">gradient.</param>
         public FixedGradientTBC(string type = "FIXED_GRADIENT", DimensionalFunctionTemperatureGradient gradient = default(DimensionalFunctionTemperatureGradient))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedGradientTBC
         /// </summary>
+        /// <value>Schema name: FixedGradientTBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

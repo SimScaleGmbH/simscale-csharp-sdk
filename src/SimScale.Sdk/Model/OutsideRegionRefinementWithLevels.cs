@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OutsideRegionRefinementWithLevels" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OUTSIDE&quot;).</param>
+        /// <param name="type">Schema name: OutsideRegionRefinementWithLevels (required) (default to &quot;OUTSIDE&quot;).</param>
         /// <param name="level">level (default to 1).</param>
         public OutsideRegionRefinementWithLevels(string type = "OUTSIDE", int? level = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: OutsideRegionRefinementWithLevels
         /// </summary>
+        /// <value>Schema name: OutsideRegionRefinementWithLevels</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionRefinementWindComfort" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REGION_REFINEMENT_WIND_COMFORT&quot;).</param>
+        /// <param name="type">Schema name: RegionRefinementWindComfort (required) (default to &quot;REGION_REFINEMENT_WIND_COMFORT&quot;).</param>
         /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
         /// <param name="newFineness">newFineness.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: RegionRefinementWindComfort
         /// </summary>
+        /// <value>Schema name: RegionRefinementWindComfort</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

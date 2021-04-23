@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PCGSolver" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PCG&quot;).</param>
+        /// <param name="type">Schema name: PCGSolver (required) (default to &quot;PCG&quot;).</param>
         /// <param name="absoluteTolerance">&lt;p&gt;Define the absolute tolerance for the residual. The convergence process will be stopped as soon as the residual falls below the absolute tolerance.&lt;/p&gt;.</param>
         /// <param name="relativeTolerance">&lt;p&gt;Choose the relative tolerance for the residual. The convergence process will be stopped as soon as the ratio of current to initial residual falls below the relative tolerance.&lt;/p&gt; (default to 0.01M).</param>
         /// <param name="preconditioner">preconditioner.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PCGSolver
         /// </summary>
+        /// <value>Schema name: PCGSolver</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

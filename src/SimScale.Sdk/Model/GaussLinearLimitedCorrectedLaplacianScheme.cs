@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussLinearLimitedCorrectedLaplacianScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_LINEAR_LIMITED_CORRECTED&quot;).</param>
+        /// <param name="type">Schema name: GaussLinearLimitedCorrectedLaplacianScheme (required) (default to &quot;GAUSS_LINEAR_LIMITED_CORRECTED&quot;).</param>
         /// <param name="limiterCoefficient">This property defines a limiter coefficient for the scheme. 1 ensures boundedness while 0 applies no limiting. (default to 0.5M).</param>
         public GaussLinearLimitedCorrectedLaplacianScheme(string type = "GAUSS_LINEAR_LIMITED_CORRECTED", decimal? limiterCoefficient = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussLinearLimitedCorrectedLaplacianScheme
         /// </summary>
+        /// <value>Schema name: GaussLinearLimitedCorrectedLaplacianScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

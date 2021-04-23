@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StressFieldSelection" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;STRESS&quot;).</param>
+        /// <param name="type">Schema name: StressFieldSelection (required) (default to &quot;STRESS&quot;).</param>
         /// <param name="stressType">stressType.</param>
         public StressFieldSelection(string type = "STRESS", OneOfStressFieldSelectionStressType stressType = default(OneOfStressFieldSelectionStressType))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: StressFieldSelection
         /// </summary>
+        /// <value>Schema name: StressFieldSelection</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

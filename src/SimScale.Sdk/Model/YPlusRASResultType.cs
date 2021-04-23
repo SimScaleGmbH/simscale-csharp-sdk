@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="YPlusRASResultType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DIMENSIONLESS_WALL_DISTANCE_YPLUS&quot;).</param>
+        /// <param name="type">Schema name: YPlusRASResultType (required) (default to &quot;DIMENSIONLESS_WALL_DISTANCE_YPLUS&quot;).</param>
         public YPlusRASResultType(string type = "DIMENSIONLESS_WALL_DISTANCE_YPLUS")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: YPlusRASResultType
         /// </summary>
+        /// <value>Schema name: YPlusRASResultType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

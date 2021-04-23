@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PrescribedOptionalFunction" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESCRIBED&quot;).</param>
+        /// <param name="type">Schema name: PrescribedOptionalFunction (required) (default to &quot;PRESCRIBED&quot;).</param>
         /// <param name="value">value.</param>
         public PrescribedOptionalFunction(string type = "PRESCRIBED", OneOfPrescribedOptionalFunctionValue value = default(OneOfPrescribedOptionalFunctionValue))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PrescribedOptionalFunction
         /// </summary>
+        /// <value>Schema name: PrescribedOptionalFunction</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

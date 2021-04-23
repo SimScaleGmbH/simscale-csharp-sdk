@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomFluidBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUSTOM_V37&quot;).</param>
+        /// <param name="type">This boundary condition allows the user to choose conditions for each physical variable separately. It provides full flexibility over the choice of boundary conditions to make advanced customization possible.  Schema name: CustomFluidBC (required) (default to &quot;CUSTOM_V37&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="velocity">velocity.</param>
         /// <param name="pressure">pressure.</param>
@@ -84,8 +84,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This boundary condition allows the user to choose conditions for each physical variable separately. It provides full flexibility over the choice of boundary conditions to make advanced customization possible.  Schema name: CustomFluidBC
         /// </summary>
+        /// <value>This boundary condition allows the user to choose conditions for each physical variable separately. It provides full flexibility over the choice of boundary conditions to make advanced customization possible.  Schema name: CustomFluidBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

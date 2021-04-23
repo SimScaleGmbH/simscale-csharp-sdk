@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SurfaceRefinementHexDominantSnappy" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SURFACE_HEX_DOMINANT_SNAPPY_V3&quot;).</param>
+        /// <param name="type">A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#surface-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;surface refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the mesh near the surfaces of assigned faces and/or solids. A surface refinement can also be used to create a &lt;u&gt;cell zone&lt;/u&gt;.  Schema name: SurfaceRefinementHexDominantSnappy (required) (default to &quot;SURFACE_HEX_DOMINANT_SNAPPY_V3&quot;).</param>
         /// <param name="name">name (default to &quot;Surface refinement&quot;).</param>
         /// <param name="minLength">minLength.</param>
         /// <param name="maxLength">maxLength.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#surface-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;surface refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the mesh near the surfaces of assigned faces and/or solids. A surface refinement can also be used to create a &lt;u&gt;cell zone&lt;/u&gt;.  Schema name: SurfaceRefinementHexDominantSnappy
         /// </summary>
+        /// <value>A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#surface-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;surface refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the mesh near the surfaces of assigned faces and/or solids. A surface refinement can also be used to create a &lt;u&gt;cell zone&lt;/u&gt;.  Schema name: SurfaceRefinementHexDominantSnappy</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TurbulenceKineticEnergyTIBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TURBULENCE_KINETIC_ENERGY&quot;).</param>
+        /// <param name="type">Schema name: TurbulenceKineticEnergyTIBC (required) (default to &quot;TURBULENCE_KINETIC_ENERGY&quot;).</param>
         /// <param name="value">value.</param>
         public TurbulenceKineticEnergyTIBC(string type = "TURBULENCE_KINETIC_ENERGY", DimensionalFunctionTurbulenceKineticEnergy value = default(DimensionalFunctionTurbulenceKineticEnergy))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TurbulenceKineticEnergyTIBC
         /// </summary>
+        /// <value>Schema name: TurbulenceKineticEnergyTIBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

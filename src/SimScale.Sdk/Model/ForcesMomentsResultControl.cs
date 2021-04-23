@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ForcesMomentsResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FORCES_AND_MOMENTS&quot;).</param>
+        /// <param name="type">Schema name: ForcesMomentsResultControl (required) (default to &quot;FORCES_AND_MOMENTS&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="centerOfRotation">centerOfRotation.</param>
         /// <param name="writeControl">writeControl.</param>
@@ -58,8 +58,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ForcesMomentsResultControl
         /// </summary>
+        /// <value>Schema name: ForcesMomentsResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

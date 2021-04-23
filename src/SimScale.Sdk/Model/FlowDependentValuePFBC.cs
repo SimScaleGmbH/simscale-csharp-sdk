@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FlowDependentValuePFBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FLOW_DEPENDENT_VALUE&quot;).</param>
+        /// <param name="type">Schema name: FlowDependentValuePFBC (required) (default to &quot;FLOW_DEPENDENT_VALUE&quot;).</param>
         /// <param name="lowerBound">lowerBound (default to 0M).</param>
         /// <param name="upperBound">upperBound (default to 1M).</param>
         public FlowDependentValuePFBC(string type = "FLOW_DEPENDENT_VALUE", decimal? lowerBound = default(decimal?), decimal? upperBound = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FlowDependentValuePFBC
         /// </summary>
+        /// <value>Schema name: FlowDependentValuePFBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

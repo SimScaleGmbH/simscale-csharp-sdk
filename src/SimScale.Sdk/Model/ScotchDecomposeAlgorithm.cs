@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScotchDecomposeAlgorithm" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SCOTCH&quot;).</param>
+        /// <param name="type">Schema name: ScotchDecomposeAlgorithm (required) (default to &quot;SCOTCH&quot;).</param>
         public ScotchDecomposeAlgorithm(string type = "SCOTCH")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ScotchDecomposeAlgorithm
         /// </summary>
+        /// <value>Schema name: ScotchDecomposeAlgorithm</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

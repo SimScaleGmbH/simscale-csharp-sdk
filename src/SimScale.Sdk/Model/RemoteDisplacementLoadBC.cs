@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RemoteDisplacementLoadBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REMOTE_DISPLACEMENT_LOAD&quot;).</param>
+        /// <param name="type">This boundary condition restrains the displacement of a face or edge relative to a specified remote point. Therefore the assignment is connected to the remote point with RBE3 (deformable) or MPC (undeformable) conditions and the defined constraints are applied to the remote point.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;As the assignments are connected to the remote point, additional constraints on these nodes may lead to overconstrained systems.&lt;/li&gt;&lt;li&gt;If the number of nodes of the assigment is large (&gt;1000&gt; it is recommended to use the &lt;b&gt;MUMPS&lt;/b&gt; or &lt;b&gt;PETSC&lt;/b&gt; solver.&lt;/li&gt;&lt;i&gt;This boundary condition is only valid for small rotations. For large rotations, please use &lt;b&gt;Rotating motion&lt;/b&gt; boundary conditions.&lt;/i&gt;&lt;/ul&gt;   Schema name: RemoteDisplacementLoadBC (required) (default to &quot;REMOTE_DISPLACEMENT_LOAD&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="displacement">displacement.</param>
         /// <param name="rotation">rotation.</param>
@@ -83,8 +83,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This boundary condition restrains the displacement of a face or edge relative to a specified remote point. Therefore the assignment is connected to the remote point with RBE3 (deformable) or MPC (undeformable) conditions and the defined constraints are applied to the remote point.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;As the assignments are connected to the remote point, additional constraints on these nodes may lead to overconstrained systems.&lt;/li&gt;&lt;li&gt;If the number of nodes of the assigment is large (&gt;1000&gt; it is recommended to use the &lt;b&gt;MUMPS&lt;/b&gt; or &lt;b&gt;PETSC&lt;/b&gt; solver.&lt;/li&gt;&lt;i&gt;This boundary condition is only valid for small rotations. For large rotations, please use &lt;b&gt;Rotating motion&lt;/b&gt; boundary conditions.&lt;/i&gt;&lt;/ul&gt;   Schema name: RemoteDisplacementLoadBC
         /// </summary>
+        /// <value>This boundary condition restrains the displacement of a face or edge relative to a specified remote point. Therefore the assignment is connected to the remote point with RBE3 (deformable) or MPC (undeformable) conditions and the defined constraints are applied to the remote point.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;As the assignments are connected to the remote point, additional constraints on these nodes may lead to overconstrained systems.&lt;/li&gt;&lt;li&gt;If the number of nodes of the assigment is large (&gt;1000&gt; it is recommended to use the &lt;b&gt;MUMPS&lt;/b&gt; or &lt;b&gt;PETSC&lt;/b&gt; solver.&lt;/li&gt;&lt;i&gt;This boundary condition is only valid for small rotations. For large rotations, please use &lt;b&gt;Rotating motion&lt;/b&gt; boundary conditions.&lt;/i&gt;&lt;/ul&gt;   Schema name: RemoteDisplacementLoadBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

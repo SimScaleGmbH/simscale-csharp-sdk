@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FreestreamVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FREESTREAM&quot;).</param>
+        /// <param name="type">Schema name: FreestreamVBC (required) (default to &quot;FREESTREAM&quot;).</param>
         /// <param name="value">value.</param>
         public FreestreamVBC(string type = "FREESTREAM", DimensionalVectorSpeed value = default(DimensionalVectorSpeed))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FreestreamVBC
         /// </summary>
+        /// <value>Schema name: FreestreamVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

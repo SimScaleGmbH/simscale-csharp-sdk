@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StationaryTimeDependency" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;STATIONARY&quot;).</param>
+        /// <param name="type">Schema name: StationaryTimeDependency (required) (default to &quot;STATIONARY&quot;).</param>
         public StationaryTimeDependency(string type = "STATIONARY")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: StationaryTimeDependency
         /// </summary>
+        /// <value>Schema name: StationaryTimeDependency</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

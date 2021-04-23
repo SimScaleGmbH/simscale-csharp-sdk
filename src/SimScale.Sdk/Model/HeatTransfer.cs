@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeatTransfer" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HEAT_TRANSFER&quot;).</param>
+        /// <param name="type">Schema name: HeatTransfer (required) (default to &quot;HEAT_TRANSFER&quot;).</param>
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="nonLinearAnalysis">&lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt; (default to false).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
@@ -99,8 +99,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: HeatTransfer
         /// </summary>
+        /// <value>Schema name: HeatTransfer</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

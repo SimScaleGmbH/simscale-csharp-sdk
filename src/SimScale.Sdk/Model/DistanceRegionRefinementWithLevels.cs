@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DistanceRegionRefinementWithLevels" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DISTANCE&quot;).</param>
+        /// <param name="type">Schema name: DistanceRegionRefinementWithLevels (required) (default to &quot;DISTANCE&quot;).</param>
         /// <param name="distanceRefinementLevels">distanceRefinementLevels.</param>
         public DistanceRegionRefinementWithLevels(string type = "DISTANCE", List<RefinementLevel> distanceRefinementLevels = default(List<RefinementLevel>))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DistanceRegionRefinementWithLevels
         /// </summary>
+        /// <value>Schema name: DistanceRegionRefinementWithLevels</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

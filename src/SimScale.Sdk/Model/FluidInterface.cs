@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FluidInterface" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FLUID_INTERFACE&quot;).</param>
+        /// <param name="type">Schema name: FluidInterface (required) (default to &quot;FLUID_INTERFACE&quot;).</param>
         /// <param name="connections">connections.</param>
         public FluidInterface(string type = "FLUID_INTERFACE", List<RegionInterface> connections = default(List<RegionInterface>))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FluidInterface
         /// </summary>
+        /// <value>Schema name: FluidInterface</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

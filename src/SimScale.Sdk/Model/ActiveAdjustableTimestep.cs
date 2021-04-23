@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActiveAdjustableTimestep" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ACTIVE_TIMESTEP&quot;).</param>
+        /// <param name="type">This option activates an adjustable time step. The time step is being modified according to the Courant number.  Schema name: ActiveAdjustableTimestep (required) (default to &quot;ACTIVE_TIMESTEP&quot;).</param>
         /// <param name="maximalCourantNumber">This option defines a maximum Courant number. When using explicit time integration schemes, it may not be greater than 1. Values of 0.5-0.7 are recommended for many cases. (default to 0.5M).</param>
         /// <param name="maximalStep">This option defines a maximum time step length which may not be exceeded when the time step is adapted during runtime. (default to 1M).</param>
         /// <param name="maxAlphaCo">Define a maximum Courant number based on the interface velocity. (default to 0.5M).</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option activates an adjustable time step. The time step is being modified according to the Courant number.  Schema name: ActiveAdjustableTimestep
         /// </summary>
+        /// <value>This option activates an adjustable time step. The time step is being modified according to the Courant number.  Schema name: ActiveAdjustableTimestep</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedGradientNBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
+        /// <param name="type">Schema name: FixedGradientNBC (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
         /// <param name="gradient">gradient.</param>
         public FixedGradientNBC(string type = "FIXED_GRADIENT", DimensionalSpeed gradient = default(DimensionalSpeed))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedGradientNBC
         /// </summary>
+        /// <value>Schema name: FixedGradientNBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

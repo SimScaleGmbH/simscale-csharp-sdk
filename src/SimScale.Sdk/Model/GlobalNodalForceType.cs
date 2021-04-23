@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalNodalForceType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NODAL&quot;).</param>
+        /// <param name="type">Schema name: GlobalNodalForceType (required) (default to &quot;NODAL&quot;).</param>
         /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.REALANDIMAGINARY).</param>
         public GlobalNodalForceType(string type = "NODAL", ComplexNumberEnum? complexNumber = default(ComplexNumberEnum?))
         {
@@ -65,8 +65,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalNodalForceType
         /// </summary>
+        /// <value>Schema name: GlobalNodalForceType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

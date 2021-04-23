@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EulerTimeDifferentiationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;EULER&quot;).</param>
+        /// <param name="type">Schema name: EulerTimeDifferentiationScheme (required) (default to &quot;EULER&quot;).</param>
         public EulerTimeDifferentiationScheme(string type = "EULER")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: EulerTimeDifferentiationScheme
         /// </summary>
+        /// <value>Schema name: EulerTimeDifferentiationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

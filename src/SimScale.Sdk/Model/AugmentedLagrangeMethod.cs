@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AugmentedLagrangeMethod" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUGMENTED_LAGRANGE&quot;).</param>
+        /// <param name="type">Schema name: AugmentedLagrangeMethod (required) (default to &quot;AUGMENTED_LAGRANGE&quot;).</param>
         /// <param name="augmentedLagrangeCoefficient">augmentedLagrangeCoefficient (default to 100M).</param>
         public AugmentedLagrangeMethod(string type = "AUGMENTED_LAGRANGE", decimal? augmentedLagrangeCoefficient = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AugmentedLagrangeMethod
         /// </summary>
+        /// <value>Schema name: AugmentedLagrangeMethod</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

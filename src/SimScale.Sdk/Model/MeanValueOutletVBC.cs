@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MeanValueOutletVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MEAN_VALUE_OUTLET_VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: MeanValueOutletVBC (required) (default to &quot;MEAN_VALUE_OUTLET_VELOCITY&quot;).</param>
         /// <param name="normalVelocity">normalVelocity.</param>
         public MeanValueOutletVBC(string type = "MEAN_VALUE_OUTLET_VELOCITY", DimensionalFunctionSpeed normalVelocity = default(DimensionalFunctionSpeed))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MeanValueOutletVBC
         /// </summary>
+        /// <value>Schema name: MeanValueOutletVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

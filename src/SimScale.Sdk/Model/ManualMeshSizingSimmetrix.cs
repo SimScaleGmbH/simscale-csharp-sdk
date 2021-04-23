@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualMeshSizingSimmetrix" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MANUAL&quot;).</param>
+        /// <param name="type">Schema name: ManualMeshSizingSimmetrix (required) (default to &quot;MANUAL&quot;).</param>
         /// <param name="maximumEdgeLength">maximumEdgeLength.</param>
         /// <param name="minimumEdgeLength">minimumEdgeLength.</param>
         public ManualMeshSizingSimmetrix(string type = "MANUAL", DimensionalLength maximumEdgeLength = default(DimensionalLength), DimensionalLength minimumEdgeLength = default(DimensionalLength))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ManualMeshSizingSimmetrix
         /// </summary>
+        /// <value>Schema name: ManualMeshSizingSimmetrix</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

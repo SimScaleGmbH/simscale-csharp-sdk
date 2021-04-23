@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedGradientTKEBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
+        /// <param name="type">Schema name: FixedGradientTKEBC (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
         /// <param name="gradient">gradient.</param>
         public FixedGradientTKEBC(string type = "FIXED_GRADIENT", DimensionalAcceleration gradient = default(DimensionalAcceleration))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedGradientTKEBC
         /// </summary>
+        /// <value>Schema name: FixedGradientTKEBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

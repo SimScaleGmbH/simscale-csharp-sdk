@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ZeroGradientEVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ZERO_GRADIENT&quot;).</param>
+        /// <param name="type">Schema name: ZeroGradientEVBC (required) (default to &quot;ZERO_GRADIENT&quot;).</param>
         public ZeroGradientEVBC(string type = "ZERO_GRADIENT")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ZeroGradientEVBC
         /// </summary>
+        /// <value>Schema name: ZeroGradientEVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

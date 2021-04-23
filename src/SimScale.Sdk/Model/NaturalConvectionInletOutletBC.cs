@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NaturalConvectionInletOutletBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NATURAL_CONVECTION_INLET_OUTLET&quot;).</param>
+        /// <param name="type">&lt;p&gt;This boundary condition is suitable for an &lt;b&gt;open boundary&lt;/b&gt; where the air can enter or exit freely from or to the &lt;b&gt;atmosphere&lt;b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/natural-convection-inlet-outlet/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/P&gt;  Schema name: NaturalConvectionInletOutletBC (required) (default to &quot;NATURAL_CONVECTION_INLET_OUTLET&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressureRgh">pressureRgh.</param>
         /// <param name="temperature">temperature.</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;This boundary condition is suitable for an &lt;b&gt;open boundary&lt;/b&gt; where the air can enter or exit freely from or to the &lt;b&gt;atmosphere&lt;b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/natural-convection-inlet-outlet/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/P&gt;  Schema name: NaturalConvectionInletOutletBC
         /// </summary>
+        /// <value>&lt;p&gt;This boundary condition is suitable for an &lt;b&gt;open boundary&lt;/b&gt; where the air can enter or exit freely from or to the &lt;b&gt;atmosphere&lt;b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/natural-convection-inlet-outlet/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/P&gt;  Schema name: NaturalConvectionInletOutletBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

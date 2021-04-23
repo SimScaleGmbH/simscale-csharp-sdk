@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Region" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REGION&quot;).</param>
+        /// <param name="type">Schema name: Region (required) (default to &quot;REGION&quot;).</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         public Region(string type = "REGION", List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Region
         /// </summary>
+        /// <value>Schema name: Region</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

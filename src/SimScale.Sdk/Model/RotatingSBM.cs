@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RotatingSBM" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ROTATING_MOTION&quot;).</param>
+        /// <param name="type">Schema name: RotatingSBM (required) (default to &quot;ROTATING_MOTION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="rotation">rotation.</param>
         public RotatingSBM(string type = "ROTATING_MOTION", string name = default(string), OneOfRotatingSBMRotation rotation = default(OneOfRotatingSBMRotation))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: RotatingSBM
         /// </summary>
+        /// <value>Schema name: RotatingSBM</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

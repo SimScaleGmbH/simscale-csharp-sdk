@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticLayerOn" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUTOMATIC_LAYER_ON&quot;).</param>
+        /// <param name="type">Schema name: AutomaticLayerOn (required) (default to &quot;AUTOMATIC_LAYER_ON&quot;).</param>
         /// <param name="numberOfLayers">The &lt;i&gt;Number of layers&lt;/i&gt; defines how many prismatic boundary layers should be created. 3 is default. (default to 3).</param>
         /// <param name="totalRelativeThickness">It defines the thickness of all prismatic boundary layers combined in relation to the local element size.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-overall-layer-thickness.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example 3-layer thickness of 40% (0.4) of the local mesh size. (default to 0.4M).</param>
         /// <param name="layerType">layerType.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AutomaticLayerOn
         /// </summary>
+        /// <value>Schema name: AutomaticLayerOn</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

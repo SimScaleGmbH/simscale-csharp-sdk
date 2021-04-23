@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThermalMechanical" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;THERMAL_MECHANICAL&quot;).</param>
+        /// <param name="type">Schema name: ThermalMechanical (required) (default to &quot;THERMAL_MECHANICAL&quot;).</param>
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="inertiaEffect">&lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading velocities or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt; (default to &quot;STATIC&quot;).</param>
         /// <param name="nonLinearAnalysis">&lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt; (default to false).</param>
@@ -101,8 +101,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ThermalMechanical
         /// </summary>
+        /// <value>Schema name: ThermalMechanical</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

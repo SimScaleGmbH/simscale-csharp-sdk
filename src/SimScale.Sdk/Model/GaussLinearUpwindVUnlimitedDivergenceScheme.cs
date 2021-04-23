@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussLinearUpwindVUnlimitedDivergenceScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_LINEARUPWINDV_UNLIMITED&quot;).</param>
+        /// <param name="type">Schema name: GaussLinearUpwindVUnlimitedDivergenceScheme (required) (default to &quot;GAUSS_LINEARUPWINDV_UNLIMITED&quot;).</param>
         /// <param name="limiterCoefficient">This property defines a limiter coefficient for the scheme. 1 ensures boundedness while 0 applies no limiting. (default to 1M).</param>
         public GaussLinearUpwindVUnlimitedDivergenceScheme(string type = "GAUSS_LINEARUPWINDV_UNLIMITED", decimal? limiterCoefficient = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussLinearUpwindVUnlimitedDivergenceScheme
         /// </summary>
+        /// <value>Schema name: GaussLinearUpwindVUnlimitedDivergenceScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

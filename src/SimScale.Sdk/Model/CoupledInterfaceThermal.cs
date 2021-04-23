@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CoupledInterfaceThermal" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;COUPLED&quot;).</param>
+        /// <param name="type">Schema name: CoupledInterfaceThermal (required) (default to &quot;COUPLED&quot;).</param>
         public CoupledInterfaceThermal(string type = "COUPLED")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CoupledInterfaceThermal
         /// </summary>
+        /// <value>Schema name: CoupledInterfaceThermal</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

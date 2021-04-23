@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThetaMethodTimeIntegrationType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;THETA_METHOD&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose the time integration scheme type&lt;/p&gt;  Schema name: ThetaMethodTimeIntegrationType (required) (default to &quot;THETA_METHOD&quot;).</param>
         /// <param name="theta">The parameter &lt;b&gt;&amp;theta;&lt;/b&gt; must be ranging between 0.0 (explicit method) and 1.0 (completely implicit method). The standard value of &lt;b&gt;&amp;theta;&lt;/b&gt; &#x3D; 0.57 is chosen a little higher than &lt;b&gt;&amp;theta;&lt;/b&gt; &#x3D; 0.5 which would lead to the &lt;i&gt;Crank-Nicolson&lt;/i&gt; scheme of order 2. (default to 0.57M).</param>
         public ThetaMethodTimeIntegrationType(string type = "THETA_METHOD", decimal? theta = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose the time integration scheme type&lt;/p&gt;  Schema name: ThetaMethodTimeIntegrationType
         /// </summary>
+        /// <value>&lt;p&gt;Choose the time integration scheme type&lt;/p&gt;  Schema name: ThetaMethodTimeIntegrationType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

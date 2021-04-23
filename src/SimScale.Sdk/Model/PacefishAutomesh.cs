@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PacefishAutomesh" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PACEFISH_AUTOMESH&quot;).</param>
+        /// <param name="type">Schema name: PacefishAutomesh (required) (default to &quot;PACEFISH_AUTOMESH&quot;).</param>
         /// <param name="newFineness">newFineness.</param>
         /// <param name="referenceLengthComputation">referenceLengthComputation.</param>
         /// <param name="primaryTopology">primaryTopology.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PacefishAutomesh
         /// </summary>
+        /// <value>Schema name: PacefishAutomesh</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomSolarLoad" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUSTOM_SOLAR_LOAD&quot;).</param>
+        /// <param name="type">Schema name: CustomSolarLoad (required) (default to &quot;CUSTOM_SOLAR_LOAD&quot;).</param>
         /// <param name="directedSolarLoad">directedSolarLoad.</param>
         /// <param name="diffusiveSolarLoad">diffusiveSolarLoad.</param>
         public CustomSolarLoad(string type = "CUSTOM_SOLAR_LOAD", DimensionalHeatFlux directedSolarLoad = default(DimensionalHeatFlux), DimensionalHeatFlux diffusiveSolarLoad = default(DimensionalHeatFlux))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CustomSolarLoad
         /// </summary>
+        /// <value>Schema name: CustomSolarLoad</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

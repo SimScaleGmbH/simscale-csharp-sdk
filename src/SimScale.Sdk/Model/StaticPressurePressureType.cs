@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StaticPressurePressureType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;STATIC_PRESSURE&quot;).</param>
+        /// <param name="type">Schema name: StaticPressurePressureType (required) (default to &quot;STATIC_PRESSURE&quot;).</param>
         public StaticPressurePressureType(string type = "STATIC_PRESSURE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: StaticPressurePressureType
         /// </summary>
+        /// <value>Schema name: StaticPressurePressureType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InletOutletEVCBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INLET_OUTLET&quot;).</param>
+        /// <param name="type">Schema name: InletOutletEVCBC (required) (default to &quot;INLET_OUTLET&quot;).</param>
         /// <param name="value">value.</param>
         public InletOutletEVCBC(string type = "INLET_OUTLET", DimensionalDynamicViscosity value = default(DimensionalDynamicViscosity))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: InletOutletEVCBC
         /// </summary>
+        /// <value>Schema name: InletOutletEVCBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

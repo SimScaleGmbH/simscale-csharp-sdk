@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InletOutletTKEBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INLET_OUTLET&quot;).</param>
+        /// <param name="type">Schema name: InletOutletTKEBC (required) (default to &quot;INLET_OUTLET&quot;).</param>
         /// <param name="value">value.</param>
         public InletOutletTKEBC(string type = "INLET_OUTLET", DimensionalTurbulenceKineticEnergy value = default(DimensionalTurbulenceKineticEnergy))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: InletOutletTKEBC
         /// </summary>
+        /// <value>Schema name: InletOutletTKEBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

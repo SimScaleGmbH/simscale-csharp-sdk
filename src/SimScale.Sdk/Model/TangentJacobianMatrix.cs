@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TangentJacobianMatrix" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TANGENT&quot;).</param>
+        /// <param name="type">&lt;p&gt;Select which stiffnes matrix should be used for computing the Jacobian of the Newton method. Choosing the tangent stiffnes matrix via &lt;b&gt;tangent matrix&lt;/b&gt; allows a full Newton approach whereas the selection of the &lt;b&gt;elastic matrix&lt;/b&gt; results in a quasi-Newton approach.&lt;/p&gt;  Schema name: TangentJacobianMatrix (required) (default to &quot;TANGENT&quot;).</param>
         /// <param name="maxNewtonIteration">&lt;p&gt;Maximum number of allowed Newton iterations per time increment. If this value is reached the simulation is considered non-converging. If an automatic time stepping is activated the time increment is reduced in order to reach convergence.&lt;/p&gt;.</param>
         /// <param name="reactualizationIteration">&lt;p&gt;Select how often the Jacobian matrix should be recomputed. If this parameter is set to 10, the Jacobian matrix is recomputed every 10th iteration within a given time step. If it is set to 0, the Jacobian matrix is not updated within any time step.&lt;/p&gt;.</param>
         /// <param name="reactualizationIncrement">&lt;p&gt;Select how often the Jacobian matrix should be recomputed. If this parameter is set to 10, the Jacobian matrix is recomputed every 10th time step. If it is set to 0, the Jacobian matrix is never updated.&lt;/p&gt; (default to 1).</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Select which stiffnes matrix should be used for computing the Jacobian of the Newton method. Choosing the tangent stiffnes matrix via &lt;b&gt;tangent matrix&lt;/b&gt; allows a full Newton approach whereas the selection of the &lt;b&gt;elastic matrix&lt;/b&gt; results in a quasi-Newton approach.&lt;/p&gt;  Schema name: TangentJacobianMatrix
         /// </summary>
+        /// <value>&lt;p&gt;Select which stiffnes matrix should be used for computing the Jacobian of the Newton method. Choosing the tangent stiffnes matrix via &lt;b&gt;tangent matrix&lt;/b&gt; allows a full Newton approach whereas the selection of the &lt;b&gt;elastic matrix&lt;/b&gt; results in a quasi-Newton approach.&lt;/p&gt;  Schema name: TangentJacobianMatrix</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

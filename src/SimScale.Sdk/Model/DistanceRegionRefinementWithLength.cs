@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DistanceRegionRefinementWithLength" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DISTANCE&quot;).</param>
+        /// <param name="type">Schema name: DistanceRegionRefinementWithLength (required) (default to &quot;DISTANCE&quot;).</param>
         /// <param name="distanceRefinementLengths">Define the desired cell edge length based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;descending order&lt;/u&gt; from top to bottom in the table..</param>
         public DistanceRegionRefinementWithLength(string type = "DISTANCE", List<RefinementLength> distanceRefinementLengths = default(List<RefinementLength>))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DistanceRegionRefinementWithLength
         /// </summary>
+        /// <value>Schema name: DistanceRegionRefinementWithLength</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

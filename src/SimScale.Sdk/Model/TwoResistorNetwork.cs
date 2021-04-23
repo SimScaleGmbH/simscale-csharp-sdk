@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TwoResistorNetwork" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TWO_RESISTOR_NETWORK&quot;).</param>
+        /// <param name="type">&lt;br&gt;Apply thermal resistance network modelling. Select the top face of the body you want to assign. &lt;p&gt;The models for &lt;b&gt;thermal resistance network&lt;/b&gt; are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Star Network Resistance Model:&lt;/b&gt; defines a thermal resistance network consisting out of a top, a board, a board to interface and four side resistances. A power source is assigned to the body.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Two resistor Model:&lt;/b&gt; defines a thermal resistance network consisting out of a top, a board and a board to interface resistance. A power source is assigned to the body.&lt;/li&gt;&lt;/ul&gt;  Schema name: TwoResistorNetwork (required) (default to &quot;TWO_RESISTOR_NETWORK&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="resistanceTop">resistanceTop.</param>
         /// <param name="resistanceBottom">resistanceBottom.</param>
@@ -58,8 +58,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;br&gt;Apply thermal resistance network modelling. Select the top face of the body you want to assign. &lt;p&gt;The models for &lt;b&gt;thermal resistance network&lt;/b&gt; are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Star Network Resistance Model:&lt;/b&gt; defines a thermal resistance network consisting out of a top, a board, a board to interface and four side resistances. A power source is assigned to the body.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Two resistor Model:&lt;/b&gt; defines a thermal resistance network consisting out of a top, a board and a board to interface resistance. A power source is assigned to the body.&lt;/li&gt;&lt;/ul&gt;  Schema name: TwoResistorNetwork
         /// </summary>
+        /// <value>&lt;br&gt;Apply thermal resistance network modelling. Select the top face of the body you want to assign. &lt;p&gt;The models for &lt;b&gt;thermal resistance network&lt;/b&gt; are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Star Network Resistance Model:&lt;/b&gt; defines a thermal resistance network consisting out of a top, a board, a board to interface and four side resistances. A power source is assigned to the body.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Two resistor Model:&lt;/b&gt; defines a thermal resistance network consisting out of a top, a board and a board to interface resistance. A power source is assigned to the body.&lt;/li&gt;&lt;/ul&gt;  Schema name: TwoResistorNetwork</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

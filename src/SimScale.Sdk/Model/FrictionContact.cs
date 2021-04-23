@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FrictionContact" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FRICTION_CONTACT&quot;).</param>
+        /// <param name="type">Schema name: FrictionContact (required) (default to &quot;FRICTION_CONTACT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="contactSolutionMethod">contactSolutionMethod.</param>
         /// <param name="frictionCoefficient">frictionCoefficient.</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FrictionContact
         /// </summary>
+        /// <value>Schema name: FrictionContact</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

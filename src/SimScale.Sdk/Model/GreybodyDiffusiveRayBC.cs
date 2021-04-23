@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GreybodyDiffusiveRayBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GREYBODY_DIFFUSIVE_RAY&quot;).</param>
+        /// <param name="type">Schema name: GreybodyDiffusiveRayBC (required) (default to &quot;GREYBODY_DIFFUSIVE_RAY&quot;).</param>
         /// <param name="emissivity">emissivity (default to 0.9M).</param>
         public GreybodyDiffusiveRayBC(string type = "GREYBODY_DIFFUSIVE_RAY", decimal? emissivity = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GreybodyDiffusiveRayBC
         /// </summary>
+        /// <value>Schema name: GreybodyDiffusiveRayBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

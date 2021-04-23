@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureOutletBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESSURE_OUTLET_V30&quot;).</param>
+        /// <param name="type">This boundary condition allows to specify a pressure value at an outlet boundary. For Incompressible and Passive Scalar Transport analysis the specific Pressure i.e. Pressure/Density is used.  Schema name: PressureOutletBC (required) (default to &quot;PRESSURE_OUTLET_V30&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressure">pressure.</param>
         /// <param name="pressureRgh">pressureRgh.</param>
@@ -60,8 +60,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This boundary condition allows to specify a pressure value at an outlet boundary. For Incompressible and Passive Scalar Transport analysis the specific Pressure i.e. Pressure/Density is used.  Schema name: PressureOutletBC
         /// </summary>
+        /// <value>This boundary condition allows to specify a pressure value at an outlet boundary. For Incompressible and Passive Scalar Transport analysis the specific Pressure i.e. Pressure/Density is used.  Schema name: PressureOutletBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

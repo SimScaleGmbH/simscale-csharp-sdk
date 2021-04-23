@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedTemperatureValueBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_TEMPERATURE_VALUE&quot;).</param>
+        /// <param name="type">This is a boundary condition for the &lt;b&gt;temperature&lt;/b&gt; variable. It prescribes the given temperature value on all selected groups.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Do not define a temperature and a heat flux boundary condition on the same group&lt;/li&gt;&lt;li&gt;Do not define the temperature on slave entities of &lt;b&gt;Contact Constraints&lt;/b&gt; as they are constrained by the master temperature&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file)&lt;/li&gt;&lt;/ul&gt;  Schema name: FixedTemperatureValueBC (required) (default to &quot;FIXED_TEMPERATURE_VALUE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="temperatureValue">temperatureValue.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a boundary condition for the &lt;b&gt;temperature&lt;/b&gt; variable. It prescribes the given temperature value on all selected groups.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Do not define a temperature and a heat flux boundary condition on the same group&lt;/li&gt;&lt;li&gt;Do not define the temperature on slave entities of &lt;b&gt;Contact Constraints&lt;/b&gt; as they are constrained by the master temperature&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file)&lt;/li&gt;&lt;/ul&gt;  Schema name: FixedTemperatureValueBC
         /// </summary>
+        /// <value>This is a boundary condition for the &lt;b&gt;temperature&lt;/b&gt; variable. It prescribes the given temperature value on all selected groups.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Do not define a temperature and a heat flux boundary condition on the same group&lt;/li&gt;&lt;li&gt;Do not define the temperature on slave entities of &lt;b&gt;Contact Constraints&lt;/b&gt; as they are constrained by the master temperature&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file)&lt;/li&gt;&lt;/ul&gt;  Schema name: FixedTemperatureValueBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

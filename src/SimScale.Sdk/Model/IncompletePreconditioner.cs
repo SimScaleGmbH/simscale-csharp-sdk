@@ -109,7 +109,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IncompletePreconditioner" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INCOMPLETE_LDLT&quot;).</param>
+        /// <param name="type">Schema name: IncompletePreconditioner (required) (default to &quot;INCOMPLETE_LDLT&quot;).</param>
         /// <param name="matrixCompleteness">matrixCompleteness (default to 0).</param>
         /// <param name="preconditionerMatrixGrowth">preconditionerMatrixGrowth (default to 1M).</param>
         /// <param name="renumberingMethod">renumberingMethod (default to RenumberingMethodEnum.RCMK).</param>
@@ -123,8 +123,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: IncompletePreconditioner
         /// </summary>
+        /// <value>Schema name: IncompletePreconditioner</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

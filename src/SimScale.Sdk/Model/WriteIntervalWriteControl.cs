@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WriteIntervalWriteControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WRITE_INTERVAL&quot;).</param>
+        /// <param name="type">&lt;p&gt;Define how frequently intermediate results should be saved. With the selection of &lt;b&gt;initial time steps&lt;/b&gt; only the user defined time steps are stored in the result and by selecting &lt;b&gt;all computed time steps&lt;/b&gt; also intermediate results that were created by the automatic time stepping are saved. With the selection of &lt;b&gt;write interval&lt;/b&gt; a specific write frequency can be chosen which reduces the result size. Finally using &lt;b&gt;user defined time steps&lt;/b&gt; there can either be a constant time increment for result storage given or a table with varying time intervals analogous to the &lt;b&gt;time step length&lt;/b&gt; definition.&lt;/p&gt;  Schema name: WriteIntervalWriteControl (required) (default to &quot;WRITE_INTERVAL&quot;).</param>
         /// <param name="writeInterval">&lt;p&gt;Define the write frequency of the intermediate results to the result file. Selecting a write interval of 2 means that every second computed time step is saved in the final result database, independently if it is a pre-defined user time step or an intermediate one that was added during automatic time stepping. &lt;/p&gt; (default to 5).</param>
         public WriteIntervalWriteControl(string type = "WRITE_INTERVAL", int? writeInterval = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Define how frequently intermediate results should be saved. With the selection of &lt;b&gt;initial time steps&lt;/b&gt; only the user defined time steps are stored in the result and by selecting &lt;b&gt;all computed time steps&lt;/b&gt; also intermediate results that were created by the automatic time stepping are saved. With the selection of &lt;b&gt;write interval&lt;/b&gt; a specific write frequency can be chosen which reduces the result size. Finally using &lt;b&gt;user defined time steps&lt;/b&gt; there can either be a constant time increment for result storage given or a table with varying time intervals analogous to the &lt;b&gt;time step length&lt;/b&gt; definition.&lt;/p&gt;  Schema name: WriteIntervalWriteControl
         /// </summary>
+        /// <value>&lt;p&gt;Define how frequently intermediate results should be saved. With the selection of &lt;b&gt;initial time steps&lt;/b&gt; only the user defined time steps are stored in the result and by selecting &lt;b&gt;all computed time steps&lt;/b&gt; also intermediate results that were created by the automatic time stepping are saved. With the selection of &lt;b&gt;write interval&lt;/b&gt; a specific write frequency can be chosen which reduces the result size. Finally using &lt;b&gt;user defined time steps&lt;/b&gt; there can either be a constant time increment for result storage given or a table with varying time intervals analogous to the &lt;b&gt;time step length&lt;/b&gt; definition.&lt;/p&gt;  Schema name: WriteIntervalWriteControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

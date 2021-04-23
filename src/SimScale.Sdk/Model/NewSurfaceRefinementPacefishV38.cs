@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewSurfaceRefinementPacefishV38" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SURFACE_PACEFISH_V38&quot;).</param>
+        /// <param name="type">Schema name: NewSurfaceRefinementPacefishV38 (required) (default to &quot;SURFACE_PACEFISH_V38&quot;).</param>
         /// <param name="name">name (default to &quot;Surface refinement&quot;).</param>
         /// <param name="meshSizing">meshSizing.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NewSurfaceRefinementPacefishV38
         /// </summary>
+        /// <value>Schema name: NewSurfaceRefinementPacefishV38</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

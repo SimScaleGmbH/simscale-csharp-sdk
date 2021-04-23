@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneralDarcyForchheimerPacefish" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GENERAL_POROSITY&quot;).</param>
+        /// <param name="type">Schema name: GeneralDarcyForchheimerPacefish (required) (default to &quot;GENERAL_POROSITY&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="darcyForchheimerType">darcyForchheimerType.</param>
         /// <param name="permeability">permeability.</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GeneralDarcyForchheimerPacefish
         /// </summary>
+        /// <value>Schema name: GeneralDarcyForchheimerPacefish</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

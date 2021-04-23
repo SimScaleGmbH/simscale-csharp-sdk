@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureInletVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESSURE_INLET_VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: PressureInletVBC (required) (default to &quot;PRESSURE_INLET_VELOCITY&quot;).</param>
         public PressureInletVBC(string type = "PRESSURE_INLET_VELOCITY")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PressureInletVBC
         /// </summary>
+        /// <value>Schema name: PressureInletVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

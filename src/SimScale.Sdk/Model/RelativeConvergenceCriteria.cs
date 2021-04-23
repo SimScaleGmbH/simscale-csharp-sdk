@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RelativeConvergenceCriteria" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;RELATIVE&quot;).</param>
+        /// <param name="type">&lt;p&gt;Select the type of convergence criterion for the nonlinear solution method.&lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;absolute&lt;/b&gt; if you want convergence to be reached when the maximum residual of all degrees of freedom of a given Newton iteration is lower than the given tolerance.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;relative&lt;/b&gt; if the same criteria as &lt;b&gt;absolute&lt;/b&gt; will be checked but for the maximum relative residual i.e. maximum absolute residual divided by external force. Please note, if no external force is involved e.g. two far objects coming in contact, then using relative criteria will lead to singularity and convergence will not be attained.&lt;/li&gt;&lt;/ul&gt;  Schema name: RelativeConvergenceCriteria (required) (default to &quot;RELATIVE&quot;).</param>
         /// <param name="tolerance">&lt;p&gt;Set the threshold value for convergence detection for the absolute convergence criteria. If the maximum abolute error of all DOFs fall below this value the current time step is considered convergent.&lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;In most of the cases using a lower value for tolerance may lead to hard or no convergence. Therefore, it is always recommended to start with a higher value e.g. 10&lt;sup&gt;-3&lt;/sup&gt; or 10&lt;sup&gt;-4&lt;/sup&gt;. Please also note that increasing the threshold value may effect the solution results. &lt;/li&gt;&lt;/ul&gt; (default to 0.000010M).</param>
         public RelativeConvergenceCriteria(string type = "RELATIVE", decimal? tolerance = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Select the type of convergence criterion for the nonlinear solution method.&lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;absolute&lt;/b&gt; if you want convergence to be reached when the maximum residual of all degrees of freedom of a given Newton iteration is lower than the given tolerance.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;relative&lt;/b&gt; if the same criteria as &lt;b&gt;absolute&lt;/b&gt; will be checked but for the maximum relative residual i.e. maximum absolute residual divided by external force. Please note, if no external force is involved e.g. two far objects coming in contact, then using relative criteria will lead to singularity and convergence will not be attained.&lt;/li&gt;&lt;/ul&gt;  Schema name: RelativeConvergenceCriteria
         /// </summary>
+        /// <value>&lt;p&gt;Select the type of convergence criterion for the nonlinear solution method.&lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;absolute&lt;/b&gt; if you want convergence to be reached when the maximum residual of all degrees of freedom of a given Newton iteration is lower than the given tolerance.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;relative&lt;/b&gt; if the same criteria as &lt;b&gt;absolute&lt;/b&gt; will be checked but for the maximum relative residual i.e. maximum absolute residual divided by external force. Please note, if no external force is involved e.g. two far objects coming in contact, then using relative criteria will lead to singularity and convergence will not be attained.&lt;/li&gt;&lt;/ul&gt;  Schema name: RelativeConvergenceCriteria</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

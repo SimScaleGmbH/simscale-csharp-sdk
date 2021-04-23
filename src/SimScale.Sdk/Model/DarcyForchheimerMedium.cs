@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DarcyForchheimerMedium" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DARCY_FORCHHEIMER&quot;).</param>
+        /// <param name="type">Schema name: DarcyForchheimerMedium (required) (default to &quot;DARCY_FORCHHEIMER&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="coefficientD">coefficientD.</param>
         /// <param name="coefficientF">coefficientF.</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DarcyForchheimerMedium
         /// </summary>
+        /// <value>Schema name: DarcyForchheimerMedium</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

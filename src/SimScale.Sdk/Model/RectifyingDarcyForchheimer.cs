@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RectifyingDarcyForchheimer" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;RECTIFYING&quot;).</param>
+        /// <param name="type">Directional porous object where the permeability and friction form coefficient are applied only in the specified direction. For directions orthogonal to the specified direction, the permeability is set to zero, i.e. there is no flow in the orthogonal directions.  Schema name: RectifyingDarcyForchheimer (required) (default to &quot;RECTIFYING&quot;).</param>
         /// <param name="direction">direction.</param>
         public RectifyingDarcyForchheimer(string type = "RECTIFYING", DimensionalVectorLength direction = default(DimensionalVectorLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Directional porous object where the permeability and friction form coefficient are applied only in the specified direction. For directions orthogonal to the specified direction, the permeability is set to zero, i.e. there is no flow in the orthogonal directions.  Schema name: RectifyingDarcyForchheimer
         /// </summary>
+        /// <value>Directional porous object where the permeability and friction form coefficient are applied only in the specified direction. For directions orthogonal to the specified direction, the permeability is set to zero, i.e. there is no flow in the orthogonal directions.  Schema name: RectifyingDarcyForchheimer</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LeastsquaresGradientScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LEASTSQUARES&quot;).</param>
+        /// <param name="type">Schema name: LeastsquaresGradientScheme (required) (default to &quot;LEASTSQUARES&quot;).</param>
         public LeastsquaresGradientScheme(string type = "LEASTSQUARES")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: LeastsquaresGradientScheme
         /// </summary>
+        /// <value>Schema name: LeastsquaresGradientScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

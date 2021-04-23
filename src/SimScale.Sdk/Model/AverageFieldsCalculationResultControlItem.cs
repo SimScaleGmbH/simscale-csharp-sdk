@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AverageFieldsCalculationResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AVERAGE_FIELDS_CALCULATION&quot;).</param>
+        /// <param name="type">Schema name: AverageFieldsCalculationResultControlItem (required) (default to &quot;AVERAGE_FIELDS_CALCULATION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="fieldSelection">fieldSelection.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AverageFieldsCalculationResultControlItem
         /// </summary>
+        /// <value>Schema name: AverageFieldsCalculationResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

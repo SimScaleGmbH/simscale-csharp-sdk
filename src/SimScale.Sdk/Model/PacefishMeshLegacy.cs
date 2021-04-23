@@ -79,7 +79,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PacefishMeshLegacy" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PACEFISH_MESH_LEGACY&quot;).</param>
+        /// <param name="type">Schema name: PacefishMeshLegacy (required) (default to &quot;PACEFISH_MESH_LEGACY&quot;).</param>
         /// <param name="fineness">fineness (default to FinenessEnum.COARSE).</param>
         /// <param name="referenceLength">referenceLength.</param>
         /// <param name="reynoldsScaling">Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. (default to 1M).</param>
@@ -95,8 +95,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PacefishMeshLegacy
         /// </summary>
+        /// <value>Schema name: PacefishMeshLegacy</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

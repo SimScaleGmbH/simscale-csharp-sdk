@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CorrectedSurfaceNormalGradientScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CORRECTED&quot;).</param>
+        /// <param name="type">Schema name: CorrectedSurfaceNormalGradientScheme (required) (default to &quot;CORRECTED&quot;).</param>
         public CorrectedSurfaceNormalGradientScheme(string type = "CORRECTED")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CorrectedSurfaceNormalGradientScheme
         /// </summary>
+        /// <value>Schema name: CorrectedSurfaceNormalGradientScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

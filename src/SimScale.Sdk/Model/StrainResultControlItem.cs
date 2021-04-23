@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StrainResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;STRAIN&quot;).</param>
+        /// <param name="type">Schema name: StrainResultControlItem (required) (default to &quot;STRAIN&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="strainType">strainType.</param>
         public StrainResultControlItem(string type = "STRAIN", string name = default(string), OneOfStrainResultControlItemStrainType strainType = default(OneOfStrainResultControlItemStrainType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: StrainResultControlItem
         /// </summary>
+        /// <value>Schema name: StrainResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

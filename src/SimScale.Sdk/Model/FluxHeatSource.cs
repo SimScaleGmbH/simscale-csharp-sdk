@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FluxHeatSource" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FLUX&quot;).</param>
+        /// <param name="type">Schema name: FluxHeatSource (required) (default to &quot;FLUX&quot;).</param>
         /// <param name="heatFlux">heatFlux.</param>
         public FluxHeatSource(string type = "FLUX", DimensionalHeatFlux heatFlux = default(DimensionalHeatFlux))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FluxHeatSource
         /// </summary>
+        /// <value>Schema name: FluxHeatSource</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

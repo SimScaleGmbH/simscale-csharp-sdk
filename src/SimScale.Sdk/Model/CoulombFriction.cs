@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CoulombFriction" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;COULOMB_FRICTION&quot;).</param>
+        /// <param name="type">Schema name: CoulombFriction (required) (default to &quot;COULOMB_FRICTION&quot;).</param>
         /// <param name="nonlinearityResolution">nonlinearityResolution.</param>
         public CoulombFriction(string type = "COULOMB_FRICTION", OneOfCoulombFrictionNonlinearityResolution nonlinearityResolution = default(OneOfCoulombFrictionNonlinearityResolution))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CoulombFriction
         /// </summary>
+        /// <value>Schema name: CoulombFriction</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

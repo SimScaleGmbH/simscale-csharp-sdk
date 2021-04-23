@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WallFunctionTKEBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WALL_FUNCTION&quot;).</param>
+        /// <param name="type">Schema name: WallFunctionTKEBC (required) (default to &quot;WALL_FUNCTION&quot;).</param>
         /// <param name="wallRoughness">wallRoughness (default to false).</param>
         /// <param name="roughnessHeight">roughnessHeight.</param>
         /// <param name="roughnessConstant">roughnessConstant (default to 0.5M).</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WallFunctionTKEBC
         /// </summary>
+        /// <value>Schema name: WallFunctionTKEBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

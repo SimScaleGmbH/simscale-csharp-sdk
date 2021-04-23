@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedValueEVCBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_VALUE&quot;).</param>
+        /// <param name="type">Schema name: FixedValueEVCBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
         /// <param name="value">value.</param>
         public FixedValueEVCBC(string type = "FIXED_VALUE", DimensionalDynamicViscosity value = default(DimensionalDynamicViscosity))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedValueEVCBC
         /// </summary>
+        /// <value>Schema name: FixedValueEVCBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

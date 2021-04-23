@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WindTunnelSizeModerate" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WIND_TUNNEL_SIZE_MODERATE&quot;).</param>
+        /// <param name="type">Schema name: WindTunnelSizeModerate (required) (default to &quot;WIND_TUNNEL_SIZE_MODERATE&quot;).</param>
         public WindTunnelSizeModerate(string type = "WIND_TUNNEL_SIZE_MODERATE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WindTunnelSizeModerate
         /// </summary>
+        /// <value>Schema name: WindTunnelSizeModerate</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

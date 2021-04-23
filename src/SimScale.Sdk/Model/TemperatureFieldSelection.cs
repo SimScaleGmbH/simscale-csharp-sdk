@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemperatureFieldSelection" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TEMPERATURE&quot;).</param>
+        /// <param name="type">Schema name: TemperatureFieldSelection (required) (default to &quot;TEMPERATURE&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.TEMPERATURE).</param>
         public TemperatureFieldSelection(string type = "TEMPERATURE", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -65,8 +65,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TemperatureFieldSelection
         /// </summary>
+        /// <value>Schema name: TemperatureFieldSelection</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

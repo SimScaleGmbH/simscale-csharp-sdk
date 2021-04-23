@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PenaltyMethod" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PENALTY_METHOD&quot;).</param>
+        /// <param name="type">Schema name: PenaltyMethod (required) (default to &quot;PENALTY_METHOD&quot;).</param>
         /// <param name="penaltyCoefficient">penaltyCoefficient (default to 100000000000M).</param>
         public PenaltyMethod(string type = "PENALTY_METHOD", decimal? penaltyCoefficient = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PenaltyMethod
         /// </summary>
+        /// <value>Schema name: PenaltyMethod</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

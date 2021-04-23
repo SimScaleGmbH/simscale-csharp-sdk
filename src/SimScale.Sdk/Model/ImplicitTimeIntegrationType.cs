@@ -57,7 +57,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImplicitTimeIntegrationType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;IMPLICIT&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose the time integration scheme type&lt;/p&gt;&lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;implicit&lt;/b&gt; if the problem is static or dynamic but not so complex. Implicit analysis takes more solution time but can solve the problem easily with larger timesteps. Therefore, it is always recommended to use implicit time integration scheme. &lt;/li&gt;&lt;i&gt;Choose &lt;b&gt;explicit&lt;/b&gt; if the problem is only dynamic and highly complex. Explicit analysis takes less solution time but also needs more refined (small) timesteps to solve the problem. Therefore, in most of the cases it&#39;s not recommended due to convergence problems. &lt;/i&gt;&lt;/ul&gt;   Schema name: ImplicitTimeIntegrationType (required) (default to &quot;IMPLICIT&quot;).</param>
         /// <param name="scheme">scheme.</param>
         /// <param name="schemeFormulation">&lt;p&gt;Choose the primary variable for the time integration scheme.&lt;/p&gt; (default to SchemeFormulationEnum.DISPLACEMENT).</param>
         /// <param name="massMatrixShift">&lt;p&gt;This parameter c&lt;sub&gt;K&lt;/sub&gt; allows the shifting of the mass matrix with the stiffness matrix multiplied by c&lt;sub&gt;K&lt;/sub&gt;: &lt;b&gt;M&lt;/b&gt;&lt;sup&gt;&#39;&lt;/sup&gt;&#x3D;&lt;b&gt;M&lt;/b&gt; + c&lt;sub&gt;K&lt;/sub&gt;*&lt;b&gt;K&lt;/b&gt;. This makes it possible to strongly improve convergence in dynamics with implicit time scheme by imposing a cut-off frequency inversely proportional to the value of c&lt;sub&gt;K&lt;/sub&gt; (at the cost of a light distortion of all the eigen frequencies of the system).&lt;/p&gt; (default to 0M).</param>
@@ -71,8 +71,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose the time integration scheme type&lt;/p&gt;&lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;implicit&lt;/b&gt; if the problem is static or dynamic but not so complex. Implicit analysis takes more solution time but can solve the problem easily with larger timesteps. Therefore, it is always recommended to use implicit time integration scheme. &lt;/li&gt;&lt;i&gt;Choose &lt;b&gt;explicit&lt;/b&gt; if the problem is only dynamic and highly complex. Explicit analysis takes less solution time but also needs more refined (small) timesteps to solve the problem. Therefore, in most of the cases it&#39;s not recommended due to convergence problems. &lt;/i&gt;&lt;/ul&gt;   Schema name: ImplicitTimeIntegrationType
         /// </summary>
+        /// <value>&lt;p&gt;Choose the time integration scheme type&lt;/p&gt;&lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;implicit&lt;/b&gt; if the problem is static or dynamic but not so complex. Implicit analysis takes more solution time but can solve the problem easily with larger timesteps. Therefore, it is always recommended to use implicit time integration scheme. &lt;/li&gt;&lt;i&gt;Choose &lt;b&gt;explicit&lt;/b&gt; if the problem is only dynamic and highly complex. Explicit analysis takes less solution time but also needs more refined (small) timesteps to solve the problem. Therefore, in most of the cases it&#39;s not recommended due to convergence problems. &lt;/i&gt;&lt;/ul&gt;   Schema name: ImplicitTimeIntegrationType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VelocityOutletBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VELOCITY_OUTLET_V7&quot;).</param>
+        /// <param name="type">&lt;br&gt;This boundary condition imposes a known flow rate or velocity at an outlet.&lt;p&gt;The sub-types for a &lt;b&gt;Velocity Outlet&lt;/b&gt; boundary are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Fixed value:&lt;/b&gt; defines a constant or time/space dependent velocity values. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Mean value:&lt;/b&gt; defines a mean or time/space dependent velocity values across the surface(s) selected. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Free stream:&lt;/b&gt; defines a Inflow/Outflow condition at boundaries far away from the object. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Flow rate:&lt;/b&gt; defines a target flow rate. &lt;b&gt;Flow rate value must be positive.&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Face normal value:&lt;/b&gt; defines a target face normal mean outlet velocity. &lt;b&gt;Velocity value must be positive.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;  Schema name: VelocityOutletBC (required) (default to &quot;VELOCITY_OUTLET_V7&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="velocity">velocity.</param>
         /// <param name="phaseFraction">phaseFraction.</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;br&gt;This boundary condition imposes a known flow rate or velocity at an outlet.&lt;p&gt;The sub-types for a &lt;b&gt;Velocity Outlet&lt;/b&gt; boundary are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Fixed value:&lt;/b&gt; defines a constant or time/space dependent velocity values. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Mean value:&lt;/b&gt; defines a mean or time/space dependent velocity values across the surface(s) selected. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Free stream:&lt;/b&gt; defines a Inflow/Outflow condition at boundaries far away from the object. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Flow rate:&lt;/b&gt; defines a target flow rate. &lt;b&gt;Flow rate value must be positive.&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Face normal value:&lt;/b&gt; defines a target face normal mean outlet velocity. &lt;b&gt;Velocity value must be positive.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;  Schema name: VelocityOutletBC
         /// </summary>
+        /// <value>&lt;br&gt;This boundary condition imposes a known flow rate or velocity at an outlet.&lt;p&gt;The sub-types for a &lt;b&gt;Velocity Outlet&lt;/b&gt; boundary are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Fixed value:&lt;/b&gt; defines a constant or time/space dependent velocity values. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Mean value:&lt;/b&gt; defines a mean or time/space dependent velocity values across the surface(s) selected. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Free stream:&lt;/b&gt; defines a Inflow/Outflow condition at boundaries far away from the object. The flow direction is based on input values.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Flow rate:&lt;/b&gt; defines a target flow rate. &lt;b&gt;Flow rate value must be positive.&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Face normal value:&lt;/b&gt; defines a target face normal mean outlet velocity. &lt;b&gt;Velocity value must be positive.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;  Schema name: VelocityOutletBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

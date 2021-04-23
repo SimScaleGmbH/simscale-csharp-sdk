@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TrueLineSearch" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TRUE&quot;).</param>
+        /// <param name="type">&lt;p&gt;Line search can be used to improve convergence for nonlinear calculations with the Newton method.&lt;/p&gt;  Schema name: TrueLineSearch (required) (default to &quot;TRUE&quot;).</param>
         /// <param name="method">&lt;p&gt;Choose the method of the line search algorithm. The &lt;b&gt;Secant method&lt;/b&gt; is a simple one dimensional search algorithm. The &lt;b&gt;mixed method&lt;/b&gt; is a more elaborate algorithm that uses variable bounds.&lt;/p&gt; (default to MethodEnum.SECANT).</param>
         /// <param name="residual">&lt;p&gt;Set the residual for the line search convergence&lt;/p&gt; (default to 0.001M).</param>
         /// <param name="maxIterations">&lt;p&gt;Set the maximum number for line search iterations. Typically a sinlge-digit number should be sufficient.&lt;/p&gt; (default to 3).</param>
@@ -77,8 +77,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Line search can be used to improve convergence for nonlinear calculations with the Newton method.&lt;/p&gt;  Schema name: TrueLineSearch
         /// </summary>
+        /// <value>&lt;p&gt;Line search can be used to improve convergence for nonlinear calculations with the Newton method.&lt;/p&gt;  Schema name: TrueLineSearch</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

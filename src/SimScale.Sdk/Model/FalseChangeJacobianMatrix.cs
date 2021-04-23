@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FalseChangeJacobianMatrix" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FALSE&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose if the Jacobian matrix should automatically change from tangent stiffnes matrix to elastic matrix if the time increment is falling below a given threshold. On the assumption that below a given time increment value the nonlinearities are not evolving within the time step one can strongly save computation time by switching to the elastic matrix.&lt;/p&gt;  Schema name: FalseChangeJacobianMatrix (required) (default to &quot;FALSE&quot;).</param>
         public FalseChangeJacobianMatrix(string type = "FALSE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose if the Jacobian matrix should automatically change from tangent stiffnes matrix to elastic matrix if the time increment is falling below a given threshold. On the assumption that below a given time increment value the nonlinearities are not evolving within the time step one can strongly save computation time by switching to the elastic matrix.&lt;/p&gt;  Schema name: FalseChangeJacobianMatrix
         /// </summary>
+        /// <value>&lt;p&gt;Choose if the Jacobian matrix should automatically change from tangent stiffnes matrix to elastic matrix if the time increment is falling below a given threshold. On the assumption that below a given time increment value the nonlinearities are not evolving within the time step one can strongly save computation time by switching to the elastic matrix.&lt;/p&gt;  Schema name: FalseChangeJacobianMatrix</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

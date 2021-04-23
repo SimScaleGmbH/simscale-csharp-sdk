@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussLimitedLinearV1DivergenceScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_LIMITEDLINEARV_1&quot;).</param>
+        /// <param name="type">Schema name: GaussLimitedLinearV1DivergenceScheme (required) (default to &quot;GAUSS_LIMITEDLINEARV_1&quot;).</param>
         public GaussLimitedLinearV1DivergenceScheme(string type = "GAUSS_LIMITEDLINEARV_1")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussLimitedLinearV1DivergenceScheme
         /// </summary>
+        /// <value>Schema name: GaussLimitedLinearV1DivergenceScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

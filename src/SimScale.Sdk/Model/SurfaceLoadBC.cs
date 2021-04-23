@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SurfaceLoadBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SURFACE_LOAD&quot;).</param>
+        /// <param name="type">This is a &lt;b&gt;surface traction&lt;/b&gt; boundary condition representing a distributed load on the selection. It is applied as surface traction in the global coordinate system.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the surface area of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: SurfaceLoadBC (required) (default to &quot;SURFACE_LOAD&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="load">load.</param>
         /// <param name="scaling">scaling.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a &lt;b&gt;surface traction&lt;/b&gt; boundary condition representing a distributed load on the selection. It is applied as surface traction in the global coordinate system.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the surface area of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: SurfaceLoadBC
         /// </summary>
+        /// <value>This is a &lt;b&gt;surface traction&lt;/b&gt; boundary condition representing a distributed load on the selection. It is applied as surface traction in the global coordinate system.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the surface area of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: SurfaceLoadBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

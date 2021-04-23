@@ -36,26 +36,27 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FairWeatherConditions" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FAIR_WEATHER_CONDITIONS&quot;).</param>
+        /// <param name="type">Schema name: FairWeatherConditions (required) (default to &quot;FAIR_WEATHER_CONDITIONS&quot;).</param>
         /// <param name="skyCloudCoverFraction">skyCloudCoverFraction (default to 0M).</param>
         /// <param name="groundReflectivity">groundReflectivity (default to 0.2M).</param>
-        /// <param name="a">a (default to 1230M).</param>
-        /// <param name="b">b (default to 0.142M).</param>
-        /// <param name="c">c (default to 0.058M).</param>
-        public FairWeatherConditions(string type = "FAIR_WEATHER_CONDITIONS", decimal? skyCloudCoverFraction = default(decimal?), decimal? groundReflectivity = default(decimal?), decimal? a = default(decimal?), decimal? b = default(decimal?), decimal? c = default(decimal?))
+        /// <param name="apparentSolarIrradiation">apparentSolarIrradiation.</param>
+        /// <param name="atmosphericExtinctionCoefficient">Atmospheric extinction coefficient (B) (default to 0.142M).</param>
+        /// <param name="diffusiveRadiationFactor">Diffusive radiation factor (C) (default to 0.058M).</param>
+        public FairWeatherConditions(string type = "FAIR_WEATHER_CONDITIONS", decimal? skyCloudCoverFraction = default(decimal?), decimal? groundReflectivity = default(decimal?), DimensionalHeatFlux apparentSolarIrradiation = default(DimensionalHeatFlux), decimal? atmosphericExtinctionCoefficient = default(decimal?), decimal? diffusiveRadiationFactor = default(decimal?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FairWeatherConditions and cannot be null");
             this.SkyCloudCoverFraction = skyCloudCoverFraction;
             this.GroundReflectivity = groundReflectivity;
-            this.A = a;
-            this.B = b;
-            this.C = c;
+            this.ApparentSolarIrradiation = apparentSolarIrradiation;
+            this.AtmosphericExtinctionCoefficient = atmosphericExtinctionCoefficient;
+            this.DiffusiveRadiationFactor = diffusiveRadiationFactor;
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FairWeatherConditions
         /// </summary>
+        /// <value>Schema name: FairWeatherConditions</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -72,22 +73,24 @@ namespace SimScale.Sdk.Model
         public decimal? GroundReflectivity { get; set; }
 
         /// <summary>
-        /// Gets or Sets A
+        /// Gets or Sets ApparentSolarIrradiation
         /// </summary>
-        [DataMember(Name="A", EmitDefaultValue=false)]
-        public decimal? A { get; set; }
+        [DataMember(Name="apparentSolarIrradiation", EmitDefaultValue=false)]
+        public DimensionalHeatFlux ApparentSolarIrradiation { get; set; }
 
         /// <summary>
-        /// Gets or Sets B
+        /// Atmospheric extinction coefficient (B)
         /// </summary>
-        [DataMember(Name="B", EmitDefaultValue=false)]
-        public decimal? B { get; set; }
+        /// <value>Atmospheric extinction coefficient (B)</value>
+        [DataMember(Name="atmosphericExtinctionCoefficient", EmitDefaultValue=false)]
+        public decimal? AtmosphericExtinctionCoefficient { get; set; }
 
         /// <summary>
-        /// Gets or Sets C
+        /// Diffusive radiation factor (C)
         /// </summary>
-        [DataMember(Name="C", EmitDefaultValue=false)]
-        public decimal? C { get; set; }
+        /// <value>Diffusive radiation factor (C)</value>
+        [DataMember(Name="diffusiveRadiationFactor", EmitDefaultValue=false)]
+        public decimal? DiffusiveRadiationFactor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,9 +103,9 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  SkyCloudCoverFraction: ").Append(SkyCloudCoverFraction).Append("\n");
             sb.Append("  GroundReflectivity: ").Append(GroundReflectivity).Append("\n");
-            sb.Append("  A: ").Append(A).Append("\n");
-            sb.Append("  B: ").Append(B).Append("\n");
-            sb.Append("  C: ").Append(C).Append("\n");
+            sb.Append("  ApparentSolarIrradiation: ").Append(ApparentSolarIrradiation).Append("\n");
+            sb.Append("  AtmosphericExtinctionCoefficient: ").Append(AtmosphericExtinctionCoefficient).Append("\n");
+            sb.Append("  DiffusiveRadiationFactor: ").Append(DiffusiveRadiationFactor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,19 +156,19 @@ namespace SimScale.Sdk.Model
                     this.GroundReflectivity.Equals(input.GroundReflectivity))
                 ) && 
                 (
-                    this.A == input.A ||
-                    (this.A != null &&
-                    this.A.Equals(input.A))
+                    this.ApparentSolarIrradiation == input.ApparentSolarIrradiation ||
+                    (this.ApparentSolarIrradiation != null &&
+                    this.ApparentSolarIrradiation.Equals(input.ApparentSolarIrradiation))
                 ) && 
                 (
-                    this.B == input.B ||
-                    (this.B != null &&
-                    this.B.Equals(input.B))
+                    this.AtmosphericExtinctionCoefficient == input.AtmosphericExtinctionCoefficient ||
+                    (this.AtmosphericExtinctionCoefficient != null &&
+                    this.AtmosphericExtinctionCoefficient.Equals(input.AtmosphericExtinctionCoefficient))
                 ) && 
                 (
-                    this.C == input.C ||
-                    (this.C != null &&
-                    this.C.Equals(input.C))
+                    this.DiffusiveRadiationFactor == input.DiffusiveRadiationFactor ||
+                    (this.DiffusiveRadiationFactor != null &&
+                    this.DiffusiveRadiationFactor.Equals(input.DiffusiveRadiationFactor))
                 );
         }
 
@@ -184,12 +187,12 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.SkyCloudCoverFraction.GetHashCode();
                 if (this.GroundReflectivity != null)
                     hashCode = hashCode * 59 + this.GroundReflectivity.GetHashCode();
-                if (this.A != null)
-                    hashCode = hashCode * 59 + this.A.GetHashCode();
-                if (this.B != null)
-                    hashCode = hashCode * 59 + this.B.GetHashCode();
-                if (this.C != null)
-                    hashCode = hashCode * 59 + this.C.GetHashCode();
+                if (this.ApparentSolarIrradiation != null)
+                    hashCode = hashCode * 59 + this.ApparentSolarIrradiation.GetHashCode();
+                if (this.AtmosphericExtinctionCoefficient != null)
+                    hashCode = hashCode * 59 + this.AtmosphericExtinctionCoefficient.GetHashCode();
+                if (this.DiffusiveRadiationFactor != null)
+                    hashCode = hashCode * 59 + this.DiffusiveRadiationFactor.GetHashCode();
                 return hashCode;
             }
         }

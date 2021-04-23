@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TrescaStressType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TRESCA&quot;).</param>
+        /// <param name="type">Schema name: TrescaStressType (required) (default to &quot;TRESCA&quot;).</param>
         public TrescaStressType(string type = "TRESCA")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TrescaStressType
         /// </summary>
+        /// <value>Schema name: TrescaStressType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

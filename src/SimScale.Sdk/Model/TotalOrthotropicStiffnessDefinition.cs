@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalOrthotropicStiffnessDefinition" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL_ORTHOTROPIC&quot;).</param>
+        /// <param name="type">Schema name: TotalOrthotropicStiffnessDefinition (required) (default to &quot;TOTAL_ORTHOTROPIC&quot;).</param>
         /// <param name="total">total.</param>
         public TotalOrthotropicStiffnessDefinition(string type = "TOTAL_ORTHOTROPIC", DimensionalVectorSurfaceTension total = default(DimensionalVectorSurfaceTension))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TotalOrthotropicStiffnessDefinition
         /// </summary>
+        /// <value>Schema name: TotalOrthotropicStiffnessDefinition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

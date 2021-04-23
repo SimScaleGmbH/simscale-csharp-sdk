@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Box" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;BOX&quot;).</param>
+        /// <param name="type">Schema name: Box (required) (default to &quot;BOX&quot;).</param>
         /// <param name="id">id.</param>
         /// <param name="name">name.</param>
         /// <param name="scale">scale.</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Box
         /// </summary>
+        /// <value>Schema name: Box</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

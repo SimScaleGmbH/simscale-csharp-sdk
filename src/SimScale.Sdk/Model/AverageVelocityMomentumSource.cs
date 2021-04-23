@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AverageVelocityMomentumSource" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AVERAGE_VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: AverageVelocityMomentumSource (required) (default to &quot;AVERAGE_VELOCITY&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="averageVelocity">averageVelocity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AverageVelocityMomentumSource
         /// </summary>
+        /// <value>Schema name: AverageVelocityMomentumSource</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactInterfaceMaterialInterfaceThermal" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CONTACT_INTERFACE_MATERIAL&quot;).</param>
+        /// <param name="type">Schema name: ContactInterfaceMaterialInterfaceThermal (required) (default to &quot;CONTACT_INTERFACE_MATERIAL&quot;).</param>
         /// <param name="conductivityThicknessPairs">conductivityThicknessPairs.</param>
         public ContactInterfaceMaterialInterfaceThermal(string type = "CONTACT_INTERFACE_MATERIAL", List<ConductivityThicknessPair> conductivityThicknessPairs = default(List<ConductivityThicknessPair>))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ContactInterfaceMaterialInterfaceThermal
         /// </summary>
+        /// <value>Schema name: ContactInterfaceMaterialInterfaceThermal</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

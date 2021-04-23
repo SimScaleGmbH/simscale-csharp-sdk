@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedValuePFBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_VALUE&quot;).</param>
+        /// <param name="type">Schema name: FixedValuePFBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
         /// <param name="value">value.</param>
         public FixedValuePFBC(string type = "FIXED_VALUE", DimensionalDimensionless value = default(DimensionalDimensionless))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedValuePFBC
         /// </summary>
+        /// <value>Schema name: FixedValuePFBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

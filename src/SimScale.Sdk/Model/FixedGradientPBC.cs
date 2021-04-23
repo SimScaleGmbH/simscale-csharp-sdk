@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedGradientPBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
+        /// <param name="type">Schema name: FixedGradientPBC (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
         /// <param name="gradient">gradient.</param>
         public FixedGradientPBC(string type = "FIXED_GRADIENT", DimensionalForceDensity gradient = default(DimensionalForceDensity))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedGradientPBC
         /// </summary>
+        /// <value>Schema name: FixedGradientPBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

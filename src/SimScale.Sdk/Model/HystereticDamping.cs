@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HystereticDamping" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HYSTERETIC&quot;).</param>
+        /// <param name="type">Schema name: HystereticDamping (required) (default to &quot;HYSTERETIC&quot;).</param>
         /// <param name="hystereticCoefficient">hystereticCoefficient (default to 0M).</param>
         public HystereticDamping(string type = "HYSTERETIC", decimal? hystereticCoefficient = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: HystereticDamping
         /// </summary>
+        /// <value>Schema name: HystereticDamping</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

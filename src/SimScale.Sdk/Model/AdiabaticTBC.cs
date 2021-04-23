@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdiabaticTBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ADIABATIC&quot;).</param>
+        /// <param name="type">Schema name: AdiabaticTBC (required) (default to &quot;ADIABATIC&quot;).</param>
         public AdiabaticTBC(string type = "ADIABATIC")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AdiabaticTBC
         /// </summary>
+        /// <value>Schema name: AdiabaticTBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

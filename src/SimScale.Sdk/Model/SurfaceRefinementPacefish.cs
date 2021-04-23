@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SurfaceRefinementPacefish" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SURFACE_PACEFISH&quot;).</param>
+        /// <param name="type">Schema name: SurfaceRefinementPacefish (required) (default to &quot;SURFACE_PACEFISH&quot;).</param>
         /// <param name="name">name (default to &quot;Surface refinement&quot;).</param>
         /// <param name="targetResolution">targetResolution.</param>
         /// <param name="bufferCellsNoExtrude">Specify the minimum number of buffer cells between regions of different refinements. (default to 4).</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SurfaceRefinementPacefish
         /// </summary>
+        /// <value>Schema name: SurfaceRefinementPacefish</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

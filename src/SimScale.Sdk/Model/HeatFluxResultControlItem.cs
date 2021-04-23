@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeatFluxResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HEAT_FLUX&quot;).</param>
+        /// <param name="type">Schema name: HeatFluxResultControlItem (required) (default to &quot;HEAT_FLUX&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="heatFluxType">heatFluxType (default to HeatFluxTypeEnum.FIELD).</param>
         public HeatFluxResultControlItem(string type = "HEAT_FLUX", string name = default(string), HeatFluxTypeEnum? heatFluxType = default(HeatFluxTypeEnum?))
@@ -67,8 +67,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: HeatFluxResultControlItem
         /// </summary>
+        /// <value>Schema name: HeatFluxResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

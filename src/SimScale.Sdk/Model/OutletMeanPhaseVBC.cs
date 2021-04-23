@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OutletMeanPhaseVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OUTLET_MEAN_PHASE&quot;).</param>
+        /// <param name="type">Schema name: OutletMeanPhaseVBC (required) (default to &quot;OUTLET_MEAN_PHASE&quot;).</param>
         /// <param name="phase">phase (default to PhaseEnum._1).</param>
         /// <param name="meanVelocity">meanVelocity.</param>
         public OutletMeanPhaseVBC(string type = "OUTLET_MEAN_PHASE", PhaseEnum? phase = default(PhaseEnum?), DimensionalSpeed meanVelocity = default(DimensionalSpeed))
@@ -73,8 +73,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: OutletMeanPhaseVBC
         /// </summary>
+        /// <value>Schema name: OutletMeanPhaseVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FractionalHeight1" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FRACTIONAL_HEIGHT_1&quot;).</param>
+        /// <param name="type">Schema name: FractionalHeight1 (required) (default to &quot;FRACTIONAL_HEIGHT_1&quot;).</param>
         /// <param name="firstLayerSize">firstLayerSize.</param>
         public FractionalHeight1(string type = "FRACTIONAL_HEIGHT_1", DimensionalLength firstLayerSize = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FractionalHeight1
         /// </summary>
+        /// <value>Schema name: FractionalHeight1</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

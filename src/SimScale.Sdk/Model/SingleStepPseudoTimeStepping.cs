@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SingleStepPseudoTimeStepping" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SINGLE_STEP&quot;).</param>
+        /// <param name="type">Schema name: SingleStepPseudoTimeStepping (required) (default to &quot;SINGLE_STEP&quot;).</param>
         /// <param name="staticTimesteps">staticTimesteps.</param>
         public SingleStepPseudoTimeStepping(string type = "SINGLE_STEP", DimensionalTime staticTimesteps = default(DimensionalTime))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SingleStepPseudoTimeStepping
         /// </summary>
+        /// <value>Schema name: SingleStepPseudoTimeStepping</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureInletBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESSURE_INLET_V31&quot;).</param>
+        /// <param name="type">This boundary condition is suitable for inlet and open boundaries where the value of pressure is known. For Incompressible and Passive Scalar Transport analysis the specific Pressure i.e. Pressure/Density is used.  Schema name: PressureInletBC (required) (default to &quot;PRESSURE_INLET_V31&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressure">pressure.</param>
         /// <param name="pressureRgh">pressureRgh.</param>
@@ -64,8 +64,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This boundary condition is suitable for inlet and open boundaries where the value of pressure is known. For Incompressible and Passive Scalar Transport analysis the specific Pressure i.e. Pressure/Density is used.  Schema name: PressureInletBC
         /// </summary>
+        /// <value>This boundary condition is suitable for inlet and open boundaries where the value of pressure is known. For Incompressible and Passive Scalar Transport analysis the specific Pressure i.e. Pressure/Density is used.  Schema name: PressureInletBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

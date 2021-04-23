@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PacefishFinenessTargetSize" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TARGET_SIZE&quot;).</param>
+        /// <param name="type">Schema name: PacefishFinenessTargetSize (required) (default to &quot;TARGET_SIZE&quot;).</param>
         /// <param name="minimumCellSize">minimumCellSize.</param>
         public PacefishFinenessTargetSize(string type = "TARGET_SIZE", DimensionalLength minimumCellSize = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PacefishFinenessTargetSize
         /// </summary>
+        /// <value>Schema name: PacefishFinenessTargetSize</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

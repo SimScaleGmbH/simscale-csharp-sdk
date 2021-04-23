@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WallBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WALL_V34&quot;).</param>
+        /// <param name="type">&lt;p&gt;This boundary provides several Solid Wall conditions.&lt;/P&gt;The default &lt;b&gt;no-slip&lt;/b&gt; corresponds to friction wall with no movement. The &lt;b&gt;slip wall&lt;/b&gt; models a surface with no friction. The &lt;b&gt;rotating wall&lt;/b&gt; and &lt;b&gt;moving wall&lt;/b&gt; models rotation and translation by prescribing velocities at the wall. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wall/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: WallBC (required) (default to &quot;WALL_V34&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="velocity">velocity.</param>
         /// <param name="temperature">temperature.</param>
@@ -58,8 +58,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;This boundary provides several Solid Wall conditions.&lt;/P&gt;The default &lt;b&gt;no-slip&lt;/b&gt; corresponds to friction wall with no movement. The &lt;b&gt;slip wall&lt;/b&gt; models a surface with no friction. The &lt;b&gt;rotating wall&lt;/b&gt; and &lt;b&gt;moving wall&lt;/b&gt; models rotation and translation by prescribing velocities at the wall. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wall/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: WallBC
         /// </summary>
+        /// <value>&lt;p&gt;This boundary provides several Solid Wall conditions.&lt;/P&gt;The default &lt;b&gt;no-slip&lt;/b&gt; corresponds to friction wall with no movement. The &lt;b&gt;slip wall&lt;/b&gt; models a surface with no friction. The &lt;b&gt;rotating wall&lt;/b&gt; and &lt;b&gt;moving wall&lt;/b&gt; models rotation and translation by prescribing velocities at the wall. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wall/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: WallBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartesianOrientation" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CARTESIAN&quot;).</param>
+        /// <param name="type">Schema name: CartesianOrientation (required) (default to &quot;CARTESIAN&quot;).</param>
         public CartesianOrientation(string type = "CARTESIAN")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CartesianOrientation
         /// </summary>
+        /// <value>Schema name: CartesianOrientation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

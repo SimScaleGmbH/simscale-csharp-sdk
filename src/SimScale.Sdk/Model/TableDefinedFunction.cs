@@ -142,7 +142,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableDefinedFunction" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TABLE_DEFINED&quot;).</param>
+        /// <param name="type">Schema name: TableDefinedFunction (required) (default to &quot;TABLE_DEFINED&quot;).</param>
         /// <param name="label">label (default to &quot;Table&quot;).</param>
         /// <param name="tableId">The ID of the imported table..</param>
         /// <param name="resultIndex">Indicates which column(s) of the table contains the result values. One-based indexing must be used. For example, set this field to &#39;[2]&#39; if the second column of the table contains the dependent variable values..</param>
@@ -168,8 +168,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TableDefinedFunction
         /// </summary>
+        /// <value>Schema name: TableDefinedFunction</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CubicInterpolationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUBIC&quot;).</param>
+        /// <param name="type">Schema name: CubicInterpolationScheme (required) (default to &quot;CUBIC&quot;).</param>
         public CubicInterpolationScheme(string type = "CUBIC")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CubicInterpolationScheme
         /// </summary>
+        /// <value>Schema name: CubicInterpolationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

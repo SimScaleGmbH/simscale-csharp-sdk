@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DisplacementResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DISPLACEMENT&quot;).</param>
+        /// <param name="type">Schema name: DisplacementResultControlItem (required) (default to &quot;DISPLACEMENT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="displacementType">displacementType.</param>
         public DisplacementResultControlItem(string type = "DISPLACEMENT", string name = default(string), GlobalDisplacementType displacementType = default(GlobalDisplacementType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DisplacementResultControlItem
         /// </summary>
+        /// <value>Schema name: DisplacementResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

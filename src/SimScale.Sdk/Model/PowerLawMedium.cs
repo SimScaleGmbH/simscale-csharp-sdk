@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PowerLawMedium" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;POWER_LAW&quot;).</param>
+        /// <param name="type">Schema name: PowerLawMedium (required) (default to &quot;POWER_LAW&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="linearCoefficient">linearCoefficient (default to 1M).</param>
         /// <param name="exponentCoefficient">exponentCoefficient (default to 2M).</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PowerLawMedium
         /// </summary>
+        /// <value>Schema name: PowerLawMedium</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

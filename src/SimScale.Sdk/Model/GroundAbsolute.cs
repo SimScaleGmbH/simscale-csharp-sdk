@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroundAbsolute" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GROUND_ABSOLUTE&quot;).</param>
+        /// <param name="type">Schema name: GroundAbsolute (required) (default to &quot;GROUND_ABSOLUTE&quot;).</param>
         public GroundAbsolute(string type = "GROUND_ABSOLUTE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GroundAbsolute
         /// </summary>
+        /// <value>Schema name: GroundAbsolute</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

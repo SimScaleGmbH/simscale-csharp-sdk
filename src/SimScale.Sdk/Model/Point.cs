@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Point" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;POINT&quot;).</param>
+        /// <param name="type">Schema name: Point (required) (default to &quot;POINT&quot;).</param>
         /// <param name="id">id.</param>
         /// <param name="name">name.</param>
         /// <param name="center">center.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Point
         /// </summary>
+        /// <value>Schema name: Point</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

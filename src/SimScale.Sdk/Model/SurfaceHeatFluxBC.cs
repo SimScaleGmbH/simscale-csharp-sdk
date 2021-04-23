@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SurfaceHeatFluxBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SURFACE_HEAT_FLUX&quot;).</param>
+        /// <param name="type">Define the heatflux per unit area that enters the body through the assigned faces. Negative sign determines flux leaving the body.  Schema name: SurfaceHeatFluxBC (required) (default to &quot;SURFACE_HEAT_FLUX&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="heatfluxValue">heatfluxValue.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Define the heatflux per unit area that enters the body through the assigned faces. Negative sign determines flux leaving the body.  Schema name: SurfaceHeatFluxBC
         /// </summary>
+        /// <value>Define the heatflux per unit area that enters the body through the assigned faces. Negative sign determines flux leaving the body.  Schema name: SurfaceHeatFluxBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

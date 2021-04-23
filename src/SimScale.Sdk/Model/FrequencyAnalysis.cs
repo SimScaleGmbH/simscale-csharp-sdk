@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyAnalysis" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FREQUENCY_ANALYSIS&quot;).</param>
+        /// <param name="type">Schema name: FrequencyAnalysis (required) (default to &quot;FREQUENCY_ANALYSIS&quot;).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
         /// <param name="model">model.</param>
@@ -95,8 +95,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FrequencyAnalysis
         /// </summary>
+        /// <value>Schema name: FrequencyAnalysis</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

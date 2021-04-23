@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemperatureResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TEMPERATURE&quot;).</param>
+        /// <param name="type">Schema name: TemperatureResultControlItem (required) (default to &quot;TEMPERATURE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="temperatureType">temperatureType (default to TemperatureTypeEnum.FIELD).</param>
         public TemperatureResultControlItem(string type = "TEMPERATURE", string name = default(string), TemperatureTypeEnum? temperatureType = default(TemperatureTypeEnum?))
@@ -67,8 +67,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TemperatureResultControlItem
         /// </summary>
+        /// <value>Schema name: TemperatureResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

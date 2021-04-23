@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalCauchyStressType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CAUCHY&quot;).</param>
+        /// <param name="type">Schema name: GlobalCauchyStressType (required) (default to &quot;CAUCHY&quot;).</param>
         /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.REALANDIMAGINARY).</param>
         public GlobalCauchyStressType(string type = "CAUCHY", ComplexNumberEnum? complexNumber = default(ComplexNumberEnum?))
         {
@@ -65,8 +65,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalCauchyStressType
         /// </summary>
+        /// <value>Schema name: GlobalCauchyStressType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

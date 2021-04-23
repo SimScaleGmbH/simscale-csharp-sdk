@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoWallThermal" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NO_RESISTANCE&quot;).</param>
+        /// <param name="type">Schema name: NoWallThermal (required) (default to &quot;NO_RESISTANCE&quot;).</param>
         public NoWallThermal(string type = "NO_RESISTANCE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NoWallThermal
         /// </summary>
+        /// <value>Schema name: NoWallThermal</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

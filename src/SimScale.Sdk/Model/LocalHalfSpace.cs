@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LocalHalfSpace" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LOCAL_HALF_SPACE&quot;).</param>
+        /// <param name="type">Schema name: LocalHalfSpace (required) (default to &quot;LOCAL_HALF_SPACE&quot;).</param>
         /// <param name="id">id.</param>
         /// <param name="name">name.</param>
         /// <param name="orientationReference">orientationReference (default to OrientationReferenceEnum.GEOMETRY).</param>
@@ -79,8 +79,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: LocalHalfSpace
         /// </summary>
+        /// <value>Schema name: LocalHalfSpace</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

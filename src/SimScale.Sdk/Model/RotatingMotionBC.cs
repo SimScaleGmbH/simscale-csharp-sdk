@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RotatingMotionBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ROTATING_MOTION&quot;).</param>
+        /// <param name="type">&lt;p&gt;The rotating motion constraint applies a predefined rigid body rotation to the assigned entities. All seven user defined components may be defined also as function or table value and also the movement of the base point during rotation is taken into account.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;If functions or tables are used for the rotation axis, make sure that the axis vector never has zero length during rotation.&lt;/li&gt;&lt;/p&gt;  Schema name: RotatingMotionBC (required) (default to &quot;ROTATING_MOTION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="rotationOrigin">rotationOrigin.</param>
         /// <param name="rotationAxis">rotationAxis.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;The rotating motion constraint applies a predefined rigid body rotation to the assigned entities. All seven user defined components may be defined also as function or table value and also the movement of the base point during rotation is taken into account.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;If functions or tables are used for the rotation axis, make sure that the axis vector never has zero length during rotation.&lt;/li&gt;&lt;/p&gt;  Schema name: RotatingMotionBC
         /// </summary>
+        /// <value>&lt;p&gt;The rotating motion constraint applies a predefined rigid body rotation to the assigned entities. All seven user defined components may be defined also as function or table value and also the movement of the base point during rotation is taken into account.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;If functions or tables are used for the rotation axis, make sure that the axis vector never has zero length during rotation.&lt;/li&gt;&lt;/p&gt;  Schema name: RotatingMotionBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

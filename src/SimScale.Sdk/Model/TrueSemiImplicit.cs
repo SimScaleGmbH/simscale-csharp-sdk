@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TrueSemiImplicit" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TRUE_SEMI_IMPLICIT&quot;).</param>
+        /// <param name="type">Schema name: TrueSemiImplicit (required) (default to &quot;TRUE_SEMI_IMPLICIT&quot;).</param>
         /// <param name="limiterIterations">limiterIterations (default to 8).</param>
         /// <param name="compressionCorrection">compressionCorrection (default to true).</param>
         /// <param name="solver">solver.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TrueSemiImplicit
         /// </summary>
+        /// <value>Schema name: TrueSemiImplicit</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

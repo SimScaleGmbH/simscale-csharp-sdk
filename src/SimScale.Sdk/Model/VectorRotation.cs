@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorRotation" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VECTOR_ROTATION&quot;).</param>
+        /// <param name="type">Schema name: VectorRotation (required) (default to &quot;VECTOR_ROTATION&quot;).</param>
         /// <param name="rotationCenter">rotationCenter.</param>
         /// <param name="angularVelocity">angularVelocity.</param>
         public VectorRotation(string type = "VECTOR_ROTATION", DimensionalVectorLength rotationCenter = default(DimensionalVectorLength), DimensionalVectorRotationSpeed angularVelocity = default(DimensionalVectorRotationSpeed))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: VectorRotation
         /// </summary>
+        /// <value>Schema name: VectorRotation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Contact" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CONTACT&quot;).</param>
+        /// <param name="type">Schema name: Contact (required) (default to &quot;CONTACT&quot;).</param>
         /// <param name="connections">connections.</param>
         public Contact(string type = "CONTACT", List<OneOfContactConnections> connections = default(List<OneOfContactConnections>))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Contact
         /// </summary>
+        /// <value>Schema name: Contact</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

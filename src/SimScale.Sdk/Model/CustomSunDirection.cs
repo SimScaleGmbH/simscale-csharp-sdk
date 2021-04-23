@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomSunDirection" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUSTOM_SOLAR_DIRECTION&quot;).</param>
+        /// <param name="type">Schema name: CustomSunDirection (required) (default to &quot;CUSTOM_SOLAR_DIRECTION&quot;).</param>
         /// <param name="sunDirectionVector">sunDirectionVector.</param>
         public CustomSunDirection(string type = "CUSTOM_SOLAR_DIRECTION", DimensionalVectorLength sunDirectionVector = default(DimensionalVectorLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CustomSunDirection
         /// </summary>
+        /// <value>Schema name: CustomSunDirection</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

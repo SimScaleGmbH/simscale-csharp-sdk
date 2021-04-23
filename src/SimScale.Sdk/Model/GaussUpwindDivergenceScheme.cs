@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussUpwindDivergenceScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_UPWIND&quot;).</param>
+        /// <param name="type">Schema name: GaussUpwindDivergenceScheme (required) (default to &quot;GAUSS_UPWIND&quot;).</param>
         public GaussUpwindDivergenceScheme(string type = "GAUSS_UPWIND")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussUpwindDivergenceScheme
         /// </summary>
+        /// <value>Schema name: GaussUpwindDivergenceScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

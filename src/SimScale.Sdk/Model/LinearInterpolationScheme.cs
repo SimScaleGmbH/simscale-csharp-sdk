@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LinearInterpolationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LINEAR&quot;).</param>
+        /// <param name="type">Schema name: LinearInterpolationScheme (required) (default to &quot;LINEAR&quot;).</param>
         public LinearInterpolationScheme(string type = "LINEAR")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: LinearInterpolationScheme
         /// </summary>
+        /// <value>Schema name: LinearInterpolationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

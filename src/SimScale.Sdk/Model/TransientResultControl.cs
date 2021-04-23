@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransientResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TRANSIENT&quot;).</param>
+        /// <param name="type">Schema name: TransientResultControl (required) (default to &quot;TRANSIENT&quot;).</param>
         /// <param name="writeControl">writeControl.</param>
         /// <param name="fractionFromEnd">It defines the point in simulation where the result output data extraction starts. For instance, &lt;i&gt;Fraction from end&lt;/i&gt; of 1 (100%) extracts all data from the beginning of the simulation while default 0.2 extracts 20% data from the end of the simulation. (default to 0.2M).</param>
         /// <param name="exportFluid">When this switch is activated, simulation data of the flow-field enclosed in the assignments will be exported (default to true).</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TransientResultControl
         /// </summary>
+        /// <value>Schema name: TransientResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

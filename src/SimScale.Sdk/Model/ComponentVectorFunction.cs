@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ComponentVectorFunction" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;COMPONENT&quot;).</param>
+        /// <param name="type">Schema name: ComponentVectorFunction (required) (default to &quot;COMPONENT&quot;).</param>
         /// <param name="x">x.</param>
         /// <param name="y">y.</param>
         /// <param name="z">z.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ComponentVectorFunction
         /// </summary>
+        /// <value>Schema name: ComponentVectorFunction</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

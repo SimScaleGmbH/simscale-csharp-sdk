@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticReferenceLength" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUTOMATIC_REFERENCE_LENGTH&quot;).</param>
+        /// <param name="type">Schema name: AutomaticReferenceLength (required) (default to &quot;AUTOMATIC_REFERENCE_LENGTH&quot;).</param>
         public AutomaticReferenceLength(string type = "AUTOMATIC_REFERENCE_LENGTH")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AutomaticReferenceLength
         /// </summary>
+        /// <value>Schema name: AutomaticReferenceLength</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

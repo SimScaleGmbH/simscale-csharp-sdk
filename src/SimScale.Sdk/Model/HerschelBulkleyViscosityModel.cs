@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HerschelBulkleyViscosityModel" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HERSCHEL_BULKLEY&quot;).</param>
+        /// <param name="type">Choose between &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/#newtonian-model&#39; target&#x3D;&#39;_blank&#39;&gt;Newtonian&lt;/a&gt; and &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/non-newtonian-models/&#39; target&#x3D;&#39;_blank&#39;&gt;Non-Newtonian&lt;/a&gt; viscosity models.  Schema name: HerschelBulkleyViscosityModel (required) (default to &quot;HERSCHEL_BULKLEY&quot;).</param>
         /// <param name="k">k.</param>
         /// <param name="n">n.</param>
         /// <param name="tau0">tau0.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Choose between &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/#newtonian-model&#39; target&#x3D;&#39;_blank&#39;&gt;Newtonian&lt;/a&gt; and &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/non-newtonian-models/&#39; target&#x3D;&#39;_blank&#39;&gt;Non-Newtonian&lt;/a&gt; viscosity models.  Schema name: HerschelBulkleyViscosityModel
         /// </summary>
+        /// <value>Choose between &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/#newtonian-model&#39; target&#x3D;&#39;_blank&#39;&gt;Newtonian&lt;/a&gt; and &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/non-newtonian-models/&#39; target&#x3D;&#39;_blank&#39;&gt;Non-Newtonian&lt;/a&gt; viscosity models.  Schema name: HerschelBulkleyViscosityModel</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

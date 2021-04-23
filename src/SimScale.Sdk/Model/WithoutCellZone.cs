@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WithoutCellZone" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WITHOUT_CELL_ZONE&quot;).</param>
+        /// <param name="type">Schema name: WithoutCellZone (required) (default to &quot;WITHOUT_CELL_ZONE&quot;).</param>
         public WithoutCellZone(string type = "WITHOUT_CELL_ZONE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WithoutCellZone
         /// </summary>
+        /// <value>Schema name: WithoutCellZone</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

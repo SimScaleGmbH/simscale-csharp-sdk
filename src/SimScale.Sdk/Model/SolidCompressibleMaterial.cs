@@ -31,7 +31,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SolidCompressibleMaterial" /> class.
         /// </summary>
-        /// <param name="type">type (default to &quot;COMPRESSIBLE&quot;).</param>
+        /// <param name="type">Schema name: SolidCompressibleMaterial (default to &quot;COMPRESSIBLE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="specie">specie.</param>
         /// <param name="transport">transport.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SolidCompressibleMaterial
         /// </summary>
+        /// <value>Schema name: SolidCompressibleMaterial</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

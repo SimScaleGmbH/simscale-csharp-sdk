@@ -27,8 +27,8 @@ namespace SimScale.Sdk.Model
     /// OneOfThermalMechanicalConnectionGroups
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(PhysicalContact), "PHYSICAL_CONTACT_V36")]
     [JsonSubtypes.KnownSubType(typeof(Contact), "CONTACT")]
+    [JsonSubtypes.KnownSubType(typeof(PhysicalContact), "PHYSICAL_CONTACT_V36")]
     public interface OneOfThermalMechanicalConnectionGroups
     {
         /// <summary>

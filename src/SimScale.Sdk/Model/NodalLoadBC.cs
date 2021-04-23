@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NodalLoadBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NODAL_LOAD&quot;).</param>
+        /// <param name="type">This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing an equal point force on &lt;b&gt;each node of the assignment&lt;/b&gt;. The total force applied on the assignemnt is calculated as the user defined forces times the number of nodes in the assignment.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;As the total load is depending on the number of nodes, and thus the mesh fineness, is recommended only for loads on single nodes&lt;/li&gt;&lt;li&gt;In most cases point loads are unphysical and distributed loads should be used instead&lt;/li&gt;&lt;/ul&gt;  Schema name: NodalLoadBC (required) (default to &quot;NODAL_LOAD&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="force">force.</param>
         /// <param name="scaling">scaling.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing an equal point force on &lt;b&gt;each node of the assignment&lt;/b&gt;. The total force applied on the assignemnt is calculated as the user defined forces times the number of nodes in the assignment.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;As the total load is depending on the number of nodes, and thus the mesh fineness, is recommended only for loads on single nodes&lt;/li&gt;&lt;li&gt;In most cases point loads are unphysical and distributed loads should be used instead&lt;/li&gt;&lt;/ul&gt;  Schema name: NodalLoadBC
         /// </summary>
+        /// <value>This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing an equal point force on &lt;b&gt;each node of the assignment&lt;/b&gt;. The total force applied on the assignemnt is calculated as the user defined forces times the number of nodes in the assignment.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;As the total load is depending on the number of nodes, and thus the mesh fineness, is recommended only for loads on single nodes&lt;/li&gt;&lt;li&gt;In most cases point loads are unphysical and distributed loads should be used instead&lt;/li&gt;&lt;/ul&gt;  Schema name: NodalLoadBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

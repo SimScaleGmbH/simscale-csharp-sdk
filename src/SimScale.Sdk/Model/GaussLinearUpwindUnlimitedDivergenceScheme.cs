@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussLinearUpwindUnlimitedDivergenceScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_LINEARUPWIND_UNLIMITED&quot;).</param>
+        /// <param name="type">Schema name: GaussLinearUpwindUnlimitedDivergenceScheme (required) (default to &quot;GAUSS_LINEARUPWIND_UNLIMITED&quot;).</param>
         public GaussLinearUpwindUnlimitedDivergenceScheme(string type = "GAUSS_LINEARUPWIND_UNLIMITED")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussLinearUpwindUnlimitedDivergenceScheme
         /// </summary>
+        /// <value>Schema name: GaussLinearUpwindUnlimitedDivergenceScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

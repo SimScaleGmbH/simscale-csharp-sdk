@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticOmegaDissipation" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUTOMATIC_DISSIPATION&quot;).</param>
+        /// <param name="type">Schema name: AutomaticOmegaDissipation (required) (default to &quot;AUTOMATIC_DISSIPATION&quot;).</param>
         public AutomaticOmegaDissipation(string type = "AUTOMATIC_DISSIPATION")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AutomaticOmegaDissipation
         /// </summary>
+        /// <value>Schema name: AutomaticOmegaDissipation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

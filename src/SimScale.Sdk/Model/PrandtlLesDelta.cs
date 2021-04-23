@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PrandtlLesDelta" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRANDTL&quot;).</param>
+        /// <param name="type">Schema name: PrandtlLesDelta (required) (default to &quot;PRANDTL&quot;).</param>
         /// <param name="deltaCoefficient">deltaCoefficient.</param>
         /// <param name="deltaReductionCoefficient">deltaReductionCoefficient (default to 0.158M).</param>
         public PrandtlLesDelta(string type = "PRANDTL", OneOfPrandtlLesDeltaDeltaCoefficient deltaCoefficient = default(OneOfPrandtlLesDeltaDeltaCoefficient), decimal? deltaReductionCoefficient = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PrandtlLesDelta
         /// </summary>
+        /// <value>Schema name: PrandtlLesDelta</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

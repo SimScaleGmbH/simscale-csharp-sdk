@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewmarkTimeIntegrationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NEWMARK&quot;).</param>
+        /// <param name="type">Schema name: NewmarkTimeIntegrationScheme (required) (default to &quot;NEWMARK&quot;).</param>
         /// <param name="beta">&lt;p&gt;The choice of the values for the parameters &lt;b&gt;&amp;alpha;&lt;/b&gt; and &lt;b&gt;&amp;beta;&lt;/b&gt; influences the stability, accuracy and numerical damping of the &lt;i&gt;Newmark Sheme&lt;/i&gt;.&lt;/v&gt; (default to 0.25M).</param>
         /// <param name="gamma">&lt;p&gt;The choice of the values for the parameters &lt;b&gt;&amp;alpha;&lt;/b&gt; and &lt;b&gt;&amp;beta;&lt;/b&gt; influences the stability, accuracy and numerical damping of the &lt;i&gt;Newmark Sheme&lt;/i&gt;.&lt;/v&gt; (default to 0.5M).</param>
         public NewmarkTimeIntegrationScheme(string type = "NEWMARK", decimal? beta = default(decimal?), decimal? gamma = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NewmarkTimeIntegrationScheme
         /// </summary>
+        /// <value>Schema name: NewmarkTimeIntegrationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

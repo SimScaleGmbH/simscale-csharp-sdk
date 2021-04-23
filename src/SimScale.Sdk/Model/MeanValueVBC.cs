@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MeanValueVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_MEAN&quot;).</param>
+        /// <param name="type">Schema name: MeanValueVBC (required) (default to &quot;FIXED_MEAN&quot;).</param>
         /// <param name="value">value.</param>
         public MeanValueVBC(string type = "FIXED_MEAN", DimensionalVectorSpeed value = default(DimensionalVectorSpeed))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MeanValueVBC
         /// </summary>
+        /// <value>Schema name: MeanValueVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

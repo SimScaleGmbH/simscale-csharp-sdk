@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ForceResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FORCE&quot;).</param>
+        /// <param name="type">Schema name: ForceResultControlItem (required) (default to &quot;FORCE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="forceType">forceType.</param>
         public ForceResultControlItem(string type = "FORCE", string name = default(string), OneOfForceResultControlItemForceType forceType = default(OneOfForceResultControlItemForceType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ForceResultControlItem
         /// </summary>
+        /// <value>Schema name: ForceResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

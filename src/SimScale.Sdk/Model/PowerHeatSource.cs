@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PowerHeatSource" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;POWER&quot;).</param>
+        /// <param name="type">Schema name: PowerHeatSource (required) (default to &quot;POWER&quot;).</param>
         /// <param name="power">power.</param>
         public PowerHeatSource(string type = "POWER", DimensionalPower power = default(DimensionalPower))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PowerHeatSource
         /// </summary>
+        /// <value>Schema name: PowerHeatSource</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

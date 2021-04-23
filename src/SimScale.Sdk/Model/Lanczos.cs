@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Lanczos" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TRI_DIAG&quot;).</param>
+        /// <param name="type">Schema name: Lanczos (required) (default to &quot;TRI_DIAG&quot;).</param>
         /// <param name="precOrtho">precOrtho (default to 1.0E-12M).</param>
         /// <param name="nmaxIterOrtho">nmaxIterOrtho (default to 5).</param>
         /// <param name="precLanczos">precLanczos (default to 1.0E-8M).</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Lanczos
         /// </summary>
+        /// <value>Schema name: Lanczos</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

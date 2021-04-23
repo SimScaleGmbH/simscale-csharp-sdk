@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MUMPSPreconditoner" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MUMPS_LDLT&quot;).</param>
+        /// <param name="type">Schema name: MUMPSPreconditoner (required) (default to &quot;MUMPS_LDLT&quot;).</param>
         /// <param name="actualisationRate">Set the reactualisation intervall for the preconditioner matrix P. If this value is set to 30 the preconditioner is recomputed just every 30th iteration. This preconditioner is computionally more expensive than the incomplete LDLT factorization but nearer to the exact solution. This setting makes it possible to save computation time by taking advantage of this fact. (default to 30).</param>
         /// <param name="memoryPercentageForPivoting">Define how much additional memory should be reserved for the pivoting operations. If MUMPS estimates that the necessary space for factorising the matrix would be 100, choosing a value of 20 would mean that MUMPS allocates a memory space of 120. (default to 20M).</param>
         public MUMPSPreconditoner(string type = "MUMPS_LDLT", int? actualisationRate = default(int?), decimal? memoryPercentageForPivoting = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MUMPSPreconditoner
         /// </summary>
+        /// <value>Schema name: MUMPSPreconditoner</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

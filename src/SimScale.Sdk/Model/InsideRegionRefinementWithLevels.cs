@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InsideRegionRefinementWithLevels" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INSIDE&quot;).</param>
+        /// <param name="type">Schema name: InsideRegionRefinementWithLevels (required) (default to &quot;INSIDE&quot;).</param>
         /// <param name="level">level (default to 1).</param>
         public InsideRegionRefinementWithLevels(string type = "INSIDE", int? level = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: InsideRegionRefinementWithLevels
         /// </summary>
+        /// <value>Schema name: InsideRegionRefinementWithLevels</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

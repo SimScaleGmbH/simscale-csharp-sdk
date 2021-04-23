@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubmeshRefinement" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SUBMESH&quot;).</param>
+        /// <param name="type">&lt;p&gt;The refinement type &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/tet-dominant/#local-element-size&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;local element size&lt;/b&gt;&lt;/a&gt; allows the definition of local mesh sizings on particular faces or solids. This can be used to increase the mesh efficiency by using smaller elements only where needed, for example on contact surfaces, fillets or other regions with potentially large stress gradients.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/local_element_size.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows a mesh of a bolted connection with local refinements on the contact surfaces.&lt;/p&gt;  Schema name: SubmeshRefinement (required) (default to &quot;SUBMESH&quot;).</param>
         /// <param name="name">name (default to &quot;Local element size&quot;).</param>
         /// <param name="sizing">sizing.</param>
         /// <param name="allowQuadrangles">&lt;p&gt;This parameter determines if &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/tet-dominant/#quadrangles&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;quadrangular surface elements&lt;/b&gt;&lt;/a&gt; shall be allowed. When disabled, only triangles will be used. Meshing with triangles only is usually more robust while quadrangular elements may lead to better results.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/allow_quads_comparison.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows sample meshes with quadrangular surface elements disallowed (left) and allowed (right).&lt;/p&gt; (default to false).</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;The refinement type &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/tet-dominant/#local-element-size&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;local element size&lt;/b&gt;&lt;/a&gt; allows the definition of local mesh sizings on particular faces or solids. This can be used to increase the mesh efficiency by using smaller elements only where needed, for example on contact surfaces, fillets or other regions with potentially large stress gradients.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/local_element_size.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows a mesh of a bolted connection with local refinements on the contact surfaces.&lt;/p&gt;  Schema name: SubmeshRefinement
         /// </summary>
+        /// <value>&lt;p&gt;The refinement type &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/tet-dominant/#local-element-size&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;local element size&lt;/b&gt;&lt;/a&gt; allows the definition of local mesh sizings on particular faces or solids. This can be used to increase the mesh efficiency by using smaller elements only where needed, for example on contact surfaces, fillets or other regions with potentially large stress gradients.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/local_element_size.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows a mesh of a bolted connection with local refinements on the contact surfaces.&lt;/p&gt;  Schema name: SubmeshRefinement</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

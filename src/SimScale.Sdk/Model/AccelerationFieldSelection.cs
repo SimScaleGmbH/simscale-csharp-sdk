@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccelerationFieldSelection" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ACCELERATION&quot;).</param>
+        /// <param name="type">Schema name: AccelerationFieldSelection (required) (default to &quot;ACCELERATION&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
         public AccelerationFieldSelection(string type = "ACCELERATION", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -83,8 +83,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AccelerationFieldSelection
         /// </summary>
+        /// <value>Schema name: AccelerationFieldSelection</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

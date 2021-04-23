@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IncompressibleMaterial" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INCOMPRESSIBLE&quot;).</param>
+        /// <param name="type">Schema name: IncompressibleMaterial (required) (default to &quot;INCOMPRESSIBLE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="associatedPhase">&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt; (default to AssociatedPhaseEnum._1).</param>
         /// <param name="viscosityModel">viscosityModel.</param>
@@ -95,8 +95,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: IncompressibleMaterial
         /// </summary>
+        /// <value>Schema name: IncompressibleMaterial</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BondedContact" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;BONDED_CONTACT&quot;).</param>
+        /// <param name="type">Schema name: BondedContact (required) (default to &quot;BONDED_CONTACT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="enableHeatTransfer">enableHeatTransfer (default to EnableHeatTransferEnum.YES).</param>
         /// <param name="positionTolerance">positionTolerance.</param>
@@ -85,8 +85,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: BondedContact
         /// </summary>
+        /// <value>Schema name: BondedContact</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

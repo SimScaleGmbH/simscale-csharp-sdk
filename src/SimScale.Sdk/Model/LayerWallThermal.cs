@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LayerWallThermal" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CONTACT_INTERFACE_MATERIAL&quot;).</param>
+        /// <param name="type">Schema name: LayerWallThermal (required) (default to &quot;CONTACT_INTERFACE_MATERIAL&quot;).</param>
         /// <param name="conductivityThicknessPairs">conductivityThicknessPairs.</param>
         public LayerWallThermal(string type = "CONTACT_INTERFACE_MATERIAL", List<ConductivityThicknessPair> conductivityThicknessPairs = default(List<ConductivityThicknessPair>))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: LayerWallThermal
         /// </summary>
+        /// <value>Schema name: LayerWallThermal</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccelerationResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ACCELERATION&quot;).</param>
+        /// <param name="type">Schema name: AccelerationResultControlItem (required) (default to &quot;ACCELERATION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="accelerationType">accelerationType.</param>
         public AccelerationResultControlItem(string type = "ACCELERATION", string name = default(string), GlobalAccelerationType accelerationType = default(GlobalAccelerationType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AccelerationResultControlItem
         /// </summary>
+        /// <value>Schema name: AccelerationResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

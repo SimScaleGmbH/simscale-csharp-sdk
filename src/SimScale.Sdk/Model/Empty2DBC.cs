@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Empty2DBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;EMPTY_2D&quot;).</param>
+        /// <param name="type">This boundary condition is intended only for uploaded 2D OpenFOAM meshes. A 2D mesh is ensured by having a single cell thickness in one of the 3 spatial directions. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/empty-2d/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;  Schema name: Empty2DBC (required) (default to &quot;EMPTY_2D&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public Empty2DBC(string type = "EMPTY_2D", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This boundary condition is intended only for uploaded 2D OpenFOAM meshes. A 2D mesh is ensured by having a single cell thickness in one of the 3 spatial directions. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/empty-2d/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;  Schema name: Empty2DBC
         /// </summary>
+        /// <value>This boundary condition is intended only for uploaded 2D OpenFOAM meshes. A 2D mesh is ensured by having a single cell thickness in one of the 3 spatial directions. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/empty-2d/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;  Schema name: Empty2DBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

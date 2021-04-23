@@ -36,14 +36,13 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DerivedHeatFlux" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DERIVED&quot;).</param>
+        /// <param name="type">Schema name: DerivedHeatFlux (required) (default to &quot;DERIVED&quot;).</param>
         /// <param name="heatTransferCoefficient">heatTransferCoefficient.</param>
         /// <param name="ambientTemperature">ambientTemperature.</param>
         /// <param name="additionalHeatFlux">additionalHeatFlux.</param>
         /// <param name="wallThermal">wallThermal.</param>
-        /// <param name="outerSurfaceEmissivity">Emissivity of the outer side of the surface or the last wall thermal layer. (default to 0.9M).</param>
-        /// <param name="receivesExternalSolarLoad">receivesExternalSolarLoad (default to true).</param>
-        public DerivedHeatFlux(string type = "DERIVED", DimensionalThermalTransmittance heatTransferCoefficient = default(DimensionalThermalTransmittance), DimensionalTemperature ambientTemperature = default(DimensionalTemperature), DimensionalHeatFlux additionalHeatFlux = default(DimensionalHeatFlux), OneOfDerivedHeatFluxWallThermal wallThermal = default(OneOfDerivedHeatFluxWallThermal), decimal? outerSurfaceEmissivity = default(decimal?), bool? receivesExternalSolarLoad = default(bool?))
+        /// <param name="outerSurfaceEmissivity">Emissivity/Absorptivity of the outer side of the surface or the last wall thermal layer. (default to 0.9M).</param>
+        public DerivedHeatFlux(string type = "DERIVED", DimensionalThermalTransmittance heatTransferCoefficient = default(DimensionalThermalTransmittance), DimensionalTemperature ambientTemperature = default(DimensionalTemperature), DimensionalHeatFlux additionalHeatFlux = default(DimensionalHeatFlux), OneOfDerivedHeatFluxWallThermal wallThermal = default(OneOfDerivedHeatFluxWallThermal), decimal? outerSurfaceEmissivity = default(decimal?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for DerivedHeatFlux and cannot be null");
@@ -52,12 +51,12 @@ namespace SimScale.Sdk.Model
             this.AdditionalHeatFlux = additionalHeatFlux;
             this.WallThermal = wallThermal;
             this.OuterSurfaceEmissivity = outerSurfaceEmissivity;
-            this.ReceivesExternalSolarLoad = receivesExternalSolarLoad;
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DerivedHeatFlux
         /// </summary>
+        /// <value>Schema name: DerivedHeatFlux</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -86,17 +85,11 @@ namespace SimScale.Sdk.Model
         public OneOfDerivedHeatFluxWallThermal WallThermal { get; set; }
 
         /// <summary>
-        /// Emissivity of the outer side of the surface or the last wall thermal layer.
+        /// Emissivity/Absorptivity of the outer side of the surface or the last wall thermal layer.
         /// </summary>
-        /// <value>Emissivity of the outer side of the surface or the last wall thermal layer.</value>
+        /// <value>Emissivity/Absorptivity of the outer side of the surface or the last wall thermal layer.</value>
         [DataMember(Name="outerSurfaceEmissivity", EmitDefaultValue=false)]
         public decimal? OuterSurfaceEmissivity { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ReceivesExternalSolarLoad
-        /// </summary>
-        [DataMember(Name="receivesExternalSolarLoad", EmitDefaultValue=false)]
-        public bool? ReceivesExternalSolarLoad { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -112,7 +105,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  AdditionalHeatFlux: ").Append(AdditionalHeatFlux).Append("\n");
             sb.Append("  WallThermal: ").Append(WallThermal).Append("\n");
             sb.Append("  OuterSurfaceEmissivity: ").Append(OuterSurfaceEmissivity).Append("\n");
-            sb.Append("  ReceivesExternalSolarLoad: ").Append(ReceivesExternalSolarLoad).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -176,11 +168,6 @@ namespace SimScale.Sdk.Model
                     this.OuterSurfaceEmissivity == input.OuterSurfaceEmissivity ||
                     (this.OuterSurfaceEmissivity != null &&
                     this.OuterSurfaceEmissivity.Equals(input.OuterSurfaceEmissivity))
-                ) && 
-                (
-                    this.ReceivesExternalSolarLoad == input.ReceivesExternalSolarLoad ||
-                    (this.ReceivesExternalSolarLoad != null &&
-                    this.ReceivesExternalSolarLoad.Equals(input.ReceivesExternalSolarLoad))
                 );
         }
 
@@ -205,8 +192,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.WallThermal.GetHashCode();
                 if (this.OuterSurfaceEmissivity != null)
                     hashCode = hashCode * 59 + this.OuterSurfaceEmissivity.GetHashCode();
-                if (this.ReceivesExternalSolarLoad != null)
-                    hashCode = hashCode * 59 + this.ReceivesExternalSolarLoad.GetHashCode();
                 return hashCode;
             }
         }

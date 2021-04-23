@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HighResolution" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HIGH_RESOLUTION&quot;).</param>
+        /// <param name="type">Output will be written every 2 time steps.  Schema name: HighResolution (required) (default to &quot;HIGH_RESOLUTION&quot;).</param>
         public HighResolution(string type = "HIGH_RESOLUTION")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Output will be written every 2 time steps.  Schema name: HighResolution
         /// </summary>
+        /// <value>Output will be written every 2 time steps.  Schema name: HighResolution</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

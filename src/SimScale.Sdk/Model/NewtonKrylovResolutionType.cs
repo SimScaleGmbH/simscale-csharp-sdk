@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewtonKrylovResolutionType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NEWTON_KRYLOV&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose how the nonlinearities are solved. Currently for direct solvers only the Newton-Raphson method is available via the selection &lt;b&gt;Newton&lt;/b&gt;. For iterative solvers also an inexact version of the Newton-Raphson method is available via the selection &lt;b&gt;Newton-Krylov&lt;/b&gt;.&lt;/p&gt;  Schema name: NewtonKrylovResolutionType (required) (default to &quot;NEWTON_KRYLOV&quot;).</param>
         /// <param name="convergenceCriteria">convergenceCriteria.</param>
         /// <param name="predictionMatrix">&lt;p&gt;Select which stiffnes matrix should be used in the prediction phase of the Newton method. A good choice leads to a good starting point for the first Newton iteration and thus a faster convergence.&lt;/p&gt; (default to PredictionMatrixEnum.TANGENT).</param>
         /// <param name="jacobianMatrix">jacobianMatrix.</param>
@@ -77,8 +77,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose how the nonlinearities are solved. Currently for direct solvers only the Newton-Raphson method is available via the selection &lt;b&gt;Newton&lt;/b&gt;. For iterative solvers also an inexact version of the Newton-Raphson method is available via the selection &lt;b&gt;Newton-Krylov&lt;/b&gt;.&lt;/p&gt;  Schema name: NewtonKrylovResolutionType
         /// </summary>
+        /// <value>&lt;p&gt;Choose how the nonlinearities are solved. Currently for direct solvers only the Newton-Raphson method is available via the selection &lt;b&gt;Newton&lt;/b&gt;. For iterative solvers also an inexact version of the Newton-Raphson method is available via the selection &lt;b&gt;Newton-Krylov&lt;/b&gt;.&lt;/p&gt;  Schema name: NewtonKrylovResolutionType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

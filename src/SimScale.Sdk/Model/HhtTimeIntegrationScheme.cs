@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HhtTimeIntegrationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HHT&quot;).</param>
+        /// <param name="type">Schema name: HhtTimeIntegrationScheme (required) (default to &quot;HHT&quot;).</param>
         /// <param name="alpha">The parameter &lt;b&gt;&amp;alpha;&lt;/b&gt; is given by a negative value. The larger |&lt;b&gt;&amp;alpha;&lt;/b&gt;| is, the more numerical damping is induced. (default to -0.1M).</param>
         /// <param name="method">Choose the mode of the HHT method. Compared to the &lt;b&gt;average acceleration&lt;/b&gt; scheme the induced numerical damping of the &lt;b&gt;alpha method&lt;/b&gt; is more selective: it is weaker for low frequencies and it will increase with the frequencies. (default to MethodEnum.ALPHAMETHOD).</param>
         public HhtTimeIntegrationScheme(string type = "HHT", decimal? alpha = default(decimal?), MethodEnum? method = default(MethodEnum?))
@@ -75,8 +75,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: HhtTimeIntegrationScheme
         /// </summary>
+        /// <value>Schema name: HhtTimeIntegrationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

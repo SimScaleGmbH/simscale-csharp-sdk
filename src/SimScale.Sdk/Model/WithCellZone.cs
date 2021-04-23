@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WithCellZone" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WITH_CELL_ZONE_V11&quot;).</param>
+        /// <param name="type">Schema name: WithCellZone (required) (default to &quot;WITH_CELL_ZONE_V11&quot;).</param>
         /// <param name="name">name (default to &quot;Zone&quot;).</param>
         public WithCellZone(string type = "WITH_CELL_ZONE_V11", string name = default(string))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WithCellZone
         /// </summary>
+        /// <value>Schema name: WithCellZone</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

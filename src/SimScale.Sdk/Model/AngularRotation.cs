@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AngularRotation" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ANGULAR_ROTATION&quot;).</param>
+        /// <param name="type">Schema name: AngularRotation (required) (default to &quot;ANGULAR_ROTATION&quot;).</param>
         /// <param name="rotationCenter">rotationCenter.</param>
         /// <param name="rotationAxis">rotationAxis.</param>
         /// <param name="angularVelocity">angularVelocity.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AngularRotation
         /// </summary>
+        /// <value>Schema name: AngularRotation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

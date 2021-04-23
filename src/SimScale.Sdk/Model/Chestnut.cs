@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Chestnut" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CHESTNUT&quot;).</param>
+        /// <param name="type">Schema name: Chestnut (required) (default to &quot;CHESTNUT&quot;).</param>
         /// <param name="averageTreeHeight">averageTreeHeight.</param>
         public Chestnut(string type = "CHESTNUT", DimensionalLength averageTreeHeight = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Chestnut
         /// </summary>
+        /// <value>Schema name: Chestnut</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

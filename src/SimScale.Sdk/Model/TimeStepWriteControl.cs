@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TimeStepWriteControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TIME_STEP&quot;).</param>
+        /// <param name="type">This option controls how the simulation results are written and how frequently.  Schema name: TimeStepWriteControl (required) (default to &quot;TIME_STEP&quot;).</param>
         /// <param name="writeInterval">Specify an interval value that defines the number of time steps between two writes of the result..</param>
         public TimeStepWriteControl(string type = "TIME_STEP", int? writeInterval = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option controls how the simulation results are written and how frequently.  Schema name: TimeStepWriteControl
         /// </summary>
+        /// <value>This option controls how the simulation results are written and how frequently.  Schema name: TimeStepWriteControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

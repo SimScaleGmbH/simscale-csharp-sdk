@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ForcePreload" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FORCE&quot;).</param>
+        /// <param name="type">Schema name: ForcePreload (required) (default to &quot;FORCE&quot;).</param>
         /// <param name="force">force.</param>
         public ForcePreload(string type = "FORCE", DimensionalForce force = default(DimensionalForce))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ForcePreload
         /// </summary>
+        /// <value>Schema name: ForcePreload</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

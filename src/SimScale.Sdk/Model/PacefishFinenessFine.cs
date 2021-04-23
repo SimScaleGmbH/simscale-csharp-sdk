@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PacefishFinenessFine" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FINE&quot;).</param>
+        /// <param name="type">Schema name: PacefishFinenessFine (required) (default to &quot;FINE&quot;).</param>
         public PacefishFinenessFine(string type = "FINE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PacefishFinenessFine
         /// </summary>
+        /// <value>Schema name: PacefishFinenessFine</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// TotalPBC
     /// </summary>
     [DataContract]
-    public partial class TotalPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfPressureInletBCGaugePressure, OneOfPressureOutletBCPressure, IEquatable<TotalPBC>
+    public partial class TotalPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfPressureInletBCGaugePressure, OneOfPressureOutletBCGaugePressure, OneOfPressureOutletBCPressure, IEquatable<TotalPBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalPBC" /> class.
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalPBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL_PRESSURE&quot;).</param>
+        /// <param name="type">Schema name: TotalPBC (required) (default to &quot;TOTAL_PRESSURE&quot;).</param>
         /// <param name="totalPressure">totalPressure.</param>
         public TotalPBC(string type = "TOTAL_PRESSURE", DimensionalFunctionPressure totalPressure = default(DimensionalFunctionPressure))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TotalPBC
         /// </summary>
+        /// <value>Schema name: TotalPBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

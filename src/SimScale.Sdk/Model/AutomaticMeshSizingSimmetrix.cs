@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticMeshSizingSimmetrix" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUTOMATIC_V9&quot;).</param>
+        /// <param name="type">Schema name: AutomaticMeshSizingSimmetrix (required) (default to &quot;AUTOMATIC_V9&quot;).</param>
         /// <param name="fineness">&lt;p&gt;Adjust the overall mesh sizing from coarse (value: 0) to fine (10).&lt;/p&gt; (default to 5M).</param>
         public AutomaticMeshSizingSimmetrix(string type = "AUTOMATIC_V9", decimal? fineness = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AutomaticMeshSizingSimmetrix
         /// </summary>
+        /// <value>Schema name: AutomaticMeshSizingSimmetrix</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

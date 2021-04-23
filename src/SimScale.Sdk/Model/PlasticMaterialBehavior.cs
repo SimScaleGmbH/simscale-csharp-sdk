@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PlasticMaterialBehavior" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PLASTIC&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Linear elastic&lt;/b&gt; if the stress-strain relationship of your material is linear.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Elasto-plastic&lt;/b&gt; if the stress-strain relationship of your material is non-linear after some point e.g. yielding point.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Hyperelastic&lt;/b&gt; if your material responds elastically even at higher deformations.&lt;/li&gt;&lt;/ul&gt;   Schema name: PlasticMaterialBehavior (required) (default to &quot;PLASTIC&quot;).</param>
         /// <param name="plasticHardening">plasticHardening.</param>
         /// <param name="creepFormulation">creepFormulation.</param>
         public PlasticMaterialBehavior(string type = "PLASTIC", IsotropicPlasticHardening plasticHardening = default(IsotropicPlasticHardening), OneOfPlasticMaterialBehaviorCreepFormulation creepFormulation = default(OneOfPlasticMaterialBehaviorCreepFormulation))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Linear elastic&lt;/b&gt; if the stress-strain relationship of your material is linear.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Elasto-plastic&lt;/b&gt; if the stress-strain relationship of your material is non-linear after some point e.g. yielding point.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Hyperelastic&lt;/b&gt; if your material responds elastically even at higher deformations.&lt;/li&gt;&lt;/ul&gt;   Schema name: PlasticMaterialBehavior
         /// </summary>
+        /// <value>&lt;p&gt;Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Linear elastic&lt;/b&gt; if the stress-strain relationship of your material is linear.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Elasto-plastic&lt;/b&gt; if the stress-strain relationship of your material is non-linear after some point e.g. yielding point.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Hyperelastic&lt;/b&gt; if your material responds elastically even at higher deformations.&lt;/li&gt;&lt;/ul&gt;   Schema name: PlasticMaterialBehavior</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

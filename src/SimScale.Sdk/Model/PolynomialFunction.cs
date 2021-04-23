@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PolynomialFunction" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;POLYNOMIAL&quot;).</param>
+        /// <param name="type">Schema name: PolynomialFunction (required) (default to &quot;POLYNOMIAL&quot;).</param>
         /// <param name="coefficients">coefficients.</param>
         /// <param name="parameterBaseUnit">parameterBaseUnit (required).</param>
         public PolynomialFunction(string type = "POLYNOMIAL", List<decimal?> coefficients = default(List<decimal?>), string parameterBaseUnit = default(string))
@@ -49,8 +49,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PolynomialFunction
         /// </summary>
+        /// <value>Schema name: PolynomialFunction</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InactiveAdjustableTimestep" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INACTIVE_TIMESTEP&quot;).</param>
+        /// <param name="type">This option activates an adjustable time step. The time step is being modified according to the Courant number.  Schema name: InactiveAdjustableTimestep (required) (default to &quot;INACTIVE_TIMESTEP&quot;).</param>
         public InactiveAdjustableTimestep(string type = "INACTIVE_TIMESTEP")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option activates an adjustable time step. The time step is being modified according to the Courant number.  Schema name: InactiveAdjustableTimestep
         /// </summary>
+        /// <value>This option activates an adjustable time step. The time step is being modified according to the Courant number.  Schema name: InactiveAdjustableTimestep</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

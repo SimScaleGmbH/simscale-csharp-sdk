@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DILUPreconditioner" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DILU&quot;).</param>
+        /// <param name="type">Diagonal incomplete lower-upper (ILU) algorithm for non-symmetric matrices without fill-in.  Schema name: DILUPreconditioner (required) (default to &quot;DILU&quot;).</param>
         public DILUPreconditioner(string type = "DILU")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Diagonal incomplete lower-upper (ILU) algorithm for non-symmetric matrices without fill-in.  Schema name: DILUPreconditioner
         /// </summary>
+        /// <value>Diagonal incomplete lower-upper (ILU) algorithm for non-symmetric matrices without fill-in.  Schema name: DILUPreconditioner</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

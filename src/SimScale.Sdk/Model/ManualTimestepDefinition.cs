@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualTimestepDefinition" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MANUAL_V19&quot;).</param>
+        /// <param name="type">Schema name: ManualTimestepDefinition (required) (default to &quot;MANUAL_V19&quot;).</param>
         /// <param name="simulationInterval">simulationInterval.</param>
         /// <param name="timestepLength">timestepLength.</param>
         public ManualTimestepDefinition(string type = "MANUAL_V19", DimensionalTime simulationInterval = default(DimensionalTime), RestrictedDimensionalFunctionTime timestepLength = default(RestrictedDimensionalFunctionTime))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ManualTimestepDefinition
         /// </summary>
+        /// <value>Schema name: ManualTimestepDefinition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

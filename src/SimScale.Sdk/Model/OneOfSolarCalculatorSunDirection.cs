@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfSolarCalculatorSunDirection
+    /// &lt;p&gt;&lt;b&gt;Sun direction&lt;/b&gt; in the solar radiation model.&lt;/p&gt; &lt;ul&gt;&lt;li&gt;&lt;b&gt;Custom:&lt;/b&gt; Define the sun direction vector directly.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Time and place:&lt;/b&gt; Set the sun direction by defining a location, a date and a time. This assumes the Z-vector to point upwards into the sky.&lt;/li&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(TimeAndPlaceSunDirection), "TIME_AND_PLACE")]

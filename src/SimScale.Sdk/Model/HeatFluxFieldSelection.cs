@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeatFluxFieldSelection" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HEAT_FLUX&quot;).</param>
+        /// <param name="type">Schema name: HeatFluxFieldSelection (required) (default to &quot;HEAT_FLUX&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
         public HeatFluxFieldSelection(string type = "HEAT_FLUX", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -83,8 +83,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: HeatFluxFieldSelection
         /// </summary>
+        /// <value>Schema name: HeatFluxFieldSelection</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InsideRegionRefinementWithLength" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INSIDE&quot;).</param>
+        /// <param name="type">Schema name: InsideRegionRefinementWithLength (required) (default to &quot;INSIDE&quot;).</param>
         /// <param name="length">length.</param>
         public InsideRegionRefinementWithLength(string type = "INSIDE", DimensionalLength length = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: InsideRegionRefinementWithLength
         /// </summary>
+        /// <value>Schema name: InsideRegionRefinementWithLength</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

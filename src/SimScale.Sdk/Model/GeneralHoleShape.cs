@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneralHoleShape" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GENERAL&quot;).</param>
+        /// <param name="type">General formulation that does not depend on the shape of the holes. Valid only for thin plates where thickness to hole ratio is less than 0.015 and Reynolds number is greater than 10000.  Schema name: GeneralHoleShape (required) (default to &quot;GENERAL&quot;).</param>
         public GeneralHoleShape(string type = "GENERAL")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// General formulation that does not depend on the shape of the holes. Valid only for thin plates where thickness to hole ratio is less than 0.015 and Reynolds number is greater than 10000.  Schema name: GeneralHoleShape
         /// </summary>
+        /// <value>General formulation that does not depend on the shape of the holes. Valid only for thin plates where thickness to hole ratio is less than 0.015 and Reynolds number is greater than 10000.  Schema name: GeneralHoleShape</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

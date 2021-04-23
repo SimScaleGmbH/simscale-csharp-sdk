@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InletOutletVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INLET_OUTLET&quot;).</param>
+        /// <param name="type">Schema name: InletOutletVBC (required) (default to &quot;INLET_OUTLET&quot;).</param>
         /// <param name="value">value.</param>
         public InletOutletVBC(string type = "INLET_OUTLET", DimensionalVectorSpeed value = default(DimensionalVectorSpeed))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: InletOutletVBC
         /// </summary>
+        /// <value>Schema name: InletOutletVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

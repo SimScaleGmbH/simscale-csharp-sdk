@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultipliedSlaveNodesIterationControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MULTIPLIED_SLAVE_NODE&quot;).</param>
+        /// <param name="type">Schema name: MultipliedSlaveNodesIterationControl (required) (default to &quot;MULTIPLIED_SLAVE_NODE&quot;).</param>
         /// <param name="multipleValue">multipleValue (default to 4).</param>
         public MultipliedSlaveNodesIterationControl(string type = "MULTIPLIED_SLAVE_NODE", int? multipleValue = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MultipliedSlaveNodesIterationControl
         /// </summary>
+        /// <value>Schema name: MultipliedSlaveNodesIterationControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

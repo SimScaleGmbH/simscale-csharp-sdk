@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Oak" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OAK&quot;).</param>
+        /// <param name="type">Schema name: Oak (required) (default to &quot;OAK&quot;).</param>
         /// <param name="averageTreeHeight">averageTreeHeight.</param>
         public Oak(string type = "OAK", DimensionalLength averageTreeHeight = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Oak
         /// </summary>
+        /// <value>Schema name: Oak</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

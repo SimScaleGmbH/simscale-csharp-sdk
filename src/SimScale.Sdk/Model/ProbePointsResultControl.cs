@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProbePointsResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PROBE_POINTS&quot;).</param>
+        /// <param name="type">Schema name: ProbePointsResultControl (required) (default to &quot;PROBE_POINTS&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="writeControl">writeControl.</param>
         /// <param name="fractionFromEnd">It defines the point in simulation where the result output data extraction starts. For instance, &lt;i&gt;Fraction from end&lt;/i&gt; of 1 (100%) extracts all data from the beginning of the simulation while default 0.2 extracts 20% data from the end of the simulation. (default to 0.2M).</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ProbePointsResultControl
         /// </summary>
+        /// <value>Schema name: ProbePointsResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

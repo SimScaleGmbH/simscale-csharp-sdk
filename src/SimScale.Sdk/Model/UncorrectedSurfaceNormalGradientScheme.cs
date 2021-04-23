@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UncorrectedSurfaceNormalGradientScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;UNCORRECTED&quot;).</param>
+        /// <param name="type">Schema name: UncorrectedSurfaceNormalGradientScheme (required) (default to &quot;UNCORRECTED&quot;).</param>
         public UncorrectedSurfaceNormalGradientScheme(string type = "UNCORRECTED")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: UncorrectedSurfaceNormalGradientScheme
         /// </summary>
+        /// <value>Schema name: UncorrectedSurfaceNormalGradientScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

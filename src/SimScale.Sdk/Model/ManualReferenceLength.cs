@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualReferenceLength" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MANUAL_REFERENCE_LENGTH&quot;).</param>
+        /// <param name="type">Schema name: ManualReferenceLength (required) (default to &quot;MANUAL_REFERENCE_LENGTH&quot;).</param>
         /// <param name="value">value.</param>
         public ManualReferenceLength(string type = "MANUAL_REFERENCE_LENGTH", DimensionalLength value = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ManualReferenceLength
         /// </summary>
+        /// <value>Schema name: ManualReferenceLength</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

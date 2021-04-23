@@ -85,7 +85,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimmetrixMeshingFluid" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SIMMETRIX_MESHING_FLUID_V16&quot;).</param>
+        /// <param name="type">Schema name: SimmetrixMeshingFluid (required) (default to &quot;SIMMETRIX_MESHING_FLUID_V16&quot;).</param>
         /// <param name="sizing">sizing.</param>
         /// <param name="refinements">refinements.</param>
         /// <param name="cellZones">cellZones.</param>
@@ -109,8 +109,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SimmetrixMeshingFluid
         /// </summary>
+        /// <value>Schema name: SimmetrixMeshingFluid</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

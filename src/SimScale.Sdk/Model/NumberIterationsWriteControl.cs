@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NumberIterationsWriteControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NUMBER_OF_ITERATIONS_STEADY_STATE&quot;).</param>
+        /// <param name="type">This option controls how the simulation results are written and how frequently.  Schema name: NumberIterationsWriteControl (required) (default to &quot;NUMBER_OF_ITERATIONS_STEADY_STATE&quot;).</param>
         /// <param name="writeInterval">Specify an interval value that defines the number of iterations between two writes of the result. (default to 100).</param>
         public NumberIterationsWriteControl(string type = "NUMBER_OF_ITERATIONS_STEADY_STATE", int? writeInterval = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option controls how the simulation results are written and how frequently.  Schema name: NumberIterationsWriteControl
         /// </summary>
+        /// <value>This option controls how the simulation results are written and how frequently.  Schema name: NumberIterationsWriteControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

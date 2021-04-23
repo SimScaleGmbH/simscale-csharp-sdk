@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SlipVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SLIP&quot;).</param>
+        /// <param name="type">Schema name: SlipVBC (required) (default to &quot;SLIP&quot;).</param>
         public SlipVBC(string type = "SLIP")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SlipVBC
         /// </summary>
+        /// <value>Schema name: SlipVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

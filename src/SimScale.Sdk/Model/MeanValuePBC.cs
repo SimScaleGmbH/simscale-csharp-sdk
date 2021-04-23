@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MeanValuePBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_MEAN&quot;).</param>
+        /// <param name="type">Schema name: MeanValuePBC (required) (default to &quot;FIXED_MEAN&quot;).</param>
         /// <param name="value">value.</param>
         public MeanValuePBC(string type = "FIXED_MEAN", DimensionalPressure value = default(DimensionalPressure))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MeanValuePBC
         /// </summary>
+        /// <value>Schema name: MeanValuePBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

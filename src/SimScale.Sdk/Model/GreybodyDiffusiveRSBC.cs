@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GreybodyDiffusiveRSBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GREYBODY_DIFFUSIVE&quot;).</param>
+        /// <param name="type">Schema name: GreybodyDiffusiveRSBC (required) (default to &quot;GREYBODY_DIFFUSIVE&quot;).</param>
         /// <param name="emissivity">emissivity.</param>
         public GreybodyDiffusiveRSBC(string type = "GREYBODY_DIFFUSIVE", DimensionalDimensionless emissivity = default(DimensionalDimensionless))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GreybodyDiffusiveRSBC
         /// </summary>
+        /// <value>Schema name: GreybodyDiffusiveRSBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

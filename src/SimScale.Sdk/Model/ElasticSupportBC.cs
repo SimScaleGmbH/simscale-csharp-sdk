@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ElasticSupportBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ELASTIC_SUPPORT&quot;).</param>
+        /// <param name="type">&lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;/p&gt;  Schema name: ElasticSupportBC (required) (default to &quot;ELASTIC_SUPPORT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="springStiffness">springStiffness.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;/p&gt;  Schema name: ElasticSupportBC
         /// </summary>
+        /// <value>&lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;/p&gt;  Schema name: ElasticSupportBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

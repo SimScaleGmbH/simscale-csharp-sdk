@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedTDBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CALCULATED&quot;).</param>
+        /// <param name="type">Schema name: CalculatedTDBC (required) (default to &quot;CALCULATED&quot;).</param>
         public CalculatedTDBC(string type = "CALCULATED")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CalculatedTDBC
         /// </summary>
+        /// <value>Schema name: CalculatedTDBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

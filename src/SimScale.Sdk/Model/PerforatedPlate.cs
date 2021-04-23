@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PerforatedPlate" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PERFORATED_PLATE&quot;).</param>
+        /// <param name="type">Schema name: PerforatedPlate (required) (default to &quot;PERFORATED_PLATE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="plateData">plateData.</param>
         /// <param name="darcyForchheimerType">darcyForchheimerType.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PerforatedPlate
         /// </summary>
+        /// <value>Schema name: PerforatedPlate</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

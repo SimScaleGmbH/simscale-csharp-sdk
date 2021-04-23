@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalSignedVonMisesStressType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SIGNED_VON_MISES&quot;).</param>
+        /// <param name="type">Schema name: GlobalSignedVonMisesStressType (required) (default to &quot;SIGNED_VON_MISES&quot;).</param>
         public GlobalSignedVonMisesStressType(string type = "SIGNED_VON_MISES")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalSignedVonMisesStressType
         /// </summary>
+        /// <value>Schema name: GlobalSignedVonMisesStressType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

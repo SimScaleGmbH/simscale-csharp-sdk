@@ -87,7 +87,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BoundingBoxLayerAddition" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;BOUNDING_BOX_LAYER_ADDITION&quot;).</param>
+        /// <param name="type">This option enables layer refinement on the faces of the bounding box. This refinement is useful if the bounding box itself provides walls of the flow domain. It is often used for external aerodynamic cases where the floor is considered as a wall and hence the mesh should be refined with layers in the vicinity.  Schema name: BoundingBoxLayerAddition (required) (default to &quot;BOUNDING_BOX_LAYER_ADDITION&quot;).</param>
         /// <param name="name">name (default to &quot;Bounding box layer addition&quot;).</param>
         /// <param name="face">This option selects the face of the bounding box on which layers will be added. A face is selected by its normal (denoted by the respective coordinate system axis) and its position (denoted by min or max). (default to FaceEnum.XMIN).</param>
         /// <param name="layers">The number of &lt;b&gt;layers&lt;/b&gt; defines how many boundary layers should be created. (default to 5).</param>
@@ -107,8 +107,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option enables layer refinement on the faces of the bounding box. This refinement is useful if the bounding box itself provides walls of the flow domain. It is often used for external aerodynamic cases where the floor is considered as a wall and hence the mesh should be refined with layers in the vicinity.  Schema name: BoundingBoxLayerAddition
         /// </summary>
+        /// <value>This option enables layer refinement on the faces of the bounding box. This refinement is useful if the bounding box itself provides walls of the flow domain. It is often used for external aerodynamic cases where the floor is considered as a wall and hence the mesh should be refined with layers in the vicinity.  Schema name: BoundingBoxLayerAddition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyList" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LIST_V20&quot;).</param>
+        /// <param name="type">&lt;p&gt;Set the frequencies for the harmonic excitation. Setting it to &lt;b&gt;single frequency&lt;/b&gt; will only compute harmonic excitation on that frequency. To have harmonic excitations on multiple frequencies, please choose &lt;b&gt;frequency list&lt;/b&gt;. &lt;/p&gt;  Schema name: FrequencyList (required) (default to &quot;LIST_V20&quot;).</param>
         /// <param name="startFrequency">startFrequency.</param>
         /// <param name="endFrequency">endFrequency.</param>
         /// <param name="frequencyStepping">frequencyStepping.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Set the frequencies for the harmonic excitation. Setting it to &lt;b&gt;single frequency&lt;/b&gt; will only compute harmonic excitation on that frequency. To have harmonic excitations on multiple frequencies, please choose &lt;b&gt;frequency list&lt;/b&gt;. &lt;/p&gt;  Schema name: FrequencyList
         /// </summary>
+        /// <value>&lt;p&gt;Set the frequencies for the harmonic excitation. Setting it to &lt;b&gt;single frequency&lt;/b&gt; will only compute harmonic excitation on that frequency. To have harmonic excitations on multiple frequencies, please choose &lt;b&gt;frequency list&lt;/b&gt;. &lt;/p&gt;  Schema name: FrequencyList</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RemoteForceLoadBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REMOTE_FORCE_LOAD&quot;).</param>
+        /// <param name="type">This is a &lt;b&gt;remote force&lt;/b&gt; boundary condition where the load is applied on the assignment via a remote point. Therefore the assignment is connected to the remote point with RBE3 (deformable) or MPC (undeformable) conditions and the defined force is applied to the remote point.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The total force will be &lt;b&gt;distributed on the selection&lt;/b&gt;&lt;/li&gt;&lt;li&gt;As the assignments are connected to the remote point, additional constraints on these nodes may lead to overconstrained systems.&lt;/li&gt;&lt;li&gt;If the number of nodes of the assignment is large (&gt;1000&gt; it is recommended to use the &lt;b&gt;MUMPS&lt;/b&gt; or &lt;b&gt;PETSC&lt;/b&gt; solver.&lt;/li&gt;&lt;li&gt;This boundary condition is only valid for small rotations. &lt;/li&gt;&lt;/ul&gt;   Schema name: RemoteForceLoadBC (required) (default to &quot;REMOTE_FORCE_LOAD&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="force">force.</param>
         /// <param name="moment">moment.</param>
@@ -87,8 +87,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a &lt;b&gt;remote force&lt;/b&gt; boundary condition where the load is applied on the assignment via a remote point. Therefore the assignment is connected to the remote point with RBE3 (deformable) or MPC (undeformable) conditions and the defined force is applied to the remote point.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The total force will be &lt;b&gt;distributed on the selection&lt;/b&gt;&lt;/li&gt;&lt;li&gt;As the assignments are connected to the remote point, additional constraints on these nodes may lead to overconstrained systems.&lt;/li&gt;&lt;li&gt;If the number of nodes of the assignment is large (&gt;1000&gt; it is recommended to use the &lt;b&gt;MUMPS&lt;/b&gt; or &lt;b&gt;PETSC&lt;/b&gt; solver.&lt;/li&gt;&lt;li&gt;This boundary condition is only valid for small rotations. &lt;/li&gt;&lt;/ul&gt;   Schema name: RemoteForceLoadBC
         /// </summary>
+        /// <value>This is a &lt;b&gt;remote force&lt;/b&gt; boundary condition where the load is applied on the assignment via a remote point. Therefore the assignment is connected to the remote point with RBE3 (deformable) or MPC (undeformable) conditions and the defined force is applied to the remote point.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The total force will be &lt;b&gt;distributed on the selection&lt;/b&gt;&lt;/li&gt;&lt;li&gt;As the assignments are connected to the remote point, additional constraints on these nodes may lead to overconstrained systems.&lt;/li&gt;&lt;li&gt;If the number of nodes of the assignment is large (&gt;1000&gt; it is recommended to use the &lt;b&gt;MUMPS&lt;/b&gt; or &lt;b&gt;PETSC&lt;/b&gt; solver.&lt;/li&gt;&lt;li&gt;This boundary condition is only valid for small rotations. &lt;/li&gt;&lt;/ul&gt;   Schema name: RemoteForceLoadBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

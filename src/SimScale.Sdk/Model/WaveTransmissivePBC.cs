@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WaveTransmissivePBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WAVE_TRANSMISSIVE&quot;).</param>
+        /// <param name="type">Schema name: WaveTransmissivePBC (required) (default to &quot;WAVE_TRANSMISSIVE&quot;).</param>
         /// <param name="specificHeatRatio">specificHeatRatio (default to 1.4M).</param>
         /// <param name="relaxBoundary">relaxBoundary (default to false).</param>
         /// <param name="farFieldValue">farFieldValue.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WaveTransmissivePBC
         /// </summary>
+        /// <value>Schema name: WaveTransmissivePBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

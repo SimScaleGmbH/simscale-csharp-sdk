@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussLinearCorrectedLaplacianScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_LINEAR_CORRECTED&quot;).</param>
+        /// <param name="type">Schema name: GaussLinearCorrectedLaplacianScheme (required) (default to &quot;GAUSS_LINEAR_CORRECTED&quot;).</param>
         public GaussLinearCorrectedLaplacianScheme(string type = "GAUSS_LINEAR_CORRECTED")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussLinearCorrectedLaplacianScheme
         /// </summary>
+        /// <value>Schema name: GaussLinearCorrectedLaplacianScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

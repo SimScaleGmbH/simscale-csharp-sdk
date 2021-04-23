@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedEVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CALCULATED&quot;).</param>
+        /// <param name="type">Schema name: CalculatedEVBC (required) (default to &quot;CALCULATED&quot;).</param>
         public CalculatedEVBC(string type = "CALCULATED")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CalculatedEVBC
         /// </summary>
+        /// <value>Schema name: CalculatedEVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

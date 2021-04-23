@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Cylinder" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CYLINDER&quot;).</param>
+        /// <param name="type">Schema name: Cylinder (required) (default to &quot;CYLINDER&quot;).</param>
         /// <param name="id">id.</param>
         /// <param name="name">name.</param>
         /// <param name="reference">reference.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: Cylinder
         /// </summary>
+        /// <value>Schema name: Cylinder</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FrictionAugmentedLagrangeCoef" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FRICTION_AUGMENTATION_COEF&quot;).</param>
+        /// <param name="type">Schema name: FrictionAugmentedLagrangeCoef (required) (default to &quot;FRICTION_AUGMENTATION_COEF&quot;).</param>
         /// <param name="frictionAugmentationCoefficient">frictionAugmentationCoefficient.</param>
         /// <param name="coulombCoefficient">coulombCoefficient (default to 0.1M).</param>
         public FrictionAugmentedLagrangeCoef(string type = "FRICTION_AUGMENTATION_COEF", DimensionalFrictionAugmentation frictionAugmentationCoefficient = default(DimensionalFrictionAugmentation), decimal? coulombCoefficient = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FrictionAugmentedLagrangeCoef
         /// </summary>
+        /// <value>Schema name: FrictionAugmentedLagrangeCoef</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

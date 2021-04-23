@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeatureRefinementHexDominantSnappy" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FEATURE_HEX_DOMINANT_SNAPPY&quot;).</param>
+        /// <param name="type">A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#feature-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;feature refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the geometry’s feature edges. All edges whose adjacent surface normals form an angle of less than 150° will be refined.  Schema name: FeatureRefinementHexDominantSnappy (required) (default to &quot;FEATURE_HEX_DOMINANT_SNAPPY&quot;).</param>
         /// <param name="name">name (default to &quot;Feature refinement&quot;).</param>
         /// <param name="distanceRefinementLengths">Specify the desired &lt;b&gt;target cell edge length&lt;/b&gt; based on the &lt;b&gt;distance&lt;/b&gt; to the feature edges. The edge and surface mesh will then be refined up until the specified distance in all directions from the edges..</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#feature-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;feature refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the geometry’s feature edges. All edges whose adjacent surface normals form an angle of less than 150° will be refined.  Schema name: FeatureRefinementHexDominantSnappy
         /// </summary>
+        /// <value>A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#feature-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;feature refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the geometry’s feature edges. All edges whose adjacent surface normals form an angle of less than 150° will be refined.  Schema name: FeatureRefinementHexDominantSnappy</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedValueBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_VALUE&quot;).</param>
+        /// <param name="type">This is a boundary condition for the &lt;b&gt;displacement vector&lt;/b&gt; variable. You can define prescribed values for the displacement of the assigned groups in every coordinate direction (x,y,z) or leave it unconstrained in order to let the entity move freely. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose 0 as value in order to fix your selection&lt;/li&gt;&lt;li&gt;Do not constrain entities in directions where a load boundary condition is applied&lt;/li&gt;&lt;li&gt;Do not constrain entities with multiple Dirichlet boundary conditions in one direction (overconstrained)&lt;/li&gt;&lt;li&gt;Do not constrain slave entities of &lt;b&gt;Contact Constraints&lt;/b&gt; as they are constrained by the master in that direction (overconstrained)&lt;/li&gt;&lt;/ul&gt;   Schema name: FixedValueBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="displacement">displacement.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a boundary condition for the &lt;b&gt;displacement vector&lt;/b&gt; variable. You can define prescribed values for the displacement of the assigned groups in every coordinate direction (x,y,z) or leave it unconstrained in order to let the entity move freely. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose 0 as value in order to fix your selection&lt;/li&gt;&lt;li&gt;Do not constrain entities in directions where a load boundary condition is applied&lt;/li&gt;&lt;li&gt;Do not constrain entities with multiple Dirichlet boundary conditions in one direction (overconstrained)&lt;/li&gt;&lt;li&gt;Do not constrain slave entities of &lt;b&gt;Contact Constraints&lt;/b&gt; as they are constrained by the master in that direction (overconstrained)&lt;/li&gt;&lt;/ul&gt;   Schema name: FixedValueBC
         /// </summary>
+        /// <value>This is a boundary condition for the &lt;b&gt;displacement vector&lt;/b&gt; variable. You can define prescribed values for the displacement of the assigned groups in every coordinate direction (x,y,z) or leave it unconstrained in order to let the entity move freely. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose 0 as value in order to fix your selection&lt;/li&gt;&lt;li&gt;Do not constrain entities in directions where a load boundary condition is applied&lt;/li&gt;&lt;li&gt;Do not constrain entities with multiple Dirichlet boundary conditions in one direction (overconstrained)&lt;/li&gt;&lt;li&gt;Do not constrain slave entities of &lt;b&gt;Contact Constraints&lt;/b&gt; as they are constrained by the master in that direction (overconstrained)&lt;/li&gt;&lt;/ul&gt;   Schema name: FixedValueBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AmbientTBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AMBIENT_TEMPERATURE&quot;).</param>
+        /// <param name="type">Schema name: AmbientTBC (required) (default to &quot;AMBIENT_TEMPERATURE&quot;).</param>
         /// <param name="ambientTemperature">ambientTemperature.</param>
         public AmbientTBC(string type = "AMBIENT_TEMPERATURE", DimensionalTemperature ambientTemperature = default(DimensionalTemperature))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AmbientTBC
         /// </summary>
+        /// <value>Schema name: AmbientTBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

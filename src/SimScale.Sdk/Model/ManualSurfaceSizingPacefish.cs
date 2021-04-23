@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualSurfaceSizingPacefish" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MANUAL_SURFACE_PACEFISH&quot;).</param>
+        /// <param name="type">Schema name: ManualSurfaceSizingPacefish (required) (default to &quot;MANUAL_SURFACE_PACEFISH&quot;).</param>
         /// <param name="targetResolution">targetResolution.</param>
         /// <param name="bufferCellsNoExtrude">Specify the minimum number of buffer cells between regions of different refinements. (default to 4).</param>
         /// <param name="additionalDirectionalCells">additionalDirectionalCells.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ManualSurfaceSizingPacefish
         /// </summary>
+        /// <value>Schema name: ManualSurfaceSizingPacefish</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

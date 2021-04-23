@@ -110,7 +110,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimmetrixMeshingSolid" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SIMMETRIX_MESHING_SOLID&quot;).</param>
+        /// <param name="type">Schema name: SimmetrixMeshingSolid (required) (default to &quot;SIMMETRIX_MESHING_SOLID&quot;).</param>
         /// <param name="sizing">sizing.</param>
         /// <param name="refinements">refinements.</param>
         /// <param name="secondOrder">&lt;p&gt;The &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#order&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;mesh order&lt;/b&gt;&lt;/a&gt; defines the shape and the number of nodes of the mesh elements. For a fast, rough analysis choose &lt;i&gt;first order&lt;/i&gt; only. Activate &lt;i&gt;2nd order elements&lt;/i&gt; for higher quality results&lt;/p&gt; (default to false).</param>
@@ -132,8 +132,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SimmetrixMeshingSolid
         /// </summary>
+        /// <value>Schema name: SimmetrixMeshingSolid</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

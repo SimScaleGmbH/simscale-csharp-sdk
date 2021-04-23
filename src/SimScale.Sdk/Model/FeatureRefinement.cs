@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeatureRefinement" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FEATURE&quot;).</param>
+        /// <param name="type">A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#feature-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;feature refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the geometry’s feature edges. All edges whose adjacent surface normals form an angle of less than 150° will be refined.  Schema name: FeatureRefinement (required) (default to &quot;FEATURE&quot;).</param>
         /// <param name="name">name (default to &quot;Feature refinement&quot;).</param>
         /// <param name="includedAngle">includedAngle.</param>
         /// <param name="distanceRefinementLevels">&lt;p&gt;This dynamic table allows you to add refinements to the mesh associated with the features (e.g. edges) in a specific distance to the features. Therefore specify the distance in the left box and the associated refinement level on the right (the higher, the finer). The pair (0,0) would mean that a refinement with level 0 would be introduced directly at the features of the mesh.&lt;/p&gt;.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#feature-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;feature refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the geometry’s feature edges. All edges whose adjacent surface normals form an angle of less than 150° will be refined.  Schema name: FeatureRefinement
         /// </summary>
+        /// <value>A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#feature-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;feature refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the geometry’s feature edges. All edges whose adjacent surface normals form an angle of less than 150° will be refined.  Schema name: FeatureRefinement</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

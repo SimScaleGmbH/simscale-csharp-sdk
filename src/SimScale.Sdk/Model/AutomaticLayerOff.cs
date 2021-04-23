@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticLayerOff" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUTOMATIC_LAYER_OFF&quot;).</param>
+        /// <param name="type">Schema name: AutomaticLayerOff (required) (default to &quot;AUTOMATIC_LAYER_OFF&quot;).</param>
         public AutomaticLayerOff(string type = "AUTOMATIC_LAYER_OFF")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AutomaticLayerOff
         /// </summary>
+        /// <value>Schema name: AutomaticLayerOff</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

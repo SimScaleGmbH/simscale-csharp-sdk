@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModerateResolution" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MODERATE_RESOLUTION&quot;).</param>
+        /// <param name="type">Output will be written every 4 time steps.  Schema name: ModerateResolution (required) (default to &quot;MODERATE_RESOLUTION&quot;).</param>
         public ModerateResolution(string type = "MODERATE_RESOLUTION")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Output will be written every 4 time steps.  Schema name: ModerateResolution
         /// </summary>
+        /// <value>Output will be written every 4 time steps.  Schema name: ModerateResolution</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

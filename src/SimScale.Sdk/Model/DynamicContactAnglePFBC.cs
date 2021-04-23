@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DynamicContactAnglePFBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DYNAMIC_CONTACT_ANGLE&quot;).</param>
+        /// <param name="type">Schema name: DynamicContactAnglePFBC (required) (default to &quot;DYNAMIC_CONTACT_ANGLE&quot;).</param>
         /// <param name="equilibriumContactAngle">equilibriumContactAngle.</param>
         /// <param name="advancingContactAngle">advancingContactAngle.</param>
         /// <param name="recedingContactAngle">recedingContactAngle.</param>
@@ -91,8 +91,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DynamicContactAnglePFBC
         /// </summary>
+        /// <value>Schema name: DynamicContactAnglePFBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

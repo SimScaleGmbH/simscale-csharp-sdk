@@ -93,7 +93,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CauchyStressTensorField" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CAUCHY_STRESS_TENSOR&quot;).</param>
+        /// <param name="type">&lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: CauchyStressTensorField (required) (default to &quot;CAUCHY_STRESS_TENSOR&quot;).</param>
         /// <param name="componentSelection">Choose a field component for which the data schould be extracted. (default to ComponentSelectionEnum.XX).</param>
         public CauchyStressTensorField(string type = "CAUCHY_STRESS_TENSOR", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -103,8 +103,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: CauchyStressTensorField
         /// </summary>
+        /// <value>&lt;p&gt;Select the field which should have a limited de-/increase within one increment.&lt;/p&gt;  Schema name: CauchyStressTensorField</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

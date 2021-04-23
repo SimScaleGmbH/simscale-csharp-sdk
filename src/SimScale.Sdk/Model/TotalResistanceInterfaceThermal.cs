@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalResistanceInterfaceThermal" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL_RESISTANCE&quot;).</param>
+        /// <param name="type">Schema name: TotalResistanceInterfaceThermal (required) (default to &quot;TOTAL_RESISTANCE&quot;).</param>
         /// <param name="contactResistance">contactResistance.</param>
         public TotalResistanceInterfaceThermal(string type = "TOTAL_RESISTANCE", DimensionalContactResistance contactResistance = default(DimensionalContactResistance))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TotalResistanceInterfaceThermal
         /// </summary>
+        /// <value>Schema name: TotalResistanceInterfaceThermal</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

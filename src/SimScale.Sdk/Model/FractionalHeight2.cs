@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FractionalHeight2" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FRACTIONAL_HEIGHT_2&quot;).</param>
+        /// <param name="type">Schema name: FractionalHeight2 (required) (default to &quot;FRACTIONAL_HEIGHT_2&quot;).</param>
         /// <param name="growthRate">The &lt;i&gt;Growth rate&lt;/i&gt; defines the thickness ratio between adjacent boundary layer cells. It needs to be always greater than 1 such that the layer thickness increases towards the interior of the mesh. For the same number of layers and overall thickness the larger the growth rate is inversely proportional to the first cell thickness. &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-layer-growth-rate.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of each cell being 1.5 times thicker than its adjacent. (default to 1.5M).</param>
         public FractionalHeight2(string type = "FRACTIONAL_HEIGHT_2", decimal? growthRate = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FractionalHeight2
         /// </summary>
+        /// <value>Schema name: FractionalHeight2</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

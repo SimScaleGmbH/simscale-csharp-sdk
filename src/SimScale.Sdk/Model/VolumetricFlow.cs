@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VolumetricFlow" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VOLUMETRIC&quot;).</param>
+        /// <param name="type">&lt;p&gt;Defines the volumetric flow rate &lt;strong&gt;per each face&lt;/strong&gt; of the assignment.&lt;/p&gt;  Schema name: VolumetricFlow (required) (default to &quot;VOLUMETRIC&quot;).</param>
         /// <param name="value">value.</param>
         public VolumetricFlow(string type = "VOLUMETRIC", DimensionalFunctionVolumetricFlowRate value = default(DimensionalFunctionVolumetricFlowRate))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Defines the volumetric flow rate &lt;strong&gt;per each face&lt;/strong&gt; of the assignment.&lt;/p&gt;  Schema name: VolumetricFlow
         /// </summary>
+        /// <value>&lt;p&gt;Defines the volumetric flow rate &lt;strong&gt;per each face&lt;/strong&gt; of the assignment.&lt;/p&gt;  Schema name: VolumetricFlow</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

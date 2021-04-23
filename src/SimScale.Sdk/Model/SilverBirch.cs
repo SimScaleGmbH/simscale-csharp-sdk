@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverBirch" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SILVER_BIRCH&quot;).</param>
+        /// <param name="type">Schema name: SilverBirch (required) (default to &quot;SILVER_BIRCH&quot;).</param>
         /// <param name="averageTreeHeight">averageTreeHeight.</param>
         public SilverBirch(string type = "SILVER_BIRCH", DimensionalLength averageTreeHeight = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SilverBirch
         /// </summary>
+        /// <value>Schema name: SilverBirch</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

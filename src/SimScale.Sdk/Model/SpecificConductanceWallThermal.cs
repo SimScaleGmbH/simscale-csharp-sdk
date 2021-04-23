@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecificConductanceWallThermal" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SPECIFIC_CONDUCTANCE&quot;).</param>
+        /// <param name="type">Schema name: SpecificConductanceWallThermal (required) (default to &quot;SPECIFIC_CONDUCTANCE&quot;).</param>
         /// <param name="contactConductance">contactConductance.</param>
         public SpecificConductanceWallThermal(string type = "SPECIFIC_CONDUCTANCE", DimensionalThermalTransmittance contactConductance = default(DimensionalThermalTransmittance))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SpecificConductanceWallThermal
         /// </summary>
+        /// <value>Schema name: SpecificConductanceWallThermal</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

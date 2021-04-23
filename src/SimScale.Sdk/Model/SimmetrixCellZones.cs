@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimmetrixCellZones" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SIMMETRIX_CELL_ZONES&quot;).</param>
+        /// <param name="type">Schema name: SimmetrixCellZones (required) (default to &quot;SIMMETRIX_CELL_ZONES&quot;).</param>
         /// <param name="name">name (default to &quot;Zone&quot;).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public SimmetrixCellZones(string type = "SIMMETRIX_CELL_ZONES", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SimmetrixCellZones
         /// </summary>
+        /// <value>Schema name: SimmetrixCellZones</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

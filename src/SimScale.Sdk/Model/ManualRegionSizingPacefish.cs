@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualRegionSizingPacefish" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MANUAL_REGION_PACEFISH&quot;).</param>
+        /// <param name="type">Schema name: ManualRegionSizingPacefish (required) (default to &quot;MANUAL_REGION_PACEFISH&quot;).</param>
         /// <param name="targetResolution">targetResolution.</param>
         public ManualRegionSizingPacefish(string type = "MANUAL_REGION_PACEFISH", DimensionalLength targetResolution = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ManualRegionSizingPacefish
         /// </summary>
+        /// <value>Schema name: ManualRegionSizingPacefish</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

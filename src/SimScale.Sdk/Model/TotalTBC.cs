@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalTBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL_TEMPERATURE&quot;).</param>
+        /// <param name="type">Schema name: TotalTBC (required) (default to &quot;TOTAL_TEMPERATURE&quot;).</param>
         /// <param name="totalTemperature">totalTemperature.</param>
         /// <param name="specificHeatRatio">specificHeatRatio (default to 1.4M).</param>
         public TotalTBC(string type = "TOTAL_TEMPERATURE", DimensionalTemperature totalTemperature = default(DimensionalTemperature), decimal? specificHeatRatio = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TotalTBC
         /// </summary>
+        /// <value>Schema name: TotalTBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

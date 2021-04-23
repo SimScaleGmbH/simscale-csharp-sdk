@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedCoeffMedium" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_COEFFICIENTS&quot;).</param>
+        /// <param name="type">Schema name: FixedCoeffMedium (required) (default to &quot;FIXED_COEFFICIENTS&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="alpha">alpha.</param>
         /// <param name="beta">beta.</param>
@@ -58,8 +58,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedCoeffMedium
         /// </summary>
+        /// <value>Schema name: FixedCoeffMedium</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

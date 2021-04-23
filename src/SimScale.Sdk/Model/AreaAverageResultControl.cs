@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AreaAverageResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AREA_AVERAGE&quot;).</param>
+        /// <param name="type">Schema name: AreaAverageResultControl (required) (default to &quot;AREA_AVERAGE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="writeControl">writeControl.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AreaAverageResultControl
         /// </summary>
+        /// <value>Schema name: AreaAverageResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

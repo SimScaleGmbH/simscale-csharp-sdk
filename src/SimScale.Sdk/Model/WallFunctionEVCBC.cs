@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WallFunctionEVCBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WALL_FUNCTION&quot;).</param>
+        /// <param name="type">Schema name: WallFunctionEVCBC (required) (default to &quot;WALL_FUNCTION&quot;).</param>
         public WallFunctionEVCBC(string type = "WALL_FUNCTION")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WallFunctionEVCBC
         /// </summary>
+        /// <value>Schema name: WallFunctionEVCBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

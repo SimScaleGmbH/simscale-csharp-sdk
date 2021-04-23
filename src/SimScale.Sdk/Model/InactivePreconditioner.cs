@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InactivePreconditioner" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INACTIVE&quot;).</param>
+        /// <param name="type">Schema name: InactivePreconditioner (required) (default to &quot;INACTIVE&quot;).</param>
         /// <param name="renumberingMethod">Choose the renumbering method for the system matrix entries:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;RCMK&lt;/b&gt; uses the algorithm of &lt;i&gt;Reverse Cuthill-MacKee&lt;/i&gt; for the renumbering. It often effectively reduces the matrig storage space and the matrix factorization time.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;When &lt;b&gt;inactive&lt;/b&gt; is selected no renumbering is done. This option should only be chosen for testing purposes.&lt;/p&gt;&lt;/ul&gt; (default to RenumberingMethodEnum.INACTIVE).</param>
         public InactivePreconditioner(string type = "INACTIVE", RenumberingMethodEnum? renumberingMethod = default(RenumberingMethodEnum?))
         {
@@ -73,8 +73,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: InactivePreconditioner
         /// </summary>
+        /// <value>Schema name: InactivePreconditioner</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

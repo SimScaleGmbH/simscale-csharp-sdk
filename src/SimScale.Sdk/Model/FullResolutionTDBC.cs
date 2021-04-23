@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FullResolutionTDBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FULL_RESOLUTION&quot;).</param>
+        /// <param name="type">Schema name: FullResolutionTDBC (required) (default to &quot;FULL_RESOLUTION&quot;).</param>
         /// <param name="prandtlNumber">prandtlNumber (default to 0.85M).</param>
         public FullResolutionTDBC(string type = "FULL_RESOLUTION", decimal? prandtlNumber = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FullResolutionTDBC
         /// </summary>
+        /// <value>Schema name: FullResolutionTDBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

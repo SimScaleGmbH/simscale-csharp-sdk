@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureLossCurve" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESSURE_LOSS_CURVE&quot;).</param>
+        /// <param name="type">Schema name: PressureLossCurve (required) (default to &quot;PRESSURE_LOSS_CURVE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressureLossData">pressureLossData.</param>
         /// <param name="directionalDependency">directionalDependency.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PressureLossCurve
         /// </summary>
+        /// <value>Schema name: PressureLossCurve</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

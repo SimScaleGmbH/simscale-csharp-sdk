@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ForceMomentCoefficientsResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FORCE_AND_MOMENT_COEFFICIENTS&quot;).</param>
+        /// <param name="type">Schema name: ForceMomentCoefficientsResultControl (required) (default to &quot;FORCE_AND_MOMENT_COEFFICIENTS&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="centerOfRotation">centerOfRotation.</param>
         /// <param name="liftDirection">liftDirection.</param>
@@ -64,8 +64,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ForceMomentCoefficientsResultControl
         /// </summary>
+        /// <value>Schema name: ForceMomentCoefficientsResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

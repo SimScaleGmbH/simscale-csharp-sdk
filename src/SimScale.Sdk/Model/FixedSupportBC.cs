@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedSupportBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_SUPPORT&quot;).</param>
+        /// <param name="type">&lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; constraint is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;/p&gt;  Schema name: FixedSupportBC (required) (default to &quot;FIXED_SUPPORT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public FixedSupportBC(string type = "FIXED_SUPPORT", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; constraint is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;/p&gt;  Schema name: FixedSupportBC
         /// </summary>
+        /// <value>&lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; constraint is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;/p&gt;  Schema name: FixedSupportBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

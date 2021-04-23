@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureCoefficientResultType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESSURE_COEFFICIENT&quot;).</param>
+        /// <param name="type">Schema name: PressureCoefficientResultType (required) (default to &quot;PRESSURE_COEFFICIENT&quot;).</param>
         /// <param name="freeStreamPressure">freeStreamPressure.</param>
         /// <param name="freeStreamVelocity">freeStreamVelocity.</param>
         public PressureCoefficientResultType(string type = "PRESSURE_COEFFICIENT", DimensionalPressure freeStreamPressure = default(DimensionalPressure), DimensionalVectorSpeed freeStreamVelocity = default(DimensionalVectorSpeed))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PressureCoefficientResultType
         /// </summary>
+        /// <value>Schema name: PressureCoefficientResultType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ForceFieldSelection" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FORCE&quot;).</param>
+        /// <param name="type">Schema name: ForceFieldSelection (required) (default to &quot;FORCE&quot;).</param>
         /// <param name="forceType">forceType.</param>
         public ForceFieldSelection(string type = "FORCE", OneOfForceFieldSelectionForceType forceType = default(OneOfForceFieldSelectionForceType))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ForceFieldSelection
         /// </summary>
+        /// <value>Schema name: ForceFieldSelection</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

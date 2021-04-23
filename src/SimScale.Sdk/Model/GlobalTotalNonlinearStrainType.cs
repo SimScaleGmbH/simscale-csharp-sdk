@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalTotalNonlinearStrainType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL_NONLINEAR&quot;).</param>
+        /// <param name="type">Schema name: GlobalTotalNonlinearStrainType (required) (default to &quot;TOTAL_NONLINEAR&quot;).</param>
         public GlobalTotalNonlinearStrainType(string type = "TOTAL_NONLINEAR")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalTotalNonlinearStrainType
         /// </summary>
+        /// <value>Schema name: GlobalTotalNonlinearStrainType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomOmegaDissipation" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUSTOM_DISSIPATION&quot;).</param>
+        /// <param name="type">Schema name: CustomOmegaDissipation (required) (default to &quot;CUSTOM_DISSIPATION&quot;).</param>
         /// <param name="value">value.</param>
         public CustomOmegaDissipation(string type = "CUSTOM_DISSIPATION", DimensionalFunctionSpecificTurbulenceDissipationRate value = default(DimensionalFunctionSpecificTurbulenceDissipationRate))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CustomOmegaDissipation
         /// </summary>
+        /// <value>Schema name: CustomOmegaDissipation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

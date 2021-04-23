@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CubeRootVolLesDelta" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUBE_ROOT_VOL&quot;).</param>
+        /// <param name="type">Schema name: CubeRootVolLesDelta (required) (default to &quot;CUBE_ROOT_VOL&quot;).</param>
         /// <param name="deltaCoefficient">deltaCoefficient (default to 1M).</param>
         public CubeRootVolLesDelta(string type = "CUBE_ROOT_VOL", decimal? deltaCoefficient = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CubeRootVolLesDelta
         /// </summary>
+        /// <value>Schema name: CubeRootVolLesDelta</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

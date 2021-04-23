@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatheWilson" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;JACOBI&quot;).</param>
+        /// <param name="type">Schema name: BatheWilson (required) (default to &quot;JACOBI&quot;).</param>
         /// <param name="precBathe">precBathe (default to 1.0E-10M).</param>
         /// <param name="nmaxIterBathe">nmaxIterBathe (default to 40).</param>
         /// <param name="precJacobi">precJacobi (default to 0.01M).</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: BatheWilson
         /// </summary>
+        /// <value>Schema name: BatheWilson</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

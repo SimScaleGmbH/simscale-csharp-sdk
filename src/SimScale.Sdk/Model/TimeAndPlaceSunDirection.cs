@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TimeAndPlaceSunDirection" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TIME_AND_PLACE&quot;).</param>
+        /// <param name="type">Schema name: TimeAndPlaceSunDirection (required) (default to &quot;TIME_AND_PLACE&quot;).</param>
         /// <param name="northAngle">northAngle.</param>
         /// <param name="geographicalLocation">geographicalLocation.</param>
         /// <param name="localDateTime">localDateTime.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TimeAndPlaceSunDirection
         /// </summary>
+        /// <value>Schema name: TimeAndPlaceSunDirection</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

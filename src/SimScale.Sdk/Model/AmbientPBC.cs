@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AmbientPBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AMBIENT_PRESSURE&quot;).</param>
+        /// <param name="type">Schema name: AmbientPBC (required) (default to &quot;AMBIENT_PRESSURE&quot;).</param>
         /// <param name="ambientPressure">ambientPressure.</param>
         public AmbientPBC(string type = "AMBIENT_PRESSURE", DimensionalPressure ambientPressure = default(DimensionalPressure))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AmbientPBC
         /// </summary>
+        /// <value>Schema name: AmbientPBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

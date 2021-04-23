@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SteadystateTimeDifferentiationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;STEADYSTATE&quot;).</param>
+        /// <param name="type">Schema name: SteadystateTimeDifferentiationScheme (required) (default to &quot;STEADYSTATE&quot;).</param>
         public SteadystateTimeDifferentiationScheme(string type = "STEADYSTATE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SteadystateTimeDifferentiationScheme
         /// </summary>
+        /// <value>Schema name: SteadystateTimeDifferentiationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

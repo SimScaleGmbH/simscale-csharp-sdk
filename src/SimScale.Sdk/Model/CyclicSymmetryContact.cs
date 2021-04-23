@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CyclicSymmetryContact" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CYCLIC_SYMMETRY&quot;).</param>
+        /// <param name="type">Schema name: CyclicSymmetryContact (required) (default to &quot;CYCLIC_SYMMETRY&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="enableHeatTransfer">enableHeatTransfer (default to EnableHeatTransferEnum.YES).</param>
         /// <param name="axisOrigin">axisOrigin.</param>
@@ -89,8 +89,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CyclicSymmetryContact
         /// </summary>
+        /// <value>Schema name: CyclicSymmetryContact</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

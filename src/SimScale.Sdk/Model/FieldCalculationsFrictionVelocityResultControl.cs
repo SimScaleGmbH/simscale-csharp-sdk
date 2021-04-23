@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldCalculationsFrictionVelocityResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FRICTION_VELOCITY_U_TAU&quot;).</param>
+        /// <param name="type">Schema name: FieldCalculationsFrictionVelocityResultControl (required) (default to &quot;FRICTION_VELOCITY_U_TAU&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="resultType">resultType.</param>
         public FieldCalculationsFrictionVelocityResultControl(string type = "FRICTION_VELOCITY_U_TAU", string name = default(string), FrictionVelocityResultType resultType = default(FrictionVelocityResultType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FieldCalculationsFrictionVelocityResultControl
         /// </summary>
+        /// <value>Schema name: FieldCalculationsFrictionVelocityResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

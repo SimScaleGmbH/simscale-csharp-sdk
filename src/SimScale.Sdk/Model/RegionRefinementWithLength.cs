@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionRefinementWithLength" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REGION_LENGTH&quot;).</param>
+        /// <param name="type">A &lt;b&gt;region refinement&lt;/b&gt; can be used to refine the mesh in a given area. The refinement area needs to be defined either via an existing solid or a geometry primitive.  Schema name: RegionRefinementWithLength (required) (default to &quot;REGION_LENGTH&quot;).</param>
         /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
         /// <param name="refinement">refinement.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// A &lt;b&gt;region refinement&lt;/b&gt; can be used to refine the mesh in a given area. The refinement area needs to be defined either via an existing solid or a geometry primitive.  Schema name: RegionRefinementWithLength
         /// </summary>
+        /// <value>A &lt;b&gt;region refinement&lt;/b&gt; can be used to refine the mesh in a given area. The refinement area needs to be defined either via an existing solid or a geometry primitive.  Schema name: RegionRefinementWithLength</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

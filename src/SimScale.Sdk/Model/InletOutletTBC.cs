@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InletOutletTBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INLET_OUTLET&quot;).</param>
+        /// <param name="type">Schema name: InletOutletTBC (required) (default to &quot;INLET_OUTLET&quot;).</param>
         /// <param name="value">value.</param>
         public InletOutletTBC(string type = "INLET_OUTLET", DimensionalTemperature value = default(DimensionalTemperature))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: InletOutletTBC
         /// </summary>
+        /// <value>Schema name: InletOutletTBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

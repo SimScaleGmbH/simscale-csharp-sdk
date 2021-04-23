@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IntensityKineticEnergyInletTKEBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TURBULENT_INTENSITY_KINETIC_ENERGY_INLET&quot;).</param>
+        /// <param name="type">Schema name: IntensityKineticEnergyInletTKEBC (required) (default to &quot;TURBULENT_INTENSITY_KINETIC_ENERGY_INLET&quot;).</param>
         /// <param name="intensity">intensity (default to 0.05M).</param>
         public IntensityKineticEnergyInletTKEBC(string type = "TURBULENT_INTENSITY_KINETIC_ENERGY_INLET", decimal? intensity = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: IntensityKineticEnergyInletTKEBC
         /// </summary>
+        /// <value>Schema name: IntensityKineticEnergyInletTKEBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

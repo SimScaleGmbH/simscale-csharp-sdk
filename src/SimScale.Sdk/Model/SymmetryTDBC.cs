@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SymmetryTDBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SYMMETRY&quot;).</param>
+        /// <param name="type">Schema name: SymmetryTDBC (required) (default to &quot;SYMMETRY&quot;).</param>
         public SymmetryTDBC(string type = "SYMMETRY")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SymmetryTDBC
         /// </summary>
+        /// <value>Schema name: SymmetryTDBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

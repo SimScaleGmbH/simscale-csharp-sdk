@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedCorrectedSurfaceNormalGradientScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LIMITED&quot;).</param>
+        /// <param name="type">Schema name: LimitedCorrectedSurfaceNormalGradientScheme (required) (default to &quot;LIMITED&quot;).</param>
         /// <param name="limiterCoefficient">This property defines a limiter coefficient for the scheme:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;0&lt;/strong&gt;: no correction, equivalent to the uncorrected scheme&lt;/li&gt;&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;: full non-orthogonal correction applied&lt;/li&gt;&lt;li&gt;&lt;strong&gt;0.5&lt;/strong&gt;: non-orthogonal contribution does not exceed the orthogonal part&lt;/li&gt;&lt;/ul&gt; (default to 0.5M).</param>
         public LimitedCorrectedSurfaceNormalGradientScheme(string type = "LIMITED", decimal? limiterCoefficient = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: LimitedCorrectedSurfaceNormalGradientScheme
         /// </summary>
+        /// <value>Schema name: LimitedCorrectedSurfaceNormalGradientScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

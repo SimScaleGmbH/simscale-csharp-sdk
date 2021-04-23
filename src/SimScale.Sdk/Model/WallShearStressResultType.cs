@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WallShearStressResultType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WALL_SHEAR_STRESS&quot;).</param>
+        /// <param name="type">Schema name: WallShearStressResultType (required) (default to &quot;WALL_SHEAR_STRESS&quot;).</param>
         public WallShearStressResultType(string type = "WALL_SHEAR_STRESS")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WallShearStressResultType
         /// </summary>
+        /// <value>Schema name: WallShearStressResultType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

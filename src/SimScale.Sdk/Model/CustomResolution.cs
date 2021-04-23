@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomResolution" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUSTOM_RESOLUTION&quot;).</param>
+        /// <param name="type">This option controls how the simulation results are written and how frequently.  Schema name: CustomResolution (required) (default to &quot;CUSTOM_RESOLUTION&quot;).</param>
         /// <param name="writeInterval">writeInterval.</param>
         public CustomResolution(string type = "CUSTOM_RESOLUTION", DimensionalTime writeInterval = default(DimensionalTime))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option controls how the simulation results are written and how frequently.  Schema name: CustomResolution
         /// </summary>
+        /// <value>This option controls how the simulation results are written and how frequently.  Schema name: CustomResolution</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

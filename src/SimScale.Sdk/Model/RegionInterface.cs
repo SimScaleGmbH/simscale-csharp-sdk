@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionInterface" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REGION_INTERFACE&quot;).</param>
+        /// <param name="type">Schema name: RegionInterface (required) (default to &quot;REGION_INTERFACE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="interfaceThermal">interfaceThermal.</param>
         /// <param name="masterTopologicalReference">masterTopologicalReference.</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: RegionInterface
         /// </summary>
+        /// <value>Schema name: RegionInterface</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

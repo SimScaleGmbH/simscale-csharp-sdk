@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableDefinedProbeLocations" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TABULAR&quot;).</param>
+        /// <param name="type">Schema name: TableDefinedProbeLocations (required) (default to &quot;TABULAR&quot;).</param>
         /// <param name="tableId">The ID of the imported table..</param>
         public TableDefinedProbeLocations(string type = "TABULAR", Guid? tableId = default(Guid?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TableDefinedProbeLocations
         /// </summary>
+        /// <value>Schema name: TableDefinedProbeLocations</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

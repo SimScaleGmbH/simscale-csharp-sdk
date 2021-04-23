@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PorousTree" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;POROUS_TREE&quot;).</param>
+        /// <param name="type">Schema name: PorousTree (required) (default to &quot;POROUS_TREE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="treeType">treeType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PorousTree
         /// </summary>
+        /// <value>Schema name: PorousTree</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

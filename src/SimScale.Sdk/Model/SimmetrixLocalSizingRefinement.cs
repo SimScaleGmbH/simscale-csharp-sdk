@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimmetrixLocalSizingRefinement" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SIMMETRIX_LOCAL_SIZING_V10&quot;).</param>
+        /// <param name="type">Refine specific faces of interest or complex geometrical shapes by defining a local element size. This will ensure a relatively uniform mesh.  Schema name: SimmetrixLocalSizingRefinement (required) (default to &quot;SIMMETRIX_LOCAL_SIZING_V10&quot;).</param>
         /// <param name="name">name (default to &quot;Local element size&quot;).</param>
         /// <param name="maxElementSize">maxElementSize.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Refine specific faces of interest or complex geometrical shapes by defining a local element size. This will ensure a relatively uniform mesh.  Schema name: SimmetrixLocalSizingRefinement
         /// </summary>
+        /// <value>Refine specific faces of interest or complex geometrical shapes by defining a local element size. This will ensure a relatively uniform mesh.  Schema name: SimmetrixLocalSizingRefinement</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

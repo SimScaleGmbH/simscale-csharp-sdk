@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenBoundaryRayBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OPEN_BOUNDARY_RAY&quot;).</param>
+        /// <param name="type">Schema name: OpenBoundaryRayBC (required) (default to &quot;OPEN_BOUNDARY_RAY&quot;).</param>
         /// <param name="farfieldBlackBodyTemperature">farfieldBlackBodyTemperature.</param>
         public OpenBoundaryRayBC(string type = "OPEN_BOUNDARY_RAY", DimensionalTemperature farfieldBlackBodyTemperature = default(DimensionalTemperature))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: OpenBoundaryRayBC
         /// </summary>
+        /// <value>Schema name: OpenBoundaryRayBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

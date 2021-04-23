@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SorPreconditioner" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SOR&quot;).</param>
+        /// <param name="type">Schema name: SorPreconditioner (required) (default to &quot;SOR&quot;).</param>
         /// <param name="renumberingMethod">Choose the renumbering method for the system matrix entries:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;RCMK&lt;/b&gt; uses the algorithm of &lt;i&gt;Reverse Cuthill-MacKee&lt;/i&gt; for the renumbering. It often effectively reduces the matrig storage space and the matrix factorization time.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;When &lt;b&gt;inactive&lt;/b&gt; is selected no renumbering is done. This option should only be chosen for testing purposes.&lt;/p&gt;&lt;/ul&gt; (default to RenumberingMethodEnum.INACTIVE).</param>
         public SorPreconditioner(string type = "SOR", RenumberingMethodEnum? renumberingMethod = default(RenumberingMethodEnum?))
         {
@@ -73,8 +73,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SorPreconditioner
         /// </summary>
+        /// <value>Schema name: SorPreconditioner</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

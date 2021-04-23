@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RayleighDamping" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;RAYLEIGH&quot;).</param>
+        /// <param name="type">Schema name: RayleighDamping (required) (default to &quot;RAYLEIGH&quot;).</param>
         /// <param name="alphaCoefficient">alphaCoefficient.</param>
         /// <param name="betaDamping">betaDamping.</param>
         public RayleighDamping(string type = "RAYLEIGH", DimensionalDampingCoefficient alphaCoefficient = default(DimensionalDampingCoefficient), DimensionalTime betaDamping = default(DimensionalTime))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: RayleighDamping
         /// </summary>
+        /// <value>Schema name: RayleighDamping</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

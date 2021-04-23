@@ -57,7 +57,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExplicitTimeIntegrationType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;EXPLICIT&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose the time integration scheme type&lt;/p&gt;&lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;implicit&lt;/b&gt; if the problem is static or dynamic but not so complex. Implicit analysis takes more solution time but can solve the problem easily with larger timesteps. Therefore, it is always recommended to use implicit time integration scheme. &lt;/li&gt;&lt;i&gt;Choose &lt;b&gt;explicit&lt;/b&gt; if the problem is only dynamic and highly complex. Explicit analysis takes less solution time but also needs more refined (small) timesteps to solve the problem. Therefore, in most of the cases it&#39;s not recommended due to convergence problems. &lt;/i&gt;&lt;/ul&gt;   Schema name: ExplicitTimeIntegrationType (required) (default to &quot;EXPLICIT&quot;).</param>
         /// <param name="scheme">scheme.</param>
         /// <param name="schemeFormulation">&lt;p&gt;Choose the primary variable for the time integration scheme.&lt;/p&gt; (default to SchemeFormulationEnum.ACCELERATION).</param>
         /// <param name="stopOnCFLCriterion">&lt;p&gt;If activated the simulation run is stopped when at some point the Courant-Friedrichs-Lewy (CFL) condition is violated.&lt;/p&gt; (default to true).</param>
@@ -73,8 +73,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose the time integration scheme type&lt;/p&gt;&lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;implicit&lt;/b&gt; if the problem is static or dynamic but not so complex. Implicit analysis takes more solution time but can solve the problem easily with larger timesteps. Therefore, it is always recommended to use implicit time integration scheme. &lt;/li&gt;&lt;i&gt;Choose &lt;b&gt;explicit&lt;/b&gt; if the problem is only dynamic and highly complex. Explicit analysis takes less solution time but also needs more refined (small) timesteps to solve the problem. Therefore, in most of the cases it&#39;s not recommended due to convergence problems. &lt;/i&gt;&lt;/ul&gt;   Schema name: ExplicitTimeIntegrationType
         /// </summary>
+        /// <value>&lt;p&gt;Choose the time integration scheme type&lt;/p&gt;&lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;implicit&lt;/b&gt; if the problem is static or dynamic but not so complex. Implicit analysis takes more solution time but can solve the problem easily with larger timesteps. Therefore, it is always recommended to use implicit time integration scheme. &lt;/li&gt;&lt;i&gt;Choose &lt;b&gt;explicit&lt;/b&gt; if the problem is only dynamic and highly complex. Explicit analysis takes less solution time but also needs more refined (small) timesteps to solve the problem. Therefore, in most of the cases it&#39;s not recommended due to convergence problems. &lt;/i&gt;&lt;/ul&gt;   Schema name: ExplicitTimeIntegrationType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

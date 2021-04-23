@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedGradientTDCBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
+        /// <param name="type">Schema name: FixedGradientTDCBC (required) (default to &quot;FIXED_GRADIENT&quot;).</param>
         /// <param name="gradient">gradient.</param>
         public FixedGradientTDCBC(string type = "FIXED_GRADIENT", DimensionalEddyViscosityGradient gradient = default(DimensionalEddyViscosityGradient))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedGradientTDCBC
         /// </summary>
+        /// <value>Schema name: FixedGradientTDCBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

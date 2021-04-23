@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QZ" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;QZ&quot;).</param>
+        /// <param name="type">Schema name: QZ (required) (default to &quot;QZ&quot;).</param>
         /// <param name="typeQZ">typeQZ (default to TypeQZEnum.SIMPLE).</param>
         public QZ(string type = "QZ", TypeQZEnum? typeQZ = default(TypeQZEnum?))
         {
@@ -77,8 +77,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: QZ
         /// </summary>
+        /// <value>Schema name: QZ</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

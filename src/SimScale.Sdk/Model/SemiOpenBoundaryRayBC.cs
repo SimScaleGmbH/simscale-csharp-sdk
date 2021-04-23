@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SemiOpenBoundaryRayBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SEMI_OPEN_BOUNDARY_RAY&quot;).</param>
+        /// <param name="type">Schema name: SemiOpenBoundaryRayBC (required) (default to &quot;SEMI_OPEN_BOUNDARY_RAY&quot;).</param>
         /// <param name="emissivity">emissivity (default to 0.1M).</param>
         /// <param name="transmissivity">transmissivity (default to 0.7M).</param>
         public SemiOpenBoundaryRayBC(string type = "SEMI_OPEN_BOUNDARY_RAY", decimal? emissivity = default(decimal?), decimal? transmissivity = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SemiOpenBoundaryRayBC
         /// </summary>
+        /// <value>Schema name: SemiOpenBoundaryRayBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

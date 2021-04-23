@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldCalculationsWallFluxesResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WALL_FLUXES&quot;).</param>
+        /// <param name="type">Schema name: FieldCalculationsWallFluxesResultControl (required) (default to &quot;WALL_FLUXES&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="resultType">resultType.</param>
         public FieldCalculationsWallFluxesResultControl(string type = "WALL_FLUXES", string name = default(string), WallShearStressResultType resultType = default(WallShearStressResultType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FieldCalculationsWallFluxesResultControl
         /// </summary>
+        /// <value>Schema name: FieldCalculationsWallFluxesResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

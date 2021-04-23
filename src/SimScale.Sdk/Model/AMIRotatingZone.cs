@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AMIRotatingZone" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ARBITRARY_MESH_INTERFACE&quot;).</param>
+        /// <param name="type">Schema name: AMIRotatingZone (required) (default to &quot;ARBITRARY_MESH_INTERFACE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="motionType">motionType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AMIRotatingZone
         /// </summary>
+        /// <value>Schema name: AMIRotatingZone</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

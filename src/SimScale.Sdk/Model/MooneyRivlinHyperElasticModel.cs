@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MooneyRivlinHyperElasticModel" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MOONEY_RIVLIN&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: MooneyRivlinHyperElasticModel (required) (default to &quot;MOONEY_RIVLIN&quot;).</param>
         /// <param name="c10">c10.</param>
         /// <param name="c01">c01.</param>
         /// <param name="d1">d1.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: MooneyRivlinHyperElasticModel
         /// </summary>
+        /// <value>&lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: MooneyRivlinHyperElasticModel</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

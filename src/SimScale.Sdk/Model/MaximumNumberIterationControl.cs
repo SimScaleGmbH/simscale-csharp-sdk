@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MaximumNumberIterationControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MAXIMUM_NUMBER&quot;).</param>
+        /// <param name="type">Schema name: MaximumNumberIterationControl (required) (default to &quot;MAXIMUM_NUMBER&quot;).</param>
         /// <param name="maxNumIteration">maxNumIteration (default to 30).</param>
         public MaximumNumberIterationControl(string type = "MAXIMUM_NUMBER", int? maxNumIteration = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MaximumNumberIterationControl
         /// </summary>
+        /// <value>Schema name: MaximumNumberIterationControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

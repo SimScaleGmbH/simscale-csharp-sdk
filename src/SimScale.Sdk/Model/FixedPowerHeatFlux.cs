@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedPowerHeatFlux" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_POWER&quot;).</param>
+        /// <param name="type">Schema name: FixedPowerHeatFlux (required) (default to &quot;FIXED_POWER&quot;).</param>
         /// <param name="value">value.</param>
         public FixedPowerHeatFlux(string type = "FIXED_POWER", DimensionalPower value = default(DimensionalPower))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedPowerHeatFlux
         /// </summary>
+        /// <value>Schema name: FixedPowerHeatFlux</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoFriction" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NO_FRICTION&quot;).</param>
+        /// <param name="type">Schema name: NoFriction (required) (default to &quot;NO_FRICTION&quot;).</param>
         public NoFriction(string type = "NO_FRICTION")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NoFriction
         /// </summary>
+        /// <value>Schema name: NoFriction</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

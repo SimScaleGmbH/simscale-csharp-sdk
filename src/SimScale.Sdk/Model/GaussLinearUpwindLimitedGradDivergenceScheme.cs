@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussLinearUpwindLimitedGradDivergenceScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_LINEARUPWIND_LIMITEDGRAD&quot;).</param>
+        /// <param name="type">Schema name: GaussLinearUpwindLimitedGradDivergenceScheme (required) (default to &quot;GAUSS_LINEARUPWIND_LIMITEDGRAD&quot;).</param>
         public GaussLinearUpwindLimitedGradDivergenceScheme(string type = "GAUSS_LINEARUPWIND_LIMITEDGRAD")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussLinearUpwindLimitedGradDivergenceScheme
         /// </summary>
+        /// <value>Schema name: GaussLinearUpwindLimitedGradDivergenceScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VelocityResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: VelocityResultControlItem (required) (default to &quot;VELOCITY&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="velocityType">velocityType.</param>
         public VelocityResultControlItem(string type = "VELOCITY", string name = default(string), GlobalVelocityType velocityType = default(GlobalVelocityType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: VelocityResultControlItem
         /// </summary>
+        /// <value>Schema name: VelocityResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

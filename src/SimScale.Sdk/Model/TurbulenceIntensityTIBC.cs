@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TurbulenceIntensityTIBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_VALUE&quot;).</param>
+        /// <param name="type">Schema name: TurbulenceIntensityTIBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
         /// <param name="value">value.</param>
         public TurbulenceIntensityTIBC(string type = "FIXED_VALUE", DimensionalFunctionDimensionless value = default(DimensionalFunctionDimensionless))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TurbulenceIntensityTIBC
         /// </summary>
+        /// <value>Schema name: TurbulenceIntensityTIBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

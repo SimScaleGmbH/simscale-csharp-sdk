@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OutsideRegionRefinementWithLength" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OUTSIDE&quot;).</param>
+        /// <param name="type">Schema name: OutsideRegionRefinementWithLength (required) (default to &quot;OUTSIDE&quot;).</param>
         /// <param name="length">length.</param>
         public OutsideRegionRefinementWithLength(string type = "OUTSIDE", DimensionalLength length = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: OutsideRegionRefinementWithLength
         /// </summary>
+        /// <value>Schema name: OutsideRegionRefinementWithLength</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

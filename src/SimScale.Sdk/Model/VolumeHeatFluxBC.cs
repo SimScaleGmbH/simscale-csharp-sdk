@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VolumeHeatFluxBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VOLUME_HEAT_FLUX&quot;).</param>
+        /// <param name="type">This is a &lt;b&gt;volume heat source&lt;/b&gt; boundary condition. It is applied to the &lt;b&gt;volume elements&lt;/b&gt; in the selected volumes or volume groups.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The total heat generated depends on the volume of the selection as the value is given as Watt per cubic meter.&lt;/li&gt;&lt;li&gt;For positive values heat is generated, for negative values the bc represents a heat sink.&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file)&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeHeatFluxBC (required) (default to &quot;VOLUME_HEAT_FLUX&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="heatfluxValue">heatfluxValue.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a &lt;b&gt;volume heat source&lt;/b&gt; boundary condition. It is applied to the &lt;b&gt;volume elements&lt;/b&gt; in the selected volumes or volume groups.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The total heat generated depends on the volume of the selection as the value is given as Watt per cubic meter.&lt;/li&gt;&lt;li&gt;For positive values heat is generated, for negative values the bc represents a heat sink.&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file)&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeHeatFluxBC
         /// </summary>
+        /// <value>This is a &lt;b&gt;volume heat source&lt;/b&gt; boundary condition. It is applied to the &lt;b&gt;volume elements&lt;/b&gt; in the selected volumes or volume groups.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The total heat generated depends on the volume of the selection as the value is given as Watt per cubic meter.&lt;/li&gt;&lt;li&gt;For positive values heat is generated, for negative values the bc represents a heat sink.&lt;/li&gt;&lt;li&gt;You may define a &lt;b&gt;parameter dependent (x,y,z,t)&lt;/b&gt; value by defining a formula or uploading a table (csv-file)&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeHeatFluxBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

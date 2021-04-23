@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TadmorFluxScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TADMOR&quot;).</param>
+        /// <param name="type">Schema name: TadmorFluxScheme (required) (default to &quot;TADMOR&quot;).</param>
         public TadmorFluxScheme(string type = "TADMOR")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TadmorFluxScheme
         /// </summary>
+        /// <value>Schema name: TadmorFluxScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

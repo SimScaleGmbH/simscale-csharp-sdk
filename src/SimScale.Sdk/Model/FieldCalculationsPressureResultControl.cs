@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldCalculationsPressureResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESSURE&quot;).</param>
+        /// <param name="type">Schema name: FieldCalculationsPressureResultControl (required) (default to &quot;PRESSURE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressureType">pressureType.</param>
         /// <param name="resultType">resultType.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FieldCalculationsPressureResultControl
         /// </summary>
+        /// <value>Schema name: FieldCalculationsPressureResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

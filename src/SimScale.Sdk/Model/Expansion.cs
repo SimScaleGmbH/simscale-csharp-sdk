@@ -31,7 +31,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Expansion" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="type">&lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent.&lt;/p&gt;  Schema name: Expansion.</param>
         /// <param name="expansionCoefficient">expansionCoefficient.</param>
         /// <param name="referenceTemperature">referenceTemperature.</param>
         public Expansion(string type = default(string), DimensionalFunctionThermalExpansionRate expansionCoefficient = default(DimensionalFunctionThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature))
@@ -42,8 +42,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent.&lt;/p&gt;  Schema name: Expansion
         /// </summary>
+        /// <value>&lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent.&lt;/p&gt;  Schema name: Expansion</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

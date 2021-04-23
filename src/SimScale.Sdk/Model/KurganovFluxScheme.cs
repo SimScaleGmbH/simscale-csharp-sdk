@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="KurganovFluxScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;KURGANOV&quot;).</param>
+        /// <param name="type">Schema name: KurganovFluxScheme (required) (default to &quot;KURGANOV&quot;).</param>
         public KurganovFluxScheme(string type = "KURGANOV")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: KurganovFluxScheme
         /// </summary>
+        /// <value>Schema name: KurganovFluxScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

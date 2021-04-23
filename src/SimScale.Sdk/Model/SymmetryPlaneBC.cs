@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SymmetryPlaneBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SYMMETRY_PLANE&quot;).</param>
+        /// <param name="type">This boundary condition restrains the displacement of a face in its normal direction in order to represent a symmetry plane of the structure. Use this boundary condition to reduce the model size significantly if the geometry and the loading conditions are symmetric.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The solver uses linear relations between all three DOFs to constrian the normal movement, thus overcontraint conditions may appear if the edges of the selected faces are constrained by other displacement boundary conditions. If the assigned faces are orthogonal to a global coordinate axes, it is recommended to directly specifiy the symmetry conditions with a &lt;b&gt;fixed value&lt;/b&gt; bc.&lt;/li&gt;&lt;/ul&gt;  Schema name: SymmetryPlaneBC (required) (default to &quot;SYMMETRY_PLANE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public SymmetryPlaneBC(string type = "SYMMETRY_PLANE", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This boundary condition restrains the displacement of a face in its normal direction in order to represent a symmetry plane of the structure. Use this boundary condition to reduce the model size significantly if the geometry and the loading conditions are symmetric.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The solver uses linear relations between all three DOFs to constrian the normal movement, thus overcontraint conditions may appear if the edges of the selected faces are constrained by other displacement boundary conditions. If the assigned faces are orthogonal to a global coordinate axes, it is recommended to directly specifiy the symmetry conditions with a &lt;b&gt;fixed value&lt;/b&gt; bc.&lt;/li&gt;&lt;/ul&gt;  Schema name: SymmetryPlaneBC
         /// </summary>
+        /// <value>This boundary condition restrains the displacement of a face in its normal direction in order to represent a symmetry plane of the structure. Use this boundary condition to reduce the model size significantly if the geometry and the loading conditions are symmetric.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The solver uses linear relations between all three DOFs to constrian the normal movement, thus overcontraint conditions may appear if the edges of the selected faces are constrained by other displacement boundary conditions. If the assigned faces are orthogonal to a global coordinate axes, it is recommended to directly specifiy the symmetry conditions with a &lt;b&gt;fixed value&lt;/b&gt; bc.&lt;/li&gt;&lt;/ul&gt;  Schema name: SymmetryPlaneBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvectiveVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ADVECTIVE&quot;).</param>
+        /// <param name="type">Schema name: AdvectiveVBC (required) (default to &quot;ADVECTIVE&quot;).</param>
         /// <param name="relaxBoundary">relaxBoundary (default to false).</param>
         /// <param name="farFieldValue">farFieldValue.</param>
         /// <param name="relaxationLengthScale">relaxationLengthScale.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AdvectiveVBC
         /// </summary>
+        /// <value>Schema name: AdvectiveVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

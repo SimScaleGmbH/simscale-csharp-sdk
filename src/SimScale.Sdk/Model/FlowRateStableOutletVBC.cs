@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FlowRateStableOutletVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FLOW_RATE_STABLE_OUTLET_VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: FlowRateStableOutletVBC (required) (default to &quot;FLOW_RATE_STABLE_OUTLET_VELOCITY&quot;).</param>
         /// <param name="flowRate">flowRate.</param>
         public FlowRateStableOutletVBC(string type = "FLOW_RATE_STABLE_OUTLET_VELOCITY", OneOfFlowRateStableOutletVBCFlowRate flowRate = default(OneOfFlowRateStableOutletVBCFlowRate))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FlowRateStableOutletVBC
         /// </summary>
+        /// <value>Schema name: FlowRateStableOutletVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

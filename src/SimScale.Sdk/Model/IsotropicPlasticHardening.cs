@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsotropicPlasticHardening" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ISOTROPIC&quot;).</param>
+        /// <param name="type">&lt;p&gt;Define the plastic hardening type of the material.&lt;/p&gt;  Schema name: IsotropicPlasticHardening (required) (default to &quot;ISOTROPIC&quot;).</param>
         /// <param name="youngsModulus">youngsModulus.</param>
         /// <param name="poissonsRatio">poissonsRatio.</param>
         /// <param name="vonMisesStress">vonMisesStress.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Define the plastic hardening type of the material.&lt;/p&gt;  Schema name: IsotropicPlasticHardening
         /// </summary>
+        /// <value>&lt;p&gt;Define the plastic hardening type of the material.&lt;/p&gt;  Schema name: IsotropicPlasticHardening</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RunTimeWriteControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;RUNTIME&quot;).</param>
+        /// <param name="type">This option controls how the simulation results are written and how frequently.  Schema name: RunTimeWriteControl (required) (default to &quot;RUNTIME&quot;).</param>
         /// <param name="writeInterval">writeInterval.</param>
         public RunTimeWriteControl(string type = "RUNTIME", DimensionalTime writeInterval = default(DimensionalTime))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option controls how the simulation results are written and how frequently.  Schema name: RunTimeWriteControl
         /// </summary>
+        /// <value>This option controls how the simulation results are written and how frequently.  Schema name: RunTimeWriteControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

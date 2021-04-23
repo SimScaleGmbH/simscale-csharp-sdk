@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LayerAdditionHexDominantSnappy" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LAYER_ADDITION_HEX_DOMINANT_SNAPPY&quot;).</param>
+        /// <param name="type">&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#layers-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Inflated boundary layers&lt;/b&gt;&lt;/a&gt; are used to resolve the boundary layer near walls (no-slip) which are in contact with the fluid. Using boundary layers is generally recommended for turbulent simulations.  Schema name: LayerAdditionHexDominantSnappy (required) (default to &quot;LAYER_ADDITION_HEX_DOMINANT_SNAPPY&quot;).</param>
         /// <param name="name">name (default to &quot;Inflate boundary layer&quot;).</param>
         /// <param name="layers">The number of &lt;b&gt;layers&lt;/b&gt; defines how many boundary layers should be created. (default to 5).</param>
         /// <param name="expansionRatio">&lt;p&gt;The &lt;b&gt;Expansion ratio&lt;/b&gt; determines how the boundary layers grow in thickness from the wall to the internal mesh. The larger the ratio, the larger each cell layer will be in comparison to the neighbouring layer closer to the wall.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/shm_bl_expansion-ratio.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows a ratio of 1.3.&lt;/p&gt; (default to 1.3M).</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#layers-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Inflated boundary layers&lt;/b&gt;&lt;/a&gt; are used to resolve the boundary layer near walls (no-slip) which are in contact with the fluid. Using boundary layers is generally recommended for turbulent simulations.  Schema name: LayerAdditionHexDominantSnappy
         /// </summary>
+        /// <value>&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#layers-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Inflated boundary layers&lt;/b&gt;&lt;/a&gt; are used to resolve the boundary layer near walls (no-slip) which are in contact with the fluid. Using boundary layers is generally recommended for turbulent simulations.  Schema name: LayerAdditionHexDominantSnappy</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

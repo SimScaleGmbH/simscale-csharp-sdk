@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldCalculationsVelocityResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: FieldCalculationsVelocityResultControl (required) (default to &quot;VELOCITY&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="resultType">resultType.</param>
         public FieldCalculationsVelocityResultControl(string type = "VELOCITY", string name = default(string), VorticityResultType resultType = default(VorticityResultType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FieldCalculationsVelocityResultControl
         /// </summary>
+        /// <value>Schema name: FieldCalculationsVelocityResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

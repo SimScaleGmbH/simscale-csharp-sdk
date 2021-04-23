@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureValueResultType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESSURE_VALUE&quot;).</param>
+        /// <param name="type">Schema name: PressureValueResultType (required) (default to &quot;PRESSURE_VALUE&quot;).</param>
         public PressureValueResultType(string type = "PRESSURE_VALUE")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: PressureValueResultType
         /// </summary>
+        /// <value>Schema name: PressureValueResultType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

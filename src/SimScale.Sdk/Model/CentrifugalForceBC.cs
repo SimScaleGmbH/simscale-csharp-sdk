@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CentrifugalForceBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CENTRIFUGAL_FORCE&quot;).</param>
+        /// <param name="type">&lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;/p&gt;  Schema name: CentrifugalForceBC (required) (default to &quot;CENTRIFUGAL_FORCE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="rotation">rotation.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;/p&gt;  Schema name: CentrifugalForceBC
         /// </summary>
+        /// <value>&lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;/p&gt;  Schema name: CentrifugalForceBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

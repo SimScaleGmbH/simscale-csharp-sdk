@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalIsotropicStiffnessDefinition" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL_ISOTROPIC&quot;).</param>
+        /// <param name="type">Schema name: TotalIsotropicStiffnessDefinition (required) (default to &quot;TOTAL_ISOTROPIC&quot;).</param>
         /// <param name="total">total.</param>
         public TotalIsotropicStiffnessDefinition(string type = "TOTAL_ISOTROPIC", DimensionalSurfaceTension total = default(DimensionalSurfaceTension))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TotalIsotropicStiffnessDefinition
         /// </summary>
+        /// <value>Schema name: TotalIsotropicStiffnessDefinition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

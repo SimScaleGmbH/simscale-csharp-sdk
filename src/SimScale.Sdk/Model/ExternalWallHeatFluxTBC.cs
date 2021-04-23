@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalWallHeatFluxTBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;EXTERNAL_WALL_HEAT_FLUX_TEMPERATURE&quot;).</param>
+        /// <param name="type">Schema name: ExternalWallHeatFluxTBC (required) (default to &quot;EXTERNAL_WALL_HEAT_FLUX_TEMPERATURE&quot;).</param>
         /// <param name="heatFlux">heatFlux.</param>
         /// <param name="value">value.</param>
         public ExternalWallHeatFluxTBC(string type = "EXTERNAL_WALL_HEAT_FLUX_TEMPERATURE", OneOfExternalWallHeatFluxTBCHeatFlux heatFlux = default(OneOfExternalWallHeatFluxTBCHeatFlux), DimensionalTemperature value = default(DimensionalTemperature))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ExternalWallHeatFluxTBC
         /// </summary>
+        /// <value>Schema name: ExternalWallHeatFluxTBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

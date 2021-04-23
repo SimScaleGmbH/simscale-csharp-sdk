@@ -87,7 +87,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HierarchicalDecomposeAlgorithm" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;HIERARCHICAL&quot;).</param>
+        /// <param name="type">Schema name: HierarchicalDecomposeAlgorithm (required) (default to &quot;HIERARCHICAL&quot;).</param>
         /// <param name="decompositionOrder">&lt;p&gt;Choose the order of domain decomposition .&lt;/p&gt; (default to DecompositionOrderEnum.XYZ).</param>
         /// <param name="delta">Delta is cell skew factor. It represents the cell skewness allowed at the decomposed domain boundaries and is generally kept below 10^{-2}. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to 0.01M).</param>
         /// <param name="numSubdomainX">&lt;p&gt;Define the number of subdomains the mesh is split into in the specific direction.&lt;/p&gt; (default to 1).</param>
@@ -105,8 +105,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: HierarchicalDecomposeAlgorithm
         /// </summary>
+        /// <value>Schema name: HierarchicalDecomposeAlgorithm</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RotatingMotionType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ROTATING_MOTION&quot;).</param>
+        /// <param name="type">Schema name: RotatingMotionType (required) (default to &quot;ROTATING_MOTION&quot;).</param>
         /// <param name="rotation">rotation.</param>
         public RotatingMotionType(string type = "ROTATING_MOTION", OneOfRotatingMotionTypeRotation rotation = default(OneOfRotatingMotionTypeRotation))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: RotatingMotionType
         /// </summary>
+        /// <value>Schema name: RotatingMotionType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

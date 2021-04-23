@@ -86,7 +86,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MovingWallVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MOVING_WALL_VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: MovingWallVBC (required) (default to &quot;MOVING_WALL_VELOCITY&quot;).</param>
         /// <param name="value">value.</param>
         /// <param name="turbulenceWall">turbulenceWall (default to TurbulenceWallEnum.WALLFUNCTION).</param>
         /// <param name="orientationReference">orientationReference (default to OrientationReferenceEnum.FLOWDOMAIN).</param>
@@ -100,8 +100,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: MovingWallVBC
         /// </summary>
+        /// <value>Schema name: MovingWallVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReynoldsStressResultType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REYNOLDS_STRESS_TENSOR&quot;).</param>
+        /// <param name="type">Schema name: ReynoldsStressResultType (required) (default to &quot;REYNOLDS_STRESS_TENSOR&quot;).</param>
         public ReynoldsStressResultType(string type = "REYNOLDS_STRESS_TENSOR")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ReynoldsStressResultType
         /// </summary>
+        /// <value>Schema name: ReynoldsStressResultType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

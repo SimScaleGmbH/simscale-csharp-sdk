@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StrainHardeningCreepFormulation" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;STRAIN_HARDENING&quot;).</param>
+        /// <param name="type">&lt;p&gt;Define the Creep formulation. Two fundamental Creep law types are available: &lt;ul&gt;&lt;li&gt;&lt;b&gt;Power Law&lt;/b&gt;&lt;/li&gt;&lt;b&gt;&amp;epsilon;&amp;#775 &#x3D; m*A*&amp;sigma;&lt;sup&gt;n&lt;/sup&gt;*t&lt;sup&gt;m-1&lt;/sup&gt;&lt;/b&gt;&lt;li&gt;&lt;b&gt;Hyperbolic Sine Law&lt;/b&gt; &lt;/li&gt;&lt;b&gt;&amp;epsilon;&amp;#775;&#x3D; &amp;epsilon;&lt;sub&gt;0&lt;/sub&gt;* sinh(&amp;sigma;/(&amp;sigma;&lt;sub&gt;0&lt;/sub&gt;))&lt;sup&gt;n&lt;/sup&gt;&lt;/b&gt;.&lt;/ul&gt; For the Power Law different formulations, like the &lt;b&gt;Norton&lt;/b&gt;, &lt;b&gt;Strain Hardening&lt;/b&gt; or &lt;b&gt;Time Hardening&lt;/b&gt; are available. For the Hyperbolic Sine Law, the &lt;b&gt;Garofalo&lt;b&gt; formulation is available.&lt;/p&gt;  Schema name: StrainHardeningCreepFormulation (required) (default to &quot;STRAIN_HARDENING&quot;).</param>
         /// <param name="a">a.</param>
         /// <param name="n">&lt;p&gt;Define the parameter &lt;b&gt;n&lt;/b&gt; of the Strain Hardening creep formulation: &lt;ul&gt;&lt;b&gt;&amp;epsilon;&amp;#775; &#x3D; A*&amp;sigma;&lt;sup&gt;n&lt;/sup&gt;*&amp;epsilon;&lt;sup&gt;m&lt;/sup&gt;&lt;/b&gt;&lt;/ul&gt;&lt;/p&gt;.</param>
         /// <param name="m">&lt;p&gt;Define the parameter &lt;b&gt;m&lt;/b&gt; of the Strain Hardening creep formulation: &lt;ul&gt;&lt;b&gt;&amp;epsilon;&amp;#775; &#x3D; A*&amp;sigma;&lt;sup&gt;n&lt;/sup&gt;*&amp;epsilon;&lt;sup&gt;m&lt;/sup&gt;&lt;/b&gt;&lt;/ul&gt;&lt;/p&gt;.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Define the Creep formulation. Two fundamental Creep law types are available: &lt;ul&gt;&lt;li&gt;&lt;b&gt;Power Law&lt;/b&gt;&lt;/li&gt;&lt;b&gt;&amp;epsilon;&amp;#775 &#x3D; m*A*&amp;sigma;&lt;sup&gt;n&lt;/sup&gt;*t&lt;sup&gt;m-1&lt;/sup&gt;&lt;/b&gt;&lt;li&gt;&lt;b&gt;Hyperbolic Sine Law&lt;/b&gt; &lt;/li&gt;&lt;b&gt;&amp;epsilon;&amp;#775;&#x3D; &amp;epsilon;&lt;sub&gt;0&lt;/sub&gt;* sinh(&amp;sigma;/(&amp;sigma;&lt;sub&gt;0&lt;/sub&gt;))&lt;sup&gt;n&lt;/sup&gt;&lt;/b&gt;.&lt;/ul&gt; For the Power Law different formulations, like the &lt;b&gt;Norton&lt;/b&gt;, &lt;b&gt;Strain Hardening&lt;/b&gt; or &lt;b&gt;Time Hardening&lt;/b&gt; are available. For the Hyperbolic Sine Law, the &lt;b&gt;Garofalo&lt;b&gt; formulation is available.&lt;/p&gt;  Schema name: StrainHardeningCreepFormulation
         /// </summary>
+        /// <value>&lt;p&gt;Define the Creep formulation. Two fundamental Creep law types are available: &lt;ul&gt;&lt;li&gt;&lt;b&gt;Power Law&lt;/b&gt;&lt;/li&gt;&lt;b&gt;&amp;epsilon;&amp;#775 &#x3D; m*A*&amp;sigma;&lt;sup&gt;n&lt;/sup&gt;*t&lt;sup&gt;m-1&lt;/sup&gt;&lt;/b&gt;&lt;li&gt;&lt;b&gt;Hyperbolic Sine Law&lt;/b&gt; &lt;/li&gt;&lt;b&gt;&amp;epsilon;&amp;#775;&#x3D; &amp;epsilon;&lt;sub&gt;0&lt;/sub&gt;* sinh(&amp;sigma;/(&amp;sigma;&lt;sub&gt;0&lt;/sub&gt;))&lt;sup&gt;n&lt;/sup&gt;&lt;/b&gt;.&lt;/ul&gt; For the Power Law different formulations, like the &lt;b&gt;Norton&lt;/b&gt;, &lt;b&gt;Strain Hardening&lt;/b&gt; or &lt;b&gt;Time Hardening&lt;/b&gt; are available. For the Hyperbolic Sine Law, the &lt;b&gt;Garofalo&lt;b&gt; formulation is available.&lt;/p&gt;  Schema name: StrainHardeningCreepFormulation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

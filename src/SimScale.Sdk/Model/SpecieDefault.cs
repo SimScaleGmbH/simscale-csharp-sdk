@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecieDefault" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SPECIE&quot;).</param>
+        /// <param name="type">&lt;p&gt;&lt;b&gt;Specie:&lt;/b&gt; defines the molecular composition of the fluid material. Currently a single specie is available.&lt;/p&gt;  Schema name: SpecieDefault (required) (default to &quot;SPECIE&quot;).</param>
         /// <param name="amountOfSubstance">amountOfSubstance.</param>
         /// <param name="molarWeight">molarWeight.</param>
         public SpecieDefault(string type = "SPECIE", DimensionalAmountOfSubstance amountOfSubstance = default(DimensionalAmountOfSubstance), DimensionalMolarMass molarWeight = default(DimensionalMolarMass))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;&lt;b&gt;Specie:&lt;/b&gt; defines the molecular composition of the fluid material. Currently a single specie is available.&lt;/p&gt;  Schema name: SpecieDefault
         /// </summary>
+        /// <value>&lt;p&gt;&lt;b&gt;Specie:&lt;/b&gt; defines the molecular composition of the fluid material. Currently a single specie is available.&lt;/p&gt;  Schema name: SpecieDefault</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

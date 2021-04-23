@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LocalCartesianBox" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LOCAL_CARTESIAN_BOX&quot;).</param>
+        /// <param name="type">Schema name: LocalCartesianBox (required) (default to &quot;LOCAL_CARTESIAN_BOX&quot;).</param>
         /// <param name="id">id.</param>
         /// <param name="name">name.</param>
         /// <param name="orientationReference">orientationReference (default to OrientationReferenceEnum.GEOMETRY).</param>
@@ -79,8 +79,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: LocalCartesianBox
         /// </summary>
+        /// <value>Schema name: LocalCartesianBox</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

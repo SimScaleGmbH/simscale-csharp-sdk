@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DistributedIsotropicStiffnessDefinition" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DISTRIBUTED_ISOTROPIC&quot;).</param>
+        /// <param name="type">Schema name: DistributedIsotropicStiffnessDefinition (required) (default to &quot;DISTRIBUTED_ISOTROPIC&quot;).</param>
         /// <param name="distributed">distributed.</param>
         public DistributedIsotropicStiffnessDefinition(string type = "DISTRIBUTED_ISOTROPIC", DimensionalVolumeForce distributed = default(DimensionalVolumeForce))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DistributedIsotropicStiffnessDefinition
         /// </summary>
+        /// <value>Schema name: DistributedIsotropicStiffnessDefinition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

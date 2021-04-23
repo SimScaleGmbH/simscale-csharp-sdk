@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomTree" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CUSTOM_TREE&quot;).</param>
+        /// <param name="type">Schema name: CustomTree (required) (default to &quot;CUSTOM_TREE&quot;).</param>
         /// <param name="leafAreaIndex">Leaf Area Index (LAI) is a dimensionless quantity that is defined as the leaf area per unit ground surface area in broadleaf canopies (default to 5.28M).</param>
         /// <param name="averageTreeHeight">averageTreeHeight.</param>
         /// <param name="dragCoefficient">Drag coefficient of the tree canopy. (default to 0.2M).</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CustomTree
         /// </summary>
+        /// <value>Schema name: CustomTree</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

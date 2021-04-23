@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetValuePositionTolerance" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SET_VALUE&quot;).</param>
+        /// <param name="type">Schema name: SetValuePositionTolerance (required) (default to &quot;SET_VALUE&quot;).</param>
         /// <param name="tolerance">tolerance.</param>
         public SetValuePositionTolerance(string type = "SET_VALUE", DimensionalLength tolerance = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SetValuePositionTolerance
         /// </summary>
+        /// <value>Schema name: SetValuePositionTolerance</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

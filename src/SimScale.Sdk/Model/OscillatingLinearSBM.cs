@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OscillatingLinearSBM" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OSCILLATING_LINEAR_MOTION&quot;).</param>
+        /// <param name="type">Schema name: OscillatingLinearSBM (required) (default to &quot;OSCILLATING_LINEAR_MOTION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="amplitude">amplitude.</param>
         /// <param name="angularVelocity">angularVelocity.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: OscillatingLinearSBM
         /// </summary>
+        /// <value>Schema name: OscillatingLinearSBM</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

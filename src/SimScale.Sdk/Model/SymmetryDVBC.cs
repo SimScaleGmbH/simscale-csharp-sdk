@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SymmetryDVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SYMMETRY&quot;).</param>
+        /// <param name="type">Schema name: SymmetryDVBC (required) (default to &quot;SYMMETRY&quot;).</param>
         public SymmetryDVBC(string type = "SYMMETRY")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SymmetryDVBC
         /// </summary>
+        /// <value>Schema name: SymmetryDVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

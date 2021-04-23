@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OscillatingRotatingSBM" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OSCILLATING_ROTATING_MOTION&quot;).</param>
+        /// <param name="type">Schema name: OscillatingRotatingSBM (required) (default to &quot;OSCILLATING_ROTATING_MOTION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="rotationCenter">rotationCenter.</param>
         /// <param name="amplitude">amplitude.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: OscillatingRotatingSBM
         /// </summary>
+        /// <value>Schema name: OscillatingRotatingSBM</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

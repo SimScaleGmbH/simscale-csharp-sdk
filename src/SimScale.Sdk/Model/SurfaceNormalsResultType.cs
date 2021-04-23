@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SurfaceNormalsResultType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SURFACE_NORMALS&quot;).</param>
+        /// <param name="type">Schema name: SurfaceNormalsResultType (required) (default to &quot;SURFACE_NORMALS&quot;).</param>
         public SurfaceNormalsResultType(string type = "SURFACE_NORMALS")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SurfaceNormalsResultType
         /// </summary>
+        /// <value>Schema name: SurfaceNormalsResultType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

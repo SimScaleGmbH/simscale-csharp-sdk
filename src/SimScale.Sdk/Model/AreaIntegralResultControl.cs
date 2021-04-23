@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AreaIntegralResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AREA_INTEGRAL&quot;).</param>
+        /// <param name="type">Schema name: AreaIntegralResultControl (required) (default to &quot;AREA_INTEGRAL&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="writeControl">writeControl.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AreaIntegralResultControl
         /// </summary>
+        /// <value>Schema name: AreaIntegralResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

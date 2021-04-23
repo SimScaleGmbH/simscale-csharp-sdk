@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackwardTimeDifferentiationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;BACKWARD&quot;).</param>
+        /// <param name="type">Schema name: BackwardTimeDifferentiationScheme (required) (default to &quot;BACKWARD&quot;).</param>
         public BackwardTimeDifferentiationScheme(string type = "BACKWARD")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: BackwardTimeDifferentiationScheme
         /// </summary>
+        /// <value>Schema name: BackwardTimeDifferentiationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

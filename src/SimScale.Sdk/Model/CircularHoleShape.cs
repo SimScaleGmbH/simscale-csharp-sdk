@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CircularHoleShape" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CIRCULAR&quot;).</param>
+        /// <param name="type">Circular holes in the perforated plate.  Schema name: CircularHoleShape (required) (default to &quot;CIRCULAR&quot;).</param>
         /// <param name="averageHoleDiameter">averageHoleDiameter.</param>
         public CircularHoleShape(string type = "CIRCULAR", DimensionalLength averageHoleDiameter = default(DimensionalLength))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Circular holes in the perforated plate.  Schema name: CircularHoleShape
         /// </summary>
+        /// <value>Circular holes in the perforated plate.  Schema name: CircularHoleShape</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

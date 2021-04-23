@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FourthGradientScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FOURTH&quot;).</param>
+        /// <param name="type">Schema name: FourthGradientScheme (required) (default to &quot;FOURTH&quot;).</param>
         public FourthGradientScheme(string type = "FOURTH")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FourthGradientScheme
         /// </summary>
+        /// <value>Schema name: FourthGradientScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

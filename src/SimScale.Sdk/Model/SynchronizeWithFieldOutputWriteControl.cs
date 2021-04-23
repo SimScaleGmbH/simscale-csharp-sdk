@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SynchronizeWithFieldOutputWriteControl" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OUTPUT_TIME&quot;).</param>
+        /// <param name="type">This option controls how the simulation results are written and how frequently.  Schema name: SynchronizeWithFieldOutputWriteControl (required) (default to &quot;OUTPUT_TIME&quot;).</param>
         /// <param name="writeInterval">writeInterval (default to 1M).</param>
         public SynchronizeWithFieldOutputWriteControl(string type = "OUTPUT_TIME", decimal? writeInterval = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This option controls how the simulation results are written and how frequently.  Schema name: SynchronizeWithFieldOutputWriteControl
         /// </summary>
+        /// <value>This option controls how the simulation results are written and how frequently.  Schema name: SynchronizeWithFieldOutputWriteControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

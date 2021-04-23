@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FanPBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FAN_PRESSURE&quot;).</param>
+        /// <param name="type">Schema name: FanPBC (required) (default to &quot;FAN_PRESSURE&quot;).</param>
         /// <param name="fanPressure">fanPressure.</param>
         /// <param name="direction">direction (default to DirectionEnum.IN).</param>
         /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
@@ -75,8 +75,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FanPBC
         /// </summary>
+        /// <value>Schema name: FanPBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedMagnitudeVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_VALUE_NO_EXPRESSION&quot;).</param>
+        /// <param name="type">Schema name: FixedMagnitudeVBC (required) (default to &quot;FIXED_VALUE_NO_EXPRESSION&quot;).</param>
         /// <param name="value">value.</param>
         public FixedMagnitudeVBC(string type = "FIXED_VALUE_NO_EXPRESSION", DimensionalFunctionSpeed value = default(DimensionalFunctionSpeed))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedMagnitudeVBC
         /// </summary>
+        /// <value>Schema name: FixedMagnitudeVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

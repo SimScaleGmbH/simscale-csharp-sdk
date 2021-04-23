@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsotropicConductivity" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ISOTROPIC&quot;).</param>
+        /// <param name="type">&lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent. Orthotropic means directionally dependent.&lt;/p&gt;  Schema name: IsotropicConductivity (required) (default to &quot;ISOTROPIC&quot;).</param>
         /// <param name="thermalConductivity">thermalConductivity.</param>
         public IsotropicConductivity(string type = "ISOTROPIC", DimensionalFunctionThermalConductivity thermalConductivity = default(DimensionalFunctionThermalConductivity))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent. Orthotropic means directionally dependent.&lt;/p&gt;  Schema name: IsotropicConductivity
         /// </summary>
+        /// <value>&lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent. Orthotropic means directionally dependent.&lt;/p&gt;  Schema name: IsotropicConductivity</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

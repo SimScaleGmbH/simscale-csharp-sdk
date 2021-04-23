@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsotropicDirectionalDependency" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ISOTROPIC&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose the directional dependency for this property. &lt;b&gt;Anisotropic and orthotropic materials will be available soon.&lt;/b&gt;&lt;/p&gt;  Schema name: IsotropicDirectionalDependency (required) (default to &quot;ISOTROPIC&quot;).</param>
         /// <param name="youngsModulus">youngsModulus.</param>
         /// <param name="poissonsRatio">poissonsRatio.</param>
         public IsotropicDirectionalDependency(string type = "ISOTROPIC", DimensionalFunctionPressure youngsModulus = default(DimensionalFunctionPressure), OneOfIsotropicDirectionalDependencyPoissonsRatio poissonsRatio = default(OneOfIsotropicDirectionalDependencyPoissonsRatio))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Choose the directional dependency for this property. &lt;b&gt;Anisotropic and orthotropic materials will be available soon.&lt;/b&gt;&lt;/p&gt;  Schema name: IsotropicDirectionalDependency
         /// </summary>
+        /// <value>&lt;p&gt;Choose the directional dependency for this property. &lt;b&gt;Anisotropic and orthotropic materials will be available soon.&lt;/b&gt;&lt;/p&gt;  Schema name: IsotropicDirectionalDependency</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

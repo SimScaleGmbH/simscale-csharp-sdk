@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsotropicDarcyForchheimer" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ISOTROPIC&quot;).</param>
+        /// <param name="type">Isotropic porous object where the same permeability and friction form coefficient are applied in all directions.  Schema name: IsotropicDarcyForchheimer (required) (default to &quot;ISOTROPIC&quot;).</param>
         public IsotropicDarcyForchheimer(string type = "ISOTROPIC")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Isotropic porous object where the same permeability and friction form coefficient are applied in all directions.  Schema name: IsotropicDarcyForchheimer
         /// </summary>
+        /// <value>Isotropic porous object where the same permeability and friction form coefficient are applied in all directions.  Schema name: IsotropicDarcyForchheimer</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

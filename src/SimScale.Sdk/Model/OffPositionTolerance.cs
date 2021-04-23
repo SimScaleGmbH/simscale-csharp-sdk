@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OffPositionTolerance" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OFF&quot;).</param>
+        /// <param name="type">Schema name: OffPositionTolerance (required) (default to &quot;OFF&quot;).</param>
         public OffPositionTolerance(string type = "OFF")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: OffPositionTolerance
         /// </summary>
+        /// <value>Schema name: OffPositionTolerance</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

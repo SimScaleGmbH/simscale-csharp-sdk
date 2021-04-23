@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LayerRefinement" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LAYER_INFLATION&quot;).</param>
+        /// <param name="type">&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/tet-dominant/#layer-inflation&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Layer inflation&lt;/b&gt;&lt;/a&gt; allows the creation of prismatic boundary layers for certain mesh regions.&lt;/p&gt;&lt;p&gt;Prismatic layers are mostly used in CFD simulations on no-slip walls in order to efficiently capture the boundary layer velocity profile, but they may be also used in certain structural simulations like stamping or deep-drawing processes.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/boundary-layer.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows a sample mesh with boundary layers added.&lt;/p&gt;  Schema name: LayerRefinement (required) (default to &quot;LAYER_INFLATION&quot;).</param>
         /// <param name="name">name (default to &quot;Layer inflation&quot;).</param>
         /// <param name="totalThickness">This parameter controls the &lt;b&gt;overall thickness&lt;/b&gt; of all the generated boundary layers together. This value must be smaller than the minimal geometry thickness at the specified locations, otherwise the meshing will fail. (default to 0.01M).</param>
         /// <param name="layers">The number of &lt;b&gt;layers&lt;/b&gt; defines how many prismatic boundary layers should be created. (default to 5).</param>
@@ -56,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/tet-dominant/#layer-inflation&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Layer inflation&lt;/b&gt;&lt;/a&gt; allows the creation of prismatic boundary layers for certain mesh regions.&lt;/p&gt;&lt;p&gt;Prismatic layers are mostly used in CFD simulations on no-slip walls in order to efficiently capture the boundary layer velocity profile, but they may be also used in certain structural simulations like stamping or deep-drawing processes.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/boundary-layer.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows a sample mesh with boundary layers added.&lt;/p&gt;  Schema name: LayerRefinement
         /// </summary>
+        /// <value>&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/tet-dominant/#layer-inflation&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Layer inflation&lt;/b&gt;&lt;/a&gt; allows the creation of prismatic boundary layers for certain mesh regions.&lt;/p&gt;&lt;p&gt;Prismatic layers are mostly used in CFD simulations on no-slip walls in order to efficiently capture the boundary layer velocity profile, but they may be also used in certain structural simulations like stamping or deep-drawing processes.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/boundary-layer.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows a sample mesh with boundary layers added.&lt;/p&gt;  Schema name: LayerRefinement</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

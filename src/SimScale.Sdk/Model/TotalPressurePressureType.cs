@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalPressurePressureType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL_PRESSURE&quot;).</param>
+        /// <param name="type">Schema name: TotalPressurePressureType (required) (default to &quot;TOTAL_PRESSURE&quot;).</param>
         /// <param name="pressureValue">pressureValue.</param>
         public TotalPressurePressureType(string type = "TOTAL_PRESSURE", DimensionalPressure pressureValue = default(DimensionalPressure))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TotalPressurePressureType
         /// </summary>
+        /// <value>Schema name: TotalPressurePressureType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

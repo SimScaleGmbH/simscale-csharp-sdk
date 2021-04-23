@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LocalEulerTimeDifferentiationScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LOCAL_EULER&quot;).</param>
+        /// <param name="type">Schema name: LocalEulerTimeDifferentiationScheme (required) (default to &quot;LOCAL_EULER&quot;).</param>
         public LocalEulerTimeDifferentiationScheme(string type = "LOCAL_EULER")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: LocalEulerTimeDifferentiationScheme
         /// </summary>
+        /// <value>Schema name: LocalEulerTimeDifferentiationScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

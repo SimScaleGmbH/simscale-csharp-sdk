@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRESSURE&quot;).</param>
+        /// <param name="type">This is a &lt;b&gt;pressure&lt;/b&gt; boundary condition representing a distributed load on the selection. It is applied normal to the surface of all face elements in the deformed configuration.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the surface area of the selection&lt;/li&gt;&lt;li&gt;This is a nonlinear boundary condition as the update of the geometry is only possible for nonlinear analyses. In a linear analysis it becomes a simple &lt;b&gt;pressure&lt;/b&gt; boundary condition&lt;/li&gt;&lt;/ul&gt;  Schema name: PressureBC (required) (default to &quot;PRESSURE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressure">pressure.</param>
         /// <param name="phaseAngle">phaseAngle.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a &lt;b&gt;pressure&lt;/b&gt; boundary condition representing a distributed load on the selection. It is applied normal to the surface of all face elements in the deformed configuration.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the surface area of the selection&lt;/li&gt;&lt;li&gt;This is a nonlinear boundary condition as the update of the geometry is only possible for nonlinear analyses. In a linear analysis it becomes a simple &lt;b&gt;pressure&lt;/b&gt; boundary condition&lt;/li&gt;&lt;/ul&gt;  Schema name: PressureBC
         /// </summary>
+        /// <value>This is a &lt;b&gt;pressure&lt;/b&gt; boundary condition representing a distributed load on the selection. It is applied normal to the surface of all face elements in the deformed configuration.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the surface area of the selection&lt;/li&gt;&lt;li&gt;This is a nonlinear boundary condition as the update of the geometry is only possible for nonlinear analyses. In a linear analysis it becomes a simple &lt;b&gt;pressure&lt;/b&gt; boundary condition&lt;/li&gt;&lt;/ul&gt;  Schema name: PressureBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

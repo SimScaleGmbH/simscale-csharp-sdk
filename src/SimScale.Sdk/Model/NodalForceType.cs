@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NodalForceType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;NODAL&quot;).</param>
+        /// <param name="type">Schema name: NodalForceType (required) (default to &quot;NODAL&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
         public NodalForceType(string type = "NODAL", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -83,8 +83,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: NodalForceType
         /// </summary>
+        /// <value>Schema name: NodalForceType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

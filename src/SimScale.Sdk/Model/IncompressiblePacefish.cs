@@ -87,7 +87,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IncompressiblePacefish" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;INCOMPRESSIBLE_PACEFISH&quot;).</param>
+        /// <param name="type">Schema name: IncompressiblePacefish (required) (default to &quot;INCOMPRESSIBLE_PACEFISH&quot;).</param>
         /// <param name="boundingBoxUuid">boundingBoxUuid.</param>
         /// <param name="turbulenceModel">Choose between RANS, LES, or DES turbulence models. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#turbulence-models-in-incompressible-lbm&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to TurbulenceModelEnum.KOMEGASSTDDES).</param>
         /// <param name="material">material.</param>
@@ -111,8 +111,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: IncompressiblePacefish
         /// </summary>
+        /// <value>Schema name: IncompressiblePacefish</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

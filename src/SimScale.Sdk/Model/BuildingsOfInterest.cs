@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BuildingsOfInterest" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;BUILDINGS_OF_INTEREST&quot;).</param>
+        /// <param name="type">Schema name: BuildingsOfInterest (required) (default to &quot;BUILDINGS_OF_INTEREST&quot;).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public BuildingsOfInterest(string type = "BUILDINGS_OF_INTEREST", TopologicalReference topologicalReference = default(TopologicalReference))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: BuildingsOfInterest
         /// </summary>
+        /// <value>Schema name: BuildingsOfInterest</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

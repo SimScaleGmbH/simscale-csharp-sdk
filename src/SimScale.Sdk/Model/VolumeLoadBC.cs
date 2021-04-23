@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VolumeLoadBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VOLUME_LOAD&quot;).</param>
+        /// <param name="type">This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeLoadBC (required) (default to &quot;VOLUME_LOAD&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="load">load.</param>
         /// <param name="scaling">scaling.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeLoadBC
         /// </summary>
+        /// <value>This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeLoadBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

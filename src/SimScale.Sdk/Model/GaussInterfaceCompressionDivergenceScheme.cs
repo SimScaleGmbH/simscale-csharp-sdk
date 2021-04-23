@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussInterfaceCompressionDivergenceScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_INTERFACECOMPRESSION&quot;).</param>
+        /// <param name="type">Schema name: GaussInterfaceCompressionDivergenceScheme (required) (default to &quot;GAUSS_INTERFACECOMPRESSION&quot;).</param>
         public GaussInterfaceCompressionDivergenceScheme(string type = "GAUSS_INTERFACECOMPRESSION")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussInterfaceCompressionDivergenceScheme
         /// </summary>
+        /// <value>Schema name: GaussInterfaceCompressionDivergenceScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

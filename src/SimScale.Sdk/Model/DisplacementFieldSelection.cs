@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DisplacementFieldSelection" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DISPLACEMENT&quot;).</param>
+        /// <param name="type">Schema name: DisplacementFieldSelection (required) (default to &quot;DISPLACEMENT&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
         public DisplacementFieldSelection(string type = "DISPLACEMENT", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -83,8 +83,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DisplacementFieldSelection
         /// </summary>
+        /// <value>Schema name: DisplacementFieldSelection</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

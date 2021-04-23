@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShipDesignAnalysisSBM" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SHIP_DESIGN_ANALYSIS&quot;).</param>
+        /// <param name="type">Schema name: ShipDesignAnalysisSBM (required) (default to &quot;SHIP_DESIGN_ANALYSIS&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="centerOfGravity">centerOfGravity.</param>
         /// <param name="modelScaleRatio">modelScaleRatio (default to 1M).</param>
@@ -68,8 +68,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ShipDesignAnalysisSBM
         /// </summary>
+        /// <value>Schema name: ShipDesignAnalysisSBM</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenWindowRSBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;OPEN_WINDOW&quot;).</param>
+        /// <param name="type">Schema name: OpenWindowRSBC (required) (default to &quot;OPEN_WINDOW&quot;).</param>
         /// <param name="radiativeSourceValue">radiativeSourceValue.</param>
         public OpenWindowRSBC(string type = "OPEN_WINDOW", DimensionalHeatFlux radiativeSourceValue = default(DimensionalHeatFlux))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: OpenWindowRSBC
         /// </summary>
+        /// <value>Schema name: OpenWindowRSBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

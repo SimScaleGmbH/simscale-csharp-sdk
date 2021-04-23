@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FrictionlessContact" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FRICTIONLESS_CONTACT&quot;).</param>
+        /// <param name="type">Schema name: FrictionlessContact (required) (default to &quot;FRICTIONLESS_CONTACT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="contactSolutionMethod">contactSolutionMethod.</param>
         /// <param name="fictitiousClearance">fictitiousClearance.</param>
@@ -54,8 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FrictionlessContact
         /// </summary>
+        /// <value>Schema name: FrictionlessContact</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

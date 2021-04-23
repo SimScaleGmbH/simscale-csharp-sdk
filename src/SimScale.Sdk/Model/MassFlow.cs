@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MassFlow" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MASS&quot;).</param>
+        /// <param name="type">&lt;p&gt;Defines the mass flow rate &lt;strong&gt;per each face&lt;/strong&gt; of the assignment.&lt;/p&gt;  Schema name: MassFlow (required) (default to &quot;MASS&quot;).</param>
         /// <param name="value">value.</param>
         public MassFlow(string type = "MASS", DimensionalFunctionMassFlowRate value = default(DimensionalFunctionMassFlowRate))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Defines the mass flow rate &lt;strong&gt;per each face&lt;/strong&gt; of the assignment.&lt;/p&gt;  Schema name: MassFlow
         /// </summary>
+        /// <value>&lt;p&gt;Defines the mass flow rate &lt;strong&gt;per each face&lt;/strong&gt; of the assignment.&lt;/p&gt;  Schema name: MassFlow</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SutherlandTransport" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;SUTHERLAND&quot;).</param>
+        /// <param name="type">Schema name: SutherlandTransport (required) (default to &quot;SUTHERLAND&quot;).</param>
         /// <param name="referenceViscosity">referenceViscosity.</param>
         /// <param name="referenceTemperature">referenceTemperature.</param>
         /// <param name="ts">ts.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: SutherlandTransport
         /// </summary>
+        /// <value>Schema name: SutherlandTransport</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -55,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalVonMisesStressType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;VON_MISES&quot;).</param>
+        /// <param name="type">Schema name: GlobalVonMisesStressType (required) (default to &quot;VON_MISES&quot;).</param>
         /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.REALANDIMAGINARY).</param>
         public GlobalVonMisesStressType(string type = "VON_MISES", ComplexNumberEnum? complexNumber = default(ComplexNumberEnum?))
         {
@@ -65,8 +65,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalVonMisesStressType
         /// </summary>
+        /// <value>Schema name: GlobalVonMisesStressType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedPointFrictionNonLinearityResolution" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_POINT&quot;).</param>
+        /// <param name="type">Schema name: FixedPointFrictionNonLinearityResolution (required) (default to &quot;FIXED_POINT&quot;).</param>
         /// <param name="maxNumIteration">maxNumIteration (default to 10).</param>
         /// <param name="iterationCriterion">iterationCriterion (default to 0.00010M).</param>
         public FixedPointFrictionNonLinearityResolution(string type = "FIXED_POINT", int? maxNumIteration = default(int?), decimal? iterationCriterion = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedPointFrictionNonLinearityResolution
         /// </summary>
+        /// <value>Schema name: FixedPointFrictionNonLinearityResolution</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

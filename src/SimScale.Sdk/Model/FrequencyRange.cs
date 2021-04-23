@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyRange" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;RANGE&quot;).</param>
+        /// <param name="type">&lt;p&gt;Select how you want to control natural frequencies to be computed:&lt;/p&gt; &lt;li&gt;&lt;i&gt;First modes&lt;/i&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed, in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Frequency range&lt;/i&gt;: All the modes within the range of frequencies will be searched and computed. The frequency range is specified by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;  Schema name: FrequencyRange (required) (default to &quot;RANGE&quot;).</param>
         /// <param name="startFrequency">startFrequency.</param>
         /// <param name="endFrequency">endFrequency.</param>
         public FrequencyRange(string type = "RANGE", DimensionalFrequency startFrequency = default(DimensionalFrequency), DimensionalFrequency endFrequency = default(DimensionalFrequency))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;p&gt;Select how you want to control natural frequencies to be computed:&lt;/p&gt; &lt;li&gt;&lt;i&gt;First modes&lt;/i&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed, in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Frequency range&lt;/i&gt;: All the modes within the range of frequencies will be searched and computed. The frequency range is specified by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;  Schema name: FrequencyRange
         /// </summary>
+        /// <value>&lt;p&gt;Select how you want to control natural frequencies to be computed:&lt;/p&gt; &lt;li&gt;&lt;i&gt;First modes&lt;/i&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed, in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Frequency range&lt;/i&gt;: All the modes within the range of frequencies will be searched and computed. The frequency range is specified by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;  Schema name: FrequencyRange</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

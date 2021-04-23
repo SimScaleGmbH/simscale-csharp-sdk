@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LinearSBM" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;LINEAR_MOTION&quot;).</param>
+        /// <param name="type">Schema name: LinearSBM (required) (default to &quot;LINEAR_MOTION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="velocity">velocity.</param>
         public LinearSBM(string type = "LINEAR_MOTION", string name = default(string), DimensionalVectorSpeed velocity = default(DimensionalVectorSpeed))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: LinearSBM
         /// </summary>
+        /// <value>Schema name: LinearSBM</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

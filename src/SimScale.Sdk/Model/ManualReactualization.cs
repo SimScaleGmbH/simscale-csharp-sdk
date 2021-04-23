@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualReactualization" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MANUAL&quot;).</param>
+        /// <param name="type">Schema name: ManualReactualization (required) (default to &quot;MANUAL&quot;).</param>
         /// <param name="numIterations">numIterations (default to 2).</param>
         public ManualReactualization(string type = "MANUAL", int? numIterations = default(int?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ManualReactualization
         /// </summary>
+        /// <value>Schema name: ManualReactualization</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

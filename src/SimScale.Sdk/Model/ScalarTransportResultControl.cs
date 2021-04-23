@@ -56,7 +56,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScalarTransportResultControl" /> class.
         /// </summary>
-        /// <param name="type">type (default to &quot;Scalar transport&quot;).</param>
+        /// <param name="type">Schema name: ScalarTransportResultControl (default to &quot;Scalar transport&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="diffusionCoefficient">diffusionCoefficient (default to 0M).</param>
         /// <param name="volumeMode">volumeMode (default to VolumeModeEnum.SPECIFIC).</param>
@@ -77,8 +77,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ScalarTransportResultControl
         /// </summary>
+        /// <value>Schema name: ScalarTransportResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -61,7 +61,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalAccelerationType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GLOBAL&quot;).</param>
+        /// <param name="type">Schema name: GlobalAccelerationType (required) (default to &quot;GLOBAL&quot;).</param>
         /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.REALANDIMAGINARY).</param>
         public GlobalAccelerationType(string type = "GLOBAL", ComplexNumberEnum? complexNumber = default(ComplexNumberEnum?))
         {
@@ -71,8 +71,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalAccelerationType
         /// </summary>
+        /// <value>Schema name: GlobalAccelerationType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

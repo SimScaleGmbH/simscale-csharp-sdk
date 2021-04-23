@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticReactualization" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;AUTOMATIC&quot;).</param>
+        /// <param name="type">Schema name: AutomaticReactualization (required) (default to &quot;AUTOMATIC&quot;).</param>
         /// <param name="maxNumIterations">maxNumIterations (default to 10).</param>
         /// <param name="iterationCriterion">iterationCriterion (default to 0.05M).</param>
         public AutomaticReactualization(string type = "AUTOMATIC", int? maxNumIterations = default(int?), decimal? iterationCriterion = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: AutomaticReactualization
         /// </summary>
+        /// <value>Schema name: AutomaticReactualization</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

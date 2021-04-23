@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StressResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;STRESS&quot;).</param>
+        /// <param name="type">Schema name: StressResultControlItem (required) (default to &quot;STRESS&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="stressType">stressType.</param>
         public StressResultControlItem(string type = "STRESS", string name = default(string), OneOfStressResultControlItemStressType stressType = default(OneOfStressResultControlItemStressType))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: StressResultControlItem
         /// </summary>
+        /// <value>Schema name: StressResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

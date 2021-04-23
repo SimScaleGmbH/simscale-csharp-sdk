@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WallFunctionTDCBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;WALL_FUNCTION&quot;).</param>
+        /// <param name="type">Schema name: WallFunctionTDCBC (required) (default to &quot;WALL_FUNCTION&quot;).</param>
         /// <param name="prandtlNumber">prandtlNumber (default to 0.85M).</param>
         public WallFunctionTDCBC(string type = "WALL_FUNCTION", decimal? prandtlNumber = default(decimal?))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: WallFunctionTDCBC
         /// </summary>
+        /// <value>Schema name: WallFunctionTDCBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

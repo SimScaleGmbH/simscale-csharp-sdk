@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroundRelative" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GROUND_RELATIVE&quot;).</param>
+        /// <param name="type">Schema name: GroundRelative (required) (default to &quot;GROUND_RELATIVE&quot;).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public GroundRelative(string type = "GROUND_RELATIVE", TopologicalReference topologicalReference = default(TopologicalReference))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GroundRelative
         /// </summary>
+        /// <value>Schema name: GroundRelative</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

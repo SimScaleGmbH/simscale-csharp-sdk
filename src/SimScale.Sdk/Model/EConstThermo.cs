@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EConstThermo" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;ECONST&quot;).</param>
+        /// <param name="type">&lt;br&gt;&lt;p&gt;The &lt;b&gt;Thermo models&lt;/b&gt; are used to calculate the specific heat at constant pressure (&lt;i&gt;Cp&lt;/i&gt;) for the fluid. The available models are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;hConst:&lt;/b&gt; This model assumes a constant value for specific heat at fixed pressure (&lt;i&gt;Cp&lt;/i&gt;). &lt;/p&gt;&lt;p&gt;&lt;b&gt;eConst:&lt;/b&gt; This model assumes a constant value for the specific heat at fixed volume (&lt;i&gt;Cv&lt;/i&gt;). &lt;/p&gt;  Schema name: EConstThermo (required) (default to &quot;ECONST&quot;).</param>
         /// <param name="specificHeat">specificHeat.</param>
         /// <param name="heatOfFormation">heatOfFormation.</param>
         /// <param name="equationOfState">equationOfState.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// &lt;br&gt;&lt;p&gt;The &lt;b&gt;Thermo models&lt;/b&gt; are used to calculate the specific heat at constant pressure (&lt;i&gt;Cp&lt;/i&gt;) for the fluid. The available models are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;hConst:&lt;/b&gt; This model assumes a constant value for specific heat at fixed pressure (&lt;i&gt;Cp&lt;/i&gt;). &lt;/p&gt;&lt;p&gt;&lt;b&gt;eConst:&lt;/b&gt; This model assumes a constant value for the specific heat at fixed volume (&lt;i&gt;Cv&lt;/i&gt;). &lt;/p&gt;  Schema name: EConstThermo
         /// </summary>
+        /// <value>&lt;br&gt;&lt;p&gt;The &lt;b&gt;Thermo models&lt;/b&gt; are used to calculate the specific heat at constant pressure (&lt;i&gt;Cp&lt;/i&gt;) for the fluid. The available models are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;hConst:&lt;/b&gt; This model assumes a constant value for specific heat at fixed pressure (&lt;i&gt;Cp&lt;/i&gt;). &lt;/p&gt;&lt;p&gt;&lt;b&gt;eConst:&lt;/b&gt; This model assumes a constant value for the specific heat at fixed volume (&lt;i&gt;Cv&lt;/i&gt;). &lt;/p&gt;  Schema name: EConstThermo</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

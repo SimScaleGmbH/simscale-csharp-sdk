@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DICPreconditioner" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DIC&quot;).</param>
+        /// <param name="type">Diagonal incomplete Cholesky algorithm for symmetric matrices without fill-in.  Schema name: DICPreconditioner (required) (default to &quot;DIC&quot;).</param>
         public DICPreconditioner(string type = "DIC")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Diagonal incomplete Cholesky algorithm for symmetric matrices without fill-in.  Schema name: DICPreconditioner
         /// </summary>
+        /// <value>Diagonal incomplete Cholesky algorithm for symmetric matrices without fill-in.  Schema name: DICPreconditioner</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

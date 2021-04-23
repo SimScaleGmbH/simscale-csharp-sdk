@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GaussLinearDivergenceScheme" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;GAUSS_LINEAR&quot;).</param>
+        /// <param name="type">Schema name: GaussLinearDivergenceScheme (required) (default to &quot;GAUSS_LINEAR&quot;).</param>
         public GaussLinearDivergenceScheme(string type = "GAUSS_LINEAR")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GaussLinearDivergenceScheme
         /// </summary>
+        /// <value>Schema name: GaussLinearDivergenceScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

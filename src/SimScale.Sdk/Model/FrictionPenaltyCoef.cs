@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FrictionPenaltyCoef" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FRICTION_PENALTY_COEF&quot;).</param>
+        /// <param name="type">Schema name: FrictionPenaltyCoef (required) (default to &quot;FRICTION_PENALTY_COEF&quot;).</param>
         /// <param name="frictionPenaltyCoefficient">frictionPenaltyCoefficient (default to 100000M).</param>
         /// <param name="coulombCoefficient">coulombCoefficient (default to 0.1M).</param>
         public FrictionPenaltyCoef(string type = "FRICTION_PENALTY_COEF", decimal? frictionPenaltyCoefficient = default(decimal?), decimal? coulombCoefficient = default(decimal?))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FrictionPenaltyCoef
         /// </summary>
+        /// <value>Schema name: FrictionPenaltyCoef</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

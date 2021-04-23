@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GlobalPrincipalStressType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;PRINCIPAL&quot;).</param>
+        /// <param name="type">Schema name: GlobalPrincipalStressType (required) (default to &quot;PRINCIPAL&quot;).</param>
         public GlobalPrincipalStressType(string type = "PRINCIPAL")
         {
             // to ensure "type" is required (not null)
@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: GlobalPrincipalStressType
         /// </summary>
+        /// <value>Schema name: GlobalPrincipalStressType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

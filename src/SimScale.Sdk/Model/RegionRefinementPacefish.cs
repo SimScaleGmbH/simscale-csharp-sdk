@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionRefinementPacefish" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;REGION_PACEFISH&quot;).</param>
+        /// <param name="type">Schema name: RegionRefinementPacefish (required) (default to &quot;REGION_PACEFISH&quot;).</param>
         /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
         /// <param name="targetResolution">targetResolution.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: RegionRefinementPacefish
         /// </summary>
+        /// <value>Schema name: RegionRefinementPacefish</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

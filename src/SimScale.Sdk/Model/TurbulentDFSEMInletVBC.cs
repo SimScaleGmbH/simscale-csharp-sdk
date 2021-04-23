@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TurbulentDFSEMInletVBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TURBULENT_DFSEM_INLET&quot;).</param>
+        /// <param name="type">Schema name: TurbulentDFSEMInletVBC (required) (default to &quot;TURBULENT_DFSEM_INLET&quot;).</param>
         /// <param name="domainLengthScale">domainLengthScale.</param>
         /// <param name="eddyLengthScale">eddyLengthScale.</param>
         /// <param name="velocity">velocity.</param>
@@ -52,8 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TurbulentDFSEMInletVBC
         /// </summary>
+        /// <value>Schema name: TurbulentDFSEMInletVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

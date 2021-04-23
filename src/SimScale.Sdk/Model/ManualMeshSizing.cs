@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualMeshSizing" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;MANUAL&quot;).</param>
+        /// <param name="type">Schema name: ManualMeshSizing (required) (default to &quot;MANUAL&quot;).</param>
         /// <param name="minimumEdgeLength">minimumEdgeLength.</param>
         /// <param name="maximumEdgeLength">maximumEdgeLength.</param>
         /// <param name="grading">grading.</param>
@@ -50,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: ManualMeshSizing
         /// </summary>
+        /// <value>Schema name: ManualMeshSizing</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

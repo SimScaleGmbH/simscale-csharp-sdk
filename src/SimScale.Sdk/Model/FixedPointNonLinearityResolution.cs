@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedPointNonLinearityResolution" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;FIXED_POINT&quot;).</param>
+        /// <param name="type">Schema name: FixedPointNonLinearityResolution (required) (default to &quot;FIXED_POINT&quot;).</param>
         /// <param name="geometryReactualization">geometryReactualization.</param>
         public FixedPointNonLinearityResolution(string type = "FIXED_POINT", OneOfFixedPointNonLinearityResolutionGeometryReactualization geometryReactualization = default(OneOfFixedPointNonLinearityResolutionGeometryReactualization))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: FixedPointNonLinearityResolution
         /// </summary>
+        /// <value>Schema name: FixedPointNonLinearityResolution</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

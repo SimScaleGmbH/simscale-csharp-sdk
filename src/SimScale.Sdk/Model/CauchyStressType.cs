@@ -91,7 +91,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CauchyStressType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;CAUCHY&quot;).</param>
+        /// <param name="type">Schema name: CauchyStressType (required) (default to &quot;CAUCHY&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
         public CauchyStressType(string type = "CAUCHY", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -101,8 +101,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: CauchyStressType
         /// </summary>
+        /// <value>Schema name: CauchyStressType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

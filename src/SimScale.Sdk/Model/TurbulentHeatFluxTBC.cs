@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TurbulentHeatFluxTBC" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TURBULENT_HEAT_FLUX_TEMPERATURE&quot;).</param>
+        /// <param name="type">Schema name: TurbulentHeatFluxTBC (required) (default to &quot;TURBULENT_HEAT_FLUX_TEMPERATURE&quot;).</param>
         /// <param name="heatSource">heatSource.</param>
         /// <param name="value">value.</param>
         public TurbulentHeatFluxTBC(string type = "TURBULENT_HEAT_FLUX_TEMPERATURE", OneOfTurbulentHeatFluxTBCHeatSource heatSource = default(OneOfTurbulentHeatFluxTBCHeatSource), DimensionalTemperature value = default(DimensionalTemperature))
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TurbulentHeatFluxTBC
         /// </summary>
+        /// <value>Schema name: TurbulentHeatFluxTBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

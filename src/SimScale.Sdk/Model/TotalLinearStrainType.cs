@@ -91,7 +91,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalLinearStrainType" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;TOTAL_LINEAR&quot;).</param>
+        /// <param name="type">Schema name: TotalLinearStrainType (required) (default to &quot;TOTAL_LINEAR&quot;).</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
         public TotalLinearStrainType(string type = "TOTAL_LINEAR", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
@@ -101,8 +101,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: TotalLinearStrainType
         /// </summary>
+        /// <value>Schema name: TotalLinearStrainType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

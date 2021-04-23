@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DistributedOrthotropicStiffnessDefinition" /> class.
         /// </summary>
-        /// <param name="type">type (required) (default to &quot;DISTRIBUTED_ORTHOTROPIC&quot;).</param>
+        /// <param name="type">Schema name: DistributedOrthotropicStiffnessDefinition (required) (default to &quot;DISTRIBUTED_ORTHOTROPIC&quot;).</param>
         /// <param name="distributed">distributed.</param>
         public DistributedOrthotropicStiffnessDefinition(string type = "DISTRIBUTED_ORTHOTROPIC", DimensionalVectorVolumeForce distributed = default(DimensionalVectorVolumeForce))
         {
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Schema name: DistributedOrthotropicStiffnessDefinition
         /// </summary>
+        /// <value>Schema name: DistributedOrthotropicStiffnessDefinition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
