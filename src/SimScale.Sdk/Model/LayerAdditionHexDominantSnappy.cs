@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#layers-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Inflated boundary layers&lt;/b&gt;&lt;/a&gt; are used to resolve the boundary layer near walls (no-slip) which are in contact with the fluid. Using boundary layers is generally recommended for turbulent simulations.
     /// </summary>
     [DataContract]
-    public partial class LayerAdditionHexDominantSnappy : IEquatable<LayerAdditionHexDominantSnappy>
+    public partial class LayerAdditionHexDominantSnappy : OneOfHexDominantSnappyRefinements, IEquatable<LayerAdditionHexDominantSnappy>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LayerAdditionHexDominantSnappy" /> class.

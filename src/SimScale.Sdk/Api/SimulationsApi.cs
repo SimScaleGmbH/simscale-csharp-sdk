@@ -143,6 +143,33 @@ namespace SimScale.Sdk.Api
         /// <returns>ApiResponse of SimulationSpec</returns>
         ApiResponse<SimulationSpec> GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.9");
         /// <summary>
+        /// Get Python SDK code for the simulation
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="sdkVersion">Version of the SDK to generate code for (optional, default to &quot;latest&quot;)</param>
+        /// <param name="sdkLanguage">Language of the SDK to generate code for. Only Python is currently supported. (optional, default to &quot;python&quot;)</param>
+        /// <returns>string</returns>
+        string GetSimulationSdkCode (string projectId = default(string), Guid? simulationId = default(Guid?), string sdkVersion = "latest", string sdkLanguage = "python");
+
+        /// <summary>
+        /// Get Python SDK code for the simulation
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="sdkVersion">Version of the SDK to generate code for (optional, default to &quot;latest&quot;)</param>
+        /// <param name="sdkLanguage">Language of the SDK to generate code for. Only Python is currently supported. (optional, default to &quot;python&quot;)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> GetSimulationSdkCodeWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string sdkVersion = "latest", string sdkLanguage = "python");
+        /// <summary>
         /// List simulation setups within a project
         /// </summary>
         /// <remarks>
@@ -318,6 +345,33 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;0.9&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
         System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "0.9");
+        /// <summary>
+        /// Get Python SDK code for the simulation
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="sdkVersion">Version of the SDK to generate code for (optional, default to &quot;latest&quot;)</param>
+        /// <param name="sdkLanguage">Language of the SDK to generate code for. Only Python is currently supported. (optional, default to &quot;python&quot;)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> GetSimulationSdkCodeAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string sdkVersion = "latest", string sdkLanguage = "python");
+
+        /// <summary>
+        /// Get Python SDK code for the simulation
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="sdkVersion">Version of the SDK to generate code for (optional, default to &quot;latest&quot;)</param>
+        /// <param name="sdkLanguage">Language of the SDK to generate code for. Only Python is currently supported. (optional, default to &quot;python&quot;)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> GetSimulationSdkCodeAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string sdkVersion = "latest", string sdkLanguage = "python");
         /// <summary>
         /// List simulation setups within a project
         /// </summary>
@@ -1183,6 +1237,169 @@ namespace SimScale.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSimulation", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Python SDK code for the simulation 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="sdkVersion">Version of the SDK to generate code for (optional, default to &quot;latest&quot;)</param>
+        /// <param name="sdkLanguage">Language of the SDK to generate code for. Only Python is currently supported. (optional, default to &quot;python&quot;)</param>
+        /// <returns>string</returns>
+        public string GetSimulationSdkCode (string projectId = default(string), Guid? simulationId = default(Guid?), string sdkVersion = "latest", string sdkLanguage = "python")
+        {
+             SimScale.Sdk.Client.ApiResponse<string> localVarResponse = GetSimulationSdkCodeWithHttpInfo(projectId, simulationId, sdkVersion, sdkLanguage);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Python SDK code for the simulation 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="sdkVersion">Version of the SDK to generate code for (optional, default to &quot;latest&quot;)</param>
+        /// <param name="sdkLanguage">Language of the SDK to generate code for. Only Python is currently supported. (optional, default to &quot;python&quot;)</param>
+        /// <returns>ApiResponse of string</returns>
+        public SimScale.Sdk.Client.ApiResponse< string > GetSimulationSdkCodeWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string sdkVersion = "latest", string sdkLanguage = "python")
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationsApi->GetSimulationSdkCode");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationsApi->GetSimulationSdkCode");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "text/plain;charset=UTF-8",
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            if (sdkVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sdkVersion", sdkVersion));
+            }
+            if (sdkLanguage != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sdkLanguage", sdkLanguage));
+            }
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< string >("/projects/{projectId}/simulations/{simulationId}/sdkcode", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSimulationSdkCode", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Python SDK code for the simulation 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="sdkVersion">Version of the SDK to generate code for (optional, default to &quot;latest&quot;)</param>
+        /// <param name="sdkLanguage">Language of the SDK to generate code for. Only Python is currently supported. (optional, default to &quot;python&quot;)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> GetSimulationSdkCodeAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string sdkVersion = "latest", string sdkLanguage = "python")
+        {
+             SimScale.Sdk.Client.ApiResponse<string> localVarResponse = await GetSimulationSdkCodeAsyncWithHttpInfo(projectId, simulationId, sdkVersion, sdkLanguage);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Python SDK code for the simulation 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="sdkVersion">Version of the SDK to generate code for (optional, default to &quot;latest&quot;)</param>
+        /// <param name="sdkLanguage">Language of the SDK to generate code for. Only Python is currently supported. (optional, default to &quot;python&quot;)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<string>> GetSimulationSdkCodeAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string sdkVersion = "latest", string sdkLanguage = "python")
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationsApi->GetSimulationSdkCode");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationsApi->GetSimulationSdkCode");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "text/plain;charset=UTF-8",
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            if (sdkVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sdkVersion", sdkVersion));
+            }
+            if (sdkLanguage != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sdkLanguage", sdkLanguage));
+            }
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/projects/{projectId}/simulations/{simulationId}/sdkcode", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSimulationSdkCode", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

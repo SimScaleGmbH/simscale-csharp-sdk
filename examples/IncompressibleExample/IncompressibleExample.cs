@@ -13,11 +13,10 @@ using SimScale.Sdk.Model;
 public class IncompressibleExample {
 
     public static string getSingleEntityName(GeometriesApi geometryApi, string projectId, Guid geometryId,
-                                                   List<string> values = null, string _class = "face") {
+                                                   List<string> values = null) {
         var entities = geometryApi.GetGeometryMappings(
             projectId: projectId,
             geometryId: geometryId,
-            _class: _class,
             attributes: new List<string> { "SDL/TYSA_NAME" },
             values: values
         ).Embedded;
@@ -104,7 +103,7 @@ public class IncompressibleExample {
             geometryApi,
             projectId,
             geometryId,
-            _class: "region"
+            values: new List<string> { "Fluid Region" }
         );
         var inlet1Entity = getSingleEntityName(
             geometryApi,

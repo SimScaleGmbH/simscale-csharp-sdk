@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// ManualMeshSizingHexDominantSnappy
     /// </summary>
     [DataContract]
-    public partial class ManualMeshSizingHexDominantSnappy : IEquatable<ManualMeshSizingHexDominantSnappy>
+    public partial class ManualMeshSizingHexDominantSnappy : OneOfHexDominantSnappySizing, IEquatable<ManualMeshSizingHexDominantSnappy>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualMeshSizingHexDominantSnappy" /> class.

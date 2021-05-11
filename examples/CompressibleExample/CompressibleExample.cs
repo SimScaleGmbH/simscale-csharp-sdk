@@ -13,11 +13,10 @@ using SimScale.Sdk.Model;
 public class CompressibleExample {
 
     public static List<string> getEntityNames(GeometriesApi geometryApi, string projectId, Guid geometryId, 
-        int num,  List<string> values = null, string _class = "face") {
+        int num,  List<string> values = null) {
         var entities = geometryApi.GetGeometryMappings(
             projectId: projectId,
             geometryId: geometryId,
-            _class: _class,
             attributes: new List<string> { "SDL/TYSA_NAME" },
             values: values
         ).Embedded;
@@ -105,7 +104,7 @@ public class CompressibleExample {
             projectId,
             geometryId,
             1,
-            _class: "region"
+            values: new List<string> { "box" }
         );
         var bc1Entities = getEntityNames(
             geometryApi,

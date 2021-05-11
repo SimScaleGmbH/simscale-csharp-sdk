@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// A &lt;b&gt;region refinement&lt;/b&gt; can be used to refine the mesh in a given area. The refinement area needs to be defined either via an existing solid or a geometry primitive.
     /// </summary>
     [DataContract]
-    public partial class RegionRefinementWithLength : OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<RegionRefinementWithLength>
+    public partial class RegionRefinementWithLength : OneOfHexDominantSnappyRefinements, OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<RegionRefinementWithLength>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionRefinementWithLength" /> class.

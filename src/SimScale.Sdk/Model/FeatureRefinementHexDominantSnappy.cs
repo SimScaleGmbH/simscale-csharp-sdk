@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#feature-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;feature refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the geometry’s feature edges. All edges whose adjacent surface normals form an angle of less than 150° will be refined.
     /// </summary>
     [DataContract]
-    public partial class FeatureRefinementHexDominantSnappy : IEquatable<FeatureRefinementHexDominantSnappy>
+    public partial class FeatureRefinementHexDominantSnappy : OneOfHexDominantSnappyRefinements, IEquatable<FeatureRefinementHexDominantSnappy>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FeatureRefinementHexDominantSnappy" /> class.

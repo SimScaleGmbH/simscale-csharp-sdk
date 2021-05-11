@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// A &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/hex-dominant/#surface-refinement&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;surface refinement&lt;/b&gt;&lt;/a&gt; can be used to refine the mesh near the surfaces of assigned faces and/or solids. A surface refinement can also be used to create a &lt;u&gt;cell zone&lt;/u&gt;.
     /// </summary>
     [DataContract]
-    public partial class SurfaceRefinementHexDominantSnappy : IEquatable<SurfaceRefinementHexDominantSnappy>
+    public partial class SurfaceRefinementHexDominantSnappy : OneOfHexDominantSnappyRefinements, IEquatable<SurfaceRefinementHexDominantSnappy>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SurfaceRefinementHexDominantSnappy" /> class.
