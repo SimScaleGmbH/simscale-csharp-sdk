@@ -130,7 +130,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>MeshOperation</returns>
-        MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.4");
+        MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.5");
 
         /// <summary>
         /// Get information about the mesh operation
@@ -143,7 +143,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>ApiResponse of MeshOperation</returns>
-        ApiResponse<MeshOperation> GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.4");
+        ApiResponse<MeshOperation> GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.5");
         /// <summary>
         /// Get the mesh operation event log
         /// </summary>
@@ -383,7 +383,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>Task of MeshOperation</returns>
-        System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.4");
+        System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.5");
 
         /// <summary>
         /// Get information about the mesh operation
@@ -396,7 +396,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>Task of ApiResponse (MeshOperation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.4");
+        System.Threading.Tasks.Task<ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.5");
         /// <summary>
         /// Get the mesh operation event log
         /// </summary>
@@ -1210,7 +1210,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>MeshOperation</returns>
-        public MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.4")
+        public MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.5")
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperation> localVarResponse = GetMeshOperationWithHttpInfo(projectId, meshOperationId, meshingSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1224,7 +1224,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>ApiResponse of MeshOperation</returns>
-        public SimScale.Sdk.Client.ApiResponse< MeshOperation > GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.4")
+        public SimScale.Sdk.Client.ApiResponse< MeshOperation > GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.5")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1284,7 +1284,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>Task of MeshOperation</returns>
-        public async System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.4")
+        public async System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.5")
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperation> localVarResponse = await GetMeshOperationAsyncWithHttpInfo(projectId, meshOperationId, meshingSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1299,7 +1299,7 @@ namespace SimScale.Sdk.Api
         /// <param name="meshOperationId">The mesh operation ID</param>
         /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
         /// <returns>Task of ApiResponse (MeshOperation)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.4")
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "0.5")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

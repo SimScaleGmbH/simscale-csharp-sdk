@@ -39,7 +39,7 @@ namespace SimScale.Sdk.Model
         /// <param name="specificHeat">specificHeat.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
-        public SolidMaterial(string name = default(string), OneOfSolidMaterialMaterialBehavior materialBehavior = default(OneOfSolidMaterialMaterialBehavior), DimensionalFunctionDensity density = default(DimensionalFunctionDensity), Expansion expansion = default(Expansion), OneOfSolidMaterialConductivity conductivity = default(OneOfSolidMaterialConductivity), DimensionalFunctionSpecificHeat specificHeat = default(DimensionalFunctionSpecificHeat), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string))
+        public SolidMaterial(string name = default(string), OneOfSolidMaterialMaterialBehavior materialBehavior = default(OneOfSolidMaterialMaterialBehavior), DimensionalFunctionDensity density = default(DimensionalFunctionDensity), IsotropicExpansion expansion = default(IsotropicExpansion), OneOfSolidMaterialConductivity conductivity = default(OneOfSolidMaterialConductivity), DimensionalFunctionSpecificHeat specificHeat = default(DimensionalFunctionSpecificHeat), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string))
         {
             this.Name = name;
             this.MaterialBehavior = materialBehavior;
@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Expansion
         /// </summary>
         [DataMember(Name="expansion", EmitDefaultValue=false)]
-        public Expansion Expansion { get; set; }
+        public IsotropicExpansion Expansion { get; set; }
 
         /// <summary>
         /// Gets or Sets Conductivity

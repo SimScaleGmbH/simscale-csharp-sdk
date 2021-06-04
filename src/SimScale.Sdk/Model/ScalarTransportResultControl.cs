@@ -56,7 +56,6 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScalarTransportResultControl" /> class.
         /// </summary>
-        /// <param name="type">Schema name: ScalarTransportResultControl (default to &quot;Scalar transport&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="diffusionCoefficient">diffusionCoefficient (default to 0M).</param>
         /// <param name="volumeMode">volumeMode (default to VolumeModeEnum.SPECIFIC).</param>
@@ -64,9 +63,8 @@ namespace SimScale.Sdk.Model
         /// <param name="sp">sp (default to 0M).</param>
         /// <param name="writeControl">writeControl.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public ScalarTransportResultControl(string type = default(string), string name = default(string), decimal? diffusionCoefficient = default(decimal?), VolumeModeEnum? volumeMode = default(VolumeModeEnum?), decimal? su = default(decimal?), decimal? sp = default(decimal?), OneOfScalarTransportResultControlWriteControl writeControl = default(OneOfScalarTransportResultControlWriteControl), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public ScalarTransportResultControl(string name = default(string), decimal? diffusionCoefficient = default(decimal?), VolumeModeEnum? volumeMode = default(VolumeModeEnum?), decimal? su = default(decimal?), decimal? sp = default(decimal?), OneOfScalarTransportResultControlWriteControl writeControl = default(OneOfScalarTransportResultControlWriteControl), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
-            this.Type = type;
             this.Name = name;
             this.DiffusionCoefficient = diffusionCoefficient;
             this.VolumeMode = volumeMode;
@@ -76,13 +74,6 @@ namespace SimScale.Sdk.Model
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         
-        /// <summary>
-        /// Schema name: ScalarTransportResultControl
-        /// </summary>
-        /// <value>Schema name: ScalarTransportResultControl</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -127,7 +118,6 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScalarTransportResultControl {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  DiffusionCoefficient: ").Append(DiffusionCoefficient).Append("\n");
             sb.Append("  VolumeMode: ").Append(VolumeMode).Append("\n");
@@ -169,11 +159,6 @@ namespace SimScale.Sdk.Model
                 return false;
 
             return 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -220,8 +205,6 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.DiffusionCoefficient != null)

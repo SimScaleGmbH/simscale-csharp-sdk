@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// HystereticDamping
+    /// &lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. 
     /// </summary>
     [DataContract]
     public partial class HystereticDamping : OneOfLinearElasticMaterialBehaviorDamping, IEquatable<HystereticDamping>
@@ -36,8 +36,8 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HystereticDamping" /> class.
         /// </summary>
-        /// <param name="type">Schema name: HystereticDamping (required) (default to &quot;HYSTERETIC&quot;).</param>
-        /// <param name="hystereticCoefficient">hystereticCoefficient (default to 0M).</param>
+        /// <param name="type">&lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: HystereticDamping (required) (default to &quot;HYSTERETIC&quot;).</param>
+        /// <param name="hystereticCoefficient">&lt;p&gt;Set the hysteretic damping coefficient &lt;b&gt;&amp;kappa;&lt;/b&gt; of the material. The system equation is then: &lt;b&gt;M*ü+K*(1+i*&amp;kappa;)*u &#x3D; f&lt;/b&gt;.&lt;/p&gt; (default to 0M).</param>
         public HystereticDamping(string type = "HYSTERETIC", decimal? hystereticCoefficient = default(decimal?))
         {
             // to ensure "type" is required (not null)
@@ -46,15 +46,16 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: HystereticDamping
+        /// &lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: HystereticDamping
         /// </summary>
-        /// <value>Schema name: HystereticDamping</value>
+        /// <value>&lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: HystereticDamping</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets HystereticCoefficient
+        /// &lt;p&gt;Set the hysteretic damping coefficient &lt;b&gt;&amp;kappa;&lt;/b&gt; of the material. The system equation is then: &lt;b&gt;M*ü+K*(1+i*&amp;kappa;)*u &#x3D; f&lt;/b&gt;.&lt;/p&gt;
         /// </summary>
+        /// <value>&lt;p&gt;Set the hysteretic damping coefficient &lt;b&gt;&amp;kappa;&lt;/b&gt; of the material. The system equation is then: &lt;b&gt;M*ü+K*(1+i*&amp;kappa;)*u &#x3D; f&lt;/b&gt;.&lt;/p&gt;</value>
         [DataMember(Name="hystereticCoefficient", EmitDefaultValue=false)]
         public decimal? HystereticCoefficient { get; set; }
 

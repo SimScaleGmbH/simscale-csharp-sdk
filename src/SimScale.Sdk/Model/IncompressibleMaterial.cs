@@ -75,8 +75,9 @@ namespace SimScale.Sdk.Model
         /// <param name="specificHeat">specificHeat.</param>
         /// <param name="molarWeight">molarWeight.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
+        /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
-        public IncompressibleMaterial(string type = "INCOMPRESSIBLE", string name = default(string), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), OneOfIncompressibleMaterialViscosityModel viscosityModel = default(OneOfIncompressibleMaterialViscosityModel), DimensionalDensity density = default(DimensionalDensity), DimensionalThermalExpansionRate thermalExpansionCoefficient = default(DimensionalThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature), decimal? laminarPrandtlNumber = default(decimal?), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalMolarMass molarWeight = default(DimensionalMolarMass), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string))
+        public IncompressibleMaterial(string type = "INCOMPRESSIBLE", string name = default(string), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), OneOfIncompressibleMaterialViscosityModel viscosityModel = default(OneOfIncompressibleMaterialViscosityModel), DimensionalDensity density = default(DimensionalDensity), DimensionalThermalExpansionRate thermalExpansionCoefficient = default(DimensionalThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature), decimal? laminarPrandtlNumber = default(decimal?), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalMolarMass molarWeight = default(DimensionalMolarMass), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IncompressibleMaterial and cannot be null");
@@ -91,6 +92,7 @@ namespace SimScale.Sdk.Model
             this.SpecificHeat = specificHeat;
             this.MolarWeight = molarWeight;
             this.TopologicalReference = topologicalReference;
+            this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
             this.BuiltInMaterial = builtInMaterial;
         }
         
@@ -164,6 +166,12 @@ namespace SimScale.Sdk.Model
         public TopologicalReference TopologicalReference { get; set; }
 
         /// <summary>
+        /// Gets or Sets GeometryPrimitiveUuids
+        /// </summary>
+        [DataMember(Name="geometryPrimitiveUuids", EmitDefaultValue=false)]
+        public List<Guid?> GeometryPrimitiveUuids { get; set; }
+
+        /// <summary>
         /// Gets or Sets BuiltInMaterial
         /// </summary>
         [DataMember(Name="builtInMaterial", EmitDefaultValue=false)]
@@ -189,6 +197,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  SpecificHeat: ").Append(SpecificHeat).Append("\n");
             sb.Append("  MolarWeight: ").Append(MolarWeight).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
+            sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -284,6 +293,12 @@ namespace SimScale.Sdk.Model
                     this.TopologicalReference.Equals(input.TopologicalReference))
                 ) && 
                 (
+                    this.GeometryPrimitiveUuids == input.GeometryPrimitiveUuids ||
+                    this.GeometryPrimitiveUuids != null &&
+                    input.GeometryPrimitiveUuids != null &&
+                    this.GeometryPrimitiveUuids.SequenceEqual(input.GeometryPrimitiveUuids)
+                ) && 
+                (
                     this.BuiltInMaterial == input.BuiltInMaterial ||
                     (this.BuiltInMaterial != null &&
                     this.BuiltInMaterial.Equals(input.BuiltInMaterial))
@@ -322,6 +337,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MolarWeight.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
+                if (this.GeometryPrimitiveUuids != null)
+                    hashCode = hashCode * 59 + this.GeometryPrimitiveUuids.GetHashCode();
                 if (this.BuiltInMaterial != null)
                     hashCode = hashCode * 59 + this.BuiltInMaterial.GetHashCode();
                 return hashCode;

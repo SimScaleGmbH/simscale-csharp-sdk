@@ -34,6 +34,7 @@ class IncompressibleLbmExample
         HashSet<Status> terminalStatuses = new HashSet<Status> {Status.FINISHED, Status.CANCELED, Status.FAILED};
         Stopwatch stopWatch = new Stopwatch();
         stopWatch.Restart();
+        var failedTries = 0;
 
         // Create project
         var project = new Project(
@@ -68,6 +69,7 @@ class IncompressibleLbmExample
         var geometryImport = geometryImportApi.ImportGeometry(projectId, geometryImportRequest);
         var geometryImportId = geometryImport.GeometryImportId;
         stopWatch.Restart();
+        failedTries = 0;
         while(!terminalStatuses.Contains(geometryImport.Status))
         {
             // adjust timeout for larger geometries
@@ -76,8 +78,9 @@ class IncompressibleLbmExample
                 throw new TimeoutException();
             }
             Thread.Sleep(10000);
-            geometryImport = geometryImportApi.GetGeometryImport(projectId, geometryImportId);
-            Console.WriteLine("Geometry import status: " + geometryImport.Status);
+            geometryImport = geometryImportApi.GetGeometryImport(projectId, geometryImportId) ??
+                (++failedTries > 5 ? throw new Exception("HTTP request failed too many times.") : geometryImport);
+            Console.WriteLine("Geometry import status: " + geometryImport?.Status);
         }
         var geometryId = geometryImport.GeometryId;
         Console.WriteLine("geometryId: " + geometryId);
@@ -256,7 +259,7 @@ class IncompressibleLbmExample
                 primaryTopology: new Region(geometryPrimitiveUuids: new List<Guid?> {meshRegionUuid})
             )
         );
-        var simulationSpec = new SimulationSpec(name: "Incompressible LBM", geometryId: geometryId, model: model);
+        var simulationSpec = new SimulationSpec(name: "Incompressible LBM via CSharp SDK", geometryId: geometryId, model: model);
 
         // Create simulation
         var simulationId = simulationApi.CreateSimulation(projectId, simulationSpec).SimulationId;
@@ -286,7 +289,7 @@ class IncompressibleLbmExample
             var estimationResult = simulationApi.EstimateSimulationSetup(projectId, simulationId);
             Console.WriteLine("Simulation estimation: " + estimationResult);
             maxRuntime = System.Xml.XmlConvert.ToTimeSpan(estimationResult.Duration.IntervalMax).TotalSeconds;
-            maxRuntime = maxRuntime + 600; // 10 min buffer
+            maxRuntime = Math.Max(3600, maxRuntime * 2);
         }
         catch (ApiException ae)
         {
@@ -315,6 +318,7 @@ class IncompressibleLbmExample
         simulationRunApi.StartSimulationRun(projectId, simulationId, runId);
         run = simulationRunApi.GetSimulationRun(projectId, simulationId, runId);
         stopWatch.Restart();
+        failedTries = 0;
         while(!terminalStatuses.Contains(run.Status??Status.READY))
         {
             if(stopWatch.Elapsed.TotalSeconds > maxRuntime)
@@ -322,8 +326,9 @@ class IncompressibleLbmExample
                 throw new TimeoutException();
             }
             Thread.Sleep(30000);
-            run = simulationRunApi.GetSimulationRun(projectId, simulationId, runId);
-            Console.WriteLine("Simulation run status: " + run.Status + " - " + run.Progress);
+            run = simulationRunApi.GetSimulationRun(projectId, simulationId, runId) ??
+                (++failedTries > 5 ? throw new Exception("HTTP request failed too many times.") : run);
+            Console.WriteLine("Simulation run status: " + run?.Status + " - " + run?.Progress);
         }
 
         // Get result metadata and download results

@@ -70,7 +70,7 @@ namespace SimScale.Sdk.Model
         /// <param name="meshSettings">meshSettings.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="advancedConcepts">advancedConcepts.</param>
-        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", SimericsFluidMaterials materials = default(SimericsFluidMaterials), bool? isCompressible = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), FluidSimulationControl simulationControl = default(FluidSimulationControl), ManualSimericsMeshSettings meshSettings = default(ManualSimericsMeshSettings), FluidResultControls resultControl = default(FluidResultControls), AdvancedConcepts advancedConcepts = default(AdvancedConcepts))
+        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", SimericsFluidMaterials materials = default(SimericsFluidMaterials), bool? isCompressible = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), FluidSimulationControl simulationControl = default(FluidSimulationControl), OneOfSimericsAnalysisMeshSettings meshSettings = default(OneOfSimericsAnalysisMeshSettings), FluidResultControls resultControl = default(FluidResultControls), AdvancedConcepts advancedConcepts = default(AdvancedConcepts))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimericsAnalysis and cannot be null");
@@ -119,7 +119,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets MeshSettings
         /// </summary>
         [DataMember(Name="meshSettings", EmitDefaultValue=false)]
-        public ManualSimericsMeshSettings MeshSettings { get; set; }
+        public OneOfSimericsAnalysisMeshSettings MeshSettings { get; set; }
 
         /// <summary>
         /// Gets or Sets ResultControl

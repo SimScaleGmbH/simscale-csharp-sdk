@@ -23,33 +23,41 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// RefinementLevel
+    /// NumberOfCellsPerDirection
     /// </summary>
     [DataContract]
-    public partial class RefinementLevel : IEquatable<RefinementLevel>
+    public partial class NumberOfCellsPerDirection : IEquatable<NumberOfCellsPerDirection>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RefinementLevel" /> class.
+        /// Initializes a new instance of the <see cref="NumberOfCellsPerDirection" /> class.
         /// </summary>
-        /// <param name="distance">distance.</param>
-        /// <param name="level">level (default to 1).</param>
-        public RefinementLevel(DimensionalLength distance = default(DimensionalLength), int? level = default(int?))
+        /// <param name="x">x (default to 40).</param>
+        /// <param name="y">y (default to 40).</param>
+        /// <param name="z">z (default to 40).</param>
+        public NumberOfCellsPerDirection(int? x = default(int?), int? y = default(int?), int? z = default(int?))
         {
-            this.Distance = distance;
-            this.Level = level;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
         }
         
         /// <summary>
-        /// Gets or Sets Distance
+        /// Gets or Sets X
         /// </summary>
-        [DataMember(Name="distance", EmitDefaultValue=false)]
-        public DimensionalLength Distance { get; set; }
+        [DataMember(Name="x", EmitDefaultValue=false)]
+        public int? X { get; set; }
 
         /// <summary>
-        /// Gets or Sets Level
+        /// Gets or Sets Y
         /// </summary>
-        [DataMember(Name="level", EmitDefaultValue=false)]
-        public int? Level { get; set; }
+        [DataMember(Name="y", EmitDefaultValue=false)]
+        public int? Y { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Z
+        /// </summary>
+        [DataMember(Name="z", EmitDefaultValue=false)]
+        public int? Z { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +66,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RefinementLevel {\n");
-            sb.Append("  Distance: ").Append(Distance).Append("\n");
-            sb.Append("  Level: ").Append(Level).Append("\n");
+            sb.Append("class NumberOfCellsPerDirection {\n");
+            sb.Append("  X: ").Append(X).Append("\n");
+            sb.Append("  Y: ").Append(Y).Append("\n");
+            sb.Append("  Z: ").Append(Z).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,29 +90,34 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RefinementLevel);
+            return this.Equals(input as NumberOfCellsPerDirection);
         }
 
         /// <summary>
-        /// Returns true if RefinementLevel instances are equal
+        /// Returns true if NumberOfCellsPerDirection instances are equal
         /// </summary>
-        /// <param name="input">Instance of RefinementLevel to be compared</param>
+        /// <param name="input">Instance of NumberOfCellsPerDirection to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RefinementLevel input)
+        public bool Equals(NumberOfCellsPerDirection input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Distance == input.Distance ||
-                    (this.Distance != null &&
-                    this.Distance.Equals(input.Distance))
+                    this.X == input.X ||
+                    (this.X != null &&
+                    this.X.Equals(input.X))
                 ) && 
                 (
-                    this.Level == input.Level ||
-                    (this.Level != null &&
-                    this.Level.Equals(input.Level))
+                    this.Y == input.Y ||
+                    (this.Y != null &&
+                    this.Y.Equals(input.Y))
+                ) && 
+                (
+                    this.Z == input.Z ||
+                    (this.Z != null &&
+                    this.Z.Equals(input.Z))
                 );
         }
 
@@ -116,10 +130,12 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Distance != null)
-                    hashCode = hashCode * 59 + this.Distance.GetHashCode();
-                if (this.Level != null)
-                    hashCode = hashCode * 59 + this.Level.GetHashCode();
+                if (this.X != null)
+                    hashCode = hashCode * 59 + this.X.GetHashCode();
+                if (this.Y != null)
+                    hashCode = hashCode * 59 + this.Y.GetHashCode();
+                if (this.Z != null)
+                    hashCode = hashCode * 59 + this.Z.GetHashCode();
                 return hashCode;
             }
         }

@@ -31,16 +31,14 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SolidCompressibleMaterial" /> class.
         /// </summary>
-        /// <param name="type">Schema name: SolidCompressibleMaterial (default to &quot;COMPRESSIBLE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="specie">specie.</param>
         /// <param name="transport">transport.</param>
         /// <param name="emissivity">emissivity (default to 0.9M).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
-        public SolidCompressibleMaterial(string type = default(string), string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfSolidCompressibleMaterialTransport transport = default(OneOfSolidCompressibleMaterialTransport), decimal? emissivity = default(decimal?), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string))
+        public SolidCompressibleMaterial(string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfSolidCompressibleMaterialTransport transport = default(OneOfSolidCompressibleMaterialTransport), decimal? emissivity = default(decimal?), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string))
         {
-            this.Type = type;
             this.Name = name;
             this.Specie = specie;
             this.Transport = transport;
@@ -49,13 +47,6 @@ namespace SimScale.Sdk.Model
             this.BuiltInMaterial = builtInMaterial;
         }
         
-        /// <summary>
-        /// Schema name: SolidCompressibleMaterial
-        /// </summary>
-        /// <value>Schema name: SolidCompressibleMaterial</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -100,7 +91,6 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SolidCompressibleMaterial {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Specie: ").Append(Specie).Append("\n");
             sb.Append("  Transport: ").Append(Transport).Append("\n");
@@ -142,11 +132,6 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -187,8 +172,6 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Specie != null)

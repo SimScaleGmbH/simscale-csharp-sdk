@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// ManualSimericsMeshSettings
     /// </summary>
     [DataContract]
-    public partial class ManualSimericsMeshSettings : IEquatable<ManualSimericsMeshSettings>
+    public partial class ManualSimericsMeshSettings : OneOfSimericsAnalysisMeshSettings, IEquatable<ManualSimericsMeshSettings>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualSimericsMeshSettings" /> class.
