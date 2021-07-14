@@ -99,7 +99,8 @@ namespace SimScale.Sdk.Model
         /// <param name="maxRunTime">maxRunTime.</param>
         /// <param name="potentialFoamInitialization">This setting activates the solution of a potential flow field. The potential flow is used as initial condition for the actual simulation. This can accelerate convergence and improve stability during the first time steps. If you experience stability problems, this setting may bring some improvement. (default to false).</param>
         /// <param name="decomposeAlgorithm">decomposeAlgorithm.</param>
-        public FluidSimulationControl(DimensionalTime endTime = default(DimensionalTime), int? numberOfIterations = default(int?), DimensionalTime deltaT = default(DimensionalTime), OneOfFluidSimulationControlAdjustableTimestep adjustableTimestep = default(OneOfFluidSimulationControlAdjustableTimestep), OneOfFluidSimulationControlWriteControl writeControl = default(OneOfFluidSimulationControlWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), bool? potentialFoamInitialization = default(bool?), OneOfFluidSimulationControlDecomposeAlgorithm decomposeAlgorithm = default(OneOfFluidSimulationControlDecomposeAlgorithm))
+        /// <param name="relativeConvergenceCriteria">The simulation is assumed to be converged and will stop if the relative residuals for all equations fall below this number. Relative residual is defined as the residual in the current iteration divided by the initial residual. (default to 0.001M).</param>
+        public FluidSimulationControl(DimensionalTime endTime = default(DimensionalTime), int? numberOfIterations = default(int?), DimensionalTime deltaT = default(DimensionalTime), OneOfFluidSimulationControlAdjustableTimestep adjustableTimestep = default(OneOfFluidSimulationControlAdjustableTimestep), OneOfFluidSimulationControlWriteControl writeControl = default(OneOfFluidSimulationControlWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), bool? potentialFoamInitialization = default(bool?), OneOfFluidSimulationControlDecomposeAlgorithm decomposeAlgorithm = default(OneOfFluidSimulationControlDecomposeAlgorithm), decimal? relativeConvergenceCriteria = default(decimal?))
         {
             this.EndTime = endTime;
             this.NumberOfIterations = numberOfIterations;
@@ -110,6 +111,7 @@ namespace SimScale.Sdk.Model
             this.MaxRunTime = maxRunTime;
             this.PotentialFoamInitialization = potentialFoamInitialization;
             this.DecomposeAlgorithm = decomposeAlgorithm;
+            this.RelativeConvergenceCriteria = relativeConvergenceCriteria;
         }
         
         /// <summary>
@@ -163,6 +165,13 @@ namespace SimScale.Sdk.Model
         public OneOfFluidSimulationControlDecomposeAlgorithm DecomposeAlgorithm { get; set; }
 
         /// <summary>
+        /// The simulation is assumed to be converged and will stop if the relative residuals for all equations fall below this number. Relative residual is defined as the residual in the current iteration divided by the initial residual.
+        /// </summary>
+        /// <value>The simulation is assumed to be converged and will stop if the relative residuals for all equations fall below this number. Relative residual is defined as the residual in the current iteration divided by the initial residual.</value>
+        [DataMember(Name="relativeConvergenceCriteria", EmitDefaultValue=false)]
+        public decimal? RelativeConvergenceCriteria { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -179,6 +188,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
             sb.Append("  PotentialFoamInitialization: ").Append(PotentialFoamInitialization).Append("\n");
             sb.Append("  DecomposeAlgorithm: ").Append(DecomposeAlgorithm).Append("\n");
+            sb.Append("  RelativeConvergenceCriteria: ").Append(RelativeConvergenceCriteria).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +266,11 @@ namespace SimScale.Sdk.Model
                     this.DecomposeAlgorithm == input.DecomposeAlgorithm ||
                     (this.DecomposeAlgorithm != null &&
                     this.DecomposeAlgorithm.Equals(input.DecomposeAlgorithm))
+                ) && 
+                (
+                    this.RelativeConvergenceCriteria == input.RelativeConvergenceCriteria ||
+                    (this.RelativeConvergenceCriteria != null &&
+                    this.RelativeConvergenceCriteria.Equals(input.RelativeConvergenceCriteria))
                 );
         }
 
@@ -285,6 +300,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PotentialFoamInitialization.GetHashCode();
                 if (this.DecomposeAlgorithm != null)
                     hashCode = hashCode * 59 + this.DecomposeAlgorithm.GetHashCode();
+                if (this.RelativeConvergenceCriteria != null)
+                    hashCode = hashCode * 59 + this.RelativeConvergenceCriteria.GetHashCode();
                 return hashCode;
             }
         }

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// &lt;p&gt;Choose how the nonlinearities are solved. Currently for direct solvers only the Newton-Raphson method is available via the selection &lt;b&gt;Newton&lt;/b&gt;. For iterative solvers also an inexact version of the Newton-Raphson method is available via the selection &lt;b&gt;Newton-Krylov&lt;/b&gt;.&lt;/p&gt;
     /// </summary>
     [DataContract]
-    public partial class NewtonResolutionType : OneOfSolidNumericsMechanicalResolutionType, IEquatable<NewtonResolutionType>
+    public partial class NewtonResolutionType : OneOfSolidNumericsMechanicalResolutionType, OneOfSolidNumericsThermalResolutionType, IEquatable<NewtonResolutionType>
     {
         /// <summary>
         /// &lt;p&gt;Select which stiffnes matrix should be used in the prediction phase of the Newton method. A good choice leads to a good starting point for the first Newton iteration and thus a faster convergence.&lt;/p&gt;

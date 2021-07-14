@@ -42,7 +42,7 @@ namespace SimScale.Sdk.Model
         /// <param name="thermalTimeIntegrationType">thermalTimeIntegrationType.</param>
         /// <param name="thermalResolutionType">thermalResolutionType.</param>
         /// <param name="thermalLineSearch">thermalLineSearch.</param>
-        public SolidNumerics(OneOfSolidNumericsSolver solver = default(OneOfSolidNumericsSolver), Object solveModel = default(Object), OneOfSolidNumericsEigenSolver eigenSolver = default(OneOfSolidNumericsEigenSolver), CalculateFrequency calculateFrequency = default(CalculateFrequency), EigenModeVerification eigenMode = default(EigenModeVerification), OneOfSolidNumericsMechanicalTimeIntegrationType mechanicalTimeIntegrationType = default(OneOfSolidNumericsMechanicalTimeIntegrationType), OneOfSolidNumericsMechanicalResolutionType mechanicalResolutionType = default(OneOfSolidNumericsMechanicalResolutionType), OneOfSolidNumericsMechanicalLineSearch mechanicalLineSearch = default(OneOfSolidNumericsMechanicalLineSearch), ThetaMethodTimeIntegrationType thermalTimeIntegrationType = default(ThetaMethodTimeIntegrationType), NewtonResolutionType thermalResolutionType = default(NewtonResolutionType), OneOfSolidNumericsThermalLineSearch thermalLineSearch = default(OneOfSolidNumericsThermalLineSearch))
+        public SolidNumerics(OneOfSolidNumericsSolver solver = default(OneOfSolidNumericsSolver), Object solveModel = default(Object), OneOfSolidNumericsEigenSolver eigenSolver = default(OneOfSolidNumericsEigenSolver), CalculateFrequency calculateFrequency = default(CalculateFrequency), EigenModeVerification eigenMode = default(EigenModeVerification), OneOfSolidNumericsMechanicalTimeIntegrationType mechanicalTimeIntegrationType = default(OneOfSolidNumericsMechanicalTimeIntegrationType), OneOfSolidNumericsMechanicalResolutionType mechanicalResolutionType = default(OneOfSolidNumericsMechanicalResolutionType), OneOfSolidNumericsMechanicalLineSearch mechanicalLineSearch = default(OneOfSolidNumericsMechanicalLineSearch), ThetaMethodTimeIntegrationType thermalTimeIntegrationType = default(ThetaMethodTimeIntegrationType), OneOfSolidNumericsThermalResolutionType thermalResolutionType = default(OneOfSolidNumericsThermalResolutionType), OneOfSolidNumericsThermalLineSearch thermalLineSearch = default(OneOfSolidNumericsThermalLineSearch))
         {
             this.Solver = solver;
             this.SolveModel = solveModel;
@@ -115,7 +115,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets ThermalResolutionType
         /// </summary>
         [DataMember(Name="thermalResolutionType", EmitDefaultValue=false)]
-        public NewtonResolutionType ThermalResolutionType { get; set; }
+        public OneOfSolidNumericsThermalResolutionType ThermalResolutionType { get; set; }
 
         /// <summary>
         /// Gets or Sets ThermalLineSearch

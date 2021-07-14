@@ -62,7 +62,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FluidNumerics" /> class.
         /// </summary>
-        /// <param name="relaxationType">relaxationType (default to &quot;AUTOMATIC&quot;).</param>
+        /// <param name="relaxationType">relaxationType (default to &quot;MANUAL&quot;).</param>
         /// <param name="relaxationFactor">relaxationFactor.</param>
         /// <param name="radiationResolution">radiationResolution (default to RadiationResolutionEnum.MODERATE).</param>
         /// <param name="momentumPredictor">momentumPredictor.</param>

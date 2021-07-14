@@ -37,14 +37,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="RayleighDamping" /> class.
         /// </summary>
         /// <param name="type">&lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: RayleighDamping (required) (default to &quot;RAYLEIGH&quot;).</param>
-        /// <param name="alphaCoefficient">alphaCoefficient.</param>
-        /// <param name="betaDamping">betaDamping.</param>
-        public RayleighDamping(string type = "RAYLEIGH", DimensionalDampingCoefficient alphaCoefficient = default(DimensionalDampingCoefficient), DimensionalTime betaDamping = default(DimensionalTime))
+        /// <param name="stiffnessProportionalCoefficient">stiffnessProportionalCoefficient.</param>
+        /// <param name="massProportionalCoefficient">massProportionalCoefficient.</param>
+        public RayleighDamping(string type = "RAYLEIGH", DimensionalTime stiffnessProportionalCoefficient = default(DimensionalTime), DimensionalFrequency massProportionalCoefficient = default(DimensionalFrequency))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RayleighDamping and cannot be null");
-            this.AlphaCoefficient = alphaCoefficient;
-            this.BetaDamping = betaDamping;
+            this.StiffnessProportionalCoefficient = stiffnessProportionalCoefficient;
+            this.MassProportionalCoefficient = massProportionalCoefficient;
         }
         
         /// <summary>
@@ -55,16 +55,16 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets AlphaCoefficient
+        /// Gets or Sets StiffnessProportionalCoefficient
         /// </summary>
-        [DataMember(Name="alphaCoefficient", EmitDefaultValue=false)]
-        public DimensionalDampingCoefficient AlphaCoefficient { get; set; }
+        [DataMember(Name="stiffnessProportionalCoefficient", EmitDefaultValue=false)]
+        public DimensionalTime StiffnessProportionalCoefficient { get; set; }
 
         /// <summary>
-        /// Gets or Sets BetaDamping
+        /// Gets or Sets MassProportionalCoefficient
         /// </summary>
-        [DataMember(Name="betaDamping", EmitDefaultValue=false)]
-        public DimensionalTime BetaDamping { get; set; }
+        [DataMember(Name="massProportionalCoefficient", EmitDefaultValue=false)]
+        public DimensionalFrequency MassProportionalCoefficient { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,8 +75,8 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class RayleighDamping {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  AlphaCoefficient: ").Append(AlphaCoefficient).Append("\n");
-            sb.Append("  BetaDamping: ").Append(BetaDamping).Append("\n");
+            sb.Append("  StiffnessProportionalCoefficient: ").Append(StiffnessProportionalCoefficient).Append("\n");
+            sb.Append("  MassProportionalCoefficient: ").Append(MassProportionalCoefficient).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,14 +117,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.AlphaCoefficient == input.AlphaCoefficient ||
-                    (this.AlphaCoefficient != null &&
-                    this.AlphaCoefficient.Equals(input.AlphaCoefficient))
+                    this.StiffnessProportionalCoefficient == input.StiffnessProportionalCoefficient ||
+                    (this.StiffnessProportionalCoefficient != null &&
+                    this.StiffnessProportionalCoefficient.Equals(input.StiffnessProportionalCoefficient))
                 ) && 
                 (
-                    this.BetaDamping == input.BetaDamping ||
-                    (this.BetaDamping != null &&
-                    this.BetaDamping.Equals(input.BetaDamping))
+                    this.MassProportionalCoefficient == input.MassProportionalCoefficient ||
+                    (this.MassProportionalCoefficient != null &&
+                    this.MassProportionalCoefficient.Equals(input.MassProportionalCoefficient))
                 );
         }
 
@@ -139,10 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.AlphaCoefficient != null)
-                    hashCode = hashCode * 59 + this.AlphaCoefficient.GetHashCode();
-                if (this.BetaDamping != null)
-                    hashCode = hashCode * 59 + this.BetaDamping.GetHashCode();
+                if (this.StiffnessProportionalCoefficient != null)
+                    hashCode = hashCode * 59 + this.StiffnessProportionalCoefficient.GetHashCode();
+                if (this.MassProportionalCoefficient != null)
+                    hashCode = hashCode * 59 + this.MassProportionalCoefficient.GetHashCode();
                 return hashCode;
             }
         }

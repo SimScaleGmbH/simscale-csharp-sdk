@@ -31,8 +31,8 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tolerance" /> class.
         /// </summary>
-        /// <param name="absoluteTolerance">Absolute Tolerance is the measure of residual (or error) in the solution after the current iteration is solved. The iteration is stopped when the absolute residual falls below this value. (default to 0.000010M).</param>
-        /// <param name="relativeTolerance">Relative tolerance is the ratio of current residual to initial residual. The iteration is stopped when the relative residual falls below this value. (default to 0.01M).</param>
+        /// <param name="absoluteTolerance">Absolute tolerance is the measure of residual in the solution after the current iteration is solved. The solution is stopped when the absolute residual falls below this value. (default to 0.000010M).</param>
+        /// <param name="relativeTolerance">Relative tolerance is the ratio of current residual to the initial residual. The solution is stopped when the relative residual falls below this value. (default to 0.01M).</param>
         public Tolerance(decimal? absoluteTolerance = default(decimal?), decimal? relativeTolerance = default(decimal?))
         {
             this.AbsoluteTolerance = absoluteTolerance;
@@ -40,16 +40,16 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Absolute Tolerance is the measure of residual (or error) in the solution after the current iteration is solved. The iteration is stopped when the absolute residual falls below this value.
+        /// Absolute tolerance is the measure of residual in the solution after the current iteration is solved. The solution is stopped when the absolute residual falls below this value.
         /// </summary>
-        /// <value>Absolute Tolerance is the measure of residual (or error) in the solution after the current iteration is solved. The iteration is stopped when the absolute residual falls below this value.</value>
+        /// <value>Absolute tolerance is the measure of residual in the solution after the current iteration is solved. The solution is stopped when the absolute residual falls below this value.</value>
         [DataMember(Name="absoluteTolerance", EmitDefaultValue=false)]
         public decimal? AbsoluteTolerance { get; set; }
 
         /// <summary>
-        /// Relative tolerance is the ratio of current residual to initial residual. The iteration is stopped when the relative residual falls below this value.
+        /// Relative tolerance is the ratio of current residual to the initial residual. The solution is stopped when the relative residual falls below this value.
         /// </summary>
-        /// <value>Relative tolerance is the ratio of current residual to initial residual. The iteration is stopped when the relative residual falls below this value.</value>
+        /// <value>Relative tolerance is the ratio of current residual to the initial residual. The solution is stopped when the relative residual falls below this value.</value>
         [DataMember(Name="relativeTolerance", EmitDefaultValue=false)]
         public decimal? RelativeTolerance { get; set; }
 

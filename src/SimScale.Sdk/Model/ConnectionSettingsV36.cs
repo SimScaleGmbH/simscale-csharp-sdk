@@ -38,8 +38,7 @@ namespace SimScale.Sdk.Model
         /// <param name="contactSmoothing">contactSmoothing (default to false).</param>
         /// <param name="stopIfInterpenetration">stopIfInterpenetration (default to false).</param>
         /// <param name="verifyNorms">verifyNorms (default to true).</param>
-        /// <param name="enableHeatTransfer">enableHeatTransfer (default to false).</param>
-        public ConnectionSettingsV36(OneOfConnectionSettingsV36NonlinearityResolution nonlinearityResolution = default(OneOfConnectionSettingsV36NonlinearityResolution), OneOfConnectionSettingsV36Friction friction = default(OneOfConnectionSettingsV36Friction), OneOfConnectionSettingsV36ContactNonLinearityResolution contactNonLinearityResolution = default(OneOfConnectionSettingsV36ContactNonLinearityResolution), bool? convergenceStabilization = default(bool?), bool? contactSmoothing = default(bool?), bool? stopIfInterpenetration = default(bool?), bool? verifyNorms = default(bool?), bool? enableHeatTransfer = default(bool?))
+        public ConnectionSettingsV36(OneOfConnectionSettingsV36NonlinearityResolution nonlinearityResolution = default(OneOfConnectionSettingsV36NonlinearityResolution), OneOfConnectionSettingsV36Friction friction = default(OneOfConnectionSettingsV36Friction), OneOfConnectionSettingsV36ContactNonLinearityResolution contactNonLinearityResolution = default(OneOfConnectionSettingsV36ContactNonLinearityResolution), bool? convergenceStabilization = default(bool?), bool? contactSmoothing = default(bool?), bool? stopIfInterpenetration = default(bool?), bool? verifyNorms = default(bool?))
         {
             this.NonlinearityResolution = nonlinearityResolution;
             this.Friction = friction;
@@ -48,7 +47,6 @@ namespace SimScale.Sdk.Model
             this.ContactSmoothing = contactSmoothing;
             this.StopIfInterpenetration = stopIfInterpenetration;
             this.VerifyNorms = verifyNorms;
-            this.EnableHeatTransfer = enableHeatTransfer;
         }
         
         /// <summary>
@@ -94,12 +92,6 @@ namespace SimScale.Sdk.Model
         public bool? VerifyNorms { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableHeatTransfer
-        /// </summary>
-        [DataMember(Name="enableHeatTransfer", EmitDefaultValue=false)]
-        public bool? EnableHeatTransfer { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,7 +106,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  ContactSmoothing: ").Append(ContactSmoothing).Append("\n");
             sb.Append("  StopIfInterpenetration: ").Append(StopIfInterpenetration).Append("\n");
             sb.Append("  VerifyNorms: ").Append(VerifyNorms).Append("\n");
-            sb.Append("  EnableHeatTransfer: ").Append(EnableHeatTransfer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,11 +174,6 @@ namespace SimScale.Sdk.Model
                     this.VerifyNorms == input.VerifyNorms ||
                     (this.VerifyNorms != null &&
                     this.VerifyNorms.Equals(input.VerifyNorms))
-                ) && 
-                (
-                    this.EnableHeatTransfer == input.EnableHeatTransfer ||
-                    (this.EnableHeatTransfer != null &&
-                    this.EnableHeatTransfer.Equals(input.EnableHeatTransfer))
                 );
         }
 
@@ -214,8 +200,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.StopIfInterpenetration.GetHashCode();
                 if (this.VerifyNorms != null)
                     hashCode = hashCode * 59 + this.VerifyNorms.GetHashCode();
-                if (this.EnableHeatTransfer != null)
-                    hashCode = hashCode * 59 + this.EnableHeatTransfer.GetHashCode();
                 return hashCode;
             }
         }

@@ -37,11 +37,13 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SimulationRunResultTable" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;TABLE&quot;).</param>
+        /// <param name="resultId">The result ID.</param>
         /// <param name="download">download.</param>
-        public SimulationRunResultTable(string type = "TABLE", SimulationRunResultDownload download = default(SimulationRunResultDownload))
+        public SimulationRunResultTable(string type = "TABLE", Guid? resultId = default(Guid?), SimulationRunResultDownload download = default(SimulationRunResultDownload))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimulationRunResultTable and cannot be null");
+            this.ResultId = resultId;
             this.Download = download;
         }
         
@@ -50,6 +52,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// The result ID
+        /// </summary>
+        /// <value>The result ID</value>
+        [DataMember(Name="resultId", EmitDefaultValue=false)]
+        public Guid? ResultId { get; set; }
 
         /// <summary>
         /// The result category. For solution fields values include &#x60;SOLUTION&#x60;, &#x60;AVERAGED_SOLUTION&#x60;, &#x60;TRANSIENT_SOLUTION&#x60;, &#x60;STATISTICAL_SURFACE_SOLUTION&#x60;, etc. For convergence plots values include &#x60;RESIDUALS_PLOT&#x60;, &#x60;NUMBER_OF_NEWTON_ITERATIONS&#x60;, etc. For plots values include &#x60;FORCE_PLOT&#x60;, &#x60;FORCE_COEFFICIENTS_PLOT&#x60;, &#x60;PROBE_POINT_PLOT&#x60;, &#x60;AREA_AVERAGE&#x60;, &#x60;FACE_CALC&#x60;, etc. 
@@ -94,6 +103,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class SimulationRunResultTable {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  ResultId: ").Append(ResultId).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -139,6 +149,11 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.ResultId == input.ResultId ||
+                    (this.ResultId != null &&
+                    this.ResultId.Equals(input.ResultId))
+                ) && 
+                (
                     this.Category == input.Category ||
                     (this.Category != null &&
                     this.Category.Equals(input.Category))
@@ -176,6 +191,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.ResultId != null)
+                    hashCode = hashCode * 59 + this.ResultId.GetHashCode();
                 if (this.Category != null)
                     hashCode = hashCode * 59 + this.Category.GetHashCode();
                 if (this.Direction != null)
