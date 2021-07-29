@@ -223,9 +223,9 @@ class PedestrianWindComfortExample
         }
 
         // Get result metadata and download results
-        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(projectId, simulationId, runId);
+        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(projectId, simulationId, runId, null, null, SimulationRunResultType.SOLUTIONFIELD, "STATISTICAL_SURFACE_SOLUTION", null, null, null);
         // Download averaged solution
-        var statisticalSurfaceSolutionInfo = results.Embedded.Where(r => r.Type == "SOLUTION_FIELD").Select(r => (SimulationRunResultSolution)r).Where(r => r.Category == "STATISTICAL_SURFACE_SOLUTION").ToList()[0];
+        var statisticalSurfaceSolutionInfo = (SimulationRunResultSolution) results.Embedded[0];
         var statisticalSurfaceSolutionRequest = new RestRequest(statisticalSurfaceSolutionInfo.Download.Url, Method.GET);
         statisticalSurfaceSolutionRequest.AddHeader(API_KEY_HEADER, API_KEY);
         using (var writer = File.OpenWrite(@"statistical_surface_solution.zip"))

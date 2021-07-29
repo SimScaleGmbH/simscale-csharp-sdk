@@ -38,7 +38,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">&lt;p&gt;Select the event for the time step adaptation. Currently there are four different events possible that trigger a time step adaptation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Error&lt;/b&gt;: This is the case of a general error like for example non-convergence or singular matrix errors.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Collision&lt;/b&gt;: This event is triggered if in a computation with physical contact a contact state change from open to closed is noticed. This time step adaptation is especially useful in dynamics to reduce the effect of artificial oscillations due to inexact collision detection.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Field Change&lt;/b&gt;: The user can define the maximum delta that a field is allowed to change within one time step, if the defined threshold is exceeded the time step is adapted. This time stepping criteria is especially useful to capture material nonlinearitier more exact.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Non-monotonous residual&lt;/b&gt;: This event is triggered if the residual has not been reduced within three iterations . This criteria is mostly used to reduce runtime by detecting diverging time steps before reaching the maximum number of allowed newton iterations.&lt;/p&gt;&lt;/ul&gt;  Schema name: CollisionRetimingEvent (required) (default to &quot;COLLISION&quot;).</param>
         /// <param name="timestepCalculationType">timestepCalculationType.</param>
-        public CollisionRetimingEvent(string type = "COLLISION", OneOfCollisionRetimingEventTimestepCalculationType timestepCalculationType = default(OneOfCollisionRetimingEventTimestepCalculationType))
+        public CollisionRetimingEvent(string type = "COLLISION", ManualTimestepCalculationType timestepCalculationType = default(ManualTimestepCalculationType))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CollisionRetimingEvent and cannot be null");
@@ -56,7 +56,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets TimestepCalculationType
         /// </summary>
         [DataMember(Name="timestepCalculationType", EmitDefaultValue=false)]
-        public OneOfCollisionRetimingEventTimestepCalculationType TimestepCalculationType { get; set; }
+        public ManualTimestepCalculationType TimestepCalculationType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

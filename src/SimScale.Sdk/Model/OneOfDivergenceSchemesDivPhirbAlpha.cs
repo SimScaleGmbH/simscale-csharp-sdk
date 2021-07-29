@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;With this option, you can choose your desired divergence scheme: &lt;p&gt;Gauss&lt;/p&gt; is default.&lt;/p&gt;
+    /// &lt;p&gt;With this option, you can choose your desired divergence scheme.&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(GaussVanleerDivergenceScheme), "GAUSS_VANLEER")]

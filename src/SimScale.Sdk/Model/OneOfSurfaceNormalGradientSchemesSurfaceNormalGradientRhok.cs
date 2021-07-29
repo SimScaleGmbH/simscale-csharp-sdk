@@ -29,7 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(CorrectedSurfaceNormalGradientScheme), "CORRECTED")]
     [JsonSubtypes.KnownSubType(typeof(UncorrectedSurfaceNormalGradientScheme), "UNCORRECTED")]
-    [JsonSubtypes.KnownSubType(typeof(LimitedCorrectedSurfaceNormalGradientScheme), "LIMITED")]
+    [JsonSubtypes.KnownSubType(typeof(LimitedSurfaceNormalGradientScheme), "LIMITED")]
     public interface OneOfSurfaceNormalGradientSchemesSurfaceNormalGradientRhok
     {
         /// <summary>

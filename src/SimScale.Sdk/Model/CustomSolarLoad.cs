@@ -37,14 +37,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="CustomSolarLoad" /> class.
         /// </summary>
         /// <param name="type">Schema name: CustomSolarLoad (required) (default to &quot;CUSTOM_SOLAR_LOAD&quot;).</param>
-        /// <param name="directedSolarLoad">directedSolarLoad.</param>
-        /// <param name="diffusiveSolarLoad">diffusiveSolarLoad.</param>
-        public CustomSolarLoad(string type = "CUSTOM_SOLAR_LOAD", DimensionalHeatFlux directedSolarLoad = default(DimensionalHeatFlux), DimensionalHeatFlux diffusiveSolarLoad = default(DimensionalHeatFlux))
+        /// <param name="directSolarLoad">directSolarLoad.</param>
+        /// <param name="diffuseSolarLoad">diffuseSolarLoad.</param>
+        public CustomSolarLoad(string type = "CUSTOM_SOLAR_LOAD", DimensionalHeatFlux directSolarLoad = default(DimensionalHeatFlux), DimensionalHeatFlux diffuseSolarLoad = default(DimensionalHeatFlux))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CustomSolarLoad and cannot be null");
-            this.DirectedSolarLoad = directedSolarLoad;
-            this.DiffusiveSolarLoad = diffusiveSolarLoad;
+            this.DirectSolarLoad = directSolarLoad;
+            this.DiffuseSolarLoad = diffuseSolarLoad;
         }
         
         /// <summary>
@@ -55,16 +55,16 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets DirectedSolarLoad
+        /// Gets or Sets DirectSolarLoad
         /// </summary>
-        [DataMember(Name="directedSolarLoad", EmitDefaultValue=false)]
-        public DimensionalHeatFlux DirectedSolarLoad { get; set; }
+        [DataMember(Name="directSolarLoad", EmitDefaultValue=false)]
+        public DimensionalHeatFlux DirectSolarLoad { get; set; }
 
         /// <summary>
-        /// Gets or Sets DiffusiveSolarLoad
+        /// Gets or Sets DiffuseSolarLoad
         /// </summary>
-        [DataMember(Name="diffusiveSolarLoad", EmitDefaultValue=false)]
-        public DimensionalHeatFlux DiffusiveSolarLoad { get; set; }
+        [DataMember(Name="diffuseSolarLoad", EmitDefaultValue=false)]
+        public DimensionalHeatFlux DiffuseSolarLoad { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,8 +75,8 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class CustomSolarLoad {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  DirectedSolarLoad: ").Append(DirectedSolarLoad).Append("\n");
-            sb.Append("  DiffusiveSolarLoad: ").Append(DiffusiveSolarLoad).Append("\n");
+            sb.Append("  DirectSolarLoad: ").Append(DirectSolarLoad).Append("\n");
+            sb.Append("  DiffuseSolarLoad: ").Append(DiffuseSolarLoad).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,14 +117,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.DirectedSolarLoad == input.DirectedSolarLoad ||
-                    (this.DirectedSolarLoad != null &&
-                    this.DirectedSolarLoad.Equals(input.DirectedSolarLoad))
+                    this.DirectSolarLoad == input.DirectSolarLoad ||
+                    (this.DirectSolarLoad != null &&
+                    this.DirectSolarLoad.Equals(input.DirectSolarLoad))
                 ) && 
                 (
-                    this.DiffusiveSolarLoad == input.DiffusiveSolarLoad ||
-                    (this.DiffusiveSolarLoad != null &&
-                    this.DiffusiveSolarLoad.Equals(input.DiffusiveSolarLoad))
+                    this.DiffuseSolarLoad == input.DiffuseSolarLoad ||
+                    (this.DiffuseSolarLoad != null &&
+                    this.DiffuseSolarLoad.Equals(input.DiffuseSolarLoad))
                 );
         }
 
@@ -139,10 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.DirectedSolarLoad != null)
-                    hashCode = hashCode * 59 + this.DirectedSolarLoad.GetHashCode();
-                if (this.DiffusiveSolarLoad != null)
-                    hashCode = hashCode * 59 + this.DiffusiveSolarLoad.GetHashCode();
+                if (this.DirectSolarLoad != null)
+                    hashCode = hashCode * 59 + this.DirectSolarLoad.GetHashCode();
+                if (this.DiffuseSolarLoad != null)
+                    hashCode = hashCode * 59 + this.DiffuseSolarLoad.GetHashCode();
                 return hashCode;
             }
         }

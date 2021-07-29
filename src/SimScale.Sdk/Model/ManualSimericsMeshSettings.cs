@@ -41,7 +41,7 @@ namespace SimScale.Sdk.Model
         /// <param name="maximumCellSize">maximumCellSize.</param>
         /// <param name="cellSizeOnSurfaces">cellSizeOnSurfaces.</param>
         /// <param name="enableGrowthRate">enableGrowthRate (default to false).</param>
-        /// <param name="growthRate">The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between adjacent cells. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1, such that the cell size increases towards the interior of the mesh. &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simerics-mesh-growth-rate.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of each cell being 2 times thicker than its adjacent. (default to 2).</param>
+        /// <param name="growthRate">The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between interior cell size and surface cell size. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1 and smaller or equal to 8, such that the cell size increases towards the interior of the mesh. (default to 2).</param>
         public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", DimensionalLength minimumCellSize = default(DimensionalLength), DimensionalLength maximumCellSize = default(DimensionalLength), DimensionalLength cellSizeOnSurfaces = default(DimensionalLength), bool? enableGrowthRate = default(bool?), int? growthRate = default(int?))
         {
             // to ensure "type" is required (not null)
@@ -85,9 +85,9 @@ namespace SimScale.Sdk.Model
         public bool? EnableGrowthRate { get; set; }
 
         /// <summary>
-        /// The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between adjacent cells. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1, such that the cell size increases towards the interior of the mesh. &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simerics-mesh-growth-rate.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of each cell being 2 times thicker than its adjacent.
+        /// The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between interior cell size and surface cell size. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1 and smaller or equal to 8, such that the cell size increases towards the interior of the mesh.
         /// </summary>
-        /// <value>The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between adjacent cells. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1, such that the cell size increases towards the interior of the mesh. &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simerics-mesh-growth-rate.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of each cell being 2 times thicker than its adjacent.</value>
+        /// <value>The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between interior cell size and surface cell size. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1 and smaller or equal to 8, such that the cell size increases towards the interior of the mesh.</value>
         [DataMember(Name="growthRate", EmitDefaultValue=false)]
         public int? GrowthRate { get; set; }
 

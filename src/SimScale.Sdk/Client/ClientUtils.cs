@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using SimScale.Sdk.Utilities;
 
 namespace SimScale.Sdk.Client
 {
@@ -85,6 +86,8 @@ namespace SimScale.Sdk.Client
                 return boolean ? "true" : "false";
             if (obj is ICollection collection)
                 return string.Join(",", collection.Cast<object>());
+            if (obj is Enum enumValue)
+                return enumValue.GetEnumMemberValue();
 
             return Convert.ToString(obj);
         }
