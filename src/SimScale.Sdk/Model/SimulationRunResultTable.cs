@@ -61,9 +61,9 @@ namespace SimScale.Sdk.Model
         public Guid? ResultId { get; set; }
 
         /// <summary>
-        /// The result category. For solution fields values include &#x60;SOLUTION&#x60;, &#x60;AVERAGED_SOLUTION&#x60;, &#x60;TRANSIENT_SOLUTION&#x60;, &#x60;STATISTICAL_SURFACE_SOLUTION&#x60;, etc. For convergence plots values include &#x60;RESIDUALS_PLOT&#x60;, &#x60;NUMBER_OF_NEWTON_ITERATIONS&#x60;, etc. For plots values include &#x60;FORCE_PLOT&#x60;, &#x60;FORCE_COEFFICIENTS_PLOT&#x60;, &#x60;PROBE_POINT_PLOT&#x60;, &#x60;AREA_AVERAGE&#x60;, &#x60;FACE_CALC&#x60;, etc. 
+        /// The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc. 
         /// </summary>
-        /// <value>The result category. For solution fields values include &#x60;SOLUTION&#x60;, &#x60;AVERAGED_SOLUTION&#x60;, &#x60;TRANSIENT_SOLUTION&#x60;, &#x60;STATISTICAL_SURFACE_SOLUTION&#x60;, etc. For convergence plots values include &#x60;RESIDUALS_PLOT&#x60;, &#x60;NUMBER_OF_NEWTON_ITERATIONS&#x60;, etc. For plots values include &#x60;FORCE_PLOT&#x60;, &#x60;FORCE_COEFFICIENTS_PLOT&#x60;, &#x60;PROBE_POINT_PLOT&#x60;, &#x60;AREA_AVERAGE&#x60;, &#x60;FACE_CALC&#x60;, etc. </value>
+        /// <value>The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc. </value>
         [DataMember(Name="category", EmitDefaultValue=false)]
         public string Category { get; private set; }
 

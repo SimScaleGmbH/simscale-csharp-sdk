@@ -137,13 +137,13 @@ namespace SimScale.Sdk.Api
         /// <param name="runId">The simulation run ID</param>
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="quantity"> (optional)</param>
-        /// <param name="name"> (optional)</param>
-        /// <param name="direction"> (optional)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
         /// <returns>SimulationRunResults</returns>
-        SimulationRunResults GetSimulationRunResults (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, SimulationRunResultType? type = default(SimulationRunResultType?), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?));
+        SimulationRunResults GetSimulationRunResults (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?));
 
         /// <summary>
         /// List available results for a simulation runs
@@ -157,13 +157,13 @@ namespace SimScale.Sdk.Api
         /// <param name="runId">The simulation run ID</param>
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="quantity"> (optional)</param>
-        /// <param name="name"> (optional)</param>
-        /// <param name="direction"> (optional)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
         /// <returns>ApiResponse of SimulationRunResults</returns>
-        ApiResponse<SimulationRunResults> GetSimulationRunResultsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, SimulationRunResultType? type = default(SimulationRunResultType?), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?));
+        ApiResponse<SimulationRunResults> GetSimulationRunResultsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?));
         /// <summary>
         /// Get Python SDK code for the simulation run
         /// </summary>
@@ -420,13 +420,13 @@ namespace SimScale.Sdk.Api
         /// <param name="runId">The simulation run ID</param>
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="quantity"> (optional)</param>
-        /// <param name="name"> (optional)</param>
-        /// <param name="direction"> (optional)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
         /// <returns>Task of SimulationRunResults</returns>
-        System.Threading.Tasks.Task<SimulationRunResults> GetSimulationRunResultsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, SimulationRunResultType? type = default(SimulationRunResultType?), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?));
+        System.Threading.Tasks.Task<SimulationRunResults> GetSimulationRunResultsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?));
 
         /// <summary>
         /// List available results for a simulation runs
@@ -440,13 +440,13 @@ namespace SimScale.Sdk.Api
         /// <param name="runId">The simulation run ID</param>
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="quantity"> (optional)</param>
-        /// <param name="name"> (optional)</param>
-        /// <param name="direction"> (optional)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
         /// <returns>Task of ApiResponse (SimulationRunResults)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SimulationRunResults>> GetSimulationRunResultsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, SimulationRunResultType? type = default(SimulationRunResultType?), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?));
+        System.Threading.Tasks.Task<ApiResponse<SimulationRunResults>> GetSimulationRunResultsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?));
         /// <summary>
         /// Get Python SDK code for the simulation run
         /// </summary>
@@ -1315,13 +1315,13 @@ namespace SimScale.Sdk.Api
         /// <param name="runId">The simulation run ID</param>
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="quantity"> (optional)</param>
-        /// <param name="name"> (optional)</param>
-        /// <param name="direction"> (optional)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
         /// <returns>SimulationRunResults</returns>
-        public SimulationRunResults GetSimulationRunResults (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, SimulationRunResultType? type = default(SimulationRunResultType?), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?))
+        public SimulationRunResults GetSimulationRunResults (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?))
         {
              SimScale.Sdk.Client.ApiResponse<SimulationRunResults> localVarResponse = GetSimulationRunResultsWithHttpInfo(projectId, simulationId, runId, limit, page, type, category, quantity, name, direction);
              return localVarResponse.Data;
@@ -1336,13 +1336,13 @@ namespace SimScale.Sdk.Api
         /// <param name="runId">The simulation run ID</param>
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="quantity"> (optional)</param>
-        /// <param name="name"> (optional)</param>
-        /// <param name="direction"> (optional)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
         /// <returns>ApiResponse of SimulationRunResults</returns>
-        public SimScale.Sdk.Client.ApiResponse< SimulationRunResults > GetSimulationRunResultsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, SimulationRunResultType? type = default(SimulationRunResultType?), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?))
+        public SimScale.Sdk.Client.ApiResponse< SimulationRunResults > GetSimulationRunResultsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1431,13 +1431,13 @@ namespace SimScale.Sdk.Api
         /// <param name="runId">The simulation run ID</param>
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="quantity"> (optional)</param>
-        /// <param name="name"> (optional)</param>
-        /// <param name="direction"> (optional)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
         /// <returns>Task of SimulationRunResults</returns>
-        public async System.Threading.Tasks.Task<SimulationRunResults> GetSimulationRunResultsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, SimulationRunResultType? type = default(SimulationRunResultType?), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?))
+        public async System.Threading.Tasks.Task<SimulationRunResults> GetSimulationRunResultsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?))
         {
              SimScale.Sdk.Client.ApiResponse<SimulationRunResults> localVarResponse = await GetSimulationRunResultsAsyncWithHttpInfo(projectId, simulationId, runId, limit, page, type, category, quantity, name, direction);
              return localVarResponse.Data;
@@ -1453,13 +1453,13 @@ namespace SimScale.Sdk.Api
         /// <param name="runId">The simulation run ID</param>
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="quantity"> (optional)</param>
-        /// <param name="name"> (optional)</param>
-        /// <param name="direction"> (optional)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
         /// <returns>Task of ApiResponse (SimulationRunResults)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationRunResults>> GetSimulationRunResultsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, SimulationRunResultType? type = default(SimulationRunResultType?), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?))
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationRunResults>> GetSimulationRunResultsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string), decimal? direction = default(decimal?))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

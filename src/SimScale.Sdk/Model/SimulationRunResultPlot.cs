@@ -61,9 +61,9 @@ namespace SimScale.Sdk.Model
         public Guid? ResultId { get; set; }
 
         /// <summary>
-        /// The result category. For solution fields values include &#x60;SOLUTION&#x60;, &#x60;AVERAGED_SOLUTION&#x60;, &#x60;TRANSIENT_SOLUTION&#x60;, &#x60;STATISTICAL_SURFACE_SOLUTION&#x60;, etc. For convergence plots values include &#x60;RESIDUALS_PLOT&#x60;, &#x60;NUMBER_OF_NEWTON_ITERATIONS&#x60;, etc. For plots values include &#x60;FORCE_PLOT&#x60;, &#x60;FORCE_COEFFICIENTS_PLOT&#x60;, &#x60;PROBE_POINT_PLOT&#x60;, &#x60;AREA_AVERAGE&#x60;, &#x60;FACE_CALC&#x60;, etc. 
+        /// The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc. 
         /// </summary>
-        /// <value>The result category. For solution fields values include &#x60;SOLUTION&#x60;, &#x60;AVERAGED_SOLUTION&#x60;, &#x60;TRANSIENT_SOLUTION&#x60;, &#x60;STATISTICAL_SURFACE_SOLUTION&#x60;, etc. For convergence plots values include &#x60;RESIDUALS_PLOT&#x60;, &#x60;NUMBER_OF_NEWTON_ITERATIONS&#x60;, etc. For plots values include &#x60;FORCE_PLOT&#x60;, &#x60;FORCE_COEFFICIENTS_PLOT&#x60;, &#x60;PROBE_POINT_PLOT&#x60;, &#x60;AREA_AVERAGE&#x60;, &#x60;FACE_CALC&#x60;, etc. </value>
+        /// <value>The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc. </value>
         [DataMember(Name="category", EmitDefaultValue=false)]
         public string Category { get; private set; }
 
@@ -75,9 +75,9 @@ namespace SimScale.Sdk.Model
         public decimal? Direction { get; private set; }
 
         /// <summary>
-        /// The result quantity, only applies to plot result types. Valid values include &#x60;Ux&#x60;, &#x60;Uy&#x60;, &#x60;Uz&#x60;, &#x60;p&#x60;, &#x60;k&#x60;, &#x60;omega&#x60;, &#x60;T&#x60;, &#x60;displacement&#x60;, &#x60;von Mises stress&#x60;, etc. 
+        /// The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc. 
         /// </summary>
-        /// <value>The result quantity, only applies to plot result types. Valid values include &#x60;Ux&#x60;, &#x60;Uy&#x60;, &#x60;Uz&#x60;, &#x60;p&#x60;, &#x60;k&#x60;, &#x60;omega&#x60;, &#x60;T&#x60;, &#x60;displacement&#x60;, &#x60;von Mises stress&#x60;, etc. </value>
+        /// <value>The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public string Quantity { get; private set; }
 
