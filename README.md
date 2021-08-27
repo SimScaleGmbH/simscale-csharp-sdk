@@ -11,9 +11,9 @@ API access is currently part of our paid Enterprise plan. However, if you have a
 <a name="dependencies"></a>
 ## Dependencies
 
-- [RestSharp](https://www.nuget.org/packages/RestSharp) - 106.11.4 or later
-- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 12.0.3 or later
-- [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.7.0 or later
+- [RestSharp](https://www.nuget.org/packages/RestSharp) - 106.10.1
+- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 12.0.1
+- [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.5.2
 
 The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
 ```

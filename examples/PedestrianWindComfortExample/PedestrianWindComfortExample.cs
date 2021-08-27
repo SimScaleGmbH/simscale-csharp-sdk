@@ -247,5 +247,65 @@ class PedestrianWindComfortExample
                 Console.WriteLine(entry);
             }
         }
+
+        // The following sections show a use case of the "additional wind data" functionality. This part is optional
+        // when running a simple PWC simulation, but it can be helpful when running the same simulation multiple times
+        // with different wind data. In this case, the directional results will be reused from the original simulation
+        // run, only the statistical surface solution will be re-calculated.
+
+        // Update the simulation spec
+        model = (WindComfort) simulationApi.GetSimulation(projectId, simulationId).Model;
+        model.PedestrianComfortMap[0].HeightAboveGround = new DimensionalLength(value: 1.8m, unit: DimensionalLength.UnitEnum.M);
+
+        var updatedSimulationSpec = new SimulationSpec(name: "Pedestrian Wind Comfort with additional data", geometryId: geometryId, model: model);
+        simulationApi.UpdateSimulation(projectId, simulationId, updatedSimulationSpec);
+
+        // Create a simulation run based on the updated spec and the previous run
+        var windData = new WindData(name: "Additional wind rose run");
+        var additionalRun = simulationRunApi.AddWindDataToSimulationRun(projectId, simulationId, run.RunId, windData);
+        var additionalRunId = additionalRun.RunId;
+
+        // Start simulation run and wait until it's finished
+        additionalRun = simulationRunApi.GetSimulationRun(projectId, simulationId, additionalRunId);
+        stopWatch.Restart();
+        failedTries = 0;
+        while(!terminalStatuses.Contains(additionalRun.Status??Status.READY))
+        {
+            if(stopWatch.Elapsed.TotalSeconds > maxRuntime)
+            {
+                throw new TimeoutException();
+            }
+            Thread.Sleep(30000);
+            additionalRun = simulationRunApi.GetSimulationRun(projectId, simulationId, additionalRunId) ??
+                (++failedTries > 5 ? throw new Exception("HTTP request failed too many times.") : additionalRun);
+            Console.WriteLine("Simulation run status: " + additionalRun?.Status + " - " + additionalRun?.Progress);
+        }
+
+        // Get result metadata and download results
+        results = simulationRunApi.GetSimulationRunResults(projectId, simulationId, additionalRunId, null, null, "SOLUTION_FIELD", "STATISTICAL_SURFACE_SOLUTION", null, null, null);
+        // Download averaged solution
+        statisticalSurfaceSolutionInfo = (SimulationRunResultSolution) results.Embedded[0];
+        statisticalSurfaceSolutionRequest = new RestRequest(statisticalSurfaceSolutionInfo.Download.Url, Method.GET);
+        statisticalSurfaceSolutionRequest.AddHeader(API_KEY_HEADER, API_KEY);
+        using (var writer = File.OpenWrite(@"statistical_surface_solution_updated.zip"))
+        {
+            statisticalSurfaceSolutionRequest.ResponseWriter = responseStream =>
+            {
+                using (responseStream)
+                {
+                    responseStream.CopyTo(writer);
+                }
+            };
+            restClient.DownloadData(statisticalSurfaceSolutionRequest);
+        }
+        using (var zip = System.IO.Compression.ZipFile.OpenRead(@"statistical_surface_solution_updated.zip"))
+        {
+            Console.WriteLine("Statistical surface solution ZIP file content:");
+            foreach (var entry in zip.Entries)
+            {
+                Console.WriteLine(entry);
+            }
+        }
+
     }
 }

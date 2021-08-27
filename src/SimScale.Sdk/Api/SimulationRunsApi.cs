@@ -26,6 +26,33 @@ namespace SimScale.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Add wind data to a simulation run (works only for PWC runs)
+        /// </summary>
+        /// <remarks>
+        /// You can use this endpoint to add wind data to an existing PWC run. This means that for the new run, only the statistical surface solution will be regenerated based on the new wind data, while the individual results of each direction will be kept from the original run. This endpoint is only used to trigger the execution of the new simulation run - before calling this endpoint make sure to update the simulation spec with the new wind data.
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="windData">Metadata of the newly created simulation run</param>
+        /// <returns>SimulationRun</returns>
+        SimulationRun AddWindDataToSimulationRun (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), WindData windData = default(WindData));
+
+        /// <summary>
+        /// Add wind data to a simulation run (works only for PWC runs)
+        /// </summary>
+        /// <remarks>
+        /// You can use this endpoint to add wind data to an existing PWC run. This means that for the new run, only the statistical surface solution will be regenerated based on the new wind data, while the individual results of each direction will be kept from the original run. This endpoint is only used to trigger the execution of the new simulation run - before calling this endpoint make sure to update the simulation spec with the new wind data.
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="windData">Metadata of the newly created simulation run</param>
+        /// <returns>ApiResponse of SimulationRun</returns>
+        ApiResponse<SimulationRun> AddWindDataToSimulationRunWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), WindData windData = default(WindData));
+        /// <summary>
         /// Cancel the simulation run
         /// </summary>
         /// <remarks>
@@ -308,6 +335,33 @@ namespace SimScale.Sdk.Api
     public interface ISimulationRunsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Add wind data to a simulation run (works only for PWC runs)
+        /// </summary>
+        /// <remarks>
+        /// You can use this endpoint to add wind data to an existing PWC run. This means that for the new run, only the statistical surface solution will be regenerated based on the new wind data, while the individual results of each direction will be kept from the original run. This endpoint is only used to trigger the execution of the new simulation run - before calling this endpoint make sure to update the simulation spec with the new wind data.
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="windData">Metadata of the newly created simulation run</param>
+        /// <returns>Task of SimulationRun</returns>
+        System.Threading.Tasks.Task<SimulationRun> AddWindDataToSimulationRunAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), WindData windData = default(WindData));
+
+        /// <summary>
+        /// Add wind data to a simulation run (works only for PWC runs)
+        /// </summary>
+        /// <remarks>
+        /// You can use this endpoint to add wind data to an existing PWC run. This means that for the new run, only the statistical surface solution will be regenerated based on the new wind data, while the individual results of each direction will be kept from the original run. This endpoint is only used to trigger the execution of the new simulation run - before calling this endpoint make sure to update the simulation spec with the new wind data.
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="windData">Metadata of the newly created simulation run</param>
+        /// <returns>Task of ApiResponse (SimulationRun)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SimulationRun>> AddWindDataToSimulationRunAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), WindData windData = default(WindData));
         /// <summary>
         /// Cancel the simulation run
         /// </summary>
@@ -700,6 +754,173 @@ namespace SimScale.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Add wind data to a simulation run (works only for PWC runs) You can use this endpoint to add wind data to an existing PWC run. This means that for the new run, only the statistical surface solution will be regenerated based on the new wind data, while the individual results of each direction will be kept from the original run. This endpoint is only used to trigger the execution of the new simulation run - before calling this endpoint make sure to update the simulation spec with the new wind data.
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="windData">Metadata of the newly created simulation run</param>
+        /// <returns>SimulationRun</returns>
+        public SimulationRun AddWindDataToSimulationRun (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), WindData windData = default(WindData))
+        {
+             SimScale.Sdk.Client.ApiResponse<SimulationRun> localVarResponse = AddWindDataToSimulationRunWithHttpInfo(projectId, simulationId, runId, windData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add wind data to a simulation run (works only for PWC runs) You can use this endpoint to add wind data to an existing PWC run. This means that for the new run, only the statistical surface solution will be regenerated based on the new wind data, while the individual results of each direction will be kept from the original run. This endpoint is only used to trigger the execution of the new simulation run - before calling this endpoint make sure to update the simulation spec with the new wind data.
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="windData">Metadata of the newly created simulation run</param>
+        /// <returns>ApiResponse of SimulationRun</returns>
+        public SimScale.Sdk.Client.ApiResponse< SimulationRun > AddWindDataToSimulationRunWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), WindData windData = default(WindData))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->AddWindDataToSimulationRun");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->AddWindDataToSimulationRun");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->AddWindDataToSimulationRun");
+
+            // verify the required parameter 'windData' is set
+            if (windData == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'windData' when calling SimulationRunsApi->AddWindDataToSimulationRun");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.Data = windData;
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< SimulationRun >("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/add-wind-data", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddWindDataToSimulationRun", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Add wind data to a simulation run (works only for PWC runs) You can use this endpoint to add wind data to an existing PWC run. This means that for the new run, only the statistical surface solution will be regenerated based on the new wind data, while the individual results of each direction will be kept from the original run. This endpoint is only used to trigger the execution of the new simulation run - before calling this endpoint make sure to update the simulation spec with the new wind data.
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="windData">Metadata of the newly created simulation run</param>
+        /// <returns>Task of SimulationRun</returns>
+        public async System.Threading.Tasks.Task<SimulationRun> AddWindDataToSimulationRunAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), WindData windData = default(WindData))
+        {
+             SimScale.Sdk.Client.ApiResponse<SimulationRun> localVarResponse = await AddWindDataToSimulationRunAsyncWithHttpInfo(projectId, simulationId, runId, windData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add wind data to a simulation run (works only for PWC runs) You can use this endpoint to add wind data to an existing PWC run. This means that for the new run, only the statistical surface solution will be regenerated based on the new wind data, while the individual results of each direction will be kept from the original run. This endpoint is only used to trigger the execution of the new simulation run - before calling this endpoint make sure to update the simulation spec with the new wind data.
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="windData">Metadata of the newly created simulation run</param>
+        /// <returns>Task of ApiResponse (SimulationRun)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationRun>> AddWindDataToSimulationRunAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), WindData windData = default(WindData))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->AddWindDataToSimulationRun");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->AddWindDataToSimulationRun");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->AddWindDataToSimulationRun");
+
+            // verify the required parameter 'windData' is set
+            if (windData == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'windData' when calling SimulationRunsApi->AddWindDataToSimulationRun");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.Data = windData;
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<SimulationRun>("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/add-wind-data", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddWindDataToSimulationRun", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
