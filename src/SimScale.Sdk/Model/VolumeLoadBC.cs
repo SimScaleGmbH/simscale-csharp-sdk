@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection&lt;/li&gt;&lt;/ul&gt;
+    /// This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection.&lt;/li&gt;&lt;/ul&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/volume-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
     public partial class VolumeLoadBC : OneOfDynamicAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<VolumeLoadBC>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VolumeLoadBC" /> class.
         /// </summary>
-        /// <param name="type">This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeLoadBC (required) (default to &quot;VOLUME_LOAD&quot;).</param>
+        /// <param name="type">This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection.&lt;/li&gt;&lt;/ul&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/volume-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: VolumeLoadBC (required) (default to &quot;VOLUME_LOAD&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="load">load.</param>
         /// <param name="scaling">scaling.</param>
@@ -54,9 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeLoadBC
+        /// This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection.&lt;/li&gt;&lt;/ul&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/volume-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: VolumeLoadBC
         /// </summary>
-        /// <value>This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection&lt;/li&gt;&lt;/ul&gt;  Schema name: VolumeLoadBC</value>
+        /// <value>This is a &lt;b&gt;volume load&lt;/b&gt; boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the volume of the selection.&lt;/li&gt;&lt;/ul&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/volume-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: VolumeLoadBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

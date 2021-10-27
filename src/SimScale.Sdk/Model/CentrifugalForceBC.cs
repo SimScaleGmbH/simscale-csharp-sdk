@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;/p&gt;
+    /// &lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/centrifugal-force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
     /// </summary>
     [DataContract]
     public partial class CentrifugalForceBC : OneOfDynamicAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<CentrifugalForceBC>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CentrifugalForceBC" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;/p&gt;  Schema name: CentrifugalForceBC (required) (default to &quot;CENTRIFUGAL_FORCE&quot;).</param>
+        /// <param name="type">&lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/centrifugal-force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: CentrifugalForceBC (required) (default to &quot;CENTRIFUGAL_FORCE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="rotation">rotation.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;/p&gt;  Schema name: CentrifugalForceBC
+        /// &lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/centrifugal-force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: CentrifugalForceBC
         /// </summary>
-        /// <value>&lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;/p&gt;  Schema name: CentrifugalForceBC</value>
+        /// <value>&lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/centrifugal-force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: CentrifugalForceBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

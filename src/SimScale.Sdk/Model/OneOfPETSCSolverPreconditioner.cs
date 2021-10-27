@@ -28,7 +28,6 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(MUMPSPreconditoner), "MUMPS_LDLT")]
-    [JsonSubtypes.KnownSubType(typeof(IncompletePreconditioner), "INCOMPLETE_LDLT")]
     [JsonSubtypes.KnownSubType(typeof(IncompletePreconditionerV33), "INCOMPLETE_LDLT_V33")]
     [JsonSubtypes.KnownSubType(typeof(JacobiPreconditioner), "JACOBI")]
     [JsonSubtypes.KnownSubType(typeof(SorPreconditioner), "SOR")]

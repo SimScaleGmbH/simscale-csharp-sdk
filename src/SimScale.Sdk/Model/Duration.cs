@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// An interval with the estimated duration for a simulation run.
+    /// An interval with the estimated duration for a simulation run or a mesh operation.
     /// </summary>
     [DataContract]
     public partial class Duration : IEquatable<Duration>

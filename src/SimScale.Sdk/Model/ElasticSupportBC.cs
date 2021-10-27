@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;/p&gt;
+    /// &lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;br&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/elastic-support/&#39; target&#39;blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
     /// </summary>
     [DataContract]
     public partial class ElasticSupportBC : OneOfDynamicAnalysisBoundaryConditions, OneOfFrequencyAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<ElasticSupportBC>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ElasticSupportBC" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;/p&gt;  Schema name: ElasticSupportBC (required) (default to &quot;ELASTIC_SUPPORT&quot;).</param>
+        /// <param name="type">&lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;br&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/elastic-support/&#39; target&#39;blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: ElasticSupportBC (required) (default to &quot;ELASTIC_SUPPORT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="springStiffness">springStiffness.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;/p&gt;  Schema name: ElasticSupportBC
+        /// &lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;br&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/elastic-support/&#39; target&#39;blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: ElasticSupportBC
         /// </summary>
-        /// <value>&lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;/p&gt;  Schema name: ElasticSupportBC</value>
+        /// <value>&lt;p&gt;The &lt;b&gt;elastic support&lt;/b&gt; constraint can be used to model an &lt;b&gt;elastic foundation&lt;/b&gt; between the assigned surfaces and the rigid ground. Additionally it can be used to &lt;b&gt;prevent rigid body motions&lt;/b&gt; in a nonlinear analysis. The constraint acts on tension and compression forces and all stiffness values are expressed in the global coordinate system.&lt;br&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/elastic-support/&#39; target&#39;blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: ElasticSupportBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

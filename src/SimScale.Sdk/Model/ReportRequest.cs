@@ -36,54 +36,47 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportRequest" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="description">description (required).</param>
-        /// <param name="resultIds">resultIds (required).</param>
-        /// <param name="reportId">reportId.</param>
-        /// <param name="reportProperties">Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service.  (required).</param>
-        public ReportRequest(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), Guid? reportId = default(Guid?), Object reportProperties = default(Object))
+        /// <param name="name">The name of the report. (required).</param>
+        /// <param name="description">The description of the report..</param>
+        /// <param name="resultIds">The resultIds the report should be created for. (required).</param>
+        /// <param name="reportProperties">reportProperties (required).</param>
+        public ReportRequest(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), OneOfReportProperties reportProperties = default(OneOfReportProperties))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for ReportRequest and cannot be null");
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for ReportRequest and cannot be null");
             // to ensure "resultIds" is required (not null)
             this.ResultIds = resultIds ?? throw new ArgumentNullException("resultIds is a required property for ReportRequest and cannot be null");
             // to ensure "reportProperties" is required (not null)
             this.ReportProperties = reportProperties ?? throw new ArgumentNullException("reportProperties is a required property for ReportRequest and cannot be null");
-            this.ReportId = reportId;
+            this.Description = description;
         }
         
         /// <summary>
-        /// Gets or Sets Name
+        /// The name of the report.
         /// </summary>
+        /// <value>The name of the report.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// The description of the report.
         /// </summary>
+        /// <value>The description of the report.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets ResultIds
+        /// The resultIds the report should be created for.
         /// </summary>
+        /// <value>The resultIds the report should be created for.</value>
         [DataMember(Name="resultIds", EmitDefaultValue=false)]
         public List<Guid?> ResultIds { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportId
+        /// Gets or Sets ReportProperties
         /// </summary>
-        [DataMember(Name="reportId", EmitDefaultValue=false)]
-        public Guid? ReportId { get; set; }
-
-        /// <summary>
-        /// Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service. 
-        /// </summary>
-        /// <value>Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service. </value>
         [DataMember(Name="reportProperties", EmitDefaultValue=false)]
-        public Object ReportProperties { get; set; }
+        public OneOfReportProperties ReportProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,7 +89,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ResultIds: ").Append(ResultIds).Append("\n");
-            sb.Append("  ReportId: ").Append(ReportId).Append("\n");
             sb.Append("  ReportProperties: ").Append(ReportProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -149,11 +141,6 @@ namespace SimScale.Sdk.Model
                     this.ResultIds.SequenceEqual(input.ResultIds)
                 ) && 
                 (
-                    this.ReportId == input.ReportId ||
-                    (this.ReportId != null &&
-                    this.ReportId.Equals(input.ReportId))
-                ) && 
-                (
                     this.ReportProperties == input.ReportProperties ||
                     (this.ReportProperties != null &&
                     this.ReportProperties.Equals(input.ReportProperties))
@@ -175,8 +162,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ResultIds != null)
                     hashCode = hashCode * 59 + this.ResultIds.GetHashCode();
-                if (this.ReportId != null)
-                    hashCode = hashCode * 59 + this.ReportId.GetHashCode();
                 if (this.ReportProperties != null)
                     hashCode = hashCode * 59 + this.ReportProperties.GetHashCode();
                 return hashCode;

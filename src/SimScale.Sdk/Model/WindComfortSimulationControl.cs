@@ -32,7 +32,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="WindComfortSimulationControl" /> class.
         /// </summary>
         /// <param name="maxDirectionRunTime">maxDirectionRunTime.</param>
-        /// <param name="numberOfFluidPasses">&lt;p&gt;Set how many times the fluid (air) passes over the domain during the simulation. &lt;b&gt;Warning&lt;/b&gt;: Values below 2.0 might produce invalid results while higher numbers will require more simulation time and consequently more GPU hours. Recommended value is 3.0. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to 3M).</param>
+        /// <param name="numberOfFluidPasses">&lt;p&gt;Set how many times the fluid (air) passes over the domain during the simulation.&lt;/p&gt;&lt;p&gt; &lt;b&gt;Warning&lt;/b&gt;: Values below 2.0 might produce invalid results while higher numbers will require more simulation time and consequently more GPU hours. Recommended value is 3.0. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to 3M).</param>
         public WindComfortSimulationControl(DimensionalTime maxDirectionRunTime = default(DimensionalTime), decimal? numberOfFluidPasses = default(decimal?))
         {
             this.MaxDirectionRunTime = maxDirectionRunTime;
@@ -46,9 +46,9 @@ namespace SimScale.Sdk.Model
         public DimensionalTime MaxDirectionRunTime { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;Set how many times the fluid (air) passes over the domain during the simulation. &lt;b&gt;Warning&lt;/b&gt;: Values below 2.0 might produce invalid results while higher numbers will require more simulation time and consequently more GPU hours. Recommended value is 3.0. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
+        /// &lt;p&gt;Set how many times the fluid (air) passes over the domain during the simulation.&lt;/p&gt;&lt;p&gt; &lt;b&gt;Warning&lt;/b&gt;: Values below 2.0 might produce invalid results while higher numbers will require more simulation time and consequently more GPU hours. Recommended value is 3.0. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
         /// </summary>
-        /// <value>&lt;p&gt;Set how many times the fluid (air) passes over the domain during the simulation. &lt;b&gt;Warning&lt;/b&gt;: Values below 2.0 might produce invalid results while higher numbers will require more simulation time and consequently more GPU hours. Recommended value is 3.0. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
+        /// <value>&lt;p&gt;Set how many times the fluid (air) passes over the domain during the simulation.&lt;/p&gt;&lt;p&gt; &lt;b&gt;Warning&lt;/b&gt;: Values below 2.0 might produce invalid results while higher numbers will require more simulation time and consequently more GPU hours. Recommended value is 3.0. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
         [DataMember(Name="numberOfFluidPasses", EmitDefaultValue=false)]
         public decimal? NumberOfFluidPasses { get; set; }
 

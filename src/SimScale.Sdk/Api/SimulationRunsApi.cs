@@ -78,6 +78,33 @@ namespace SimScale.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CancelSimulationRunWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?));
         /// <summary>
+        /// Cancel the sub-run of a parametric run
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns></returns>
+        void CancelSimulationRunSubRun (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?));
+
+        /// <summary>
+        /// Cancel the sub-run of a parametric run
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CancelSimulationRunSubRunWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?));
+        /// <summary>
         /// Create a simulation run
         /// </summary>
         /// <remarks>
@@ -102,6 +129,33 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationRun">Simulation run to be created</param>
         /// <returns>ApiResponse of SimulationRun</returns>
         ApiResponse<SimulationRun> CreateSimulationRunWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationRun simulationRun = default(SimulationRun));
+        /// <summary>
+        /// Delete the sub-run of a parametric run
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns></returns>
+        void DeleteSimulationRunSubRun (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?));
+
+        /// <summary>
+        /// Delete the sub-run of a parametric run
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSimulationRunSubRunWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?));
         /// <summary>
         /// Get basic information about the simulation run
         /// </summary>
@@ -230,9 +284,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;3.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        SimulationSpec GetSimulationRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "3.0");
+        SimulationSpec GetSimulationRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "4.0");
 
         /// <summary>
         /// Get the simulation run spec
@@ -244,9 +298,106 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;3.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        ApiResponse<SimulationSpec> GetSimulationRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "3.0");
+        ApiResponse<SimulationSpec> GetSimulationRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "4.0");
+        /// <summary>
+        /// Get the simulation sub-run results
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <returns>SimulationRunResults</returns>
+        SimulationRunResults GetSimulationRunSubRunResults (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string));
+
+        /// <summary>
+        /// Get the simulation sub-run results
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <returns>ApiResponse of SimulationRunResults</returns>
+        ApiResponse<SimulationRunResults> GetSimulationRunSubRunResultsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string));
+        /// <summary>
+        /// Get the simulation sub-run spec
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
+        /// <returns>SimulationSpec</returns>
+        SimulationSpec GetSimulationRunSubRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "4.0");
+
+        /// <summary>
+        /// Get the simulation sub-run spec
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
+        /// <returns>ApiResponse of SimulationSpec</returns>
+        ApiResponse<SimulationSpec> GetSimulationRunSubRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "4.0");
+        /// <summary>
+        /// List of subruns of parametric runs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <returns>SimulationRuns</returns>
+        SimulationRuns GetSimulationRunSubRuns (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1);
+
+        /// <summary>
+        /// List of subruns of parametric runs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <returns>ApiResponse of SimulationRuns</returns>
+        ApiResponse<SimulationRuns> GetSimulationRunSubRunsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1);
         /// <summary>
         /// List simulation runs for a simulation
         /// </summary>
@@ -388,6 +539,33 @@ namespace SimScale.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CancelSimulationRunAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?));
         /// <summary>
+        /// Cancel the sub-run of a parametric run
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CancelSimulationRunSubRunAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?));
+
+        /// <summary>
+        /// Cancel the sub-run of a parametric run
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelSimulationRunSubRunAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?));
+        /// <summary>
         /// Create a simulation run
         /// </summary>
         /// <remarks>
@@ -412,6 +590,33 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationRun">Simulation run to be created</param>
         /// <returns>Task of ApiResponse (SimulationRun)</returns>
         System.Threading.Tasks.Task<ApiResponse<SimulationRun>> CreateSimulationRunAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationRun simulationRun = default(SimulationRun));
+        /// <summary>
+        /// Delete the sub-run of a parametric run
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSimulationRunSubRunAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?));
+
+        /// <summary>
+        /// Delete the sub-run of a parametric run
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSimulationRunSubRunAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?));
         /// <summary>
         /// Get basic information about the simulation run
         /// </summary>
@@ -540,9 +745,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;3.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "3.0");
+        System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "4.0");
 
         /// <summary>
         /// Get the simulation run spec
@@ -554,9 +759,106 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;3.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "3.0");
+        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "4.0");
+        /// <summary>
+        /// Get the simulation sub-run results
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <returns>Task of SimulationRunResults</returns>
+        System.Threading.Tasks.Task<SimulationRunResults> GetSimulationRunSubRunResultsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string));
+
+        /// <summary>
+        /// Get the simulation sub-run results
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <returns>Task of ApiResponse (SimulationRunResults)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SimulationRunResults>> GetSimulationRunSubRunResultsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string));
+        /// <summary>
+        /// Get the simulation sub-run spec
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
+        /// <returns>Task of SimulationSpec</returns>
+        System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSubRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "4.0");
+
+        /// <summary>
+        /// Get the simulation sub-run spec
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
+        /// <returns>Task of ApiResponse (SimulationSpec)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationRunSubRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "4.0");
+        /// <summary>
+        /// List of subruns of parametric runs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <returns>Task of SimulationRuns</returns>
+        System.Threading.Tasks.Task<SimulationRuns> GetSimulationRunSubRunsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1);
+
+        /// <summary>
+        /// List of subruns of parametric runs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <returns>Task of ApiResponse (SimulationRuns)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SimulationRuns>> GetSimulationRunSubRunsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1);
         /// <summary>
         /// List simulation runs for a simulation
         /// </summary>
@@ -1073,6 +1375,169 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
+        /// Cancel the sub-run of a parametric run 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns></returns>
+        public void CancelSimulationRunSubRun (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?))
+        {
+             CancelSimulationRunSubRunWithHttpInfo(projectId, simulationId, runId, subRunId);
+        }
+
+        /// <summary>
+        /// Cancel the sub-run of a parametric run 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public SimScale.Sdk.Client.ApiResponse<Object> CancelSimulationRunSubRunWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->CancelSimulationRunSubRun");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->CancelSimulationRunSubRun");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->CancelSimulationRunSubRun");
+
+            // verify the required parameter 'subRunId' is set
+            if (subRunId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'subRunId' when calling SimulationRunsApi->CancelSimulationRunSubRun");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("subRunId", SimScale.Sdk.Client.ClientUtils.ParameterToString(subRunId)); // path parameter
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/cancel", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelSimulationRunSubRun", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel the sub-run of a parametric run 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CancelSimulationRunSubRunAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?))
+        {
+             await CancelSimulationRunSubRunAsyncWithHttpInfo(projectId, simulationId, runId, subRunId);
+
+        }
+
+        /// <summary>
+        /// Cancel the sub-run of a parametric run 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> CancelSimulationRunSubRunAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->CancelSimulationRunSubRun");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->CancelSimulationRunSubRun");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->CancelSimulationRunSubRun");
+
+            // verify the required parameter 'subRunId' is set
+            if (subRunId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'subRunId' when calling SimulationRunsApi->CancelSimulationRunSubRun");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("subRunId", SimScale.Sdk.Client.ClientUtils.ParameterToString(subRunId)); // path parameter
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/cancel", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelSimulationRunSubRun", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Create a simulation run This operation creates a run in status &#x60;READY&#x60;, however the run is not automatically started. The run must be started explicitely using the &#x60;POST /projects/{projectId}/simulations/{simulationId}/runs/{runId}/start&#x60; endpoint. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1219,6 +1684,169 @@ namespace SimScale.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateSimulationRun", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete the sub-run of a parametric run 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns></returns>
+        public void DeleteSimulationRunSubRun (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?))
+        {
+             DeleteSimulationRunSubRunWithHttpInfo(projectId, simulationId, runId, subRunId);
+        }
+
+        /// <summary>
+        /// Delete the sub-run of a parametric run 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public SimScale.Sdk.Client.ApiResponse<Object> DeleteSimulationRunSubRunWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->DeleteSimulationRunSubRun");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->DeleteSimulationRunSubRun");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->DeleteSimulationRunSubRun");
+
+            // verify the required parameter 'subRunId' is set
+            if (subRunId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'subRunId' when calling SimulationRunsApi->DeleteSimulationRunSubRun");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("subRunId", SimScale.Sdk.Client.ClientUtils.ParameterToString(subRunId)); // path parameter
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSimulationRunSubRun", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete the sub-run of a parametric run 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSimulationRunSubRunAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?))
+        {
+             await DeleteSimulationRunSubRunAsyncWithHttpInfo(projectId, simulationId, runId, subRunId);
+
+        }
+
+        /// <summary>
+        /// Delete the sub-run of a parametric run 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Object>> DeleteSimulationRunSubRunAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->DeleteSimulationRunSubRun");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->DeleteSimulationRunSubRun");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->DeleteSimulationRunSubRun");
+
+            // verify the required parameter 'subRunId' is set
+            if (subRunId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'subRunId' when calling SimulationRunsApi->DeleteSimulationRunSubRun");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("subRunId", SimScale.Sdk.Client.ClientUtils.ParameterToString(subRunId)); // path parameter
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSimulationRunSubRun", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1946,9 +2574,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;3.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        public SimulationSpec GetSimulationRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "3.0")
+        public SimulationSpec GetSimulationRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "4.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = GetSimulationRunSpecWithHttpInfo(projectId, simulationId, runId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1961,9 +2589,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;3.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "3.0")
+        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "4.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -2026,9 +2654,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;3.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "3.0")
+        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "4.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = await GetSimulationRunSpecAsyncWithHttpInfo(projectId, simulationId, runId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -2042,9 +2670,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;3.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "3.0")
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "4.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -2096,6 +2724,595 @@ namespace SimScale.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSimulationRunSpec", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the simulation sub-run results 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <returns>SimulationRunResults</returns>
+        public SimulationRunResults GetSimulationRunSubRunResults (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string))
+        {
+             SimScale.Sdk.Client.ApiResponse<SimulationRunResults> localVarResponse = GetSimulationRunSubRunResultsWithHttpInfo(projectId, simulationId, runId, subRunId, limit, page, type, category, quantity, name);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the simulation sub-run results 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <returns>ApiResponse of SimulationRunResults</returns>
+        public SimScale.Sdk.Client.ApiResponse< SimulationRunResults > GetSimulationRunSubRunResultsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->GetSimulationRunSubRunResults");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->GetSimulationRunSubRunResults");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->GetSimulationRunSubRunResults");
+
+            // verify the required parameter 'subRunId' is set
+            if (subRunId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'subRunId' when calling SimulationRunsApi->GetSimulationRunSubRunResults");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("subRunId", SimScale.Sdk.Client.ClientUtils.ParameterToString(subRunId)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+            if (category != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "category", category));
+            }
+            if (quantity != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "quantity", quantity));
+            }
+            if (name != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "name", name));
+            }
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< SimulationRunResults >("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/results", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSimulationRunSubRunResults", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the simulation sub-run results 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <returns>Task of SimulationRunResults</returns>
+        public async System.Threading.Tasks.Task<SimulationRunResults> GetSimulationRunSubRunResultsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string))
+        {
+             SimScale.Sdk.Client.ApiResponse<SimulationRunResults> localVarResponse = await GetSimulationRunSubRunResultsAsyncWithHttpInfo(projectId, simulationId, runId, subRunId, limit, page, type, category, quantity, name);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the simulation sub-run results 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
+        /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
+        /// <returns>Task of ApiResponse (SimulationRunResults)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationRunResults>> GetSimulationRunSubRunResultsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), int? limit = 100, int? page = 1, string type = default(string), string category = default(string), string quantity = default(string), string name = default(string))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->GetSimulationRunSubRunResults");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->GetSimulationRunSubRunResults");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->GetSimulationRunSubRunResults");
+
+            // verify the required parameter 'subRunId' is set
+            if (subRunId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'subRunId' when calling SimulationRunsApi->GetSimulationRunSubRunResults");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("subRunId", SimScale.Sdk.Client.ClientUtils.ParameterToString(subRunId)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+            if (category != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "category", category));
+            }
+            if (quantity != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "quantity", quantity));
+            }
+            if (name != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "name", name));
+            }
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SimulationRunResults>("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/results", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSimulationRunSubRunResults", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the simulation sub-run spec 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
+        /// <returns>SimulationSpec</returns>
+        public SimulationSpec GetSimulationRunSubRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "4.0")
+        {
+             SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = GetSimulationRunSubRunSpecWithHttpInfo(projectId, simulationId, runId, subRunId, simulationSpecSchemaVersion);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the simulation sub-run spec 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
+        /// <returns>ApiResponse of SimulationSpec</returns>
+        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationRunSubRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "4.0")
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->GetSimulationRunSubRunSpec");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->GetSimulationRunSubRunSpec");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->GetSimulationRunSubRunSpec");
+
+            // verify the required parameter 'subRunId' is set
+            if (subRunId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'subRunId' when calling SimulationRunsApi->GetSimulationRunSubRunSpec");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("subRunId", SimScale.Sdk.Client.ClientUtils.ParameterToString(subRunId)); // path parameter
+            if (simulationSpecSchemaVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "simulationSpecSchemaVersion", simulationSpecSchemaVersion));
+            }
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< SimulationSpec >("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/spec", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSimulationRunSubRunSpec", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the simulation sub-run spec 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
+        /// <returns>Task of SimulationSpec</returns>
+        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSubRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "4.0")
+        {
+             SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = await GetSimulationRunSubRunSpecAsyncWithHttpInfo(projectId, simulationId, runId, subRunId, simulationSpecSchemaVersion);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the simulation sub-run spec 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="subRunId">The simulation sub-run ID</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;4.0&quot;)</param>
+        /// <returns>Task of ApiResponse (SimulationSpec)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationRunSubRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "4.0")
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->GetSimulationRunSubRunSpec");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->GetSimulationRunSubRunSpec");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->GetSimulationRunSubRunSpec");
+
+            // verify the required parameter 'subRunId' is set
+            if (subRunId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'subRunId' when calling SimulationRunsApi->GetSimulationRunSubRunSpec");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("subRunId", SimScale.Sdk.Client.ClientUtils.ParameterToString(subRunId)); // path parameter
+            if (simulationSpecSchemaVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "simulationSpecSchemaVersion", simulationSpecSchemaVersion));
+            }
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SimulationSpec>("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/spec", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSimulationRunSubRunSpec", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of subruns of parametric runs 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <returns>SimulationRuns</returns>
+        public SimulationRuns GetSimulationRunSubRuns (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1)
+        {
+             SimScale.Sdk.Client.ApiResponse<SimulationRuns> localVarResponse = GetSimulationRunSubRunsWithHttpInfo(projectId, simulationId, runId, limit, page);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of subruns of parametric runs 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <returns>ApiResponse of SimulationRuns</returns>
+        public SimScale.Sdk.Client.ApiResponse< SimulationRuns > GetSimulationRunSubRunsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1)
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->GetSimulationRunSubRuns");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->GetSimulationRunSubRuns");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->GetSimulationRunSubRuns");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< SimulationRuns >("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSimulationRunSubRuns", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of subruns of parametric runs 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <returns>Task of SimulationRuns</returns>
+        public async System.Threading.Tasks.Task<SimulationRuns> GetSimulationRunSubRunsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1)
+        {
+             SimScale.Sdk.Client.ApiResponse<SimulationRuns> localVarResponse = await GetSimulationRunSubRunsAsyncWithHttpInfo(projectId, simulationId, runId, limit, page);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List of subruns of parametric runs 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="runId">The simulation run ID</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
+        /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
+        /// <returns>Task of ApiResponse (SimulationRuns)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationRuns>> GetSimulationRunSubRunsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), int? limit = 100, int? page = 1)
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationRunsApi->GetSimulationRunSubRuns");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationRunsApi->GetSimulationRunSubRuns");
+
+            // verify the required parameter 'runId' is set
+            if (runId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling SimulationRunsApi->GetSimulationRunSubRuns");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("runId", SimScale.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SimulationRuns>("/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSimulationRunSubRuns", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

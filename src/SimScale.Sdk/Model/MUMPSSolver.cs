@@ -29,9 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class MUMPSSolver : OneOfSolidNumericsSolver, IEquatable<MUMPSSolver>
     {
         /// <summary>
-        /// &lt;p&gt;Choose the type of your system matrix either by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indifinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; else.
+        /// &lt;p&gt;Choose the type of your system matrix by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indefinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; otherwise.
         /// </summary>
-        /// <value>&lt;p&gt;Choose the type of your system matrix either by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indifinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; else.</value>
+        /// <value>&lt;p&gt;Choose the type of your system matrix by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indefinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; otherwise.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MatrixTypeEnum
         {
@@ -56,9 +56,9 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// &lt;p&gt;Choose the type of your system matrix either by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indifinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; else.
+        /// &lt;p&gt;Choose the type of your system matrix by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indefinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; otherwise.
         /// </summary>
-        /// <value>&lt;p&gt;Choose the type of your system matrix either by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indifinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; else.</value>
+        /// <value>&lt;p&gt;Choose the type of your system matrix by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indefinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; otherwise.</value>
         [DataMember(Name="matrixType", EmitDefaultValue=false)]
         public MatrixTypeEnum? MatrixType { get; set; }
         /// <summary>
@@ -196,9 +196,9 @@ namespace SimScale.Sdk.Model
         /// <param name="forceSymmetric">Choose if you want to enforce a symmetric matrix. (default to false).</param>
         /// <param name="precisionSingularityDetection">Define the precision value for the detection of a singular matrix. (default to 8).</param>
         /// <param name="stopIfSingular">Choose if the calculation should be stopped if the problem turns out to be singular. (default to true).</param>
-        /// <param name="matrixType">&lt;p&gt;Choose the type of your system matrix either by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indifinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; else. (default to MatrixTypeEnum.AUTOMATICDETECTION).</param>
+        /// <param name="matrixType">&lt;p&gt;Choose the type of your system matrix by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indefinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; otherwise. (default to MatrixTypeEnum.AUTOMATICDETECTION).</param>
         /// <param name="memoryPercentageForPivoting">Define how much additional memory should be reserved for the pivoting operations. If MUMPS estimates that the necessary space for factorising the matrix would be 100, choosing a value of 20 would mean that MUMPS allocates a memory space of 120. (default to 20M).</param>
-        /// <param name="linearSystemRelativeResidual">Choose a value for the maximum relative residual for each linear system resolution compared to the exact solution. In a nonlinear calculation the user can deactivate this check by selecting a negative value (for example -1.0, since the qualitiy of the solution is controlled within the Newton loop..</param>
+        /// <param name="linearSystemRelativeResidual">Choose a value for the maximum relative residual for each linear system resolution compared to the exact solution. In a nonlinear calculation the user can deactivate this check by selecting a negative value (for example, -1.0) since the quality of the solution is controlled within the Newton loop..</param>
         /// <param name="matrixFilteringThreshold">This parameter allows a filtration of the matrix entries that are saved and possibly passed to the nonlinear algorithm (Newton) and is similar to a relaxation mechanism. If the given threshold value is strictly positive, MUMPS only saves the matrix entries that satisfy the following condition: |K&lt;sub&gt;ij&lt;/sub&gt;| value*(|K&lt;sub&gt;ii&lt;/sub&gt;|+|K&lt;sub&gt;jj&lt;/sub&gt;|). Thus using this functionality might save computation time as well as memory consumption, but the effects strongly depend on the given value and is only advised for the experienced user. (default to -1M).</param>
         /// <param name="singlePrecision">If this option is activated the matrix factorisation is done with single precision and thus a reduction in memory consumption (often about 50%) and computation time is gained if the problem is well conditioned. If the problem is ill-conditioned one risks that in a nonlinear computation the newton algorithm fails to converge. (default to false).</param>
         /// <param name="preprocessing">If this option is activated MUMPS performs a pre-processing on order to identify the best parameter setting for some internal parameters adapted to the current problem. (default to true).</param>
@@ -261,9 +261,9 @@ namespace SimScale.Sdk.Model
         public decimal? MemoryPercentageForPivoting { get; set; }
 
         /// <summary>
-        /// Choose a value for the maximum relative residual for each linear system resolution compared to the exact solution. In a nonlinear calculation the user can deactivate this check by selecting a negative value (for example -1.0, since the qualitiy of the solution is controlled within the Newton loop.
+        /// Choose a value for the maximum relative residual for each linear system resolution compared to the exact solution. In a nonlinear calculation the user can deactivate this check by selecting a negative value (for example, -1.0) since the quality of the solution is controlled within the Newton loop.
         /// </summary>
-        /// <value>Choose a value for the maximum relative residual for each linear system resolution compared to the exact solution. In a nonlinear calculation the user can deactivate this check by selecting a negative value (for example -1.0, since the qualitiy of the solution is controlled within the Newton loop.</value>
+        /// <value>Choose a value for the maximum relative residual for each linear system resolution compared to the exact solution. In a nonlinear calculation the user can deactivate this check by selecting a negative value (for example, -1.0) since the quality of the solution is controlled within the Newton loop.</value>
         [DataMember(Name="linearSystemRelativeResidual", EmitDefaultValue=false)]
         public decimal? LinearSystemRelativeResidual { get; set; }
 

@@ -37,11 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SimulationSpec" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        /// <param name="version">version (required) (default to &quot;3.0&quot;).</param>
+        /// <param name="version">version (required) (default to &quot;4.0&quot;).</param>
         /// <param name="geometryId">geometryId (required).</param>
         /// <param name="meshId">The generated mesh ID which is to be used in the simulation. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, and &#39;SIMERICS_ANALYSIS&#39;..</param>
         /// <param name="model">model (required).</param>
-        public SimulationSpec(string name = default(string), string version = "3.0", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis))
+        /// <param name="parameters">parameters.</param>
+        public SimulationSpec(string name = default(string), string version = "4.0", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis), Dictionary<string, OneOfParameters> parameters = default(Dictionary<string, OneOfParameters>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SimulationSpec and cannot be null");
@@ -52,6 +53,7 @@ namespace SimScale.Sdk.Model
             // to ensure "model" is required (not null)
             this.Model = model ?? throw new ArgumentNullException("model is a required property for SimulationSpec and cannot be null");
             this.MeshId = meshId;
+            this.Parameters = parameters;
         }
         
         /// <summary>
@@ -104,6 +106,12 @@ namespace SimScale.Sdk.Model
         public Analysis Model { get; set; }
 
         /// <summary>
+        /// Gets or Sets Parameters
+        /// </summary>
+        [DataMember(Name="parameters", EmitDefaultValue=false)]
+        public Dictionary<string, OneOfParameters> Parameters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -119,6 +127,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  GeometryId: ").Append(GeometryId).Append("\n");
             sb.Append("  MeshId: ").Append(MeshId).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
+            sb.Append("  Parameters: ").Append(Parameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +201,12 @@ namespace SimScale.Sdk.Model
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
+                ) && 
+                (
+                    this.Parameters == input.Parameters ||
+                    this.Parameters != null &&
+                    input.Parameters != null &&
+                    this.Parameters.SequenceEqual(input.Parameters)
                 );
         }
 
@@ -220,6 +235,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MeshId.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
+                if (this.Parameters != null)
+                    hashCode = hashCode * 59 + this.Parameters.GetHashCode();
                 return hashCode;
             }
         }

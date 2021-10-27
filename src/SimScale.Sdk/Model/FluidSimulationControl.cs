@@ -91,7 +91,8 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="FluidSimulationControl" /> class.
         /// </summary>
         /// <param name="endTime">endTime.</param>
-        /// <param name="numberOfIterations">This represents the amount of iterations at which the termination of simulation happens. No more iterations will be executed. &lt;/br&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to 500).</param>
+        /// <param name="adjointEndTime">adjointEndTime.</param>
+        /// <param name="numberOfIterations">&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the number of total iterations at which the termination of simulation happens. No more iterations will be executed beyond that. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the number of iterations per time step. The recommended value is 25. The larger the &lt;i&gt;Delta t&lt;/i&gt; value is, the larger the &lt;i&gt;Number of iterations&lt;/i&gt; has to be, in order to obtain more stable, converged solution. The simulation will terminate only when the &lt;i&gt;End time&lt;/i&gt; is reached.&lt;/br&gt;.</param>
         /// <param name="deltaT">deltaT.</param>
         /// <param name="adjustableTimestep">adjustableTimestep.</param>
         /// <param name="writeControl">writeControl.</param>
@@ -99,10 +100,11 @@ namespace SimScale.Sdk.Model
         /// <param name="maxRunTime">maxRunTime.</param>
         /// <param name="potentialFoamInitialization">This setting activates the solution of a potential flow field. The potential flow is used as initial condition for the actual simulation. This can accelerate convergence and improve stability during the first time steps. If you experience stability problems, this setting may bring some improvement. (default to false).</param>
         /// <param name="decomposeAlgorithm">decomposeAlgorithm.</param>
-        /// <param name="relativeConvergenceCriteria">The simulation is assumed to be converged and will stop if the relative residuals for all equations fall below this number. Relative residual is defined as the residual in the current iteration divided by the initial residual. (default to 0.001M).</param>
-        public FluidSimulationControl(DimensionalTime endTime = default(DimensionalTime), int? numberOfIterations = default(int?), DimensionalTime deltaT = default(DimensionalTime), OneOfFluidSimulationControlAdjustableTimestep adjustableTimestep = default(OneOfFluidSimulationControlAdjustableTimestep), OneOfFluidSimulationControlWriteControl writeControl = default(OneOfFluidSimulationControlWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), bool? potentialFoamInitialization = default(bool?), OneOfFluidSimulationControlDecomposeAlgorithm decomposeAlgorithm = default(OneOfFluidSimulationControlDecomposeAlgorithm), decimal? relativeConvergenceCriteria = default(decimal?))
+        /// <param name="relativeConvergenceCriteria">&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation is considered to be converged and will stop. The recommended value is 0.001.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation will move to the next time-step regardless of the &lt;i&gt;Number of iterations&lt;/i&gt;. The recommended value is 0.1.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Relative residual is defined as the residual in the current iteration divided by the initial residual.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Lower convergence criterion is demanded for &lt;b&gt;Steady-state simulations&lt;/b&gt; because the initial guess is typically farther from the correct solution.&lt;/br&gt;.</param>
+        public FluidSimulationControl(DimensionalTime endTime = default(DimensionalTime), DimensionalTime adjointEndTime = default(DimensionalTime), int? numberOfIterations = default(int?), DimensionalTime deltaT = default(DimensionalTime), OneOfFluidSimulationControlAdjustableTimestep adjustableTimestep = default(OneOfFluidSimulationControlAdjustableTimestep), OneOfFluidSimulationControlWriteControl writeControl = default(OneOfFluidSimulationControlWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), bool? potentialFoamInitialization = default(bool?), OneOfFluidSimulationControlDecomposeAlgorithm decomposeAlgorithm = default(OneOfFluidSimulationControlDecomposeAlgorithm), decimal? relativeConvergenceCriteria = default(decimal?))
         {
             this.EndTime = endTime;
+            this.AdjointEndTime = adjointEndTime;
             this.NumberOfIterations = numberOfIterations;
             this.DeltaT = deltaT;
             this.AdjustableTimestep = adjustableTimestep;
@@ -121,9 +123,15 @@ namespace SimScale.Sdk.Model
         public DimensionalTime EndTime { get; set; }
 
         /// <summary>
-        /// This represents the amount of iterations at which the termination of simulation happens. No more iterations will be executed. &lt;/br&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// Gets or Sets AdjointEndTime
         /// </summary>
-        /// <value>This represents the amount of iterations at which the termination of simulation happens. No more iterations will be executed. &lt;/br&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        [DataMember(Name="adjointEndTime", EmitDefaultValue=false)]
+        public DimensionalTime AdjointEndTime { get; set; }
+
+        /// <summary>
+        /// &lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the number of total iterations at which the termination of simulation happens. No more iterations will be executed beyond that. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the number of iterations per time step. The recommended value is 25. The larger the &lt;i&gt;Delta t&lt;/i&gt; value is, the larger the &lt;i&gt;Number of iterations&lt;/i&gt; has to be, in order to obtain more stable, converged solution. The simulation will terminate only when the &lt;i&gt;End time&lt;/i&gt; is reached.&lt;/br&gt;
+        /// </summary>
+        /// <value>&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the number of total iterations at which the termination of simulation happens. No more iterations will be executed beyond that. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the number of iterations per time step. The recommended value is 25. The larger the &lt;i&gt;Delta t&lt;/i&gt; value is, the larger the &lt;i&gt;Number of iterations&lt;/i&gt; has to be, in order to obtain more stable, converged solution. The simulation will terminate only when the &lt;i&gt;End time&lt;/i&gt; is reached.&lt;/br&gt;</value>
         [DataMember(Name="numberOfIterations", EmitDefaultValue=false)]
         public int? NumberOfIterations { get; set; }
 
@@ -165,9 +173,9 @@ namespace SimScale.Sdk.Model
         public OneOfFluidSimulationControlDecomposeAlgorithm DecomposeAlgorithm { get; set; }
 
         /// <summary>
-        /// The simulation is assumed to be converged and will stop if the relative residuals for all equations fall below this number. Relative residual is defined as the residual in the current iteration divided by the initial residual.
+        /// &lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation is considered to be converged and will stop. The recommended value is 0.001.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation will move to the next time-step regardless of the &lt;i&gt;Number of iterations&lt;/i&gt;. The recommended value is 0.1.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Relative residual is defined as the residual in the current iteration divided by the initial residual.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Lower convergence criterion is demanded for &lt;b&gt;Steady-state simulations&lt;/b&gt; because the initial guess is typically farther from the correct solution.&lt;/br&gt;
         /// </summary>
-        /// <value>The simulation is assumed to be converged and will stop if the relative residuals for all equations fall below this number. Relative residual is defined as the residual in the current iteration divided by the initial residual.</value>
+        /// <value>&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation is considered to be converged and will stop. The recommended value is 0.001.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation will move to the next time-step regardless of the &lt;i&gt;Number of iterations&lt;/i&gt;. The recommended value is 0.1.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Relative residual is defined as the residual in the current iteration divided by the initial residual.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Lower convergence criterion is demanded for &lt;b&gt;Steady-state simulations&lt;/b&gt; because the initial guess is typically farther from the correct solution.&lt;/br&gt;</value>
         [DataMember(Name="relativeConvergenceCriteria", EmitDefaultValue=false)]
         public decimal? RelativeConvergenceCriteria { get; set; }
 
@@ -180,6 +188,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class FluidSimulationControl {\n");
             sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            sb.Append("  AdjointEndTime: ").Append(AdjointEndTime).Append("\n");
             sb.Append("  NumberOfIterations: ").Append(NumberOfIterations).Append("\n");
             sb.Append("  DeltaT: ").Append(DeltaT).Append("\n");
             sb.Append("  AdjustableTimestep: ").Append(AdjustableTimestep).Append("\n");
@@ -227,6 +236,11 @@ namespace SimScale.Sdk.Model
                     this.EndTime == input.EndTime ||
                     (this.EndTime != null &&
                     this.EndTime.Equals(input.EndTime))
+                ) && 
+                (
+                    this.AdjointEndTime == input.AdjointEndTime ||
+                    (this.AdjointEndTime != null &&
+                    this.AdjointEndTime.Equals(input.AdjointEndTime))
                 ) && 
                 (
                     this.NumberOfIterations == input.NumberOfIterations ||
@@ -285,6 +299,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.EndTime != null)
                     hashCode = hashCode * 59 + this.EndTime.GetHashCode();
+                if (this.AdjointEndTime != null)
+                    hashCode = hashCode * 59 + this.AdjointEndTime.GetHashCode();
                 if (this.NumberOfIterations != null)
                     hashCode = hashCode * 59 + this.NumberOfIterations.GetHashCode();
                 if (this.DeltaT != null)

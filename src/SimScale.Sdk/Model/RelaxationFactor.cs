@@ -32,8 +32,8 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="RelaxationFactor" /> class.
         /// </summary>
         /// <param name="pressureField">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
-        /// <param name="pressureRghField">pressureRghField.</param>
-        /// <param name="passiveScalarEquation">passiveScalarEquation (default to 0.3M).</param>
+        /// <param name="pressureRghField">pressureRghField (default to 0.7M).</param>
+        /// <param name="passiveScalarEquation">passiveScalarEquation.</param>
         /// <param name="velocityEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="temperatureEquation">temperatureEquation.</param>
         /// <param name="densityField">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
@@ -42,7 +42,7 @@ namespace SimScale.Sdk.Model
         /// <param name="turbulentKineticEnergyEquation">turbulentKineticEnergyEquation.</param>
         /// <param name="omegaDissipationRateEquation">omegaDissipationRateEquation.</param>
         /// <param name="epsilonDissipationRateEquation">epsilonDissipationRateEquation.</param>
-        /// <param name="nuTildaEquation">nuTildaEquation (default to 0.7M).</param>
+        /// <param name="nuTildaEquation">nuTildaEquation.</param>
         /// <param name="netRadiativeHeatFluxField">netRadiativeHeatFluxField (default to 0.3M).</param>
         /// <param name="radiativeIntensityRayEquation">radiativeIntensityRayEquation (default to 0.5M).</param>
         public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?))

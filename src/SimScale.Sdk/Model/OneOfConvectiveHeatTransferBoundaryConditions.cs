@@ -33,7 +33,6 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(PressureOutletBC), "PRESSURE_OUTLET_V30")]
     [JsonSubtypes.KnownSubType(typeof(WallBC), "WALL_V34")]
     [JsonSubtypes.KnownSubType(typeof(SymmetryBC), "SYMMETRY")]
-    [JsonSubtypes.KnownSubType(typeof(PeriodicBC), "PERIODIC")]
     [JsonSubtypes.KnownSubType(typeof(WedgeBC), "WEDGE")]
     [JsonSubtypes.KnownSubType(typeof(CustomFluidBC), "CUSTOM_V37")]
     [JsonSubtypes.KnownSubType(typeof(Empty2DBC), "EMPTY_2D")]

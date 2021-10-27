@@ -161,6 +161,7 @@ namespace SimScale.Sdk.Model
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="algorithm">algorithm (default to &quot;SIMPLE&quot;).</param>
         /// <param name="numOfPassiveSpecies">Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to NumOfPassiveSpeciesEnum.NUMBER_0).</param>
+        /// <param name="enableAdjointOptimization">enableAdjointOptimization (default to false).</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
         /// <param name="initialConditions">initialConditions.</param>
@@ -169,7 +170,7 @@ namespace SimScale.Sdk.Model
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
-        public Incompressible(string type = "INCOMPRESSIBLE", TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfIncompressibleTimeDependency timeDependency = default(OneOfIncompressibleTimeDependency), string algorithm = default(string), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), FluidModel model = default(FluidModel), IncompressibleFluidMaterials materials = default(IncompressibleFluidMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfIncompressibleBoundaryConditions> boundaryConditions = default(List<OneOfIncompressibleBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
+        public Incompressible(string type = "INCOMPRESSIBLE", TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfIncompressibleTimeDependency timeDependency = default(OneOfIncompressibleTimeDependency), string algorithm = default(string), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), bool? enableAdjointOptimization = default(bool?), FluidModel model = default(FluidModel), IncompressibleFluidMaterials materials = default(IncompressibleFluidMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfIncompressibleBoundaryConditions> boundaryConditions = default(List<OneOfIncompressibleBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for Incompressible and cannot be null");
@@ -177,6 +178,7 @@ namespace SimScale.Sdk.Model
             this.TimeDependency = timeDependency;
             this.Algorithm = algorithm;
             this.NumOfPassiveSpecies = numOfPassiveSpecies;
+            this.EnableAdjointOptimization = enableAdjointOptimization;
             this.Model = model;
             this.Materials = materials;
             this.InitialConditions = initialConditions;
@@ -205,6 +207,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="algorithm", EmitDefaultValue=false)]
         public string Algorithm { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EnableAdjointOptimization
+        /// </summary>
+        [DataMember(Name="enableAdjointOptimization", EmitDefaultValue=false)]
+        public bool? EnableAdjointOptimization { get; set; }
 
         /// <summary>
         /// Gets or Sets Model
@@ -267,6 +275,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
             sb.Append("  Algorithm: ").Append(Algorithm).Append("\n");
             sb.Append("  NumOfPassiveSpecies: ").Append(NumOfPassiveSpecies).Append("\n");
+            sb.Append("  EnableAdjointOptimization: ").Append(EnableAdjointOptimization).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
@@ -333,6 +342,11 @@ namespace SimScale.Sdk.Model
                     this.NumOfPassiveSpecies.Equals(input.NumOfPassiveSpecies)
                 ) && 
                 (
+                    this.EnableAdjointOptimization == input.EnableAdjointOptimization ||
+                    (this.EnableAdjointOptimization != null &&
+                    this.EnableAdjointOptimization.Equals(input.EnableAdjointOptimization))
+                ) && 
+                (
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
@@ -392,6 +406,8 @@ namespace SimScale.Sdk.Model
                 if (this.Algorithm != null)
                     hashCode = hashCode * 59 + this.Algorithm.GetHashCode();
                 hashCode = hashCode * 59 + this.NumOfPassiveSpecies.GetHashCode();
+                if (this.EnableAdjointOptimization != null)
+                    hashCode = hashCode * 59 + this.EnableAdjointOptimization.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
                 if (this.Materials != null)

@@ -29,29 +29,80 @@ namespace SimScale.Sdk.Model
     public partial class ReportResponse : IEquatable<ReportResponse>
     {
         /// <summary>
-        /// Gets or Sets Status
+        /// Status of the report operation.
         /// </summary>
+        /// <value>Status of the report operation.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            /// <summary>
+            /// Enum READY for value: READY
+            /// </summary>
+            [EnumMember(Value = "READY")]
+            READY = 1,
+
+            /// <summary>
+            /// Enum QUEUED for value: QUEUED
+            /// </summary>
+            [EnumMember(Value = "QUEUED")]
+            QUEUED = 2,
+
+            /// <summary>
+            /// Enum RUNNING for value: RUNNING
+            /// </summary>
+            [EnumMember(Value = "RUNNING")]
+            RUNNING = 3,
+
+            /// <summary>
+            /// Enum FINISHED for value: FINISHED
+            /// </summary>
+            [EnumMember(Value = "FINISHED")]
+            FINISHED = 4,
+
+            /// <summary>
+            /// Enum CANCELED for value: CANCELED
+            /// </summary>
+            [EnumMember(Value = "CANCELED")]
+            CANCELED = 5,
+
+            /// <summary>
+            /// Enum FAILED for value: FAILED
+            /// </summary>
+            [EnumMember(Value = "FAILED")]
+            FAILED = 6
+
+        }
+
+        /// <summary>
+        /// Status of the report operation.
+        /// </summary>
+        /// <value>Status of the report operation.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
-        public Status? Status { get; set; }
+        public StatusEnum Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportResponse" /> class.
         /// </summary>
-        /// <param name="name">The name of the report..</param>
-        /// <param name="description">The description of the report..</param>
-        /// <param name="status">status.</param>
+        [JsonConstructorAttribute]
+        protected ReportResponse() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReportResponse" /> class.
+        /// </summary>
+        /// <param name="name">The name of the report. (required).</param>
+        /// <param name="description">The description of the report. (required).</param>
         /// <param name="resultIds">The resultIds the report has been created for..</param>
-        /// <param name="reportProperties">Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service. .</param>
+        /// <param name="reportProperties">reportProperties.</param>
+        /// <param name="download">download.</param>
         /// <param name="failureReason">failureReason.</param>
-        /// <param name="download">Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service. .</param>
-        public ReportResponse(string name = default(string), string description = default(string), Status? status = default(Status?), List<Guid?> resultIds = default(List<Guid?>), Object reportProperties = default(Object), LogEntry failureReason = default(LogEntry), Object download = default(Object))
+        public ReportResponse(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), OneOfReportProperties reportProperties = default(OneOfReportProperties), DownloadInfo download = default(DownloadInfo), ReportResponseFailureReason failureReason = default(ReportResponseFailureReason))
         {
-            this.Name = name;
-            this.Description = description;
-            this.Status = status;
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ReportResponse and cannot be null");
+            // to ensure "description" is required (not null)
+            this.Description = description ?? throw new ArgumentNullException("description is a required property for ReportResponse and cannot be null");
             this.ResultIds = resultIds;
             this.ReportProperties = reportProperties;
-            this.FailureReason = failureReason;
             this.Download = download;
+            this.FailureReason = failureReason;
         }
         
         /// <summary>
@@ -104,24 +155,22 @@ namespace SimScale.Sdk.Model
         public List<Guid?> ResultIds { get; set; }
 
         /// <summary>
-        /// Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service. 
+        /// Gets or Sets ReportProperties
         /// </summary>
-        /// <value>Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service. </value>
         [DataMember(Name="reportProperties", EmitDefaultValue=false)]
-        public Object ReportProperties { get; set; }
+        public OneOfReportProperties ReportProperties { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Download
+        /// </summary>
+        [DataMember(Name="download", EmitDefaultValue=false)]
+        public DownloadInfo Download { get; set; }
 
         /// <summary>
         /// Gets or Sets FailureReason
         /// </summary>
         [DataMember(Name="failureReason", EmitDefaultValue=false)]
-        public LogEntry FailureReason { get; set; }
-
-        /// <summary>
-        /// Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service. 
-        /// </summary>
-        /// <value>Note: This object is replaced at runtime with the actual report model schema which is fetched from reporting service. </value>
-        [DataMember(Name="download", EmitDefaultValue=false)]
-        public Object Download { get; set; }
+        public ReportResponseFailureReason FailureReason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -140,8 +189,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ResultIds: ").Append(ResultIds).Append("\n");
             sb.Append("  ReportProperties: ").Append(ReportProperties).Append("\n");
-            sb.Append("  FailureReason: ").Append(FailureReason).Append("\n");
             sb.Append("  Download: ").Append(Download).Append("\n");
+            sb.Append("  FailureReason: ").Append(FailureReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -222,14 +271,14 @@ namespace SimScale.Sdk.Model
                     this.ReportProperties.Equals(input.ReportProperties))
                 ) && 
                 (
-                    this.FailureReason == input.FailureReason ||
-                    (this.FailureReason != null &&
-                    this.FailureReason.Equals(input.FailureReason))
-                ) && 
-                (
                     this.Download == input.Download ||
                     (this.Download != null &&
                     this.Download.Equals(input.Download))
+                ) && 
+                (
+                    this.FailureReason == input.FailureReason ||
+                    (this.FailureReason != null &&
+                    this.FailureReason.Equals(input.FailureReason))
                 );
         }
 
@@ -259,10 +308,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ResultIds.GetHashCode();
                 if (this.ReportProperties != null)
                     hashCode = hashCode * 59 + this.ReportProperties.GetHashCode();
-                if (this.FailureReason != null)
-                    hashCode = hashCode * 59 + this.FailureReason.GetHashCode();
                 if (this.Download != null)
                     hashCode = hashCode * 59 + this.Download.GetHashCode();
+                if (this.FailureReason != null)
+                    hashCode = hashCode * 59 + this.FailureReason.GetHashCode();
                 return hashCode;
             }
         }

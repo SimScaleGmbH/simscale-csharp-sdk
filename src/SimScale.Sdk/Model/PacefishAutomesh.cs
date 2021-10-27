@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// PacefishAutomesh
+    /// &lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;
     /// </summary>
     [DataContract]
     public partial class PacefishAutomesh : OneOfIncompressiblePacefishMeshSettingsNew, IEquatable<PacefishAutomesh>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PacefishAutomesh" /> class.
         /// </summary>
-        /// <param name="type">Schema name: PacefishAutomesh (required) (default to &quot;PACEFISH_AUTOMESH&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishAutomesh (required) (default to &quot;PACEFISH_AUTOMESH&quot;).</param>
         /// <param name="newFineness">newFineness.</param>
         /// <param name="referenceLengthComputation">referenceLengthComputation.</param>
         /// <param name="primaryTopology">primaryTopology.</param>
@@ -52,9 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: PacefishAutomesh
+        /// &lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishAutomesh
         /// </summary>
-        /// <value>Schema name: PacefishAutomesh</value>
+        /// <value>&lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishAutomesh</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

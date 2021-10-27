@@ -34,6 +34,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsSurfaceNormalsResultControl), "SURFACE_NORMALS")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsWallFluxesResultControl), "WALL_FLUXES")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsThermalComfortResultControl), "THERMAL_COMFORT")]
+    [JsonSubtypes.KnownSubType(typeof(FieldCalculationsAdjointSensitivitiesResultControl), "ADJOINT_SENSITIVITIES")]
     public interface OneOfFluidResultControlsFieldCalculations
     {
         /// <summary>

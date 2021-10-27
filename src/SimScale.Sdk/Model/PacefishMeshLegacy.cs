@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// PacefishMeshLegacy
+    /// &lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;
     /// </summary>
     [DataContract]
     public partial class PacefishMeshLegacy : OneOfIncompressiblePacefishMeshSettingsNew, IEquatable<PacefishMeshLegacy>
@@ -79,10 +79,10 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PacefishMeshLegacy" /> class.
         /// </summary>
-        /// <param name="type">Schema name: PacefishMeshLegacy (required) (default to &quot;PACEFISH_MESH_LEGACY&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishMeshLegacy (required) (default to &quot;PACEFISH_MESH_LEGACY&quot;).</param>
         /// <param name="fineness">fineness (default to FinenessEnum.COARSE).</param>
         /// <param name="referenceLength">referenceLength.</param>
-        /// <param name="reynoldsScaling">Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. (default to 1M).</param>
+        /// <param name="reynoldsScaling">Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. &lt;a href&#x3D; https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#reynolds-scaling-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to 1M).</param>
         /// <param name="refinements">refinements.</param>
         public PacefishMeshLegacy(string type = "PACEFISH_MESH_LEGACY", FinenessEnum? fineness = default(FinenessEnum?), DimensionalLength referenceLength = default(DimensionalLength), decimal? reynoldsScaling = default(decimal?), List<OneOfPacefishMeshLegacyRefinements> refinements = default(List<OneOfPacefishMeshLegacyRefinements>))
         {
@@ -95,9 +95,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: PacefishMeshLegacy
+        /// &lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishMeshLegacy
         /// </summary>
-        /// <value>Schema name: PacefishMeshLegacy</value>
+        /// <value>&lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishMeshLegacy</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
         public DimensionalLength ReferenceLength { get; set; }
 
         /// <summary>
-        /// Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01.
+        /// Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. &lt;a href&#x3D; https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#reynolds-scaling-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
-        /// <value>Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01.</value>
+        /// <value>Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. &lt;a href&#x3D; https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#reynolds-scaling-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
         [DataMember(Name="reynoldsScaling", EmitDefaultValue=false)]
         public decimal? ReynoldsScaling { get; set; }
 

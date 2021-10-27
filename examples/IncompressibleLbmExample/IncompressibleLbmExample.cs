@@ -4,6 +4,7 @@ using System.Threading;
 using System;
 using System.IO;
 using System.Linq;
+using System.Net;
 using Newtonsoft.Json;
 using RestSharp;
 using SimScale.Sdk.Api;
@@ -30,6 +31,7 @@ class IncompressibleLbmExample
         var simulationApi = new SimulationsApi(config);
         var simulationRunApi = new SimulationRunsApi(config);
         var tableImportApi = new TableImportsApi(config);
+        var reportsApi = new ReportsApi(config);
 
         HashSet<Status> terminalStatuses = new HashSet<Status> {Status.FINISHED, Status.CANCELED, Status.FAILED};
         Stopwatch stopWatch = new Stopwatch();
@@ -39,7 +41,7 @@ class IncompressibleLbmExample
         // Create project
         var project = new Project(
             name: "Incompressible LBM via CSharp SDK",
-            description: "Incompressible LBM via CSharp SDK", 
+            description: "Incompressible LBM via CSharp SDK",
             measurementSystem:Project.MeasurementSystemEnum.SI
         );
         project = projectApi.CreateProject(project);
@@ -101,7 +103,7 @@ class IncompressibleLbmExample
         probePointsCsvUploadRequest.AddParameter("application/octet-stream", File.ReadAllBytes(@"../fixtures/ProbePoints.csv"), ParameterType.RequestBody);
         restClient.Execute(probePointsCsvUploadRequest);
         Console.WriteLine("Probe Points table storageId: " + probePointsCsvStorageId);
-        
+
         // Import table containing Probe Points information
         var probePointsTableImportRequest = new TableImportRequest(new TableImportRequestLocation(probePointsCsvStorageId));
         var probePointsTableImport = tableImportApi.ImportTable(projectId, probePointsTableImportRequest);
@@ -288,8 +290,14 @@ class IncompressibleLbmExample
         {
             var estimationResult = simulationApi.EstimateSimulationSetup(projectId, simulationId);
             Console.WriteLine("Simulation estimation: " + estimationResult);
-            maxRuntime = System.Xml.XmlConvert.ToTimeSpan(estimationResult.Duration.IntervalMax).TotalSeconds;
-            maxRuntime = Math.Max(3600, maxRuntime * 2);
+
+            if (estimationResult.Duration != null) {
+                maxRuntime = System.Xml.XmlConvert.ToTimeSpan(estimationResult.Duration.IntervalMax).TotalSeconds;
+                maxRuntime = Math.Max(3600, maxRuntime * 2);
+            } else {
+                maxRuntime = 36000;
+                Console.WriteLine("Simulation estimated duration not available, assuming max runtime of {0} seconds", maxRuntime);
+            }
         }
         catch (ApiException ae)
         {
@@ -365,6 +373,82 @@ class IncompressibleLbmExample
             {
                 Console.WriteLine(entry);
             }
+        }
+
+        var reportRequest = new ReportRequest(
+            name: "Report 1",
+            description: "Simulation report",
+            resultIds: new List < Guid ? > {
+                averagedSolutionInfo.ResultId
+            },
+            reportProperties : new ScreenshotReportProperties(
+                modelSettings: new ModelSettings(
+                    parts: new List < Part > {
+                        new Part(
+                            partIdentifier: "data - mesh_solid-volume-reference-of-all-face-topo-entities",
+                            solidColor: new Color(r: 0.8f, g: 0.2f, b: 0.4f))
+                    },
+                    scalarField: new ScalarField(
+                        fieldName: "Velocity",
+                        component: "X",
+                        dataType: DataType.CELL
+                    )
+                ),
+                filters: null,
+                cameraSettings: new UserInputCameraSettings(
+                    projectionType: ProjectionType.ORTHOGONAL,
+                    up: new Vector3D(
+                        x: (decimal) 0.5,
+                        y: (decimal) 0.3,
+                        z: (decimal) 0.2
+                    ),
+                    direction: new Vector3D(
+                        x: (decimal) 0.0,
+                        y: (decimal) 5.0,
+                        z: (decimal) 10.0
+                    ),
+                    center: new Vector3D(
+                        x: (decimal) 10.0,
+                        y: (decimal) 12.0,
+                        z: (decimal) 1.0
+                    ),
+                    frontPlaneFrustumHeight: (decimal) 0.5
+                ),
+                outputSettings: new ScreenshotOutputSettings(
+                    name: "Output 1",
+                    format: ScreenshotOutputSettings.FormatEnum.PNG,
+                    resolution: new ResolutionInfo(x: 800, y: 800),
+                    frameIndex: 0
+                )
+            )
+        );
+
+        // Creating report
+        Console.WriteLine("Creating report...");
+        var createReportResponse = reportsApi.CreateReport(projectId, reportRequest);
+        var reportId = createReportResponse.ReportId;
+
+        // Start report job
+        Console.WriteLine("Starting report with ID: " + reportId);
+        reportsApi.StartReportJob(projectId, reportId);
+
+        HashSet < ReportResponse.StatusEnum > terminalReportStatuses = new HashSet < ReportResponse.StatusEnum > {
+            ReportResponse.StatusEnum.FINISHED,
+            ReportResponse.StatusEnum.CANCELED,
+            ReportResponse.StatusEnum.FAILED
+        };
+        var report = reportsApi.GetReport(projectId, reportId);
+
+        while (!terminalReportStatuses.Contains(report.Status)) {
+            Thread.Sleep(30000);
+            report = reportsApi.GetReport(projectId, reportId);
+            Console.WriteLine("Report generation status: " + report.Status);
+        }
+
+        using(var client = new WebClient()) {
+            Console.WriteLine("Downloading file from: " + report.Download.Url);
+            client.Headers.Add(API_KEY_HEADER, API_KEY);
+            client.DownloadFile(report.Download.Url, "report." + report.Download.Format);
         }
     }
 }

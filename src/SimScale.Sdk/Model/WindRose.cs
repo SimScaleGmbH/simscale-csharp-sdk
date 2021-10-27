@@ -154,7 +154,7 @@ namespace SimScale.Sdk.Model
         /// <param name="exposureCategories">exposureCategories.</param>
         /// <param name="windEngineeringStandard">windEngineeringStandard (default to WindEngineeringStandardEnum.EU).</param>
         /// <param name="windDataSource">windDataSource.</param>
-        /// <param name="addSurfaceRoughness">addSurfaceRoughness (default to false).</param>
+        /// <param name="addSurfaceRoughness">addSurfaceRoughness (default to true).</param>
         public WindRose(int? numDirections = default(int?), List<WindRoseVelocityBucket> velocityBuckets = default(List<WindRoseVelocityBucket>), string velocityUnit = "m/s", List<ExposureCategoriesEnum> exposureCategories = default(List<ExposureCategoriesEnum>), WindEngineeringStandardEnum? windEngineeringStandard = default(WindEngineeringStandardEnum?), WindDataSourceEnum? windDataSource = default(WindDataSourceEnum?), bool? addSurfaceRoughness = default(bool?))
         {
             // to ensure "velocityUnit" is required (not null)

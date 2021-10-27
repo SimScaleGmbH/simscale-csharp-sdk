@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// SpecificPowerSource
+    /// &lt;i&gt;Power sources&lt;/i&gt; can be used to simulate heat generation from a volume. Two types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Absolute&lt;/b&gt;&lt;/li&gt;: Used when total power emitted by the assigned volume is known.&lt;li&gt;&lt;b&gt;Specific&lt;/b&gt;&lt;/li&gt;: Used when power density of the assigned volume is known. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/power-sources/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
     public partial class SpecificPowerSource : OneOfAdvancedConceptsPowerSources, IEquatable<SpecificPowerSource>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecificPowerSource" /> class.
         /// </summary>
-        /// <param name="type">Schema name: SpecificPowerSource (required) (default to &quot;SPECIFIC_V23&quot;).</param>
+        /// <param name="type">&lt;i&gt;Power sources&lt;/i&gt; can be used to simulate heat generation from a volume. Two types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Absolute&lt;/b&gt;&lt;/li&gt;: Used when total power emitted by the assigned volume is known.&lt;li&gt;&lt;b&gt;Specific&lt;/b&gt;&lt;/li&gt;: Used when power density of the assigned volume is known. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/power-sources/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: SpecificPowerSource (required) (default to &quot;SPECIFIC_V23&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="heatFlux">heatFlux.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -52,9 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: SpecificPowerSource
+        /// &lt;i&gt;Power sources&lt;/i&gt; can be used to simulate heat generation from a volume. Two types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Absolute&lt;/b&gt;&lt;/li&gt;: Used when total power emitted by the assigned volume is known.&lt;li&gt;&lt;b&gt;Specific&lt;/b&gt;&lt;/li&gt;: Used when power density of the assigned volume is known. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/power-sources/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: SpecificPowerSource
         /// </summary>
-        /// <value>Schema name: SpecificPowerSource</value>
+        /// <value>&lt;i&gt;Power sources&lt;/i&gt; can be used to simulate heat generation from a volume. Two types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Absolute&lt;/b&gt;&lt;/li&gt;: Used when total power emitted by the assigned volume is known.&lt;li&gt;&lt;b&gt;Specific&lt;/b&gt;&lt;/li&gt;: Used when power density of the assigned volume is known. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/power-sources/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: SpecificPowerSource</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; constraint is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;/p&gt;
+    /// &lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; boundary condition is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;br&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/fixed-support-constraint-type/&#39; target&#39;blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
     /// </summary>
     [DataContract]
     public partial class FixedSupportBC : OneOfDynamicAnalysisBoundaryConditions, OneOfFrequencyAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<FixedSupportBC>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedSupportBC" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; constraint is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;/p&gt;  Schema name: FixedSupportBC (required) (default to &quot;FIXED_SUPPORT&quot;).</param>
+        /// <param name="type">&lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; boundary condition is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;br&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/fixed-support-constraint-type/&#39; target&#39;blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: FixedSupportBC (required) (default to &quot;FIXED_SUPPORT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public FixedSupportBC(string type = "FIXED_SUPPORT", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,9 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; constraint is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;/p&gt;  Schema name: FixedSupportBC
+        /// &lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; boundary condition is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;br&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/fixed-support-constraint-type/&#39; target&#39;blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: FixedSupportBC
         /// </summary>
-        /// <value>&lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; constraint is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;/p&gt;  Schema name: FixedSupportBC</value>
+        /// <value>&lt;p&gt;If a &lt;b&gt;fixed support&lt;/b&gt; boundary condition is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.&lt;br&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/fixed-support-constraint-type/&#39; target&#39;blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: FixedSupportBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

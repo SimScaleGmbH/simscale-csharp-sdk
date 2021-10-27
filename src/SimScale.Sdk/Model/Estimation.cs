@@ -60,6 +60,13 @@ namespace SimScale.Sdk.Model
         public CellCount CellCount { get; set; }
 
         /// <summary>
+        /// The total number of jobs that will be triggered for this simulation run or mesh operation.
+        /// </summary>
+        /// <value>The total number of jobs that will be triggered for this simulation run or mesh operation.</value>
+        [DataMember(Name="totalRunCount", EmitDefaultValue=false)]
+        public int? TotalRunCount { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -70,6 +77,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Duration: ").Append(Duration).Append("\n");
             sb.Append("  ComputeResource: ").Append(ComputeResource).Append("\n");
             sb.Append("  CellCount: ").Append(CellCount).Append("\n");
+            sb.Append("  TotalRunCount: ").Append(TotalRunCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,6 +126,11 @@ namespace SimScale.Sdk.Model
                     this.CellCount == input.CellCount ||
                     (this.CellCount != null &&
                     this.CellCount.Equals(input.CellCount))
+                ) && 
+                (
+                    this.TotalRunCount == input.TotalRunCount ||
+                    (this.TotalRunCount != null &&
+                    this.TotalRunCount.Equals(input.TotalRunCount))
                 );
         }
 
@@ -136,6 +149,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ComputeResource.GetHashCode();
                 if (this.CellCount != null)
                     hashCode = hashCode * 59 + this.CellCount.GetHashCode();
+                if (this.TotalRunCount != null)
+                    hashCode = hashCode * 59 + this.TotalRunCount.GetHashCode();
                 return hashCode;
             }
         }

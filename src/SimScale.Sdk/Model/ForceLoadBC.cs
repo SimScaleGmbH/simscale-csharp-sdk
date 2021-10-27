@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing a &lt;b&gt;distributed force on the selection&lt;/b&gt;. The total force is defined in the global coordinate system and each element of the assignment is loaded with a surface traction depending on the area of the element.&lt;/p&gt;
+    /// &lt;p&gt;This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing a &lt;b&gt;distributed force on the selection&lt;/b&gt;. The total force is defined in the global coordinate system and each element of the assignment is loaded with a surface traction depending on the area of the element.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
     /// </summary>
     [DataContract]
     public partial class ForceLoadBC : OneOfDynamicAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<ForceLoadBC>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ForceLoadBC" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing a &lt;b&gt;distributed force on the selection&lt;/b&gt;. The total force is defined in the global coordinate system and each element of the assignment is loaded with a surface traction depending on the area of the element.&lt;/p&gt;  Schema name: ForceLoadBC (required) (default to &quot;FORCE_LOAD&quot;).</param>
+        /// <param name="type">&lt;p&gt;This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing a &lt;b&gt;distributed force on the selection&lt;/b&gt;. The total force is defined in the global coordinate system and each element of the assignment is loaded with a surface traction depending on the area of the element.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: ForceLoadBC (required) (default to &quot;FORCE_LOAD&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="force">force.</param>
         /// <param name="scaling">scaling.</param>
@@ -54,9 +54,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing a &lt;b&gt;distributed force on the selection&lt;/b&gt;. The total force is defined in the global coordinate system and each element of the assignment is loaded with a surface traction depending on the area of the element.&lt;/p&gt;  Schema name: ForceLoadBC
+        /// &lt;p&gt;This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing a &lt;b&gt;distributed force on the selection&lt;/b&gt;. The total force is defined in the global coordinate system and each element of the assignment is loaded with a surface traction depending on the area of the element.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: ForceLoadBC
         /// </summary>
-        /// <value>&lt;p&gt;This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing a &lt;b&gt;distributed force on the selection&lt;/b&gt;. The total force is defined in the global coordinate system and each element of the assignment is loaded with a surface traction depending on the area of the element.&lt;/p&gt;  Schema name: ForceLoadBC</value>
+        /// <value>&lt;p&gt;This is a &lt;b&gt;force&lt;/b&gt; boundary condition representing a &lt;b&gt;distributed force on the selection&lt;/b&gt;. The total force is defined in the global coordinate system and each element of the assignment is loaded with a surface traction depending on the area of the element.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: ForceLoadBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

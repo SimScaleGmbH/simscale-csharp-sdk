@@ -29,8 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class SimericsAnalysis : Analysis, IEquatable<SimericsAnalysis>
     {
         /// <summary>
-        /// Defines TurbulenceModel
+        /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
         /// </summary>
+        /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TurbulenceModelEnum
         {
@@ -49,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets TurbulenceModel
+        /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
         /// </summary>
+        /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
         [DataMember(Name="turbulenceModel", EmitDefaultValue=false)]
         public TurbulenceModelEnum? TurbulenceModel { get; set; }
         /// <summary>
@@ -64,19 +66,21 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: SimericsAnalysis (required) (default to &quot;SIMERICS_ANALYSIS&quot;).</param>
         /// <param name="materials">materials.</param>
         /// <param name="isCompressible">isCompressible (default to false).</param>
-        /// <param name="turbulenceModel">turbulenceModel (default to TurbulenceModelEnum.NONE).</param>
+        /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KEPSILON).</param>
+        /// <param name="timeDependency">timeDependency.</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="meshSettings">meshSettings.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="advancedConcepts">advancedConcepts.</param>
-        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", SimericsFluidMaterials materials = default(SimericsFluidMaterials), bool? isCompressible = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), FluidSimulationControl simulationControl = default(FluidSimulationControl), OneOfSimericsAnalysisMeshSettings meshSettings = default(OneOfSimericsAnalysisMeshSettings), FluidResultControls resultControl = default(FluidResultControls), AdvancedConcepts advancedConcepts = default(AdvancedConcepts))
+        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", SimericsFluidMaterials materials = default(SimericsFluidMaterials), bool? isCompressible = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfSimericsAnalysisTimeDependency timeDependency = default(OneOfSimericsAnalysisTimeDependency), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), FluidSimulationControl simulationControl = default(FluidSimulationControl), OneOfSimericsAnalysisMeshSettings meshSettings = default(OneOfSimericsAnalysisMeshSettings), FluidResultControls resultControl = default(FluidResultControls), AdvancedConcepts advancedConcepts = default(AdvancedConcepts))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimericsAnalysis and cannot be null");
             this.Materials = materials;
             this.IsCompressible = isCompressible;
             this.TurbulenceModel = turbulenceModel;
+            this.TimeDependency = timeDependency;
             this.BoundaryConditions = boundaryConditions;
             this.SimulationControl = simulationControl;
             this.MeshSettings = meshSettings;
@@ -102,6 +106,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="isCompressible", EmitDefaultValue=false)]
         public bool? IsCompressible { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TimeDependency
+        /// </summary>
+        [DataMember(Name="timeDependency", EmitDefaultValue=false)]
+        public OneOfSimericsAnalysisTimeDependency TimeDependency { get; set; }
 
         /// <summary>
         /// Gets or Sets BoundaryConditions
@@ -145,6 +155,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
+            sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
             sb.Append("  SimulationControl: ").Append(SimulationControl).Append("\n");
             sb.Append("  MeshSettings: ").Append(MeshSettings).Append("\n");
@@ -204,6 +215,11 @@ namespace SimScale.Sdk.Model
                     this.TurbulenceModel.Equals(input.TurbulenceModel)
                 ) && 
                 (
+                    this.TimeDependency == input.TimeDependency ||
+                    (this.TimeDependency != null &&
+                    this.TimeDependency.Equals(input.TimeDependency))
+                ) && 
+                (
                     this.BoundaryConditions == input.BoundaryConditions ||
                     this.BoundaryConditions != null &&
                     input.BoundaryConditions != null &&
@@ -247,6 +263,8 @@ namespace SimScale.Sdk.Model
                 if (this.IsCompressible != null)
                     hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
+                if (this.TimeDependency != null)
+                    hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
                 if (this.BoundaryConditions != null)
                     hashCode = hashCode * 59 + this.BoundaryConditions.GetHashCode();
                 if (this.SimulationControl != null)

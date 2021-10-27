@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(AreaAverageResultControl), "AREA_AVERAGE")]
     [JsonSubtypes.KnownSubType(typeof(AreaIntegralResultControl), "AREA_INTEGRAL")]
+    [JsonSubtypes.KnownSubType(typeof(PressureDifferenceResultControl), "PRESSURE_DIFFERENCE")]
     public interface OneOfFluidResultControlsSurfaceData
     {
         /// <summary>

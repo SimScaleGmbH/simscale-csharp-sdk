@@ -38,14 +38,16 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: ConstTransport (required) (default to &quot;CONST&quot;).</param>
         /// <param name="dynamicViscosity">dynamicViscosity.</param>
+        /// <param name="dynamicViscosityFunction">dynamicViscosityFunction.</param>
         /// <param name="prandtlNumber">Prandtl number (&lt;i&gt;Pr&lt;/i&gt;) is the ratio of momentum transport to thermal tranport. Fluids with low &lt;i&gt;Pr&lt;/i&gt; are free flowing and good for heat conduction..</param>
         /// <param name="turbulentPrandtlNumber">Turbulent Prandtl number is used to calculate the heat transfer due to turbulent effects in the domain..</param>
         /// <param name="thermo">thermo.</param>
-        public ConstTransport(string type = "CONST", DimensionalDynamicViscosity dynamicViscosity = default(DimensionalDynamicViscosity), decimal? prandtlNumber = default(decimal?), decimal? turbulentPrandtlNumber = default(decimal?), OneOfConstTransportThermo thermo = default(OneOfConstTransportThermo))
+        public ConstTransport(string type = "CONST", DimensionalDynamicViscosity dynamicViscosity = default(DimensionalDynamicViscosity), DimensionalFunctionDynamicViscosity dynamicViscosityFunction = default(DimensionalFunctionDynamicViscosity), decimal? prandtlNumber = default(decimal?), decimal? turbulentPrandtlNumber = default(decimal?), OneOfConstTransportThermo thermo = default(OneOfConstTransportThermo))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ConstTransport and cannot be null");
             this.DynamicViscosity = dynamicViscosity;
+            this.DynamicViscosityFunction = dynamicViscosityFunction;
             this.PrandtlNumber = prandtlNumber;
             this.TurbulentPrandtlNumber = turbulentPrandtlNumber;
             this.Thermo = thermo;
@@ -63,6 +65,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="dynamicViscosity", EmitDefaultValue=false)]
         public DimensionalDynamicViscosity DynamicViscosity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DynamicViscosityFunction
+        /// </summary>
+        [DataMember(Name="dynamicViscosityFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionDynamicViscosity DynamicViscosityFunction { get; set; }
 
         /// <summary>
         /// Prandtl number (&lt;i&gt;Pr&lt;/i&gt;) is the ratio of momentum transport to thermal tranport. Fluids with low &lt;i&gt;Pr&lt;/i&gt; are free flowing and good for heat conduction.
@@ -94,6 +102,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class ConstTransport {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  DynamicViscosity: ").Append(DynamicViscosity).Append("\n");
+            sb.Append("  DynamicViscosityFunction: ").Append(DynamicViscosityFunction).Append("\n");
             sb.Append("  PrandtlNumber: ").Append(PrandtlNumber).Append("\n");
             sb.Append("  TurbulentPrandtlNumber: ").Append(TurbulentPrandtlNumber).Append("\n");
             sb.Append("  Thermo: ").Append(Thermo).Append("\n");
@@ -142,6 +151,11 @@ namespace SimScale.Sdk.Model
                     this.DynamicViscosity.Equals(input.DynamicViscosity))
                 ) && 
                 (
+                    this.DynamicViscosityFunction == input.DynamicViscosityFunction ||
+                    (this.DynamicViscosityFunction != null &&
+                    this.DynamicViscosityFunction.Equals(input.DynamicViscosityFunction))
+                ) && 
+                (
                     this.PrandtlNumber == input.PrandtlNumber ||
                     (this.PrandtlNumber != null &&
                     this.PrandtlNumber.Equals(input.PrandtlNumber))
@@ -171,6 +185,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.DynamicViscosity != null)
                     hashCode = hashCode * 59 + this.DynamicViscosity.GetHashCode();
+                if (this.DynamicViscosityFunction != null)
+                    hashCode = hashCode * 59 + this.DynamicViscosityFunction.GetHashCode();
                 if (this.PrandtlNumber != null)
                     hashCode = hashCode * 59 + this.PrandtlNumber.GetHashCode();
                 if (this.TurbulentPrandtlNumber != null)

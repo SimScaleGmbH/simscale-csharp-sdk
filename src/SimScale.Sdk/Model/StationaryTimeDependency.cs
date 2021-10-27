@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// StationaryTimeDependency
     /// </summary>
     [DataContract]
-    public partial class StationaryTimeDependency : OneOfCompressibleTimeDependency, OneOfConjugateHeatTransferTimeDependency, OneOfConvectiveHeatTransferTimeDependency, OneOfHeatTransferTimeDependency, OneOfIncompressibleTimeDependency, OneOfThermalMechanicalTimeDependency, IEquatable<StationaryTimeDependency>
+    public partial class StationaryTimeDependency : OneOfCompressibleTimeDependency, OneOfConjugateHeatTransferTimeDependency, OneOfConvectiveHeatTransferTimeDependency, OneOfHeatTransferTimeDependency, OneOfIncompressibleTimeDependency, OneOfSimericsAnalysisTimeDependency, OneOfThermalMechanicalTimeDependency, IEquatable<StationaryTimeDependency>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StationaryTimeDependency" /> class.

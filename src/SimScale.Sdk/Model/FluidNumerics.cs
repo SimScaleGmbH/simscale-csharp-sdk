@@ -69,7 +69,7 @@ namespace SimScale.Sdk.Model
         /// <param name="transonic">transonic (default to false).</param>
         /// <param name="numOuterCorrectors">numOuterCorrectors (default to 3).</param>
         /// <param name="numCorrectors">numCorrectors (default to 4).</param>
-        /// <param name="numNonOrthogonalCorrectors">&lt;p&gt;The pressure equation is repeatedly solved based on the value of non-orthogonal correctors in the PISO/SIMPLE/PIMPLE algorithm. This may reduce the effect of bad mesh.&lt;/p&gt; (default to 0).</param>
+        /// <param name="numNonOrthogonalCorrectors">&lt;p&gt;The pressure equation is repeatedly solved based on the value of non-orthogonal correctors in the PISO/SIMPLE/PIMPLE algorithm. This may reduce the effect of bad mesh.&lt;/p&gt; (default to 1).</param>
         /// <param name="smoothingParameter">smoothingParameter (default to 0.05M).</param>
         /// <param name="dampingCoefficient">dampingCoefficient (default to 0.5M).</param>
         /// <param name="numAlphaSpreadIterations">numAlphaSpreadIterations (default to 0).</param>
