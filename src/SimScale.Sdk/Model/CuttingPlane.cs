@@ -44,14 +44,14 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name (required).</param>
         /// <param name="center">center (required).</param>
         /// <param name="normal">normal (required).</param>
-        /// <param name="opacity">opacity (required) (default to 1.0F).</param>
+        /// <param name="opacity">opacity (required) (default to 1.0D).</param>
         /// <param name="clipping">clipping (required) (default to true).</param>
-        /// <param name="vectorGridSpacing">This field is required if projectVectorsOntoPlane is set to true. (default to 0.02F).</param>
+        /// <param name="vectorGridSpacing">This field is required if projectVectorsOntoPlane is set to true. (default to 0.02D).</param>
         /// <param name="scalarField">scalarField.</param>
         /// <param name="vectorField">vectorField.</param>
         /// <param name="projectVectorsOntoPlane">If a vectorField is provided, this flag will project the vector field onto the cutting plane. (required) (default to false).</param>
         /// <param name="renderMode">renderMode (required).</param>
-        public CuttingPlane(string name = default(string), Vector3D center = default(Vector3D), Vector3D normal = default(Vector3D), float? opacity = 1.0F, bool? clipping = true, float? vectorGridSpacing = default(float?), ScalarField scalarField = default(ScalarField), VectorField vectorField = default(VectorField), bool? projectVectorsOntoPlane = false, RenderMode renderMode = default(RenderMode))
+        public CuttingPlane(string name = default(string), Vector3D center = default(Vector3D), Vector3D normal = default(Vector3D), double? opacity = 1.0D, bool? clipping = true, double? vectorGridSpacing = default(double?), ScalarField scalarField = default(ScalarField), VectorField vectorField = default(VectorField), bool? projectVectorsOntoPlane = false, RenderMode renderMode = default(RenderMode))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CuttingPlane and cannot be null");
@@ -93,7 +93,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Opacity
         /// </summary>
         [DataMember(Name="opacity", EmitDefaultValue=false)]
-        public float? Opacity { get; set; }
+        public double? Opacity { get; set; }
 
         /// <summary>
         /// Gets or Sets Clipping
@@ -106,7 +106,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <value>This field is required if projectVectorsOntoPlane is set to true.</value>
         [DataMember(Name="vectorGridSpacing", EmitDefaultValue=false)]
-        public float? VectorGridSpacing { get; set; }
+        public double? VectorGridSpacing { get; set; }
 
         /// <summary>
         /// Gets or Sets ScalarField

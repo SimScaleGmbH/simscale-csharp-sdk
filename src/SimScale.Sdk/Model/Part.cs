@@ -42,10 +42,10 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Part" /> class.
         /// </summary>
         /// <param name="partIdentifier">The identifier of the part in the result. (required).</param>
-        /// <param name="opacity">opacity (required) (default to 1.0F).</param>
+        /// <param name="opacity">opacity (required) (default to 1.0D).</param>
         /// <param name="renderMode">renderMode (required).</param>
         /// <param name="solidColor">solidColor.</param>
-        public Part(string partIdentifier = default(string), float? opacity = 1.0F, RenderMode renderMode = default(RenderMode), Color solidColor = default(Color))
+        public Part(string partIdentifier = default(string), double? opacity = 1.0D, RenderMode renderMode = default(RenderMode), Color solidColor = default(Color))
         {
             // to ensure "partIdentifier" is required (not null)
             this.PartIdentifier = partIdentifier ?? throw new ArgumentNullException("partIdentifier is a required property for Part and cannot be null");
@@ -66,7 +66,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Opacity
         /// </summary>
         [DataMember(Name="opacity", EmitDefaultValue=false)]
-        public float? Opacity { get; set; }
+        public double? Opacity { get; set; }
 
         /// <summary>
         /// Gets or Sets SolidColor

@@ -62,14 +62,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="VectorSettings" /> class.
         /// </summary>
         /// <param name="vectorField">vectorField (required).</param>
-        /// <param name="scaleFactor">scaleFactor (required) (default to 0.2F).</param>
+        /// <param name="scaleFactor">scaleFactor (required) (default to 0.2D).</param>
         /// <param name="solidColor">solidColor.</param>
         /// <param name="coloring">coloring (required) (default to ColoringEnum.BYVECTORFIELD).</param>
         /// <param name="minimumClampingRange">The minimum length of (non-zero) vectors will be drawn as. Must not be larger than maximumClampingRange. Default value is the minimum length of the specified vector field..</param>
         /// <param name="maximumClampingRange">The maximum length of (non-zero) vectors will be drawn as. Must not be smaller than minimumClampingRange. Default value is the maximum length of the specified vector field..</param>
         /// <param name="minimumFilteringRange">The required minimum length of the vectors in order to be drawn. Must not be larger than maximumFilteringRange. Default value is the minimum length of the specified vector field..</param>
         /// <param name="maximumFilteringRange">The required maximum length of the vectors in order to be drawn. Must not be smaller than minimumFilteringRange. Default value is the maximum length of the specified vector field..</param>
-        public VectorSettings(VectorField vectorField = default(VectorField), float? scaleFactor = 0.2F, Color solidColor = default(Color), ColoringEnum coloring = ColoringEnum.BYVECTORFIELD, float? minimumClampingRange = default(float?), float? maximumClampingRange = default(float?), float? minimumFilteringRange = default(float?), float? maximumFilteringRange = default(float?))
+        public VectorSettings(VectorField vectorField = default(VectorField), double? scaleFactor = 0.2D, Color solidColor = default(Color), ColoringEnum coloring = ColoringEnum.BYVECTORFIELD, float? minimumClampingRange = default(float?), float? maximumClampingRange = default(float?), float? minimumFilteringRange = default(float?), float? maximumFilteringRange = default(float?))
         {
             // to ensure "vectorField" is required (not null)
             this.VectorField = vectorField ?? throw new ArgumentNullException("vectorField is a required property for VectorSettings and cannot be null");
@@ -93,7 +93,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets ScaleFactor
         /// </summary>
         [DataMember(Name="scaleFactor", EmitDefaultValue=false)]
-        public float? ScaleFactor { get; set; }
+        public double? ScaleFactor { get; set; }
 
         /// <summary>
         /// Gets or Sets SolidColor

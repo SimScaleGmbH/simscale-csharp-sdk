@@ -41,8 +41,8 @@ namespace SimScale.Sdk.Model
         /// <param name="scalarField">scalarField.</param>
         /// <param name="solidColor">solidColor.</param>
         /// <param name="vectorField">vectorField.</param>
-        /// <param name="opacity">opacity (required) (default to 1.0F).</param>
-        public IsoSurface(ScalarField isoScalar = default(ScalarField), float? isoValue = default(float?), ScalarField scalarField = default(ScalarField), Color solidColor = default(Color), VectorField vectorField = default(VectorField), float? opacity = 1.0F)
+        /// <param name="opacity">opacity (required) (default to 1.0D).</param>
+        public IsoSurface(ScalarField isoScalar = default(ScalarField), float? isoValue = default(float?), ScalarField scalarField = default(ScalarField), Color solidColor = default(Color), VectorField vectorField = default(VectorField), double? opacity = 1.0D)
         {
             // to ensure "opacity" is required (not null)
             this.Opacity = opacity ?? throw new ArgumentNullException("opacity is a required property for IsoSurface and cannot be null");
@@ -88,7 +88,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Opacity
         /// </summary>
         [DataMember(Name="opacity", EmitDefaultValue=false)]
-        public float? Opacity { get; set; }
+        public double? Opacity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

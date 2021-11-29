@@ -44,18 +44,18 @@ namespace SimScale.Sdk.Model
         /// <param name="settingType">settingType (required) (default to &quot;USER_INPUT&quot;).</param>
         /// <param name="projectionType">projectionType (required).</param>
         /// <param name="up">up (required).</param>
-        /// <param name="direction">direction (required).</param>
+        /// <param name="eye">eye (required).</param>
         /// <param name="center">center (required).</param>
         /// <param name="frontPlaneFrustumHeight">required only for orthogonal projection type.</param>
-        public UserInputCameraSettings(string settingType = "USER_INPUT", ProjectionType projectionType = default(ProjectionType), Vector3D up = default(Vector3D), Vector3D direction = default(Vector3D), Vector3D center = default(Vector3D), decimal? frontPlaneFrustumHeight = default(decimal?))
+        public UserInputCameraSettings(string settingType = "USER_INPUT", ProjectionType projectionType = default(ProjectionType), Vector3D up = default(Vector3D), Vector3D eye = default(Vector3D), Vector3D center = default(Vector3D), decimal? frontPlaneFrustumHeight = default(decimal?))
         {
             // to ensure "settingType" is required (not null)
             this.SettingType = settingType ?? throw new ArgumentNullException("settingType is a required property for UserInputCameraSettings and cannot be null");
             this.ProjectionType = projectionType;
             // to ensure "up" is required (not null)
             this.Up = up ?? throw new ArgumentNullException("up is a required property for UserInputCameraSettings and cannot be null");
-            // to ensure "direction" is required (not null)
-            this.Direction = direction ?? throw new ArgumentNullException("direction is a required property for UserInputCameraSettings and cannot be null");
+            // to ensure "eye" is required (not null)
+            this.Eye = eye ?? throw new ArgumentNullException("eye is a required property for UserInputCameraSettings and cannot be null");
             // to ensure "center" is required (not null)
             this.Center = center ?? throw new ArgumentNullException("center is a required property for UserInputCameraSettings and cannot be null");
             this.FrontPlaneFrustumHeight = frontPlaneFrustumHeight;
@@ -74,10 +74,10 @@ namespace SimScale.Sdk.Model
         public Vector3D Up { get; set; }
 
         /// <summary>
-        /// Gets or Sets Direction
+        /// Gets or Sets Eye
         /// </summary>
-        [DataMember(Name="direction", EmitDefaultValue=false)]
-        public Vector3D Direction { get; set; }
+        [DataMember(Name="eye", EmitDefaultValue=false)]
+        public Vector3D Eye { get; set; }
 
         /// <summary>
         /// Gets or Sets Center
@@ -103,7 +103,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  SettingType: ").Append(SettingType).Append("\n");
             sb.Append("  ProjectionType: ").Append(ProjectionType).Append("\n");
             sb.Append("  Up: ").Append(Up).Append("\n");
-            sb.Append("  Direction: ").Append(Direction).Append("\n");
+            sb.Append("  Eye: ").Append(Eye).Append("\n");
             sb.Append("  Center: ").Append(Center).Append("\n");
             sb.Append("  FrontPlaneFrustumHeight: ").Append(FrontPlaneFrustumHeight).Append("\n");
             sb.Append("}\n");
@@ -155,9 +155,9 @@ namespace SimScale.Sdk.Model
                     this.Up.Equals(input.Up))
                 ) && 
                 (
-                    this.Direction == input.Direction ||
-                    (this.Direction != null &&
-                    this.Direction.Equals(input.Direction))
+                    this.Eye == input.Eye ||
+                    (this.Eye != null &&
+                    this.Eye.Equals(input.Eye))
                 ) && 
                 (
                     this.Center == input.Center ||
@@ -185,8 +185,8 @@ namespace SimScale.Sdk.Model
                 hashCode = hashCode * 59 + this.ProjectionType.GetHashCode();
                 if (this.Up != null)
                     hashCode = hashCode * 59 + this.Up.GetHashCode();
-                if (this.Direction != null)
-                    hashCode = hashCode * 59 + this.Direction.GetHashCode();
+                if (this.Eye != null)
+                    hashCode = hashCode * 59 + this.Eye.GetHashCode();
                 if (this.Center != null)
                     hashCode = hashCode * 59 + this.Center.GetHashCode();
                 if (this.FrontPlaneFrustumHeight != null)

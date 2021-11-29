@@ -278,7 +278,7 @@ class PedestrianWindComfortExample
                         y: (decimal) 0.3,
                         z: (decimal) 0.2
                     ),
-                    direction: new Vector3D(
+                    eye: new Vector3D(
                         x: (decimal) 0.0,
                         y: (decimal) 5.0,
                         z: (decimal) 10.0

@@ -39,7 +39,7 @@ namespace SimScale.Sdk.Model
         /// <param name="r">r (required).</param>
         /// <param name="g">g (required).</param>
         /// <param name="b">b (required).</param>
-        public Color(float? r = default(float?), float? g = default(float?), float? b = default(float?))
+        public Color(double? r = default(double?), double? g = default(double?), double? b = default(double?))
         {
             // to ensure "r" is required (not null)
             this.R = r ?? throw new ArgumentNullException("r is a required property for Color and cannot be null");
@@ -53,19 +53,19 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets R
         /// </summary>
         [DataMember(Name="r", EmitDefaultValue=false)]
-        public float? R { get; set; }
+        public double? R { get; set; }
 
         /// <summary>
         /// Gets or Sets G
         /// </summary>
         [DataMember(Name="g", EmitDefaultValue=false)]
-        public float? G { get; set; }
+        public double? G { get; set; }
 
         /// <summary>
         /// Gets or Sets B
         /// </summary>
         [DataMember(Name="b", EmitDefaultValue=false)]
-        public float? B { get; set; }
+        public double? B { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

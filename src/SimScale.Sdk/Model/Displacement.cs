@@ -37,8 +37,8 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Displacement" /> class.
         /// </summary>
         /// <param name="field">field (required).</param>
-        /// <param name="scaleFactor">scaleFactor (required) (default to 1.0F).</param>
-        public Displacement(VectorField field = default(VectorField), float? scaleFactor = 1.0F)
+        /// <param name="scaleFactor">scaleFactor (required) (default to 1.0D).</param>
+        public Displacement(VectorField field = default(VectorField), double? scaleFactor = 1.0D)
         {
             // to ensure "field" is required (not null)
             this.Field = field ?? throw new ArgumentNullException("field is a required property for Displacement and cannot be null");
@@ -56,7 +56,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets ScaleFactor
         /// </summary>
         [DataMember(Name="scaleFactor", EmitDefaultValue=false)]
-        public float? ScaleFactor { get; set; }
+        public double? ScaleFactor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

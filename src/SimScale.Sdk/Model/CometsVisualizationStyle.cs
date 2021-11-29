@@ -38,8 +38,8 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="representation">The representation to use for particle traces. (required) (default to &quot;COMETS&quot;).</param>
         /// <param name="numPulses">This value specifies how many pulses there should be in the model. (required) (default to 15).</param>
-        /// <param name="relativeCometLength">The length of the tail of the comets. It is specified in time and is a fraction of the global total time range for all particles in this particle trace. For example, if the total trace time is 2, and the relativeCometLength is 0.01, then the length of the tail will be 0.02. (required) (default to 0.000010F).</param>
-        public CometsVisualizationStyle(string representation = "COMETS", int? numPulses = 15, float? relativeCometLength = 0.000010F)
+        /// <param name="relativeCometLength">The length of the tail of the comets. It is specified in time and is a fraction of the global total time range for all particles in this particle trace. For example, if the total trace time is 2, and the relativeCometLength is 0.01, then the length of the tail will be 0.02. (required) (default to 0.000010D).</param>
+        public CometsVisualizationStyle(string representation = "COMETS", int? numPulses = 15, double? relativeCometLength = 0.000010D)
         {
             // to ensure "representation" is required (not null)
             this.Representation = representation ?? throw new ArgumentNullException("representation is a required property for CometsVisualizationStyle and cannot be null");
@@ -68,7 +68,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <value>The length of the tail of the comets. It is specified in time and is a fraction of the global total time range for all particles in this particle trace. For example, if the total trace time is 2, and the relativeCometLength is 0.01, then the length of the tail will be 0.02.</value>
         [DataMember(Name="relativeCometLength", EmitDefaultValue=false)]
-        public float? RelativeCometLength { get; set; }
+        public double? RelativeCometLength { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
