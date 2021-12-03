@@ -38,14 +38,14 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: BasicEmbeddedBoundaryMeshing (required) (default to &quot;BASIC_MESH_SETTINGS&quot;).</param>
         /// <param name="numCellsPerDirection">numCellsPerDirection.</param>
-        /// <param name="refinementDistance">refinementDistance.</param>
+        /// <param name="refinementStrategy">refinementStrategy.</param>
         /// <param name="numRefinementLevels">Number of refinement levels to refine in the vicinity of all CAD surfaces. (default to 2).</param>
-        public BasicEmbeddedBoundaryMeshing(string type = "BASIC_MESH_SETTINGS", NumberOfCellsPerDirection numCellsPerDirection = default(NumberOfCellsPerDirection), DimensionalLength refinementDistance = default(DimensionalLength), int? numRefinementLevels = default(int?))
+        public BasicEmbeddedBoundaryMeshing(string type = "BASIC_MESH_SETTINGS", NumberOfCellsPerDirection numCellsPerDirection = default(NumberOfCellsPerDirection), OneOfBasicEmbeddedBoundaryMeshingRefinementStrategy refinementStrategy = default(OneOfBasicEmbeddedBoundaryMeshingRefinementStrategy), int? numRefinementLevels = default(int?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for BasicEmbeddedBoundaryMeshing and cannot be null");
             this.NumCellsPerDirection = numCellsPerDirection;
-            this.RefinementDistance = refinementDistance;
+            this.RefinementStrategy = refinementStrategy;
             this.NumRefinementLevels = numRefinementLevels;
         }
         
@@ -63,10 +63,10 @@ namespace SimScale.Sdk.Model
         public NumberOfCellsPerDirection NumCellsPerDirection { get; set; }
 
         /// <summary>
-        /// Gets or Sets RefinementDistance
+        /// Gets or Sets RefinementStrategy
         /// </summary>
-        [DataMember(Name="refinementDistance", EmitDefaultValue=false)]
-        public DimensionalLength RefinementDistance { get; set; }
+        [DataMember(Name="refinementStrategy", EmitDefaultValue=false)]
+        public OneOfBasicEmbeddedBoundaryMeshingRefinementStrategy RefinementStrategy { get; set; }
 
         /// <summary>
         /// Number of refinement levels to refine in the vicinity of all CAD surfaces.
@@ -85,7 +85,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class BasicEmbeddedBoundaryMeshing {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  NumCellsPerDirection: ").Append(NumCellsPerDirection).Append("\n");
-            sb.Append("  RefinementDistance: ").Append(RefinementDistance).Append("\n");
+            sb.Append("  RefinementStrategy: ").Append(RefinementStrategy).Append("\n");
             sb.Append("  NumRefinementLevels: ").Append(NumRefinementLevels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -132,9 +132,9 @@ namespace SimScale.Sdk.Model
                     this.NumCellsPerDirection.Equals(input.NumCellsPerDirection))
                 ) && 
                 (
-                    this.RefinementDistance == input.RefinementDistance ||
-                    (this.RefinementDistance != null &&
-                    this.RefinementDistance.Equals(input.RefinementDistance))
+                    this.RefinementStrategy == input.RefinementStrategy ||
+                    (this.RefinementStrategy != null &&
+                    this.RefinementStrategy.Equals(input.RefinementStrategy))
                 ) && 
                 (
                     this.NumRefinementLevels == input.NumRefinementLevels ||
@@ -156,8 +156,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.NumCellsPerDirection != null)
                     hashCode = hashCode * 59 + this.NumCellsPerDirection.GetHashCode();
-                if (this.RefinementDistance != null)
-                    hashCode = hashCode * 59 + this.RefinementDistance.GetHashCode();
+                if (this.RefinementStrategy != null)
+                    hashCode = hashCode * 59 + this.RefinementStrategy.GetHashCode();
                 if (this.NumRefinementLevels != null)
                     hashCode = hashCode * 59 + this.NumRefinementLevels.GetHashCode();
                 return hashCode;

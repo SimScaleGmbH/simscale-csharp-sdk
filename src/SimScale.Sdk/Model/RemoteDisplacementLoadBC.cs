@@ -29,9 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class RemoteDisplacementLoadBC : OneOfDynamicAnalysisBoundaryConditions, OneOfFrequencyAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<RemoteDisplacementLoadBC>
     {
         /// <summary>
-        /// &lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entitiy is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt;
+        /// &lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt;
         /// </summary>
-        /// <value>&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entitiy is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt;</value>
+        /// <value>&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt;</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DeformationBehaviorEnum
         {
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// &lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entitiy is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt;
+        /// &lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt;
         /// </summary>
-        /// <value>&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entitiy is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt;</value>
+        /// <value>&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt;</value>
         [DataMember(Name="deformationBehavior", EmitDefaultValue=false)]
         public DeformationBehaviorEnum? DeformationBehavior { get; set; }
         /// <summary>
@@ -68,7 +68,7 @@ namespace SimScale.Sdk.Model
         /// <param name="displacement">displacement.</param>
         /// <param name="rotation">rotation.</param>
         /// <param name="externalPoint">externalPoint.</param>
-        /// <param name="deformationBehavior">&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entitiy is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt; (default to DeformationBehaviorEnum.DEFORMABLE).</param>
+        /// <param name="deformationBehavior">&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt; (default to DeformationBehaviorEnum.DEFORMABLE).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public RemoteDisplacementLoadBC(string type = "REMOTE_DISPLACEMENT_LOAD", string name = default(string), DimensionalPartialVectorFunctionLength displacement = default(DimensionalPartialVectorFunctionLength), DimensionalPartialVectorFunctionAngle rotation = default(DimensionalPartialVectorFunctionAngle), DimensionalVectorLength externalPoint = default(DimensionalVectorLength), DeformationBehaviorEnum? deformationBehavior = default(DeformationBehaviorEnum?), TopologicalReference topologicalReference = default(TopologicalReference))
         {

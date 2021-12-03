@@ -24,17 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfFrequencyAnalysisBoundaryConditions
+    /// OneOfMomentFieldSelectionMomentType
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(BoltPreloadBC), "BOLT_PRELOAD")]
-    [JsonSubtypes.KnownSubType(typeof(ElasticSupportBC), "ELASTIC_SUPPORT")]
-    [JsonSubtypes.KnownSubType(typeof(FixedSupportBC), "FIXED_SUPPORT")]
-    [JsonSubtypes.KnownSubType(typeof(FixedValueBC), "FIXED_VALUE")]
-    [JsonSubtypes.KnownSubType(typeof(PointMassBC), "POINT_MASS")]
-    [JsonSubtypes.KnownSubType(typeof(RemoteDisplacementLoadBC), "REMOTE_DISPLACEMENT_LOAD")]
-    [JsonSubtypes.KnownSubType(typeof(SymmetryPlaneBC), "SYMMETRY_PLANE")]
-    public interface OneOfFrequencyAnalysisBoundaryConditions
+    [JsonSubtypes.KnownSubType(typeof(ReactionMomentType), "REACTION")]
+    [JsonSubtypes.KnownSubType(typeof(NodalMomentType), "NODAL")]
+    public interface OneOfMomentFieldSelectionMomentType
     {
         /// <summary>
         /// Gets Type

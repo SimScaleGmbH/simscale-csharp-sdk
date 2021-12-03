@@ -28,7 +28,6 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(DILUPreconditioner), "DILU")]
-    [JsonSubtypes.KnownSubType(typeof(GAMGSolver), "GAMG")]
     [JsonSubtypes.KnownSubType(typeof(ILUCpPreconditioner), "ILUCP")]
     public interface OneOfPBICGSolverPreconditioner
     {

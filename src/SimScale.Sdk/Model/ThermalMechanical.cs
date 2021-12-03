@@ -69,7 +69,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: ThermalMechanical (required) (default to &quot;THERMAL_MECHANICAL&quot;).</param>
         /// <param name="timeDependency">timeDependency.</param>
-        /// <param name="inertiaEffect">&lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading velocities or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt; (default to &quot;STATIC&quot;).</param>
+        /// <param name="inertiaEffect">&lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading accelerations or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt; (default to &quot;STATIC&quot;).</param>
         /// <param name="nonLinearAnalysis">&lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt; (default to false).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
@@ -114,9 +114,9 @@ namespace SimScale.Sdk.Model
         public OneOfThermalMechanicalTimeDependency TimeDependency { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading velocities or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt;
+        /// &lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading accelerations or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt;
         /// </summary>
-        /// <value>&lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading velocities or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt;</value>
+        /// <value>&lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading accelerations or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt;</value>
         [DataMember(Name="inertiaEffect", EmitDefaultValue=false)]
         public string InertiaEffect { get; set; }
 

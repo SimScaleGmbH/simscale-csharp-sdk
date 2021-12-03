@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Please choose the boundary condition sub-type based on velocity variable (U). &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wall/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
+    /// &lt;p&gt;Please choose the wall boundary condition sub-type based on the wall movement (U). &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wall/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(MovingWallVBC), "MOVING_WALL_VELOCITY")]

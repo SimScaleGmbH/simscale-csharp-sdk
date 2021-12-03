@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// GAMGSolver
     /// </summary>
     [DataContract]
-    public partial class GAMGSolver : OneOfFluidSolversDensityFinalSolver, OneOfFluidSolversDensitySolver, OneOfFluidSolversPressureFinalSolver, OneOfFluidSolversPressureRghFinalSolver, OneOfFluidSolversPressureRghSolver, OneOfFluidSolversPressureSolver, OneOfFluidSolversSolidEnthalpyFinalSolver, OneOfFluidSolversSolidEnthalpySolver, OneOfPBICGSolverPreconditioner, OneOfPCGSolverPreconditioner, IEquatable<GAMGSolver>
+    public partial class GAMGSolver : OneOfFluidSolversDensityFinalSolver, OneOfFluidSolversDensitySolver, OneOfFluidSolversPressureFinalSolver, OneOfFluidSolversPressureRghFinalSolver, OneOfFluidSolversPressureRghSolver, OneOfFluidSolversPressureSolver, OneOfFluidSolversSolidEnthalpyFinalSolver, OneOfFluidSolversSolidEnthalpySolver, OneOfPCGSolverPreconditioner, IEquatable<GAMGSolver>
     {
         /// <summary>
         /// &lt;p&gt;Choose a smoother for your solver.&lt;/p&gt;
