@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <param name="maxInternalSkewness">maxInternalSkewness.</param>
         /// <param name="maxConcaveness">maxConcaveness.</param>
         /// <param name="minVolume">minVolume.</param>
-        /// <param name="minTetQuality">&lt;p&gt;Define a minimum tetrahedron quality for cells (see documentation). Choose a low negative number to disable this check, e.g. -1e30.&lt;/p&gt; (default to -1.0E+30M).</param>
+        /// <param name="minTetQuality">&lt;p&gt;Define a minimum tetrahedron quality for cells (see documentation). Choose a low negative number to disable this check, e.g. -1e30.&lt;/p&gt; (default to -1000000000000000000000000000000M).</param>
         /// <param name="minFaceArea">minFaceArea.</param>
         /// <param name="minFaceTwist">&lt;p&gt;Define the minimum cosine of face twist allowed (see documentation). Set to a value smaller than -1 to disable. The value results from the dot product of the face normal and the face centre triangles normal.&lt;/p&gt; (default to 0.01M).</param>
         /// <param name="minDeterminant">&lt;p&gt;Define the minimum normalised cell determinant. Choose a value between 0 and 1. Hex corresponds to 1.&lt;/p&gt; (default to 0.001M).</param>

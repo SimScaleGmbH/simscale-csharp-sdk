@@ -31,6 +31,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(PressureOutletBC), "PRESSURE_OUTLET_V30")]
     [JsonSubtypes.KnownSubType(typeof(WallBC), "WALL_V34")]
     [JsonSubtypes.KnownSubType(typeof(PeriodicBC), "PERIODIC")]
+    [JsonSubtypes.KnownSubType(typeof(AtmosphericBoundaryLayerInletBC), "ATMOSPHERIC_BOUNDARY_LAYER_INLET")]
     public interface OneOfFlowDomainBoundariesZMIN
     {
         /// <summary>

@@ -23,32 +23,33 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// CalculatedNBC
+    /// MaterialLibraryReference
     /// </summary>
     [DataContract]
-    public partial class CalculatedNBC : OneOfCustomFluidBCNuTilda, IEquatable<CalculatedNBC>
+    public partial class MaterialLibraryReference : IEquatable<MaterialLibraryReference>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalculatedNBC" /> class.
+        /// Initializes a new instance of the <see cref="MaterialLibraryReference" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CalculatedNBC() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CalculatedNBC" /> class.
-        /// </summary>
-        /// <param name="type">Schema name: CalculatedNBC (required) (default to &quot;CALCULATED&quot;).</param>
-        public CalculatedNBC(string type = "CALCULATED")
+        /// <param name="materialGroupId">materialGroupId.</param>
+        /// <param name="materialId">materialId.</param>
+        public MaterialLibraryReference(string materialGroupId = default(string), string materialId = default(string))
         {
-            // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for CalculatedNBC and cannot be null");
+            this.MaterialGroupId = materialGroupId;
+            this.MaterialId = materialId;
         }
         
         /// <summary>
-        /// Schema name: CalculatedNBC
+        /// Gets or Sets MaterialGroupId
         /// </summary>
-        /// <value>Schema name: CalculatedNBC</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        [DataMember(Name="materialGroupId", EmitDefaultValue=false)]
+        public string MaterialGroupId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MaterialId
+        /// </summary>
+        [DataMember(Name="materialId", EmitDefaultValue=false)]
+        public string MaterialId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,8 +58,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CalculatedNBC {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class MaterialLibraryReference {\n");
+            sb.Append("  MaterialGroupId: ").Append(MaterialGroupId).Append("\n");
+            sb.Append("  MaterialId: ").Append(MaterialId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -79,24 +81,29 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CalculatedNBC);
+            return this.Equals(input as MaterialLibraryReference);
         }
 
         /// <summary>
-        /// Returns true if CalculatedNBC instances are equal
+        /// Returns true if MaterialLibraryReference instances are equal
         /// </summary>
-        /// <param name="input">Instance of CalculatedNBC to be compared</param>
+        /// <param name="input">Instance of MaterialLibraryReference to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CalculatedNBC input)
+        public bool Equals(MaterialLibraryReference input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.MaterialGroupId == input.MaterialGroupId ||
+                    (this.MaterialGroupId != null &&
+                    this.MaterialGroupId.Equals(input.MaterialGroupId))
+                ) && 
+                (
+                    this.MaterialId == input.MaterialId ||
+                    (this.MaterialId != null &&
+                    this.MaterialId.Equals(input.MaterialId))
                 );
         }
 
@@ -109,8 +116,10 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.MaterialGroupId != null)
+                    hashCode = hashCode * 59 + this.MaterialGroupId.GetHashCode();
+                if (this.MaterialId != null)
+                    hashCode = hashCode * 59 + this.MaterialId.GetHashCode();
                 return hashCode;
             }
         }

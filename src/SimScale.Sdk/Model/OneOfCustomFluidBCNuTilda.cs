@@ -27,7 +27,6 @@ namespace SimScale.Sdk.Model
     /// nuTilda is a Spalart-Allmaras variable which is a function of eddy viscosity. Choose a boundary type.
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(CalculatedNBC), "CALCULATED")]
     [JsonSubtypes.KnownSubType(typeof(SymmetryNBC), "SYMMETRY")]
     [JsonSubtypes.KnownSubType(typeof(FixedGradientNBC), "FIXED_GRADIENT")]
     [JsonSubtypes.KnownSubType(typeof(FixedValueNBC), "FIXED_VALUE")]

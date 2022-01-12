@@ -32,6 +32,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(TotalEquivalentPlasticStrainType), "TOTAL_EQUI_PLASTIC")]
     [JsonSubtypes.KnownSubType(typeof(UnelasticStrainType), "UNELASTIC")]
     [JsonSubtypes.KnownSubType(typeof(PrincipalStrainType), "PRINCIPAL")]
+    [JsonSubtypes.KnownSubType(typeof(PrincipalGreenLagrangeStrainType), "PRINCIPAL_GREEN_LAGRANGE")]
     public interface OneOfStrainFieldSelectionStrainType
     {
         /// <summary>

@@ -39,12 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: SemiOpenBoundaryRayBC (required) (default to &quot;SEMI_OPEN_BOUNDARY_RAY&quot;).</param>
         /// <param name="emissivity">emissivity (default to 0.1M).</param>
         /// <param name="transmissivity">transmissivity (default to 0.7M).</param>
-        public SemiOpenBoundaryRayBC(string type = "SEMI_OPEN_BOUNDARY_RAY", decimal? emissivity = default(decimal?), decimal? transmissivity = default(decimal?))
+        /// <param name="farfieldBlackBodyTemperature">farfieldBlackBodyTemperature.</param>
+        public SemiOpenBoundaryRayBC(string type = "SEMI_OPEN_BOUNDARY_RAY", decimal? emissivity = default(decimal?), decimal? transmissivity = default(decimal?), DimensionalTemperature farfieldBlackBodyTemperature = default(DimensionalTemperature))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SemiOpenBoundaryRayBC and cannot be null");
             this.Emissivity = emissivity;
             this.Transmissivity = transmissivity;
+            this.FarfieldBlackBodyTemperature = farfieldBlackBodyTemperature;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace SimScale.Sdk.Model
         public decimal? Transmissivity { get; set; }
 
         /// <summary>
+        /// Gets or Sets FarfieldBlackBodyTemperature
+        /// </summary>
+        [DataMember(Name="farfieldBlackBodyTemperature", EmitDefaultValue=false)]
+        public DimensionalTemperature FarfieldBlackBodyTemperature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +85,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Emissivity: ").Append(Emissivity).Append("\n");
             sb.Append("  Transmissivity: ").Append(Transmissivity).Append("\n");
+            sb.Append("  FarfieldBlackBodyTemperature: ").Append(FarfieldBlackBodyTemperature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace SimScale.Sdk.Model
                     this.Transmissivity == input.Transmissivity ||
                     (this.Transmissivity != null &&
                     this.Transmissivity.Equals(input.Transmissivity))
+                ) && 
+                (
+                    this.FarfieldBlackBodyTemperature == input.FarfieldBlackBodyTemperature ||
+                    (this.FarfieldBlackBodyTemperature != null &&
+                    this.FarfieldBlackBodyTemperature.Equals(input.FarfieldBlackBodyTemperature))
                 );
         }
 
@@ -143,6 +157,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Emissivity.GetHashCode();
                 if (this.Transmissivity != null)
                     hashCode = hashCode * 59 + this.Transmissivity.GetHashCode();
+                if (this.FarfieldBlackBodyTemperature != null)
+                    hashCode = hashCode * 59 + this.FarfieldBlackBodyTemperature.GetHashCode();
                 return hashCode;
             }
         }

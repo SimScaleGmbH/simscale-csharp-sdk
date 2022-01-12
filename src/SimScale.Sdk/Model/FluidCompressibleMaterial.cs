@@ -43,7 +43,8 @@ namespace SimScale.Sdk.Model
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
-        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string))
+        /// <param name="materialLibraryReference">materialLibraryReference.</param>
+        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FluidCompressibleMaterial and cannot be null");
@@ -53,6 +54,7 @@ namespace SimScale.Sdk.Model
             this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
             this.BuiltInMaterial = builtInMaterial;
+            this.MaterialLibraryReference = materialLibraryReference;
         }
         
         /// <summary>
@@ -99,6 +101,12 @@ namespace SimScale.Sdk.Model
         public string BuiltInMaterial { get; set; }
 
         /// <summary>
+        /// Gets or Sets MaterialLibraryReference
+        /// </summary>
+        [DataMember(Name="materialLibraryReference", EmitDefaultValue=false)]
+        public MaterialLibraryReference MaterialLibraryReference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +121,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
+            sb.Append("  MaterialLibraryReference: ").Append(MaterialLibraryReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,6 +191,11 @@ namespace SimScale.Sdk.Model
                     this.BuiltInMaterial == input.BuiltInMaterial ||
                     (this.BuiltInMaterial != null &&
                     this.BuiltInMaterial.Equals(input.BuiltInMaterial))
+                ) && 
+                (
+                    this.MaterialLibraryReference == input.MaterialLibraryReference ||
+                    (this.MaterialLibraryReference != null &&
+                    this.MaterialLibraryReference.Equals(input.MaterialLibraryReference))
                 );
         }
 
@@ -208,6 +222,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.GeometryPrimitiveUuids.GetHashCode();
                 if (this.BuiltInMaterial != null)
                     hashCode = hashCode * 59 + this.BuiltInMaterial.GetHashCode();
+                if (this.MaterialLibraryReference != null)
+                    hashCode = hashCode * 59 + this.MaterialLibraryReference.GetHashCode();
                 return hashCode;
             }
         }

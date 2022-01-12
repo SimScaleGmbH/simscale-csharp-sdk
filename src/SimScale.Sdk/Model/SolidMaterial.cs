@@ -39,7 +39,8 @@ namespace SimScale.Sdk.Model
         /// <param name="specificHeat">specificHeat.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
-        public SolidMaterial(string name = default(string), OneOfSolidMaterialMaterialBehavior materialBehavior = default(OneOfSolidMaterialMaterialBehavior), DimensionalFunctionDensity density = default(DimensionalFunctionDensity), IsotropicExpansion expansion = default(IsotropicExpansion), OneOfSolidMaterialConductivity conductivity = default(OneOfSolidMaterialConductivity), DimensionalFunctionSpecificHeat specificHeat = default(DimensionalFunctionSpecificHeat), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string))
+        /// <param name="materialLibraryReference">materialLibraryReference.</param>
+        public SolidMaterial(string name = default(string), OneOfSolidMaterialMaterialBehavior materialBehavior = default(OneOfSolidMaterialMaterialBehavior), DimensionalFunctionDensity density = default(DimensionalFunctionDensity), IsotropicExpansion expansion = default(IsotropicExpansion), OneOfSolidMaterialConductivity conductivity = default(OneOfSolidMaterialConductivity), DimensionalFunctionSpecificHeat specificHeat = default(DimensionalFunctionSpecificHeat), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             this.Name = name;
             this.MaterialBehavior = materialBehavior;
@@ -49,6 +50,7 @@ namespace SimScale.Sdk.Model
             this.SpecificHeat = specificHeat;
             this.TopologicalReference = topologicalReference;
             this.BuiltInMaterial = builtInMaterial;
+            this.MaterialLibraryReference = materialLibraryReference;
         }
         
         /// <summary>
@@ -100,6 +102,12 @@ namespace SimScale.Sdk.Model
         public string BuiltInMaterial { get; set; }
 
         /// <summary>
+        /// Gets or Sets MaterialLibraryReference
+        /// </summary>
+        [DataMember(Name="materialLibraryReference", EmitDefaultValue=false)]
+        public MaterialLibraryReference MaterialLibraryReference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +123,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  SpecificHeat: ").Append(SpecificHeat).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
+            sb.Append("  MaterialLibraryReference: ").Append(MaterialLibraryReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -188,6 +197,11 @@ namespace SimScale.Sdk.Model
                     this.BuiltInMaterial == input.BuiltInMaterial ||
                     (this.BuiltInMaterial != null &&
                     this.BuiltInMaterial.Equals(input.BuiltInMaterial))
+                ) && 
+                (
+                    this.MaterialLibraryReference == input.MaterialLibraryReference ||
+                    (this.MaterialLibraryReference != null &&
+                    this.MaterialLibraryReference.Equals(input.MaterialLibraryReference))
                 );
         }
 
@@ -216,6 +230,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.BuiltInMaterial != null)
                     hashCode = hashCode * 59 + this.BuiltInMaterial.GetHashCode();
+                if (this.MaterialLibraryReference != null)
+                    hashCode = hashCode * 59 + this.MaterialLibraryReference.GetHashCode();
                 return hashCode;
             }
         }
