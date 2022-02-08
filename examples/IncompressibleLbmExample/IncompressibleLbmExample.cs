@@ -156,15 +156,6 @@ class IncompressibleLbmExample
         // Define simulation spec
         var model = new IncompressiblePacefish(
             boundingBoxUuid: externalFlowDomainUuid,
-            material: new IncompressibleMaterial(
-                        name: "Air",
-                        viscosityModel: new NewtonianViscosityModel(
-                            kinematicViscosity: new DimensionalKinematicViscosity(value: 0.00001529m, unit: DimensionalKinematicViscosity.UnitEnum.MS)
-                        ),
-                        density: new DimensionalDensity(value: 1.1965m, unit: DimensionalDensity.UnitEnum.KgM),
-                        referenceTemperature: new DimensionalTemperature(value: 293.15m, unit: DimensionalTemperature.UnitEnum.K),
-                        molarWeight: new DimensionalMolarMass(value: 28.97m, unit: DimensionalMolarMass.UnitEnum.KgKmol)
-            ),
             flowDomainBoundaries: new FlowDomainBoundaries(
                 xMIN: new VelocityInletBC(
                     name: "Velocity inlet (A)",

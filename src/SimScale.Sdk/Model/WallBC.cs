@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// &lt;p&gt;This boundary provides several Solid Wall conditions.&lt;/P&gt;The default &lt;b&gt;no-slip&lt;/b&gt; corresponds to friction wall with no movement. The &lt;b&gt;slip wall&lt;/b&gt; models a surface with no friction. The &lt;b&gt;rotating/moving wall&lt;/b&gt; model wall movement by prescribing velocities. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/wall/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
-    public partial class WallBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<WallBC>
+    public partial class WallBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<WallBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WallBC" /> class.

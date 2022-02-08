@@ -23,50 +23,27 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// DimensionalSpecificEnergy
+    /// InterpolationParameter
     /// </summary>
     [DataContract]
-    public partial class DimensionalSpecificEnergy : IEquatable<DimensionalSpecificEnergy>
+    public partial class InterpolationParameter : IEquatable<InterpolationParameter>
     {
         /// <summary>
-        /// Defines Unit
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum UnitEnum
-        {
-            /// <summary>
-            /// Enum JKg for value: J/kg
-            /// </summary>
-            [EnumMember(Value = "J/kg")]
-            JKg = 1,
-
-            /// <summary>
-            /// Enum BtuLb for value: Btu/lb
-            /// </summary>
-            [EnumMember(Value = "Btu/lb")]
-            BtuLb = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Unit
-        /// </summary>
-        [DataMember(Name="unit", EmitDefaultValue=false)]
-        public UnitEnum Unit { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalSpecificEnergy" /> class.
+        /// Initializes a new instance of the <see cref="InterpolationParameter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DimensionalSpecificEnergy() { }
+        protected InterpolationParameter() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalSpecificEnergy" /> class.
+        /// Initializes a new instance of the <see cref="InterpolationParameter" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
+        /// <param name="value">value (required).</param>
         /// <param name="unit">unit (required).</param>
-        public DimensionalSpecificEnergy(decimal? value = default(decimal?), UnitEnum unit = default(UnitEnum))
+        public InterpolationParameter(decimal? value = default(decimal?), string unit = default(string))
         {
-            this.Unit = unit;
-            this.Value = value;
+            // to ensure "value" is required (not null)
+            this.Value = value ?? throw new ArgumentNullException("value is a required property for InterpolationParameter and cannot be null");
+            // to ensure "unit" is required (not null)
+            this.Unit = unit ?? throw new ArgumentNullException("unit is a required property for InterpolationParameter and cannot be null");
         }
         
         /// <summary>
@@ -76,13 +53,19 @@ namespace SimScale.Sdk.Model
         public decimal? Value { get; set; }
 
         /// <summary>
+        /// Gets or Sets Unit
+        /// </summary>
+        [DataMember(Name="unit", EmitDefaultValue=false)]
+        public string Unit { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DimensionalSpecificEnergy {\n");
+            sb.Append("class InterpolationParameter {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
@@ -105,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DimensionalSpecificEnergy);
+            return this.Equals(input as InterpolationParameter);
         }
 
         /// <summary>
-        /// Returns true if DimensionalSpecificEnergy instances are equal
+        /// Returns true if InterpolationParameter instances are equal
         /// </summary>
-        /// <param name="input">Instance of DimensionalSpecificEnergy to be compared</param>
+        /// <param name="input">Instance of InterpolationParameter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DimensionalSpecificEnergy input)
+        public bool Equals(InterpolationParameter input)
         {
             if (input == null)
                 return false;
@@ -126,7 +109,8 @@ namespace SimScale.Sdk.Model
                 ) && 
                 (
                     this.Unit == input.Unit ||
-                    this.Unit.Equals(input.Unit)
+                    (this.Unit != null &&
+                    this.Unit.Equals(input.Unit))
                 );
         }
 
@@ -141,7 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
-                hashCode = hashCode * 59 + this.Unit.GetHashCode();
+                if (this.Unit != null)
+                    hashCode = hashCode * 59 + this.Unit.GetHashCode();
                 return hashCode;
             }
         }

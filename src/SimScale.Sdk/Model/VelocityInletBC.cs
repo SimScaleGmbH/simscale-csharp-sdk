@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This boundary condition imposes a known &lt;b&gt;velocity&lt;/b&gt;-based constraint at an inlet.
     /// </summary>
     [DataContract]
-    public partial class VelocityInletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<VelocityInletBC>
+    public partial class VelocityInletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<VelocityInletBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VelocityInletBC" /> class.

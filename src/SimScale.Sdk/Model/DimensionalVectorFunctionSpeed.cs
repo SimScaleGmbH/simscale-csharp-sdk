@@ -53,28 +53,28 @@ namespace SimScale.Sdk.Model
             CmS = 3,
 
             /// <summary>
-            /// Enum FtS for value: ft/s
-            /// </summary>
-            [EnumMember(Value = "ft/s")]
-            FtS = 4,
-
-            /// <summary>
-            /// Enum FtMin for value: ft/min
-            /// </summary>
-            [EnumMember(Value = "ft/min")]
-            FtMin = 5,
-
-            /// <summary>
             /// Enum KmH for value: km/h
             /// </summary>
             [EnumMember(Value = "km/h")]
-            KmH = 6,
+            KmH = 4,
 
             /// <summary>
             /// Enum Mph for value: mph
             /// </summary>
             [EnumMember(Value = "mph")]
-            Mph = 7
+            Mph = 5,
+
+            /// <summary>
+            /// Enum FtS for value: ft/s
+            /// </summary>
+            [EnumMember(Value = "ft/s")]
+            FtS = 6,
+
+            /// <summary>
+            /// Enum FtMin for value: ft/min
+            /// </summary>
+            [EnumMember(Value = "ft/min")]
+            FtMin = 7
 
         }
 

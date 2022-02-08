@@ -38,14 +38,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">&lt;br&gt;&lt;p&gt;The &lt;b&gt;Thermo models&lt;/b&gt; are used to calculate the specific heat at constant pressure (&lt;i&gt;Cp&lt;/i&gt;) for the fluid. The available models are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;hConst:&lt;/b&gt; This model assumes a constant value for specific heat at fixed pressure (&lt;i&gt;Cp&lt;/i&gt;). &lt;/p&gt;&lt;p&gt;&lt;b&gt;eConst:&lt;/b&gt; This model assumes a constant value for the specific heat at fixed volume (&lt;i&gt;Cv&lt;/i&gt;). &lt;/p&gt;  Schema name: HConstThermo (required) (default to &quot;HCONST&quot;).</param>
         /// <param name="specificHeat">specificHeat.</param>
-        /// <param name="heatOfFormation">heatOfFormation.</param>
         /// <param name="equationOfState">equationOfState.</param>
-        public HConstThermo(string type = "HCONST", DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalSpecificEnergy heatOfFormation = default(DimensionalSpecificEnergy), OneOfHConstThermoEquationOfState equationOfState = default(OneOfHConstThermoEquationOfState))
+        public HConstThermo(string type = "HCONST", DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), OneOfHConstThermoEquationOfState equationOfState = default(OneOfHConstThermoEquationOfState))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for HConstThermo and cannot be null");
             this.SpecificHeat = specificHeat;
-            this.HeatOfFormation = heatOfFormation;
             this.EquationOfState = equationOfState;
         }
         
@@ -63,12 +61,6 @@ namespace SimScale.Sdk.Model
         public DimensionalSpecificHeat SpecificHeat { get; set; }
 
         /// <summary>
-        /// Gets or Sets HeatOfFormation
-        /// </summary>
-        [DataMember(Name="heatOfFormation", EmitDefaultValue=false)]
-        public DimensionalSpecificEnergy HeatOfFormation { get; set; }
-
-        /// <summary>
         /// Gets or Sets EquationOfState
         /// </summary>
         [DataMember(Name="equationOfState", EmitDefaultValue=false)]
@@ -84,7 +76,6 @@ namespace SimScale.Sdk.Model
             sb.Append("class HConstThermo {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  SpecificHeat: ").Append(SpecificHeat).Append("\n");
-            sb.Append("  HeatOfFormation: ").Append(HeatOfFormation).Append("\n");
             sb.Append("  EquationOfState: ").Append(EquationOfState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -131,11 +122,6 @@ namespace SimScale.Sdk.Model
                     this.SpecificHeat.Equals(input.SpecificHeat))
                 ) && 
                 (
-                    this.HeatOfFormation == input.HeatOfFormation ||
-                    (this.HeatOfFormation != null &&
-                    this.HeatOfFormation.Equals(input.HeatOfFormation))
-                ) && 
-                (
                     this.EquationOfState == input.EquationOfState ||
                     (this.EquationOfState != null &&
                     this.EquationOfState.Equals(input.EquationOfState))
@@ -155,8 +141,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.SpecificHeat != null)
                     hashCode = hashCode * 59 + this.SpecificHeat.GetHashCode();
-                if (this.HeatOfFormation != null)
-                    hashCode = hashCode * 59 + this.HeatOfFormation.GetHashCode();
                 if (this.EquationOfState != null)
                     hashCode = hashCode * 59 + this.EquationOfState.GetHashCode();
                 return hashCode;

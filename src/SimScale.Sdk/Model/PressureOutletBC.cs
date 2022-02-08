@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This boundary condition allows to specify a &lt;b&gt;pressure&lt;/b&gt; value at an outlet boundary.
     /// </summary>
     [DataContract]
-    public partial class PressureOutletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<PressureOutletBC>
+    public partial class PressureOutletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<PressureOutletBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureOutletBC" /> class.

@@ -120,14 +120,16 @@ namespace SimScale.Sdk.Model
         /// <param name="scalarField">scalarField (required).</param>
         /// <param name="minimumRange">The minimum value for the color scheme to fill. Default is the minimum value of the scalar..</param>
         /// <param name="maximumRange">The maximum value for the color scheme to fill. Default is the maximum value of the scalar..</param>
-        /// <param name="numberOfDivisions">The number of divisions in the legend. (default to 20).</param>
+        /// <param name="nodeAverageValue">Specify if the scalar result should be shown as a node averaged result or not. (default to false).</param>
+        /// <param name="numberOfDivisions">The number of divisions in the legend. If set to 0, this will create a continuous (gradient) legend with a smooth interpolation between the colors. (default to 20).</param>
         /// <param name="colorScheme">The color scheme to use to map scalar values on the model and legend bar. (default to ColorSchemeEnum.NORMAL).</param>
-        public ScalarSettings(ScalarField scalarField = default(ScalarField), float? minimumRange = default(float?), float? maximumRange = default(float?), int? numberOfDivisions = default(int?), ColorSchemeEnum? colorScheme = default(ColorSchemeEnum?))
+        public ScalarSettings(ScalarField scalarField = default(ScalarField), float? minimumRange = default(float?), float? maximumRange = default(float?), bool? nodeAverageValue = default(bool?), int? numberOfDivisions = default(int?), ColorSchemeEnum? colorScheme = default(ColorSchemeEnum?))
         {
             // to ensure "scalarField" is required (not null)
             this.ScalarField = scalarField ?? throw new ArgumentNullException("scalarField is a required property for ScalarSettings and cannot be null");
             this.MinimumRange = minimumRange;
             this.MaximumRange = maximumRange;
+            this.NodeAverageValue = nodeAverageValue;
             this.NumberOfDivisions = numberOfDivisions;
             this.ColorScheme = colorScheme;
         }
@@ -153,9 +155,16 @@ namespace SimScale.Sdk.Model
         public float? MaximumRange { get; set; }
 
         /// <summary>
-        /// The number of divisions in the legend.
+        /// Specify if the scalar result should be shown as a node averaged result or not.
         /// </summary>
-        /// <value>The number of divisions in the legend.</value>
+        /// <value>Specify if the scalar result should be shown as a node averaged result or not.</value>
+        [DataMember(Name="nodeAverageValue", EmitDefaultValue=false)]
+        public bool? NodeAverageValue { get; set; }
+
+        /// <summary>
+        /// The number of divisions in the legend. If set to 0, this will create a continuous (gradient) legend with a smooth interpolation between the colors.
+        /// </summary>
+        /// <value>The number of divisions in the legend. If set to 0, this will create a continuous (gradient) legend with a smooth interpolation between the colors.</value>
         [DataMember(Name="numberOfDivisions", EmitDefaultValue=false)]
         public int? NumberOfDivisions { get; set; }
 
@@ -170,6 +179,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  ScalarField: ").Append(ScalarField).Append("\n");
             sb.Append("  MinimumRange: ").Append(MinimumRange).Append("\n");
             sb.Append("  MaximumRange: ").Append(MaximumRange).Append("\n");
+            sb.Append("  NodeAverageValue: ").Append(NodeAverageValue).Append("\n");
             sb.Append("  NumberOfDivisions: ").Append(NumberOfDivisions).Append("\n");
             sb.Append("  ColorScheme: ").Append(ColorScheme).Append("\n");
             sb.Append("}\n");
@@ -222,6 +232,11 @@ namespace SimScale.Sdk.Model
                     this.MaximumRange.Equals(input.MaximumRange))
                 ) && 
                 (
+                    this.NodeAverageValue == input.NodeAverageValue ||
+                    (this.NodeAverageValue != null &&
+                    this.NodeAverageValue.Equals(input.NodeAverageValue))
+                ) && 
+                (
                     this.NumberOfDivisions == input.NumberOfDivisions ||
                     (this.NumberOfDivisions != null &&
                     this.NumberOfDivisions.Equals(input.NumberOfDivisions))
@@ -247,6 +262,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MinimumRange.GetHashCode();
                 if (this.MaximumRange != null)
                     hashCode = hashCode * 59 + this.MaximumRange.GetHashCode();
+                if (this.NodeAverageValue != null)
+                    hashCode = hashCode * 59 + this.NodeAverageValue.GetHashCode();
                 if (this.NumberOfDivisions != null)
                     hashCode = hashCode * 59 + this.NumberOfDivisions.GetHashCode();
                 hashCode = hashCode * 59 + this.ColorScheme.GetHashCode();

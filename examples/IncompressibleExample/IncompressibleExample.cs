@@ -48,6 +48,7 @@ public class IncompressibleExample {
         var simulationRunApi = new SimulationRunsApi(config);
         var tableImportApi = new TableImportsApi(config);
         var reportsApi = new ReportsApi(config);
+        var materialsApi = new MaterialsApi(config);
 
         HashSet<Status> terminalStatuses = new HashSet<Status> {Status.FINISHED, Status.CANCELED, Status.FAILED};
         Stopwatch stopWatch = new Stopwatch();
@@ -221,26 +222,7 @@ public class IncompressibleExample {
             model: new FluidModel(),
             initialConditions: new FluidInitialConditions(),
             advancedConcepts: new AdvancedConcepts(),
-            materials: new IncompressibleFluidMaterials(
-                fluids: new List<IncompressibleMaterial>(){
-                    new IncompressibleMaterial(
-                        name: "Water",
-                        viscosityModel: new NewtonianViscosityModel(
-                            kinematicViscosity: new DimensionalKinematicViscosity(
-                                value: (decimal)9.3379e-7,
-                                unit: DimensionalKinematicViscosity.UnitEnum.MS
-                            )
-                        ),
-                        density: new DimensionalDensity(
-                            value: (decimal)997.33,
-                            unit: DimensionalDensity.UnitEnum.KgM
-                        ),
-                        topologicalReference: new TopologicalReference(
-                            entities: new List<string> { materialEntity }
-                        )
-                    )
-                }
-            ),
+            materials: new IncompressibleFluidMaterials(),
             numerics: new FluidNumerics(
                 relaxationFactor: new RelaxationFactor(),
                 pressureReferenceValue: new DimensionalPressure(
@@ -334,6 +316,39 @@ public class IncompressibleExample {
         // Create simulation
         var simulationId = simulationApi.CreateSimulation(projectId, simulationSpec).SimulationId;
         Console.WriteLine("simulationId: " + simulationId);
+
+        // Add a material to the simulation
+        var materialGroups = materialsApi.GetMaterialGroups().Embedded;
+        var defaultMaterialGroup = materialGroups.FirstOrDefault(group => group.GroupType == MaterialGroupType.SIMSCALEDEFAULT);
+        if (defaultMaterialGroup == null) {
+            throw new Exception("Couldn't find default material group in " + materialGroups);
+        }
+
+        var defaultMaterials = materialsApi.GetMaterials(defaultMaterialGroup.MaterialGroupId).Embedded;
+        var materialWater = defaultMaterials.FirstOrDefault(material => material.Name == "Water");
+        if (materialWater == null) {
+            throw new Exception("Couldn't find default Water material in " + defaultMaterials);
+        }
+
+        var materialData = materialsApi.GetMaterialData(defaultMaterialGroup.MaterialGroupId, materialWater.Id);
+        var materialUpdateRequest = new MaterialUpdateRequest(
+            operations: new List < MaterialUpdateOperation > {
+                new MaterialUpdateOperation(
+                    path: "/materials/fluids",
+                    materialData: materialData,
+                    reference: new MaterialUpdateOperationReference(
+                        materialGroupId: defaultMaterialGroup.MaterialGroupId,
+                        materialId: materialWater.Id
+                    )
+                )
+            }
+        );
+        var materialUpdateResponse = simulationApi.UpdateSimulationMaterials(projectId, simulationId, materialUpdateRequest);
+
+        // Add assignments to the new material
+        simulationSpec = simulationApi.GetSimulation(projectId, simulationId);
+        ((Incompressible)simulationSpec.Model).Materials.Fluids.First().TopologicalReference = new TopologicalReference(entities: new List<string> { materialEntity });
+        simulationApi.UpdateSimulation(projectId, simulationId, simulationSpec);
 
         // Read simulation and update with the finished mesh
         simulationSpec = simulationApi.GetSimulation(projectId, simulationId);

@@ -126,9 +126,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;6.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;7.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "6.0");
+        SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "7.0");
 
         /// <summary>
         /// Get information about the simulation setup
@@ -139,9 +139,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;6.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;7.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        ApiResponse<SimulationSpec> GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "6.0");
+        ApiResponse<SimulationSpec> GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "7.0");
         /// <summary>
         /// Get Python SDK code for the simulation
         /// </summary>
@@ -219,6 +219,33 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec));
+        /// <summary>
+        /// Update materials in the simulation setup
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="materialUpdateRequest">Material update operations</param>
+        /// <param name="preview">If present and true, the update material operation(s) will not be persisted and the returned response will only be a preview of the simulation. (optional, default to false)</param>
+        /// <returns>MaterialUpdateResponse</returns>
+        MaterialUpdateResponse UpdateSimulationMaterials (string projectId = default(string), Guid? simulationId = default(Guid?), MaterialUpdateRequest materialUpdateRequest = default(MaterialUpdateRequest), bool? preview = false);
+
+        /// <summary>
+        /// Update materials in the simulation setup
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="materialUpdateRequest">Material update operations</param>
+        /// <param name="preview">If present and true, the update material operation(s) will not be persisted and the returned response will only be a preview of the simulation. (optional, default to false)</param>
+        /// <returns>ApiResponse of MaterialUpdateResponse</returns>
+        ApiResponse<MaterialUpdateResponse> UpdateSimulationMaterialsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), MaterialUpdateRequest materialUpdateRequest = default(MaterialUpdateRequest), bool? preview = false);
         #endregion Synchronous Operations
     }
 
@@ -329,9 +356,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;6.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;7.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "6.0");
+        System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "7.0");
 
         /// <summary>
         /// Get information about the simulation setup
@@ -342,9 +369,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;6.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;7.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "6.0");
+        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "7.0");
         /// <summary>
         /// Get Python SDK code for the simulation
         /// </summary>
@@ -422,6 +449,33 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationSpec">Simulation to be updated</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), SimulationSpec simulationSpec = default(SimulationSpec));
+        /// <summary>
+        /// Update materials in the simulation setup
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="materialUpdateRequest">Material update operations</param>
+        /// <param name="preview">If present and true, the update material operation(s) will not be persisted and the returned response will only be a preview of the simulation. (optional, default to false)</param>
+        /// <returns>Task of MaterialUpdateResponse</returns>
+        System.Threading.Tasks.Task<MaterialUpdateResponse> UpdateSimulationMaterialsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), MaterialUpdateRequest materialUpdateRequest = default(MaterialUpdateRequest), bool? preview = false);
+
+        /// <summary>
+        /// Update materials in the simulation setup
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="materialUpdateRequest">Material update operations</param>
+        /// <param name="preview">If present and true, the update material operation(s) will not be persisted and the returned response will only be a preview of the simulation. (optional, default to false)</param>
+        /// <returns>Task of ApiResponse (MaterialUpdateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MaterialUpdateResponse>> UpdateSimulationMaterialsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), MaterialUpdateRequest materialUpdateRequest = default(MaterialUpdateRequest), bool? preview = false);
         #endregion Asynchronous Operations
     }
 
@@ -1100,9 +1154,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;6.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;7.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        public SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "6.0")
+        public SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "7.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = GetSimulationWithHttpInfo(projectId, simulationId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1114,9 +1168,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;6.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;7.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "6.0")
+        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "7.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1173,9 +1227,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;6.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;7.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "6.0")
+        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "7.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = await GetSimulationAsyncWithHttpInfo(projectId, simulationId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1188,9 +1242,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;6.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;7.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "6.0")
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "7.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1698,6 +1752,171 @@ namespace SimScale.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateSimulation", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update materials in the simulation setup 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="materialUpdateRequest">Material update operations</param>
+        /// <param name="preview">If present and true, the update material operation(s) will not be persisted and the returned response will only be a preview of the simulation. (optional, default to false)</param>
+        /// <returns>MaterialUpdateResponse</returns>
+        public MaterialUpdateResponse UpdateSimulationMaterials (string projectId = default(string), Guid? simulationId = default(Guid?), MaterialUpdateRequest materialUpdateRequest = default(MaterialUpdateRequest), bool? preview = false)
+        {
+             SimScale.Sdk.Client.ApiResponse<MaterialUpdateResponse> localVarResponse = UpdateSimulationMaterialsWithHttpInfo(projectId, simulationId, materialUpdateRequest, preview);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update materials in the simulation setup 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="materialUpdateRequest">Material update operations</param>
+        /// <param name="preview">If present and true, the update material operation(s) will not be persisted and the returned response will only be a preview of the simulation. (optional, default to false)</param>
+        /// <returns>ApiResponse of MaterialUpdateResponse</returns>
+        public SimScale.Sdk.Client.ApiResponse< MaterialUpdateResponse > UpdateSimulationMaterialsWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), MaterialUpdateRequest materialUpdateRequest = default(MaterialUpdateRequest), bool? preview = false)
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationsApi->UpdateSimulationMaterials");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationsApi->UpdateSimulationMaterials");
+
+            // verify the required parameter 'materialUpdateRequest' is set
+            if (materialUpdateRequest == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'materialUpdateRequest' when calling SimulationsApi->UpdateSimulationMaterials");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            if (preview != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preview", preview));
+            }
+            localVarRequestOptions.Data = materialUpdateRequest;
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< MaterialUpdateResponse >("/projects/{projectId}/simulations/{simulationId}/materials", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSimulationMaterials", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update materials in the simulation setup 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="materialUpdateRequest">Material update operations</param>
+        /// <param name="preview">If present and true, the update material operation(s) will not be persisted and the returned response will only be a preview of the simulation. (optional, default to false)</param>
+        /// <returns>Task of MaterialUpdateResponse</returns>
+        public async System.Threading.Tasks.Task<MaterialUpdateResponse> UpdateSimulationMaterialsAsync (string projectId = default(string), Guid? simulationId = default(Guid?), MaterialUpdateRequest materialUpdateRequest = default(MaterialUpdateRequest), bool? preview = false)
+        {
+             SimScale.Sdk.Client.ApiResponse<MaterialUpdateResponse> localVarResponse = await UpdateSimulationMaterialsAsyncWithHttpInfo(projectId, simulationId, materialUpdateRequest, preview);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update materials in the simulation setup 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="simulationId">The simulation ID</param>
+        /// <param name="materialUpdateRequest">Material update operations</param>
+        /// <param name="preview">If present and true, the update material operation(s) will not be persisted and the returned response will only be a preview of the simulation. (optional, default to false)</param>
+        /// <returns>Task of ApiResponse (MaterialUpdateResponse)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MaterialUpdateResponse>> UpdateSimulationMaterialsAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), MaterialUpdateRequest materialUpdateRequest = default(MaterialUpdateRequest), bool? preview = false)
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling SimulationsApi->UpdateSimulationMaterials");
+
+            // verify the required parameter 'simulationId' is set
+            if (simulationId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'simulationId' when calling SimulationsApi->UpdateSimulationMaterials");
+
+            // verify the required parameter 'materialUpdateRequest' is set
+            if (materialUpdateRequest == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'materialUpdateRequest' when calling SimulationsApi->UpdateSimulationMaterials");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("simulationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(simulationId)); // path parameter
+            if (preview != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preview", preview));
+            }
+            localVarRequestOptions.Data = materialUpdateRequest;
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<MaterialUpdateResponse>("/projects/{projectId}/simulations/{simulationId}/materials", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSimulationMaterials", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

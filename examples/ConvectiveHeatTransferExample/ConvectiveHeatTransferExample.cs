@@ -47,6 +47,7 @@ public class ConvectiveHeatTransferExample {
         var simulationRunApi = new SimulationRunsApi(config);
         var tableImportApi = new TableImportsApi(config);
         var reportsApi = new ReportsApi(config);
+        var materialsApi = new MaterialsApi(config);
 
         HashSet<Status> terminalStatuses = new HashSet<Status> {Status.FINISHED, Status.CANCELED, Status.FAILED};
         Stopwatch stopWatch = new Stopwatch();
@@ -161,40 +162,7 @@ public class ConvectiveHeatTransferExample {
             model: new FluidModel(),
             initialConditions: new FluidInitialConditions(),
             advancedConcepts: new AdvancedConcepts(),
-            materials: new ConvectiveHeatTransferMaterials(
-                fluids: new List<OneOfConvectiveHeatTransferMaterialsFluids> {
-                    new IncompressibleMaterial(
-                        name: "Air",
-                        topologicalReference: new TopologicalReference(
-                            entities: new List<string>() { materialEntity }
-                        ),
-                        viscosityModel: new NewtonianViscosityModel(
-                            kinematicViscosity: new DimensionalKinematicViscosity(
-                                value: (decimal)0.000015295,
-                                unit: DimensionalKinematicViscosity.UnitEnum.MS
-                            )
-                        ),
-                        density: new DimensionalDensity(
-                            value: (decimal) 1.1965,
-                            unit: DimensionalDensity.UnitEnum.KgM
-                        ),
-                        thermalExpansionCoefficient: new DimensionalThermalExpansionRate(
-                            value: (decimal) 0.00343,
-                            unit: DimensionalThermalExpansionRate.UnitEnum.K
-                        ),
-                        referenceTemperature: new DimensionalTemperature(
-                            value: (decimal) 273.15,
-                            unit: DimensionalTemperature.UnitEnum.K
-                        ),
-                        laminarPrandtlNumber: (decimal) 0.713,
-                        turbulentPrandtlNumber: (decimal) 0.85,
-                        specificHeat: new DimensionalSpecificHeat(
-                            value: 1004,
-                            unit: DimensionalSpecificHeat.UnitEnum.JkgK
-                        )
-                    )
-                }
-            ),
+            materials: new ConvectiveHeatTransferMaterials(),
             numerics: new FluidNumerics(
                 relaxationFactor: new RelaxationFactor(),
                 pressureReferenceValue: new DimensionalPressure(
@@ -323,6 +291,40 @@ public class ConvectiveHeatTransferExample {
         // Create simulation first to use for physics based meshing
         var simulationId = simulationApi.CreateSimulation(projectId, simulationSpec).SimulationId;
         Console.WriteLine("simulationId: " + simulationId);
+
+        // Add a material to the simulation
+        var materialGroups = materialsApi.GetMaterialGroups().Embedded;
+        var defaultMaterialGroup = materialGroups.FirstOrDefault(group => group.GroupType == MaterialGroupType.SIMSCALEDEFAULT);
+        if (defaultMaterialGroup == null) {
+            throw new Exception("Couldn't find default material group in " + materialGroups);
+        }
+
+        var defaultMaterials = materialsApi.GetMaterials(defaultMaterialGroup.MaterialGroupId).Embedded;
+        var materialAir = defaultMaterials.FirstOrDefault(material => material.Name == "Air");
+        if (materialAir == null) {
+            throw new Exception("Couldn't find default Air material in " + defaultMaterials);
+        }
+
+        var materialData = materialsApi.GetMaterialData(defaultMaterialGroup.MaterialGroupId, materialAir.Id);
+        var materialUpdateRequest = new MaterialUpdateRequest(
+            operations: new List < MaterialUpdateOperation > {
+                new MaterialUpdateOperation(
+                    path: "/materials/fluids",
+                    materialData: materialData,
+                    reference: new MaterialUpdateOperationReference(
+                        materialGroupId: defaultMaterialGroup.MaterialGroupId,
+                        materialId: materialAir.Id
+                    )
+                )
+            }
+        );
+        var materialUpdateResponse = simulationApi.UpdateSimulationMaterials(projectId, simulationId, materialUpdateRequest);
+
+        // Add assignments to the new material
+        simulationSpec = simulationApi.GetSimulation(projectId, simulationId);
+        var materials = ((ConvectiveHeatTransfer)simulationSpec.Model).Materials.Fluids;
+        ((IncompressibleMaterial)materials.First()).TopologicalReference = new TopologicalReference(entities: new List<string>() { materialEntity });
+        simulationApi.UpdateSimulation(projectId, simulationId, simulationSpec);
 
         // Create mesh operation
         var meshOperation = meshOperationApi.CreateMeshOperation(projectId, new MeshOperation(

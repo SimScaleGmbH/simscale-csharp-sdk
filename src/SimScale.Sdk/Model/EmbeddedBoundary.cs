@@ -68,6 +68,7 @@ namespace SimScale.Sdk.Model
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
         /// <param name="initialConditions">initialConditions.</param>
+        /// <param name="boundaryConditions">boundaryConditions.</param>
         /// <param name="advancedConcepts">advancedConcepts.</param>
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
@@ -76,7 +77,7 @@ namespace SimScale.Sdk.Model
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
-        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? isInternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), BasicEmbeddedBoundaryMeshing meshSettings = default(BasicEmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?))
+        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? isInternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), BasicEmbeddedBoundaryMeshing meshSettings = default(BasicEmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for EmbeddedBoundary and cannot be null");
@@ -84,6 +85,7 @@ namespace SimScale.Sdk.Model
             this.Model = model;
             this.Materials = materials;
             this.InitialConditions = initialConditions;
+            this.BoundaryConditions = boundaryConditions;
             this.AdvancedConcepts = advancedConcepts;
             this.Numerics = numerics;
             this.SimulationControl = simulationControl;
@@ -125,6 +127,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="initialConditions", EmitDefaultValue=false)]
         public FluidInitialConditions InitialConditions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BoundaryConditions
+        /// </summary>
+        [DataMember(Name="boundaryConditions", EmitDefaultValue=false)]
+        public List<OneOfEmbeddedBoundaryBoundaryConditions> BoundaryConditions { get; set; }
 
         /// <summary>
         /// Gets or Sets AdvancedConcepts
@@ -183,6 +191,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
+            sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
             sb.Append("  AdvancedConcepts: ").Append(AdvancedConcepts).Append("\n");
             sb.Append("  Numerics: ").Append(Numerics).Append("\n");
             sb.Append("  SimulationControl: ").Append(SimulationControl).Append("\n");
@@ -251,6 +260,12 @@ namespace SimScale.Sdk.Model
                     this.InitialConditions.Equals(input.InitialConditions))
                 ) && 
                 (
+                    this.BoundaryConditions == input.BoundaryConditions ||
+                    this.BoundaryConditions != null &&
+                    input.BoundaryConditions != null &&
+                    this.BoundaryConditions.SequenceEqual(input.BoundaryConditions)
+                ) && 
+                (
                     this.AdvancedConcepts == input.AdvancedConcepts ||
                     (this.AdvancedConcepts != null &&
                     this.AdvancedConcepts.Equals(input.AdvancedConcepts))
@@ -310,6 +325,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Materials.GetHashCode();
                 if (this.InitialConditions != null)
                     hashCode = hashCode * 59 + this.InitialConditions.GetHashCode();
+                if (this.BoundaryConditions != null)
+                    hashCode = hashCode * 59 + this.BoundaryConditions.GetHashCode();
                 if (this.AdvancedConcepts != null)
                     hashCode = hashCode * 59 + this.AdvancedConcepts.GetHashCode();
                 if (this.Numerics != null)

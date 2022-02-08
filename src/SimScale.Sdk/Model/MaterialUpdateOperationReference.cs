@@ -23,41 +23,35 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// MaterialLibraryReference
+    /// Reference identifiers of the provided material and its material group
     /// </summary>
     [DataContract]
-    public partial class MaterialLibraryReference : IEquatable<MaterialLibraryReference>
+    public partial class MaterialUpdateOperationReference : IEquatable<MaterialUpdateOperationReference>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialLibraryReference" /> class.
+        /// Initializes a new instance of the <see cref="MaterialUpdateOperationReference" /> class.
         /// </summary>
-        /// <param name="materialGroupId">materialGroupId.</param>
-        /// <param name="materialId">materialId.</param>
-        /// <param name="interpolationParameters">interpolationParameters.</param>
-        public MaterialLibraryReference(string materialGroupId = default(string), string materialId = default(string), Dictionary<string, InterpolationParameter> interpolationParameters = default(Dictionary<string, InterpolationParameter>))
+        /// <param name="materialGroupId">Identifier of the material group.</param>
+        /// <param name="materialId">Identifier of the material.</param>
+        public MaterialUpdateOperationReference(string materialGroupId = default(string), string materialId = default(string))
         {
             this.MaterialGroupId = materialGroupId;
             this.MaterialId = materialId;
-            this.InterpolationParameters = interpolationParameters;
         }
         
         /// <summary>
-        /// Gets or Sets MaterialGroupId
+        /// Identifier of the material group
         /// </summary>
+        /// <value>Identifier of the material group</value>
         [DataMember(Name="materialGroupId", EmitDefaultValue=false)]
         public string MaterialGroupId { get; set; }
 
         /// <summary>
-        /// Gets or Sets MaterialId
+        /// Identifier of the material
         /// </summary>
+        /// <value>Identifier of the material</value>
         [DataMember(Name="materialId", EmitDefaultValue=false)]
         public string MaterialId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InterpolationParameters
-        /// </summary>
-        [DataMember(Name="interpolationParameters", EmitDefaultValue=false)]
-        public Dictionary<string, InterpolationParameter> InterpolationParameters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,10 +60,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MaterialLibraryReference {\n");
+            sb.Append("class MaterialUpdateOperationReference {\n");
             sb.Append("  MaterialGroupId: ").Append(MaterialGroupId).Append("\n");
             sb.Append("  MaterialId: ").Append(MaterialId).Append("\n");
-            sb.Append("  InterpolationParameters: ").Append(InterpolationParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,15 +83,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MaterialLibraryReference);
+            return this.Equals(input as MaterialUpdateOperationReference);
         }
 
         /// <summary>
-        /// Returns true if MaterialLibraryReference instances are equal
+        /// Returns true if MaterialUpdateOperationReference instances are equal
         /// </summary>
-        /// <param name="input">Instance of MaterialLibraryReference to be compared</param>
+        /// <param name="input">Instance of MaterialUpdateOperationReference to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MaterialLibraryReference input)
+        public bool Equals(MaterialUpdateOperationReference input)
         {
             if (input == null)
                 return false;
@@ -113,12 +106,6 @@ namespace SimScale.Sdk.Model
                     this.MaterialId == input.MaterialId ||
                     (this.MaterialId != null &&
                     this.MaterialId.Equals(input.MaterialId))
-                ) && 
-                (
-                    this.InterpolationParameters == input.InterpolationParameters ||
-                    this.InterpolationParameters != null &&
-                    input.InterpolationParameters != null &&
-                    this.InterpolationParameters.SequenceEqual(input.InterpolationParameters)
                 );
         }
 
@@ -135,8 +122,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MaterialGroupId.GetHashCode();
                 if (this.MaterialId != null)
                     hashCode = hashCode * 59 + this.MaterialId.GetHashCode();
-                if (this.InterpolationParameters != null)
-                    hashCode = hashCode * 59 + this.InterpolationParameters.GetHashCode();
                 return hashCode;
             }
         }

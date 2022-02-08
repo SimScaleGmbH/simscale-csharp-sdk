@@ -50,6 +50,7 @@ public class CompressibleExample {
         var simulationRunApi = new SimulationRunsApi(config);
         var tableImportApi = new TableImportsApi(config);
         var reportsApi = new ReportsApi(config);
+        var materialsApi = new MaterialsApi(config);
 
         HashSet < Status > terminalStatuses = new HashSet < Status > {
             Status.FINISHED,
@@ -164,31 +165,7 @@ public class CompressibleExample {
             model: new FluidModel(),
             initialConditions: new FluidInitialConditions(),
             advancedConcepts: new AdvancedConcepts(),
-            materials: new CompressibleFluidMaterials(
-                fluids: new List < FluidCompressibleMaterial > {
-                    new FluidCompressibleMaterial(
-                        name: "Air",
-                        topologicalReference: new TopologicalReference(
-                            entities: materialEntities
-                        ),
-                        specie: new SpecieDefault(
-                            molarWeight: new DimensionalMolarMass(
-                                value: (decimal) 28.97,
-                                unit: DimensionalMolarMass.UnitEnum.KgKmol
-                            )
-                        ),
-                        transport: new ConstTransport(
-                            dynamicViscosity: new DimensionalDynamicViscosity(
-                                value: (decimal) 0.0000183,
-                                unit: DimensionalDynamicViscosity.UnitEnum.Kgsm
-                            ),
-                            prandtlNumber: (decimal) 0.713,
-                            thermo: new HConstThermo(
-                                equationOfState: new PerfectGasEquationOfState())
-                        )
-                    )
-                }
-            ),
+            materials: new CompressibleFluidMaterials(),
             numerics: new FluidNumerics(
                 relaxationFactor: new RelaxationFactor(),
                 pressureReferenceValue: new DimensionalPressure(
@@ -312,6 +289,39 @@ public class CompressibleExample {
         // Create simulation first to use for physics based meshing
         var simulationId = simulationApi.CreateSimulation(projectId, simulationSpec).SimulationId;
         Console.WriteLine("simulationId: " + simulationId);
+
+        // Add a material to the simulation
+        var materialGroups = materialsApi.GetMaterialGroups().Embedded;
+        var defaultMaterialGroup = materialGroups.FirstOrDefault(group => group.GroupType == MaterialGroupType.SIMSCALEDEFAULT);
+        if (defaultMaterialGroup == null) {
+            throw new Exception("Couldn't find default material group in " + materialGroups);
+        }
+
+        var defaultMaterials = materialsApi.GetMaterials(defaultMaterialGroup.MaterialGroupId).Embedded;
+        var materialAir = defaultMaterials.FirstOrDefault(material => material.Name == "Air");
+        if (materialAir == null) {
+            throw new Exception("Couldn't find default Air material in " + defaultMaterials);
+        }
+
+        var materialData = materialsApi.GetMaterialData(defaultMaterialGroup.MaterialGroupId, materialAir.Id);
+        var materialUpdateRequest = new MaterialUpdateRequest(
+            operations: new List < MaterialUpdateOperation > {
+                new MaterialUpdateOperation(
+                    path: "/materials/fluids",
+                    materialData: materialData,
+                    reference: new MaterialUpdateOperationReference(
+                        materialGroupId: defaultMaterialGroup.MaterialGroupId,
+                        materialId: materialAir.Id
+                    )
+                )
+            }
+        );
+        var materialUpdateResponse = simulationApi.UpdateSimulationMaterials(projectId, simulationId, materialUpdateRequest);
+
+        // Add assignments to the new material
+        simulationSpec = simulationApi.GetSimulation(projectId, simulationId);
+        ((Compressible)simulationSpec.Model).Materials.Fluids.First().TopologicalReference = new TopologicalReference(entities: materialEntities);
+        simulationApi.UpdateSimulation(projectId, simulationId, simulationSpec);
 
         // Create mesh operation
         var meshOperation = meshOperationApi.CreateMeshOperation(projectId, new MeshOperation(
