@@ -27,6 +27,7 @@ namespace SimScale.Sdk.Model
     /// OneOfHarmonicAnalysisBoundaryConditions
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(BaseExcitationBC), "BASE_EXCITATION")]
     [JsonSubtypes.KnownSubType(typeof(BoltPreloadBC), "BOLT_PRELOAD")]
     [JsonSubtypes.KnownSubType(typeof(ElasticSupportBC), "ELASTIC_SUPPORT")]
     [JsonSubtypes.KnownSubType(typeof(FixedSupportBC), "FIXED_SUPPORT")]

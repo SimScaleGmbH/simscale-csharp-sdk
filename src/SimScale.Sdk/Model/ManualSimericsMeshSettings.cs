@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Model
         /// <param name="minimumCellSize">minimumCellSize.</param>
         /// <param name="maximumCellSize">maximumCellSize.</param>
         /// <param name="cellSizeOnSurfaces">cellSizeOnSurfaces.</param>
-        /// <param name="enableGrowthRate">enableGrowthRate (default to false).</param>
+        /// <param name="enableGrowthRate">&lt;p&gt;&lt;b&gt;Specify growth rate&lt;/b&gt;: Define the cell size growth rate between interior cells and surface cells.&lt;/p&gt; (default to false).</param>
         /// <param name="growthRate">The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between interior cell size and surface cell size. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1 and smaller or equal to 8, such that the cell size increases towards the interior of the mesh. (default to 2).</param>
         public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", DimensionalLength minimumCellSize = default(DimensionalLength), DimensionalLength maximumCellSize = default(DimensionalLength), DimensionalLength cellSizeOnSurfaces = default(DimensionalLength), bool? enableGrowthRate = default(bool?), int? growthRate = default(int?))
         {
@@ -79,8 +79,9 @@ namespace SimScale.Sdk.Model
         public DimensionalLength CellSizeOnSurfaces { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableGrowthRate
+        /// &lt;p&gt;&lt;b&gt;Specify growth rate&lt;/b&gt;: Define the cell size growth rate between interior cells and surface cells.&lt;/p&gt;
         /// </summary>
+        /// <value>&lt;p&gt;&lt;b&gt;Specify growth rate&lt;/b&gt;: Define the cell size growth rate between interior cells and surface cells.&lt;/p&gt;</value>
         [DataMember(Name="enableGrowthRate", EmitDefaultValue=false)]
         public bool? EnableGrowthRate { get; set; }
 
