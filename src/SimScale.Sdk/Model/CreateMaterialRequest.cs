@@ -31,14 +31,21 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateMaterialRequest" /> class.
         /// </summary>
-        /// <param name="name">The material name..</param>
+        [JsonConstructorAttribute]
+        protected CreateMaterialRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateMaterialRequest" /> class.
+        /// </summary>
+        /// <param name="name">The material name. (required).</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="properties">The material properties..</param>
+        /// <param name="properties">The material properties. (required).</param>
         public CreateMaterialRequest(string name = default(string), Object metadata = default(Object), Dictionary<string, OneOfMaterialProperty> properties = default(Dictionary<string, OneOfMaterialProperty>))
         {
-            this.Name = name;
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateMaterialRequest and cannot be null");
+            // to ensure "properties" is required (not null)
+            this.Properties = properties ?? throw new ArgumentNullException("properties is a required property for CreateMaterialRequest and cannot be null");
             this.Metadata = metadata;
-            this.Properties = properties;
         }
         
         /// <summary>

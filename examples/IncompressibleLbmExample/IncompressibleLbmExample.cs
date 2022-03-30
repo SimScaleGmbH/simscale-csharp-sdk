@@ -205,16 +205,20 @@ class IncompressibleLbmExample
             resultControl: new FluidResultControls(
                 transientResultControl: new TransientResultControl(
                     writeControl: new CoarseResolution(),
-                    exportSurface: true,
+                    exportFluid: true,
                     geometryPrimitiveUuids: new List<Guid?> {localSlice1Uuid, localSlice2Uuid}
                 ),
                 statisticalAveragingResultControl: new StatisticalAveragingResultControlV2(
                     samplingInterval: new CoarseResolution(),
+                    exportFluid: true,
+                    geometryPrimitiveUuids: new List<Guid?> {localSlice1Uuid, localSlice2Uuid},
                     exportSurface: true,
-                    geometryPrimitiveUuids: new List<Guid?> {localSlice1Uuid, localSlice2Uuid}
+                    topologicalReference: new TopologicalReference(
+                        entities: entities
+                    )
                 ),
                 snapshotResultControl: new SnapshotResultControl(
-                    exportSurface: true,
+                    exportFluid: true,
                     geometryPrimitiveUuids: new List<Guid?> {localSlice1Uuid, localSlice2Uuid}
                 ),
                 probePoints: new List<ProbePointsResultControl> {
@@ -376,8 +380,17 @@ class IncompressibleLbmExample
                 modelSettings: new ModelSettings(
                     parts: new List < Part > {
                         new Part(
-                            partIdentifier: "data - mesh_solid-volume-reference-of-all-face-topo-entities",
-                            solidColor: new Color(r: 0.8f, g: 0.2f, b: 0.4f))
+                            partIdentifier: "data - surface-export-1",
+                            solidColor: new Color(r: 0.8f, g: 0.2f, b: 0.4f)
+                        ),
+                        new Part(
+                            partIdentifier: "data - surface-export-2",
+                            solidColor: new Color(r: 0.2f, g: 0.4f, b: 0.8f)
+                        ),
+                        new Part(
+                            partIdentifier: "data - surface-export-3",
+                            solidColor: new Color(r: 0.4f, g: 0.8f, b: 0.2f)
+                        )
                     },
                     scalarField: new ScalarField(
                         fieldName: "Velocity",

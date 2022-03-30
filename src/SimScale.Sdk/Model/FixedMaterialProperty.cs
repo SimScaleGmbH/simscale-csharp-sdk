@@ -45,15 +45,16 @@ namespace SimScale.Sdk.Model
         /// <param name="unit">The material property unit.</param>
         /// <param name="valueType">valueType (required) (default to &quot;fixed&quot;).</param>
         /// <param name="dataType">dataType.</param>
-        /// <param name="value">The property value.</param>
+        /// <param name="value">The property value (required).</param>
         public FixedMaterialProperty(string name = default(string), string unit = default(string), string valueType = "fixed", PropertyDataType? dataType = default(PropertyDataType?), Object value = default(Object))
         {
             // to ensure "valueType" is required (not null)
             this.ValueType = valueType ?? throw new ArgumentNullException("valueType is a required property for FixedMaterialProperty and cannot be null");
+            // to ensure "value" is required (not null)
+            this.Value = value ?? throw new ArgumentNullException("value is a required property for FixedMaterialProperty and cannot be null");
             this.Name = name;
             this.Unit = unit;
             this.DataType = dataType;
-            this.Value = value;
         }
         
         /// <summary>

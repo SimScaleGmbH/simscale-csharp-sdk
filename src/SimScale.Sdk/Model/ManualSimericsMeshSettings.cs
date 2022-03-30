@@ -37,15 +37,17 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ManualSimericsMeshSettings" /> class.
         /// </summary>
         /// <param name="type">Schema name: ManualSimericsMeshSettings (required) (default to &quot;MANUAL_SETTINGS&quot;).</param>
+        /// <param name="refinements">refinements.</param>
         /// <param name="minimumCellSize">minimumCellSize.</param>
         /// <param name="maximumCellSize">maximumCellSize.</param>
         /// <param name="cellSizeOnSurfaces">cellSizeOnSurfaces.</param>
         /// <param name="enableGrowthRate">&lt;p&gt;&lt;b&gt;Specify growth rate&lt;/b&gt;: Define the cell size growth rate between interior cells and surface cells.&lt;/p&gt; (default to false).</param>
         /// <param name="growthRate">The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between interior cell size and surface cell size. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1 and smaller or equal to 8, such that the cell size increases towards the interior of the mesh. (default to 2).</param>
-        public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", DimensionalLength minimumCellSize = default(DimensionalLength), DimensionalLength maximumCellSize = default(DimensionalLength), DimensionalLength cellSizeOnSurfaces = default(DimensionalLength), bool? enableGrowthRate = default(bool?), int? growthRate = default(int?))
+        public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), DimensionalLength minimumCellSize = default(DimensionalLength), DimensionalLength maximumCellSize = default(DimensionalLength), DimensionalLength cellSizeOnSurfaces = default(DimensionalLength), bool? enableGrowthRate = default(bool?), int? growthRate = default(int?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ManualSimericsMeshSettings and cannot be null");
+            this.Refinements = refinements;
             this.MinimumCellSize = minimumCellSize;
             this.MaximumCellSize = maximumCellSize;
             this.CellSizeOnSurfaces = cellSizeOnSurfaces;
@@ -59,6 +61,12 @@ namespace SimScale.Sdk.Model
         /// <value>Schema name: ManualSimericsMeshSettings</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Refinements
+        /// </summary>
+        [DataMember(Name="refinements", EmitDefaultValue=false)]
+        public List<RegionRefinementSimerics> Refinements { get; set; }
 
         /// <summary>
         /// Gets or Sets MinimumCellSize
@@ -101,6 +109,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ManualSimericsMeshSettings {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("  MinimumCellSize: ").Append(MinimumCellSize).Append("\n");
             sb.Append("  MaximumCellSize: ").Append(MaximumCellSize).Append("\n");
             sb.Append("  CellSizeOnSurfaces: ").Append(CellSizeOnSurfaces).Append("\n");
@@ -146,6 +155,12 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.Refinements == input.Refinements ||
+                    this.Refinements != null &&
+                    input.Refinements != null &&
+                    this.Refinements.SequenceEqual(input.Refinements)
+                ) && 
+                (
                     this.MinimumCellSize == input.MinimumCellSize ||
                     (this.MinimumCellSize != null &&
                     this.MinimumCellSize.Equals(input.MinimumCellSize))
@@ -183,6 +198,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Refinements != null)
+                    hashCode = hashCode * 59 + this.Refinements.GetHashCode();
                 if (this.MinimumCellSize != null)
                     hashCode = hashCode * 59 + this.MinimumCellSize.GetHashCode();
                 if (this.MaximumCellSize != null)

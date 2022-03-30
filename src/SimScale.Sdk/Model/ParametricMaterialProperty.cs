@@ -45,16 +45,17 @@ namespace SimScale.Sdk.Model
         /// <param name="unit">The material property unit.</param>
         /// <param name="valueType">valueType (required) (default to &quot;parametric&quot;).</param>
         /// <param name="dataType">dataType.</param>
-        /// <param name="parameters">Parameter properties of the material.</param>
+        /// <param name="parameters">Parameter properties of the material (required).</param>
         /// <param name="parametricValues">parametricValues.</param>
-        public ParametricMaterialProperty(string name = default(string), string unit = default(string), string valueType = "parametric", PropertyDataType? dataType = default(PropertyDataType?), List<MaterialPropertyParameter> parameters = default(List<MaterialPropertyParameter>), List<Object> parametricValues = default(List<Object>))
+        public ParametricMaterialProperty(string name = default(string), string unit = default(string), string valueType = "parametric", PropertyDataType? dataType = default(PropertyDataType?), List<MaterialPropertyParameter> parameters = default(List<MaterialPropertyParameter>), List<Dictionary<string, Object>> parametricValues = default(List<Dictionary<string, Object>>))
         {
             // to ensure "valueType" is required (not null)
             this.ValueType = valueType ?? throw new ArgumentNullException("valueType is a required property for ParametricMaterialProperty and cannot be null");
+            // to ensure "parameters" is required (not null)
+            this.Parameters = parameters ?? throw new ArgumentNullException("parameters is a required property for ParametricMaterialProperty and cannot be null");
             this.Name = name;
             this.Unit = unit;
             this.DataType = dataType;
-            this.Parameters = parameters;
             this.ParametricValues = parametricValues;
         }
         
@@ -89,7 +90,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets ParametricValues
         /// </summary>
         [DataMember(Name="parametricValues", EmitDefaultValue=false)]
-        public List<Object> ParametricValues { get; set; }
+        public List<Dictionary<string, Object>> ParametricValues { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

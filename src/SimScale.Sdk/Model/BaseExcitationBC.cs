@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// BaseExcitationBC
+    /// &lt;p&gt;&lt;b&gt;Base excitation&lt;/b&gt; boundary condition applies a uniform acceleration to all fixed surfaces in the model (zero displacement), e.g. faces assigned to the &lt;i&gt;Fixed support&lt;/i&gt; boundary condition. Specify the direction vector, the acceleration magnitude and the delay in terms of a harmonic phase angle, from the load to the reference harmonic excitation.&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/base-excitation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
     /// </summary>
     [DataContract]
     public partial class BaseExcitationBC : OneOfHarmonicAnalysisBoundaryConditions, IEquatable<BaseExcitationBC>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseExcitationBC" /> class.
         /// </summary>
-        /// <param name="type">Schema name: BaseExcitationBC (required) (default to &quot;BASE_EXCITATION&quot;).</param>
+        /// <param name="type">&lt;p&gt;&lt;b&gt;Base excitation&lt;/b&gt; boundary condition applies a uniform acceleration to all fixed surfaces in the model (zero displacement), e.g. faces assigned to the &lt;i&gt;Fixed support&lt;/i&gt; boundary condition. Specify the direction vector, the acceleration magnitude and the delay in terms of a harmonic phase angle, from the load to the reference harmonic excitation.&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/base-excitation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;  Schema name: BaseExcitationBC (required) (default to &quot;BASE_EXCITATION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="direction">direction.</param>
         /// <param name="acceleration">acceleration.</param>
@@ -52,9 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: BaseExcitationBC
+        /// &lt;p&gt;&lt;b&gt;Base excitation&lt;/b&gt; boundary condition applies a uniform acceleration to all fixed surfaces in the model (zero displacement), e.g. faces assigned to the &lt;i&gt;Fixed support&lt;/i&gt; boundary condition. Specify the direction vector, the acceleration magnitude and the delay in terms of a harmonic phase angle, from the load to the reference harmonic excitation.&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/base-excitation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;  Schema name: BaseExcitationBC
         /// </summary>
-        /// <value>Schema name: BaseExcitationBC</value>
+        /// <value>&lt;p&gt;&lt;b&gt;Base excitation&lt;/b&gt; boundary condition applies a uniform acceleration to all fixed surfaces in the model (zero displacement), e.g. faces assigned to the &lt;i&gt;Fixed support&lt;/i&gt; boundary condition. Specify the direction vector, the acceleration magnitude and the delay in terms of a harmonic phase angle, from the load to the reference harmonic excitation.&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/base-excitation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;  Schema name: BaseExcitationBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

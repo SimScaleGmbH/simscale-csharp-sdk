@@ -61,14 +61,12 @@ public class MaterialLibraryExample {
                 unit: "C"
               )
             },
-            parametricValues: new List < Object > {
-              new Dictionary < string,
-              double > () {
+            parametricValues: new List < Dictionary < string,  object > > {
+              new Dictionary < string, object > () {
                 { "value", 31.4 },
                 { "temperature", 100 }
               },
-              new Dictionary < string,
-              double > () {
+              new Dictionary < string, object > () {
                 { "value", 30.8 },
                 { "temperature", 500 }
               }

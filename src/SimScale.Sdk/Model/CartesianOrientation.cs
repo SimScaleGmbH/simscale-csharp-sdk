@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// CartesianOrientation
     /// </summary>
     [DataContract]
-    public partial class CartesianOrientation : OneOfConstAnIsoTransportOrientation, OneOfConstCrossPlaneOrthotropicTransportOrientation, OneOfDarcyForchheimerMediumOrientation, OneOfFixedCoeffMediumOrientation, OneOfPowerLawMediumOrientation, IEquatable<CartesianOrientation>
+    public partial class CartesianOrientation : OneOfConstAnIsoTransportOrientation, OneOfConstCrossPlaneOrthotropicTransportOrientation, OneOfDarcyForchheimerMediumOrientation, OneOfFixedCoeffMediumOrientation, IEquatable<CartesianOrientation>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CartesianOrientation" /> class.

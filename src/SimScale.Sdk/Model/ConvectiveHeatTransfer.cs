@@ -152,9 +152,9 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: ConvectiveHeatTransfer (required) (default to &quot;CONVECTIVE_HEAT_TRANSFER&quot;).</param>
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
-        /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
+        /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="numOfPassiveSpecies">Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to NumOfPassiveSpeciesEnum.NUMBER_0).</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
@@ -164,14 +164,14 @@ namespace SimScale.Sdk.Model
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
-        public ConvectiveHeatTransfer(string type = "CONVECTIVE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfConvectiveHeatTransferTimeDependency timeDependency = default(OneOfConvectiveHeatTransferTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), FluidModel model = default(FluidModel), ConvectiveHeatTransferMaterials materials = default(ConvectiveHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfConvectiveHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfConvectiveHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
+        public ConvectiveHeatTransfer(string type = "CONVECTIVE_HEAT_TRANSFER", bool? isCompressible = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfConvectiveHeatTransferTimeDependency timeDependency = default(OneOfConvectiveHeatTransferTimeDependency), bool? enableRadiation = default(bool?), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), FluidModel model = default(FluidModel), ConvectiveHeatTransferMaterials materials = default(ConvectiveHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfConvectiveHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfConvectiveHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ConvectiveHeatTransfer and cannot be null");
             this.IsCompressible = isCompressible;
-            this.EnableRadiation = enableRadiation;
             this.TurbulenceModel = turbulenceModel;
             this.TimeDependency = timeDependency;
+            this.EnableRadiation = enableRadiation;
             this.NumOfPassiveSpecies = numOfPassiveSpecies;
             this.Model = model;
             this.Materials = materials;
@@ -198,17 +198,17 @@ namespace SimScale.Sdk.Model
         public bool? IsCompressible { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeDependency
+        /// </summary>
+        [DataMember(Name="timeDependency", EmitDefaultValue=false)]
+        public OneOfConvectiveHeatTransferTimeDependency TimeDependency { get; set; }
+
+        /// <summary>
         /// Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
         /// <value>Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
         [DataMember(Name="enableRadiation", EmitDefaultValue=false)]
         public bool? EnableRadiation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TimeDependency
-        /// </summary>
-        [DataMember(Name="timeDependency", EmitDefaultValue=false)]
-        public OneOfConvectiveHeatTransferTimeDependency TimeDependency { get; set; }
 
         /// <summary>
         /// Gets or Sets Model
@@ -268,9 +268,9 @@ namespace SimScale.Sdk.Model
             sb.Append("class ConvectiveHeatTransfer {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
-            sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
+            sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
             sb.Append("  NumOfPassiveSpecies: ").Append(NumOfPassiveSpecies).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
@@ -325,11 +325,6 @@ namespace SimScale.Sdk.Model
                     this.IsCompressible.Equals(input.IsCompressible))
                 ) && 
                 (
-                    this.EnableRadiation == input.EnableRadiation ||
-                    (this.EnableRadiation != null &&
-                    this.EnableRadiation.Equals(input.EnableRadiation))
-                ) && 
-                (
                     this.TurbulenceModel == input.TurbulenceModel ||
                     this.TurbulenceModel.Equals(input.TurbulenceModel)
                 ) && 
@@ -337,6 +332,11 @@ namespace SimScale.Sdk.Model
                     this.TimeDependency == input.TimeDependency ||
                     (this.TimeDependency != null &&
                     this.TimeDependency.Equals(input.TimeDependency))
+                ) && 
+                (
+                    this.EnableRadiation == input.EnableRadiation ||
+                    (this.EnableRadiation != null &&
+                    this.EnableRadiation.Equals(input.EnableRadiation))
                 ) && 
                 (
                     this.NumOfPassiveSpecies == input.NumOfPassiveSpecies ||
@@ -398,11 +398,11 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.IsCompressible != null)
                     hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
-                if (this.EnableRadiation != null)
-                    hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 if (this.TimeDependency != null)
                     hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
+                if (this.EnableRadiation != null)
+                    hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
                 hashCode = hashCode * 59 + this.NumOfPassiveSpecies.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();

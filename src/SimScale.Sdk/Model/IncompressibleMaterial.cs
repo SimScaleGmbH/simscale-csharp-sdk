@@ -74,11 +74,12 @@ namespace SimScale.Sdk.Model
         /// <param name="turbulentPrandtlNumber">Turbulent Prandtl number is used to calculate the heat transfer due to turbulent effects in the domain..</param>
         /// <param name="specificHeat">specificHeat.</param>
         /// <param name="molarWeight">molarWeight.</param>
+        /// <param name="cavitation">cavitation.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public IncompressibleMaterial(string type = "INCOMPRESSIBLE", string name = default(string), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), OneOfIncompressibleMaterialViscosityModel viscosityModel = default(OneOfIncompressibleMaterialViscosityModel), DimensionalDensity density = default(DimensionalDensity), DimensionalThermalExpansionRate thermalExpansionCoefficient = default(DimensionalThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature), decimal? laminarPrandtlNumber = default(decimal?), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalMolarMass molarWeight = default(DimensionalMolarMass), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public IncompressibleMaterial(string type = "INCOMPRESSIBLE", string name = default(string), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), OneOfIncompressibleMaterialViscosityModel viscosityModel = default(OneOfIncompressibleMaterialViscosityModel), DimensionalDensity density = default(DimensionalDensity), DimensionalThermalExpansionRate thermalExpansionCoefficient = default(DimensionalThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature), decimal? laminarPrandtlNumber = default(decimal?), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalMolarMass molarWeight = default(DimensionalMolarMass), Cavitation cavitation = default(Cavitation), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IncompressibleMaterial and cannot be null");
@@ -92,6 +93,7 @@ namespace SimScale.Sdk.Model
             this.TurbulentPrandtlNumber = turbulentPrandtlNumber;
             this.SpecificHeat = specificHeat;
             this.MolarWeight = molarWeight;
+            this.Cavitation = cavitation;
             this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
             this.BuiltInMaterial = builtInMaterial;
@@ -162,6 +164,12 @@ namespace SimScale.Sdk.Model
         public DimensionalMolarMass MolarWeight { get; set; }
 
         /// <summary>
+        /// Gets or Sets Cavitation
+        /// </summary>
+        [DataMember(Name="cavitation", EmitDefaultValue=false)]
+        public Cavitation Cavitation { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -204,6 +212,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  TurbulentPrandtlNumber: ").Append(TurbulentPrandtlNumber).Append("\n");
             sb.Append("  SpecificHeat: ").Append(SpecificHeat).Append("\n");
             sb.Append("  MolarWeight: ").Append(MolarWeight).Append("\n");
+            sb.Append("  Cavitation: ").Append(Cavitation).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
@@ -297,6 +306,11 @@ namespace SimScale.Sdk.Model
                     this.MolarWeight.Equals(input.MolarWeight))
                 ) && 
                 (
+                    this.Cavitation == input.Cavitation ||
+                    (this.Cavitation != null &&
+                    this.Cavitation.Equals(input.Cavitation))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -349,6 +363,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.SpecificHeat.GetHashCode();
                 if (this.MolarWeight != null)
                     hashCode = hashCode * 59 + this.MolarWeight.GetHashCode();
+                if (this.Cavitation != null)
+                    hashCode = hashCode * 59 + this.Cavitation.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)

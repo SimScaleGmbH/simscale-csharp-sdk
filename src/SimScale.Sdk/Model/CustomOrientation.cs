@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// CustomOrientation
     /// </summary>
     [DataContract]
-    public partial class CustomOrientation : OneOfConstAnIsoTransportOrientation, OneOfDarcyForchheimerMediumOrientation, OneOfFixedCoeffMediumOrientation, OneOfPowerLawMediumOrientation, IEquatable<CustomOrientation>
+    public partial class CustomOrientation : OneOfConstAnIsoTransportOrientation, OneOfDarcyForchheimerMediumOrientation, OneOfFixedCoeffMediumOrientation, IEquatable<CustomOrientation>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomOrientation" /> class.

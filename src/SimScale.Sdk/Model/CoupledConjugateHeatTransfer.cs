@@ -29,31 +29,6 @@ namespace SimScale.Sdk.Model
     public partial class CoupledConjugateHeatTransfer : Analysis, IEquatable<CoupledConjugateHeatTransfer>
     {
         /// <summary>
-        /// Defines ContactHandlingMode
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ContactHandlingModeEnum
-        {
-            /// <summary>
-            /// Enum MANUAL for value: MANUAL
-            /// </summary>
-            [EnumMember(Value = "MANUAL")]
-            MANUAL = 1,
-
-            /// <summary>
-            /// Enum AUTO for value: AUTO
-            /// </summary>
-            [EnumMember(Value = "AUTO")]
-            AUTO = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets ContactHandlingMode
-        /// </summary>
-        [DataMember(Name="contactHandlingMode", EmitDefaultValue=false)]
-        public ContactHandlingModeEnum? ContactHandlingMode { get; set; }
-        /// <summary>
         /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
         /// </summary>
         /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
@@ -81,6 +56,31 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="turbulenceModel", EmitDefaultValue=false)]
         public TurbulenceModelEnum? TurbulenceModel { get; set; }
         /// <summary>
+        /// Defines ContactHandlingMode
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ContactHandlingModeEnum
+        {
+            /// <summary>
+            /// Enum MANUAL for value: MANUAL
+            /// </summary>
+            [EnumMember(Value = "MANUAL")]
+            MANUAL = 1,
+
+            /// <summary>
+            /// Enum AUTO for value: AUTO
+            /// </summary>
+            [EnumMember(Value = "AUTO")]
+            AUTO = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets ContactHandlingMode
+        /// </summary>
+        [DataMember(Name="contactHandlingMode", EmitDefaultValue=false)]
+        public ContactHandlingModeEnum? ContactHandlingMode { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CoupledConjugateHeatTransfer" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -89,6 +89,10 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="CoupledConjugateHeatTransfer" /> class.
         /// </summary>
         /// <param name="type">Schema name: CoupledConjugateHeatTransfer (required) (default to &quot;COUPLED_CONJUGATE_HEAT_TRANSFER&quot;).</param>
+        /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
+        /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
+        /// <param name="enableSolarLoad">&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
+        /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="model">model.</param>
         /// <param name="solarCalculator">solarCalculator.</param>
@@ -100,14 +104,14 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="contactHandlingMode">contactHandlingMode (default to ContactHandlingModeEnum.MANUAL).</param>
-        /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
-        /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
-        /// <param name="enableSolarLoad">&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
-        /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
-        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?))
+        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CoupledConjugateHeatTransfer and cannot be null");
+            this.IsCompressible = isCompressible;
+            this.EnableRadiation = enableRadiation;
+            this.EnableSolarLoad = enableSolarLoad;
+            this.TurbulenceModel = turbulenceModel;
             this.ConnectionGroups = connectionGroups;
             this.Model = model;
             this.SolarCalculator = solarCalculator;
@@ -119,10 +123,6 @@ namespace SimScale.Sdk.Model
             this.SimulationControl = simulationControl;
             this.ResultControl = resultControl;
             this.ContactHandlingMode = contactHandlingMode;
-            this.IsCompressible = isCompressible;
-            this.EnableRadiation = enableRadiation;
-            this.EnableSolarLoad = enableSolarLoad;
-            this.TurbulenceModel = turbulenceModel;
         }
         
         /// <summary>
@@ -131,6 +131,27 @@ namespace SimScale.Sdk.Model
         /// <value>Schema name: CoupledConjugateHeatTransfer</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// &lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt;
+        /// </summary>
+        /// <value>&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt;</value>
+        [DataMember(Name="isCompressible", EmitDefaultValue=false)]
+        public bool? IsCompressible { get; set; }
+
+        /// <summary>
+        /// Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// </summary>
+        /// <value>Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        [DataMember(Name="enableRadiation", EmitDefaultValue=false)]
+        public bool? EnableRadiation { get; set; }
+
+        /// <summary>
+        /// &lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// </summary>
+        /// <value>&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        [DataMember(Name="enableSolarLoad", EmitDefaultValue=false)]
+        public bool? EnableSolarLoad { get; set; }
 
         /// <summary>
         /// Gets or Sets ConnectionGroups
@@ -193,27 +214,6 @@ namespace SimScale.Sdk.Model
         public FluidResultControls ResultControl { get; set; }
 
         /// <summary>
-        /// &lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt;
-        /// </summary>
-        /// <value>&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt;</value>
-        [DataMember(Name="isCompressible", EmitDefaultValue=false)]
-        public bool? IsCompressible { get; set; }
-
-        /// <summary>
-        /// Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
-        /// </summary>
-        /// <value>Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
-        [DataMember(Name="enableRadiation", EmitDefaultValue=false)]
-        public bool? EnableRadiation { get; set; }
-
-        /// <summary>
-        /// &lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
-        /// </summary>
-        /// <value>&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
-        [DataMember(Name="enableSolarLoad", EmitDefaultValue=false)]
-        public bool? EnableSolarLoad { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -222,6 +222,10 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class CoupledConjugateHeatTransfer {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
+            sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
+            sb.Append("  EnableSolarLoad: ").Append(EnableSolarLoad).Append("\n");
+            sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("  ConnectionGroups: ").Append(ConnectionGroups).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  SolarCalculator: ").Append(SolarCalculator).Append("\n");
@@ -233,10 +237,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  SimulationControl: ").Append(SimulationControl).Append("\n");
             sb.Append("  ResultControl: ").Append(ResultControl).Append("\n");
             sb.Append("  ContactHandlingMode: ").Append(ContactHandlingMode).Append("\n");
-            sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
-            sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
-            sb.Append("  EnableSolarLoad: ").Append(EnableSolarLoad).Append("\n");
-            sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -275,6 +275,25 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.IsCompressible == input.IsCompressible ||
+                    (this.IsCompressible != null &&
+                    this.IsCompressible.Equals(input.IsCompressible))
+                ) && 
+                (
+                    this.EnableRadiation == input.EnableRadiation ||
+                    (this.EnableRadiation != null &&
+                    this.EnableRadiation.Equals(input.EnableRadiation))
+                ) && 
+                (
+                    this.EnableSolarLoad == input.EnableSolarLoad ||
+                    (this.EnableSolarLoad != null &&
+                    this.EnableSolarLoad.Equals(input.EnableSolarLoad))
+                ) && 
+                (
+                    this.TurbulenceModel == input.TurbulenceModel ||
+                    this.TurbulenceModel.Equals(input.TurbulenceModel)
                 ) && 
                 (
                     this.ConnectionGroups == input.ConnectionGroups ||
@@ -331,25 +350,6 @@ namespace SimScale.Sdk.Model
                 (
                     this.ContactHandlingMode == input.ContactHandlingMode ||
                     this.ContactHandlingMode.Equals(input.ContactHandlingMode)
-                ) && 
-                (
-                    this.IsCompressible == input.IsCompressible ||
-                    (this.IsCompressible != null &&
-                    this.IsCompressible.Equals(input.IsCompressible))
-                ) && 
-                (
-                    this.EnableRadiation == input.EnableRadiation ||
-                    (this.EnableRadiation != null &&
-                    this.EnableRadiation.Equals(input.EnableRadiation))
-                ) && 
-                (
-                    this.EnableSolarLoad == input.EnableSolarLoad ||
-                    (this.EnableSolarLoad != null &&
-                    this.EnableSolarLoad.Equals(input.EnableSolarLoad))
-                ) && 
-                (
-                    this.TurbulenceModel == input.TurbulenceModel ||
-                    this.TurbulenceModel.Equals(input.TurbulenceModel)
                 );
         }
 
@@ -364,6 +364,13 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.IsCompressible != null)
+                    hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
+                if (this.EnableRadiation != null)
+                    hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
+                if (this.EnableSolarLoad != null)
+                    hashCode = hashCode * 59 + this.EnableSolarLoad.GetHashCode();
+                hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 if (this.ConnectionGroups != null)
                     hashCode = hashCode * 59 + this.ConnectionGroups.GetHashCode();
                 if (this.Model != null)
@@ -385,13 +392,6 @@ namespace SimScale.Sdk.Model
                 if (this.ResultControl != null)
                     hashCode = hashCode * 59 + this.ResultControl.GetHashCode();
                 hashCode = hashCode * 59 + this.ContactHandlingMode.GetHashCode();
-                if (this.IsCompressible != null)
-                    hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
-                if (this.EnableRadiation != null)
-                    hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
-                if (this.EnableSolarLoad != null)
-                    hashCode = hashCode * 59 + this.EnableSolarLoad.GetHashCode();
-                hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 return hashCode;
             }
         }

@@ -23,40 +23,36 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// PowerLawMedium
+    /// RegionRefinementSimerics
     /// </summary>
     [DataContract]
-    public partial class PowerLawMedium : OneOfAdvancedConceptsPorousMediums, IEquatable<PowerLawMedium>
+    public partial class RegionRefinementSimerics : IEquatable<RegionRefinementSimerics>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PowerLawMedium" /> class.
+        /// Initializes a new instance of the <see cref="RegionRefinementSimerics" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PowerLawMedium() { }
+        protected RegionRefinementSimerics() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PowerLawMedium" /> class.
+        /// Initializes a new instance of the <see cref="RegionRefinementSimerics" /> class.
         /// </summary>
-        /// <param name="type">Schema name: PowerLawMedium (required) (default to &quot;POWER_LAW&quot;).</param>
-        /// <param name="name">name.</param>
-        /// <param name="linearCoefficient">linearCoefficient (default to 1M).</param>
-        /// <param name="exponentCoefficient">exponentCoefficient (default to 2M).</param>
-        /// <param name="topologicalReference">topologicalReference.</param>
+        /// <param name="type">Schema name: RegionRefinementSimerics (required) (default to &quot;REGION_REFINEMENT_SIMERICS&quot;).</param>
+        /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
+        /// <param name="refinementCellSize">refinementCellSize.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public PowerLawMedium(string type = "POWER_LAW", string name = default(string), decimal? linearCoefficient = default(decimal?), decimal? exponentCoefficient = default(decimal?), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public RegionRefinementSimerics(string type = "REGION_REFINEMENT_SIMERICS", string name = default(string), DimensionalLength refinementCellSize = default(DimensionalLength), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for PowerLawMedium and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for RegionRefinementSimerics and cannot be null");
             this.Name = name;
-            this.LinearCoefficient = linearCoefficient;
-            this.ExponentCoefficient = exponentCoefficient;
-            this.TopologicalReference = topologicalReference;
+            this.RefinementCellSize = refinementCellSize;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         
         /// <summary>
-        /// Schema name: PowerLawMedium
+        /// Schema name: RegionRefinementSimerics
         /// </summary>
-        /// <value>Schema name: PowerLawMedium</value>
+        /// <value>Schema name: RegionRefinementSimerics</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -67,22 +63,10 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets LinearCoefficient
+        /// Gets or Sets RefinementCellSize
         /// </summary>
-        [DataMember(Name="linearCoefficient", EmitDefaultValue=false)]
-        public decimal? LinearCoefficient { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ExponentCoefficient
-        /// </summary>
-        [DataMember(Name="exponentCoefficient", EmitDefaultValue=false)]
-        public decimal? ExponentCoefficient { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TopologicalReference
-        /// </summary>
-        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
-        public TopologicalReference TopologicalReference { get; set; }
+        [DataMember(Name="refinementCellSize", EmitDefaultValue=false)]
+        public DimensionalLength RefinementCellSize { get; set; }
 
         /// <summary>
         /// Gets or Sets GeometryPrimitiveUuids
@@ -97,12 +81,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PowerLawMedium {\n");
+            sb.Append("class RegionRefinementSimerics {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  LinearCoefficient: ").Append(LinearCoefficient).Append("\n");
-            sb.Append("  ExponentCoefficient: ").Append(ExponentCoefficient).Append("\n");
-            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
+            sb.Append("  RefinementCellSize: ").Append(RefinementCellSize).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -124,15 +106,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PowerLawMedium);
+            return this.Equals(input as RegionRefinementSimerics);
         }
 
         /// <summary>
-        /// Returns true if PowerLawMedium instances are equal
+        /// Returns true if RegionRefinementSimerics instances are equal
         /// </summary>
-        /// <param name="input">Instance of PowerLawMedium to be compared</param>
+        /// <param name="input">Instance of RegionRefinementSimerics to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PowerLawMedium input)
+        public bool Equals(RegionRefinementSimerics input)
         {
             if (input == null)
                 return false;
@@ -149,19 +131,9 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.LinearCoefficient == input.LinearCoefficient ||
-                    (this.LinearCoefficient != null &&
-                    this.LinearCoefficient.Equals(input.LinearCoefficient))
-                ) && 
-                (
-                    this.ExponentCoefficient == input.ExponentCoefficient ||
-                    (this.ExponentCoefficient != null &&
-                    this.ExponentCoefficient.Equals(input.ExponentCoefficient))
-                ) && 
-                (
-                    this.TopologicalReference == input.TopologicalReference ||
-                    (this.TopologicalReference != null &&
-                    this.TopologicalReference.Equals(input.TopologicalReference))
+                    this.RefinementCellSize == input.RefinementCellSize ||
+                    (this.RefinementCellSize != null &&
+                    this.RefinementCellSize.Equals(input.RefinementCellSize))
                 ) && 
                 (
                     this.GeometryPrimitiveUuids == input.GeometryPrimitiveUuids ||
@@ -184,12 +156,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.LinearCoefficient != null)
-                    hashCode = hashCode * 59 + this.LinearCoefficient.GetHashCode();
-                if (this.ExponentCoefficient != null)
-                    hashCode = hashCode * 59 + this.ExponentCoefficient.GetHashCode();
-                if (this.TopologicalReference != null)
-                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
+                if (this.RefinementCellSize != null)
+                    hashCode = hashCode * 59 + this.RefinementCellSize.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)
                     hashCode = hashCode * 59 + this.GeometryPrimitiveUuids.GetHashCode();
                 return hashCode;

@@ -39,10 +39,11 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: TransientResultControl (required) (default to &quot;TRANSIENT&quot;).</param>
         /// <param name="writeControl">writeControl.</param>
         /// <param name="fractionFromEnd">It defines the point in simulation where the result output data extraction starts. For instance, &lt;i&gt;Fraction from end&lt;/i&gt; of 1 (100%) extracts all data from the beginning of the simulation while default 0.2 extracts 20% data from the end of the simulation. (default to 0.2M).</param>
-        /// <param name="exportFluid">When this switch is activated, simulation data of the flow-field enclosed in the assignments will be exported (default to true).</param>
+        /// <param name="exportFluid">When this switch is activated, simulation data of the flow-field enclosed in the assignments will be exported (default to false).</param>
         /// <param name="exportSurface">When this switch is activated, simulation data on all surfaces enclosed in the assignments will be exported (default to false).</param>
+        /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public TransientResultControl(string type = "TRANSIENT", OneOfTransientResultControlWriteControl writeControl = default(OneOfTransientResultControlWriteControl), decimal? fractionFromEnd = default(decimal?), bool? exportFluid = default(bool?), bool? exportSurface = default(bool?), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public TransientResultControl(string type = "TRANSIENT", OneOfTransientResultControlWriteControl writeControl = default(OneOfTransientResultControlWriteControl), decimal? fractionFromEnd = default(decimal?), bool? exportFluid = default(bool?), bool? exportSurface = default(bool?), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TransientResultControl and cannot be null");
@@ -50,6 +51,7 @@ namespace SimScale.Sdk.Model
             this.FractionFromEnd = fractionFromEnd;
             this.ExportFluid = exportFluid;
             this.ExportSurface = exportSurface;
+            this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         
@@ -88,6 +90,12 @@ namespace SimScale.Sdk.Model
         public bool? ExportSurface { get; set; }
 
         /// <summary>
+        /// Gets or Sets TopologicalReference
+        /// </summary>
+        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
+        public TopologicalReference TopologicalReference { get; set; }
+
+        /// <summary>
         /// Gets or Sets GeometryPrimitiveUuids
         /// </summary>
         [DataMember(Name="geometryPrimitiveUuids", EmitDefaultValue=false)]
@@ -106,6 +114,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  FractionFromEnd: ").Append(FractionFromEnd).Append("\n");
             sb.Append("  ExportFluid: ").Append(ExportFluid).Append("\n");
             sb.Append("  ExportSurface: ").Append(ExportSurface).Append("\n");
+            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -167,6 +176,11 @@ namespace SimScale.Sdk.Model
                     this.ExportSurface.Equals(input.ExportSurface))
                 ) && 
                 (
+                    this.TopologicalReference == input.TopologicalReference ||
+                    (this.TopologicalReference != null &&
+                    this.TopologicalReference.Equals(input.TopologicalReference))
+                ) && 
+                (
                     this.GeometryPrimitiveUuids == input.GeometryPrimitiveUuids ||
                     this.GeometryPrimitiveUuids != null &&
                     input.GeometryPrimitiveUuids != null &&
@@ -193,6 +207,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ExportFluid.GetHashCode();
                 if (this.ExportSurface != null)
                     hashCode = hashCode * 59 + this.ExportSurface.GetHashCode();
+                if (this.TopologicalReference != null)
+                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)
                     hashCode = hashCode * 59 + this.GeometryPrimitiveUuids.GetHashCode();
                 return hashCode;

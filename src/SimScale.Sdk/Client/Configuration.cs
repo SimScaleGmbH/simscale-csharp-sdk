@@ -29,7 +29,7 @@ namespace SimScale.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.10.0";
+        public const string Version = "0.11.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -94,7 +94,7 @@ namespace SimScale.Sdk.Client
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration()
         {
-            UserAgent = "OpenAPI-Generator/0.10.0/csharp";
+            UserAgent = "OpenAPI-Generator/0.11.0/csharp";
             BasePath = "https://api.simscale.com/v0";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -349,7 +349,7 @@ namespace SimScale.Sdk.Client
             String report = "C# SDK (SimScale.Sdk) Debug Report:\n";
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
             report += "    Version of the API: 0.0.0\n";
-            report += "    SDK Package Version: 0.10.0\n";
+            report += "    SDK Package Version: 0.11.0\n";
 
             return report;
         }

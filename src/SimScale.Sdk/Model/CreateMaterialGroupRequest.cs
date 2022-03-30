@@ -39,14 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="name">The name of the material group. (required).</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="_public">_public (default to false).</param>
-        /// <param name="ownerGroupId">The material group will be assigned to this owner group. This field can only be used by support group members..</param>
-        public CreateMaterialGroupRequest(string name = default(string), Object metadata = default(Object), bool? _public = default(bool?), int? ownerGroupId = default(int?))
+        /// <param name="teamGroupId">The material group will be assigned to this team group id. This field can only be used by support group members..</param>
+        public CreateMaterialGroupRequest(string name = default(string), Object metadata = default(Object), bool? _public = default(bool?), int? teamGroupId = default(int?))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateMaterialGroupRequest and cannot be null");
             this.Metadata = metadata;
             this.Public = _public;
-            this.OwnerGroupId = ownerGroupId;
+            this.TeamGroupId = teamGroupId;
         }
         
         /// <summary>
@@ -69,11 +69,11 @@ namespace SimScale.Sdk.Model
         public bool? Public { get; set; }
 
         /// <summary>
-        /// The material group will be assigned to this owner group. This field can only be used by support group members.
+        /// The material group will be assigned to this team group id. This field can only be used by support group members.
         /// </summary>
-        /// <value>The material group will be assigned to this owner group. This field can only be used by support group members.</value>
-        [DataMember(Name="ownerGroupId", EmitDefaultValue=false)]
-        public int? OwnerGroupId { get; set; }
+        /// <value>The material group will be assigned to this team group id. This field can only be used by support group members.</value>
+        [DataMember(Name="teamGroupId", EmitDefaultValue=false)]
+        public int? TeamGroupId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,7 +86,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Public: ").Append(Public).Append("\n");
-            sb.Append("  OwnerGroupId: ").Append(OwnerGroupId).Append("\n");
+            sb.Append("  TeamGroupId: ").Append(TeamGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,9 +137,9 @@ namespace SimScale.Sdk.Model
                     this.Public.Equals(input.Public))
                 ) && 
                 (
-                    this.OwnerGroupId == input.OwnerGroupId ||
-                    (this.OwnerGroupId != null &&
-                    this.OwnerGroupId.Equals(input.OwnerGroupId))
+                    this.TeamGroupId == input.TeamGroupId ||
+                    (this.TeamGroupId != null &&
+                    this.TeamGroupId.Equals(input.TeamGroupId))
                 );
         }
 
@@ -158,8 +158,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Public != null)
                     hashCode = hashCode * 59 + this.Public.GetHashCode();
-                if (this.OwnerGroupId != null)
-                    hashCode = hashCode * 59 + this.OwnerGroupId.GetHashCode();
+                if (this.TeamGroupId != null)
+                    hashCode = hashCode * 59 + this.TeamGroupId.GetHashCode();
                 return hashCode;
             }
         }

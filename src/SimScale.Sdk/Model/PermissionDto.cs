@@ -18,22 +18,36 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using JsonSubTypes;
 using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfPowerLawMediumOrientation
+    /// Defines PermissionDto
     /// </summary>
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(CartesianOrientation), "CARTESIAN")]
-    [JsonSubtypes.KnownSubType(typeof(CustomOrientation), "CUSTOM")]
-    public interface OneOfPowerLawMediumOrientation
+    
+    [JsonConverter(typeof(StringEnumConverter))]
+    
+    public enum PermissionDto
     {
         /// <summary>
-        /// Gets Type
+        /// Enum READ for value: READ
         /// </summary>
-        string Type { get; }
+        [EnumMember(Value = "READ")]
+        READ = 1,
+
+        /// <summary>
+        /// Enum WRITE for value: WRITE
+        /// </summary>
+        [EnumMember(Value = "WRITE")]
+        WRITE = 2,
+
+        /// <summary>
+        /// Enum ADMIN for value: ADMIN
+        /// </summary>
+        [EnumMember(Value = "ADMIN")]
+        ADMIN = 3
+
     }
+
 }

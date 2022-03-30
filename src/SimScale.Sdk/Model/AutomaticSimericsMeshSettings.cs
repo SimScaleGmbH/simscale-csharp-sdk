@@ -37,11 +37,13 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="AutomaticSimericsMeshSettings" /> class.
         /// </summary>
         /// <param name="type">Schema name: AutomaticSimericsMeshSettings (required) (default to &quot;AUTOMATIC_SETTINGS&quot;).</param>
+        /// <param name="refinements">refinements.</param>
         /// <param name="fineness">&lt;p&gt;Adjust the overall mesh sizing from coarse (value: 0) to fine (10).&lt;/p&gt; (default to 1M).</param>
-        public AutomaticSimericsMeshSettings(string type = "AUTOMATIC_SETTINGS", decimal? fineness = default(decimal?))
+        public AutomaticSimericsMeshSettings(string type = "AUTOMATIC_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), decimal? fineness = default(decimal?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticSimericsMeshSettings and cannot be null");
+            this.Refinements = refinements;
             this.Fineness = fineness;
         }
         
@@ -51,6 +53,12 @@ namespace SimScale.Sdk.Model
         /// <value>Schema name: AutomaticSimericsMeshSettings</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Refinements
+        /// </summary>
+        [DataMember(Name="refinements", EmitDefaultValue=false)]
+        public List<RegionRefinementSimerics> Refinements { get; set; }
 
         /// <summary>
         /// &lt;p&gt;Adjust the overall mesh sizing from coarse (value: 0) to fine (10).&lt;/p&gt;
@@ -68,6 +76,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class AutomaticSimericsMeshSettings {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("  Fineness: ").Append(Fineness).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -109,6 +118,12 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.Refinements == input.Refinements ||
+                    this.Refinements != null &&
+                    input.Refinements != null &&
+                    this.Refinements.SequenceEqual(input.Refinements)
+                ) && 
+                (
                     this.Fineness == input.Fineness ||
                     (this.Fineness != null &&
                     this.Fineness.Equals(input.Fineness))
@@ -126,6 +141,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Refinements != null)
+                    hashCode = hashCode * 59 + this.Refinements.GetHashCode();
                 if (this.Fineness != null)
                     hashCode = hashCode * 59 + this.Fineness.GetHashCode();
                 return hashCode;
