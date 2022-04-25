@@ -23,48 +23,49 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FrequencyRange
+    /// CenterFrequency
     /// </summary>
     [DataContract]
-    public partial class FrequencyRange : OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<FrequencyRange>
+    public partial class CenterFrequency : OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<CenterFrequency>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FrequencyRange" /> class.
+        /// Initializes a new instance of the <see cref="CenterFrequency" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FrequencyRange() { }
+        protected CenterFrequency() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FrequencyRange" /> class.
+        /// Initializes a new instance of the <see cref="CenterFrequency" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FrequencyRange (required) (default to &quot;RANGE&quot;).</param>
-        /// <param name="startFrequency">startFrequency.</param>
-        /// <param name="endFrequency">endFrequency.</param>
-        public FrequencyRange(string type = "RANGE", DimensionalFrequency startFrequency = default(DimensionalFrequency), DimensionalFrequency endFrequency = default(DimensionalFrequency))
+        /// <param name="type">Schema name: CenterFrequency (required) (default to &quot;CENTER&quot;).</param>
+        /// <param name="centerFrequency">centerFrequency.</param>
+        /// <param name="numberOfModes">&lt;p&gt;Define the maximum number of eigenfrequencies/eigenmodes, that should be calculated.&lt;/p&gt; (default to 10).</param>
+        public CenterFrequency(string type = "CENTER", DimensionalFrequency centerFrequency = default(DimensionalFrequency), int? numberOfModes = default(int?))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FrequencyRange and cannot be null");
-            this.StartFrequency = startFrequency;
-            this.EndFrequency = endFrequency;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for CenterFrequency and cannot be null");
+            this._CenterFrequency = centerFrequency;
+            this.NumberOfModes = numberOfModes;
         }
         
         /// <summary>
-        /// Schema name: FrequencyRange
+        /// Schema name: CenterFrequency
         /// </summary>
-        /// <value>Schema name: FrequencyRange</value>
+        /// <value>Schema name: CenterFrequency</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartFrequency
+        /// Gets or Sets _CenterFrequency
         /// </summary>
-        [DataMember(Name="startFrequency", EmitDefaultValue=false)]
-        public DimensionalFrequency StartFrequency { get; set; }
+        [DataMember(Name="centerFrequency", EmitDefaultValue=false)]
+        public DimensionalFrequency _CenterFrequency { get; set; }
 
         /// <summary>
-        /// Gets or Sets EndFrequency
+        /// &lt;p&gt;Define the maximum number of eigenfrequencies/eigenmodes, that should be calculated.&lt;/p&gt;
         /// </summary>
-        [DataMember(Name="endFrequency", EmitDefaultValue=false)]
-        public DimensionalFrequency EndFrequency { get; set; }
+        /// <value>&lt;p&gt;Define the maximum number of eigenfrequencies/eigenmodes, that should be calculated.&lt;/p&gt;</value>
+        [DataMember(Name="numberOfModes", EmitDefaultValue=false)]
+        public int? NumberOfModes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,10 +74,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FrequencyRange {\n");
+            sb.Append("class CenterFrequency {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  StartFrequency: ").Append(StartFrequency).Append("\n");
-            sb.Append("  EndFrequency: ").Append(EndFrequency).Append("\n");
+            sb.Append("  _CenterFrequency: ").Append(_CenterFrequency).Append("\n");
+            sb.Append("  NumberOfModes: ").Append(NumberOfModes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +98,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FrequencyRange);
+            return this.Equals(input as CenterFrequency);
         }
 
         /// <summary>
-        /// Returns true if FrequencyRange instances are equal
+        /// Returns true if CenterFrequency instances are equal
         /// </summary>
-        /// <param name="input">Instance of FrequencyRange to be compared</param>
+        /// <param name="input">Instance of CenterFrequency to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FrequencyRange input)
+        public bool Equals(CenterFrequency input)
         {
             if (input == null)
                 return false;
@@ -117,14 +118,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.StartFrequency == input.StartFrequency ||
-                    (this.StartFrequency != null &&
-                    this.StartFrequency.Equals(input.StartFrequency))
+                    this._CenterFrequency == input._CenterFrequency ||
+                    (this._CenterFrequency != null &&
+                    this._CenterFrequency.Equals(input._CenterFrequency))
                 ) && 
                 (
-                    this.EndFrequency == input.EndFrequency ||
-                    (this.EndFrequency != null &&
-                    this.EndFrequency.Equals(input.EndFrequency))
+                    this.NumberOfModes == input.NumberOfModes ||
+                    (this.NumberOfModes != null &&
+                    this.NumberOfModes.Equals(input.NumberOfModes))
                 );
         }
 
@@ -139,10 +140,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.StartFrequency != null)
-                    hashCode = hashCode * 59 + this.StartFrequency.GetHashCode();
-                if (this.EndFrequency != null)
-                    hashCode = hashCode * 59 + this.EndFrequency.GetHashCode();
+                if (this._CenterFrequency != null)
+                    hashCode = hashCode * 59 + this._CenterFrequency.GetHashCode();
+                if (this.NumberOfModes != null)
+                    hashCode = hashCode * 59 + this.NumberOfModes.GetHashCode();
                 return hashCode;
             }
         }

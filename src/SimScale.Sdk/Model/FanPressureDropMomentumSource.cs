@@ -23,38 +23,38 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// AverageVelocityMomentumSource
+    /// FanPressureDropMomentumSource
     /// </summary>
     [DataContract]
-    public partial class AverageVelocityMomentumSource : OneOfAdvancedConceptsMomentumSources, IEquatable<AverageVelocityMomentumSource>
+    public partial class FanPressureDropMomentumSource : OneOfAdvancedConceptsMomentumSources, IEquatable<FanPressureDropMomentumSource>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AverageVelocityMomentumSource" /> class.
+        /// Initializes a new instance of the <see cref="FanPressureDropMomentumSource" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AverageVelocityMomentumSource() { }
+        protected FanPressureDropMomentumSource() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AverageVelocityMomentumSource" /> class.
+        /// Initializes a new instance of the <see cref="FanPressureDropMomentumSource" /> class.
         /// </summary>
-        /// <param name="type">Schema name: AverageVelocityMomentumSource (required) (default to &quot;AVERAGE_VELOCITY&quot;).</param>
+        /// <param name="type">Schema name: FanPressureDropMomentumSource (required) (default to &quot;FAN_PRESSURE_DROP&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="averageVelocity">averageVelocity.</param>
-        /// <param name="topologicalReference">topologicalReference.</param>
+        /// <param name="fanDirection">fanDirection.</param>
+        /// <param name="fanPressure">fanPressure.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public AverageVelocityMomentumSource(string type = "AVERAGE_VELOCITY", string name = default(string), DimensionalVectorSpeed averageVelocity = default(DimensionalVectorSpeed), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public FanPressureDropMomentumSource(string type = "FAN_PRESSURE_DROP", string name = default(string), DimensionalVectorDimensionless fanDirection = default(DimensionalVectorDimensionless), DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for AverageVelocityMomentumSource and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPressureDropMomentumSource and cannot be null");
             this.Name = name;
-            this.AverageVelocity = averageVelocity;
-            this.TopologicalReference = topologicalReference;
+            this.FanDirection = fanDirection;
+            this.FanPressure = fanPressure;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         
         /// <summary>
-        /// Schema name: AverageVelocityMomentumSource
+        /// Schema name: FanPressureDropMomentumSource
         /// </summary>
-        /// <value>Schema name: AverageVelocityMomentumSource</value>
+        /// <value>Schema name: FanPressureDropMomentumSource</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -65,16 +65,16 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets AverageVelocity
+        /// Gets or Sets FanDirection
         /// </summary>
-        [DataMember(Name="averageVelocity", EmitDefaultValue=false)]
-        public DimensionalVectorSpeed AverageVelocity { get; set; }
+        [DataMember(Name="fanDirection", EmitDefaultValue=false)]
+        public DimensionalVectorDimensionless FanDirection { get; set; }
 
         /// <summary>
-        /// Gets or Sets TopologicalReference
+        /// Gets or Sets FanPressure
         /// </summary>
-        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
-        public TopologicalReference TopologicalReference { get; set; }
+        [DataMember(Name="fanPressure", EmitDefaultValue=false)]
+        public DimensionalFunctionPressure FanPressure { get; set; }
 
         /// <summary>
         /// Gets or Sets GeometryPrimitiveUuids
@@ -89,11 +89,11 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AverageVelocityMomentumSource {\n");
+            sb.Append("class FanPressureDropMomentumSource {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  AverageVelocity: ").Append(AverageVelocity).Append("\n");
-            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
+            sb.Append("  FanDirection: ").Append(FanDirection).Append("\n");
+            sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,15 +115,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AverageVelocityMomentumSource);
+            return this.Equals(input as FanPressureDropMomentumSource);
         }
 
         /// <summary>
-        /// Returns true if AverageVelocityMomentumSource instances are equal
+        /// Returns true if FanPressureDropMomentumSource instances are equal
         /// </summary>
-        /// <param name="input">Instance of AverageVelocityMomentumSource to be compared</param>
+        /// <param name="input">Instance of FanPressureDropMomentumSource to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AverageVelocityMomentumSource input)
+        public bool Equals(FanPressureDropMomentumSource input)
         {
             if (input == null)
                 return false;
@@ -140,14 +140,14 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.AverageVelocity == input.AverageVelocity ||
-                    (this.AverageVelocity != null &&
-                    this.AverageVelocity.Equals(input.AverageVelocity))
+                    this.FanDirection == input.FanDirection ||
+                    (this.FanDirection != null &&
+                    this.FanDirection.Equals(input.FanDirection))
                 ) && 
                 (
-                    this.TopologicalReference == input.TopologicalReference ||
-                    (this.TopologicalReference != null &&
-                    this.TopologicalReference.Equals(input.TopologicalReference))
+                    this.FanPressure == input.FanPressure ||
+                    (this.FanPressure != null &&
+                    this.FanPressure.Equals(input.FanPressure))
                 ) && 
                 (
                     this.GeometryPrimitiveUuids == input.GeometryPrimitiveUuids ||
@@ -170,10 +170,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.AverageVelocity != null)
-                    hashCode = hashCode * 59 + this.AverageVelocity.GetHashCode();
-                if (this.TopologicalReference != null)
-                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
+                if (this.FanDirection != null)
+                    hashCode = hashCode * 59 + this.FanDirection.GetHashCode();
+                if (this.FanPressure != null)
+                    hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)
                     hashCode = hashCode * 59 + this.GeometryPrimitiveUuids.GetHashCode();
                 return hashCode;

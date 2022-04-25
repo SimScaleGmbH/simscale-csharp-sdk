@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// &lt;p&gt;This is a &lt;b&gt;centrifugal force&lt;/b&gt; boundary condition. Each volume element of the selection is loaded with a centrifugal force which is calculated depending on its volume, the density of the assigned material, its distance from the axis of rotation and the defined rotational velocity.&lt;br /&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/centrifugal-force/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
     /// </summary>
     [DataContract]
-    public partial class CentrifugalForceBC : OneOfDynamicAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<CentrifugalForceBC>
+    public partial class CentrifugalForceBC : OneOfDynamicAnalysisBoundaryConditions, OneOfFrequencyAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<CentrifugalForceBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CentrifugalForceBC" /> class.

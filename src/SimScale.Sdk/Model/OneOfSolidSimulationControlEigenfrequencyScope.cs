@@ -24,11 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfSolidSimulationControlEigenfrequencyScope
+    /// &lt;p&gt;Select how you want to control natural frequencies to be computed:&lt;br&gt; &lt;li&gt;&lt;b&gt;First modes&lt;/b&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed, in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Frequency range&lt;/b&gt;: All the modes within the range of frequencies will be searched and computed. The frequency range is specified by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Center frequency&lt;/b&gt;: Compute the &lt;i&gt;Number of modes&lt;/i&gt; closest to the frequency defined by &lt;i&gt;Center frequency&lt;/i&gt;.&lt;/li&gt;&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(FirstMode), "FIRSTMODE")]
     [JsonSubtypes.KnownSubType(typeof(FrequencyRange), "RANGE")]
+    [JsonSubtypes.KnownSubType(typeof(CenterFrequency), "CENTER")]
     public interface OneOfSolidSimulationControlEigenfrequencyScope
     {
         /// <summary>

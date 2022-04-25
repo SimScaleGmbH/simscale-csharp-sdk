@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Select how you want to control natural frequencies to be computed:&lt;/p&gt; &lt;li&gt;&lt;i&gt;First modes&lt;/i&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed, in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Frequency range&lt;/i&gt;: All the modes within the range of frequencies will be searched and computed. The frequency range is specified by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;
+    /// FirstMode
     /// </summary>
     [DataContract]
     public partial class FirstMode : OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<FirstMode>
@@ -36,8 +36,8 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FirstMode" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Select how you want to control natural frequencies to be computed:&lt;/p&gt; &lt;li&gt;&lt;i&gt;First modes&lt;/i&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed, in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Frequency range&lt;/i&gt;: All the modes within the range of frequencies will be searched and computed. The frequency range is specified by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;  Schema name: FirstMode (required) (default to &quot;FIRSTMODE&quot;).</param>
-        /// <param name="numberOfModes">numberOfModes (default to 10).</param>
+        /// <param name="type">Schema name: FirstMode (required) (default to &quot;FIRSTMODE&quot;).</param>
+        /// <param name="numberOfModes">&lt;p&gt;Define the maximum number of eigenfrequencies/eigenmodes, that should be calculated.&lt;/p&gt; (default to 10).</param>
         public FirstMode(string type = "FIRSTMODE", int? numberOfModes = default(int?))
         {
             // to ensure "type" is required (not null)
@@ -46,15 +46,16 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;Select how you want to control natural frequencies to be computed:&lt;/p&gt; &lt;li&gt;&lt;i&gt;First modes&lt;/i&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed, in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Frequency range&lt;/i&gt;: All the modes within the range of frequencies will be searched and computed. The frequency range is specified by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;  Schema name: FirstMode
+        /// Schema name: FirstMode
         /// </summary>
-        /// <value>&lt;p&gt;Select how you want to control natural frequencies to be computed:&lt;/p&gt; &lt;li&gt;&lt;i&gt;First modes&lt;/i&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed, in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Frequency range&lt;/i&gt;: All the modes within the range of frequencies will be searched and computed. The frequency range is specified by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;  Schema name: FirstMode</value>
+        /// <value>Schema name: FirstMode</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets NumberOfModes
+        /// &lt;p&gt;Define the maximum number of eigenfrequencies/eigenmodes, that should be calculated.&lt;/p&gt;
         /// </summary>
+        /// <value>&lt;p&gt;Define the maximum number of eigenfrequencies/eigenmodes, that should be calculated.&lt;/p&gt;</value>
         [DataMember(Name="numberOfModes", EmitDefaultValue=false)]
         public int? NumberOfModes { get; set; }
 

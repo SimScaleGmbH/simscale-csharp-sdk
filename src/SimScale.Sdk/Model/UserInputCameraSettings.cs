@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         /// <param name="up">up (required).</param>
         /// <param name="eye">eye (required).</param>
         /// <param name="center">center (required).</param>
-        /// <param name="frontPlaneFrustumHeight">required only for orthogonal projection type.</param>
-        public UserInputCameraSettings(string settingType = "USER_INPUT", ProjectionType projectionType = default(ProjectionType), Vector3D up = default(Vector3D), Vector3D eye = default(Vector3D), Vector3D center = default(Vector3D), decimal? frontPlaneFrustumHeight = default(decimal?))
+        /// <param name="frontPlaneFrustumHeight">required only for orthogonal projection type..</param>
+        /// <param name="fieldOfViewYDegrees">The total field of view in Y direction in degrees. Required onlyf for perspective projection type..</param>
+        public UserInputCameraSettings(string settingType = "USER_INPUT", ProjectionType projectionType = default(ProjectionType), Vector3D up = default(Vector3D), Vector3D eye = default(Vector3D), Vector3D center = default(Vector3D), decimal? frontPlaneFrustumHeight = default(decimal?), decimal? fieldOfViewYDegrees = default(decimal?))
         {
             // to ensure "settingType" is required (not null)
             this.SettingType = settingType ?? throw new ArgumentNullException("settingType is a required property for UserInputCameraSettings and cannot be null");
@@ -59,6 +60,7 @@ namespace SimScale.Sdk.Model
             // to ensure "center" is required (not null)
             this.Center = center ?? throw new ArgumentNullException("center is a required property for UserInputCameraSettings and cannot be null");
             this.FrontPlaneFrustumHeight = frontPlaneFrustumHeight;
+            this.FieldOfViewYDegrees = fieldOfViewYDegrees;
         }
         
         /// <summary>
@@ -86,11 +88,18 @@ namespace SimScale.Sdk.Model
         public Vector3D Center { get; set; }
 
         /// <summary>
-        /// required only for orthogonal projection type
+        /// required only for orthogonal projection type.
         /// </summary>
-        /// <value>required only for orthogonal projection type</value>
+        /// <value>required only for orthogonal projection type.</value>
         [DataMember(Name="frontPlaneFrustumHeight", EmitDefaultValue=false)]
         public decimal? FrontPlaneFrustumHeight { get; set; }
+
+        /// <summary>
+        /// The total field of view in Y direction in degrees. Required onlyf for perspective projection type.
+        /// </summary>
+        /// <value>The total field of view in Y direction in degrees. Required onlyf for perspective projection type.</value>
+        [DataMember(Name="fieldOfViewYDegrees", EmitDefaultValue=false)]
+        public decimal? FieldOfViewYDegrees { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -106,6 +115,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Eye: ").Append(Eye).Append("\n");
             sb.Append("  Center: ").Append(Center).Append("\n");
             sb.Append("  FrontPlaneFrustumHeight: ").Append(FrontPlaneFrustumHeight).Append("\n");
+            sb.Append("  FieldOfViewYDegrees: ").Append(FieldOfViewYDegrees).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,6 +178,11 @@ namespace SimScale.Sdk.Model
                     this.FrontPlaneFrustumHeight == input.FrontPlaneFrustumHeight ||
                     (this.FrontPlaneFrustumHeight != null &&
                     this.FrontPlaneFrustumHeight.Equals(input.FrontPlaneFrustumHeight))
+                ) && 
+                (
+                    this.FieldOfViewYDegrees == input.FieldOfViewYDegrees ||
+                    (this.FieldOfViewYDegrees != null &&
+                    this.FieldOfViewYDegrees.Equals(input.FieldOfViewYDegrees))
                 );
         }
 
@@ -191,6 +206,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Center.GetHashCode();
                 if (this.FrontPlaneFrustumHeight != null)
                     hashCode = hashCode * 59 + this.FrontPlaneFrustumHeight.GetHashCode();
+                if (this.FieldOfViewYDegrees != null)
+                    hashCode = hashCode * 59 + this.FieldOfViewYDegrees.GetHashCode();
                 return hashCode;
             }
         }

@@ -38,7 +38,7 @@ namespace SimScale.Sdk.Model
         /// <param name="momentumSources">momentumSources.</param>
         /// <param name="passiveScalarSources">passiveScalarSources.</param>
         /// <param name="thermalResistanceNetworks">thermalResistanceNetworks.</param>
-        public AdvancedConcepts(List<OneOfAdvancedConceptsRotatingZones> rotatingZones = default(List<OneOfAdvancedConceptsRotatingZones>), List<OneOfAdvancedConceptsPorousMediums> porousMediums = default(List<OneOfAdvancedConceptsPorousMediums>), List<OneOfAdvancedConceptsSolidBodyMotions> solidBodyMotions = default(List<OneOfAdvancedConceptsSolidBodyMotions>), List<OneOfAdvancedConceptsPowerSources> powerSources = default(List<OneOfAdvancedConceptsPowerSources>), List<AverageVelocityMomentumSource> momentumSources = default(List<AverageVelocityMomentumSource>), List<OneOfAdvancedConceptsPassiveScalarSources> passiveScalarSources = default(List<OneOfAdvancedConceptsPassiveScalarSources>), List<OneOfAdvancedConceptsThermalResistanceNetworks> thermalResistanceNetworks = default(List<OneOfAdvancedConceptsThermalResistanceNetworks>))
+        public AdvancedConcepts(List<OneOfAdvancedConceptsRotatingZones> rotatingZones = default(List<OneOfAdvancedConceptsRotatingZones>), List<OneOfAdvancedConceptsPorousMediums> porousMediums = default(List<OneOfAdvancedConceptsPorousMediums>), List<OneOfAdvancedConceptsSolidBodyMotions> solidBodyMotions = default(List<OneOfAdvancedConceptsSolidBodyMotions>), List<OneOfAdvancedConceptsPowerSources> powerSources = default(List<OneOfAdvancedConceptsPowerSources>), List<OneOfAdvancedConceptsMomentumSources> momentumSources = default(List<OneOfAdvancedConceptsMomentumSources>), List<OneOfAdvancedConceptsPassiveScalarSources> passiveScalarSources = default(List<OneOfAdvancedConceptsPassiveScalarSources>), List<OneOfAdvancedConceptsThermalResistanceNetworks> thermalResistanceNetworks = default(List<OneOfAdvancedConceptsThermalResistanceNetworks>))
         {
             this.RotatingZones = rotatingZones;
             this.PorousMediums = porousMediums;
@@ -77,7 +77,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets MomentumSources
         /// </summary>
         [DataMember(Name="momentumSources", EmitDefaultValue=false)]
-        public List<AverageVelocityMomentumSource> MomentumSources { get; set; }
+        public List<OneOfAdvancedConceptsMomentumSources> MomentumSources { get; set; }
 
         /// <summary>
         /// Gets or Sets PassiveScalarSources
