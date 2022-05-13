@@ -27,7 +27,6 @@ namespace SimScale.Sdk.Model
     /// OneOfSolidNumericsSolver
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(GCPCSolver), "GCPC")]
     [JsonSubtypes.KnownSubType(typeof(LDLTSolverV33), "LDLT_V33")]
     [JsonSubtypes.KnownSubType(typeof(MUMPSSolver), "MUMPS")]
     [JsonSubtypes.KnownSubType(typeof(MultifrontalSolver), "MULTIFRONT")]

@@ -40,14 +40,16 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name.</param>
         /// <param name="fanDirection">fanDirection.</param>
         /// <param name="fanPressure">fanPressure.</param>
+        /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public FanPressureDropMomentumSource(string type = "FAN_PRESSURE_DROP", string name = default(string), DimensionalVectorDimensionless fanDirection = default(DimensionalVectorDimensionless), DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public FanPressureDropMomentumSource(string type = "FAN_PRESSURE_DROP", string name = default(string), DimensionalVectorDimensionless fanDirection = default(DimensionalVectorDimensionless), DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPressureDropMomentumSource and cannot be null");
             this.Name = name;
             this.FanDirection = fanDirection;
             this.FanPressure = fanPressure;
+            this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         
@@ -77,6 +79,12 @@ namespace SimScale.Sdk.Model
         public DimensionalFunctionPressure FanPressure { get; set; }
 
         /// <summary>
+        /// Gets or Sets TopologicalReference
+        /// </summary>
+        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
+        public TopologicalReference TopologicalReference { get; set; }
+
+        /// <summary>
         /// Gets or Sets GeometryPrimitiveUuids
         /// </summary>
         [DataMember(Name="geometryPrimitiveUuids", EmitDefaultValue=false)]
@@ -94,6 +102,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  FanDirection: ").Append(FanDirection).Append("\n");
             sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
+            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -150,6 +159,11 @@ namespace SimScale.Sdk.Model
                     this.FanPressure.Equals(input.FanPressure))
                 ) && 
                 (
+                    this.TopologicalReference == input.TopologicalReference ||
+                    (this.TopologicalReference != null &&
+                    this.TopologicalReference.Equals(input.TopologicalReference))
+                ) && 
+                (
                     this.GeometryPrimitiveUuids == input.GeometryPrimitiveUuids ||
                     this.GeometryPrimitiveUuids != null &&
                     input.GeometryPrimitiveUuids != null &&
@@ -174,6 +188,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.FanDirection.GetHashCode();
                 if (this.FanPressure != null)
                     hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
+                if (this.TopologicalReference != null)
+                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)
                     hashCode = hashCode * 59 + this.GeometryPrimitiveUuids.GetHashCode();
                 return hashCode;

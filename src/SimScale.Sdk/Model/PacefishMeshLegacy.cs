@@ -82,15 +82,15 @@ namespace SimScale.Sdk.Model
         /// <param name="type">&lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishMeshLegacy (required) (default to &quot;PACEFISH_MESH_LEGACY&quot;).</param>
         /// <param name="fineness">fineness (default to FinenessEnum.COARSE).</param>
         /// <param name="referenceLength">referenceLength.</param>
-        /// <param name="reynoldsScaling">Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. &lt;a href&#x3D; https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#reynolds-scaling-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to 1M).</param>
+        /// <param name="reynoldsScalingType">reynoldsScalingType.</param>
         /// <param name="refinements">refinements.</param>
-        public PacefishMeshLegacy(string type = "PACEFISH_MESH_LEGACY", FinenessEnum? fineness = default(FinenessEnum?), DimensionalLength referenceLength = default(DimensionalLength), decimal? reynoldsScaling = default(decimal?), List<OneOfPacefishMeshLegacyRefinements> refinements = default(List<OneOfPacefishMeshLegacyRefinements>))
+        public PacefishMeshLegacy(string type = "PACEFISH_MESH_LEGACY", FinenessEnum? fineness = default(FinenessEnum?), DimensionalLength referenceLength = default(DimensionalLength), ManualReynoldsScaling reynoldsScalingType = default(ManualReynoldsScaling), List<OneOfPacefishMeshLegacyRefinements> refinements = default(List<OneOfPacefishMeshLegacyRefinements>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PacefishMeshLegacy and cannot be null");
             this.Fineness = fineness;
             this.ReferenceLength = referenceLength;
-            this.ReynoldsScaling = reynoldsScaling;
+            this.ReynoldsScalingType = reynoldsScalingType;
             this.Refinements = refinements;
         }
         
@@ -108,11 +108,10 @@ namespace SimScale.Sdk.Model
         public DimensionalLength ReferenceLength { get; set; }
 
         /// <summary>
-        /// Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. &lt;a href&#x3D; https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#reynolds-scaling-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// Gets or Sets ReynoldsScalingType
         /// </summary>
-        /// <value>Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. &lt;a href&#x3D; https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#reynolds-scaling-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
-        [DataMember(Name="reynoldsScaling", EmitDefaultValue=false)]
-        public decimal? ReynoldsScaling { get; set; }
+        [DataMember(Name="reynoldsScalingType", EmitDefaultValue=false)]
+        public ManualReynoldsScaling ReynoldsScalingType { get; set; }
 
         /// <summary>
         /// Gets or Sets Refinements
@@ -131,7 +130,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Fineness: ").Append(Fineness).Append("\n");
             sb.Append("  ReferenceLength: ").Append(ReferenceLength).Append("\n");
-            sb.Append("  ReynoldsScaling: ").Append(ReynoldsScaling).Append("\n");
+            sb.Append("  ReynoldsScalingType: ").Append(ReynoldsScalingType).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -182,9 +181,9 @@ namespace SimScale.Sdk.Model
                     this.ReferenceLength.Equals(input.ReferenceLength))
                 ) && 
                 (
-                    this.ReynoldsScaling == input.ReynoldsScaling ||
-                    (this.ReynoldsScaling != null &&
-                    this.ReynoldsScaling.Equals(input.ReynoldsScaling))
+                    this.ReynoldsScalingType == input.ReynoldsScalingType ||
+                    (this.ReynoldsScalingType != null &&
+                    this.ReynoldsScalingType.Equals(input.ReynoldsScalingType))
                 ) && 
                 (
                     this.Refinements == input.Refinements ||
@@ -208,8 +207,8 @@ namespace SimScale.Sdk.Model
                 hashCode = hashCode * 59 + this.Fineness.GetHashCode();
                 if (this.ReferenceLength != null)
                     hashCode = hashCode * 59 + this.ReferenceLength.GetHashCode();
-                if (this.ReynoldsScaling != null)
-                    hashCode = hashCode * 59 + this.ReynoldsScaling.GetHashCode();
+                if (this.ReynoldsScalingType != null)
+                    hashCode = hashCode * 59 + this.ReynoldsScalingType.GetHashCode();
                 if (this.Refinements != null)
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
                 return hashCode;

@@ -62,15 +62,15 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="FanPBC" /> class.
         /// </summary>
         /// <param name="type">Schema name: FanPBC (required) (default to &quot;FAN_PRESSURE&quot;).</param>
-        /// <param name="fanPressure">fanPressure.</param>
         /// <param name="direction">direction (default to DirectionEnum.IN).</param>
+        /// <param name="fanPressure">fanPressure.</param>
         /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
-        public FanPBC(string type = "FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DirectionEnum? direction = default(DirectionEnum?), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
+        public FanPBC(string type = "FAN_PRESSURE", DirectionEnum? direction = default(DirectionEnum?), DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPBC and cannot be null");
-            this.FanPressure = fanPressure;
             this.Direction = direction;
+            this.FanPressure = fanPressure;
             this.EnvironmentalTotalPressure = environmentalTotalPressure;
         }
         
@@ -102,8 +102,8 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class FanPBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
             sb.Append("  Direction: ").Append(Direction).Append("\n");
+            sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
             sb.Append("  EnvironmentalTotalPressure: ").Append(EnvironmentalTotalPressure).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -145,13 +145,13 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.Direction == input.Direction ||
+                    this.Direction.Equals(input.Direction)
+                ) && 
+                (
                     this.FanPressure == input.FanPressure ||
                     (this.FanPressure != null &&
                     this.FanPressure.Equals(input.FanPressure))
-                ) && 
-                (
-                    this.Direction == input.Direction ||
-                    this.Direction.Equals(input.Direction)
                 ) && 
                 (
                     this.EnvironmentalTotalPressure == input.EnvironmentalTotalPressure ||
@@ -171,9 +171,9 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.Direction.GetHashCode();
                 if (this.FanPressure != null)
                     hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
-                hashCode = hashCode * 59 + this.Direction.GetHashCode();
                 if (this.EnvironmentalTotalPressure != null)
                     hashCode = hashCode * 59 + this.EnvironmentalTotalPressure.GetHashCode();
                 return hashCode;

@@ -74,8 +74,6 @@ namespace SimScale.Sdk.Model
         /// <param name="dampingCoefficient">dampingCoefficient (default to 0.5M).</param>
         /// <param name="numAlphaSpreadIterations">numAlphaSpreadIterations (default to 0).</param>
         /// <param name="numAlphaSweepIterations">numAlphaSweepIterations (default to 0).</param>
-        /// <param name="minDensity">minDensity.</param>
-        /// <param name="maxDensity">maxDensity.</param>
         /// <param name="evaluateTurbulenceOnlyOnFinalIteration">evaluateTurbulenceOnlyOnFinalIteration (default to false).</param>
         /// <param name="pressureReferenceCell">&lt;p&gt;Enter the cell where you want to define reference pressure in the PISO/SIMPLE/PIMPLE algorithm.&lt;/p&gt; (default to 0).</param>
         /// <param name="pressureReferenceValue">pressureReferenceValue.</param>
@@ -83,7 +81,8 @@ namespace SimScale.Sdk.Model
         /// <param name="residualControls">residualControls.</param>
         /// <param name="solvers">solvers.</param>
         /// <param name="schemes">schemes.</param>
-        public FluidNumerics(string relaxationType = default(string), RelaxationFactor relaxationFactor = default(RelaxationFactor), RadiationResolutionEnum? radiationResolution = default(RadiationResolutionEnum?), bool? momentumPredictor = default(bool?), bool? transonic = default(bool?), int? numOuterCorrectors = default(int?), int? numCorrectors = default(int?), int? numNonOrthogonalCorrectors = default(int?), decimal? smoothingParameter = default(decimal?), decimal? dampingCoefficient = default(decimal?), int? numAlphaSpreadIterations = default(int?), int? numAlphaSweepIterations = default(int?), DimensionalDensity minDensity = default(DimensionalDensity), DimensionalDensity maxDensity = default(DimensionalDensity), bool? evaluateTurbulenceOnlyOnFinalIteration = default(bool?), int? pressureReferenceCell = default(int?), DimensionalPressure pressureReferenceValue = default(DimensionalPressure), DimensionalSpeed velocityLimit = default(DimensionalSpeed), ResidualControls residualControls = default(ResidualControls), FluidSolvers solvers = default(FluidSolvers), Schemes schemes = default(Schemes))
+        /// <param name="stabilization">stabilization.</param>
+        public FluidNumerics(string relaxationType = default(string), RelaxationFactor relaxationFactor = default(RelaxationFactor), RadiationResolutionEnum? radiationResolution = default(RadiationResolutionEnum?), bool? momentumPredictor = default(bool?), bool? transonic = default(bool?), int? numOuterCorrectors = default(int?), int? numCorrectors = default(int?), int? numNonOrthogonalCorrectors = default(int?), decimal? smoothingParameter = default(decimal?), decimal? dampingCoefficient = default(decimal?), int? numAlphaSpreadIterations = default(int?), int? numAlphaSweepIterations = default(int?), bool? evaluateTurbulenceOnlyOnFinalIteration = default(bool?), int? pressureReferenceCell = default(int?), DimensionalPressure pressureReferenceValue = default(DimensionalPressure), DimensionalSpeed velocityLimit = default(DimensionalSpeed), ResidualControls residualControls = default(ResidualControls), FluidSolvers solvers = default(FluidSolvers), Schemes schemes = default(Schemes), Stabilization stabilization = default(Stabilization))
         {
             this.RelaxationType = relaxationType;
             this.RelaxationFactor = relaxationFactor;
@@ -97,8 +96,6 @@ namespace SimScale.Sdk.Model
             this.DampingCoefficient = dampingCoefficient;
             this.NumAlphaSpreadIterations = numAlphaSpreadIterations;
             this.NumAlphaSweepIterations = numAlphaSweepIterations;
-            this.MinDensity = minDensity;
-            this.MaxDensity = maxDensity;
             this.EvaluateTurbulenceOnlyOnFinalIteration = evaluateTurbulenceOnlyOnFinalIteration;
             this.PressureReferenceCell = pressureReferenceCell;
             this.PressureReferenceValue = pressureReferenceValue;
@@ -106,6 +103,7 @@ namespace SimScale.Sdk.Model
             this.ResidualControls = residualControls;
             this.Solvers = solvers;
             this.Schemes = schemes;
+            this.Stabilization = stabilization;
         }
         
         /// <summary>
@@ -176,18 +174,6 @@ namespace SimScale.Sdk.Model
         public int? NumAlphaSweepIterations { get; set; }
 
         /// <summary>
-        /// Gets or Sets MinDensity
-        /// </summary>
-        [DataMember(Name="minDensity", EmitDefaultValue=false)]
-        public DimensionalDensity MinDensity { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MaxDensity
-        /// </summary>
-        [DataMember(Name="maxDensity", EmitDefaultValue=false)]
-        public DimensionalDensity MaxDensity { get; set; }
-
-        /// <summary>
         /// Gets or Sets EvaluateTurbulenceOnlyOnFinalIteration
         /// </summary>
         [DataMember(Name="evaluateTurbulenceOnlyOnFinalIteration", EmitDefaultValue=false)]
@@ -231,6 +217,12 @@ namespace SimScale.Sdk.Model
         public Schemes Schemes { get; set; }
 
         /// <summary>
+        /// Gets or Sets Stabilization
+        /// </summary>
+        [DataMember(Name="stabilization", EmitDefaultValue=false)]
+        public Stabilization Stabilization { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -250,8 +242,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  DampingCoefficient: ").Append(DampingCoefficient).Append("\n");
             sb.Append("  NumAlphaSpreadIterations: ").Append(NumAlphaSpreadIterations).Append("\n");
             sb.Append("  NumAlphaSweepIterations: ").Append(NumAlphaSweepIterations).Append("\n");
-            sb.Append("  MinDensity: ").Append(MinDensity).Append("\n");
-            sb.Append("  MaxDensity: ").Append(MaxDensity).Append("\n");
             sb.Append("  EvaluateTurbulenceOnlyOnFinalIteration: ").Append(EvaluateTurbulenceOnlyOnFinalIteration).Append("\n");
             sb.Append("  PressureReferenceCell: ").Append(PressureReferenceCell).Append("\n");
             sb.Append("  PressureReferenceValue: ").Append(PressureReferenceValue).Append("\n");
@@ -259,6 +249,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  ResidualControls: ").Append(ResidualControls).Append("\n");
             sb.Append("  Solvers: ").Append(Solvers).Append("\n");
             sb.Append("  Schemes: ").Append(Schemes).Append("\n");
+            sb.Append("  Stabilization: ").Append(Stabilization).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -353,16 +344,6 @@ namespace SimScale.Sdk.Model
                     this.NumAlphaSweepIterations.Equals(input.NumAlphaSweepIterations))
                 ) && 
                 (
-                    this.MinDensity == input.MinDensity ||
-                    (this.MinDensity != null &&
-                    this.MinDensity.Equals(input.MinDensity))
-                ) && 
-                (
-                    this.MaxDensity == input.MaxDensity ||
-                    (this.MaxDensity != null &&
-                    this.MaxDensity.Equals(input.MaxDensity))
-                ) && 
-                (
                     this.EvaluateTurbulenceOnlyOnFinalIteration == input.EvaluateTurbulenceOnlyOnFinalIteration ||
                     (this.EvaluateTurbulenceOnlyOnFinalIteration != null &&
                     this.EvaluateTurbulenceOnlyOnFinalIteration.Equals(input.EvaluateTurbulenceOnlyOnFinalIteration))
@@ -396,6 +377,11 @@ namespace SimScale.Sdk.Model
                     this.Schemes == input.Schemes ||
                     (this.Schemes != null &&
                     this.Schemes.Equals(input.Schemes))
+                ) && 
+                (
+                    this.Stabilization == input.Stabilization ||
+                    (this.Stabilization != null &&
+                    this.Stabilization.Equals(input.Stabilization))
                 );
         }
 
@@ -431,10 +417,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.NumAlphaSpreadIterations.GetHashCode();
                 if (this.NumAlphaSweepIterations != null)
                     hashCode = hashCode * 59 + this.NumAlphaSweepIterations.GetHashCode();
-                if (this.MinDensity != null)
-                    hashCode = hashCode * 59 + this.MinDensity.GetHashCode();
-                if (this.MaxDensity != null)
-                    hashCode = hashCode * 59 + this.MaxDensity.GetHashCode();
                 if (this.EvaluateTurbulenceOnlyOnFinalIteration != null)
                     hashCode = hashCode * 59 + this.EvaluateTurbulenceOnlyOnFinalIteration.GetHashCode();
                 if (this.PressureReferenceCell != null)
@@ -449,6 +431,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Solvers.GetHashCode();
                 if (this.Schemes != null)
                     hashCode = hashCode * 59 + this.Schemes.GetHashCode();
+                if (this.Stabilization != null)
+                    hashCode = hashCode * 59 + this.Stabilization.GetHashCode();
                 return hashCode;
             }
         }

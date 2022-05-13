@@ -24,16 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfCoupledConjugateHeatTransferBoundaryConditions
+    /// Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. &lt;a href&#x3D; https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#reynolds-scaling-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(VelocityInletBC), "VELOCITY_INLET_V3")]
-    [JsonSubtypes.KnownSubType(typeof(PressureOutletBC), "PRESSURE_OUTLET_V30")]
-    [JsonSubtypes.KnownSubType(typeof(WallBC), "WALL_V34")]
-    [JsonSubtypes.KnownSubType(typeof(FanBC), "FAN")]
-    [JsonSubtypes.KnownSubType(typeof(SymmetryBC), "SYMMETRY")]
-    [JsonSubtypes.KnownSubType(typeof(NaturalConvectionInletOutletBC), "NATURAL_CONVECTION_INLET_OUTLET")]
-    public interface OneOfCoupledConjugateHeatTransferBoundaryConditions
+    [JsonSubtypes.KnownSubType(typeof(AutomaticReynoldsScaling), "AUTOMATIC_REYNOLDS_SCALING")]
+    [JsonSubtypes.KnownSubType(typeof(ManualReynoldsScaling), "MANUAL_REYNOLDS_SCALING")]
+    public interface OneOfWindComfortMeshReynoldsScalingType
     {
         /// <summary>
         /// Gets Type

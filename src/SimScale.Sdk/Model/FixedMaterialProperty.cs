@@ -42,17 +42,19 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="FixedMaterialProperty" /> class.
         /// </summary>
         /// <param name="name">The material property name.</param>
+        /// <param name="label">The material property label to support internationalization. The content of this field is a i18n key. If this field is not present, the name field can be used as a fallback for English language..</param>
         /// <param name="unit">The material property unit.</param>
         /// <param name="valueType">valueType (required) (default to &quot;fixed&quot;).</param>
         /// <param name="dataType">dataType.</param>
         /// <param name="value">The property value (required).</param>
-        public FixedMaterialProperty(string name = default(string), string unit = default(string), string valueType = "fixed", PropertyDataType? dataType = default(PropertyDataType?), Object value = default(Object))
+        public FixedMaterialProperty(string name = default(string), string label = default(string), string unit = default(string), string valueType = "fixed", PropertyDataType? dataType = default(PropertyDataType?), Object value = default(Object))
         {
             // to ensure "valueType" is required (not null)
             this.ValueType = valueType ?? throw new ArgumentNullException("valueType is a required property for FixedMaterialProperty and cannot be null");
             // to ensure "value" is required (not null)
             this.Value = value ?? throw new ArgumentNullException("value is a required property for FixedMaterialProperty and cannot be null");
             this.Name = name;
+            this.Label = label;
             this.Unit = unit;
             this.DataType = dataType;
         }
@@ -63,6 +65,13 @@ namespace SimScale.Sdk.Model
         /// <value>The material property name</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The material property label to support internationalization. The content of this field is a i18n key. If this field is not present, the name field can be used as a fallback for English language.
+        /// </summary>
+        /// <value>The material property label to support internationalization. The content of this field is a i18n key. If this field is not present, the name field can be used as a fallback for English language.</value>
+        [DataMember(Name="label", EmitDefaultValue=false)]
+        public string Label { get; set; }
 
         /// <summary>
         /// The material property unit
@@ -93,6 +102,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class FixedMaterialProperty {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("  ValueType: ").Append(ValueType).Append("\n");
             sb.Append("  DataType: ").Append(DataType).Append("\n");
@@ -137,6 +147,11 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.Label == input.Label ||
+                    (this.Label != null &&
+                    this.Label.Equals(input.Label))
+                ) && 
+                (
                     this.Unit == input.Unit ||
                     (this.Unit != null &&
                     this.Unit.Equals(input.Unit))
@@ -168,6 +183,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Label != null)
+                    hashCode = hashCode * 59 + this.Label.GetHashCode();
                 if (this.Unit != null)
                     hashCode = hashCode * 59 + this.Unit.GetHashCode();
                 if (this.ValueType != null)

@@ -36,21 +36,83 @@ using SimScale.Sdk.Model;
 ```
 <a name="usage"></a>
 ## Usage
+### API client configuration
 
-To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
+Authentication with the SimScale API is done using the `X-API-KEY` request header. You must initialize and configure a
+`Configuration` object with the correct host, headers and API key information.
+
+As reference, the following snippet shows how to configure the API client using environment variables to store the API
+key and the target URL.
+
+```csharp
+using System;
+using SimScale.Sdk.Api;
+using SimScale.Sdk.Client;
+using SimScale.Sdk.Model;
+
+// API client configuration
+var API_KEY_HEADER = "X-API-KEY";
+var API_KEY = Environment.GetEnvironmentVariable("SIMSCALE_API_KEY");
+var API_URL = Environment.GetEnvironmentVariable("SIMSCALE_API_URL");
+
+Configuration config = new Configuration();
+config.BasePath = API_URL + "/v0";
+config.ApiKey.Add(API_KEY_HEADER, API_KEY);
+```
+
+You must then pass this configuration object to initialize the domain-specific clients that will perform the API operations. For example:
+
+```csharp
+// API clients
+var projectApi = new ProjectsApi(config);
+var geometryApi = new GeometriesApi(config);
+var meshOperationApi = new MeshOperationsApi(config);
+var simulationApi = new SimulationsApi(config);
+```
+
+### HTTP Proxy
+
+To use the API client with an HTTP proxy, set up a `System.Net.WebProxy`
 ```csharp
 Configuration c = new Configuration();
 System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
 webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
 c.Proxy = webProxy;
 ```
+
 ## Examples
 
 The `examples` folder contains executable code examples to demonstrate how the SDK can be used.
 
-In order to run them the following environment variables need to be set:
+In order to run them, the following environment variables need to be set:
 
-```
+| Name               | Value                      |
+|--------------------|----------------------------|
+| `SIMSCALE_API_URL` | `https://api.simscale.com` |
+| `SIMSCALE_API_KEY` | `your-api-key`             |
+
+### Set environment variables
+
+This section explains how to set environment variables for the current terminal session only. This means that the
+variables will not be accessible if you use a different terminal to run the examples.
+
+#### Linux/macOS
+Run:
+```sh
 export SIMSCALE_API_URL="https://api.simscale.com"
 export SIMSCALE_API_KEY="your-api-key"
+```
+
+#### Windows CMD
+Run:
+```console
+set SIMSCALE_API_URL="https://api.simscale.com"
+set SIMSCALE_API_KEY="your-api-key"
+```
+
+#### Windows PowerShell
+Run:
+```powershell
+$env:SIMSCALE_API_URL="https://api.simscale.com"
+$env:SIMSCALE_API_KEY="your-api-key"
 ```

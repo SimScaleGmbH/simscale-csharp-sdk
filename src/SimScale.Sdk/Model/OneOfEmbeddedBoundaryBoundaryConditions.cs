@@ -30,6 +30,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(VelocityInletBC), "VELOCITY_INLET_V3")]
     [JsonSubtypes.KnownSubType(typeof(PressureOutletBC), "PRESSURE_OUTLET_V30")]
     [JsonSubtypes.KnownSubType(typeof(WallBC), "WALL_V34")]
+    [JsonSubtypes.KnownSubType(typeof(FanBC), "FAN")]
     [JsonSubtypes.KnownSubType(typeof(NaturalConvectionInletOutletBC), "NATURAL_CONVECTION_INLET_OUTLET")]
     public interface OneOfEmbeddedBoundaryBoundaryConditions
     {

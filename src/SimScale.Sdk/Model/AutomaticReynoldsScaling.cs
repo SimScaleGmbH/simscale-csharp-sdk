@@ -23,25 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// VariableGroupQ
+    /// AutomaticReynoldsScaling
     /// </summary>
     [DataContract]
-    public partial class VariableGroupQ : IEquatable<VariableGroupQ>
+    public partial class AutomaticReynoldsScaling : OneOfPacefishAutomeshReynoldsScalingType, OneOfWindComfortMeshReynoldsScalingType, IEquatable<AutomaticReynoldsScaling>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VariableGroupQ" /> class.
+        /// Initializes a new instance of the <see cref="AutomaticReynoldsScaling" /> class.
         /// </summary>
-        /// <param name="q">q.</param>
-        public VariableGroupQ(UnitMassFlowRate q = default(UnitMassFlowRate))
+        [JsonConstructorAttribute]
+        protected AutomaticReynoldsScaling() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AutomaticReynoldsScaling" /> class.
+        /// </summary>
+        /// <param name="type">Schema name: AutomaticReynoldsScaling (required) (default to &quot;AUTOMATIC_REYNOLDS_SCALING&quot;).</param>
+        public AutomaticReynoldsScaling(string type = "AUTOMATIC_REYNOLDS_SCALING")
         {
-            this.Q = q;
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticReynoldsScaling and cannot be null");
         }
         
         /// <summary>
-        /// Gets or Sets Q
+        /// Schema name: AutomaticReynoldsScaling
         /// </summary>
-        [DataMember(Name="Q", EmitDefaultValue=false)]
-        public UnitMassFlowRate Q { get; set; }
+        /// <value>Schema name: AutomaticReynoldsScaling</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -50,8 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VariableGroupQ {\n");
-            sb.Append("  Q: ").Append(Q).Append("\n");
+            sb.Append("class AutomaticReynoldsScaling {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -72,24 +79,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VariableGroupQ);
+            return this.Equals(input as AutomaticReynoldsScaling);
         }
 
         /// <summary>
-        /// Returns true if VariableGroupQ instances are equal
+        /// Returns true if AutomaticReynoldsScaling instances are equal
         /// </summary>
-        /// <param name="input">Instance of VariableGroupQ to be compared</param>
+        /// <param name="input">Instance of AutomaticReynoldsScaling to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VariableGroupQ input)
+        public bool Equals(AutomaticReynoldsScaling input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Q == input.Q ||
-                    (this.Q != null &&
-                    this.Q.Equals(input.Q))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -102,8 +109,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Q != null)
-                    hashCode = hashCode * 59 + this.Q.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This boundary condition provides a symmetry condition on any face by applying a mirror effect. The fluxes and the normal components across the symmetry face are set to zero. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/symmetry/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
-    public partial class SymmetryBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, IEquatable<SymmetryBC>
+    public partial class SymmetryBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<SymmetryBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SymmetryBC" /> class.

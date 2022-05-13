@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Select how often the Jacobian matrix should be recomputed. If this parameter is set to 10, the Jacobian matrix is recomputed every 10th time step. If it is set to 0, the Jacobian matrix is never updated.&lt;/p&gt;
+    /// &lt;p&gt;Choose if the Jacobian matrix should automatically change from tangent stiffnes matrix to elastic matrix if the time increment is falling below a given threshold. On the assumption that below a given time increment value the nonlinearities are not evolving within the time step one can strongly save computation time by switching to the elastic matrix.&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(TrueChangeJacobianMatrix), "TRUE")]

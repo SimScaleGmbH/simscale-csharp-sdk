@@ -35,8 +35,10 @@ public class CompressibleExample {
         // API client configuration
         var API_KEY_HEADER = "X-API-KEY";
         var API_KEY = Environment.GetEnvironmentVariable("SIMSCALE_API_KEY");
+        var API_URL = Environment.GetEnvironmentVariable("SIMSCALE_API_URL");
+
         Configuration config = new Configuration();
-        config.BasePath = Environment.GetEnvironmentVariable("SIMSCALE_API_URL") + "/v0";
+        config.BasePath = API_URL + "/v0";
         config.ApiKey.Add(API_KEY_HEADER, API_KEY);
 
         // API clients

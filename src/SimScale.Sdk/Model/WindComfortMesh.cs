@@ -32,10 +32,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="WindComfortMesh" /> class.
         /// </summary>
         /// <param name="windComfortFineness">windComfortFineness.</param>
+        /// <param name="reynoldsScalingType">reynoldsScalingType.</param>
         /// <param name="refinements">refinements.</param>
-        public WindComfortMesh(OneOfWindComfortMeshWindComfortFineness windComfortFineness = default(OneOfWindComfortMeshWindComfortFineness), List<OneOfWindComfortMeshRefinements> refinements = default(List<OneOfWindComfortMeshRefinements>))
+        public WindComfortMesh(OneOfWindComfortMeshWindComfortFineness windComfortFineness = default(OneOfWindComfortMeshWindComfortFineness), OneOfWindComfortMeshReynoldsScalingType reynoldsScalingType = default(OneOfWindComfortMeshReynoldsScalingType), List<OneOfWindComfortMeshRefinements> refinements = default(List<OneOfWindComfortMeshRefinements>))
         {
             this.WindComfortFineness = windComfortFineness;
+            this.ReynoldsScalingType = reynoldsScalingType;
             this.Refinements = refinements;
         }
         
@@ -44,6 +46,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="windComfortFineness", EmitDefaultValue=false)]
         public OneOfWindComfortMeshWindComfortFineness WindComfortFineness { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReynoldsScalingType
+        /// </summary>
+        [DataMember(Name="reynoldsScalingType", EmitDefaultValue=false)]
+        public OneOfWindComfortMeshReynoldsScalingType ReynoldsScalingType { get; set; }
 
         /// <summary>
         /// Gets or Sets Refinements
@@ -60,6 +68,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class WindComfortMesh {\n");
             sb.Append("  WindComfortFineness: ").Append(WindComfortFineness).Append("\n");
+            sb.Append("  ReynoldsScalingType: ").Append(ReynoldsScalingType).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -101,6 +110,11 @@ namespace SimScale.Sdk.Model
                     this.WindComfortFineness.Equals(input.WindComfortFineness))
                 ) && 
                 (
+                    this.ReynoldsScalingType == input.ReynoldsScalingType ||
+                    (this.ReynoldsScalingType != null &&
+                    this.ReynoldsScalingType.Equals(input.ReynoldsScalingType))
+                ) && 
+                (
                     this.Refinements == input.Refinements ||
                     this.Refinements != null &&
                     input.Refinements != null &&
@@ -119,6 +133,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.WindComfortFineness != null)
                     hashCode = hashCode * 59 + this.WindComfortFineness.GetHashCode();
+                if (this.ReynoldsScalingType != null)
+                    hashCode = hashCode * 59 + this.ReynoldsScalingType.GetHashCode();
                 if (this.Refinements != null)
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
                 return hashCode;

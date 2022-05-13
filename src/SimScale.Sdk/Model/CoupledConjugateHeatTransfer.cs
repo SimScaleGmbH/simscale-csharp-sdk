@@ -56,6 +56,70 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="turbulenceModel", EmitDefaultValue=false)]
         public TurbulenceModelEnum? TurbulenceModel { get; set; }
         /// <summary>
+        /// Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// </summary>
+        /// <value>Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        public enum NumOfPassiveSpeciesEnum
+        {
+            /// <summary>
+            /// Enum NUMBER_0 for value: 0
+            /// </summary>
+            NUMBER_0 = 0,
+
+            /// <summary>
+            /// Enum NUMBER_1 for value: 1
+            /// </summary>
+            NUMBER_1 = 1,
+
+            /// <summary>
+            /// Enum NUMBER_2 for value: 2
+            /// </summary>
+            NUMBER_2 = 2,
+
+            /// <summary>
+            /// Enum NUMBER_3 for value: 3
+            /// </summary>
+            NUMBER_3 = 3,
+
+            /// <summary>
+            /// Enum NUMBER_4 for value: 4
+            /// </summary>
+            NUMBER_4 = 4,
+
+            /// <summary>
+            /// Enum NUMBER_5 for value: 5
+            /// </summary>
+            NUMBER_5 = 5,
+
+            /// <summary>
+            /// Enum NUMBER_6 for value: 6
+            /// </summary>
+            NUMBER_6 = 6,
+
+            /// <summary>
+            /// Enum NUMBER_7 for value: 7
+            /// </summary>
+            NUMBER_7 = 7,
+
+            /// <summary>
+            /// Enum NUMBER_8 for value: 8
+            /// </summary>
+            NUMBER_8 = 8,
+
+            /// <summary>
+            /// Enum NUMBER_9 for value: 9
+            /// </summary>
+            NUMBER_9 = 9
+
+        }
+
+        /// <summary>
+        /// Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// </summary>
+        /// <value>Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        [DataMember(Name="numOfPassiveSpecies", EmitDefaultValue=false)]
+        public NumOfPassiveSpeciesEnum? NumOfPassiveSpecies { get; set; }
+        /// <summary>
         /// Defines ContactHandlingMode
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
@@ -91,8 +155,9 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: CoupledConjugateHeatTransfer (required) (default to &quot;COUPLED_CONJUGATE_HEAT_TRANSFER&quot;).</param>
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
-        /// <param name="enableSolarLoad">&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
+        /// <param name="enableSolarLoad">&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. It heats boundaries externally or, if solar rays enter the domain through transparent or semi-transparent boundaries, it heats boundaries also internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;It can also be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;It can only be used with convective heat transfer.&lt;/li&gt;&lt;li&gt;Reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
+        /// <param name="numOfPassiveSpecies">Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to NumOfPassiveSpeciesEnum.NUMBER_0).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="model">model.</param>
         /// <param name="solarCalculator">solarCalculator.</param>
@@ -104,7 +169,7 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="contactHandlingMode">contactHandlingMode (default to ContactHandlingModeEnum.MANUAL).</param>
-        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?))
+        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CoupledConjugateHeatTransfer and cannot be null");
@@ -112,6 +177,7 @@ namespace SimScale.Sdk.Model
             this.EnableRadiation = enableRadiation;
             this.EnableSolarLoad = enableSolarLoad;
             this.TurbulenceModel = turbulenceModel;
+            this.NumOfPassiveSpecies = numOfPassiveSpecies;
             this.ConnectionGroups = connectionGroups;
             this.Model = model;
             this.SolarCalculator = solarCalculator;
@@ -147,9 +213,9 @@ namespace SimScale.Sdk.Model
         public bool? EnableRadiation { get; set; }
 
         /// <summary>
-        /// &lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// &lt;b&gt;Solar load&lt;/b&gt; on boundary patches. It heats boundaries externally or, if solar rays enter the domain through transparent or semi-transparent boundaries, it heats boundaries also internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;It can also be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;It can only be used with convective heat transfer.&lt;/li&gt;&lt;li&gt;Reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
-        /// <value>&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        /// <value>&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. It heats boundaries externally or, if solar rays enter the domain through transparent or semi-transparent boundaries, it heats boundaries also internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;It can also be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;It can only be used with convective heat transfer.&lt;/li&gt;&lt;li&gt;Reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
         [DataMember(Name="enableSolarLoad", EmitDefaultValue=false)]
         public bool? EnableSolarLoad { get; set; }
 
@@ -226,6 +292,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
             sb.Append("  EnableSolarLoad: ").Append(EnableSolarLoad).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
+            sb.Append("  NumOfPassiveSpecies: ").Append(NumOfPassiveSpecies).Append("\n");
             sb.Append("  ConnectionGroups: ").Append(ConnectionGroups).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  SolarCalculator: ").Append(SolarCalculator).Append("\n");
@@ -294,6 +361,10 @@ namespace SimScale.Sdk.Model
                 (
                     this.TurbulenceModel == input.TurbulenceModel ||
                     this.TurbulenceModel.Equals(input.TurbulenceModel)
+                ) && 
+                (
+                    this.NumOfPassiveSpecies == input.NumOfPassiveSpecies ||
+                    this.NumOfPassiveSpecies.Equals(input.NumOfPassiveSpecies)
                 ) && 
                 (
                     this.ConnectionGroups == input.ConnectionGroups ||
@@ -371,6 +442,7 @@ namespace SimScale.Sdk.Model
                 if (this.EnableSolarLoad != null)
                     hashCode = hashCode * 59 + this.EnableSolarLoad.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
+                hashCode = hashCode * 59 + this.NumOfPassiveSpecies.GetHashCode();
                 if (this.ConnectionGroups != null)
                     hashCode = hashCode * 59 + this.ConnectionGroups.GetHashCode();
                 if (this.Model != null)

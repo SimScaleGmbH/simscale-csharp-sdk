@@ -24,12 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Choose the preconditioner for the conjugate gradient solver:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;incomplete LDLT&lt;/b&gt; performs an incomplete Cholesky decomposition.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS LDLT&lt;/b&gt; performs a complete Cholesky decomposition in single precision via the MUMPS package.&lt;/p&gt;&lt;/ul&gt;
+    /// Use this factor to scale the Reynolds number of your simulation. For example, to change the Reynolds number from 10&lt;sup&gt;8&lt;/sup&gt; to 10&lt;sup&gt;6&lt;/sup&gt;, set this factor to 0.01. &lt;a href&#x3D; https://www.simscale.com/docs/incompressible-lbm-lattice-boltzmann-advanced/#reynolds-scaling-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(MUMPSPreconditoner), "MUMPS_LDLT")]
-    [JsonSubtypes.KnownSubType(typeof(IncompletePreconditionerV33), "INCOMPLETE_LDLT_V33")]
-    public interface OneOfGCPCSolverPreconditioner
+    [JsonSubtypes.KnownSubType(typeof(AutomaticReynoldsScaling), "AUTOMATIC_REYNOLDS_SCALING")]
+    [JsonSubtypes.KnownSubType(typeof(ManualReynoldsScaling), "MANUAL_REYNOLDS_SCALING")]
+    public interface OneOfPacefishAutomeshReynoldsScalingType
     {
         /// <summary>
         /// Gets Type

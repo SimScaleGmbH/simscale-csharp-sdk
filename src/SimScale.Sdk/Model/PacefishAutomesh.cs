@@ -39,14 +39,16 @@ namespace SimScale.Sdk.Model
         /// <param name="type">&lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishAutomesh (required) (default to &quot;PACEFISH_AUTOMESH&quot;).</param>
         /// <param name="newFineness">newFineness.</param>
         /// <param name="referenceLengthComputation">referenceLengthComputation.</param>
+        /// <param name="reynoldsScalingType">reynoldsScalingType.</param>
         /// <param name="primaryTopology">primaryTopology.</param>
         /// <param name="refinements">refinements.</param>
-        public PacefishAutomesh(string type = "PACEFISH_AUTOMESH", OneOfPacefishAutomeshNewFineness newFineness = default(OneOfPacefishAutomeshNewFineness), OneOfPacefishAutomeshReferenceLengthComputation referenceLengthComputation = default(OneOfPacefishAutomeshReferenceLengthComputation), OneOfPacefishAutomeshPrimaryTopology primaryTopology = default(OneOfPacefishAutomeshPrimaryTopology), List<OneOfPacefishAutomeshRefinements> refinements = default(List<OneOfPacefishAutomeshRefinements>))
+        public PacefishAutomesh(string type = "PACEFISH_AUTOMESH", OneOfPacefishAutomeshNewFineness newFineness = default(OneOfPacefishAutomeshNewFineness), OneOfPacefishAutomeshReferenceLengthComputation referenceLengthComputation = default(OneOfPacefishAutomeshReferenceLengthComputation), OneOfPacefishAutomeshReynoldsScalingType reynoldsScalingType = default(OneOfPacefishAutomeshReynoldsScalingType), OneOfPacefishAutomeshPrimaryTopology primaryTopology = default(OneOfPacefishAutomeshPrimaryTopology), List<OneOfPacefishAutomeshRefinements> refinements = default(List<OneOfPacefishAutomeshRefinements>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PacefishAutomesh and cannot be null");
             this.NewFineness = newFineness;
             this.ReferenceLengthComputation = referenceLengthComputation;
+            this.ReynoldsScalingType = reynoldsScalingType;
             this.PrimaryTopology = primaryTopology;
             this.Refinements = refinements;
         }
@@ -71,6 +73,12 @@ namespace SimScale.Sdk.Model
         public OneOfPacefishAutomeshReferenceLengthComputation ReferenceLengthComputation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReynoldsScalingType
+        /// </summary>
+        [DataMember(Name="reynoldsScalingType", EmitDefaultValue=false)]
+        public OneOfPacefishAutomeshReynoldsScalingType ReynoldsScalingType { get; set; }
+
+        /// <summary>
         /// Gets or Sets PrimaryTopology
         /// </summary>
         [DataMember(Name="primaryTopology", EmitDefaultValue=false)]
@@ -93,6 +101,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  NewFineness: ").Append(NewFineness).Append("\n");
             sb.Append("  ReferenceLengthComputation: ").Append(ReferenceLengthComputation).Append("\n");
+            sb.Append("  ReynoldsScalingType: ").Append(ReynoldsScalingType).Append("\n");
             sb.Append("  PrimaryTopology: ").Append(PrimaryTopology).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("}\n");
@@ -145,6 +154,11 @@ namespace SimScale.Sdk.Model
                     this.ReferenceLengthComputation.Equals(input.ReferenceLengthComputation))
                 ) && 
                 (
+                    this.ReynoldsScalingType == input.ReynoldsScalingType ||
+                    (this.ReynoldsScalingType != null &&
+                    this.ReynoldsScalingType.Equals(input.ReynoldsScalingType))
+                ) && 
+                (
                     this.PrimaryTopology == input.PrimaryTopology ||
                     (this.PrimaryTopology != null &&
                     this.PrimaryTopology.Equals(input.PrimaryTopology))
@@ -172,6 +186,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.NewFineness.GetHashCode();
                 if (this.ReferenceLengthComputation != null)
                     hashCode = hashCode * 59 + this.ReferenceLengthComputation.GetHashCode();
+                if (this.ReynoldsScalingType != null)
+                    hashCode = hashCode * 59 + this.ReynoldsScalingType.GetHashCode();
                 if (this.PrimaryTopology != null)
                     hashCode = hashCode * 59 + this.PrimaryTopology.GetHashCode();
                 if (this.Refinements != null)

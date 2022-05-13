@@ -23,45 +23,26 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// UnitMassFlowRate
+    /// Stabilization
     /// </summary>
     [DataContract]
-    public partial class UnitMassFlowRate : IEquatable<UnitMassFlowRate>
+    public partial class Stabilization : IEquatable<Stabilization>
     {
         /// <summary>
-        /// Defines Unit
+        /// Initializes a new instance of the <see cref="Stabilization" /> class.
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum UnitEnum
+        /// <param name="fieldLimits">fieldLimits.</param>
+        public Stabilization(FieldLimits fieldLimits = default(FieldLimits))
         {
-            /// <summary>
-            /// Enum KgS for value: kg/s
-            /// </summary>
-            [EnumMember(Value = "kg/s")]
-            KgS = 1,
-
-            /// <summary>
-            /// Enum LbS for value: lb/s
-            /// </summary>
-            [EnumMember(Value = "lb/s")]
-            LbS = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Unit
-        /// </summary>
-        [DataMember(Name="unit", EmitDefaultValue=false)]
-        public UnitEnum? Unit { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnitMassFlowRate" /> class.
-        /// </summary>
-        /// <param name="unit">unit.</param>
-        public UnitMassFlowRate(UnitEnum? unit = default(UnitEnum?))
-        {
-            this.Unit = unit;
+            this.FieldLimits = fieldLimits;
         }
         
+        /// <summary>
+        /// Gets or Sets FieldLimits
+        /// </summary>
+        [DataMember(Name="fieldLimits", EmitDefaultValue=false)]
+        public FieldLimits FieldLimits { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -69,8 +50,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UnitMassFlowRate {\n");
-            sb.Append("  Unit: ").Append(Unit).Append("\n");
+            sb.Append("class Stabilization {\n");
+            sb.Append("  FieldLimits: ").Append(FieldLimits).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,23 +72,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UnitMassFlowRate);
+            return this.Equals(input as Stabilization);
         }
 
         /// <summary>
-        /// Returns true if UnitMassFlowRate instances are equal
+        /// Returns true if Stabilization instances are equal
         /// </summary>
-        /// <param name="input">Instance of UnitMassFlowRate to be compared</param>
+        /// <param name="input">Instance of Stabilization to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UnitMassFlowRate input)
+        public bool Equals(Stabilization input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Unit == input.Unit ||
-                    this.Unit.Equals(input.Unit)
+                    this.FieldLimits == input.FieldLimits ||
+                    (this.FieldLimits != null &&
+                    this.FieldLimits.Equals(input.FieldLimits))
                 );
         }
 
@@ -120,7 +102,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Unit.GetHashCode();
+                if (this.FieldLimits != null)
+                    hashCode = hashCode * 59 + this.FieldLimits.GetHashCode();
                 return hashCode;
             }
         }
