@@ -43,6 +43,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(RemoteForceLoadBC), "REMOTE_FORCE_LOAD")]
     [JsonSubtypes.KnownSubType(typeof(SurfaceLoadBC), "SURFACE_LOAD")]
     [JsonSubtypes.KnownSubType(typeof(VolumeLoadBC), "VOLUME_LOAD")]
+    [JsonSubtypes.KnownSubType(typeof(HingeConstraintBC), "HINGE_CONSTRAINT")]
     public interface OneOfStaticAnalysisBoundaryConditions
     {
         /// <summary>

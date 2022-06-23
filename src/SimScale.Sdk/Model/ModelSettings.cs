@@ -29,6 +29,11 @@ namespace SimScale.Sdk.Model
     public partial class ModelSettings : IEquatable<ModelSettings>
     {
         /// <summary>
+        /// Gets or Sets RenderMode
+        /// </summary>
+        [DataMember(Name="renderMode", EmitDefaultValue=false)]
+        public RenderMode? RenderMode { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ModelSettings" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -42,7 +47,10 @@ namespace SimScale.Sdk.Model
         /// <param name="scalarField">scalarField.</param>
         /// <param name="scalarSettings">scalarSettings.</param>
         /// <param name="vectorSettings">The settings for the different vectors of the model..</param>
-        public ModelSettings(List<Part> parts = default(List<Part>), bool? hideSelectedParts = false, bool? showVolumes = default(bool?), ScalarField scalarField = default(ScalarField), List<ScalarSettings> scalarSettings = default(List<ScalarSettings>), List<VectorSettings> vectorSettings = default(List<VectorSettings>))
+        /// <param name="opacity">opacity.</param>
+        /// <param name="renderMode">renderMode.</param>
+        /// <param name="solidColor">solidColor.</param>
+        public ModelSettings(List<Part> parts = default(List<Part>), bool? hideSelectedParts = false, bool? showVolumes = default(bool?), ScalarField scalarField = default(ScalarField), List<ScalarSettings> scalarSettings = default(List<ScalarSettings>), List<VectorSettings> vectorSettings = default(List<VectorSettings>), double? opacity = default(double?), RenderMode? renderMode = default(RenderMode?), Color solidColor = default(Color))
         {
             // to ensure "hideSelectedParts" is required (not null)
             this.HideSelectedParts = hideSelectedParts ?? throw new ArgumentNullException("hideSelectedParts is a required property for ModelSettings and cannot be null");
@@ -51,6 +59,9 @@ namespace SimScale.Sdk.Model
             this.ScalarField = scalarField;
             this.ScalarSettings = scalarSettings;
             this.VectorSettings = vectorSettings;
+            this.Opacity = opacity;
+            this.RenderMode = renderMode;
+            this.SolidColor = solidColor;
         }
         
         /// <summary>
@@ -94,6 +105,18 @@ namespace SimScale.Sdk.Model
         public List<VectorSettings> VectorSettings { get; set; }
 
         /// <summary>
+        /// Gets or Sets Opacity
+        /// </summary>
+        [DataMember(Name="opacity", EmitDefaultValue=false)]
+        public double? Opacity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SolidColor
+        /// </summary>
+        [DataMember(Name="solidColor", EmitDefaultValue=false)]
+        public Color SolidColor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +130,9 @@ namespace SimScale.Sdk.Model
             sb.Append("  ScalarField: ").Append(ScalarField).Append("\n");
             sb.Append("  ScalarSettings: ").Append(ScalarSettings).Append("\n");
             sb.Append("  VectorSettings: ").Append(VectorSettings).Append("\n");
+            sb.Append("  Opacity: ").Append(Opacity).Append("\n");
+            sb.Append("  RenderMode: ").Append(RenderMode).Append("\n");
+            sb.Append("  SolidColor: ").Append(SolidColor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,6 +199,20 @@ namespace SimScale.Sdk.Model
                     this.VectorSettings != null &&
                     input.VectorSettings != null &&
                     this.VectorSettings.SequenceEqual(input.VectorSettings)
+                ) && 
+                (
+                    this.Opacity == input.Opacity ||
+                    (this.Opacity != null &&
+                    this.Opacity.Equals(input.Opacity))
+                ) && 
+                (
+                    this.RenderMode == input.RenderMode ||
+                    this.RenderMode.Equals(input.RenderMode)
+                ) && 
+                (
+                    this.SolidColor == input.SolidColor ||
+                    (this.SolidColor != null &&
+                    this.SolidColor.Equals(input.SolidColor))
                 );
         }
 
@@ -197,6 +237,11 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ScalarSettings.GetHashCode();
                 if (this.VectorSettings != null)
                     hashCode = hashCode * 59 + this.VectorSettings.GetHashCode();
+                if (this.Opacity != null)
+                    hashCode = hashCode * 59 + this.Opacity.GetHashCode();
+                hashCode = hashCode * 59 + this.RenderMode.GetHashCode();
+                if (this.SolidColor != null)
+                    hashCode = hashCode * 59 + this.SolidColor.GetHashCode();
                 return hashCode;
             }
         }

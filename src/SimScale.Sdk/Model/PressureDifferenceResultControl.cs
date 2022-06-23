@@ -29,6 +29,60 @@ namespace SimScale.Sdk.Model
     public partial class PressureDifferenceResultControl : OneOfFluidResultControlsSurfaceData, IEquatable<PressureDifferenceResultControl>
     {
         /// <summary>
+        /// &lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt;</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum InletFacePressureDifferenceTypeEnum
+        {
+            /// <summary>
+            /// Enum STATICPRESSURE for value: STATIC_PRESSURE
+            /// </summary>
+            [EnumMember(Value = "STATIC_PRESSURE")]
+            STATICPRESSURE = 1,
+
+            /// <summary>
+            /// Enum TOTALPRESSURE for value: TOTAL_PRESSURE
+            /// </summary>
+            [EnumMember(Value = "TOTAL_PRESSURE")]
+            TOTALPRESSURE = 2
+
+        }
+
+        /// <summary>
+        /// &lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt;</value>
+        [DataMember(Name="inletFacePressureDifferenceType", EmitDefaultValue=false)]
+        public InletFacePressureDifferenceTypeEnum? InletFacePressureDifferenceType { get; set; }
+        /// <summary>
+        /// &lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt;</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum OutletFacePressureDifferenceTypeEnum
+        {
+            /// <summary>
+            /// Enum STATICPRESSURE for value: STATIC_PRESSURE
+            /// </summary>
+            [EnumMember(Value = "STATIC_PRESSURE")]
+            STATICPRESSURE = 1,
+
+            /// <summary>
+            /// Enum TOTALPRESSURE for value: TOTAL_PRESSURE
+            /// </summary>
+            [EnumMember(Value = "TOTAL_PRESSURE")]
+            TOTALPRESSURE = 2
+
+        }
+
+        /// <summary>
+        /// &lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt;</value>
+        [DataMember(Name="outletFacePressureDifferenceType", EmitDefaultValue=false)]
+        public OutletFacePressureDifferenceTypeEnum? OutletFacePressureDifferenceType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="PressureDifferenceResultControl" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -38,14 +92,18 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: PressureDifferenceResultControl (required) (default to &quot;PRESSURE_DIFFERENCE&quot;).</param>
         /// <param name="name">name.</param>
+        /// <param name="inletFacePressureDifferenceType">&lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt; (default to InletFacePressureDifferenceTypeEnum.STATICPRESSURE).</param>
         /// <param name="inletFaceTopologicalReference">inletFaceTopologicalReference.</param>
+        /// <param name="outletFacePressureDifferenceType">&lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt; (default to OutletFacePressureDifferenceTypeEnum.STATICPRESSURE).</param>
         /// <param name="outletFaceTopologicalReference">outletFaceTopologicalReference.</param>
-        public PressureDifferenceResultControl(string type = "PRESSURE_DIFFERENCE", string name = default(string), TopologicalReference inletFaceTopologicalReference = default(TopologicalReference), TopologicalReference outletFaceTopologicalReference = default(TopologicalReference))
+        public PressureDifferenceResultControl(string type = "PRESSURE_DIFFERENCE", string name = default(string), InletFacePressureDifferenceTypeEnum? inletFacePressureDifferenceType = default(InletFacePressureDifferenceTypeEnum?), TopologicalReference inletFaceTopologicalReference = default(TopologicalReference), OutletFacePressureDifferenceTypeEnum? outletFacePressureDifferenceType = default(OutletFacePressureDifferenceTypeEnum?), TopologicalReference outletFaceTopologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureDifferenceResultControl and cannot be null");
             this.Name = name;
+            this.InletFacePressureDifferenceType = inletFacePressureDifferenceType;
             this.InletFaceTopologicalReference = inletFaceTopologicalReference;
+            this.OutletFacePressureDifferenceType = outletFacePressureDifferenceType;
             this.OutletFaceTopologicalReference = outletFaceTopologicalReference;
         }
         
@@ -84,7 +142,9 @@ namespace SimScale.Sdk.Model
             sb.Append("class PressureDifferenceResultControl {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  InletFacePressureDifferenceType: ").Append(InletFacePressureDifferenceType).Append("\n");
             sb.Append("  InletFaceTopologicalReference: ").Append(InletFaceTopologicalReference).Append("\n");
+            sb.Append("  OutletFacePressureDifferenceType: ").Append(OutletFacePressureDifferenceType).Append("\n");
             sb.Append("  OutletFaceTopologicalReference: ").Append(OutletFaceTopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -131,9 +191,17 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.InletFacePressureDifferenceType == input.InletFacePressureDifferenceType ||
+                    this.InletFacePressureDifferenceType.Equals(input.InletFacePressureDifferenceType)
+                ) && 
+                (
                     this.InletFaceTopologicalReference == input.InletFaceTopologicalReference ||
                     (this.InletFaceTopologicalReference != null &&
                     this.InletFaceTopologicalReference.Equals(input.InletFaceTopologicalReference))
+                ) && 
+                (
+                    this.OutletFacePressureDifferenceType == input.OutletFacePressureDifferenceType ||
+                    this.OutletFacePressureDifferenceType.Equals(input.OutletFacePressureDifferenceType)
                 ) && 
                 (
                     this.OutletFaceTopologicalReference == input.OutletFaceTopologicalReference ||
@@ -155,8 +223,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.InletFacePressureDifferenceType.GetHashCode();
                 if (this.InletFaceTopologicalReference != null)
                     hashCode = hashCode * 59 + this.InletFaceTopologicalReference.GetHashCode();
+                hashCode = hashCode * 59 + this.OutletFacePressureDifferenceType.GetHashCode();
                 if (this.OutletFaceTopologicalReference != null)
                     hashCode = hashCode * 59 + this.OutletFaceTopologicalReference.GetHashCode();
                 return hashCode;

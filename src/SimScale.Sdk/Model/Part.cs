@@ -32,7 +32,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets RenderMode
         /// </summary>
         [DataMember(Name="renderMode", EmitDefaultValue=false)]
-        public RenderMode RenderMode { get; set; }
+        public RenderMode? RenderMode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Part" /> class.
         /// </summary>
@@ -42,15 +42,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Part" /> class.
         /// </summary>
         /// <param name="partIdentifier">The identifier of the part in the result. (required).</param>
-        /// <param name="opacity">opacity (required) (default to 1.0D).</param>
-        /// <param name="renderMode">renderMode (required).</param>
+        /// <param name="opacity">opacity.</param>
+        /// <param name="renderMode">renderMode.</param>
         /// <param name="solidColor">solidColor.</param>
-        public Part(string partIdentifier = default(string), double? opacity = 1.0D, RenderMode renderMode = default(RenderMode), Color solidColor = default(Color))
+        public Part(string partIdentifier = default(string), double? opacity = default(double?), RenderMode? renderMode = default(RenderMode?), Color solidColor = default(Color))
         {
             // to ensure "partIdentifier" is required (not null)
             this.PartIdentifier = partIdentifier ?? throw new ArgumentNullException("partIdentifier is a required property for Part and cannot be null");
-            // to ensure "opacity" is required (not null)
-            this.Opacity = opacity ?? throw new ArgumentNullException("opacity is a required property for Part and cannot be null");
+            this.Opacity = opacity;
             this.RenderMode = renderMode;
             this.SolidColor = solidColor;
         }

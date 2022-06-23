@@ -38,21 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: ManualSimericsMeshSettings (required) (default to &quot;MANUAL_SETTINGS&quot;).</param>
         /// <param name="refinements">refinements.</param>
-        /// <param name="minimumCellSize">minimumCellSize.</param>
-        /// <param name="maximumCellSize">maximumCellSize.</param>
-        /// <param name="cellSizeOnSurfaces">cellSizeOnSurfaces.</param>
-        /// <param name="enableGrowthRate">&lt;p&gt;&lt;b&gt;Specify growth rate&lt;/b&gt;: Define the cell size growth rate between interior cells and surface cells.&lt;/p&gt; (default to false).</param>
-        /// <param name="growthRate">The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between interior cell size and surface cell size. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1 and smaller or equal to 8, such that the cell size increases towards the interior of the mesh. (default to 2).</param>
-        public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), DimensionalLength minimumCellSize = default(DimensionalLength), DimensionalLength maximumCellSize = default(DimensionalLength), DimensionalLength cellSizeOnSurfaces = default(DimensionalLength), bool? enableGrowthRate = default(bool?), int? growthRate = default(int?))
+        /// <param name="cellSizeSpecification">cellSizeSpecification.</param>
+        public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), OneOfManualSimericsMeshSettingsCellSizeSpecification cellSizeSpecification = default(OneOfManualSimericsMeshSettingsCellSizeSpecification))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ManualSimericsMeshSettings and cannot be null");
             this.Refinements = refinements;
-            this.MinimumCellSize = minimumCellSize;
-            this.MaximumCellSize = maximumCellSize;
-            this.CellSizeOnSurfaces = cellSizeOnSurfaces;
-            this.EnableGrowthRate = enableGrowthRate;
-            this.GrowthRate = growthRate;
+            this.CellSizeSpecification = cellSizeSpecification;
         }
         
         /// <summary>
@@ -69,36 +61,10 @@ namespace SimScale.Sdk.Model
         public List<RegionRefinementSimerics> Refinements { get; set; }
 
         /// <summary>
-        /// Gets or Sets MinimumCellSize
+        /// Gets or Sets CellSizeSpecification
         /// </summary>
-        [DataMember(Name="minimumCellSize", EmitDefaultValue=false)]
-        public DimensionalLength MinimumCellSize { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MaximumCellSize
-        /// </summary>
-        [DataMember(Name="maximumCellSize", EmitDefaultValue=false)]
-        public DimensionalLength MaximumCellSize { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CellSizeOnSurfaces
-        /// </summary>
-        [DataMember(Name="cellSizeOnSurfaces", EmitDefaultValue=false)]
-        public DimensionalLength CellSizeOnSurfaces { get; set; }
-
-        /// <summary>
-        /// &lt;p&gt;&lt;b&gt;Specify growth rate&lt;/b&gt;: Define the cell size growth rate between interior cells and surface cells.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;&lt;b&gt;Specify growth rate&lt;/b&gt;: Define the cell size growth rate between interior cells and surface cells.&lt;/p&gt;</value>
-        [DataMember(Name="enableGrowthRate", EmitDefaultValue=false)]
-        public bool? EnableGrowthRate { get; set; }
-
-        /// <summary>
-        /// The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between interior cell size and surface cell size. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1 and smaller or equal to 8, such that the cell size increases towards the interior of the mesh.
-        /// </summary>
-        /// <value>The &lt;i&gt;Growth rate&lt;/i&gt; defines the cell size ratio between interior cell size and surface cell size. It needs to be &lt;b&gt;a whole number&lt;/b&gt; always greater than 1 and smaller or equal to 8, such that the cell size increases towards the interior of the mesh.</value>
-        [DataMember(Name="growthRate", EmitDefaultValue=false)]
-        public int? GrowthRate { get; set; }
+        [DataMember(Name="cellSizeSpecification", EmitDefaultValue=false)]
+        public OneOfManualSimericsMeshSettingsCellSizeSpecification CellSizeSpecification { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,11 +76,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class ManualSimericsMeshSettings {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
-            sb.Append("  MinimumCellSize: ").Append(MinimumCellSize).Append("\n");
-            sb.Append("  MaximumCellSize: ").Append(MaximumCellSize).Append("\n");
-            sb.Append("  CellSizeOnSurfaces: ").Append(CellSizeOnSurfaces).Append("\n");
-            sb.Append("  EnableGrowthRate: ").Append(EnableGrowthRate).Append("\n");
-            sb.Append("  GrowthRate: ").Append(GrowthRate).Append("\n");
+            sb.Append("  CellSizeSpecification: ").Append(CellSizeSpecification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,29 +123,9 @@ namespace SimScale.Sdk.Model
                     this.Refinements.SequenceEqual(input.Refinements)
                 ) && 
                 (
-                    this.MinimumCellSize == input.MinimumCellSize ||
-                    (this.MinimumCellSize != null &&
-                    this.MinimumCellSize.Equals(input.MinimumCellSize))
-                ) && 
-                (
-                    this.MaximumCellSize == input.MaximumCellSize ||
-                    (this.MaximumCellSize != null &&
-                    this.MaximumCellSize.Equals(input.MaximumCellSize))
-                ) && 
-                (
-                    this.CellSizeOnSurfaces == input.CellSizeOnSurfaces ||
-                    (this.CellSizeOnSurfaces != null &&
-                    this.CellSizeOnSurfaces.Equals(input.CellSizeOnSurfaces))
-                ) && 
-                (
-                    this.EnableGrowthRate == input.EnableGrowthRate ||
-                    (this.EnableGrowthRate != null &&
-                    this.EnableGrowthRate.Equals(input.EnableGrowthRate))
-                ) && 
-                (
-                    this.GrowthRate == input.GrowthRate ||
-                    (this.GrowthRate != null &&
-                    this.GrowthRate.Equals(input.GrowthRate))
+                    this.CellSizeSpecification == input.CellSizeSpecification ||
+                    (this.CellSizeSpecification != null &&
+                    this.CellSizeSpecification.Equals(input.CellSizeSpecification))
                 );
         }
 
@@ -200,16 +142,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Refinements != null)
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
-                if (this.MinimumCellSize != null)
-                    hashCode = hashCode * 59 + this.MinimumCellSize.GetHashCode();
-                if (this.MaximumCellSize != null)
-                    hashCode = hashCode * 59 + this.MaximumCellSize.GetHashCode();
-                if (this.CellSizeOnSurfaces != null)
-                    hashCode = hashCode * 59 + this.CellSizeOnSurfaces.GetHashCode();
-                if (this.EnableGrowthRate != null)
-                    hashCode = hashCode * 59 + this.EnableGrowthRate.GetHashCode();
-                if (this.GrowthRate != null)
-                    hashCode = hashCode * 59 + this.GrowthRate.GetHashCode();
+                if (this.CellSizeSpecification != null)
+                    hashCode = hashCode * 59 + this.CellSizeSpecification.GetHashCode();
                 return hashCode;
             }
         }

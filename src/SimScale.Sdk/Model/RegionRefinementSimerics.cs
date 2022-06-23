@@ -38,14 +38,16 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: RegionRefinementSimerics (required) (default to &quot;REGION_REFINEMENT_SIMERICS&quot;).</param>
         /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
-        /// <param name="refinementCellSize">refinementCellSize.</param>
+        /// <param name="refinementCellSizeAbsolute">refinementCellSizeAbsolute.</param>
+        /// <param name="refinementCellSizeRelative">This parameter defines the length scale to which the entire region enclosed by the refinement zone needs to be resolved. Due to the binary-tree mesh generation approach applied, the actual cell size might be equal or smaller than the target cell size specified. Choosing a finer resolution will resolve the enclosed region to a greater level of detail, but will result in a larger mesh. This typically means longer runtimes and bigger sizes of results. (default to 1M).</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public RegionRefinementSimerics(string type = "REGION_REFINEMENT_SIMERICS", string name = default(string), DimensionalLength refinementCellSize = default(DimensionalLength), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public RegionRefinementSimerics(string type = "REGION_REFINEMENT_SIMERICS", string name = default(string), DimensionalLength refinementCellSizeAbsolute = default(DimensionalLength), decimal? refinementCellSizeRelative = default(decimal?), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RegionRefinementSimerics and cannot be null");
             this.Name = name;
-            this.RefinementCellSize = refinementCellSize;
+            this.RefinementCellSizeAbsolute = refinementCellSizeAbsolute;
+            this.RefinementCellSizeRelative = refinementCellSizeRelative;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         
@@ -63,10 +65,17 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets RefinementCellSize
+        /// Gets or Sets RefinementCellSizeAbsolute
         /// </summary>
-        [DataMember(Name="refinementCellSize", EmitDefaultValue=false)]
-        public DimensionalLength RefinementCellSize { get; set; }
+        [DataMember(Name="refinementCellSizeAbsolute", EmitDefaultValue=false)]
+        public DimensionalLength RefinementCellSizeAbsolute { get; set; }
+
+        /// <summary>
+        /// This parameter defines the length scale to which the entire region enclosed by the refinement zone needs to be resolved. Due to the binary-tree mesh generation approach applied, the actual cell size might be equal or smaller than the target cell size specified. Choosing a finer resolution will resolve the enclosed region to a greater level of detail, but will result in a larger mesh. This typically means longer runtimes and bigger sizes of results.
+        /// </summary>
+        /// <value>This parameter defines the length scale to which the entire region enclosed by the refinement zone needs to be resolved. Due to the binary-tree mesh generation approach applied, the actual cell size might be equal or smaller than the target cell size specified. Choosing a finer resolution will resolve the enclosed region to a greater level of detail, but will result in a larger mesh. This typically means longer runtimes and bigger sizes of results.</value>
+        [DataMember(Name="refinementCellSizeRelative", EmitDefaultValue=false)]
+        public decimal? RefinementCellSizeRelative { get; set; }
 
         /// <summary>
         /// Gets or Sets GeometryPrimitiveUuids
@@ -84,7 +93,8 @@ namespace SimScale.Sdk.Model
             sb.Append("class RegionRefinementSimerics {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  RefinementCellSize: ").Append(RefinementCellSize).Append("\n");
+            sb.Append("  RefinementCellSizeAbsolute: ").Append(RefinementCellSizeAbsolute).Append("\n");
+            sb.Append("  RefinementCellSizeRelative: ").Append(RefinementCellSizeRelative).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -131,9 +141,14 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.RefinementCellSize == input.RefinementCellSize ||
-                    (this.RefinementCellSize != null &&
-                    this.RefinementCellSize.Equals(input.RefinementCellSize))
+                    this.RefinementCellSizeAbsolute == input.RefinementCellSizeAbsolute ||
+                    (this.RefinementCellSizeAbsolute != null &&
+                    this.RefinementCellSizeAbsolute.Equals(input.RefinementCellSizeAbsolute))
+                ) && 
+                (
+                    this.RefinementCellSizeRelative == input.RefinementCellSizeRelative ||
+                    (this.RefinementCellSizeRelative != null &&
+                    this.RefinementCellSizeRelative.Equals(input.RefinementCellSizeRelative))
                 ) && 
                 (
                     this.GeometryPrimitiveUuids == input.GeometryPrimitiveUuids ||
@@ -156,8 +171,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.RefinementCellSize != null)
-                    hashCode = hashCode * 59 + this.RefinementCellSize.GetHashCode();
+                if (this.RefinementCellSizeAbsolute != null)
+                    hashCode = hashCode * 59 + this.RefinementCellSizeAbsolute.GetHashCode();
+                if (this.RefinementCellSizeRelative != null)
+                    hashCode = hashCode * 59 + this.RefinementCellSizeRelative.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)
                     hashCode = hashCode * 59 + this.GeometryPrimitiveUuids.GetHashCode();
                 return hashCode;

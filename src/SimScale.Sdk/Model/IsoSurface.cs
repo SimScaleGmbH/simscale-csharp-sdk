@@ -31,26 +31,20 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsoSurface" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected IsoSurface() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="IsoSurface" /> class.
-        /// </summary>
         /// <param name="isoScalar">isoScalar.</param>
         /// <param name="isoValue">The iso scalar value. Should be within the selected scalar range. Default value is the average between the min and max in the range..</param>
         /// <param name="scalarField">scalarField.</param>
         /// <param name="solidColor">solidColor.</param>
         /// <param name="vectorField">vectorField.</param>
-        /// <param name="opacity">opacity (required) (default to 1.0D).</param>
-        public IsoSurface(ScalarField isoScalar = default(ScalarField), float? isoValue = default(float?), ScalarField scalarField = default(ScalarField), Color solidColor = default(Color), VectorField vectorField = default(VectorField), double? opacity = 1.0D)
+        /// <param name="opacity">opacity.</param>
+        public IsoSurface(ScalarField isoScalar = default(ScalarField), float? isoValue = default(float?), ScalarField scalarField = default(ScalarField), Color solidColor = default(Color), VectorField vectorField = default(VectorField), double? opacity = default(double?))
         {
-            // to ensure "opacity" is required (not null)
-            this.Opacity = opacity ?? throw new ArgumentNullException("opacity is a required property for IsoSurface and cannot be null");
             this.IsoScalar = isoScalar;
             this.IsoValue = isoValue;
             this.ScalarField = scalarField;
             this.SolidColor = solidColor;
             this.VectorField = vectorField;
+            this.Opacity = opacity;
         }
         
         /// <summary>

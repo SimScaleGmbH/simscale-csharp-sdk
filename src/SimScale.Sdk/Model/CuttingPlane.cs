@@ -32,7 +32,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets RenderMode
         /// </summary>
         [DataMember(Name="renderMode", EmitDefaultValue=false)]
-        public RenderMode RenderMode { get; set; }
+        public RenderMode? RenderMode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CuttingPlane" /> class.
         /// </summary>
@@ -44,14 +44,14 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name (required).</param>
         /// <param name="center">center (required).</param>
         /// <param name="normal">normal (required).</param>
-        /// <param name="opacity">opacity (required) (default to 1.0D).</param>
+        /// <param name="opacity">opacity.</param>
         /// <param name="clipping">clipping (required) (default to true).</param>
         /// <param name="vectorGridSpacing">This field is required if projectVectorsOntoPlane is set to true. (default to 0.02D).</param>
         /// <param name="scalarField">scalarField.</param>
         /// <param name="vectorField">vectorField.</param>
         /// <param name="projectVectorsOntoPlane">If a vectorField is provided, this flag will project the vector field onto the cutting plane. (required) (default to false).</param>
-        /// <param name="renderMode">renderMode (required).</param>
-        public CuttingPlane(string name = default(string), Vector3D center = default(Vector3D), Vector3D normal = default(Vector3D), double? opacity = 1.0D, bool? clipping = true, double? vectorGridSpacing = default(double?), ScalarField scalarField = default(ScalarField), VectorField vectorField = default(VectorField), bool? projectVectorsOntoPlane = false, RenderMode renderMode = default(RenderMode))
+        /// <param name="renderMode">renderMode.</param>
+        public CuttingPlane(string name = default(string), Vector3D center = default(Vector3D), Vector3D normal = default(Vector3D), double? opacity = default(double?), bool? clipping = true, double? vectorGridSpacing = default(double?), ScalarField scalarField = default(ScalarField), VectorField vectorField = default(VectorField), bool? projectVectorsOntoPlane = false, RenderMode? renderMode = default(RenderMode?))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CuttingPlane and cannot be null");
@@ -59,16 +59,15 @@ namespace SimScale.Sdk.Model
             this.Center = center ?? throw new ArgumentNullException("center is a required property for CuttingPlane and cannot be null");
             // to ensure "normal" is required (not null)
             this.Normal = normal ?? throw new ArgumentNullException("normal is a required property for CuttingPlane and cannot be null");
-            // to ensure "opacity" is required (not null)
-            this.Opacity = opacity ?? throw new ArgumentNullException("opacity is a required property for CuttingPlane and cannot be null");
             // to ensure "clipping" is required (not null)
             this.Clipping = clipping ?? throw new ArgumentNullException("clipping is a required property for CuttingPlane and cannot be null");
             // to ensure "projectVectorsOntoPlane" is required (not null)
             this.ProjectVectorsOntoPlane = projectVectorsOntoPlane ?? throw new ArgumentNullException("projectVectorsOntoPlane is a required property for CuttingPlane and cannot be null");
-            this.RenderMode = renderMode;
+            this.Opacity = opacity;
             this.VectorGridSpacing = vectorGridSpacing;
             this.ScalarField = scalarField;
             this.VectorField = vectorField;
+            this.RenderMode = renderMode;
         }
         
         /// <summary>

@@ -47,6 +47,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(SurfaceHeatFluxBC), "SURFACE_HEAT_FLUX")]
     [JsonSubtypes.KnownSubType(typeof(ConvectiveHeatFluxBC), "CONVECTIVE_HEAT_FLUX")]
     [JsonSubtypes.KnownSubType(typeof(VolumeHeatFluxBC), "VOLUME_HEAT_FLUX")]
+    [JsonSubtypes.KnownSubType(typeof(HingeConstraintBC), "HINGE_CONSTRAINT")]
     public interface OneOfThermalMechanicalBoundaryConditions
     {
         /// <summary>

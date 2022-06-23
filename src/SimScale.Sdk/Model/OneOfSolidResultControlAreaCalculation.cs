@@ -30,6 +30,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(MinMaxFieldsCalculationResultControlItem), "MIN_MAX_FIELDS_CALCULATION")]
     [JsonSubtypes.KnownSubType(typeof(AverageFieldsCalculationResultControlItem), "AVERAGE_FIELDS_CALCULATION")]
     [JsonSubtypes.KnownSubType(typeof(SumFieldsCalculationResultControlItem), "SUM_FIELDS_CALCULATION")]
+    [JsonSubtypes.KnownSubType(typeof(HeatFlowCalculationResultControlItem), "HEAT_FLOW_CALCULATION")]
     public interface OneOfSolidResultControlAreaCalculation
     {
         /// <summary>

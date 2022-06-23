@@ -24,17 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfHConstThermoEquationOfState
+    /// OneOfHingeConstraintBCAxisDefinition
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(PerfectGasEquationOfState), "PERFECT_GAS")]
-    [JsonSubtypes.KnownSubType(typeof(RealGasEquationOfState), "REAL_GAS")]
-    [JsonSubtypes.KnownSubType(typeof(RhoConstEquationOfState), "RHO_CONST")]
-    [JsonSubtypes.KnownSubType(typeof(PerfectFluidEquationOfState), "PERFECT_FLUID")]
-    [JsonSubtypes.KnownSubType(typeof(IncompressiblePerfectGasEquationOfState), "INCOMPRESSIBLE_PERFECT_GAS")]
-    [JsonSubtypes.KnownSubType(typeof(AdiabaticPerfectFluidEquationOfState), "ADIABATIC_PERFECT_FLUID")]
-    [JsonSubtypes.KnownSubType(typeof(PengRobinsonGasEquationOfState), "PENG_ROBINSON_GAS")]
-    public interface OneOfHConstThermoEquationOfState
+    [JsonSubtypes.KnownSubType(typeof(CustomAxisDefinition), "CUSTOM")]
+    [JsonSubtypes.KnownSubType(typeof(AutomaticAxisDefinition), "AUTOMATIC")]
+    public interface OneOfHingeConstraintBCAxisDefinition
     {
         /// <summary>
         /// Gets Type

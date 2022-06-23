@@ -31,28 +31,22 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsoVolume" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected IsoVolume() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="IsoVolume" /> class.
-        /// </summary>
         /// <param name="isoScalar">isoScalar.</param>
         /// <param name="minimumIsoValue">The iso scalar minimum value. Should be within the selected scalar range and smaller than the maximumIsoValue. Default value is the third of the range between min and max..</param>
         /// <param name="maximumIsoValue">The iso scalar maximum value. Should be within the selected scalar range and larger than the minimumIsoValue. Default value is 2 thirds of the range between min and max..</param>
         /// <param name="scalarField">scalarField.</param>
         /// <param name="solidColor">solidColor.</param>
         /// <param name="vectorField">vectorField.</param>
-        /// <param name="opacity">opacity (required) (default to 1.0D).</param>
-        public IsoVolume(ScalarField isoScalar = default(ScalarField), float? minimumIsoValue = default(float?), float? maximumIsoValue = default(float?), ScalarField scalarField = default(ScalarField), Color solidColor = default(Color), VectorField vectorField = default(VectorField), double? opacity = 1.0D)
+        /// <param name="opacity">opacity.</param>
+        public IsoVolume(ScalarField isoScalar = default(ScalarField), float? minimumIsoValue = default(float?), float? maximumIsoValue = default(float?), ScalarField scalarField = default(ScalarField), Color solidColor = default(Color), VectorField vectorField = default(VectorField), double? opacity = default(double?))
         {
-            // to ensure "opacity" is required (not null)
-            this.Opacity = opacity ?? throw new ArgumentNullException("opacity is a required property for IsoVolume and cannot be null");
             this.IsoScalar = isoScalar;
             this.MinimumIsoValue = minimumIsoValue;
             this.MaximumIsoValue = maximumIsoValue;
             this.ScalarField = scalarField;
             this.SolidColor = solidColor;
             this.VectorField = vectorField;
+            this.Opacity = opacity;
         }
         
         /// <summary>
