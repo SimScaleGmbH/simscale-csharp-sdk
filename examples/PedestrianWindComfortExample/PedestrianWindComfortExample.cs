@@ -30,6 +30,7 @@ class PedestrianWindComfortExample
         var storageApi = new StorageApi(config);
         var geometryImportApi = new GeometryImportsApi(config);
         var geometryApi = new GeometriesApi(config);
+        var windApi = new WindApi(config);
         var simulationApi = new SimulationsApi(config);
         var simulationRunApi = new SimulationRunsApi(config);
         var reportsApi = new ReportsApi(config);
@@ -92,6 +93,43 @@ class PedestrianWindComfortExample
         var geometry = geometryApi.GetGeometry(projectId, geometryId);
         geometryApi.UpdateGeometry(projectId, geometryId, geometry);
 
+        // The wind data can be user-defined or obtained from the WindApi, as shown in the following two examples:
+
+        // 1. User-defined wind data for simulation spec
+        var windRose = new WindRose(
+            numDirections: 4,
+            velocityBuckets: new List<WindRoseVelocityBucket> {
+                new WindRoseVelocityBucket(from: null, to: 1.234m, fractions: new List<decimal?>{0.1m, 0.1m, 0.1m, 0.1m}),
+                new WindRoseVelocityBucket(from: null, to: 1.234m, fractions: new List<decimal?>{0.0m, 0.1m, 0.1m, 0.1m}),
+                new WindRoseVelocityBucket(from: null, to: 1.234m, fractions: new List<decimal?>{0.0m, 0.0m, 0.1m, 0.1m}),
+                new WindRoseVelocityBucket(from: null, to: 1.234m, fractions: new List<decimal?>{0.0m, 0.0m, 0.0m, 0.1m})
+            },
+            velocityUnit: "m/s",
+            exposureCategories: new List<WindRose.ExposureCategoriesEnum> {
+                WindRose.ExposureCategoriesEnum.EC4,
+                WindRose.ExposureCategoriesEnum.EC4,
+                WindRose.ExposureCategoriesEnum.EC4,
+                WindRose.ExposureCategoriesEnum.EC4
+            },
+            windEngineeringStandard: WindRose.WindEngineeringStandardEnum.EU,
+            windDataSource: WindRose.WindDataSourceEnum.USERUPLOAD,
+            addSurfaceRoughness: false
+        );
+
+        // 2. Get wind data from the WindApi for simulation spec
+        var windApiResponse = windApi.GetWindDataWithHttpInfo("48.135125", "11.581981");
+        if (windApiResponse.StatusCode == HttpStatusCode.TooManyRequests
+            && windApiResponse.Headers.TryGetValue("X-Rate-Limit-Retry-After-Minutes", out var retryAfterMinutes))
+        {
+            throw new Exception($"Exceeded max amount requests, please retry in {retryAfterMinutes} minutes");
+        }
+        windRose = windApiResponse.Data.WindRose;
+        windRose.NumDirections = 4;
+        windRose.ExposureCategories = new List<WindRose.ExposureCategoriesEnum>(
+            Enumerable.Repeat(WindRose.ExposureCategoriesEnum.EC4, windRose.NumDirections.Value)
+        );
+        windRose.AddSurfaceRoughness = false;
+
         // Define simulation spec
         var model = new WindComfort(
             regionOfInterest: new RegionOfInterest(
@@ -108,25 +146,7 @@ class PedestrianWindComfortExample
                     latitude: new DimensionalAngle(value: 48.13512m, unit: DimensionalAngle.UnitEnum.Deg),
                     longitude: new DimensionalAngle(value: 11.581981m, unit: DimensionalAngle.UnitEnum.Deg)
                 ),
-                windRose: new WindRose(
-                    numDirections: 4,
-                    velocityBuckets: new List<WindRoseVelocityBucket> {
-                        new WindRoseVelocityBucket(from: null, to: 1.234m, fractions: new List<decimal?>{0.1m, 0.1m, 0.1m, 0.1m}),
-                        new WindRoseVelocityBucket(from: null, to: 1.234m, fractions: new List<decimal?>{0.0m, 0.1m, 0.1m, 0.1m}),
-                        new WindRoseVelocityBucket(from: null, to: 1.234m, fractions: new List<decimal?>{0.0m, 0.0m, 0.1m, 0.1m}),
-                        new WindRoseVelocityBucket(from: null, to: 1.234m, fractions: new List<decimal?>{0.0m, 0.0m, 0.0m, 0.1m})
-                    },
-                    velocityUnit: "m/s",
-                    exposureCategories: new List<WindRose.ExposureCategoriesEnum> {
-                        WindRose.ExposureCategoriesEnum.EC4,
-                        WindRose.ExposureCategoriesEnum.EC4,
-                        WindRose.ExposureCategoriesEnum.EC4,
-                        WindRose.ExposureCategoriesEnum.EC4
-                    },
-                    windEngineeringStandard: WindRose.WindEngineeringStandardEnum.EU,
-                    windDataSource: WindRose.WindDataSourceEnum.USERUPLOAD,
-                    addSurfaceRoughness: false
-                )
+                windRose: windRose
             ),
             pedestrianComfortMap: new List<PedestrianComfortSurface> {
                 new PedestrianComfortSurface(

@@ -32,8 +32,8 @@ namespace SimScale.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="latitude">Latitude coordinate</param>
-        /// <param name="longitude">Longitude coordinate</param>
+        /// <param name="latitude">Latitude coordinate in WGS84 format</param>
+        /// <param name="longitude">Longitude coordinate in WGS84 format</param>
         /// <returns>WindRoseResponse</returns>
         WindRoseResponse GetWindData (string latitude = default(string), string longitude = default(string));
 
@@ -44,8 +44,8 @@ namespace SimScale.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="latitude">Latitude coordinate</param>
-        /// <param name="longitude">Longitude coordinate</param>
+        /// <param name="latitude">Latitude coordinate in WGS84 format</param>
+        /// <param name="longitude">Longitude coordinate in WGS84 format</param>
         /// <returns>ApiResponse of WindRoseResponse</returns>
         ApiResponse<WindRoseResponse> GetWindDataWithHttpInfo (string latitude = default(string), string longitude = default(string));
         #endregion Synchronous Operations
@@ -64,8 +64,8 @@ namespace SimScale.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="latitude">Latitude coordinate</param>
-        /// <param name="longitude">Longitude coordinate</param>
+        /// <param name="latitude">Latitude coordinate in WGS84 format</param>
+        /// <param name="longitude">Longitude coordinate in WGS84 format</param>
         /// <returns>Task of WindRoseResponse</returns>
         System.Threading.Tasks.Task<WindRoseResponse> GetWindDataAsync (string latitude = default(string), string longitude = default(string));
 
@@ -76,8 +76,8 @@ namespace SimScale.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="latitude">Latitude coordinate</param>
-        /// <param name="longitude">Longitude coordinate</param>
+        /// <param name="latitude">Latitude coordinate in WGS84 format</param>
+        /// <param name="longitude">Longitude coordinate in WGS84 format</param>
         /// <returns>Task of ApiResponse (WindRoseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WindRoseResponse>> GetWindDataAsyncWithHttpInfo (string latitude = default(string), string longitude = default(string));
         #endregion Asynchronous Operations
@@ -204,8 +204,8 @@ namespace SimScale.Sdk.Api
         /// Get wind condition for given coordinates 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="latitude">Latitude coordinate</param>
-        /// <param name="longitude">Longitude coordinate</param>
+        /// <param name="latitude">Latitude coordinate in WGS84 format</param>
+        /// <param name="longitude">Longitude coordinate in WGS84 format</param>
         /// <returns>WindRoseResponse</returns>
         public WindRoseResponse GetWindData (string latitude = default(string), string longitude = default(string))
         {
@@ -217,8 +217,8 @@ namespace SimScale.Sdk.Api
         /// Get wind condition for given coordinates 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="latitude">Latitude coordinate</param>
-        /// <param name="longitude">Longitude coordinate</param>
+        /// <param name="latitude">Latitude coordinate in WGS84 format</param>
+        /// <param name="longitude">Longitude coordinate in WGS84 format</param>
         /// <returns>ApiResponse of WindRoseResponse</returns>
         public SimScale.Sdk.Client.ApiResponse< WindRoseResponse > GetWindDataWithHttpInfo (string latitude = default(string), string longitude = default(string))
         {
@@ -271,8 +271,8 @@ namespace SimScale.Sdk.Api
         /// Get wind condition for given coordinates 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="latitude">Latitude coordinate</param>
-        /// <param name="longitude">Longitude coordinate</param>
+        /// <param name="latitude">Latitude coordinate in WGS84 format</param>
+        /// <param name="longitude">Longitude coordinate in WGS84 format</param>
         /// <returns>Task of WindRoseResponse</returns>
         public async System.Threading.Tasks.Task<WindRoseResponse> GetWindDataAsync (string latitude = default(string), string longitude = default(string))
         {
@@ -285,8 +285,8 @@ namespace SimScale.Sdk.Api
         /// Get wind condition for given coordinates 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="latitude">Latitude coordinate</param>
-        /// <param name="longitude">Longitude coordinate</param>
+        /// <param name="latitude">Latitude coordinate in WGS84 format</param>
+        /// <param name="longitude">Longitude coordinate in WGS84 format</param>
         /// <returns>Task of ApiResponse (WindRoseResponse)</returns>
         public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<WindRoseResponse>> GetWindDataAsyncWithHttpInfo (string latitude = default(string), string longitude = default(string))
         {
