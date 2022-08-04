@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="DistanceRegionRefinementWithLength" /> class.
         /// </summary>
         /// <param name="type">Schema name: DistanceRegionRefinementWithLength (required) (default to &quot;DISTANCE&quot;).</param>
-        /// <param name="distanceRefinementLengths">Define the desired cell edge length based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;descending order&lt;/u&gt; from top to bottom in the table..</param>
+        /// <param name="distanceRefinementLengths">Define the desired cell size based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;increasing order&lt;/u&gt;, while the sizes must be in &lt;u&gt;decreasing order&lt;/u&gt;. When the distance is 0, the corresponding size is applied inside the specified volumes..</param>
         public DistanceRegionRefinementWithLength(string type = "DISTANCE", List<RefinementLength> distanceRefinementLengths = default(List<RefinementLength>))
         {
             // to ensure "type" is required (not null)
@@ -53,9 +53,9 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Define the desired cell edge length based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;descending order&lt;/u&gt; from top to bottom in the table.
+        /// Define the desired cell size based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;increasing order&lt;/u&gt;, while the sizes must be in &lt;u&gt;decreasing order&lt;/u&gt;. When the distance is 0, the corresponding size is applied inside the specified volumes.
         /// </summary>
-        /// <value>Define the desired cell edge length based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;descending order&lt;/u&gt; from top to bottom in the table.</value>
+        /// <value>Define the desired cell size based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;increasing order&lt;/u&gt;, while the sizes must be in &lt;u&gt;decreasing order&lt;/u&gt;. When the distance is 0, the corresponding size is applied inside the specified volumes.</value>
         [DataMember(Name="distanceRefinementLengths", EmitDefaultValue=false)]
         public List<RefinementLength> DistanceRefinementLengths { get; set; }
 

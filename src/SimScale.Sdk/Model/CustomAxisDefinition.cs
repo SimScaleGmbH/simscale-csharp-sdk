@@ -39,20 +39,12 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: CustomAxisDefinition (required) (default to &quot;CUSTOM&quot;).</param>
         /// <param name="axisOrigin">axisOrigin.</param>
         /// <param name="axisDirection">axisDirection.</param>
-        /// <param name="beamRadius">beamRadius.</param>
-        /// <param name="beamStiffness">beamStiffness.</param>
-        /// <param name="beamPoissonRatio">beamPoissonRatio.</param>
-        /// <param name="beamDensity">beamDensity.</param>
-        public CustomAxisDefinition(string type = "CUSTOM", DimensionalVectorLength axisOrigin = default(DimensionalVectorLength), DimensionalVectorDimensionless axisDirection = default(DimensionalVectorDimensionless), DimensionalLength beamRadius = default(DimensionalLength), DimensionalPressure beamStiffness = default(DimensionalPressure), DimensionalDimensionless beamPoissonRatio = default(DimensionalDimensionless), DimensionalDensity beamDensity = default(DimensionalDensity))
+        public CustomAxisDefinition(string type = "CUSTOM", DimensionalVectorLength axisOrigin = default(DimensionalVectorLength), DimensionalVectorDimensionless axisDirection = default(DimensionalVectorDimensionless))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CustomAxisDefinition and cannot be null");
             this.AxisOrigin = axisOrigin;
             this.AxisDirection = axisDirection;
-            this.BeamRadius = beamRadius;
-            this.BeamStiffness = beamStiffness;
-            this.BeamPoissonRatio = beamPoissonRatio;
-            this.BeamDensity = beamDensity;
         }
         
         /// <summary>
@@ -75,30 +67,6 @@ namespace SimScale.Sdk.Model
         public DimensionalVectorDimensionless AxisDirection { get; set; }
 
         /// <summary>
-        /// Gets or Sets BeamRadius
-        /// </summary>
-        [DataMember(Name="beamRadius", EmitDefaultValue=false)]
-        public DimensionalLength BeamRadius { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BeamStiffness
-        /// </summary>
-        [DataMember(Name="beamStiffness", EmitDefaultValue=false)]
-        public DimensionalPressure BeamStiffness { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BeamPoissonRatio
-        /// </summary>
-        [DataMember(Name="beamPoissonRatio", EmitDefaultValue=false)]
-        public DimensionalDimensionless BeamPoissonRatio { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BeamDensity
-        /// </summary>
-        [DataMember(Name="beamDensity", EmitDefaultValue=false)]
-        public DimensionalDensity BeamDensity { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,10 +77,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  AxisOrigin: ").Append(AxisOrigin).Append("\n");
             sb.Append("  AxisDirection: ").Append(AxisDirection).Append("\n");
-            sb.Append("  BeamRadius: ").Append(BeamRadius).Append("\n");
-            sb.Append("  BeamStiffness: ").Append(BeamStiffness).Append("\n");
-            sb.Append("  BeamPoissonRatio: ").Append(BeamPoissonRatio).Append("\n");
-            sb.Append("  BeamDensity: ").Append(BeamDensity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,26 +125,6 @@ namespace SimScale.Sdk.Model
                     this.AxisDirection == input.AxisDirection ||
                     (this.AxisDirection != null &&
                     this.AxisDirection.Equals(input.AxisDirection))
-                ) && 
-                (
-                    this.BeamRadius == input.BeamRadius ||
-                    (this.BeamRadius != null &&
-                    this.BeamRadius.Equals(input.BeamRadius))
-                ) && 
-                (
-                    this.BeamStiffness == input.BeamStiffness ||
-                    (this.BeamStiffness != null &&
-                    this.BeamStiffness.Equals(input.BeamStiffness))
-                ) && 
-                (
-                    this.BeamPoissonRatio == input.BeamPoissonRatio ||
-                    (this.BeamPoissonRatio != null &&
-                    this.BeamPoissonRatio.Equals(input.BeamPoissonRatio))
-                ) && 
-                (
-                    this.BeamDensity == input.BeamDensity ||
-                    (this.BeamDensity != null &&
-                    this.BeamDensity.Equals(input.BeamDensity))
                 );
         }
 
@@ -199,14 +143,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.AxisOrigin.GetHashCode();
                 if (this.AxisDirection != null)
                     hashCode = hashCode * 59 + this.AxisDirection.GetHashCode();
-                if (this.BeamRadius != null)
-                    hashCode = hashCode * 59 + this.BeamRadius.GetHashCode();
-                if (this.BeamStiffness != null)
-                    hashCode = hashCode * 59 + this.BeamStiffness.GetHashCode();
-                if (this.BeamPoissonRatio != null)
-                    hashCode = hashCode * 59 + this.BeamPoissonRatio.GetHashCode();
-                if (this.BeamDensity != null)
-                    hashCode = hashCode * 59 + this.BeamDensity.GetHashCode();
                 return hashCode;
             }
         }

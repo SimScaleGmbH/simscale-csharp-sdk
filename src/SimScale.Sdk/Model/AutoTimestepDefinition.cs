@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationInterval">simulationInterval.</param>
         /// <param name="maximumTimestepLength">maximumTimestepLength.</param>
         /// <param name="minimumTimestepLength">minimumTimestepLength.</param>
-        /// <param name="maximumResidual">maximumResidual (default to 100000M).</param>
+        /// <param name="maximumResidual">maximumResidual (default to 10000000000M).</param>
         /// <param name="retimingEvent">retimingEvent.</param>
         public AutoTimestepDefinition(string type = "AUTOMATIC_V27", DimensionalTime simulationInterval = default(DimensionalTime), RestrictedDimensionalFunctionTime maximumTimestepLength = default(RestrictedDimensionalFunctionTime), DimensionalTime minimumTimestepLength = default(DimensionalTime), decimal? maximumResidual = default(decimal?), OneOfAutoTimestepDefinitionRetimingEvent retimingEvent = default(OneOfAutoTimestepDefinitionRetimingEvent))
         {

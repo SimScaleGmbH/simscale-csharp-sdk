@@ -23,30 +23,30 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// BackwardTimeDifferentiationScheme
+    /// AutomaticElementDefinitionMethod
     /// </summary>
     [DataContract]
-    public partial class BackwardTimeDifferentiationScheme : OneOfTimeDifferentiationSchemesForDefault, IEquatable<BackwardTimeDifferentiationScheme>
+    public partial class AutomaticElementDefinitionMethod : OneOfElementTechnologyDefinitionMethod, IEquatable<AutomaticElementDefinitionMethod>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BackwardTimeDifferentiationScheme" /> class.
+        /// Initializes a new instance of the <see cref="AutomaticElementDefinitionMethod" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected BackwardTimeDifferentiationScheme() { }
+        protected AutomaticElementDefinitionMethod() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BackwardTimeDifferentiationScheme" /> class.
+        /// Initializes a new instance of the <see cref="AutomaticElementDefinitionMethod" /> class.
         /// </summary>
-        /// <param name="type">Schema name: BackwardTimeDifferentiationScheme (required) (default to &quot;BACKWARD&quot;).</param>
-        public BackwardTimeDifferentiationScheme(string type = "BACKWARD")
+        /// <param name="type">Schema name: AutomaticElementDefinitionMethod (required) (default to &quot;AUTOMATIC&quot;).</param>
+        public AutomaticElementDefinitionMethod(string type = "AUTOMATIC")
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for BackwardTimeDifferentiationScheme and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticElementDefinitionMethod and cannot be null");
         }
         
         /// <summary>
-        /// Schema name: BackwardTimeDifferentiationScheme
+        /// Schema name: AutomaticElementDefinitionMethod
         /// </summary>
-        /// <value>Schema name: BackwardTimeDifferentiationScheme</value>
+        /// <value>Schema name: AutomaticElementDefinitionMethod</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -57,7 +57,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BackwardTimeDifferentiationScheme {\n");
+            sb.Append("class AutomaticElementDefinitionMethod {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -79,15 +79,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as BackwardTimeDifferentiationScheme);
+            return this.Equals(input as AutomaticElementDefinitionMethod);
         }
 
         /// <summary>
-        /// Returns true if BackwardTimeDifferentiationScheme instances are equal
+        /// Returns true if AutomaticElementDefinitionMethod instances are equal
         /// </summary>
-        /// <param name="input">Instance of BackwardTimeDifferentiationScheme to be compared</param>
+        /// <param name="input">Instance of AutomaticElementDefinitionMethod to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BackwardTimeDifferentiationScheme input)
+        public bool Equals(AutomaticElementDefinitionMethod input)
         {
             if (input == null)
                 return false;

@@ -29,81 +29,19 @@ namespace SimScale.Sdk.Model
     public partial class ElementTechnology : IEquatable<ElementTechnology>
     {
         /// <summary>
-        /// Defines MechanicalElementType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MechanicalElementTypeEnum
-        {
-            /// <summary>
-            /// Enum STANDARD for value: STANDARD
-            /// </summary>
-            [EnumMember(Value = "STANDARD")]
-            STANDARD = 1,
-
-            /// <summary>
-            /// Enum REDUCEDINTEGRATION for value: REDUCED_INTEGRATION
-            /// </summary>
-            [EnumMember(Value = "REDUCED_INTEGRATION")]
-            REDUCEDINTEGRATION = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets MechanicalElementType
-        /// </summary>
-        [DataMember(Name="mechanicalElementType", EmitDefaultValue=false)]
-        public MechanicalElementTypeEnum? MechanicalElementType { get; set; }
-        /// <summary>
-        /// Defines ThermalElementType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ThermalElementTypeEnum
-        {
-            /// <summary>
-            /// Enum STANDARD for value: STANDARD
-            /// </summary>
-            [EnumMember(Value = "STANDARD")]
-            STANDARD = 1,
-
-            /// <summary>
-            /// Enum LUMPEDTHERMALMASS for value: LUMPED_THERMAL_MASS
-            /// </summary>
-            [EnumMember(Value = "LUMPED_THERMAL_MASS")]
-            LUMPEDTHERMALMASS = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets ThermalElementType
-        /// </summary>
-        [DataMember(Name="thermalElementType", EmitDefaultValue=false)]
-        public ThermalElementTypeEnum? ThermalElementType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ElementTechnology" /> class.
         /// </summary>
-        /// <param name="mechanicalElementType">mechanicalElementType (default to MechanicalElementTypeEnum.STANDARD).</param>
-        /// <param name="thermalElementType">thermalElementType (default to ThermalElementTypeEnum.STANDARD).</param>
-        /// <param name="thermalMassOrderReduction">thermalMassOrderReduction (default to false).</param>
-        /// <param name="definitions">definitions.</param>
-        public ElementTechnology(MechanicalElementTypeEnum? mechanicalElementType = default(MechanicalElementTypeEnum?), ThermalElementTypeEnum? thermalElementType = default(ThermalElementTypeEnum?), bool? thermalMassOrderReduction = default(bool?), List<ElementTechnologyDefinition> definitions = default(List<ElementTechnologyDefinition>))
+        /// <param name="definitionMethod">definitionMethod.</param>
+        public ElementTechnology(OneOfElementTechnologyDefinitionMethod definitionMethod = default(OneOfElementTechnologyDefinitionMethod))
         {
-            this.MechanicalElementType = mechanicalElementType;
-            this.ThermalElementType = thermalElementType;
-            this.ThermalMassOrderReduction = thermalMassOrderReduction;
-            this.Definitions = definitions;
+            this.DefinitionMethod = definitionMethod;
         }
         
         /// <summary>
-        /// Gets or Sets ThermalMassOrderReduction
+        /// Gets or Sets DefinitionMethod
         /// </summary>
-        [DataMember(Name="thermalMassOrderReduction", EmitDefaultValue=false)]
-        public bool? ThermalMassOrderReduction { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Definitions
-        /// </summary>
-        [DataMember(Name="definitions", EmitDefaultValue=false)]
-        public List<ElementTechnologyDefinition> Definitions { get; set; }
+        [DataMember(Name="definitionMethod", EmitDefaultValue=false)]
+        public OneOfElementTechnologyDefinitionMethod DefinitionMethod { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -113,10 +51,7 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ElementTechnology {\n");
-            sb.Append("  MechanicalElementType: ").Append(MechanicalElementType).Append("\n");
-            sb.Append("  ThermalElementType: ").Append(ThermalElementType).Append("\n");
-            sb.Append("  ThermalMassOrderReduction: ").Append(ThermalMassOrderReduction).Append("\n");
-            sb.Append("  Definitions: ").Append(Definitions).Append("\n");
+            sb.Append("  DefinitionMethod: ").Append(DefinitionMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,23 +87,9 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
-                    this.MechanicalElementType == input.MechanicalElementType ||
-                    this.MechanicalElementType.Equals(input.MechanicalElementType)
-                ) && 
-                (
-                    this.ThermalElementType == input.ThermalElementType ||
-                    this.ThermalElementType.Equals(input.ThermalElementType)
-                ) && 
-                (
-                    this.ThermalMassOrderReduction == input.ThermalMassOrderReduction ||
-                    (this.ThermalMassOrderReduction != null &&
-                    this.ThermalMassOrderReduction.Equals(input.ThermalMassOrderReduction))
-                ) && 
-                (
-                    this.Definitions == input.Definitions ||
-                    this.Definitions != null &&
-                    input.Definitions != null &&
-                    this.Definitions.SequenceEqual(input.Definitions)
+                    this.DefinitionMethod == input.DefinitionMethod ||
+                    (this.DefinitionMethod != null &&
+                    this.DefinitionMethod.Equals(input.DefinitionMethod))
                 );
         }
 
@@ -181,12 +102,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.MechanicalElementType.GetHashCode();
-                hashCode = hashCode * 59 + this.ThermalElementType.GetHashCode();
-                if (this.ThermalMassOrderReduction != null)
-                    hashCode = hashCode * 59 + this.ThermalMassOrderReduction.GetHashCode();
-                if (this.Definitions != null)
-                    hashCode = hashCode * 59 + this.Definitions.GetHashCode();
+                if (this.DefinitionMethod != null)
+                    hashCode = hashCode * 59 + this.DefinitionMethod.GetHashCode();
                 return hashCode;
             }
         }

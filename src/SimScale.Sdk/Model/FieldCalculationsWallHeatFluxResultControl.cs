@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FieldCalculationsWallHeatFluxResultControl
+    /// Computes the &lt;b&gt;heat flux&lt;/b&gt; [W/m²] at every &lt;b&gt;wall&lt;/b&gt; based on the surface normal gradient of the temperature. Radiation effects are not included.
     /// </summary>
     [DataContract]
     public partial class FieldCalculationsWallHeatFluxResultControl : OneOfFluidResultControlsFieldCalculations, IEquatable<FieldCalculationsWallHeatFluxResultControl>
@@ -36,12 +36,12 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldCalculationsWallHeatFluxResultControl" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FieldCalculationsWallHeatFluxResultControl (required) (default to &quot;WALL_HEAT_FLUX&quot;).</param>
+        /// <param name="type">Computes the &lt;b&gt;heat flux&lt;/b&gt; [W/m²] at every &lt;b&gt;wall&lt;/b&gt; based on the surface normal gradient of the temperature. Radiation effects are not included.  Schema name: FieldCalculationsWallHeatFluxResultControl (required) (default to &quot;WALL_HEAT_FLUX&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="resultType">resultType.</param>
-        /// <param name="computeHeatTransferCoefficient">computeHeatTransferCoefficient (default to false).</param>
+        /// <param name="computeHeatTransferCoefficient">Computes the &lt;b&gt;heat transfer coefficient&lt;/b&gt; [W/(m²K)] at every wall. Radiation effects are not included. Two modes are available for the &lt;b&gt;reference temperature&lt;/b&gt; calculation: &lt;ul&gt;&lt;li&gt; &lt;b&gt;Wall adjacent cell&lt;/b&gt;: Uses the temperature of the first adjacent cell. &lt;/li&gt; &lt;li&gt;&lt;b&gt;Fixed&lt;/b&gt;: Uses a custom value.&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="referenceTemperatureResultType">referenceTemperatureResultType.</param>
-        /// <param name="computeNusseltNumber">computeNusseltNumber (default to false).</param>
+        /// <param name="computeNusseltNumber">Computes the &lt;b&gt;Nusselt Number&lt;/b&gt; at every wall. The specified heat transfer coefficient mode will be used. (default to false).</param>
         /// <param name="referenceNusseltNumberLength">referenceNusseltNumberLength.</param>
         public FieldCalculationsWallHeatFluxResultControl(string type = "WALL_HEAT_FLUX", string name = default(string), WallHeatFluxResultType resultType = default(WallHeatFluxResultType), bool? computeHeatTransferCoefficient = default(bool?), OneOfFieldCalculationsWallHeatFluxResultControlReferenceTemperatureResultType referenceTemperatureResultType = default(OneOfFieldCalculationsWallHeatFluxResultControlReferenceTemperatureResultType), bool? computeNusseltNumber = default(bool?), DimensionalLength referenceNusseltNumberLength = default(DimensionalLength))
         {
@@ -56,9 +56,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: FieldCalculationsWallHeatFluxResultControl
+        /// Computes the &lt;b&gt;heat flux&lt;/b&gt; [W/m²] at every &lt;b&gt;wall&lt;/b&gt; based on the surface normal gradient of the temperature. Radiation effects are not included.  Schema name: FieldCalculationsWallHeatFluxResultControl
         /// </summary>
-        /// <value>Schema name: FieldCalculationsWallHeatFluxResultControl</value>
+        /// <value>Computes the &lt;b&gt;heat flux&lt;/b&gt; [W/m²] at every &lt;b&gt;wall&lt;/b&gt; based on the surface normal gradient of the temperature. Radiation effects are not included.  Schema name: FieldCalculationsWallHeatFluxResultControl</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -75,8 +75,9 @@ namespace SimScale.Sdk.Model
         public WallHeatFluxResultType ResultType { get; set; }
 
         /// <summary>
-        /// Gets or Sets ComputeHeatTransferCoefficient
+        /// Computes the &lt;b&gt;heat transfer coefficient&lt;/b&gt; [W/(m²K)] at every wall. Radiation effects are not included. Two modes are available for the &lt;b&gt;reference temperature&lt;/b&gt; calculation: &lt;ul&gt;&lt;li&gt; &lt;b&gt;Wall adjacent cell&lt;/b&gt;: Uses the temperature of the first adjacent cell. &lt;/li&gt; &lt;li&gt;&lt;b&gt;Fixed&lt;/b&gt;: Uses a custom value.&lt;/li&gt;&lt;/ul&gt;
         /// </summary>
+        /// <value>Computes the &lt;b&gt;heat transfer coefficient&lt;/b&gt; [W/(m²K)] at every wall. Radiation effects are not included. Two modes are available for the &lt;b&gt;reference temperature&lt;/b&gt; calculation: &lt;ul&gt;&lt;li&gt; &lt;b&gt;Wall adjacent cell&lt;/b&gt;: Uses the temperature of the first adjacent cell. &lt;/li&gt; &lt;li&gt;&lt;b&gt;Fixed&lt;/b&gt;: Uses a custom value.&lt;/li&gt;&lt;/ul&gt;</value>
         [DataMember(Name="computeHeatTransferCoefficient", EmitDefaultValue=false)]
         public bool? ComputeHeatTransferCoefficient { get; set; }
 
@@ -87,8 +88,9 @@ namespace SimScale.Sdk.Model
         public OneOfFieldCalculationsWallHeatFluxResultControlReferenceTemperatureResultType ReferenceTemperatureResultType { get; set; }
 
         /// <summary>
-        /// Gets or Sets ComputeNusseltNumber
+        /// Computes the &lt;b&gt;Nusselt Number&lt;/b&gt; at every wall. The specified heat transfer coefficient mode will be used.
         /// </summary>
+        /// <value>Computes the &lt;b&gt;Nusselt Number&lt;/b&gt; at every wall. The specified heat transfer coefficient mode will be used.</value>
         [DataMember(Name="computeNusseltNumber", EmitDefaultValue=false)]
         public bool? ComputeNusseltNumber { get; set; }
 

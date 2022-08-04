@@ -24,12 +24,11 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;With this option, you can choose your desired time-differentiation scheme:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;For steady-state simulations, choose &lt;b&gt;steadyState&lt;/b&gt;.&lt;/p&gt;&lt;li&gt;&lt;p&gt;For transient simulations, you may choose a large variety of schemes.&lt;/p&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Euler&lt;/b&gt; is a first-order implicit and bounded scheme. If unsure, try this scheme first.&lt;/p&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Backward&lt;/b&gt; is a second-order time-differentiation scheme which features higher accuracy but may impair stability&lt;/p&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CrankNicholson&lt;/b&gt; is another very common second-order scheme with relatively low computational cost&lt;/p&gt;&lt;li&gt;&lt;p&gt;The other numerical schemes are not generally recommended; use them only if you feel familiar enough with them&lt;/p&gt;&lt;/ul&gt;
+    /// &lt;p&gt;With this option, you can choose your desired time-differentiation scheme:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;For steady-state simulations, choose &lt;b&gt;steadyState&lt;/b&gt;.&lt;/p&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Euler&lt;/b&gt; is a first-order implicit and bounded scheme. If unsure, try this scheme first.&lt;/p&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;localEuler&lt;/b&gt; is a local time-step scheme, which is first-order implicit and bounded.&lt;/p&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(EulerTimeDifferentiationScheme), "EULER")]
     [JsonSubtypes.KnownSubType(typeof(LocalEulerTimeDifferentiationScheme), "LOCAL_EULER")]
-    [JsonSubtypes.KnownSubType(typeof(BackwardTimeDifferentiationScheme), "BACKWARD")]
     [JsonSubtypes.KnownSubType(typeof(SteadystateTimeDifferentiationScheme), "STEADYSTATE")]
     public interface OneOfTimeDifferentiationSchemesForDefault
     {

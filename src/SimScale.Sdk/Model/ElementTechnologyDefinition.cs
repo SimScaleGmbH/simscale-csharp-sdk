@@ -29,67 +29,17 @@ namespace SimScale.Sdk.Model
     public partial class ElementTechnologyDefinition : IEquatable<ElementTechnologyDefinition>
     {
         /// <summary>
-        /// Defines MechanicalElementType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MechanicalElementTypeEnum
-        {
-            /// <summary>
-            /// Enum STANDARD for value: STANDARD
-            /// </summary>
-            [EnumMember(Value = "STANDARD")]
-            STANDARD = 1,
-
-            /// <summary>
-            /// Enum REDUCEDINTEGRATION for value: REDUCED_INTEGRATION
-            /// </summary>
-            [EnumMember(Value = "REDUCED_INTEGRATION")]
-            REDUCEDINTEGRATION = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets MechanicalElementType
-        /// </summary>
-        [DataMember(Name="mechanicalElementType", EmitDefaultValue=false)]
-        public MechanicalElementTypeEnum? MechanicalElementType { get; set; }
-        /// <summary>
-        /// Defines ThermalElementType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ThermalElementTypeEnum
-        {
-            /// <summary>
-            /// Enum STANDARD for value: STANDARD
-            /// </summary>
-            [EnumMember(Value = "STANDARD")]
-            STANDARD = 1,
-
-            /// <summary>
-            /// Enum LUMPEDTHERMALMASS for value: LUMPED_THERMAL_MASS
-            /// </summary>
-            [EnumMember(Value = "LUMPED_THERMAL_MASS")]
-            LUMPEDTHERMALMASS = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets ThermalElementType
-        /// </summary>
-        [DataMember(Name="thermalElementType", EmitDefaultValue=false)]
-        public ThermalElementTypeEnum? ThermalElementType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ElementTechnologyDefinition" /> class.
         /// </summary>
         /// <param name="name">name.</param>
-        /// <param name="mechanicalElementType">mechanicalElementType (default to MechanicalElementTypeEnum.STANDARD).</param>
-        /// <param name="thermalElementType">thermalElementType (default to ThermalElementTypeEnum.STANDARD).</param>
+        /// <param name="reducedIntegration">reducedIntegration (default to false).</param>
+        /// <param name="lumpedMass">lumpedMass (default to false).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public ElementTechnologyDefinition(string name = default(string), MechanicalElementTypeEnum? mechanicalElementType = default(MechanicalElementTypeEnum?), ThermalElementTypeEnum? thermalElementType = default(ThermalElementTypeEnum?), TopologicalReference topologicalReference = default(TopologicalReference))
+        public ElementTechnologyDefinition(string name = default(string), bool? reducedIntegration = default(bool?), bool? lumpedMass = default(bool?), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             this.Name = name;
-            this.MechanicalElementType = mechanicalElementType;
-            this.ThermalElementType = thermalElementType;
+            this.ReducedIntegration = reducedIntegration;
+            this.LumpedMass = lumpedMass;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -98,6 +48,18 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReducedIntegration
+        /// </summary>
+        [DataMember(Name="reducedIntegration", EmitDefaultValue=false)]
+        public bool? ReducedIntegration { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LumpedMass
+        /// </summary>
+        [DataMember(Name="lumpedMass", EmitDefaultValue=false)]
+        public bool? LumpedMass { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -114,8 +76,8 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ElementTechnologyDefinition {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  MechanicalElementType: ").Append(MechanicalElementType).Append("\n");
-            sb.Append("  ThermalElementType: ").Append(ThermalElementType).Append("\n");
+            sb.Append("  ReducedIntegration: ").Append(ReducedIntegration).Append("\n");
+            sb.Append("  LumpedMass: ").Append(LumpedMass).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -157,12 +119,14 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.MechanicalElementType == input.MechanicalElementType ||
-                    this.MechanicalElementType.Equals(input.MechanicalElementType)
+                    this.ReducedIntegration == input.ReducedIntegration ||
+                    (this.ReducedIntegration != null &&
+                    this.ReducedIntegration.Equals(input.ReducedIntegration))
                 ) && 
                 (
-                    this.ThermalElementType == input.ThermalElementType ||
-                    this.ThermalElementType.Equals(input.ThermalElementType)
+                    this.LumpedMass == input.LumpedMass ||
+                    (this.LumpedMass != null &&
+                    this.LumpedMass.Equals(input.LumpedMass))
                 ) && 
                 (
                     this.TopologicalReference == input.TopologicalReference ||
@@ -182,8 +146,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                hashCode = hashCode * 59 + this.MechanicalElementType.GetHashCode();
-                hashCode = hashCode * 59 + this.ThermalElementType.GetHashCode();
+                if (this.ReducedIntegration != null)
+                    hashCode = hashCode * 59 + this.ReducedIntegration.GetHashCode();
+                if (this.LumpedMass != null)
+                    hashCode = hashCode * 59 + this.LumpedMass.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

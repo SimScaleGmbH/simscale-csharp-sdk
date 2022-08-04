@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// HingeConstraintBC
     /// </summary>
     [DataContract]
-    public partial class HingeConstraintBC : OneOfDynamicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<HingeConstraintBC>
+    public partial class HingeConstraintBC : OneOfDynamicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, IEquatable<HingeConstraintBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="HingeConstraintBC" /> class.

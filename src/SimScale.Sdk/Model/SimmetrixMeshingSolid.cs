@@ -113,18 +113,16 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: SimmetrixMeshingSolid (required) (default to &quot;SIMMETRIX_MESHING_SOLID&quot;).</param>
         /// <param name="sizing">sizing.</param>
         /// <param name="refinements">refinements.</param>
-        /// <param name="secondOrder">&lt;p&gt;The &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#order&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;mesh order&lt;/b&gt;&lt;/a&gt; defines the shape and the number of nodes of the mesh elements. For a fast, rough analysis choose &lt;i&gt;first order&lt;/i&gt; only. Activate &lt;i&gt;2nd order elements&lt;/i&gt; for higher quality results&lt;/p&gt; (default to false).</param>
         /// <param name="enableShellMeshing">enableShellMeshing (default to false).</param>
         /// <param name="surfaceElementType">surfaceElementType (default to SurfaceElementTypeEnum.TRIANGULAR).</param>
         /// <param name="numOfProcessors">&lt;p&gt;Selecting more processor cores might speed up the meshing process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumOfProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="advancedSimmetrixSettings">advancedSimmetrixSettings.</param>
-        public SimmetrixMeshingSolid(string type = "SIMMETRIX_MESHING_SOLID", OneOfSimmetrixMeshingSolidSizing sizing = default(OneOfSimmetrixMeshingSolidSizing), List<OneOfSimmetrixMeshingSolidRefinements> refinements = default(List<OneOfSimmetrixMeshingSolidRefinements>), bool? secondOrder = default(bool?), bool? enableShellMeshing = default(bool?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), AdvancedSimmetrixSolidSettings advancedSimmetrixSettings = default(AdvancedSimmetrixSolidSettings))
+        public SimmetrixMeshingSolid(string type = "SIMMETRIX_MESHING_SOLID", OneOfSimmetrixMeshingSolidSizing sizing = default(OneOfSimmetrixMeshingSolidSizing), List<OneOfSimmetrixMeshingSolidRefinements> refinements = default(List<OneOfSimmetrixMeshingSolidRefinements>), bool? enableShellMeshing = default(bool?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), AdvancedSimmetrixSolidSettings advancedSimmetrixSettings = default(AdvancedSimmetrixSolidSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixMeshingSolid and cannot be null");
             this.Sizing = sizing;
             this.Refinements = refinements;
-            this.SecondOrder = secondOrder;
             this.EnableShellMeshing = enableShellMeshing;
             this.SurfaceElementType = surfaceElementType;
             this.NumOfProcessors = numOfProcessors;
@@ -151,13 +149,6 @@ namespace SimScale.Sdk.Model
         public List<OneOfSimmetrixMeshingSolidRefinements> Refinements { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;The &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#order&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;mesh order&lt;/b&gt;&lt;/a&gt; defines the shape and the number of nodes of the mesh elements. For a fast, rough analysis choose &lt;i&gt;first order&lt;/i&gt; only. Activate &lt;i&gt;2nd order elements&lt;/i&gt; for higher quality results&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;The &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#order&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;mesh order&lt;/b&gt;&lt;/a&gt; defines the shape and the number of nodes of the mesh elements. For a fast, rough analysis choose &lt;i&gt;first order&lt;/i&gt; only. Activate &lt;i&gt;2nd order elements&lt;/i&gt; for higher quality results&lt;/p&gt;</value>
-        [DataMember(Name="secondOrder", EmitDefaultValue=false)]
-        public bool? SecondOrder { get; set; }
-
-        /// <summary>
         /// Gets or Sets EnableShellMeshing
         /// </summary>
         [DataMember(Name="enableShellMeshing", EmitDefaultValue=false)]
@@ -180,7 +171,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Sizing: ").Append(Sizing).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
-            sb.Append("  SecondOrder: ").Append(SecondOrder).Append("\n");
             sb.Append("  EnableShellMeshing: ").Append(EnableShellMeshing).Append("\n");
             sb.Append("  SurfaceElementType: ").Append(SurfaceElementType).Append("\n");
             sb.Append("  NumOfProcessors: ").Append(NumOfProcessors).Append("\n");
@@ -236,11 +226,6 @@ namespace SimScale.Sdk.Model
                     this.Refinements.SequenceEqual(input.Refinements)
                 ) && 
                 (
-                    this.SecondOrder == input.SecondOrder ||
-                    (this.SecondOrder != null &&
-                    this.SecondOrder.Equals(input.SecondOrder))
-                ) && 
-                (
                     this.EnableShellMeshing == input.EnableShellMeshing ||
                     (this.EnableShellMeshing != null &&
                     this.EnableShellMeshing.Equals(input.EnableShellMeshing))
@@ -275,8 +260,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Sizing.GetHashCode();
                 if (this.Refinements != null)
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
-                if (this.SecondOrder != null)
-                    hashCode = hashCode * 59 + this.SecondOrder.GetHashCode();
                 if (this.EnableShellMeshing != null)
                     hashCode = hashCode * 59 + this.EnableShellMeshing.GetHashCode();
                 hashCode = hashCode * 59 + this.SurfaceElementType.GetHashCode();

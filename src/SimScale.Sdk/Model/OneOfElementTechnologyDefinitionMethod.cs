@@ -24,14 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfSimmetrixMeshingFluidRefinements
+    /// OneOfElementTechnologyDefinitionMethod
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(RegionRefinementWithLength), "REGION_LENGTH")]
-    [JsonSubtypes.KnownSubType(typeof(SimmetrixLocalSizingRefinement), "SIMMETRIX_LOCAL_SIZING_V10")]
-    [JsonSubtypes.KnownSubType(typeof(SimmetrixBoundaryLayerRefinement), "SIMMETRIX_BOUNDARY_LAYER_V13")]
-    [JsonSubtypes.KnownSubType(typeof(SimmetrixSweptMeshRefinement), "SIMMETRIX_SWEPT_MESH_REFINEMENT")]
-    public interface OneOfSimmetrixMeshingFluidRefinements
+    [JsonSubtypes.KnownSubType(typeof(AutomaticElementDefinitionMethod), "AUTOMATIC")]
+    [JsonSubtypes.KnownSubType(typeof(CustomElementDefinitionMethod), "CUSTOM")]
+    public interface OneOfElementTechnologyDefinitionMethod
     {
         /// <summary>
         /// Gets Type
