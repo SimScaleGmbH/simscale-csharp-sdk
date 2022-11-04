@@ -38,7 +38,8 @@ namespace SimScale.Sdk.Model
         /// <param name="momentumSources">momentumSources.</param>
         /// <param name="passiveScalarSources">passiveScalarSources.</param>
         /// <param name="thermalResistanceNetworks">thermalResistanceNetworks.</param>
-        public AdvancedConcepts(List<OneOfAdvancedConceptsRotatingZones> rotatingZones = default(List<OneOfAdvancedConceptsRotatingZones>), List<OneOfAdvancedConceptsPorousMediums> porousMediums = default(List<OneOfAdvancedConceptsPorousMediums>), List<OneOfAdvancedConceptsSolidBodyMotions> solidBodyMotions = default(List<OneOfAdvancedConceptsSolidBodyMotions>), List<OneOfAdvancedConceptsPowerSources> powerSources = default(List<OneOfAdvancedConceptsPowerSources>), List<OneOfAdvancedConceptsMomentumSources> momentumSources = default(List<OneOfAdvancedConceptsMomentumSources>), List<OneOfAdvancedConceptsPassiveScalarSources> passiveScalarSources = default(List<OneOfAdvancedConceptsPassiveScalarSources>), List<OneOfAdvancedConceptsThermalResistanceNetworks> thermalResistanceNetworks = default(List<OneOfAdvancedConceptsThermalResistanceNetworks>))
+        /// <param name="thermalContactResistance">thermalContactResistance.</param>
+        public AdvancedConcepts(List<OneOfAdvancedConceptsRotatingZones> rotatingZones = default(List<OneOfAdvancedConceptsRotatingZones>), List<OneOfAdvancedConceptsPorousMediums> porousMediums = default(List<OneOfAdvancedConceptsPorousMediums>), List<OneOfAdvancedConceptsSolidBodyMotions> solidBodyMotions = default(List<OneOfAdvancedConceptsSolidBodyMotions>), List<OneOfAdvancedConceptsPowerSources> powerSources = default(List<OneOfAdvancedConceptsPowerSources>), List<OneOfAdvancedConceptsMomentumSources> momentumSources = default(List<OneOfAdvancedConceptsMomentumSources>), List<OneOfAdvancedConceptsPassiveScalarSources> passiveScalarSources = default(List<OneOfAdvancedConceptsPassiveScalarSources>), List<OneOfAdvancedConceptsThermalResistanceNetworks> thermalResistanceNetworks = default(List<OneOfAdvancedConceptsThermalResistanceNetworks>), List<ThinResistanceLayer> thermalContactResistance = default(List<ThinResistanceLayer>))
         {
             this.RotatingZones = rotatingZones;
             this.PorousMediums = porousMediums;
@@ -47,6 +48,7 @@ namespace SimScale.Sdk.Model
             this.MomentumSources = momentumSources;
             this.PassiveScalarSources = passiveScalarSources;
             this.ThermalResistanceNetworks = thermalResistanceNetworks;
+            this.ThermalContactResistance = thermalContactResistance;
         }
         
         /// <summary>
@@ -92,6 +94,12 @@ namespace SimScale.Sdk.Model
         public List<OneOfAdvancedConceptsThermalResistanceNetworks> ThermalResistanceNetworks { get; set; }
 
         /// <summary>
+        /// Gets or Sets ThermalContactResistance
+        /// </summary>
+        [DataMember(Name="thermalContactResistance", EmitDefaultValue=false)]
+        public List<ThinResistanceLayer> ThermalContactResistance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -106,6 +114,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  MomentumSources: ").Append(MomentumSources).Append("\n");
             sb.Append("  PassiveScalarSources: ").Append(PassiveScalarSources).Append("\n");
             sb.Append("  ThermalResistanceNetworks: ").Append(ThermalResistanceNetworks).Append("\n");
+            sb.Append("  ThermalContactResistance: ").Append(ThermalContactResistance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -181,6 +190,12 @@ namespace SimScale.Sdk.Model
                     this.ThermalResistanceNetworks != null &&
                     input.ThermalResistanceNetworks != null &&
                     this.ThermalResistanceNetworks.SequenceEqual(input.ThermalResistanceNetworks)
+                ) && 
+                (
+                    this.ThermalContactResistance == input.ThermalContactResistance ||
+                    this.ThermalContactResistance != null &&
+                    input.ThermalContactResistance != null &&
+                    this.ThermalContactResistance.SequenceEqual(input.ThermalContactResistance)
                 );
         }
 
@@ -207,6 +222,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PassiveScalarSources.GetHashCode();
                 if (this.ThermalResistanceNetworks != null)
                     hashCode = hashCode * 59 + this.ThermalResistanceNetworks.GetHashCode();
+                if (this.ThermalContactResistance != null)
+                    hashCode = hashCode * 59 + this.ThermalContactResistance.GetHashCode();
                 return hashCode;
             }
         }

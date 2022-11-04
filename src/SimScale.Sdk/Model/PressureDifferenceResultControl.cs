@@ -92,15 +92,17 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: PressureDifferenceResultControl (required) (default to &quot;PRESSURE_DIFFERENCE&quot;).</param>
         /// <param name="name">name.</param>
+        /// <param name="absoluteValueOfPressureDifference">Ensure a non-negative pressure difference result. Useful for many applications in which the pressure difference is assumed to be a &lt;i&gt;pressure drop&lt;/i&gt;. However, leaving this on may yield &lt;b&gt;non-physical&lt;/b&gt; results for some combinations of static/total pressure. (default to true).</param>
         /// <param name="inletFacePressureDifferenceType">&lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt; (default to InletFacePressureDifferenceTypeEnum.STATICPRESSURE).</param>
         /// <param name="inletFaceTopologicalReference">inletFaceTopologicalReference.</param>
         /// <param name="outletFacePressureDifferenceType">&lt;p&gt;The total pressure is the sum of the static pressure and the dynamic pressure.&lt;/p&gt; (default to OutletFacePressureDifferenceTypeEnum.STATICPRESSURE).</param>
         /// <param name="outletFaceTopologicalReference">outletFaceTopologicalReference.</param>
-        public PressureDifferenceResultControl(string type = "PRESSURE_DIFFERENCE", string name = default(string), InletFacePressureDifferenceTypeEnum? inletFacePressureDifferenceType = default(InletFacePressureDifferenceTypeEnum?), TopologicalReference inletFaceTopologicalReference = default(TopologicalReference), OutletFacePressureDifferenceTypeEnum? outletFacePressureDifferenceType = default(OutletFacePressureDifferenceTypeEnum?), TopologicalReference outletFaceTopologicalReference = default(TopologicalReference))
+        public PressureDifferenceResultControl(string type = "PRESSURE_DIFFERENCE", string name = default(string), bool? absoluteValueOfPressureDifference = default(bool?), InletFacePressureDifferenceTypeEnum? inletFacePressureDifferenceType = default(InletFacePressureDifferenceTypeEnum?), TopologicalReference inletFaceTopologicalReference = default(TopologicalReference), OutletFacePressureDifferenceTypeEnum? outletFacePressureDifferenceType = default(OutletFacePressureDifferenceTypeEnum?), TopologicalReference outletFaceTopologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureDifferenceResultControl and cannot be null");
             this.Name = name;
+            this.AbsoluteValueOfPressureDifference = absoluteValueOfPressureDifference;
             this.InletFacePressureDifferenceType = inletFacePressureDifferenceType;
             this.InletFaceTopologicalReference = inletFaceTopologicalReference;
             this.OutletFacePressureDifferenceType = outletFacePressureDifferenceType;
@@ -119,6 +121,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Ensure a non-negative pressure difference result. Useful for many applications in which the pressure difference is assumed to be a &lt;i&gt;pressure drop&lt;/i&gt;. However, leaving this on may yield &lt;b&gt;non-physical&lt;/b&gt; results for some combinations of static/total pressure.
+        /// </summary>
+        /// <value>Ensure a non-negative pressure difference result. Useful for many applications in which the pressure difference is assumed to be a &lt;i&gt;pressure drop&lt;/i&gt;. However, leaving this on may yield &lt;b&gt;non-physical&lt;/b&gt; results for some combinations of static/total pressure.</value>
+        [DataMember(Name="absoluteValueOfPressureDifference", EmitDefaultValue=false)]
+        public bool? AbsoluteValueOfPressureDifference { get; set; }
 
         /// <summary>
         /// Gets or Sets InletFaceTopologicalReference
@@ -142,6 +151,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class PressureDifferenceResultControl {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  AbsoluteValueOfPressureDifference: ").Append(AbsoluteValueOfPressureDifference).Append("\n");
             sb.Append("  InletFacePressureDifferenceType: ").Append(InletFacePressureDifferenceType).Append("\n");
             sb.Append("  InletFaceTopologicalReference: ").Append(InletFaceTopologicalReference).Append("\n");
             sb.Append("  OutletFacePressureDifferenceType: ").Append(OutletFacePressureDifferenceType).Append("\n");
@@ -191,6 +201,11 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.AbsoluteValueOfPressureDifference == input.AbsoluteValueOfPressureDifference ||
+                    (this.AbsoluteValueOfPressureDifference != null &&
+                    this.AbsoluteValueOfPressureDifference.Equals(input.AbsoluteValueOfPressureDifference))
+                ) && 
+                (
                     this.InletFacePressureDifferenceType == input.InletFacePressureDifferenceType ||
                     this.InletFacePressureDifferenceType.Equals(input.InletFacePressureDifferenceType)
                 ) && 
@@ -223,6 +238,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.AbsoluteValueOfPressureDifference != null)
+                    hashCode = hashCode * 59 + this.AbsoluteValueOfPressureDifference.GetHashCode();
                 hashCode = hashCode * 59 + this.InletFacePressureDifferenceType.GetHashCode();
                 if (this.InletFaceTopologicalReference != null)
                     hashCode = hashCode * 59 + this.InletFaceTopologicalReference.GetHashCode();

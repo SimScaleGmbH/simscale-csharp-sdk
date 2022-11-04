@@ -77,7 +77,8 @@ namespace SimScale.Sdk.Model
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
-        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? isInternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), BasicEmbeddedBoundaryMeshing meshSettings = default(BasicEmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?))
+        /// <param name="timeDependency">timeDependency.</param>
+        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? isInternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), BasicEmbeddedBoundaryMeshing meshSettings = default(BasicEmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for EmbeddedBoundary and cannot be null");
@@ -94,6 +95,7 @@ namespace SimScale.Sdk.Model
             this.IsCompressible = isCompressible;
             this.EnableRadiation = enableRadiation;
             this.TurbulenceModel = turbulenceModel;
+            this.TimeDependency = timeDependency;
         }
         
         /// <summary>
@@ -179,6 +181,12 @@ namespace SimScale.Sdk.Model
         public bool? EnableRadiation { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeDependency
+        /// </summary>
+        [DataMember(Name="timeDependency", EmitDefaultValue=false)]
+        public OneOfEmbeddedBoundaryTimeDependency TimeDependency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -200,6 +208,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
+            sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -303,6 +312,11 @@ namespace SimScale.Sdk.Model
                 (
                     this.TurbulenceModel == input.TurbulenceModel ||
                     this.TurbulenceModel.Equals(input.TurbulenceModel)
+                ) && 
+                (
+                    this.TimeDependency == input.TimeDependency ||
+                    (this.TimeDependency != null &&
+                    this.TimeDependency.Equals(input.TimeDependency))
                 );
         }
 
@@ -342,6 +356,8 @@ namespace SimScale.Sdk.Model
                 if (this.EnableRadiation != null)
                     hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
+                if (this.TimeDependency != null)
+                    hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
                 return hashCode;
             }
         }

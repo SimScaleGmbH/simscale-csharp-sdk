@@ -33,10 +33,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="maxDirectionRunTime">maxDirectionRunTime.</param>
         /// <param name="numberOfFluidPasses">&lt;p&gt;Set how many times the fluid (air) passes over the domain during the simulation.&lt;/p&gt;&lt;p&gt; &lt;b&gt;Warning&lt;/b&gt;: Values below 2.0 might produce invalid results while higher numbers will require more simulation time and consequently more GPU hours. Recommended value is 3.0. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to 3M).</param>
-        public WindComfortSimulationControl(DimensionalTime maxDirectionRunTime = default(DimensionalTime), decimal? numberOfFluidPasses = default(decimal?))
+        /// <param name="velocityScaling">&lt;p&gt;It affects the stability of the simulation. The default value of 0.1 is a good compromise between accuracy and computational requirements. Lower values of this parameter might increase the stability of the simulation at the cost of higher computational time.&lt;/p&gt; (default to 0.1M).</param>
+        public WindComfortSimulationControl(DimensionalTime maxDirectionRunTime = default(DimensionalTime), decimal? numberOfFluidPasses = default(decimal?), decimal? velocityScaling = default(decimal?))
         {
             this.MaxDirectionRunTime = maxDirectionRunTime;
             this.NumberOfFluidPasses = numberOfFluidPasses;
+            this.VelocityScaling = velocityScaling;
         }
         
         /// <summary>
@@ -53,6 +55,13 @@ namespace SimScale.Sdk.Model
         public decimal? NumberOfFluidPasses { get; set; }
 
         /// <summary>
+        /// &lt;p&gt;It affects the stability of the simulation. The default value of 0.1 is a good compromise between accuracy and computational requirements. Lower values of this parameter might increase the stability of the simulation at the cost of higher computational time.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;It affects the stability of the simulation. The default value of 0.1 is a good compromise between accuracy and computational requirements. Lower values of this parameter might increase the stability of the simulation at the cost of higher computational time.&lt;/p&gt;</value>
+        [DataMember(Name="velocityScaling", EmitDefaultValue=false)]
+        public decimal? VelocityScaling { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +71,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class WindComfortSimulationControl {\n");
             sb.Append("  MaxDirectionRunTime: ").Append(MaxDirectionRunTime).Append("\n");
             sb.Append("  NumberOfFluidPasses: ").Append(NumberOfFluidPasses).Append("\n");
+            sb.Append("  VelocityScaling: ").Append(VelocityScaling).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,6 +115,11 @@ namespace SimScale.Sdk.Model
                     this.NumberOfFluidPasses == input.NumberOfFluidPasses ||
                     (this.NumberOfFluidPasses != null &&
                     this.NumberOfFluidPasses.Equals(input.NumberOfFluidPasses))
+                ) && 
+                (
+                    this.VelocityScaling == input.VelocityScaling ||
+                    (this.VelocityScaling != null &&
+                    this.VelocityScaling.Equals(input.VelocityScaling))
                 );
         }
 
@@ -121,6 +136,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MaxDirectionRunTime.GetHashCode();
                 if (this.NumberOfFluidPasses != null)
                     hashCode = hashCode * 59 + this.NumberOfFluidPasses.GetHashCode();
+                if (this.VelocityScaling != null)
+                    hashCode = hashCode * 59 + this.VelocityScaling.GetHashCode();
                 return hashCode;
             }
         }

@@ -63,12 +63,14 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: NoSlipVBC (required) (default to &quot;NO_SLIP&quot;).</param>
         /// <param name="turbulenceWall">turbulenceWall (default to TurbulenceWallEnum.WALLFUNCTION).</param>
+        /// <param name="enableSurfaceRoughness">When turned &lt;em&gt;ON&lt;/em&gt;, this wall&#39;s is no longer considered to be &lt;em&gt;smooth&lt;/em&gt;. Its roughness may be then be specified. (default to false).</param>
         /// <param name="surfaceRoughness">surfaceRoughness.</param>
-        public NoSlipVBC(string type = "NO_SLIP", TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), DimensionalLength surfaceRoughness = default(DimensionalLength))
+        public NoSlipVBC(string type = "NO_SLIP", TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), bool? enableSurfaceRoughness = default(bool?), DimensionalLength surfaceRoughness = default(DimensionalLength))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for NoSlipVBC and cannot be null");
             this.TurbulenceWall = turbulenceWall;
+            this.EnableSurfaceRoughness = enableSurfaceRoughness;
             this.SurfaceRoughness = surfaceRoughness;
         }
         
@@ -78,6 +80,13 @@ namespace SimScale.Sdk.Model
         /// <value>Schema name: NoSlipVBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// When turned &lt;em&gt;ON&lt;/em&gt;, this wall&#39;s is no longer considered to be &lt;em&gt;smooth&lt;/em&gt;. Its roughness may be then be specified.
+        /// </summary>
+        /// <value>When turned &lt;em&gt;ON&lt;/em&gt;, this wall&#39;s is no longer considered to be &lt;em&gt;smooth&lt;/em&gt;. Its roughness may be then be specified.</value>
+        [DataMember(Name="enableSurfaceRoughness", EmitDefaultValue=false)]
+        public bool? EnableSurfaceRoughness { get; set; }
 
         /// <summary>
         /// Gets or Sets SurfaceRoughness
@@ -95,6 +104,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class NoSlipVBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  TurbulenceWall: ").Append(TurbulenceWall).Append("\n");
+            sb.Append("  EnableSurfaceRoughness: ").Append(EnableSurfaceRoughness).Append("\n");
             sb.Append("  SurfaceRoughness: ").Append(SurfaceRoughness).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -140,6 +150,11 @@ namespace SimScale.Sdk.Model
                     this.TurbulenceWall.Equals(input.TurbulenceWall)
                 ) && 
                 (
+                    this.EnableSurfaceRoughness == input.EnableSurfaceRoughness ||
+                    (this.EnableSurfaceRoughness != null &&
+                    this.EnableSurfaceRoughness.Equals(input.EnableSurfaceRoughness))
+                ) && 
+                (
                     this.SurfaceRoughness == input.SurfaceRoughness ||
                     (this.SurfaceRoughness != null &&
                     this.SurfaceRoughness.Equals(input.SurfaceRoughness))
@@ -158,6 +173,8 @@ namespace SimScale.Sdk.Model
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceWall.GetHashCode();
+                if (this.EnableSurfaceRoughness != null)
+                    hashCode = hashCode * 59 + this.EnableSurfaceRoughness.GetHashCode();
                 if (this.SurfaceRoughness != null)
                     hashCode = hashCode * 59 + this.SurfaceRoughness.GetHashCode();
                 return hashCode;

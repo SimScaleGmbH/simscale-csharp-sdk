@@ -63,17 +63,21 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: SimmetrixSweptMeshRefinement (required) (default to &quot;SIMMETRIX_SWEPT_MESH_REFINEMENT&quot;).</param>
         /// <param name="name">name (default to &quot;Sweep meshing refinement&quot;).</param>
-        /// <param name="numberOfElements">numberOfElements (default to 10).</param>
+        /// <param name="sizingType">sizingType.</param>
         /// <param name="surfaceElementType">surfaceElementType (default to SurfaceElementTypeEnum.TRIANGULAR).</param>
+        /// <param name="specifyLocalSize">specifyLocalSize (default to false).</param>
+        /// <param name="maxElementSize">maxElementSize.</param>
         /// <param name="sourceTopologicalReference">sourceTopologicalReference.</param>
         /// <param name="destinationTopologicalReference">destinationTopologicalReference.</param>
-        public SimmetrixSweptMeshRefinement(string type = "SIMMETRIX_SWEPT_MESH_REFINEMENT", string name = default(string), int? numberOfElements = default(int?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), TopologicalReference sourceTopologicalReference = default(TopologicalReference), TopologicalReference destinationTopologicalReference = default(TopologicalReference))
+        public SimmetrixSweptMeshRefinement(string type = "SIMMETRIX_SWEPT_MESH_REFINEMENT", string name = default(string), OneOfSimmetrixSweptMeshRefinementSizingType sizingType = default(OneOfSimmetrixSweptMeshRefinementSizingType), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), bool? specifyLocalSize = default(bool?), DimensionalLength maxElementSize = default(DimensionalLength), TopologicalReference sourceTopologicalReference = default(TopologicalReference), TopologicalReference destinationTopologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixSweptMeshRefinement and cannot be null");
             this.Name = name;
-            this.NumberOfElements = numberOfElements;
+            this.SizingType = sizingType;
             this.SurfaceElementType = surfaceElementType;
+            this.SpecifyLocalSize = specifyLocalSize;
+            this.MaxElementSize = maxElementSize;
             this.SourceTopologicalReference = sourceTopologicalReference;
             this.DestinationTopologicalReference = destinationTopologicalReference;
         }
@@ -92,10 +96,22 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets NumberOfElements
+        /// Gets or Sets SizingType
         /// </summary>
-        [DataMember(Name="numberOfElements", EmitDefaultValue=false)]
-        public int? NumberOfElements { get; set; }
+        [DataMember(Name="sizingType", EmitDefaultValue=false)]
+        public OneOfSimmetrixSweptMeshRefinementSizingType SizingType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SpecifyLocalSize
+        /// </summary>
+        [DataMember(Name="specifyLocalSize", EmitDefaultValue=false)]
+        public bool? SpecifyLocalSize { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MaxElementSize
+        /// </summary>
+        [DataMember(Name="maxElementSize", EmitDefaultValue=false)]
+        public DimensionalLength MaxElementSize { get; set; }
 
         /// <summary>
         /// Gets or Sets SourceTopologicalReference
@@ -119,8 +135,10 @@ namespace SimScale.Sdk.Model
             sb.Append("class SimmetrixSweptMeshRefinement {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  NumberOfElements: ").Append(NumberOfElements).Append("\n");
+            sb.Append("  SizingType: ").Append(SizingType).Append("\n");
             sb.Append("  SurfaceElementType: ").Append(SurfaceElementType).Append("\n");
+            sb.Append("  SpecifyLocalSize: ").Append(SpecifyLocalSize).Append("\n");
+            sb.Append("  MaxElementSize: ").Append(MaxElementSize).Append("\n");
             sb.Append("  SourceTopologicalReference: ").Append(SourceTopologicalReference).Append("\n");
             sb.Append("  DestinationTopologicalReference: ").Append(DestinationTopologicalReference).Append("\n");
             sb.Append("}\n");
@@ -168,13 +186,23 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.NumberOfElements == input.NumberOfElements ||
-                    (this.NumberOfElements != null &&
-                    this.NumberOfElements.Equals(input.NumberOfElements))
+                    this.SizingType == input.SizingType ||
+                    (this.SizingType != null &&
+                    this.SizingType.Equals(input.SizingType))
                 ) && 
                 (
                     this.SurfaceElementType == input.SurfaceElementType ||
                     this.SurfaceElementType.Equals(input.SurfaceElementType)
+                ) && 
+                (
+                    this.SpecifyLocalSize == input.SpecifyLocalSize ||
+                    (this.SpecifyLocalSize != null &&
+                    this.SpecifyLocalSize.Equals(input.SpecifyLocalSize))
+                ) && 
+                (
+                    this.MaxElementSize == input.MaxElementSize ||
+                    (this.MaxElementSize != null &&
+                    this.MaxElementSize.Equals(input.MaxElementSize))
                 ) && 
                 (
                     this.SourceTopologicalReference == input.SourceTopologicalReference ||
@@ -201,9 +229,13 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.NumberOfElements != null)
-                    hashCode = hashCode * 59 + this.NumberOfElements.GetHashCode();
+                if (this.SizingType != null)
+                    hashCode = hashCode * 59 + this.SizingType.GetHashCode();
                 hashCode = hashCode * 59 + this.SurfaceElementType.GetHashCode();
+                if (this.SpecifyLocalSize != null)
+                    hashCode = hashCode * 59 + this.SpecifyLocalSize.GetHashCode();
+                if (this.MaxElementSize != null)
+                    hashCode = hashCode * 59 + this.MaxElementSize.GetHashCode();
                 if (this.SourceTopologicalReference != null)
                     hashCode = hashCode * 59 + this.SourceTopologicalReference.GetHashCode();
                 if (this.DestinationTopologicalReference != null)

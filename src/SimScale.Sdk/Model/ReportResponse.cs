@@ -88,7 +88,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ReportResponse" /> class.
         /// </summary>
         /// <param name="name">The name of the report. (required).</param>
-        /// <param name="description">The description of the report. (required).</param>
+        /// <param name="description">The description of the report..</param>
         /// <param name="resultIds">The resultIds the report has been created for..</param>
         /// <param name="reportProperties">reportProperties.</param>
         /// <param name="download">download.</param>
@@ -97,8 +97,7 @@ namespace SimScale.Sdk.Model
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for ReportResponse and cannot be null");
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for ReportResponse and cannot be null");
+            this.Description = description;
             this.ResultIds = resultIds;
             this.ReportProperties = reportProperties;
             this.Download = download;

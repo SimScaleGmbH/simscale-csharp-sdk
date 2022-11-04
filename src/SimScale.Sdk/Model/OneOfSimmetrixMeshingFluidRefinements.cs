@@ -31,6 +31,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(SimmetrixLocalSizingRefinement), "SIMMETRIX_LOCAL_SIZING_V10")]
     [JsonSubtypes.KnownSubType(typeof(SimmetrixBoundaryLayerRefinement), "SIMMETRIX_BOUNDARY_LAYER_V13")]
     [JsonSubtypes.KnownSubType(typeof(SimmetrixSweptMeshRefinement), "SIMMETRIX_SWEPT_MESH_REFINEMENT")]
+    [JsonSubtypes.KnownSubType(typeof(SimmetrixThinSectionMeshRefinement), "SIMMETRIX_THIN_SECTION_MESH_REFINEMENT")]
     public interface OneOfSimmetrixMeshingFluidRefinements
     {
         /// <summary>

@@ -98,10 +98,11 @@ namespace SimScale.Sdk.Model
         /// <param name="writeControl">writeControl.</param>
         /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
+        /// <param name="velocityScaling">&lt;p&gt;It affects the stability of the simulation. The default value of 0.1 is a good compromise between accuracy and computational requirements. Lower values of this parameter might increase the stability of the simulation at the cost of higher computational time.&lt;/p&gt; (default to 0.1M).</param>
         /// <param name="potentialFoamInitialization">This setting activates the solution of a potential flow field. The potential flow is used as initial condition for the actual simulation. This can accelerate convergence and improve stability during the first time steps. If you experience stability problems, this setting may bring some improvement. (default to false).</param>
         /// <param name="decomposeAlgorithm">decomposeAlgorithm.</param>
         /// <param name="relativeConvergenceCriteria">&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation is considered to be converged and will stop. The recommended value is 0.001.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation will move to the next time-step regardless of the &lt;i&gt;Number of iterations&lt;/i&gt;. The recommended value is 0.1.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Relative residual is defined as the residual in the current iteration divided by the initial residual.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Lower convergence criterion is demanded for &lt;b&gt;Steady-state simulations&lt;/b&gt; because the initial guess is typically farther from the correct solution.&lt;/br&gt;.</param>
-        public FluidSimulationControl(DimensionalTime endTime = default(DimensionalTime), DimensionalTime adjointEndTime = default(DimensionalTime), int? numberOfIterations = default(int?), DimensionalTime deltaT = default(DimensionalTime), OneOfFluidSimulationControlAdjustableTimestep adjustableTimestep = default(OneOfFluidSimulationControlAdjustableTimestep), OneOfFluidSimulationControlWriteControl writeControl = default(OneOfFluidSimulationControlWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), bool? potentialFoamInitialization = default(bool?), OneOfFluidSimulationControlDecomposeAlgorithm decomposeAlgorithm = default(OneOfFluidSimulationControlDecomposeAlgorithm), decimal? relativeConvergenceCriteria = default(decimal?))
+        public FluidSimulationControl(DimensionalTime endTime = default(DimensionalTime), DimensionalTime adjointEndTime = default(DimensionalTime), int? numberOfIterations = default(int?), DimensionalTime deltaT = default(DimensionalTime), OneOfFluidSimulationControlAdjustableTimestep adjustableTimestep = default(OneOfFluidSimulationControlAdjustableTimestep), OneOfFluidSimulationControlWriteControl writeControl = default(OneOfFluidSimulationControlWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), decimal? velocityScaling = default(decimal?), bool? potentialFoamInitialization = default(bool?), OneOfFluidSimulationControlDecomposeAlgorithm decomposeAlgorithm = default(OneOfFluidSimulationControlDecomposeAlgorithm), decimal? relativeConvergenceCriteria = default(decimal?))
         {
             this.EndTime = endTime;
             this.AdjointEndTime = adjointEndTime;
@@ -111,6 +112,7 @@ namespace SimScale.Sdk.Model
             this.WriteControl = writeControl;
             this.NumProcessors = numProcessors;
             this.MaxRunTime = maxRunTime;
+            this.VelocityScaling = velocityScaling;
             this.PotentialFoamInitialization = potentialFoamInitialization;
             this.DecomposeAlgorithm = decomposeAlgorithm;
             this.RelativeConvergenceCriteria = relativeConvergenceCriteria;
@@ -160,6 +162,13 @@ namespace SimScale.Sdk.Model
         public DimensionalTime MaxRunTime { get; set; }
 
         /// <summary>
+        /// &lt;p&gt;It affects the stability of the simulation. The default value of 0.1 is a good compromise between accuracy and computational requirements. Lower values of this parameter might increase the stability of the simulation at the cost of higher computational time.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;It affects the stability of the simulation. The default value of 0.1 is a good compromise between accuracy and computational requirements. Lower values of this parameter might increase the stability of the simulation at the cost of higher computational time.&lt;/p&gt;</value>
+        [DataMember(Name="velocityScaling", EmitDefaultValue=false)]
+        public decimal? VelocityScaling { get; set; }
+
+        /// <summary>
         /// This setting activates the solution of a potential flow field. The potential flow is used as initial condition for the actual simulation. This can accelerate convergence and improve stability during the first time steps. If you experience stability problems, this setting may bring some improvement.
         /// </summary>
         /// <value>This setting activates the solution of a potential flow field. The potential flow is used as initial condition for the actual simulation. This can accelerate convergence and improve stability during the first time steps. If you experience stability problems, this setting may bring some improvement.</value>
@@ -195,6 +204,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  WriteControl: ").Append(WriteControl).Append("\n");
             sb.Append("  NumProcessors: ").Append(NumProcessors).Append("\n");
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
+            sb.Append("  VelocityScaling: ").Append(VelocityScaling).Append("\n");
             sb.Append("  PotentialFoamInitialization: ").Append(PotentialFoamInitialization).Append("\n");
             sb.Append("  DecomposeAlgorithm: ").Append(DecomposeAlgorithm).Append("\n");
             sb.Append("  RelativeConvergenceCriteria: ").Append(RelativeConvergenceCriteria).Append("\n");
@@ -272,6 +282,11 @@ namespace SimScale.Sdk.Model
                     this.MaxRunTime.Equals(input.MaxRunTime))
                 ) && 
                 (
+                    this.VelocityScaling == input.VelocityScaling ||
+                    (this.VelocityScaling != null &&
+                    this.VelocityScaling.Equals(input.VelocityScaling))
+                ) && 
+                (
                     this.PotentialFoamInitialization == input.PotentialFoamInitialization ||
                     (this.PotentialFoamInitialization != null &&
                     this.PotentialFoamInitialization.Equals(input.PotentialFoamInitialization))
@@ -312,6 +327,8 @@ namespace SimScale.Sdk.Model
                 hashCode = hashCode * 59 + this.NumProcessors.GetHashCode();
                 if (this.MaxRunTime != null)
                     hashCode = hashCode * 59 + this.MaxRunTime.GetHashCode();
+                if (this.VelocityScaling != null)
+                    hashCode = hashCode * 59 + this.VelocityScaling.GetHashCode();
                 if (this.PotentialFoamInitialization != null)
                     hashCode = hashCode * 59 + this.PotentialFoamInitialization.GetHashCode();
                 if (this.DecomposeAlgorithm != null)

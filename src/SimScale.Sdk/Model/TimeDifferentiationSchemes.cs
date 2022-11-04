@@ -32,9 +32,11 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="TimeDifferentiationSchemes" /> class.
         /// </summary>
         /// <param name="forDefault">forDefault.</param>
-        public TimeDifferentiationSchemes(OneOfTimeDifferentiationSchemesForDefault forDefault = default(OneOfTimeDifferentiationSchemesForDefault))
+        /// <param name="secondOrderScheme">secondOrderScheme (default to false).</param>
+        public TimeDifferentiationSchemes(OneOfTimeDifferentiationSchemesForDefault forDefault = default(OneOfTimeDifferentiationSchemesForDefault), bool? secondOrderScheme = default(bool?))
         {
             this.ForDefault = forDefault;
+            this.SecondOrderScheme = secondOrderScheme;
         }
         
         /// <summary>
@@ -42,6 +44,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="forDefault", EmitDefaultValue=false)]
         public OneOfTimeDifferentiationSchemesForDefault ForDefault { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SecondOrderScheme
+        /// </summary>
+        [DataMember(Name="secondOrderScheme", EmitDefaultValue=false)]
+        public bool? SecondOrderScheme { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,6 +60,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class TimeDifferentiationSchemes {\n");
             sb.Append("  ForDefault: ").Append(ForDefault).Append("\n");
+            sb.Append("  SecondOrderScheme: ").Append(SecondOrderScheme).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,6 +99,11 @@ namespace SimScale.Sdk.Model
                     this.ForDefault == input.ForDefault ||
                     (this.ForDefault != null &&
                     this.ForDefault.Equals(input.ForDefault))
+                ) && 
+                (
+                    this.SecondOrderScheme == input.SecondOrderScheme ||
+                    (this.SecondOrderScheme != null &&
+                    this.SecondOrderScheme.Equals(input.SecondOrderScheme))
                 );
         }
 
@@ -104,6 +118,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.ForDefault != null)
                     hashCode = hashCode * 59 + this.ForDefault.GetHashCode();
+                if (this.SecondOrderScheme != null)
+                    hashCode = hashCode * 59 + this.SecondOrderScheme.GetHashCode();
                 return hashCode;
             }
         }

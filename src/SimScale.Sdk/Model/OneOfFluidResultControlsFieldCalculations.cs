@@ -33,6 +33,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsFrictionVelocityResultControl), "FRICTION_VELOCITY_U_TAU")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsSurfaceNormalsResultControl), "SURFACE_NORMALS")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsWallFluxesResultControl), "WALL_FLUXES")]
+    [JsonSubtypes.KnownSubType(typeof(FieldCalculationsMeanAgeOfFluidResultControl), "AGE_OF_FLUID")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsThermalComfortResultControl), "THERMAL_COMFORT")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsAdjointSensitivitiesResultControl), "ADJOINT_SENSITIVITIES")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsWallHeatFluxResultControl), "WALL_HEAT_FLUX")]

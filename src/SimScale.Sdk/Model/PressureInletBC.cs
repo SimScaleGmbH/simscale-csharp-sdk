@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This boundary condition is suitable for inlet and open boundaries where the value of &lt;b&gt;pressure&lt;/b&gt; is known.
     /// </summary>
     [DataContract]
-    public partial class PressureInletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<PressureInletBC>
+    public partial class PressureInletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<PressureInletBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureInletBC" /> class.
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         /// <param name="passiveScalars">Please choose a boundary condition for passive scalar (T)..</param>
         /// <param name="phaseFraction">phaseFraction.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
+        /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), OneOfPressureInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureInletBCRadiativeIntensityRay), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureInletBC and cannot be null");
@@ -60,6 +61,7 @@ namespace SimScale.Sdk.Model
             this.PassiveScalars = passiveScalars;
             this.PhaseFraction = phaseFraction;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
+            this.RadiativeIntensityRay = radiativeIntensityRay;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -126,6 +128,12 @@ namespace SimScale.Sdk.Model
         public OneOfPressureInletBCNetRadiativeHeatFlux NetRadiativeHeatFlux { get; set; }
 
         /// <summary>
+        /// Gets or Sets RadiativeIntensityRay
+        /// </summary>
+        [DataMember(Name="radiativeIntensityRay", EmitDefaultValue=false)]
+        public OneOfPressureInletBCRadiativeIntensityRay RadiativeIntensityRay { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -149,6 +157,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PassiveScalars: ").Append(PassiveScalars).Append("\n");
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
+            sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -236,6 +245,11 @@ namespace SimScale.Sdk.Model
                     this.NetRadiativeHeatFlux.Equals(input.NetRadiativeHeatFlux))
                 ) && 
                 (
+                    this.RadiativeIntensityRay == input.RadiativeIntensityRay ||
+                    (this.RadiativeIntensityRay != null &&
+                    this.RadiativeIntensityRay.Equals(input.RadiativeIntensityRay))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -271,6 +285,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PhaseFraction.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)
                     hashCode = hashCode * 59 + this.NetRadiativeHeatFlux.GetHashCode();
+                if (this.RadiativeIntensityRay != null)
+                    hashCode = hashCode * 59 + this.RadiativeIntensityRay.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

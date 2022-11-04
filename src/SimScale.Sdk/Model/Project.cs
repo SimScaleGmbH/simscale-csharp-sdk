@@ -63,17 +63,21 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Project" /> class.
         /// </summary>
+        /// <param name="spaceId">Always returned by the backend. Optional at project creation. If missing, the project will be created in the Personal Space of the user..</param>
+        /// <param name="parentFolderId">If missing, the project is located at the root level of the Space..</param>
         /// <param name="name">The project title should contain the application you want to analyze as well as the simulation method you want to use, e.g. &#39;Heat exchanger - CHT simulation&#39;.  (required).</param>
         /// <param name="description">A meaningful description of the project. (required).</param>
         /// <param name="measurementSystem">The measurement system of the project. Can&#39;t be modifed. (required) (default to MeasurementSystemEnum.SI).</param>
         /// <param name="tags">tags.</param>
-        public Project(string name = default(string), string description = default(string), MeasurementSystemEnum measurementSystem = MeasurementSystemEnum.SI, List<string> tags = default(List<string>))
+        public Project(Guid? spaceId = default(Guid?), Guid? parentFolderId = default(Guid?), string name = default(string), string description = default(string), MeasurementSystemEnum measurementSystem = MeasurementSystemEnum.SI, List<string> tags = default(List<string>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Project and cannot be null");
             // to ensure "description" is required (not null)
             this.Description = description ?? throw new ArgumentNullException("description is a required property for Project and cannot be null");
             this.MeasurementSystem = measurementSystem;
+            this.SpaceId = spaceId;
+            this.ParentFolderId = parentFolderId;
             this.Tags = tags;
         }
         
@@ -82,6 +86,20 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="projectId", EmitDefaultValue=false)]
         public string ProjectId { get; private set; }
+
+        /// <summary>
+        /// Always returned by the backend. Optional at project creation. If missing, the project will be created in the Personal Space of the user.
+        /// </summary>
+        /// <value>Always returned by the backend. Optional at project creation. If missing, the project will be created in the Personal Space of the user.</value>
+        [DataMember(Name="spaceId", EmitDefaultValue=false)]
+        public Guid? SpaceId { get; set; }
+
+        /// <summary>
+        /// If missing, the project is located at the root level of the Space.
+        /// </summary>
+        /// <value>If missing, the project is located at the root level of the Space.</value>
+        [DataMember(Name="parentFolderId", EmitDefaultValue=false)]
+        public Guid? ParentFolderId { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
@@ -118,6 +136,8 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class Project {\n");
             sb.Append("  ProjectId: ").Append(ProjectId).Append("\n");
+            sb.Append("  SpaceId: ").Append(SpaceId).Append("\n");
+            sb.Append("  ParentFolderId: ").Append(ParentFolderId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -163,6 +183,16 @@ namespace SimScale.Sdk.Model
                     this.ProjectId.Equals(input.ProjectId))
                 ) && 
                 (
+                    this.SpaceId == input.SpaceId ||
+                    (this.SpaceId != null &&
+                    this.SpaceId.Equals(input.SpaceId))
+                ) && 
+                (
+                    this.ParentFolderId == input.ParentFolderId ||
+                    (this.ParentFolderId != null &&
+                    this.ParentFolderId.Equals(input.ParentFolderId))
+                ) && 
+                (
                     this.CreatedAt == input.CreatedAt ||
                     (this.CreatedAt != null &&
                     this.CreatedAt.Equals(input.CreatedAt))
@@ -200,6 +230,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.ProjectId != null)
                     hashCode = hashCode * 59 + this.ProjectId.GetHashCode();
+                if (this.SpaceId != null)
+                    hashCode = hashCode * 59 + this.SpaceId.GetHashCode();
+                if (this.ParentFolderId != null)
+                    hashCode = hashCode * 59 + this.ParentFolderId.GetHashCode();
                 if (this.CreatedAt != null)
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.Name != null)

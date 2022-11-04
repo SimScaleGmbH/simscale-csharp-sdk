@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// GreybodyDiffusiveRayBC
     /// </summary>
     [DataContract]
-    public partial class GreybodyDiffusiveRayBC : OneOfPressureOutletBCRadiativeIntensityRay, OneOfVelocityInletBCRadiativeIntensityRay, OneOfVelocityOutletBCRadiativeIntensityRay, OneOfWallBCRadiativeIntensityRay, IEquatable<GreybodyDiffusiveRayBC>
+    public partial class GreybodyDiffusiveRayBC : OneOfFanBCRadiativeIntensityRay, OneOfPressureInletBCRadiativeIntensityRay, OneOfPressureOutletBCRadiativeIntensityRay, OneOfVelocityInletBCRadiativeIntensityRay, OneOfVelocityOutletBCRadiativeIntensityRay, OneOfWallBCRadiativeIntensityRay, IEquatable<GreybodyDiffusiveRayBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GreybodyDiffusiveRayBC" /> class.

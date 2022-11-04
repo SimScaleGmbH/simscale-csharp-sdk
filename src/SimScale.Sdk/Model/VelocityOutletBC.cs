@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This boundary condition imposes a known &lt;b&gt;velocity&lt;/b&gt;-based constraint at an outlet.
     /// </summary>
     [DataContract]
-    public partial class VelocityOutletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<VelocityOutletBC>
+    public partial class VelocityOutletBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<VelocityOutletBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VelocityOutletBC" /> class.

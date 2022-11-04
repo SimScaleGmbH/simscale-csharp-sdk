@@ -75,7 +75,7 @@ var simulationApi = new SimulationsApi(config);
 To use the API client with an HTTP proxy, set up a `System.Net.WebProxy`
 ```csharp
 Configuration c = new Configuration();
-System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
+System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:myProxyPort/");
 webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
 c.Proxy = webProxy;
 ```

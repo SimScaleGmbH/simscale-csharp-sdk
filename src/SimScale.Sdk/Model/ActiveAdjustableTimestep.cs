@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ActiveAdjustableTimestep" /> class.
         /// </summary>
         /// <param name="type">This option activates an adjustable time step. The time step is being modified according to the Courant number.  Schema name: ActiveAdjustableTimestep (required) (default to &quot;ACTIVE_TIMESTEP&quot;).</param>
-        /// <param name="maximalCourantNumber">This option defines a maximum Courant number. When using explicit time integration schemes, it may not be greater than 1. Values of 0.5-0.7 are recommended for many cases. (default to 0.5M).</param>
+        /// <param name="maximalCourantNumber">This option defines a maximum Courant number. The resulting time step should resolve relevant transient effects with at least 100 steps. &lt;br&gt;&lt;b&gt;Transient multiphase simulations&lt;/b&gt;: Maximum Courant number may not be greater than 1. Values of 0.5-0.7 are recommended for many cases. (default to 0.5M).</param>
         /// <param name="maximalStep">This option defines a maximum time step length which may not be exceeded when the time step is adapted during runtime. (default to 1M).</param>
         /// <param name="maxAlphaCo">Define a maximum Courant number based on the interface velocity. (default to 0.5M).</param>
         public ActiveAdjustableTimestep(string type = "ACTIVE_TIMESTEP", decimal? maximalCourantNumber = default(decimal?), decimal? maximalStep = default(decimal?), decimal? maxAlphaCo = default(decimal?))
@@ -57,9 +57,9 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// This option defines a maximum Courant number. When using explicit time integration schemes, it may not be greater than 1. Values of 0.5-0.7 are recommended for many cases.
+        /// This option defines a maximum Courant number. The resulting time step should resolve relevant transient effects with at least 100 steps. &lt;br&gt;&lt;b&gt;Transient multiphase simulations&lt;/b&gt;: Maximum Courant number may not be greater than 1. Values of 0.5-0.7 are recommended for many cases.
         /// </summary>
-        /// <value>This option defines a maximum Courant number. When using explicit time integration schemes, it may not be greater than 1. Values of 0.5-0.7 are recommended for many cases.</value>
+        /// <value>This option defines a maximum Courant number. The resulting time step should resolve relevant transient effects with at least 100 steps. &lt;br&gt;&lt;b&gt;Transient multiphase simulations&lt;/b&gt;: Maximum Courant number may not be greater than 1. Values of 0.5-0.7 are recommended for many cases.</value>
         [DataMember(Name="maximalCourantNumber", EmitDefaultValue=false)]
         public decimal? MaximalCourantNumber { get; set; }
 

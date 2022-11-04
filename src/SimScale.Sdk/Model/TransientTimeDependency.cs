@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// TransientTimeDependency
     /// </summary>
     [DataContract]
-    public partial class TransientTimeDependency : OneOfCompressibleTimeDependency, OneOfConjugateHeatTransferTimeDependency, OneOfConvectiveHeatTransferTimeDependency, OneOfHeatTransferTimeDependency, OneOfIncompressibleTimeDependency, OneOfSimericsAnalysisTimeDependency, OneOfThermalMechanicalTimeDependency, IEquatable<TransientTimeDependency>
+    public partial class TransientTimeDependency : OneOfCompressibleTimeDependency, OneOfConjugateHeatTransferTimeDependency, OneOfConvectiveHeatTransferTimeDependency, OneOfCoupledConjugateHeatTransferTimeDependency, OneOfEmbeddedBoundaryTimeDependency, OneOfHeatTransferTimeDependency, OneOfIncompressibleTimeDependency, OneOfSimericsAnalysisTimeDependency, OneOfThermalMechanicalTimeDependency, IEquatable<TransientTimeDependency>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TransientTimeDependency" /> class.

@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Ground reference can be either &lt;i&gt;absolute&lt;/i&gt; (uses bottom of region of interest as reference) or &lt;i&gt;relative&lt;/i&gt; (uses each assignment as a reference) and elevates those by the height defined. &lt;a href&#x3D; https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/pedestrian-comfort-map/#ground&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/Ground_absolute_relative.jpg\&quot;, class&#x3D;\&quot;helpPopupImage\&quot;/&gt;
+    /// &lt;p&gt;Ground reference can be either &lt;i&gt;absolute&lt;/i&gt; (uses bottom of region of interest as reference) or &lt;i&gt;relative&lt;/i&gt; (uses each assignment as a reference) and elevates those by the height defined. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/pedestrian-wind-comfort-analysis/pedestrian-comfort-map/#ground&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/Ground_absolute_relative.jpg\&quot;, class&#x3D;\&quot;helpPopupImage\&quot;/&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(GroundAbsolute), "GROUND_ABSOLUTE")]

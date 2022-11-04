@@ -31,6 +31,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FluidResultControls" /> class.
         /// </summary>
+        /// <param name="customComfortCriteria">customComfortCriteria.</param>
         /// <param name="forcesMoments">forcesMoments.</param>
         /// <param name="surfaceData">surfaceData.</param>
         /// <param name="scalarTransport">scalarTransport.</param>
@@ -39,8 +40,9 @@ namespace SimScale.Sdk.Model
         /// <param name="transientResultControl">transientResultControl.</param>
         /// <param name="statisticalAveragingResultControl">statisticalAveragingResultControl.</param>
         /// <param name="snapshotResultControl">snapshotResultControl.</param>
-        public FluidResultControls(List<OneOfFluidResultControlsForcesMoments> forcesMoments = default(List<OneOfFluidResultControlsForcesMoments>), List<OneOfFluidResultControlsSurfaceData> surfaceData = default(List<OneOfFluidResultControlsSurfaceData>), List<ScalarTransportResultControl> scalarTransport = default(List<ScalarTransportResultControl>), List<ProbePointsResultControl> probePoints = default(List<ProbePointsResultControl>), List<OneOfFluidResultControlsFieldCalculations> fieldCalculations = default(List<OneOfFluidResultControlsFieldCalculations>), TransientResultControl transientResultControl = default(TransientResultControl), StatisticalAveragingResultControlV2 statisticalAveragingResultControl = default(StatisticalAveragingResultControlV2), SnapshotResultControl snapshotResultControl = default(SnapshotResultControl))
+        public FluidResultControls(List<CustomComfortCriterionResultControl> customComfortCriteria = default(List<CustomComfortCriterionResultControl>), List<OneOfFluidResultControlsForcesMoments> forcesMoments = default(List<OneOfFluidResultControlsForcesMoments>), List<OneOfFluidResultControlsSurfaceData> surfaceData = default(List<OneOfFluidResultControlsSurfaceData>), List<ScalarTransportResultControl> scalarTransport = default(List<ScalarTransportResultControl>), List<ProbePointsResultControl> probePoints = default(List<ProbePointsResultControl>), List<OneOfFluidResultControlsFieldCalculations> fieldCalculations = default(List<OneOfFluidResultControlsFieldCalculations>), TransientResultControl transientResultControl = default(TransientResultControl), StatisticalAveragingResultControlV2 statisticalAveragingResultControl = default(StatisticalAveragingResultControlV2), SnapshotResultControl snapshotResultControl = default(SnapshotResultControl))
         {
+            this.CustomComfortCriteria = customComfortCriteria;
             this.ForcesMoments = forcesMoments;
             this.SurfaceData = surfaceData;
             this.ScalarTransport = scalarTransport;
@@ -51,6 +53,12 @@ namespace SimScale.Sdk.Model
             this.SnapshotResultControl = snapshotResultControl;
         }
         
+        /// <summary>
+        /// Gets or Sets CustomComfortCriteria
+        /// </summary>
+        [DataMember(Name="customComfortCriteria", EmitDefaultValue=false)]
+        public List<CustomComfortCriterionResultControl> CustomComfortCriteria { get; set; }
+
         /// <summary>
         /// Gets or Sets ForcesMoments
         /// </summary>
@@ -107,6 +115,7 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class FluidResultControls {\n");
+            sb.Append("  CustomComfortCriteria: ").Append(CustomComfortCriteria).Append("\n");
             sb.Append("  ForcesMoments: ").Append(ForcesMoments).Append("\n");
             sb.Append("  SurfaceData: ").Append(SurfaceData).Append("\n");
             sb.Append("  ScalarTransport: ").Append(ScalarTransport).Append("\n");
@@ -149,6 +158,12 @@ namespace SimScale.Sdk.Model
                 return false;
 
             return 
+                (
+                    this.CustomComfortCriteria == input.CustomComfortCriteria ||
+                    this.CustomComfortCriteria != null &&
+                    input.CustomComfortCriteria != null &&
+                    this.CustomComfortCriteria.SequenceEqual(input.CustomComfortCriteria)
+                ) && 
                 (
                     this.ForcesMoments == input.ForcesMoments ||
                     this.ForcesMoments != null &&
@@ -205,6 +220,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CustomComfortCriteria != null)
+                    hashCode = hashCode * 59 + this.CustomComfortCriteria.GetHashCode();
                 if (this.ForcesMoments != null)
                     hashCode = hashCode * 59 + this.ForcesMoments.GetHashCode();
                 if (this.SurfaceData != null)

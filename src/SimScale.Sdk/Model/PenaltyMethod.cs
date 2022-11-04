@@ -37,12 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="PenaltyMethod" /> class.
         /// </summary>
         /// <param name="type">Schema name: PenaltyMethod (required) (default to &quot;PENALTY_METHOD&quot;).</param>
-        /// <param name="penaltyCoefficient">penaltyCoefficient (default to 100000000000M).</param>
-        public PenaltyMethod(string type = "PENALTY_METHOD", decimal? penaltyCoefficient = default(decimal?))
+        /// <param name="contactStiffness">contactStiffness.</param>
+        public PenaltyMethod(string type = "PENALTY_METHOD", OneOfPenaltyMethodContactStiffness contactStiffness = default(OneOfPenaltyMethodContactStiffness))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PenaltyMethod and cannot be null");
-            this.PenaltyCoefficient = penaltyCoefficient;
+            this.ContactStiffness = contactStiffness;
         }
         
         /// <summary>
@@ -53,10 +53,10 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets PenaltyCoefficient
+        /// Gets or Sets ContactStiffness
         /// </summary>
-        [DataMember(Name="penaltyCoefficient", EmitDefaultValue=false)]
-        public decimal? PenaltyCoefficient { get; set; }
+        [DataMember(Name="contactStiffness", EmitDefaultValue=false)]
+        public OneOfPenaltyMethodContactStiffness ContactStiffness { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PenaltyMethod {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  PenaltyCoefficient: ").Append(PenaltyCoefficient).Append("\n");
+            sb.Append("  ContactStiffness: ").Append(ContactStiffness).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.PenaltyCoefficient == input.PenaltyCoefficient ||
-                    (this.PenaltyCoefficient != null &&
-                    this.PenaltyCoefficient.Equals(input.PenaltyCoefficient))
+                    this.ContactStiffness == input.ContactStiffness ||
+                    (this.ContactStiffness != null &&
+                    this.ContactStiffness.Equals(input.ContactStiffness))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.PenaltyCoefficient != null)
-                    hashCode = hashCode * 59 + this.PenaltyCoefficient.GetHashCode();
+                if (this.ContactStiffness != null)
+                    hashCode = hashCode * 59 + this.ContactStiffness.GetHashCode();
                 return hashCode;
             }
         }

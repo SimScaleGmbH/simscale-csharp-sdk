@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// SemiOpenBoundaryRayBC
     /// </summary>
     [DataContract]
-    public partial class SemiOpenBoundaryRayBC : OneOfPressureOutletBCRadiativeIntensityRay, OneOfVelocityInletBCRadiativeIntensityRay, OneOfVelocityOutletBCRadiativeIntensityRay, OneOfWallBCRadiativeIntensityRay, IEquatable<SemiOpenBoundaryRayBC>
+    public partial class SemiOpenBoundaryRayBC : OneOfFanBCRadiativeIntensityRay, OneOfPressureInletBCRadiativeIntensityRay, OneOfPressureOutletBCRadiativeIntensityRay, OneOfVelocityInletBCRadiativeIntensityRay, OneOfVelocityOutletBCRadiativeIntensityRay, OneOfWallBCRadiativeIntensityRay, IEquatable<SemiOpenBoundaryRayBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SemiOpenBoundaryRayBC" /> class.

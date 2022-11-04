@@ -39,16 +39,18 @@ namespace SimScale.Sdk.Model
         /// <param name="type">&lt;p&gt;This boundary condition is suitable for an &lt;b&gt;open boundary&lt;/b&gt; where the air can enter or exit freely from or to the &lt;b&gt;atmosphere&lt;b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/natural-convection-inlet-outlet/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/P&gt;  Schema name: NaturalConvectionInletOutletBC (required) (default to &quot;NATURAL_CONVECTION_INLET_OUTLET&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressureRgh">pressureRgh.</param>
+        /// <param name="gaugePressureRgh">gaugePressureRgh.</param>
         /// <param name="temperature">temperature.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public NaturalConvectionInletOutletBC(string type = "NATURAL_CONVECTION_INLET_OUTLET", string name = default(string), AmbientPBC pressureRgh = default(AmbientPBC), AmbientTBC temperature = default(AmbientTBC), OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux), OpenBoundaryRayBC radiativeIntensityRay = default(OpenBoundaryRayBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public NaturalConvectionInletOutletBC(string type = "NATURAL_CONVECTION_INLET_OUTLET", string name = default(string), AmbientPBC pressureRgh = default(AmbientPBC), AmbientPBC gaugePressureRgh = default(AmbientPBC), AmbientTBC temperature = default(AmbientTBC), OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux), OpenBoundaryRayBC radiativeIntensityRay = default(OpenBoundaryRayBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for NaturalConvectionInletOutletBC and cannot be null");
             this.Name = name;
             this.PressureRgh = pressureRgh;
+            this.GaugePressureRgh = gaugePressureRgh;
             this.Temperature = temperature;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
@@ -73,6 +75,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="pressureRgh", EmitDefaultValue=false)]
         public AmbientPBC PressureRgh { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GaugePressureRgh
+        /// </summary>
+        [DataMember(Name="gaugePressureRgh", EmitDefaultValue=false)]
+        public AmbientPBC GaugePressureRgh { get; set; }
 
         /// <summary>
         /// Gets or Sets Temperature
@@ -109,6 +117,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  PressureRgh: ").Append(PressureRgh).Append("\n");
+            sb.Append("  GaugePressureRgh: ").Append(GaugePressureRgh).Append("\n");
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
@@ -163,6 +172,11 @@ namespace SimScale.Sdk.Model
                     this.PressureRgh.Equals(input.PressureRgh))
                 ) && 
                 (
+                    this.GaugePressureRgh == input.GaugePressureRgh ||
+                    (this.GaugePressureRgh != null &&
+                    this.GaugePressureRgh.Equals(input.GaugePressureRgh))
+                ) && 
+                (
                     this.Temperature == input.Temperature ||
                     (this.Temperature != null &&
                     this.Temperature.Equals(input.Temperature))
@@ -199,6 +213,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.PressureRgh != null)
                     hashCode = hashCode * 59 + this.PressureRgh.GetHashCode();
+                if (this.GaugePressureRgh != null)
+                    hashCode = hashCode * 59 + this.GaugePressureRgh.GetHashCode();
                 if (this.Temperature != null)
                     hashCode = hashCode * 59 + this.Temperature.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)

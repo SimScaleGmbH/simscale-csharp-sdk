@@ -65,7 +65,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: IncompressibleMaterial (required) (default to &quot;INCOMPRESSIBLE&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="associatedPhase">&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt; (default to AssociatedPhaseEnum._1).</param>
+        /// <param name="associatedPhase">&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt; (default to AssociatedPhaseEnum._0).</param>
         /// <param name="viscosityModel">viscosityModel.</param>
         /// <param name="density">density.</param>
         /// <param name="thermalExpansionCoefficient">thermalExpansionCoefficient.</param>

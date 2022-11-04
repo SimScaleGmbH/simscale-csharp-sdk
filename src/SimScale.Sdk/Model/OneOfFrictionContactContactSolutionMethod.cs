@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(AugmentedLagrangeMethod), "AUGMENTED_LAGRANGE")]
     [JsonSubtypes.KnownSubType(typeof(PenaltyMethod), "PENALTY_METHOD")]
+    [JsonSubtypes.KnownSubType(typeof(AutomaticPenetrationControl), "AUTOMATIC_PENETRATION_CONTROL")]
     public interface OneOfFrictionContactContactSolutionMethod
     {
         /// <summary>

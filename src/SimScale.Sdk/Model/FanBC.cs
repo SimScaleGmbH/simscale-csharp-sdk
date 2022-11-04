@@ -43,8 +43,9 @@ namespace SimScale.Sdk.Model
         /// <param name="gaugePressure">gaugePressure.</param>
         /// <param name="gaugePressureRgh">gaugePressureRgh.</param>
         /// <param name="temperature">temperature.</param>
+        /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), FixedValueTBC temperature = default(FixedValueTBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), FixedValueTBC temperature = default(FixedValueTBC), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanBC and cannot be null");
@@ -54,6 +55,7 @@ namespace SimScale.Sdk.Model
             this.GaugePressure = gaugePressure;
             this.GaugePressureRgh = gaugePressureRgh;
             this.Temperature = temperature;
+            this.RadiativeIntensityRay = radiativeIntensityRay;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -101,6 +103,12 @@ namespace SimScale.Sdk.Model
         public FixedValueTBC Temperature { get; set; }
 
         /// <summary>
+        /// Gets or Sets RadiativeIntensityRay
+        /// </summary>
+        [DataMember(Name="radiativeIntensityRay", EmitDefaultValue=false)]
+        public OneOfFanBCRadiativeIntensityRay RadiativeIntensityRay { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -121,6 +129,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  GaugePressure: ").Append(GaugePressure).Append("\n");
             sb.Append("  GaugePressureRgh: ").Append(GaugePressureRgh).Append("\n");
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
+            sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -192,6 +201,11 @@ namespace SimScale.Sdk.Model
                     this.Temperature.Equals(input.Temperature))
                 ) && 
                 (
+                    this.RadiativeIntensityRay == input.RadiativeIntensityRay ||
+                    (this.RadiativeIntensityRay != null &&
+                    this.RadiativeIntensityRay.Equals(input.RadiativeIntensityRay))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -221,6 +235,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.GaugePressureRgh.GetHashCode();
                 if (this.Temperature != null)
                     hashCode = hashCode * 59 + this.Temperature.GetHashCode();
+                if (this.RadiativeIntensityRay != null)
+                    hashCode = hashCode * 59 + this.RadiativeIntensityRay.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

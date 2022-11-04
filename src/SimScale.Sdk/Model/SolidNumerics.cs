@@ -36,19 +36,21 @@ namespace SimScale.Sdk.Model
         /// <param name="eigenSolver">eigenSolver.</param>
         /// <param name="calculateFrequency">calculateFrequency.</param>
         /// <param name="eigenMode">eigenMode.</param>
+        /// <param name="enhancedAccuracy">Further increase the accuracy of the results by running two simulations. The results of the first one will be used as input for the second one to fine-tune the setup. (default to false).</param>
         /// <param name="mechanicalTimeIntegrationType">mechanicalTimeIntegrationType.</param>
         /// <param name="mechanicalResolutionType">mechanicalResolutionType.</param>
         /// <param name="mechanicalLineSearch">mechanicalLineSearch.</param>
         /// <param name="thermalTimeIntegrationType">thermalTimeIntegrationType.</param>
         /// <param name="thermalResolutionType">thermalResolutionType.</param>
         /// <param name="thermalLineSearch">thermalLineSearch.</param>
-        public SolidNumerics(OneOfSolidNumericsSolver solver = default(OneOfSolidNumericsSolver), Object solveModel = default(Object), OneOfSolidNumericsEigenSolver eigenSolver = default(OneOfSolidNumericsEigenSolver), CalculateFrequency calculateFrequency = default(CalculateFrequency), EigenModeVerification eigenMode = default(EigenModeVerification), OneOfSolidNumericsMechanicalTimeIntegrationType mechanicalTimeIntegrationType = default(OneOfSolidNumericsMechanicalTimeIntegrationType), OneOfSolidNumericsMechanicalResolutionType mechanicalResolutionType = default(OneOfSolidNumericsMechanicalResolutionType), OneOfSolidNumericsMechanicalLineSearch mechanicalLineSearch = default(OneOfSolidNumericsMechanicalLineSearch), ThetaMethodTimeIntegrationType thermalTimeIntegrationType = default(ThetaMethodTimeIntegrationType), OneOfSolidNumericsThermalResolutionType thermalResolutionType = default(OneOfSolidNumericsThermalResolutionType), OneOfSolidNumericsThermalLineSearch thermalLineSearch = default(OneOfSolidNumericsThermalLineSearch))
+        public SolidNumerics(OneOfSolidNumericsSolver solver = default(OneOfSolidNumericsSolver), Object solveModel = default(Object), OneOfSolidNumericsEigenSolver eigenSolver = default(OneOfSolidNumericsEigenSolver), CalculateFrequency calculateFrequency = default(CalculateFrequency), EigenModeVerification eigenMode = default(EigenModeVerification), bool? enhancedAccuracy = default(bool?), OneOfSolidNumericsMechanicalTimeIntegrationType mechanicalTimeIntegrationType = default(OneOfSolidNumericsMechanicalTimeIntegrationType), OneOfSolidNumericsMechanicalResolutionType mechanicalResolutionType = default(OneOfSolidNumericsMechanicalResolutionType), OneOfSolidNumericsMechanicalLineSearch mechanicalLineSearch = default(OneOfSolidNumericsMechanicalLineSearch), ThetaMethodTimeIntegrationType thermalTimeIntegrationType = default(ThetaMethodTimeIntegrationType), OneOfSolidNumericsThermalResolutionType thermalResolutionType = default(OneOfSolidNumericsThermalResolutionType), OneOfSolidNumericsThermalLineSearch thermalLineSearch = default(OneOfSolidNumericsThermalLineSearch))
         {
             this.Solver = solver;
             this.SolveModel = solveModel;
             this.EigenSolver = eigenSolver;
             this.CalculateFrequency = calculateFrequency;
             this.EigenMode = eigenMode;
+            this.EnhancedAccuracy = enhancedAccuracy;
             this.MechanicalTimeIntegrationType = mechanicalTimeIntegrationType;
             this.MechanicalResolutionType = mechanicalResolutionType;
             this.MechanicalLineSearch = mechanicalLineSearch;
@@ -86,6 +88,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="eigenMode", EmitDefaultValue=false)]
         public EigenModeVerification EigenMode { get; set; }
+
+        /// <summary>
+        /// Further increase the accuracy of the results by running two simulations. The results of the first one will be used as input for the second one to fine-tune the setup.
+        /// </summary>
+        /// <value>Further increase the accuracy of the results by running two simulations. The results of the first one will be used as input for the second one to fine-tune the setup.</value>
+        [DataMember(Name="enhancedAccuracy", EmitDefaultValue=false)]
+        public bool? EnhancedAccuracy { get; set; }
 
         /// <summary>
         /// Gets or Sets MechanicalTimeIntegrationType
@@ -136,6 +145,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  EigenSolver: ").Append(EigenSolver).Append("\n");
             sb.Append("  CalculateFrequency: ").Append(CalculateFrequency).Append("\n");
             sb.Append("  EigenMode: ").Append(EigenMode).Append("\n");
+            sb.Append("  EnhancedAccuracy: ").Append(EnhancedAccuracy).Append("\n");
             sb.Append("  MechanicalTimeIntegrationType: ").Append(MechanicalTimeIntegrationType).Append("\n");
             sb.Append("  MechanicalResolutionType: ").Append(MechanicalResolutionType).Append("\n");
             sb.Append("  MechanicalLineSearch: ").Append(MechanicalLineSearch).Append("\n");
@@ -202,6 +212,11 @@ namespace SimScale.Sdk.Model
                     this.EigenMode.Equals(input.EigenMode))
                 ) && 
                 (
+                    this.EnhancedAccuracy == input.EnhancedAccuracy ||
+                    (this.EnhancedAccuracy != null &&
+                    this.EnhancedAccuracy.Equals(input.EnhancedAccuracy))
+                ) && 
+                (
                     this.MechanicalTimeIntegrationType == input.MechanicalTimeIntegrationType ||
                     (this.MechanicalTimeIntegrationType != null &&
                     this.MechanicalTimeIntegrationType.Equals(input.MechanicalTimeIntegrationType))
@@ -252,6 +267,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.CalculateFrequency.GetHashCode();
                 if (this.EigenMode != null)
                     hashCode = hashCode * 59 + this.EigenMode.GetHashCode();
+                if (this.EnhancedAccuracy != null)
+                    hashCode = hashCode * 59 + this.EnhancedAccuracy.GetHashCode();
                 if (this.MechanicalTimeIntegrationType != null)
                     hashCode = hashCode * 59 + this.MechanicalTimeIntegrationType.GetHashCode();
                 if (this.MechanicalResolutionType != null)

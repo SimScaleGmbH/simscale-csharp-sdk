@@ -29,6 +29,33 @@ namespace SimScale.Sdk.Model
     public partial class FluidCompressibleMaterial : OneOfConvectiveHeatTransferMaterialsFluids, OneOfCoupledConjugateHeatTransferMaterialsFluids, OneOfSimericsFluidMaterialsFluids, IEquatable<FluidCompressibleMaterial>
     {
         /// <summary>
+        /// &lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AssociatedPhaseEnum
+        {
+            /// <summary>
+            /// Enum _0 for value: PHASE_0
+            /// </summary>
+            [EnumMember(Value = "PHASE_0")]
+            _0 = 1,
+
+            /// <summary>
+            /// Enum _1 for value: PHASE_1
+            /// </summary>
+            [EnumMember(Value = "PHASE_1")]
+            _1 = 2
+
+        }
+
+        /// <summary>
+        /// &lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;</value>
+        [DataMember(Name="associatedPhase", EmitDefaultValue=false)]
+        public AssociatedPhaseEnum? AssociatedPhase { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="FluidCompressibleMaterial" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -38,17 +65,19 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: FluidCompressibleMaterial (required) (default to &quot;COMPRESSIBLE&quot;).</param>
         /// <param name="name">name.</param>
+        /// <param name="associatedPhase">&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt; (default to AssociatedPhaseEnum._0).</param>
         /// <param name="specie">specie.</param>
         /// <param name="transport">transport.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FluidCompressibleMaterial and cannot be null");
             this.Name = name;
+            this.AssociatedPhase = associatedPhase;
             this.Specie = specie;
             this.Transport = transport;
             this.TopologicalReference = topologicalReference;
@@ -116,6 +145,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class FluidCompressibleMaterial {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  AssociatedPhase: ").Append(AssociatedPhase).Append("\n");
             sb.Append("  Specie: ").Append(Specie).Append("\n");
             sb.Append("  Transport: ").Append(Transport).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
@@ -167,6 +197,10 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.AssociatedPhase == input.AssociatedPhase ||
+                    this.AssociatedPhase.Equals(input.AssociatedPhase)
+                ) && 
+                (
                     this.Specie == input.Specie ||
                     (this.Specie != null &&
                     this.Specie.Equals(input.Specie))
@@ -212,6 +246,7 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.AssociatedPhase.GetHashCode();
                 if (this.Specie != null)
                     hashCode = hashCode * 59 + this.Specie.GetHashCode();
                 if (this.Transport != null)
