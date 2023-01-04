@@ -28,6 +28,8 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(DisplacementFieldSelection), "DISPLACEMENT")]
+    [JsonSubtypes.KnownSubType(typeof(StrainFieldSelection), "STRAIN")]
+    [JsonSubtypes.KnownSubType(typeof(StressFieldSelection), "STRESS")]
     [JsonSubtypes.KnownSubType(typeof(VelocityFieldSelection), "VELOCITY")]
     [JsonSubtypes.KnownSubType(typeof(AccelerationFieldSelection), "ACCELERATION")]
     public interface OneOfHarmonicResponseResultControlItemFieldSelection

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FanBC
+    /// This boundary condition sets the &lt;b&gt;pressure&lt;/b&gt; based on the pressure drop specified as a function of the volumetric flow rate. &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-do-i-model-a-fan-curve-in-simscale/#external-fan-boundary-condition&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;
     /// </summary>
     [DataContract]
     public partial class FanBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfIncompressibleBoundaryConditions, IEquatable<FanBC>
@@ -36,16 +36,18 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FanBC" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FanBC (required) (default to &quot;FAN&quot;).</param>
+        /// <param name="type">This boundary condition sets the &lt;b&gt;pressure&lt;/b&gt; based on the pressure drop specified as a function of the volumetric flow rate. &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-do-i-model-a-fan-curve-in-simscale/#external-fan-boundary-condition&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;  Schema name: FanBC (required) (default to &quot;FAN&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressure">pressure.</param>
         /// <param name="pressureRgh">pressureRgh.</param>
         /// <param name="gaugePressure">gaugePressure.</param>
         /// <param name="gaugePressureRgh">gaugePressureRgh.</param>
         /// <param name="temperature">temperature.</param>
+        /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
+        /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), FixedValueTBC temperature = default(FixedValueTBC), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), TopologicalReference topologicalReference = default(TopologicalReference))
+        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), FixedValueTBC temperature = default(FixedValueTBC), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanBC and cannot be null");
@@ -55,14 +57,16 @@ namespace SimScale.Sdk.Model
             this.GaugePressure = gaugePressure;
             this.GaugePressureRgh = gaugePressureRgh;
             this.Temperature = temperature;
+            this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
+            this.RelativeHumidity = relativeHumidity;
             this.TopologicalReference = topologicalReference;
         }
         
         /// <summary>
-        /// Schema name: FanBC
+        /// This boundary condition sets the &lt;b&gt;pressure&lt;/b&gt; based on the pressure drop specified as a function of the volumetric flow rate. &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-do-i-model-a-fan-curve-in-simscale/#external-fan-boundary-condition&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;  Schema name: FanBC
         /// </summary>
-        /// <value>Schema name: FanBC</value>
+        /// <value>This boundary condition sets the &lt;b&gt;pressure&lt;/b&gt; based on the pressure drop specified as a function of the volumetric flow rate. &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-do-i-model-a-fan-curve-in-simscale/#external-fan-boundary-condition&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;  Schema name: FanBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -103,10 +107,22 @@ namespace SimScale.Sdk.Model
         public FixedValueTBC Temperature { get; set; }
 
         /// <summary>
+        /// Gets or Sets NetRadiativeHeatFlux
+        /// </summary>
+        [DataMember(Name="netRadiativeHeatFlux", EmitDefaultValue=false)]
+        public OneOfFanBCNetRadiativeHeatFlux NetRadiativeHeatFlux { get; set; }
+
+        /// <summary>
         /// Gets or Sets RadiativeIntensityRay
         /// </summary>
         [DataMember(Name="radiativeIntensityRay", EmitDefaultValue=false)]
         public OneOfFanBCRadiativeIntensityRay RadiativeIntensityRay { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RelativeHumidity
+        /// </summary>
+        [DataMember(Name="relativeHumidity", EmitDefaultValue=false)]
+        public FixedValueRHBC RelativeHumidity { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -129,7 +145,9 @@ namespace SimScale.Sdk.Model
             sb.Append("  GaugePressure: ").Append(GaugePressure).Append("\n");
             sb.Append("  GaugePressureRgh: ").Append(GaugePressureRgh).Append("\n");
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
+            sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
+            sb.Append("  RelativeHumidity: ").Append(RelativeHumidity).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -201,9 +219,19 @@ namespace SimScale.Sdk.Model
                     this.Temperature.Equals(input.Temperature))
                 ) && 
                 (
+                    this.NetRadiativeHeatFlux == input.NetRadiativeHeatFlux ||
+                    (this.NetRadiativeHeatFlux != null &&
+                    this.NetRadiativeHeatFlux.Equals(input.NetRadiativeHeatFlux))
+                ) && 
+                (
                     this.RadiativeIntensityRay == input.RadiativeIntensityRay ||
                     (this.RadiativeIntensityRay != null &&
                     this.RadiativeIntensityRay.Equals(input.RadiativeIntensityRay))
+                ) && 
+                (
+                    this.RelativeHumidity == input.RelativeHumidity ||
+                    (this.RelativeHumidity != null &&
+                    this.RelativeHumidity.Equals(input.RelativeHumidity))
                 ) && 
                 (
                     this.TopologicalReference == input.TopologicalReference ||
@@ -235,8 +263,12 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.GaugePressureRgh.GetHashCode();
                 if (this.Temperature != null)
                     hashCode = hashCode * 59 + this.Temperature.GetHashCode();
+                if (this.NetRadiativeHeatFlux != null)
+                    hashCode = hashCode * 59 + this.NetRadiativeHeatFlux.GetHashCode();
                 if (this.RadiativeIntensityRay != null)
                     hashCode = hashCode * 59 + this.RadiativeIntensityRay.GetHashCode();
+                if (this.RelativeHumidity != null)
+                    hashCode = hashCode * 59 + this.RelativeHumidity.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

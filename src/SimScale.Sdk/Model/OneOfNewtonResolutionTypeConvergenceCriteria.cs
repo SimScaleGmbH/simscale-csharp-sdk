@@ -24,9 +24,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfNewtonResolutionTypeConvergenceCriteria
+    /// Select the convergence criterion for the nonlinear solution method.&lt;/p&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;When &lt;b&gt;Absolute&lt;/b&gt; is selected, the convergence is reached if the maximum absolute residual of a given Newton iteration is lower than the defined tolerance.&lt;/li&gt;&lt;li&gt;If &lt;b&gt;Relative&lt;/b&gt; is chosen, then the maximum relative residual i.e. the maximum absolute residual divided by external loads and support reactions, is checked during the Newton iteration. Please note that using the &lt;b&gt;Relative&lt;/b&gt; criterion leads to a failed convergence if no external load is present (e.g. two far objects coming into contact). In this case, the &lt;b&gt;Adaptive&lt;/b&gt; criterion should be used.&lt;/li&gt;&lt;li&gt;By selecting the &lt;b&gt;Adaptive&lt;/b&gt; option, a combination of both &lt;b&gt;Relative&lt;/b&gt; and &lt;b&gt;Absolute&lt;/b&gt; criteria is used. That is, in each Newton iteration the &lt;b&gt;Relative&lt;/b&gt; is used by default unless the external loads and support reactions have vanished, at which point we check the &lt;b&gt;Absolute&lt;/b&gt; one instead.&lt;/li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(AdaptiveConvergenceCriteria), "ADAPTIVE")]
     [JsonSubtypes.KnownSubType(typeof(RelativeConvergenceCriteria), "RELATIVE")]
     [JsonSubtypes.KnownSubType(typeof(AbsoluteConvergenceCriteria), "ABSOLUTE")]
     public interface OneOfNewtonResolutionTypeConvergenceCriteria

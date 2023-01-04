@@ -41,7 +41,8 @@ namespace SimScale.Sdk.Model
         /// <param name="nmaxIterBathe">nmaxIterBathe (default to 40).</param>
         /// <param name="precJacobi">precJacobi (default to 0.01M).</param>
         /// <param name="maxIterJacobi">maxIterJacobi (default to 12).</param>
-        public BatheWilson(string type = "JACOBI", decimal? precBathe = default(decimal?), int? nmaxIterBathe = default(int?), decimal? precJacobi = default(decimal?), int? maxIterJacobi = default(int?))
+        /// <param name="subspaceSettings">subspaceSettings.</param>
+        public BatheWilson(string type = "JACOBI", decimal? precBathe = default(decimal?), int? nmaxIterBathe = default(int?), decimal? precJacobi = default(decimal?), int? maxIterJacobi = default(int?), OneOfBatheWilsonSubspaceSettings subspaceSettings = default(OneOfBatheWilsonSubspaceSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for BatheWilson and cannot be null");
@@ -49,6 +50,7 @@ namespace SimScale.Sdk.Model
             this.NmaxIterBathe = nmaxIterBathe;
             this.PrecJacobi = precJacobi;
             this.MaxIterJacobi = maxIterJacobi;
+            this.SubspaceSettings = subspaceSettings;
         }
         
         /// <summary>
@@ -83,6 +85,12 @@ namespace SimScale.Sdk.Model
         public int? MaxIterJacobi { get; set; }
 
         /// <summary>
+        /// Gets or Sets SubspaceSettings
+        /// </summary>
+        [DataMember(Name="subspaceSettings", EmitDefaultValue=false)]
+        public OneOfBatheWilsonSubspaceSettings SubspaceSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +103,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  NmaxIterBathe: ").Append(NmaxIterBathe).Append("\n");
             sb.Append("  PrecJacobi: ").Append(PrecJacobi).Append("\n");
             sb.Append("  MaxIterJacobi: ").Append(MaxIterJacobi).Append("\n");
+            sb.Append("  SubspaceSettings: ").Append(SubspaceSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +162,11 @@ namespace SimScale.Sdk.Model
                     this.MaxIterJacobi == input.MaxIterJacobi ||
                     (this.MaxIterJacobi != null &&
                     this.MaxIterJacobi.Equals(input.MaxIterJacobi))
+                ) && 
+                (
+                    this.SubspaceSettings == input.SubspaceSettings ||
+                    (this.SubspaceSettings != null &&
+                    this.SubspaceSettings.Equals(input.SubspaceSettings))
                 );
         }
 
@@ -175,6 +189,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PrecJacobi.GetHashCode();
                 if (this.MaxIterJacobi != null)
                     hashCode = hashCode * 59 + this.MaxIterJacobi.GetHashCode();
+                if (this.SubspaceSettings != null)
+                    hashCode = hashCode * 59 + this.SubspaceSettings.GetHashCode();
                 return hashCode;
             }
         }

@@ -39,12 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: AutomaticSimericsMeshSettings (required) (default to &quot;AUTOMATIC_SETTINGS&quot;).</param>
         /// <param name="refinements">refinements.</param>
         /// <param name="fineness">&lt;p&gt;Adjust the overall mesh sizing from coarse (value: 0) to fine (10).&lt;/p&gt; (default to 1M).</param>
-        public AutomaticSimericsMeshSettings(string type = "AUTOMATIC_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), decimal? fineness = default(decimal?))
+        /// <param name="enableCADSurfaceMerging">Merge all CAD surfaces that are &lt;em&gt;not&lt;/em&gt; assigned a boundary condition. Applying this setting significantly increases the probability of successful mesh-generation for more complicated geometry; such as when the model is comprised of many smaller, independent surfaces that are in close proximity to each other. (default to false).</param>
+        public AutomaticSimericsMeshSettings(string type = "AUTOMATIC_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), decimal? fineness = default(decimal?), bool? enableCADSurfaceMerging = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticSimericsMeshSettings and cannot be null");
             this.Refinements = refinements;
             this.Fineness = fineness;
+            this.EnableCADSurfaceMerging = enableCADSurfaceMerging;
         }
         
         /// <summary>
@@ -68,6 +70,13 @@ namespace SimScale.Sdk.Model
         public decimal? Fineness { get; set; }
 
         /// <summary>
+        /// Merge all CAD surfaces that are &lt;em&gt;not&lt;/em&gt; assigned a boundary condition. Applying this setting significantly increases the probability of successful mesh-generation for more complicated geometry; such as when the model is comprised of many smaller, independent surfaces that are in close proximity to each other.
+        /// </summary>
+        /// <value>Merge all CAD surfaces that are &lt;em&gt;not&lt;/em&gt; assigned a boundary condition. Applying this setting significantly increases the probability of successful mesh-generation for more complicated geometry; such as when the model is comprised of many smaller, independent surfaces that are in close proximity to each other.</value>
+        [DataMember(Name="enableCADSurfaceMerging", EmitDefaultValue=false)]
+        public bool? EnableCADSurfaceMerging { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +87,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("  Fineness: ").Append(Fineness).Append("\n");
+            sb.Append("  EnableCADSurfaceMerging: ").Append(EnableCADSurfaceMerging).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,6 +137,11 @@ namespace SimScale.Sdk.Model
                     this.Fineness == input.Fineness ||
                     (this.Fineness != null &&
                     this.Fineness.Equals(input.Fineness))
+                ) && 
+                (
+                    this.EnableCADSurfaceMerging == input.EnableCADSurfaceMerging ||
+                    (this.EnableCADSurfaceMerging != null &&
+                    this.EnableCADSurfaceMerging.Equals(input.EnableCADSurfaceMerging))
                 );
         }
 
@@ -145,6 +160,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
                 if (this.Fineness != null)
                     hashCode = hashCode * 59 + this.Fineness.GetHashCode();
+                if (this.EnableCADSurfaceMerging != null)
+                    hashCode = hashCode * 59 + this.EnableCADSurfaceMerging.GetHashCode();
                 return hashCode;
             }
         }

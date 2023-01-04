@@ -171,7 +171,7 @@ namespace SimScale.Sdk.Api
         /// Get Python SDK code for the mesh operation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -185,7 +185,7 @@ namespace SimScale.Sdk.Api
         /// Get Python SDK code for the mesh operation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -424,7 +424,7 @@ namespace SimScale.Sdk.Api
         /// Get Python SDK code for the mesh operation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -438,7 +438,7 @@ namespace SimScale.Sdk.Api
         /// Get Python SDK code for the mesh operation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -1491,7 +1491,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Python SDK code for the mesh operation 
+        /// Get Python SDK code for the mesh operation Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -1506,7 +1506,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Python SDK code for the mesh operation 
+        /// Get Python SDK code for the mesh operation Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -1571,7 +1571,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Python SDK code for the mesh operation 
+        /// Get Python SDK code for the mesh operation Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -1587,7 +1587,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Python SDK code for the mesh operation 
+        /// Get Python SDK code for the mesh operation Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>

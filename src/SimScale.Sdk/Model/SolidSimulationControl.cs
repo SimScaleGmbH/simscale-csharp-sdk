@@ -31,19 +31,19 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SolidSimulationControl" /> class.
         /// </summary>
-        /// <param name="autoLoadRamping">Loads will be ramped linearly over the simulation interval to aid solution convergence. Automatic load ramping will only be applied if all boundary conditions (including gravity) are applied with constant values. (default to true).</param>
         /// <param name="timestepDefinition">timestepDefinition.</param>
         /// <param name="pseudoTimeStepping">pseudoTimeStepping.</param>
+        /// <param name="autoLoadRamping">Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values. (default to true).</param>
         /// <param name="writeControlDefinition">writeControlDefinition.</param>
         /// <param name="excitationFrequencies">excitationFrequencies.</param>
         /// <param name="eigenfrequencyScope">eigenfrequencyScope.</param>
         /// <param name="processors">processors.</param>
         /// <param name="maxRunTime">maxRunTime.</param>
-        public SolidSimulationControl(bool? autoLoadRamping = default(bool?), OneOfSolidSimulationControlTimestepDefinition timestepDefinition = default(OneOfSolidSimulationControlTimestepDefinition), OneOfSolidSimulationControlPseudoTimeStepping pseudoTimeStepping = default(OneOfSolidSimulationControlPseudoTimeStepping), OneOfSolidSimulationControlWriteControlDefinition writeControlDefinition = default(OneOfSolidSimulationControlWriteControlDefinition), OneOfSolidSimulationControlExcitationFrequencies excitationFrequencies = default(OneOfSolidSimulationControlExcitationFrequencies), OneOfSolidSimulationControlEigenfrequencyScope eigenfrequencyScope = default(OneOfSolidSimulationControlEigenfrequencyScope), ComputingCore processors = default(ComputingCore), DimensionalTime maxRunTime = default(DimensionalTime))
+        public SolidSimulationControl(OneOfSolidSimulationControlTimestepDefinition timestepDefinition = default(OneOfSolidSimulationControlTimestepDefinition), OneOfSolidSimulationControlPseudoTimeStepping pseudoTimeStepping = default(OneOfSolidSimulationControlPseudoTimeStepping), bool? autoLoadRamping = default(bool?), OneOfSolidSimulationControlWriteControlDefinition writeControlDefinition = default(OneOfSolidSimulationControlWriteControlDefinition), OneOfSolidSimulationControlExcitationFrequencies excitationFrequencies = default(OneOfSolidSimulationControlExcitationFrequencies), OneOfSolidSimulationControlEigenfrequencyScope eigenfrequencyScope = default(OneOfSolidSimulationControlEigenfrequencyScope), ComputingCore processors = default(ComputingCore), DimensionalTime maxRunTime = default(DimensionalTime))
         {
-            this.AutoLoadRamping = autoLoadRamping;
             this.TimestepDefinition = timestepDefinition;
             this.PseudoTimeStepping = pseudoTimeStepping;
+            this.AutoLoadRamping = autoLoadRamping;
             this.WriteControlDefinition = writeControlDefinition;
             this.ExcitationFrequencies = excitationFrequencies;
             this.EigenfrequencyScope = eigenfrequencyScope;
@@ -51,13 +51,6 @@ namespace SimScale.Sdk.Model
             this.MaxRunTime = maxRunTime;
         }
         
-        /// <summary>
-        /// Loads will be ramped linearly over the simulation interval to aid solution convergence. Automatic load ramping will only be applied if all boundary conditions (including gravity) are applied with constant values.
-        /// </summary>
-        /// <value>Loads will be ramped linearly over the simulation interval to aid solution convergence. Automatic load ramping will only be applied if all boundary conditions (including gravity) are applied with constant values.</value>
-        [DataMember(Name="autoLoadRamping", EmitDefaultValue=false)]
-        public bool? AutoLoadRamping { get; set; }
-
         /// <summary>
         /// Gets or Sets TimestepDefinition
         /// </summary>
@@ -69,6 +62,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="pseudoTimeStepping", EmitDefaultValue=false)]
         public OneOfSolidSimulationControlPseudoTimeStepping PseudoTimeStepping { get; set; }
+
+        /// <summary>
+        /// Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values.
+        /// </summary>
+        /// <value>Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values.</value>
+        [DataMember(Name="autoLoadRamping", EmitDefaultValue=false)]
+        public bool? AutoLoadRamping { get; set; }
 
         /// <summary>
         /// Gets or Sets WriteControlDefinition
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SolidSimulationControl {\n");
-            sb.Append("  AutoLoadRamping: ").Append(AutoLoadRamping).Append("\n");
             sb.Append("  TimestepDefinition: ").Append(TimestepDefinition).Append("\n");
             sb.Append("  PseudoTimeStepping: ").Append(PseudoTimeStepping).Append("\n");
+            sb.Append("  AutoLoadRamping: ").Append(AutoLoadRamping).Append("\n");
             sb.Append("  WriteControlDefinition: ").Append(WriteControlDefinition).Append("\n");
             sb.Append("  ExcitationFrequencies: ").Append(ExcitationFrequencies).Append("\n");
             sb.Append("  EigenfrequencyScope: ").Append(EigenfrequencyScope).Append("\n");
@@ -151,11 +151,6 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
-                    this.AutoLoadRamping == input.AutoLoadRamping ||
-                    (this.AutoLoadRamping != null &&
-                    this.AutoLoadRamping.Equals(input.AutoLoadRamping))
-                ) && 
-                (
                     this.TimestepDefinition == input.TimestepDefinition ||
                     (this.TimestepDefinition != null &&
                     this.TimestepDefinition.Equals(input.TimestepDefinition))
@@ -164,6 +159,11 @@ namespace SimScale.Sdk.Model
                     this.PseudoTimeStepping == input.PseudoTimeStepping ||
                     (this.PseudoTimeStepping != null &&
                     this.PseudoTimeStepping.Equals(input.PseudoTimeStepping))
+                ) && 
+                (
+                    this.AutoLoadRamping == input.AutoLoadRamping ||
+                    (this.AutoLoadRamping != null &&
+                    this.AutoLoadRamping.Equals(input.AutoLoadRamping))
                 ) && 
                 (
                     this.WriteControlDefinition == input.WriteControlDefinition ||
@@ -201,12 +201,12 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AutoLoadRamping != null)
-                    hashCode = hashCode * 59 + this.AutoLoadRamping.GetHashCode();
                 if (this.TimestepDefinition != null)
                     hashCode = hashCode * 59 + this.TimestepDefinition.GetHashCode();
                 if (this.PseudoTimeStepping != null)
                     hashCode = hashCode * 59 + this.PseudoTimeStepping.GetHashCode();
+                if (this.AutoLoadRamping != null)
+                    hashCode = hashCode * 59 + this.AutoLoadRamping.GetHashCode();
                 if (this.WriteControlDefinition != null)
                     hashCode = hashCode * 59 + this.WriteControlDefinition.GetHashCode();
                 if (this.ExcitationFrequencies != null)

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// OpenWindowRSBC
     /// </summary>
     [DataContract]
-    public partial class OpenWindowRSBC : OneOfCustomFluidBCNetRadiativeHeatFlux, OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux, OneOfPressureInletBCNetRadiativeHeatFlux, OneOfPressureOutletBCNetRadiativeHeatFlux, OneOfVelocityInletBCNetRadiativeHeatFlux, OneOfVelocityOutletBCNetRadiativeHeatFlux, OneOfWallBCNetRadiativeHeatFlux, IEquatable<OpenWindowRSBC>
+    public partial class OpenWindowRSBC : OneOfCustomFluidBCNetRadiativeHeatFlux, OneOfFanBCNetRadiativeHeatFlux, OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux, OneOfPressureInletBCNetRadiativeHeatFlux, OneOfPressureOutletBCNetRadiativeHeatFlux, OneOfVelocityInletBCNetRadiativeHeatFlux, OneOfVelocityOutletBCNetRadiativeHeatFlux, OneOfWallBCNetRadiativeHeatFlux, IEquatable<OpenWindowRSBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenWindowRSBC" /> class.

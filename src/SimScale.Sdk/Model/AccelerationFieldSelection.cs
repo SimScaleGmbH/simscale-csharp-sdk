@@ -74,11 +74,13 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="AccelerationFieldSelection" /> class.
         /// </summary>
         /// <param name="type">Schema name: AccelerationFieldSelection (required) (default to &quot;ACCELERATION&quot;).</param>
+        /// <param name="accelerationType">accelerationType.</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
-        public AccelerationFieldSelection(string type = "ACCELERATION", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
+        public AccelerationFieldSelection(string type = "ACCELERATION", OneOfAccelerationFieldSelectionAccelerationType accelerationType = default(OneOfAccelerationFieldSelectionAccelerationType), ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AccelerationFieldSelection and cannot be null");
+            this.AccelerationType = accelerationType;
             this.ComponentSelection = componentSelection;
         }
         
@@ -90,6 +92,12 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Gets or Sets AccelerationType
+        /// </summary>
+        [DataMember(Name="accelerationType", EmitDefaultValue=false)]
+        public OneOfAccelerationFieldSelectionAccelerationType AccelerationType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +106,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class AccelerationFieldSelection {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  AccelerationType: ").Append(AccelerationType).Append("\n");
             sb.Append("  ComponentSelection: ").Append(ComponentSelection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -139,6 +148,11 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.AccelerationType == input.AccelerationType ||
+                    (this.AccelerationType != null &&
+                    this.AccelerationType.Equals(input.AccelerationType))
+                ) && 
+                (
                     this.ComponentSelection == input.ComponentSelection ||
                     this.ComponentSelection.Equals(input.ComponentSelection)
                 );
@@ -155,6 +169,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.AccelerationType != null)
+                    hashCode = hashCode * 59 + this.AccelerationType.GetHashCode();
                 hashCode = hashCode * 59 + this.ComponentSelection.GetHashCode();
                 return hashCode;
             }

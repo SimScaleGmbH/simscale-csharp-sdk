@@ -31,21 +31,21 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvancedModelling" /> class.
         /// </summary>
-        /// <param name="surfaceRoughness">surfaceRoughness.</param>
+        /// <param name="surfaceRoughnessModels">surfaceRoughnessModels.</param>
         /// <param name="porousObjects">porousObjects.</param>
         /// <param name="rotatingWalls">rotatingWalls.</param>
-        public AdvancedModelling(List<SurfaceRoughness> surfaceRoughness = default(List<SurfaceRoughness>), List<OneOfAdvancedModellingPorousObjects> porousObjects = default(List<OneOfAdvancedModellingPorousObjects>), List<RotatingWall> rotatingWalls = default(List<RotatingWall>))
+        public AdvancedModelling(List<SurfaceRoughnessModel> surfaceRoughnessModels = default(List<SurfaceRoughnessModel>), List<OneOfAdvancedModellingPorousObjects> porousObjects = default(List<OneOfAdvancedModellingPorousObjects>), List<RotatingWall> rotatingWalls = default(List<RotatingWall>))
         {
-            this.SurfaceRoughness = surfaceRoughness;
+            this.SurfaceRoughnessModels = surfaceRoughnessModels;
             this.PorousObjects = porousObjects;
             this.RotatingWalls = rotatingWalls;
         }
         
         /// <summary>
-        /// Gets or Sets SurfaceRoughness
+        /// Gets or Sets SurfaceRoughnessModels
         /// </summary>
-        [DataMember(Name="surfaceRoughness", EmitDefaultValue=false)]
-        public List<SurfaceRoughness> SurfaceRoughness { get; set; }
+        [DataMember(Name="surfaceRoughnessModels", EmitDefaultValue=false)]
+        public List<SurfaceRoughnessModel> SurfaceRoughnessModels { get; set; }
 
         /// <summary>
         /// Gets or Sets PorousObjects
@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AdvancedModelling {\n");
-            sb.Append("  SurfaceRoughness: ").Append(SurfaceRoughness).Append("\n");
+            sb.Append("  SurfaceRoughnessModels: ").Append(SurfaceRoughnessModels).Append("\n");
             sb.Append("  PorousObjects: ").Append(PorousObjects).Append("\n");
             sb.Append("  RotatingWalls: ").Append(RotatingWalls).Append("\n");
             sb.Append("}\n");
@@ -105,10 +105,10 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
-                    this.SurfaceRoughness == input.SurfaceRoughness ||
-                    this.SurfaceRoughness != null &&
-                    input.SurfaceRoughness != null &&
-                    this.SurfaceRoughness.SequenceEqual(input.SurfaceRoughness)
+                    this.SurfaceRoughnessModels == input.SurfaceRoughnessModels ||
+                    this.SurfaceRoughnessModels != null &&
+                    input.SurfaceRoughnessModels != null &&
+                    this.SurfaceRoughnessModels.SequenceEqual(input.SurfaceRoughnessModels)
                 ) && 
                 (
                     this.PorousObjects == input.PorousObjects ||
@@ -133,8 +133,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SurfaceRoughness != null)
-                    hashCode = hashCode * 59 + this.SurfaceRoughness.GetHashCode();
+                if (this.SurfaceRoughnessModels != null)
+                    hashCode = hashCode * 59 + this.SurfaceRoughnessModels.GetHashCode();
                 if (this.PorousObjects != null)
                     hashCode = hashCode * 59 + this.PorousObjects.GetHashCode();
                 if (this.RotatingWalls != null)

@@ -23,40 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// EmbeddedDistanceRefinement
+    /// FixedValueRHBC
     /// </summary>
     [DataContract]
-    public partial class EmbeddedDistanceRefinement : OneOfBasicEmbeddedBoundaryMeshingRefinementStrategy, IEquatable<EmbeddedDistanceRefinement>
+    public partial class FixedValueRHBC : IEquatable<FixedValueRHBC>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmbeddedDistanceRefinement" /> class.
+        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EmbeddedDistanceRefinement() { }
+        protected FixedValueRHBC() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmbeddedDistanceRefinement" /> class.
+        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
         /// </summary>
-        /// <param name="type">Schema name: EmbeddedDistanceRefinement (required) (default to &quot;DISTANCE_REFINEMENT&quot;).</param>
-        /// <param name="refinementControl">refinementControl.</param>
-        public EmbeddedDistanceRefinement(string type = "DISTANCE_REFINEMENT", DimensionalLength refinementControl = default(DimensionalLength))
+        /// <param name="type">Schema name: FixedValueRHBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
+        /// <param name="value">value (default to 0M).</param>
+        public FixedValueRHBC(string type = "FIXED_VALUE", decimal? value = default(decimal?))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for EmbeddedDistanceRefinement and cannot be null");
-            this.RefinementControl = refinementControl;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedValueRHBC and cannot be null");
+            this.Value = value;
         }
         
         /// <summary>
-        /// Schema name: EmbeddedDistanceRefinement
+        /// Schema name: FixedValueRHBC
         /// </summary>
-        /// <value>Schema name: EmbeddedDistanceRefinement</value>
+        /// <value>Schema name: FixedValueRHBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets RefinementControl
+        /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name="refinementControl", EmitDefaultValue=false)]
-        public DimensionalLength RefinementControl { get; set; }
+        [DataMember(Name="value", EmitDefaultValue=false)]
+        public decimal? Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class EmbeddedDistanceRefinement {\n");
+            sb.Append("class FixedValueRHBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  RefinementControl: ").Append(RefinementControl).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EmbeddedDistanceRefinement);
+            return this.Equals(input as FixedValueRHBC);
         }
 
         /// <summary>
-        /// Returns true if EmbeddedDistanceRefinement instances are equal
+        /// Returns true if FixedValueRHBC instances are equal
         /// </summary>
-        /// <param name="input">Instance of EmbeddedDistanceRefinement to be compared</param>
+        /// <param name="input">Instance of FixedValueRHBC to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EmbeddedDistanceRefinement input)
+        public bool Equals(FixedValueRHBC input)
         {
             if (input == null)
                 return false;
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.RefinementControl == input.RefinementControl ||
-                    (this.RefinementControl != null &&
-                    this.RefinementControl.Equals(input.RefinementControl))
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.RefinementControl != null)
-                    hashCode = hashCode * 59 + this.RefinementControl.GetHashCode();
+                if (this.Value != null)
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 return hashCode;
             }
         }

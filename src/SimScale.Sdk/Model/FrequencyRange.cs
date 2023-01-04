@@ -29,6 +29,31 @@ namespace SimScale.Sdk.Model
     public partial class FrequencyRange : OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<FrequencyRange>
     {
         /// <summary>
+        /// Defines ParallelizationLevel
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ParallelizationLevelEnum
+        {
+            /// <summary>
+            /// Enum COMPLETE for value: COMPLETE
+            /// </summary>
+            [EnumMember(Value = "COMPLETE")]
+            COMPLETE = 1,
+
+            /// <summary>
+            /// Enum PARTIAL for value: PARTIAL
+            /// </summary>
+            [EnumMember(Value = "PARTIAL")]
+            PARTIAL = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets ParallelizationLevel
+        /// </summary>
+        [DataMember(Name="parallelizationLevel", EmitDefaultValue=false)]
+        public ParallelizationLevelEnum? ParallelizationLevel { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyRange" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,12 +64,16 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: FrequencyRange (required) (default to &quot;RANGE&quot;).</param>
         /// <param name="startFrequency">startFrequency.</param>
         /// <param name="endFrequency">endFrequency.</param>
-        public FrequencyRange(string type = "RANGE", DimensionalFrequency startFrequency = default(DimensionalFrequency), DimensionalFrequency endFrequency = default(DimensionalFrequency))
+        /// <param name="numberOfSubBands">numberOfSubBands (default to 1).</param>
+        /// <param name="parallelizationLevel">parallelizationLevel (default to ParallelizationLevelEnum.COMPLETE).</param>
+        public FrequencyRange(string type = "RANGE", DimensionalFrequency startFrequency = default(DimensionalFrequency), DimensionalFrequency endFrequency = default(DimensionalFrequency), int? numberOfSubBands = default(int?), ParallelizationLevelEnum? parallelizationLevel = default(ParallelizationLevelEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FrequencyRange and cannot be null");
             this.StartFrequency = startFrequency;
             this.EndFrequency = endFrequency;
+            this.NumberOfSubBands = numberOfSubBands;
+            this.ParallelizationLevel = parallelizationLevel;
         }
         
         /// <summary>
@@ -67,6 +96,12 @@ namespace SimScale.Sdk.Model
         public DimensionalFrequency EndFrequency { get; set; }
 
         /// <summary>
+        /// Gets or Sets NumberOfSubBands
+        /// </summary>
+        [DataMember(Name="numberOfSubBands", EmitDefaultValue=false)]
+        public int? NumberOfSubBands { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +112,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  StartFrequency: ").Append(StartFrequency).Append("\n");
             sb.Append("  EndFrequency: ").Append(EndFrequency).Append("\n");
+            sb.Append("  NumberOfSubBands: ").Append(NumberOfSubBands).Append("\n");
+            sb.Append("  ParallelizationLevel: ").Append(ParallelizationLevel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +162,15 @@ namespace SimScale.Sdk.Model
                     this.EndFrequency == input.EndFrequency ||
                     (this.EndFrequency != null &&
                     this.EndFrequency.Equals(input.EndFrequency))
+                ) && 
+                (
+                    this.NumberOfSubBands == input.NumberOfSubBands ||
+                    (this.NumberOfSubBands != null &&
+                    this.NumberOfSubBands.Equals(input.NumberOfSubBands))
+                ) && 
+                (
+                    this.ParallelizationLevel == input.ParallelizationLevel ||
+                    this.ParallelizationLevel.Equals(input.ParallelizationLevel)
                 );
         }
 
@@ -143,6 +189,9 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.StartFrequency.GetHashCode();
                 if (this.EndFrequency != null)
                     hashCode = hashCode * 59 + this.EndFrequency.GetHashCode();
+                if (this.NumberOfSubBands != null)
+                    hashCode = hashCode * 59 + this.NumberOfSubBands.GetHashCode();
+                hashCode = hashCode * 59 + this.ParallelizationLevel.GetHashCode();
                 return hashCode;
             }
         }

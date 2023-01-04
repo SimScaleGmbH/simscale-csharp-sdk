@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// TotalResistanceInterfaceThermal
     /// </summary>
     [DataContract]
-    public partial class TotalResistanceInterfaceThermal : OneOfRegionInterfaceInterfaceThermal, IEquatable<TotalResistanceInterfaceThermal>
+    public partial class TotalResistanceInterfaceThermal : OneOfContactResistanceLayerInterfaceThermal, OneOfRegionInterfaceInterfaceThermal, IEquatable<TotalResistanceInterfaceThermal>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalResistanceInterfaceThermal" /> class.

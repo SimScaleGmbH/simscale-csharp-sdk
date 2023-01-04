@@ -87,10 +87,14 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="numOfProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumOfProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="numOfComputingProcessors">&lt;p&gt;Set the number of processors which shall be used for the parallel computation.&lt;/p&gt; (default to -1).</param>
-        public ComputingCore(NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), int? numOfComputingProcessors = default(int?))
+        /// <param name="domainDecomposition">domainDecomposition.</param>
+        /// <param name="numOfThreads">numOfThreads (default to 1).</param>
+        public ComputingCore(NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), int? numOfComputingProcessors = default(int?), OneOfComputingCoreDomainDecomposition domainDecomposition = default(OneOfComputingCoreDomainDecomposition), int? numOfThreads = default(int?))
         {
             this.NumOfProcessors = numOfProcessors;
             this.NumOfComputingProcessors = numOfComputingProcessors;
+            this.DomainDecomposition = domainDecomposition;
+            this.NumOfThreads = numOfThreads;
         }
         
         /// <summary>
@@ -99,6 +103,18 @@ namespace SimScale.Sdk.Model
         /// <value>&lt;p&gt;Set the number of processors which shall be used for the parallel computation.&lt;/p&gt;</value>
         [DataMember(Name="numOfComputingProcessors", EmitDefaultValue=false)]
         public int? NumOfComputingProcessors { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DomainDecomposition
+        /// </summary>
+        [DataMember(Name="domainDecomposition", EmitDefaultValue=false)]
+        public OneOfComputingCoreDomainDecomposition DomainDecomposition { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NumOfThreads
+        /// </summary>
+        [DataMember(Name="numOfThreads", EmitDefaultValue=false)]
+        public int? NumOfThreads { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,6 +126,8 @@ namespace SimScale.Sdk.Model
             sb.Append("class ComputingCore {\n");
             sb.Append("  NumOfProcessors: ").Append(NumOfProcessors).Append("\n");
             sb.Append("  NumOfComputingProcessors: ").Append(NumOfComputingProcessors).Append("\n");
+            sb.Append("  DomainDecomposition: ").Append(DomainDecomposition).Append("\n");
+            sb.Append("  NumOfThreads: ").Append(NumOfThreads).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +170,16 @@ namespace SimScale.Sdk.Model
                     this.NumOfComputingProcessors == input.NumOfComputingProcessors ||
                     (this.NumOfComputingProcessors != null &&
                     this.NumOfComputingProcessors.Equals(input.NumOfComputingProcessors))
+                ) && 
+                (
+                    this.DomainDecomposition == input.DomainDecomposition ||
+                    (this.DomainDecomposition != null &&
+                    this.DomainDecomposition.Equals(input.DomainDecomposition))
+                ) && 
+                (
+                    this.NumOfThreads == input.NumOfThreads ||
+                    (this.NumOfThreads != null &&
+                    this.NumOfThreads.Equals(input.NumOfThreads))
                 );
         }
 
@@ -167,6 +195,10 @@ namespace SimScale.Sdk.Model
                 hashCode = hashCode * 59 + this.NumOfProcessors.GetHashCode();
                 if (this.NumOfComputingProcessors != null)
                     hashCode = hashCode * 59 + this.NumOfComputingProcessors.GetHashCode();
+                if (this.DomainDecomposition != null)
+                    hashCode = hashCode * 59 + this.DomainDecomposition.GetHashCode();
+                if (this.NumOfThreads != null)
+                    hashCode = hashCode * 59 + this.NumOfThreads.GetHashCode();
                 return hashCode;
             }
         }

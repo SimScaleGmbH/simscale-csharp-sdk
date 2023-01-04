@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// SpecificConductanceInterfaceThermal
     /// </summary>
     [DataContract]
-    public partial class SpecificConductanceInterfaceThermal : OneOfRegionInterfaceInterfaceThermal, IEquatable<SpecificConductanceInterfaceThermal>
+    public partial class SpecificConductanceInterfaceThermal : OneOfContactConductanceLayerInterfaceThermal, OneOfRegionInterfaceInterfaceThermal, IEquatable<SpecificConductanceInterfaceThermal>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecificConductanceInterfaceThermal" /> class.

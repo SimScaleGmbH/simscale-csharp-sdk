@@ -65,13 +65,15 @@ namespace SimScale.Sdk.Model
         /// <param name="turbulenceWall">turbulenceWall (default to TurbulenceWallEnum.WALLFUNCTION).</param>
         /// <param name="enableSurfaceRoughness">When turned &lt;em&gt;ON&lt;/em&gt;, this wall&#39;s is no longer considered to be &lt;em&gt;smooth&lt;/em&gt;. Its roughness may be then be specified. (default to false).</param>
         /// <param name="surfaceRoughness">surfaceRoughness.</param>
-        public NoSlipVBC(string type = "NO_SLIP", TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), bool? enableSurfaceRoughness = default(bool?), DimensionalLength surfaceRoughness = default(DimensionalLength))
+        /// <param name="noSlipWallRoughnessType">noSlipWallRoughnessType.</param>
+        public NoSlipVBC(string type = "NO_SLIP", TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), bool? enableSurfaceRoughness = default(bool?), DimensionalLength surfaceRoughness = default(DimensionalLength), OneOfNoSlipVBCNoSlipWallRoughnessType noSlipWallRoughnessType = default(OneOfNoSlipVBCNoSlipWallRoughnessType))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for NoSlipVBC and cannot be null");
             this.TurbulenceWall = turbulenceWall;
             this.EnableSurfaceRoughness = enableSurfaceRoughness;
             this.SurfaceRoughness = surfaceRoughness;
+            this.NoSlipWallRoughnessType = noSlipWallRoughnessType;
         }
         
         /// <summary>
@@ -95,6 +97,12 @@ namespace SimScale.Sdk.Model
         public DimensionalLength SurfaceRoughness { get; set; }
 
         /// <summary>
+        /// Gets or Sets NoSlipWallRoughnessType
+        /// </summary>
+        [DataMember(Name="noSlipWallRoughnessType", EmitDefaultValue=false)]
+        public OneOfNoSlipVBCNoSlipWallRoughnessType NoSlipWallRoughnessType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -106,6 +114,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  TurbulenceWall: ").Append(TurbulenceWall).Append("\n");
             sb.Append("  EnableSurfaceRoughness: ").Append(EnableSurfaceRoughness).Append("\n");
             sb.Append("  SurfaceRoughness: ").Append(SurfaceRoughness).Append("\n");
+            sb.Append("  NoSlipWallRoughnessType: ").Append(NoSlipWallRoughnessType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,6 +167,11 @@ namespace SimScale.Sdk.Model
                     this.SurfaceRoughness == input.SurfaceRoughness ||
                     (this.SurfaceRoughness != null &&
                     this.SurfaceRoughness.Equals(input.SurfaceRoughness))
+                ) && 
+                (
+                    this.NoSlipWallRoughnessType == input.NoSlipWallRoughnessType ||
+                    (this.NoSlipWallRoughnessType != null &&
+                    this.NoSlipWallRoughnessType.Equals(input.NoSlipWallRoughnessType))
                 );
         }
 
@@ -177,6 +191,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.EnableSurfaceRoughness.GetHashCode();
                 if (this.SurfaceRoughness != null)
                     hashCode = hashCode * 59 + this.SurfaceRoughness.GetHashCode();
+                if (this.NoSlipWallRoughnessType != null)
+                    hashCode = hashCode * 59 + this.NoSlipWallRoughnessType.GetHashCode();
                 return hashCode;
             }
         }

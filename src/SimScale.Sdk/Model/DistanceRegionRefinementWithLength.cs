@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// DistanceRegionRefinementWithLength
     /// </summary>
     [DataContract]
-    public partial class DistanceRegionRefinementWithLength : OneOfRegionRefinementWithLengthRefinement, IEquatable<DistanceRegionRefinementWithLength>
+    public partial class DistanceRegionRefinementWithLength : OneOfRegionRefinementEBMRefinement, OneOfRegionRefinementWithLengthRefinement, IEquatable<DistanceRegionRefinementWithLength>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DistanceRegionRefinementWithLength" /> class.

@@ -43,8 +43,9 @@ namespace SimScale.Sdk.Model
         /// <param name="phaseFraction">phaseFraction.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
+        /// <param name="electricBoundaryCondition">electricBoundaryCondition.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public WallBC(string type = "WALL_V34", string name = default(string), OneOfWallBCVelocity velocity = default(OneOfWallBCVelocity), OneOfWallBCTemperature temperature = default(OneOfWallBCTemperature), OneOfWallBCPhaseFraction phaseFraction = default(OneOfWallBCPhaseFraction), OneOfWallBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfWallBCNetRadiativeHeatFlux), OneOfWallBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfWallBCRadiativeIntensityRay), TopologicalReference topologicalReference = default(TopologicalReference))
+        public WallBC(string type = "WALL_V34", string name = default(string), OneOfWallBCVelocity velocity = default(OneOfWallBCVelocity), OneOfWallBCTemperature temperature = default(OneOfWallBCTemperature), OneOfWallBCPhaseFraction phaseFraction = default(OneOfWallBCPhaseFraction), OneOfWallBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfWallBCNetRadiativeHeatFlux), OneOfWallBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfWallBCRadiativeIntensityRay), OneOfWallBCElectricBoundaryCondition electricBoundaryCondition = default(OneOfWallBCElectricBoundaryCondition), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for WallBC and cannot be null");
@@ -54,6 +55,7 @@ namespace SimScale.Sdk.Model
             this.PhaseFraction = phaseFraction;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
+            this.ElectricBoundaryCondition = electricBoundaryCondition;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -101,6 +103,12 @@ namespace SimScale.Sdk.Model
         public OneOfWallBCRadiativeIntensityRay RadiativeIntensityRay { get; set; }
 
         /// <summary>
+        /// Gets or Sets ElectricBoundaryCondition
+        /// </summary>
+        [DataMember(Name="electricBoundaryCondition", EmitDefaultValue=false)]
+        public OneOfWallBCElectricBoundaryCondition ElectricBoundaryCondition { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -121,6 +129,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
+            sb.Append("  ElectricBoundaryCondition: ").Append(ElectricBoundaryCondition).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -192,6 +201,11 @@ namespace SimScale.Sdk.Model
                     this.RadiativeIntensityRay.Equals(input.RadiativeIntensityRay))
                 ) && 
                 (
+                    this.ElectricBoundaryCondition == input.ElectricBoundaryCondition ||
+                    (this.ElectricBoundaryCondition != null &&
+                    this.ElectricBoundaryCondition.Equals(input.ElectricBoundaryCondition))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -221,6 +235,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.NetRadiativeHeatFlux.GetHashCode();
                 if (this.RadiativeIntensityRay != null)
                     hashCode = hashCode * 59 + this.RadiativeIntensityRay.GetHashCode();
+                if (this.ElectricBoundaryCondition != null)
+                    hashCode = hashCode * 59 + this.ElectricBoundaryCondition.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

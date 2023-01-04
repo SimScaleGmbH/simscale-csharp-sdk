@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// ThinResistanceLayer
     /// </summary>
     [DataContract]
-    public partial class ThinResistanceLayer : IEquatable<ThinResistanceLayer>
+    public partial class ThinResistanceLayer : OneOfAdvancedConceptsThermalContactResistance, IEquatable<ThinResistanceLayer>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ThinResistanceLayer" /> class.

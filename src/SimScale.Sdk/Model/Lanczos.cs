@@ -42,7 +42,8 @@ namespace SimScale.Sdk.Model
         /// <param name="precLanczos">precLanczos (default to 1.0E-8M).</param>
         /// <param name="maxIterQR">maxIterQR (default to 30).</param>
         /// <param name="modeRigid">modeRigid (default to true).</param>
-        public Lanczos(string type = "TRI_DIAG", decimal? precOrtho = default(decimal?), int? nmaxIterOrtho = default(int?), decimal? precLanczos = default(decimal?), int? maxIterQR = default(int?), bool? modeRigid = default(bool?))
+        /// <param name="subspaceSettings">subspaceSettings.</param>
+        public Lanczos(string type = "TRI_DIAG", decimal? precOrtho = default(decimal?), int? nmaxIterOrtho = default(int?), decimal? precLanczos = default(decimal?), int? maxIterQR = default(int?), bool? modeRigid = default(bool?), OneOfLanczosSubspaceSettings subspaceSettings = default(OneOfLanczosSubspaceSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for Lanczos and cannot be null");
@@ -51,6 +52,7 @@ namespace SimScale.Sdk.Model
             this.PrecLanczos = precLanczos;
             this.MaxIterQR = maxIterQR;
             this.ModeRigid = modeRigid;
+            this.SubspaceSettings = subspaceSettings;
         }
         
         /// <summary>
@@ -91,6 +93,12 @@ namespace SimScale.Sdk.Model
         public bool? ModeRigid { get; set; }
 
         /// <summary>
+        /// Gets or Sets SubspaceSettings
+        /// </summary>
+        [DataMember(Name="subspaceSettings", EmitDefaultValue=false)]
+        public OneOfLanczosSubspaceSettings SubspaceSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +112,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PrecLanczos: ").Append(PrecLanczos).Append("\n");
             sb.Append("  MaxIterQR: ").Append(MaxIterQR).Append("\n");
             sb.Append("  ModeRigid: ").Append(ModeRigid).Append("\n");
+            sb.Append("  SubspaceSettings: ").Append(SubspaceSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +176,11 @@ namespace SimScale.Sdk.Model
                     this.ModeRigid == input.ModeRigid ||
                     (this.ModeRigid != null &&
                     this.ModeRigid.Equals(input.ModeRigid))
+                ) && 
+                (
+                    this.SubspaceSettings == input.SubspaceSettings ||
+                    (this.SubspaceSettings != null &&
+                    this.SubspaceSettings.Equals(input.SubspaceSettings))
                 );
         }
 
@@ -191,6 +205,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MaxIterQR.GetHashCode();
                 if (this.ModeRigid != null)
                     hashCode = hashCode * 59 + this.ModeRigid.GetHashCode();
+                if (this.SubspaceSettings != null)
+                    hashCode = hashCode * 59 + this.SubspaceSettings.GetHashCode();
                 return hashCode;
             }
         }

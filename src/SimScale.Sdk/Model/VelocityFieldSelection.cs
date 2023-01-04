@@ -74,11 +74,13 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="VelocityFieldSelection" /> class.
         /// </summary>
         /// <param name="type">Schema name: VelocityFieldSelection (required) (default to &quot;VELOCITY&quot;).</param>
+        /// <param name="velocityType">velocityType.</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
-        public VelocityFieldSelection(string type = "VELOCITY", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
+        public VelocityFieldSelection(string type = "VELOCITY", OneOfVelocityFieldSelectionVelocityType velocityType = default(OneOfVelocityFieldSelectionVelocityType), ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VelocityFieldSelection and cannot be null");
+            this.VelocityType = velocityType;
             this.ComponentSelection = componentSelection;
         }
         
@@ -90,6 +92,12 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Gets or Sets VelocityType
+        /// </summary>
+        [DataMember(Name="velocityType", EmitDefaultValue=false)]
+        public OneOfVelocityFieldSelectionVelocityType VelocityType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +106,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class VelocityFieldSelection {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  VelocityType: ").Append(VelocityType).Append("\n");
             sb.Append("  ComponentSelection: ").Append(ComponentSelection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -139,6 +148,11 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.VelocityType == input.VelocityType ||
+                    (this.VelocityType != null &&
+                    this.VelocityType.Equals(input.VelocityType))
+                ) && 
+                (
                     this.ComponentSelection == input.ComponentSelection ||
                     this.ComponentSelection.Equals(input.ComponentSelection)
                 );
@@ -155,6 +169,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.VelocityType != null)
+                    hashCode = hashCode * 59 + this.VelocityType.GetHashCode();
                 hashCode = hashCode * 59 + this.ComponentSelection.GetHashCode();
                 return hashCode;
             }

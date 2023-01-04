@@ -36,16 +36,17 @@ namespace SimScale.Sdk.Model
         /// <param name="passiveScalarEquation">passiveScalarEquation (default to 1M).</param>
         /// <param name="velocityEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="temperatureEquation">temperatureEquation.</param>
-        /// <param name="densityField">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
+        /// <param name="densityField">densityField.</param>
         /// <param name="enthalpyEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="internalEnergyEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="turbulentKineticEnergyEquation">turbulentKineticEnergyEquation.</param>
         /// <param name="omegaDissipationRateEquation">omegaDissipationRateEquation.</param>
         /// <param name="epsilonDissipationRateEquation">epsilonDissipationRateEquation.</param>
         /// <param name="nuTildaEquation">nuTildaEquation.</param>
-        /// <param name="netRadiativeHeatFluxField">netRadiativeHeatFluxField (default to 0.3M).</param>
-        /// <param name="radiativeIntensityRayEquation">radiativeIntensityRayEquation (default to 0.5M).</param>
-        public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?))
+        /// <param name="netRadiativeHeatFluxField">netRadiativeHeatFluxField.</param>
+        /// <param name="radiativeIntensityRayEquation">radiativeIntensityRayEquation.</param>
+        /// <param name="specificHumidityEquation">specificHumidityEquation (default to 0.9M).</param>
+        public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?), decimal? specificHumidityEquation = default(decimal?))
         {
             this.PressureField = pressureField;
             this.PressureRghField = pressureRghField;
@@ -61,6 +62,7 @@ namespace SimScale.Sdk.Model
             this.NuTildaEquation = nuTildaEquation;
             this.NetRadiativeHeatFluxField = netRadiativeHeatFluxField;
             this.RadiativeIntensityRayEquation = radiativeIntensityRayEquation;
+            this.SpecificHumidityEquation = specificHumidityEquation;
         }
         
         /// <summary>
@@ -96,9 +98,8 @@ namespace SimScale.Sdk.Model
         public decimal? TemperatureEquation { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;
+        /// Gets or Sets DensityField
         /// </summary>
-        /// <value>&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;</value>
         [DataMember(Name="densityField", EmitDefaultValue=false)]
         public decimal? DensityField { get; set; }
 
@@ -153,6 +154,12 @@ namespace SimScale.Sdk.Model
         public decimal? RadiativeIntensityRayEquation { get; set; }
 
         /// <summary>
+        /// Gets or Sets SpecificHumidityEquation
+        /// </summary>
+        [DataMember(Name="specificHumidityEquation", EmitDefaultValue=false)]
+        public decimal? SpecificHumidityEquation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -174,6 +181,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  NuTildaEquation: ").Append(NuTildaEquation).Append("\n");
             sb.Append("  NetRadiativeHeatFluxField: ").Append(NetRadiativeHeatFluxField).Append("\n");
             sb.Append("  RadiativeIntensityRayEquation: ").Append(RadiativeIntensityRayEquation).Append("\n");
+            sb.Append("  SpecificHumidityEquation: ").Append(SpecificHumidityEquation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -277,6 +285,11 @@ namespace SimScale.Sdk.Model
                     this.RadiativeIntensityRayEquation == input.RadiativeIntensityRayEquation ||
                     (this.RadiativeIntensityRayEquation != null &&
                     this.RadiativeIntensityRayEquation.Equals(input.RadiativeIntensityRayEquation))
+                ) && 
+                (
+                    this.SpecificHumidityEquation == input.SpecificHumidityEquation ||
+                    (this.SpecificHumidityEquation != null &&
+                    this.SpecificHumidityEquation.Equals(input.SpecificHumidityEquation))
                 );
         }
 
@@ -317,6 +330,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.NetRadiativeHeatFluxField.GetHashCode();
                 if (this.RadiativeIntensityRayEquation != null)
                     hashCode = hashCode * 59 + this.RadiativeIntensityRayEquation.GetHashCode();
+                if (this.SpecificHumidityEquation != null)
+                    hashCode = hashCode * 59 + this.SpecificHumidityEquation.GetHashCode();
                 return hashCode;
             }
         }

@@ -35,15 +35,17 @@ namespace SimScale.Sdk.Model
         /// <param name="specie">specie.</param>
         /// <param name="transport">transport.</param>
         /// <param name="emissivity">emissivity (default to 0.9M).</param>
+        /// <param name="electricConductivityType">electricConductivityType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public SolidCompressibleMaterial(string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfSolidCompressibleMaterialTransport transport = default(OneOfSolidCompressibleMaterialTransport), decimal? emissivity = default(decimal?), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public SolidCompressibleMaterial(string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfSolidCompressibleMaterialTransport transport = default(OneOfSolidCompressibleMaterialTransport), decimal? emissivity = default(decimal?), OneOfSolidCompressibleMaterialElectricConductivityType electricConductivityType = default(OneOfSolidCompressibleMaterialElectricConductivityType), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             this.Name = name;
             this.Specie = specie;
             this.Transport = transport;
             this.Emissivity = emissivity;
+            this.ElectricConductivityType = electricConductivityType;
             this.TopologicalReference = topologicalReference;
             this.BuiltInMaterial = builtInMaterial;
             this.MaterialLibraryReference = materialLibraryReference;
@@ -72,6 +74,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="emissivity", EmitDefaultValue=false)]
         public decimal? Emissivity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ElectricConductivityType
+        /// </summary>
+        [DataMember(Name="electricConductivityType", EmitDefaultValue=false)]
+        public OneOfSolidCompressibleMaterialElectricConductivityType ElectricConductivityType { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -103,6 +111,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Specie: ").Append(Specie).Append("\n");
             sb.Append("  Transport: ").Append(Transport).Append("\n");
             sb.Append("  Emissivity: ").Append(Emissivity).Append("\n");
+            sb.Append("  ElectricConductivityType: ").Append(ElectricConductivityType).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
             sb.Append("  MaterialLibraryReference: ").Append(MaterialLibraryReference).Append("\n");
@@ -161,6 +170,11 @@ namespace SimScale.Sdk.Model
                     this.Emissivity.Equals(input.Emissivity))
                 ) && 
                 (
+                    this.ElectricConductivityType == input.ElectricConductivityType ||
+                    (this.ElectricConductivityType != null &&
+                    this.ElectricConductivityType.Equals(input.ElectricConductivityType))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -194,6 +208,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Transport.GetHashCode();
                 if (this.Emissivity != null)
                     hashCode = hashCode * 59 + this.Emissivity.GetHashCode();
+                if (this.ElectricConductivityType != null)
+                    hashCode = hashCode * 59 + this.ElectricConductivityType.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.BuiltInMaterial != null)

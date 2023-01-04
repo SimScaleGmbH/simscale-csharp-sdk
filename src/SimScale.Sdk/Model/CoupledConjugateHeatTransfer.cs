@@ -154,8 +154,10 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: CoupledConjugateHeatTransfer (required) (default to &quot;COUPLED_CONJUGATE_HEAT_TRANSFER&quot;).</param>
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
-        /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
-        /// <param name="enableSolarLoad">&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
+        /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperature differences in the simulation domain are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
+        /// <param name="enableSolarLoad">Enables the &lt;b&gt;Solar load&lt;/b&gt; model in the simulation. Diffuse and/or directional solar load contributions are specified in the &lt;b&gt;Solar calculator&lt;/b&gt;. The solar load terms will heat the external faces of the simulation domain. Moreover, if transparent and/or semi-transparent surfaces are present, internal surfaces of the domain might also be heated. The solar model can be used with or without a radiation model, and it cannot be used if the simulation contains solids. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
+        /// <param name="enableHumidityModel">&lt;b&gt;Humidity model&lt;/b&gt; to simulate wet air. First turn on the &lt;em&gt;compressible&lt;/em&gt; toggle to enable it. The simulation will take the effect of humid air on the flow field into account. Dry air is heavier than wet air and hence sinks. The model does not account for condensation and evaporation and is not applicable in cases where this is of concern, for example dehumidifiers. It is suitable for HVAC analysis and for temperature ranges of 0° to 100°C. (default to false).</param>
+        /// <param name="enableJouleHeating">Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="numOfPassiveSpecies">Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to NumOfPassiveSpeciesEnum.NUMBER_0).</param>
@@ -170,13 +172,15 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="contactHandlingMode">contactHandlingMode (default to ContactHandlingModeEnum.MANUAL).</param>
-        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfCoupledConjugateHeatTransferTimeDependency timeDependency = default(OneOfCoupledConjugateHeatTransferTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?))
+        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), bool? enableHumidityModel = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfCoupledConjugateHeatTransferTimeDependency timeDependency = default(OneOfCoupledConjugateHeatTransferTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CoupledConjugateHeatTransfer and cannot be null");
             this.IsCompressible = isCompressible;
             this.EnableRadiation = enableRadiation;
             this.EnableSolarLoad = enableSolarLoad;
+            this.EnableHumidityModel = enableHumidityModel;
+            this.EnableJouleHeating = enableJouleHeating;
             this.TurbulenceModel = turbulenceModel;
             this.TimeDependency = timeDependency;
             this.NumOfPassiveSpecies = numOfPassiveSpecies;
@@ -208,18 +212,32 @@ namespace SimScale.Sdk.Model
         public bool? IsCompressible { get; set; }
 
         /// <summary>
-        /// Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperature differences in the simulation domain are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
-        /// <value>Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperatures involved in the simulation are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        /// <value>Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperature differences in the simulation domain are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
         [DataMember(Name="enableRadiation", EmitDefaultValue=false)]
         public bool? EnableRadiation { get; set; }
 
         /// <summary>
-        /// &lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// Enables the &lt;b&gt;Solar load&lt;/b&gt; model in the simulation. Diffuse and/or directional solar load contributions are specified in the &lt;b&gt;Solar calculator&lt;/b&gt;. The solar load terms will heat the external faces of the simulation domain. Moreover, if transparent and/or semi-transparent surfaces are present, internal surfaces of the domain might also be heated. The solar model can be used with or without a radiation model, and it cannot be used if the simulation contains solids. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
-        /// <value>&lt;b&gt;Solar load&lt;/b&gt; on boundary patches. Heats boundaries externally or, if solar rays enter the domain by transparent or semi-transparent boundaries, it heats boundaries also internally, internally. Sun direction and solar load model are defined in the &lt;b&gt;Solar calculator&lt;/b&gt;. &lt;ul&gt;&lt;li&gt;Can not be combined with surface to surface radiation.&lt;/li&gt;&lt;li&gt;Can only be used for convective heat transfer.&lt;/li&gt;&lt;li&gt;Secondary, reflecting rays are not taken into account.&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        /// <value>Enables the &lt;b&gt;Solar load&lt;/b&gt; model in the simulation. Diffuse and/or directional solar load contributions are specified in the &lt;b&gt;Solar calculator&lt;/b&gt;. The solar load terms will heat the external faces of the simulation domain. Moreover, if transparent and/or semi-transparent surfaces are present, internal surfaces of the domain might also be heated. The solar model can be used with or without a radiation model, and it cannot be used if the simulation contains solids. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
         [DataMember(Name="enableSolarLoad", EmitDefaultValue=false)]
         public bool? EnableSolarLoad { get; set; }
+
+        /// <summary>
+        /// &lt;b&gt;Humidity model&lt;/b&gt; to simulate wet air. First turn on the &lt;em&gt;compressible&lt;/em&gt; toggle to enable it. The simulation will take the effect of humid air on the flow field into account. Dry air is heavier than wet air and hence sinks. The model does not account for condensation and evaporation and is not applicable in cases where this is of concern, for example dehumidifiers. It is suitable for HVAC analysis and for temperature ranges of 0° to 100°C.
+        /// </summary>
+        /// <value>&lt;b&gt;Humidity model&lt;/b&gt; to simulate wet air. First turn on the &lt;em&gt;compressible&lt;/em&gt; toggle to enable it. The simulation will take the effect of humid air on the flow field into account. Dry air is heavier than wet air and hence sinks. The model does not account for condensation and evaporation and is not applicable in cases where this is of concern, for example dehumidifiers. It is suitable for HVAC analysis and for temperature ranges of 0° to 100°C.</value>
+        [DataMember(Name="enableHumidityModel", EmitDefaultValue=false)]
+        public bool? EnableHumidityModel { get; set; }
+
+        /// <summary>
+        /// Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation.
+        /// </summary>
+        /// <value>Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation.</value>
+        [DataMember(Name="enableJouleHeating", EmitDefaultValue=false)]
+        public bool? EnableJouleHeating { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeDependency
@@ -299,6 +317,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
             sb.Append("  EnableSolarLoad: ").Append(EnableSolarLoad).Append("\n");
+            sb.Append("  EnableHumidityModel: ").Append(EnableHumidityModel).Append("\n");
+            sb.Append("  EnableJouleHeating: ").Append(EnableJouleHeating).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
             sb.Append("  NumOfPassiveSpecies: ").Append(NumOfPassiveSpecies).Append("\n");
@@ -366,6 +386,16 @@ namespace SimScale.Sdk.Model
                     this.EnableSolarLoad == input.EnableSolarLoad ||
                     (this.EnableSolarLoad != null &&
                     this.EnableSolarLoad.Equals(input.EnableSolarLoad))
+                ) && 
+                (
+                    this.EnableHumidityModel == input.EnableHumidityModel ||
+                    (this.EnableHumidityModel != null &&
+                    this.EnableHumidityModel.Equals(input.EnableHumidityModel))
+                ) && 
+                (
+                    this.EnableJouleHeating == input.EnableJouleHeating ||
+                    (this.EnableJouleHeating != null &&
+                    this.EnableJouleHeating.Equals(input.EnableJouleHeating))
                 ) && 
                 (
                     this.TurbulenceModel == input.TurbulenceModel ||
@@ -455,6 +485,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
                 if (this.EnableSolarLoad != null)
                     hashCode = hashCode * 59 + this.EnableSolarLoad.GetHashCode();
+                if (this.EnableHumidityModel != null)
+                    hashCode = hashCode * 59 + this.EnableHumidityModel.GetHashCode();
+                if (this.EnableJouleHeating != null)
+                    hashCode = hashCode * 59 + this.EnableJouleHeating.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 if (this.TimeDependency != null)
                     hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();

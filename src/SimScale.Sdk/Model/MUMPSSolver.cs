@@ -113,39 +113,6 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="renumberingMethod", EmitDefaultValue=false)]
         public RenumberingMethodEnum? RenumberingMethod { get; set; }
         /// <summary>
-        /// With this option the user can control the iterative refinement of the linear system solution. This option only has an effect if the value of the &lt;b&gt; linear system relative residual&lt;/b&gt; given by the user is greater than zero, otherwise it is ignored. If it is &lt;b&gt;activate&lt;/b&gt; MUMPS carries out at least one additional iteration of the linear system resolution and at most 10 iterations. The process is stopped if the residual isn&#39;t reduced by at least a factor of 5. If this option is set to be &lt;b&gt;inactive&lt;/b&gt; no additional iteration is done and if &lt;b&gt;automatic&lt;/b&gt; is chosen MUMPS automatically decides if additional iterations should be done and the maximum number of iterations is set to 4.
-        /// </summary>
-        /// <value>With this option the user can control the iterative refinement of the linear system solution. This option only has an effect if the value of the &lt;b&gt; linear system relative residual&lt;/b&gt; given by the user is greater than zero, otherwise it is ignored. If it is &lt;b&gt;activate&lt;/b&gt; MUMPS carries out at least one additional iteration of the linear system resolution and at most 10 iterations. The process is stopped if the residual isn&#39;t reduced by at least a factor of 5. If this option is set to be &lt;b&gt;inactive&lt;/b&gt; no additional iteration is done and if &lt;b&gt;automatic&lt;/b&gt; is chosen MUMPS automatically decides if additional iterations should be done and the maximum number of iterations is set to 4.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum PostprocessingEnum
-        {
-            /// <summary>
-            /// Enum INACTIVE for value: INACTIVE
-            /// </summary>
-            [EnumMember(Value = "INACTIVE")]
-            INACTIVE = 1,
-
-            /// <summary>
-            /// Enum ACTIVE for value: ACTIVE
-            /// </summary>
-            [EnumMember(Value = "ACTIVE")]
-            ACTIVE = 2,
-
-            /// <summary>
-            /// Enum AUTOMATIC for value: AUTOMATIC
-            /// </summary>
-            [EnumMember(Value = "AUTOMATIC")]
-            AUTOMATIC = 3
-
-        }
-
-        /// <summary>
-        /// With this option the user can control the iterative refinement of the linear system solution. This option only has an effect if the value of the &lt;b&gt; linear system relative residual&lt;/b&gt; given by the user is greater than zero, otherwise it is ignored. If it is &lt;b&gt;activate&lt;/b&gt; MUMPS carries out at least one additional iteration of the linear system resolution and at most 10 iterations. The process is stopped if the residual isn&#39;t reduced by at least a factor of 5. If this option is set to be &lt;b&gt;inactive&lt;/b&gt; no additional iteration is done and if &lt;b&gt;automatic&lt;/b&gt; is chosen MUMPS automatically decides if additional iterations should be done and the maximum number of iterations is set to 4.
-        /// </summary>
-        /// <value>With this option the user can control the iterative refinement of the linear system solution. This option only has an effect if the value of the &lt;b&gt; linear system relative residual&lt;/b&gt; given by the user is greater than zero, otherwise it is ignored. If it is &lt;b&gt;activate&lt;/b&gt; MUMPS carries out at least one additional iteration of the linear system resolution and at most 10 iterations. The process is stopped if the residual isn&#39;t reduced by at least a factor of 5. If this option is set to be &lt;b&gt;inactive&lt;/b&gt; no additional iteration is done and if &lt;b&gt;automatic&lt;/b&gt; is chosen MUMPS automatically decides if additional iterations should be done and the maximum number of iterations is set to 4.</value>
-        [DataMember(Name="postprocessing", EmitDefaultValue=false)]
-        public PostprocessingEnum? Postprocessing { get; set; }
-        /// <summary>
         /// Choose the memory managment priority of the MUMPS solver. If &lt;b&gt;in-core&lt;/b&gt; is used the memory managment is optimized with respect to the calculation time by saving all objects in the RAM. If &lt;b&gt;out-of-core&lt;/b&gt; is chosen, the memory managment is optimized for a minimal RAM usage. If &lt;b&gt;automatic&lt;/b&gt; is selected, MUMPS choses automatically a reasonable memory managment mode. The option &lt;b&gt;memory demand evaluation&lt;/b&gt; is helpful to estimate the RAM consumption. This estimate is written to the solver log file. In this case the solution process aborts after the memory usage is estimated, allowing the user to start a new run with the best settings.
         /// </summary>
         /// <value>Choose the memory managment priority of the MUMPS solver. If &lt;b&gt;in-core&lt;/b&gt; is used the memory managment is optimized with respect to the calculation time by saving all objects in the RAM. If &lt;b&gt;out-of-core&lt;/b&gt; is chosen, the memory managment is optimized for a minimal RAM usage. If &lt;b&gt;automatic&lt;/b&gt; is selected, MUMPS choses automatically a reasonable memory managment mode. The option &lt;b&gt;memory demand evaluation&lt;/b&gt; is helpful to estimate the RAM consumption. This estimate is written to the solver log file. In this case the solution process aborts after the memory usage is estimated, allowing the user to start a new run with the best settings.</value>
@@ -203,10 +170,11 @@ namespace SimScale.Sdk.Model
         /// <param name="singlePrecision">If this option is activated the matrix factorisation is done with single precision and thus a reduction in memory consumption (often about 50%) and computation time is gained if the problem is well conditioned. If the problem is ill-conditioned one risks that in a nonlinear computation the newton algorithm fails to converge. (default to false).</param>
         /// <param name="preprocessing">If this option is activated MUMPS performs a pre-processing on order to identify the best parameter setting for some internal parameters adapted to the current problem. (default to true).</param>
         /// <param name="renumberingMethod">Choose the renumbering method for the system matrix entries. The choice of the renumbering method has a big impact on the memory consumption and the solution time. Currently supported are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;SCOTCH&lt;/b&gt; is a powerful renumbering tool, suited for most scenarios and the standard choice for MUMPS.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PORD&lt;/b&gt; is a renumbering tool that comes with MUMPS.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;AMD&lt;/b&gt; uses the &lt;i&gt;Approximate Minimum Degree&lt;/i&gt; method.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;AMF&lt;/b&gt; uses the &lt;i&gt;Approximate Minimum Fill&lt;/i&gt; method.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;QAMD&lt;/b&gt; is a variant of AMD with automatic detection of quasi-dense matrix lines.&lt;/p&gt;&lt;/ul&gt;If &lt;b&gt;automatic&lt;/b&gt; is selected the user let MUMPS choose the renumbering tool. The methods AMD, AMF and QAMD are generally inferior to the more sophisticated methods SCOTCH and PORD but may be a better choice in some cases..</param>
-        /// <param name="postprocessing">With this option the user can control the iterative refinement of the linear system solution. This option only has an effect if the value of the &lt;b&gt; linear system relative residual&lt;/b&gt; given by the user is greater than zero, otherwise it is ignored. If it is &lt;b&gt;activate&lt;/b&gt; MUMPS carries out at least one additional iteration of the linear system resolution and at most 10 iterations. The process is stopped if the residual isn&#39;t reduced by at least a factor of 5. If this option is set to be &lt;b&gt;inactive&lt;/b&gt; no additional iteration is done and if &lt;b&gt;automatic&lt;/b&gt; is chosen MUMPS automatically decides if additional iterations should be done and the maximum number of iterations is set to 4. (default to PostprocessingEnum.ACTIVE).</param>
+        /// <param name="postprocessing">With this option the user can control the iterative refinement of the linear system solution. This option only has an effect if the value of the &lt;b&gt; linear system relative residual&lt;/b&gt; given by the user is greater than zero, otherwise it is ignored. If it is &lt;b&gt;activate&lt;/b&gt; MUMPS carries out at least one additional iteration of the linear system resolution and at most 10 iterations. The process is stopped if the residual isn&#39;t reduced by at least a factor of 5. If this option is set to be &lt;b&gt;inactive&lt;/b&gt; no additional iteration is done and if &lt;b&gt;automatic&lt;/b&gt; is chosen MUMPS automatically decides if additional iterations should be done and the maximum number of iterations is set to 4. (default to &quot;AUTOMATIC&quot;).</param>
+        /// <param name="mumpsAcceleration">mumpsAcceleration.</param>
         /// <param name="distributedMatrixStorage">Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. This parameter has currently no effect for &lt;i&gt;Harmonic&lt;/i&gt; simulations. (default to true).</param>
         /// <param name="memoryManagement">Choose the memory managment priority of the MUMPS solver. If &lt;b&gt;in-core&lt;/b&gt; is used the memory managment is optimized with respect to the calculation time by saving all objects in the RAM. If &lt;b&gt;out-of-core&lt;/b&gt; is chosen, the memory managment is optimized for a minimal RAM usage. If &lt;b&gt;automatic&lt;/b&gt; is selected, MUMPS choses automatically a reasonable memory managment mode. The option &lt;b&gt;memory demand evaluation&lt;/b&gt; is helpful to estimate the RAM consumption. This estimate is written to the solver log file. In this case the solution process aborts after the memory usage is estimated, allowing the user to start a new run with the best settings. (default to MemoryManagementEnum.AUTOMATIC).</param>
-        public MUMPSSolver(string type = "MUMPS", bool? forceSymmetric = default(bool?), int? precisionSingularityDetection = default(int?), bool? stopIfSingular = default(bool?), MatrixTypeEnum? matrixType = default(MatrixTypeEnum?), decimal? memoryPercentageForPivoting = default(decimal?), decimal? linearSystemRelativeResidual = default(decimal?), decimal? matrixFilteringThreshold = default(decimal?), bool? singlePrecision = default(bool?), bool? preprocessing = default(bool?), RenumberingMethodEnum? renumberingMethod = default(RenumberingMethodEnum?), PostprocessingEnum? postprocessing = default(PostprocessingEnum?), bool? distributedMatrixStorage = default(bool?), MemoryManagementEnum? memoryManagement = default(MemoryManagementEnum?))
+        public MUMPSSolver(string type = "MUMPS", bool? forceSymmetric = default(bool?), int? precisionSingularityDetection = default(int?), bool? stopIfSingular = default(bool?), MatrixTypeEnum? matrixType = default(MatrixTypeEnum?), decimal? memoryPercentageForPivoting = default(decimal?), decimal? linearSystemRelativeResidual = default(decimal?), decimal? matrixFilteringThreshold = default(decimal?), bool? singlePrecision = default(bool?), bool? preprocessing = default(bool?), RenumberingMethodEnum? renumberingMethod = default(RenumberingMethodEnum?), string postprocessing = default(string), OneOfMUMPSSolverMumpsAcceleration mumpsAcceleration = default(OneOfMUMPSSolverMumpsAcceleration), bool? distributedMatrixStorage = default(bool?), MemoryManagementEnum? memoryManagement = default(MemoryManagementEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MUMPSSolver and cannot be null");
@@ -221,6 +189,7 @@ namespace SimScale.Sdk.Model
             this.Preprocessing = preprocessing;
             this.RenumberingMethod = renumberingMethod;
             this.Postprocessing = postprocessing;
+            this.MumpsAcceleration = mumpsAcceleration;
             this.DistributedMatrixStorage = distributedMatrixStorage;
             this.MemoryManagement = memoryManagement;
         }
@@ -289,6 +258,19 @@ namespace SimScale.Sdk.Model
         public bool? Preprocessing { get; set; }
 
         /// <summary>
+        /// With this option the user can control the iterative refinement of the linear system solution. This option only has an effect if the value of the &lt;b&gt; linear system relative residual&lt;/b&gt; given by the user is greater than zero, otherwise it is ignored. If it is &lt;b&gt;activate&lt;/b&gt; MUMPS carries out at least one additional iteration of the linear system resolution and at most 10 iterations. The process is stopped if the residual isn&#39;t reduced by at least a factor of 5. If this option is set to be &lt;b&gt;inactive&lt;/b&gt; no additional iteration is done and if &lt;b&gt;automatic&lt;/b&gt; is chosen MUMPS automatically decides if additional iterations should be done and the maximum number of iterations is set to 4.
+        /// </summary>
+        /// <value>With this option the user can control the iterative refinement of the linear system solution. This option only has an effect if the value of the &lt;b&gt; linear system relative residual&lt;/b&gt; given by the user is greater than zero, otherwise it is ignored. If it is &lt;b&gt;activate&lt;/b&gt; MUMPS carries out at least one additional iteration of the linear system resolution and at most 10 iterations. The process is stopped if the residual isn&#39;t reduced by at least a factor of 5. If this option is set to be &lt;b&gt;inactive&lt;/b&gt; no additional iteration is done and if &lt;b&gt;automatic&lt;/b&gt; is chosen MUMPS automatically decides if additional iterations should be done and the maximum number of iterations is set to 4.</value>
+        [DataMember(Name="postprocessing", EmitDefaultValue=false)]
+        public string Postprocessing { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MumpsAcceleration
+        /// </summary>
+        [DataMember(Name="mumpsAcceleration", EmitDefaultValue=false)]
+        public OneOfMUMPSSolverMumpsAcceleration MumpsAcceleration { get; set; }
+
+        /// <summary>
         /// Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. This parameter has currently no effect for &lt;i&gt;Harmonic&lt;/i&gt; simulations.
         /// </summary>
         /// <value>Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. This parameter has currently no effect for &lt;i&gt;Harmonic&lt;/i&gt; simulations.</value>
@@ -315,6 +297,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Preprocessing: ").Append(Preprocessing).Append("\n");
             sb.Append("  RenumberingMethod: ").Append(RenumberingMethod).Append("\n");
             sb.Append("  Postprocessing: ").Append(Postprocessing).Append("\n");
+            sb.Append("  MumpsAcceleration: ").Append(MumpsAcceleration).Append("\n");
             sb.Append("  DistributedMatrixStorage: ").Append(DistributedMatrixStorage).Append("\n");
             sb.Append("  MemoryManagement: ").Append(MemoryManagement).Append("\n");
             sb.Append("}\n");
@@ -406,7 +389,13 @@ namespace SimScale.Sdk.Model
                 ) && 
                 (
                     this.Postprocessing == input.Postprocessing ||
-                    this.Postprocessing.Equals(input.Postprocessing)
+                    (this.Postprocessing != null &&
+                    this.Postprocessing.Equals(input.Postprocessing))
+                ) && 
+                (
+                    this.MumpsAcceleration == input.MumpsAcceleration ||
+                    (this.MumpsAcceleration != null &&
+                    this.MumpsAcceleration.Equals(input.MumpsAcceleration))
                 ) && 
                 (
                     this.DistributedMatrixStorage == input.DistributedMatrixStorage ||
@@ -448,7 +437,10 @@ namespace SimScale.Sdk.Model
                 if (this.Preprocessing != null)
                     hashCode = hashCode * 59 + this.Preprocessing.GetHashCode();
                 hashCode = hashCode * 59 + this.RenumberingMethod.GetHashCode();
-                hashCode = hashCode * 59 + this.Postprocessing.GetHashCode();
+                if (this.Postprocessing != null)
+                    hashCode = hashCode * 59 + this.Postprocessing.GetHashCode();
+                if (this.MumpsAcceleration != null)
+                    hashCode = hashCode * 59 + this.MumpsAcceleration.GetHashCode();
                 if (this.DistributedMatrixStorage != null)
                     hashCode = hashCode * 59 + this.DistributedMatrixStorage.GetHashCode();
                 hashCode = hashCode * 59 + this.MemoryManagement.GetHashCode();

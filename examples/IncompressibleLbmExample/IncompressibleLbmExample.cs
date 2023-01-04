@@ -196,7 +196,9 @@ class IncompressibleLbmExample
                 yMIN: new WallBC(name: "Side (C)", velocity: new SlipVBC()),
                 yMAX: new WallBC(name: "Side (D)", velocity: new SlipVBC()),
                 zMIN: new WallBC(name: "Ground (E)", velocity: new NoSlipVBC(
-                    surfaceRoughness: new DimensionalLength(value: 0m, unit: DimensionalLength.UnitEnum.M)
+                    noSlipWallRoughnessType: new NoSlipWallEquivalentSandRoughness(
+                        surfaceRoughness: new DimensionalLength(value: 0m, unit: DimensionalLength.UnitEnum.M)
+                    )
                 )),
                 zMAX: new WallBC(name: "Top (F)", velocity: new SlipVBC())
             ),

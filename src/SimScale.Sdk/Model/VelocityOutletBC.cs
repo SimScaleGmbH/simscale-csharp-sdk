@@ -40,16 +40,18 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name.</param>
         /// <param name="velocity">velocity.</param>
         /// <param name="phaseFraction">phaseFraction.</param>
+        /// <param name="associatedPhaseFractions">Please choose a boundary condition for phase fraction (alpha)..</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public VelocityOutletBC(string type = "VELOCITY_OUTLET_V7", string name = default(string), OneOfVelocityOutletBCVelocity velocity = default(OneOfVelocityOutletBCVelocity), OneOfVelocityOutletBCPhaseFraction phaseFraction = default(OneOfVelocityOutletBCPhaseFraction), OneOfVelocityOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityOutletBCNetRadiativeHeatFlux), OneOfVelocityOutletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfVelocityOutletBCRadiativeIntensityRay), TopologicalReference topologicalReference = default(TopologicalReference))
+        public VelocityOutletBC(string type = "VELOCITY_OUTLET_V7", string name = default(string), OneOfVelocityOutletBCVelocity velocity = default(OneOfVelocityOutletBCVelocity), OneOfVelocityOutletBCPhaseFraction phaseFraction = default(OneOfVelocityOutletBCPhaseFraction), List<PhaseNameAndFixedValuePFBC> associatedPhaseFractions = default(List<PhaseNameAndFixedValuePFBC>), OneOfVelocityOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityOutletBCNetRadiativeHeatFlux), OneOfVelocityOutletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfVelocityOutletBCRadiativeIntensityRay), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VelocityOutletBC and cannot be null");
             this.Name = name;
             this.Velocity = velocity;
             this.PhaseFraction = phaseFraction;
+            this.AssociatedPhaseFractions = associatedPhaseFractions;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
             this.TopologicalReference = topologicalReference;
@@ -81,6 +83,13 @@ namespace SimScale.Sdk.Model
         public OneOfVelocityOutletBCPhaseFraction PhaseFraction { get; set; }
 
         /// <summary>
+        /// Please choose a boundary condition for phase fraction (alpha).
+        /// </summary>
+        /// <value>Please choose a boundary condition for phase fraction (alpha).</value>
+        [DataMember(Name="associatedPhaseFractions", EmitDefaultValue=false)]
+        public List<PhaseNameAndFixedValuePFBC> AssociatedPhaseFractions { get; set; }
+
+        /// <summary>
         /// Gets or Sets NetRadiativeHeatFlux
         /// </summary>
         [DataMember(Name="netRadiativeHeatFlux", EmitDefaultValue=false)]
@@ -110,6 +119,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Velocity: ").Append(Velocity).Append("\n");
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
+            sb.Append("  AssociatedPhaseFractions: ").Append(AssociatedPhaseFractions).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
@@ -168,6 +178,12 @@ namespace SimScale.Sdk.Model
                     this.PhaseFraction.Equals(input.PhaseFraction))
                 ) && 
                 (
+                    this.AssociatedPhaseFractions == input.AssociatedPhaseFractions ||
+                    this.AssociatedPhaseFractions != null &&
+                    input.AssociatedPhaseFractions != null &&
+                    this.AssociatedPhaseFractions.SequenceEqual(input.AssociatedPhaseFractions)
+                ) && 
+                (
                     this.NetRadiativeHeatFlux == input.NetRadiativeHeatFlux ||
                     (this.NetRadiativeHeatFlux != null &&
                     this.NetRadiativeHeatFlux.Equals(input.NetRadiativeHeatFlux))
@@ -201,6 +217,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Velocity.GetHashCode();
                 if (this.PhaseFraction != null)
                     hashCode = hashCode * 59 + this.PhaseFraction.GetHashCode();
+                if (this.AssociatedPhaseFractions != null)
+                    hashCode = hashCode * 59 + this.AssociatedPhaseFractions.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)
                     hashCode = hashCode * 59 + this.NetRadiativeHeatFlux.GetHashCode();
                 if (this.RadiativeIntensityRay != null)

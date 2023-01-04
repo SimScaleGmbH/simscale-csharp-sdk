@@ -37,14 +37,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Contact" /> class.
         /// </summary>
         /// <param name="type">Schema name: Contact (required) (default to &quot;CONTACT&quot;).</param>
+        /// <param name="nodeMergingBonded">&lt;p&gt;Allow node merging where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt; (default to false).</param>
         /// <param name="connections">connections.</param>
-        /// <param name="nodeMergingBonded">&lt;p&gt;Allow node merging where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt; (default to true).</param>
-        public Contact(string type = "CONTACT", List<OneOfContactConnections> connections = default(List<OneOfContactConnections>), bool? nodeMergingBonded = default(bool?))
+        public Contact(string type = "CONTACT", bool? nodeMergingBonded = default(bool?), List<OneOfContactConnections> connections = default(List<OneOfContactConnections>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for Contact and cannot be null");
-            this.Connections = connections;
             this.NodeMergingBonded = nodeMergingBonded;
+            this.Connections = connections;
         }
         
         /// <summary>
@@ -55,17 +55,17 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Connections
-        /// </summary>
-        [DataMember(Name="connections", EmitDefaultValue=false)]
-        public List<OneOfContactConnections> Connections { get; set; }
-
-        /// <summary>
         /// &lt;p&gt;Allow node merging where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt;
         /// </summary>
         /// <value>&lt;p&gt;Allow node merging where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt;</value>
         [DataMember(Name="nodeMergingBonded", EmitDefaultValue=false)]
         public bool? NodeMergingBonded { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Connections
+        /// </summary>
+        [DataMember(Name="connections", EmitDefaultValue=false)]
+        public List<OneOfContactConnections> Connections { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,8 +76,8 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class Contact {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Connections: ").Append(Connections).Append("\n");
             sb.Append("  NodeMergingBonded: ").Append(NodeMergingBonded).Append("\n");
+            sb.Append("  Connections: ").Append(Connections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,15 +118,15 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.NodeMergingBonded == input.NodeMergingBonded ||
+                    (this.NodeMergingBonded != null &&
+                    this.NodeMergingBonded.Equals(input.NodeMergingBonded))
+                ) && 
+                (
                     this.Connections == input.Connections ||
                     this.Connections != null &&
                     input.Connections != null &&
                     this.Connections.SequenceEqual(input.Connections)
-                ) && 
-                (
-                    this.NodeMergingBonded == input.NodeMergingBonded ||
-                    (this.NodeMergingBonded != null &&
-                    this.NodeMergingBonded.Equals(input.NodeMergingBonded))
                 );
         }
 
@@ -141,10 +141,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Connections != null)
-                    hashCode = hashCode * 59 + this.Connections.GetHashCode();
                 if (this.NodeMergingBonded != null)
                     hashCode = hashCode * 59 + this.NodeMergingBonded.GetHashCode();
+                if (this.Connections != null)
+                    hashCode = hashCode * 59 + this.Connections.GetHashCode();
                 return hashCode;
             }
         }

@@ -126,9 +126,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;14.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;15.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "14.0");
+        SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "15.0");
 
         /// <summary>
         /// Get information about the simulation setup
@@ -139,14 +139,14 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;14.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;15.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        ApiResponse<SimulationSpec> GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "14.0");
+        ApiResponse<SimulationSpec> GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "15.0");
         /// <summary>
         /// Get Python SDK code for the simulation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -160,7 +160,7 @@ namespace SimScale.Sdk.Api
         /// Get Python SDK code for the simulation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -356,9 +356,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;14.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;15.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "14.0");
+        System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "15.0");
 
         /// <summary>
         /// Get information about the simulation setup
@@ -369,14 +369,14 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;14.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;15.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "14.0");
+        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "15.0");
         /// <summary>
         /// Get Python SDK code for the simulation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -390,7 +390,7 @@ namespace SimScale.Sdk.Api
         /// Get Python SDK code for the simulation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -1154,9 +1154,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;14.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;15.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        public SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "14.0")
+        public SimulationSpec GetSimulation (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "15.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = GetSimulationWithHttpInfo(projectId, simulationId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1168,9 +1168,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;14.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;15.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "14.0")
+        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "15.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1227,9 +1227,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;14.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;15.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "14.0")
+        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationAsync (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "15.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = await GetSimulationAsyncWithHttpInfo(projectId, simulationId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1242,9 +1242,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;14.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;15.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "14.0")
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), string simulationSpecSchemaVersion = "15.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1298,7 +1298,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Python SDK code for the simulation 
+        /// Get Python SDK code for the simulation Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -1313,7 +1313,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Python SDK code for the simulation 
+        /// Get Python SDK code for the simulation Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -1378,7 +1378,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Python SDK code for the simulation 
+        /// Get Python SDK code for the simulation Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -1394,7 +1394,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Python SDK code for the simulation 
+        /// Get Python SDK code for the simulation Important: due to incompatibilities between the source Spec version and the target SDK version the generated code may contain incomplete sections or even be invalid. The generated code is provided as a convenience and should be reviewed and adapted before use.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>

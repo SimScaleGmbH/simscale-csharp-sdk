@@ -24,10 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Defines the direction on which the thermal conductivity will act:&lt;br&gt; &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Cartesian&lt;/strong&gt;: the cross-plane conductivity acts along the Z-axis and the in-plane conductivity acts on the X-Y plane.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Custom&lt;/strong&gt;: the cross-plane conductivity is aligned with the cross-plane orientation defined by the X, Y, Z components, and the in-plane conductivity acts on the plane orthogonal to the cross-plane orientation.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+    /// &lt;p&gt;Defines the direction on which the thermal conductivity will act:&lt;br&gt; &lt;ul&gt;&lt;li&gt;&lt;strong&gt;x-, y-, z-Axis&lt;/strong&gt;: the cross-plane conductivity acts along the selected coordinate axis and the in-plane conductivity acts on the plane orthogonal to that axis.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Custom&lt;/strong&gt;: the cross-plane conductivity is aligned with the cross-plane orientation defined by the X, Y, Z components, and the in-plane conductivity acts on the plane orthogonal to the cross-plane orientation.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(CartesianOrientation), "CARTESIAN")]
+    [JsonSubtypes.KnownSubType(typeof(XAxis), "XAXIS")]
+    [JsonSubtypes.KnownSubType(typeof(YAxis), "YAXIS")]
+    [JsonSubtypes.KnownSubType(typeof(ZAxis), "ZAXIS")]
     [JsonSubtypes.KnownSubType(typeof(CrossPlaneCustomOrientation), "CROSS_PLANE")]
     public interface OneOfConstCrossPlaneOrthotropicTransportOrientation
     {

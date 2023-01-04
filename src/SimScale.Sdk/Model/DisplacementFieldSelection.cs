@@ -74,11 +74,13 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="DisplacementFieldSelection" /> class.
         /// </summary>
         /// <param name="type">Schema name: DisplacementFieldSelection (required) (default to &quot;DISPLACEMENT&quot;).</param>
+        /// <param name="displacementType">displacementType.</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
-        public DisplacementFieldSelection(string type = "DISPLACEMENT", ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
+        public DisplacementFieldSelection(string type = "DISPLACEMENT", OneOfDisplacementFieldSelectionDisplacementType displacementType = default(OneOfDisplacementFieldSelectionDisplacementType), ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for DisplacementFieldSelection and cannot be null");
+            this.DisplacementType = displacementType;
             this.ComponentSelection = componentSelection;
         }
         
@@ -90,6 +92,12 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Gets or Sets DisplacementType
+        /// </summary>
+        [DataMember(Name="displacementType", EmitDefaultValue=false)]
+        public OneOfDisplacementFieldSelectionDisplacementType DisplacementType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +106,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class DisplacementFieldSelection {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  DisplacementType: ").Append(DisplacementType).Append("\n");
             sb.Append("  ComponentSelection: ").Append(ComponentSelection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -139,6 +148,11 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.DisplacementType == input.DisplacementType ||
+                    (this.DisplacementType != null &&
+                    this.DisplacementType.Equals(input.DisplacementType))
+                ) && 
+                (
                     this.ComponentSelection == input.ComponentSelection ||
                     this.ComponentSelection.Equals(input.ComponentSelection)
                 );
@@ -155,6 +169,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.DisplacementType != null)
+                    hashCode = hashCode * 59 + this.DisplacementType.GetHashCode();
                 hashCode = hashCode * 59 + this.ComponentSelection.GetHashCode();
                 return hashCode;
             }

@@ -23,41 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// EmbeddedNumberOfCellsRefinement
+    /// AutomaticAcceleration
     /// </summary>
     [DataContract]
-    public partial class EmbeddedNumberOfCellsRefinement : OneOfBasicEmbeddedBoundaryMeshingRefinementStrategy, IEquatable<EmbeddedNumberOfCellsRefinement>
+    public partial class AutomaticAcceleration : OneOfMUMPSSolverMumpsAcceleration, IEquatable<AutomaticAcceleration>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmbeddedNumberOfCellsRefinement" /> class.
+        /// Initializes a new instance of the <see cref="AutomaticAcceleration" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EmbeddedNumberOfCellsRefinement() { }
+        protected AutomaticAcceleration() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmbeddedNumberOfCellsRefinement" /> class.
+        /// Initializes a new instance of the <see cref="AutomaticAcceleration" /> class.
         /// </summary>
-        /// <param name="type">Schema name: EmbeddedNumberOfCellsRefinement (required) (default to &quot;LAYER_REFINEMENT&quot;).</param>
-        /// <param name="refinementControl">Number of cell layers up to which the mesh refinement propagates. (default to 1).</param>
-        public EmbeddedNumberOfCellsRefinement(string type = "LAYER_REFINEMENT", int? refinementControl = default(int?))
+        /// <param name="type">Schema name: AutomaticAcceleration (required) (default to &quot;AUTOMATIC&quot;).</param>
+        public AutomaticAcceleration(string type = "AUTOMATIC")
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for EmbeddedNumberOfCellsRefinement and cannot be null");
-            this.RefinementControl = refinementControl;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticAcceleration and cannot be null");
         }
         
         /// <summary>
-        /// Schema name: EmbeddedNumberOfCellsRefinement
+        /// Schema name: AutomaticAcceleration
         /// </summary>
-        /// <value>Schema name: EmbeddedNumberOfCellsRefinement</value>
+        /// <value>Schema name: AutomaticAcceleration</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Number of cell layers up to which the mesh refinement propagates.
-        /// </summary>
-        /// <value>Number of cell layers up to which the mesh refinement propagates.</value>
-        [DataMember(Name="refinementControl", EmitDefaultValue=false)]
-        public int? RefinementControl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,9 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class EmbeddedNumberOfCellsRefinement {\n");
+            sb.Append("class AutomaticAcceleration {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  RefinementControl: ").Append(RefinementControl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,15 +79,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EmbeddedNumberOfCellsRefinement);
+            return this.Equals(input as AutomaticAcceleration);
         }
 
         /// <summary>
-        /// Returns true if EmbeddedNumberOfCellsRefinement instances are equal
+        /// Returns true if AutomaticAcceleration instances are equal
         /// </summary>
-        /// <param name="input">Instance of EmbeddedNumberOfCellsRefinement to be compared</param>
+        /// <param name="input">Instance of AutomaticAcceleration to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EmbeddedNumberOfCellsRefinement input)
+        public bool Equals(AutomaticAcceleration input)
         {
             if (input == null)
                 return false;
@@ -107,11 +97,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.RefinementControl == input.RefinementControl ||
-                    (this.RefinementControl != null &&
-                    this.RefinementControl.Equals(input.RefinementControl))
                 );
         }
 
@@ -126,8 +111,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.RefinementControl != null)
-                    hashCode = hashCode * 59 + this.RefinementControl.GetHashCode();
                 return hashCode;
             }
         }

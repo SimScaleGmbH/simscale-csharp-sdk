@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// The custom wind comfort criterion table must have exactly 3 columns (Probability, Wind Speed and Legend) separated by specified separator character (&#39;,&#39; by default). Probability and Wind Speed must be expressed using numbers. Legend can be at most 32 characters long and can contain only alphanumerical characters, white spaces, and &#39;-&#39; or &#39;_&#39; special characters.
+    /// The custom wind comfort criterion table must have exactly 3 columns (Wind Speed, Probability and Legend) separated by specified separator character (&#39;,&#39; by default). Probability and Wind Speed must be expressed using numbers. Legend can be at most 32 characters long and can contain only alphanumerical characters, white spaces, and &#39;-&#39; or &#39;_&#39; special characters.
     /// </summary>
     [DataContract]
     public partial class TableDefinedComfortCriterionDefinition : IEquatable<TableDefinedComfortCriterionDefinition>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableDefinedComfortCriterionDefinition" /> class.
         /// </summary>
-        /// <param name="type">The custom wind comfort criterion table must have exactly 3 columns (Probability, Wind Speed and Legend) separated by specified separator character (&#39;,&#39; by default). Probability and Wind Speed must be expressed using numbers. Legend can be at most 32 characters long and can contain only alphanumerical characters, white spaces, and &#39;-&#39; or &#39;_&#39; special characters.  Schema name: TableDefinedComfortCriterionDefinition (required) (default to &quot;TABULAR_COMFORT_CRITERION&quot;).</param>
+        /// <param name="type">The custom wind comfort criterion table must have exactly 3 columns (Wind Speed, Probability and Legend) separated by specified separator character (&#39;,&#39; by default). Probability and Wind Speed must be expressed using numbers. Legend can be at most 32 characters long and can contain only alphanumerical characters, white spaces, and &#39;-&#39; or &#39;_&#39; special characters.  Schema name: TableDefinedComfortCriterionDefinition (required) (default to &quot;TABULAR_COMFORT_CRITERION&quot;).</param>
         /// <param name="tableId">The ID of the imported table..</param>
         /// <param name="separator">Values in each row are separated by this character. Also known as a delimiter. (default to &quot;,&quot;).</param>
         public TableDefinedComfortCriterionDefinition(string type = "TABULAR_COMFORT_CRITERION", Guid? tableId = default(Guid?), string separator = default(string))
@@ -48,9 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// The custom wind comfort criterion table must have exactly 3 columns (Probability, Wind Speed and Legend) separated by specified separator character (&#39;,&#39; by default). Probability and Wind Speed must be expressed using numbers. Legend can be at most 32 characters long and can contain only alphanumerical characters, white spaces, and &#39;-&#39; or &#39;_&#39; special characters.  Schema name: TableDefinedComfortCriterionDefinition
+        /// The custom wind comfort criterion table must have exactly 3 columns (Wind Speed, Probability and Legend) separated by specified separator character (&#39;,&#39; by default). Probability and Wind Speed must be expressed using numbers. Legend can be at most 32 characters long and can contain only alphanumerical characters, white spaces, and &#39;-&#39; or &#39;_&#39; special characters.  Schema name: TableDefinedComfortCriterionDefinition
         /// </summary>
-        /// <value>The custom wind comfort criterion table must have exactly 3 columns (Probability, Wind Speed and Legend) separated by specified separator character (&#39;,&#39; by default). Probability and Wind Speed must be expressed using numbers. Legend can be at most 32 characters long and can contain only alphanumerical characters, white spaces, and &#39;-&#39; or &#39;_&#39; special characters.  Schema name: TableDefinedComfortCriterionDefinition</value>
+        /// <value>The custom wind comfort criterion table must have exactly 3 columns (Wind Speed, Probability and Legend) separated by specified separator character (&#39;,&#39; by default). Probability and Wind Speed must be expressed using numbers. Legend can be at most 32 characters long and can contain only alphanumerical characters, white spaces, and &#39;-&#39; or &#39;_&#39; special characters.  Schema name: TableDefinedComfortCriterionDefinition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

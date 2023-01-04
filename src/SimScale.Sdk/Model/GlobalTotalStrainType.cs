@@ -38,7 +38,13 @@ namespace SimScale.Sdk.Model
             /// Enum REALANDIMAGINARY for value: REAL_AND_IMAGINARY
             /// </summary>
             [EnumMember(Value = "REAL_AND_IMAGINARY")]
-            REALANDIMAGINARY = 1
+            REALANDIMAGINARY = 1,
+
+            /// <summary>
+            /// Enum MAGNITUDEANDPHASE for value: MAGNITUDE_AND_PHASE
+            /// </summary>
+            [EnumMember(Value = "MAGNITUDE_AND_PHASE")]
+            MAGNITUDEANDPHASE = 2
 
         }
 
@@ -56,7 +62,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="GlobalTotalStrainType" /> class.
         /// </summary>
         /// <param name="type">Schema name: GlobalTotalStrainType (required) (default to &quot;TOTAL&quot;).</param>
-        /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.REALANDIMAGINARY).</param>
+        /// <param name="complexNumber">complexNumber (default to ComplexNumberEnum.MAGNITUDEANDPHASE).</param>
         public GlobalTotalStrainType(string type = "TOTAL", ComplexNumberEnum? complexNumber = default(ComplexNumberEnum?))
         {
             // to ensure "type" is required (not null)

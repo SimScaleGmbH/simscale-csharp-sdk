@@ -39,12 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: IRAMSorensen (required) (default to &quot;SORENSEN&quot;).</param>
         /// <param name="precSoren">precSoren (default to 0M).</param>
         /// <param name="nmaxIterSoren">nmaxIterSoren (default to 20).</param>
-        public IRAMSorensen(string type = "SORENSEN", decimal? precSoren = default(decimal?), int? nmaxIterSoren = default(int?))
+        /// <param name="subspaceSettings">subspaceSettings.</param>
+        public IRAMSorensen(string type = "SORENSEN", decimal? precSoren = default(decimal?), int? nmaxIterSoren = default(int?), OneOfIRAMSorensenSubspaceSettings subspaceSettings = default(OneOfIRAMSorensenSubspaceSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IRAMSorensen and cannot be null");
             this.PrecSoren = precSoren;
             this.NmaxIterSoren = nmaxIterSoren;
+            this.SubspaceSettings = subspaceSettings;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace SimScale.Sdk.Model
         public int? NmaxIterSoren { get; set; }
 
         /// <summary>
+        /// Gets or Sets SubspaceSettings
+        /// </summary>
+        [DataMember(Name="subspaceSettings", EmitDefaultValue=false)]
+        public OneOfIRAMSorensenSubspaceSettings SubspaceSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +85,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  PrecSoren: ").Append(PrecSoren).Append("\n");
             sb.Append("  NmaxIterSoren: ").Append(NmaxIterSoren).Append("\n");
+            sb.Append("  SubspaceSettings: ").Append(SubspaceSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace SimScale.Sdk.Model
                     this.NmaxIterSoren == input.NmaxIterSoren ||
                     (this.NmaxIterSoren != null &&
                     this.NmaxIterSoren.Equals(input.NmaxIterSoren))
+                ) && 
+                (
+                    this.SubspaceSettings == input.SubspaceSettings ||
+                    (this.SubspaceSettings != null &&
+                    this.SubspaceSettings.Equals(input.SubspaceSettings))
                 );
         }
 
@@ -143,6 +157,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PrecSoren.GetHashCode();
                 if (this.NmaxIterSoren != null)
                     hashCode = hashCode * 59 + this.NmaxIterSoren.GetHashCode();
+                if (this.SubspaceSettings != null)
+                    hashCode = hashCode * 59 + this.SubspaceSettings.GetHashCode();
                 return hashCode;
             }
         }

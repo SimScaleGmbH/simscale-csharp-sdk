@@ -31,7 +31,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SolidResultControl" /> class.
         /// </summary>
-        /// <param name="solutionFields">solutionFields.</param>
+        /// <param name="solutionFields">Each mode is normalized using its largest component of displacement..</param>
         /// <param name="edgeCalculation">edgeCalculation.</param>
         /// <param name="areaCalculation">areaCalculation.</param>
         /// <param name="volumeCalculation">volumeCalculation.</param>
@@ -46,8 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets SolutionFields
+        /// Each mode is normalized using its largest component of displacement.
         /// </summary>
+        /// <value>Each mode is normalized using its largest component of displacement.</value>
         [DataMember(Name="solutionFields", EmitDefaultValue=false)]
         public List<OneOfSolidResultControlSolutionFields> SolutionFields { get; set; }
 

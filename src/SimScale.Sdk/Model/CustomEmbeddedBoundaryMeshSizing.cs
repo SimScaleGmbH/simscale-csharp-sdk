@@ -23,36 +23,34 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// BasicEmbeddedBoundaryMeshing
+    /// CustomEmbeddedBoundaryMeshSizing
     /// </summary>
     [DataContract]
-    public partial class BasicEmbeddedBoundaryMeshing : IEquatable<BasicEmbeddedBoundaryMeshing>
+    public partial class CustomEmbeddedBoundaryMeshSizing : OneOfEmbeddedBoundaryMeshingSizing, IEquatable<CustomEmbeddedBoundaryMeshSizing>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BasicEmbeddedBoundaryMeshing" /> class.
+        /// Initializes a new instance of the <see cref="CustomEmbeddedBoundaryMeshSizing" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected BasicEmbeddedBoundaryMeshing() { }
+        protected CustomEmbeddedBoundaryMeshSizing() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BasicEmbeddedBoundaryMeshing" /> class.
+        /// Initializes a new instance of the <see cref="CustomEmbeddedBoundaryMeshSizing" /> class.
         /// </summary>
-        /// <param name="type">Schema name: BasicEmbeddedBoundaryMeshing (required) (default to &quot;BASIC_MESH_SETTINGS&quot;).</param>
+        /// <param name="type">Schema name: CustomEmbeddedBoundaryMeshSizing (required) (default to &quot;CUSTOM_EBM_MESH_SIZING&quot;).</param>
         /// <param name="numCellsPerDirection">numCellsPerDirection.</param>
-        /// <param name="refinementStrategy">refinementStrategy.</param>
-        /// <param name="numRefinementLevels">Number of refinement levels to refine in the vicinity of all CAD surfaces. (default to 2).</param>
-        public BasicEmbeddedBoundaryMeshing(string type = "BASIC_MESH_SETTINGS", NumberOfCellsPerDirection numCellsPerDirection = default(NumberOfCellsPerDirection), OneOfBasicEmbeddedBoundaryMeshingRefinementStrategy refinementStrategy = default(OneOfBasicEmbeddedBoundaryMeshingRefinementStrategy), int? numRefinementLevels = default(int?))
+        /// <param name="numRefinementLevels">Number of refinement levels to refine in the vicinity of all CAD surfaces. (default to 3).</param>
+        public CustomEmbeddedBoundaryMeshSizing(string type = "CUSTOM_EBM_MESH_SIZING", NumberOfCellsPerDirection numCellsPerDirection = default(NumberOfCellsPerDirection), int? numRefinementLevels = default(int?))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for BasicEmbeddedBoundaryMeshing and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for CustomEmbeddedBoundaryMeshSizing and cannot be null");
             this.NumCellsPerDirection = numCellsPerDirection;
-            this.RefinementStrategy = refinementStrategy;
             this.NumRefinementLevels = numRefinementLevels;
         }
         
         /// <summary>
-        /// Schema name: BasicEmbeddedBoundaryMeshing
+        /// Schema name: CustomEmbeddedBoundaryMeshSizing
         /// </summary>
-        /// <value>Schema name: BasicEmbeddedBoundaryMeshing</value>
+        /// <value>Schema name: CustomEmbeddedBoundaryMeshSizing</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -61,12 +59,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="numCellsPerDirection", EmitDefaultValue=false)]
         public NumberOfCellsPerDirection NumCellsPerDirection { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RefinementStrategy
-        /// </summary>
-        [DataMember(Name="refinementStrategy", EmitDefaultValue=false)]
-        public OneOfBasicEmbeddedBoundaryMeshingRefinementStrategy RefinementStrategy { get; set; }
 
         /// <summary>
         /// Number of refinement levels to refine in the vicinity of all CAD surfaces.
@@ -82,10 +74,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BasicEmbeddedBoundaryMeshing {\n");
+            sb.Append("class CustomEmbeddedBoundaryMeshSizing {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  NumCellsPerDirection: ").Append(NumCellsPerDirection).Append("\n");
-            sb.Append("  RefinementStrategy: ").Append(RefinementStrategy).Append("\n");
             sb.Append("  NumRefinementLevels: ").Append(NumRefinementLevels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -107,15 +98,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as BasicEmbeddedBoundaryMeshing);
+            return this.Equals(input as CustomEmbeddedBoundaryMeshSizing);
         }
 
         /// <summary>
-        /// Returns true if BasicEmbeddedBoundaryMeshing instances are equal
+        /// Returns true if CustomEmbeddedBoundaryMeshSizing instances are equal
         /// </summary>
-        /// <param name="input">Instance of BasicEmbeddedBoundaryMeshing to be compared</param>
+        /// <param name="input">Instance of CustomEmbeddedBoundaryMeshSizing to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BasicEmbeddedBoundaryMeshing input)
+        public bool Equals(CustomEmbeddedBoundaryMeshSizing input)
         {
             if (input == null)
                 return false;
@@ -130,11 +121,6 @@ namespace SimScale.Sdk.Model
                     this.NumCellsPerDirection == input.NumCellsPerDirection ||
                     (this.NumCellsPerDirection != null &&
                     this.NumCellsPerDirection.Equals(input.NumCellsPerDirection))
-                ) && 
-                (
-                    this.RefinementStrategy == input.RefinementStrategy ||
-                    (this.RefinementStrategy != null &&
-                    this.RefinementStrategy.Equals(input.RefinementStrategy))
                 ) && 
                 (
                     this.NumRefinementLevels == input.NumRefinementLevels ||
@@ -156,8 +142,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.NumCellsPerDirection != null)
                     hashCode = hashCode * 59 + this.NumCellsPerDirection.GetHashCode();
-                if (this.RefinementStrategy != null)
-                    hashCode = hashCode * 59 + this.RefinementStrategy.GetHashCode();
                 if (this.NumRefinementLevels != null)
                     hashCode = hashCode * 59 + this.NumRefinementLevels.GetHashCode();
                 return hashCode;

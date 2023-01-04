@@ -23,24 +23,39 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// SurfaceRoughness
+    /// ContactResistanceLayer
     /// </summary>
     [DataContract]
-    public partial class SurfaceRoughness : IEquatable<SurfaceRoughness>
+    public partial class ContactResistanceLayer : OneOfAdvancedConceptsThermalContactResistance, IEquatable<ContactResistanceLayer>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SurfaceRoughness" /> class.
+        /// Initializes a new instance of the <see cref="ContactResistanceLayer" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected ContactResistanceLayer() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactResistanceLayer" /> class.
+        /// </summary>
+        /// <param name="type">Schema name: ContactResistanceLayer (required) (default to &quot;CONTACT_RESISTANCE_LAYER&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="surfaceRoughness">surfaceRoughness.</param>
+        /// <param name="interfaceThermal">interfaceThermal.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public SurfaceRoughness(string name = default(string), DimensionalLength surfaceRoughness = default(DimensionalLength), TopologicalReference topologicalReference = default(TopologicalReference))
+        public ContactResistanceLayer(string type = "CONTACT_RESISTANCE_LAYER", string name = default(string), OneOfContactResistanceLayerInterfaceThermal interfaceThermal = default(OneOfContactResistanceLayerInterfaceThermal), TopologicalReference topologicalReference = default(TopologicalReference))
         {
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for ContactResistanceLayer and cannot be null");
             this.Name = name;
-            this._SurfaceRoughness = surfaceRoughness;
+            this.InterfaceThermal = interfaceThermal;
             this.TopologicalReference = topologicalReference;
         }
         
+        /// <summary>
+        /// Schema name: ContactResistanceLayer
+        /// </summary>
+        /// <value>Schema name: ContactResistanceLayer</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -48,10 +63,10 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets _SurfaceRoughness
+        /// Gets or Sets InterfaceThermal
         /// </summary>
-        [DataMember(Name="surfaceRoughness", EmitDefaultValue=false)]
-        public DimensionalLength _SurfaceRoughness { get; set; }
+        [DataMember(Name="interfaceThermal", EmitDefaultValue=false)]
+        public OneOfContactResistanceLayerInterfaceThermal InterfaceThermal { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -66,9 +81,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SurfaceRoughness {\n");
+            sb.Append("class ContactResistanceLayer {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  _SurfaceRoughness: ").Append(_SurfaceRoughness).Append("\n");
+            sb.Append("  InterfaceThermal: ").Append(InterfaceThermal).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -90,29 +106,34 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SurfaceRoughness);
+            return this.Equals(input as ContactResistanceLayer);
         }
 
         /// <summary>
-        /// Returns true if SurfaceRoughness instances are equal
+        /// Returns true if ContactResistanceLayer instances are equal
         /// </summary>
-        /// <param name="input">Instance of SurfaceRoughness to be compared</param>
+        /// <param name="input">Instance of ContactResistanceLayer to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SurfaceRoughness input)
+        public bool Equals(ContactResistanceLayer input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this._SurfaceRoughness == input._SurfaceRoughness ||
-                    (this._SurfaceRoughness != null &&
-                    this._SurfaceRoughness.Equals(input._SurfaceRoughness))
+                    this.InterfaceThermal == input.InterfaceThermal ||
+                    (this.InterfaceThermal != null &&
+                    this.InterfaceThermal.Equals(input.InterfaceThermal))
                 ) && 
                 (
                     this.TopologicalReference == input.TopologicalReference ||
@@ -130,10 +151,12 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this._SurfaceRoughness != null)
-                    hashCode = hashCode * 59 + this._SurfaceRoughness.GetHashCode();
+                if (this.InterfaceThermal != null)
+                    hashCode = hashCode * 59 + this.InterfaceThermal.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

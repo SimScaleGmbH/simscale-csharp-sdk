@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// InsideRegionRefinementWithLength
     /// </summary>
     [DataContract]
-    public partial class InsideRegionRefinementWithLength : OneOfRegionRefinementWithLengthRefinement, IEquatable<InsideRegionRefinementWithLength>
+    public partial class InsideRegionRefinementWithLength : OneOfRegionRefinementEBMRefinement, OneOfRegionRefinementWithLengthRefinement, IEquatable<InsideRegionRefinementWithLength>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InsideRegionRefinementWithLength" /> class.

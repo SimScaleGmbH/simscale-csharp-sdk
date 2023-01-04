@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// GreybodyDiffusiveRSBC
     /// </summary>
     [DataContract]
-    public partial class GreybodyDiffusiveRSBC : OneOfCustomFluidBCNetRadiativeHeatFlux, OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux, OneOfPressureInletBCNetRadiativeHeatFlux, OneOfPressureOutletBCNetRadiativeHeatFlux, OneOfVelocityInletBCNetRadiativeHeatFlux, OneOfVelocityOutletBCNetRadiativeHeatFlux, OneOfWallBCNetRadiativeHeatFlux, IEquatable<GreybodyDiffusiveRSBC>
+    public partial class GreybodyDiffusiveRSBC : OneOfCustomFluidBCNetRadiativeHeatFlux, OneOfFanBCNetRadiativeHeatFlux, OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux, OneOfPressureInletBCNetRadiativeHeatFlux, OneOfPressureOutletBCNetRadiativeHeatFlux, OneOfVelocityInletBCNetRadiativeHeatFlux, OneOfVelocityOutletBCNetRadiativeHeatFlux, OneOfWallBCNetRadiativeHeatFlux, IEquatable<GreybodyDiffusiveRSBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GreybodyDiffusiveRSBC" /> class.
