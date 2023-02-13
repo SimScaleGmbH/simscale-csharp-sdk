@@ -37,12 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="FixedPowerHeatFlux" /> class.
         /// </summary>
         /// <param name="type">Schema name: FixedPowerHeatFlux (required) (default to &quot;FIXED_POWER&quot;).</param>
-        /// <param name="value">value.</param>
-        public FixedPowerHeatFlux(string type = "FIXED_POWER", DimensionalPower value = default(DimensionalPower))
+        /// <param name="function">function.</param>
+        public FixedPowerHeatFlux(string type = "FIXED_POWER", DimensionalFunctionPower function = default(DimensionalFunctionPower))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedPowerHeatFlux and cannot be null");
-            this.Value = value;
+            this.Function = function;
         }
         
         /// <summary>
@@ -53,10 +53,10 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Gets or Sets Function
         /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public DimensionalPower Value { get; set; }
+        [DataMember(Name="function", EmitDefaultValue=false)]
+        public DimensionalFunctionPower Function { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class FixedPowerHeatFlux {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Function: ").Append(Function).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Function == input.Function ||
+                    (this.Function != null &&
+                    this.Function.Equals(input.Function))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.Function != null)
+                    hashCode = hashCode * 59 + this.Function.GetHashCode();
                 return hashCode;
             }
         }

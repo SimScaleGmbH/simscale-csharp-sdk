@@ -23,40 +23,31 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedValueRHBC
+    /// Information about the user to which this permission refers
     /// </summary>
     [DataContract]
-    public partial class FixedValueRHBC : IEquatable<FixedValueRHBC>
+    public partial class PermissionScope : IEquatable<PermissionScope>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
+        /// Initializes a new instance of the <see cref="PermissionScope" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedValueRHBC() { }
+        protected PermissionScope() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
+        /// Initializes a new instance of the <see cref="PermissionScope" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedValueRHBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
-        /// <param name="value">value (default to 50M).</param>
-        public FixedValueRHBC(string type = "FIXED_VALUE", decimal? value = default(decimal?))
+        /// <param name="username">username (required).</param>
+        public PermissionScope(string username = default(string))
         {
-            // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedValueRHBC and cannot be null");
-            this.Value = value;
+            // to ensure "username" is required (not null)
+            this.Username = username ?? throw new ArgumentNullException("username is a required property for PermissionScope and cannot be null");
         }
         
         /// <summary>
-        /// Schema name: FixedValueRHBC
+        /// Gets or Sets Username
         /// </summary>
-        /// <value>Schema name: FixedValueRHBC</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        [DataMember(Name="username", EmitDefaultValue=false)]
+        public string Username { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +56,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FixedValueRHBC {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class PermissionScope {\n");
+            sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,29 +78,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedValueRHBC);
+            return this.Equals(input as PermissionScope);
         }
 
         /// <summary>
-        /// Returns true if FixedValueRHBC instances are equal
+        /// Returns true if PermissionScope instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedValueRHBC to be compared</param>
+        /// <param name="input">Instance of PermissionScope to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedValueRHBC input)
+        public bool Equals(PermissionScope input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Username == input.Username ||
+                    (this.Username != null &&
+                    this.Username.Equals(input.Username))
                 );
         }
 
@@ -123,10 +108,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.Username != null)
+                    hashCode = hashCode * 59 + this.Username.GetHashCode();
                 return hashCode;
             }
         }

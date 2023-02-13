@@ -28,6 +28,7 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(FixedTemperatureValueBC), "FIXED_TEMPERATURE_VALUE")]
+    [JsonSubtypes.KnownSubType(typeof(CyclicSymmetryBC), "CYCLIC_SYMMETRY")]
     [JsonSubtypes.KnownSubType(typeof(SurfaceHeatFluxBC), "SURFACE_HEAT_FLUX")]
     [JsonSubtypes.KnownSubType(typeof(ConvectiveHeatFluxBC), "CONVECTIVE_HEAT_FLUX")]
     [JsonSubtypes.KnownSubType(typeof(VolumeHeatFluxBC), "VOLUME_HEAT_FLUX")]

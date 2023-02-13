@@ -23,40 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedValueRHBC
+    /// ElementGroupsDomainDecomposition
     /// </summary>
     [DataContract]
-    public partial class FixedValueRHBC : IEquatable<FixedValueRHBC>
+    public partial class ElementGroupsDomainDecomposition : OneOfComputingCoreDomainDecomposition, IEquatable<ElementGroupsDomainDecomposition>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
+        /// Initializes a new instance of the <see cref="ElementGroupsDomainDecomposition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedValueRHBC() { }
+        protected ElementGroupsDomainDecomposition() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
+        /// Initializes a new instance of the <see cref="ElementGroupsDomainDecomposition" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedValueRHBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
-        /// <param name="value">value (default to 50M).</param>
-        public FixedValueRHBC(string type = "FIXED_VALUE", decimal? value = default(decimal?))
+        /// <param name="type">Schema name: ElementGroupsDomainDecomposition (required) (default to &quot;ELEMENT_GROUPS&quot;).</param>
+        /// <param name="maxElementGroupSize">maxElementGroupSize (default to 1000).</param>
+        public ElementGroupsDomainDecomposition(string type = "ELEMENT_GROUPS", int? maxElementGroupSize = default(int?))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedValueRHBC and cannot be null");
-            this.Value = value;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for ElementGroupsDomainDecomposition and cannot be null");
+            this.MaxElementGroupSize = maxElementGroupSize;
         }
         
         /// <summary>
-        /// Schema name: FixedValueRHBC
+        /// Schema name: ElementGroupsDomainDecomposition
         /// </summary>
-        /// <value>Schema name: FixedValueRHBC</value>
+        /// <value>Schema name: ElementGroupsDomainDecomposition</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Gets or Sets MaxElementGroupSize
         /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        [DataMember(Name="maxElementGroupSize", EmitDefaultValue=false)]
+        public int? MaxElementGroupSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FixedValueRHBC {\n");
+            sb.Append("class ElementGroupsDomainDecomposition {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  MaxElementGroupSize: ").Append(MaxElementGroupSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedValueRHBC);
+            return this.Equals(input as ElementGroupsDomainDecomposition);
         }
 
         /// <summary>
-        /// Returns true if FixedValueRHBC instances are equal
+        /// Returns true if ElementGroupsDomainDecomposition instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedValueRHBC to be compared</param>
+        /// <param name="input">Instance of ElementGroupsDomainDecomposition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedValueRHBC input)
+        public bool Equals(ElementGroupsDomainDecomposition input)
         {
             if (input == null)
                 return false;
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.MaxElementGroupSize == input.MaxElementGroupSize ||
+                    (this.MaxElementGroupSize != null &&
+                    this.MaxElementGroupSize.Equals(input.MaxElementGroupSize))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.MaxElementGroupSize != null)
+                    hashCode = hashCode * 59 + this.MaxElementGroupSize.GetHashCode();
                 return hashCode;
             }
         }

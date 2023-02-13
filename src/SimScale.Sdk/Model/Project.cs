@@ -29,9 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class Project : IEquatable<Project>
     {
         /// <summary>
-        /// The measurement system of the project. Can&#39;t be modifed.
+        /// The measurement system of the project. Can&#39;t be modified.
         /// </summary>
-        /// <value>The measurement system of the project. Can&#39;t be modifed.</value>
+        /// <value>The measurement system of the project. Can&#39;t be modified.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MeasurementSystemEnum
         {
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// The measurement system of the project. Can&#39;t be modifed.
+        /// The measurement system of the project. Can&#39;t be modified.
         /// </summary>
-        /// <value>The measurement system of the project. Can&#39;t be modifed.</value>
+        /// <value>The measurement system of the project. Can&#39;t be modified.</value>
         [DataMember(Name="measurementSystem", EmitDefaultValue=false)]
         public MeasurementSystemEnum MeasurementSystem { get; set; }
         /// <summary>
@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <param name="parentFolderId">If missing, the project is located at the root level of the Space..</param>
         /// <param name="name">The project title should contain the application you want to analyze as well as the simulation method you want to use, e.g. &#39;Heat exchanger - CHT simulation&#39;.  (required).</param>
         /// <param name="description">A meaningful description of the project. (required).</param>
-        /// <param name="measurementSystem">The measurement system of the project. Can&#39;t be modifed. (required) (default to MeasurementSystemEnum.SI).</param>
+        /// <param name="measurementSystem">The measurement system of the project. Can&#39;t be modified. (required) (default to MeasurementSystemEnum.SI).</param>
         /// <param name="tags">tags.</param>
         public Project(Guid? spaceId = default(Guid?), Guid? parentFolderId = default(Guid?), string name = default(string), string description = default(string), MeasurementSystemEnum measurementSystem = MeasurementSystemEnum.SI, List<string> tags = default(List<string>))
         {

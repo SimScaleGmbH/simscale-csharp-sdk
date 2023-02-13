@@ -23,40 +23,38 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedValueRHBC
+    /// Represents an entry of an access control list
     /// </summary>
     [DataContract]
-    public partial class FixedValueRHBC : IEquatable<FixedValueRHBC>
+    public partial class Permission : IEquatable<Permission>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
+        /// Gets or Sets _Permission
+        /// </summary>
+        [DataMember(Name="permission", EmitDefaultValue=false)]
+        public PermissionLevel _Permission { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Permission" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedValueRHBC() { }
+        protected Permission() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
+        /// Initializes a new instance of the <see cref="Permission" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedValueRHBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
-        /// <param name="value">value (default to 50M).</param>
-        public FixedValueRHBC(string type = "FIXED_VALUE", decimal? value = default(decimal?))
+        /// <param name="scope">scope (required).</param>
+        /// <param name="permission">permission (required).</param>
+        public Permission(PermissionScope scope = default(PermissionScope), PermissionLevel permission = default(PermissionLevel))
         {
-            // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedValueRHBC and cannot be null");
-            this.Value = value;
+            // to ensure "scope" is required (not null)
+            this.Scope = scope ?? throw new ArgumentNullException("scope is a required property for Permission and cannot be null");
+            this._Permission = permission;
         }
         
         /// <summary>
-        /// Schema name: FixedValueRHBC
+        /// Gets or Sets Scope
         /// </summary>
-        /// <value>Schema name: FixedValueRHBC</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        [DataMember(Name="scope", EmitDefaultValue=false)]
+        public PermissionScope Scope { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +63,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FixedValueRHBC {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class Permission {\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  _Permission: ").Append(_Permission).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,29 +86,28 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedValueRHBC);
+            return this.Equals(input as Permission);
         }
 
         /// <summary>
-        /// Returns true if FixedValueRHBC instances are equal
+        /// Returns true if Permission instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedValueRHBC to be compared</param>
+        /// <param name="input">Instance of Permission to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedValueRHBC input)
+        public bool Equals(Permission input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this._Permission == input._Permission ||
+                    this._Permission.Equals(input._Permission)
                 );
         }
 
@@ -123,10 +120,9 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.Scope != null)
+                    hashCode = hashCode * 59 + this.Scope.GetHashCode();
+                hashCode = hashCode * 59 + this._Permission.GetHashCode();
                 return hashCode;
             }
         }

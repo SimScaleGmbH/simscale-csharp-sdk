@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfWallBCRadiativeIntensityRay
+    /// &lt;p&gt;&lt;b&gt;Radiative behaviour of the wall&lt;/b&gt;. The Kirchhoff&#39;s law of thermal radiation is applied in all options. This means that the &lt;b&gt;absorptivity of the surface is equal to its emissivity&lt;/b&gt;. &lt;br&gt; &lt;ul&gt;&lt;li&gt;&lt;b&gt;Opaque&lt;/b&gt; is applied to surfaces with transmissivity equal to 0. The radiation that hits the surface will be absorbed and reflected, but not transmitted, e.g.: brick or concrete walls.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Transparent&lt;/b&gt; is applied to surfaces with transmissivity equal to 1. The radiation that hits the surface will be fully transmitted to the other side, e.g.: inlets, outlets or regular windows.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Semi-transparent&lt;/b&gt; is applied to non-fully transparent surfaces. The radiation that hits the surface will be absorbed, reflected and transmitted, e.g. some stained glass windows.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(GreybodyDiffusiveRayBC), "GREYBODY_DIFFUSIVE_RAY")]

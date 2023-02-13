@@ -36,6 +36,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(RemoteDisplacementLoadBC), "REMOTE_DISPLACEMENT_LOAD")]
     [JsonSubtypes.KnownSubType(typeof(RotatingMotionBC), "ROTATING_MOTION")]
     [JsonSubtypes.KnownSubType(typeof(SymmetryPlaneBC), "SYMMETRY_PLANE")]
+    [JsonSubtypes.KnownSubType(typeof(CyclicSymmetryBC), "CYCLIC_SYMMETRY")]
     [JsonSubtypes.KnownSubType(typeof(CentrifugalForceBC), "CENTRIFUGAL_FORCE")]
     [JsonSubtypes.KnownSubType(typeof(FollowerPressureBC), "FOLLOWER_PRESSURE")]
     [JsonSubtypes.KnownSubType(typeof(ForceLoadBC), "FORCE_LOAD")]

@@ -57,9 +57,11 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Space" /> class.
         /// </summary>
         /// <param name="name">name.</param>
-        public Space(string name = default(string))
+        /// <param name="spaceSettings">spaceSettings.</param>
+        public Space(string name = default(string), SpaceSettings spaceSettings = default(SpaceSettings))
         {
             this.Name = name;
+            this.SpaceSettings = spaceSettings;
         }
         
         /// <summary>
@@ -101,6 +103,12 @@ namespace SimScale.Sdk.Model
         public DateTimeOffset? LastModifiedAt { get; private set; }
 
         /// <summary>
+        /// Gets or Sets SpaceSettings
+        /// </summary>
+        [DataMember(Name="spaceSettings", EmitDefaultValue=false)]
+        public SpaceSettings SpaceSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +123,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  LastModifiedAt: ").Append(LastModifiedAt).Append("\n");
+            sb.Append("  SpaceSettings: ").Append(SpaceSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,6 +191,11 @@ namespace SimScale.Sdk.Model
                     this.LastModifiedAt == input.LastModifiedAt ||
                     (this.LastModifiedAt != null &&
                     this.LastModifiedAt.Equals(input.LastModifiedAt))
+                ) && 
+                (
+                    this.SpaceSettings == input.SpaceSettings ||
+                    (this.SpaceSettings != null &&
+                    this.SpaceSettings.Equals(input.SpaceSettings))
                 );
         }
 
@@ -207,6 +221,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.LastModifiedAt != null)
                     hashCode = hashCode * 59 + this.LastModifiedAt.GetHashCode();
+                if (this.SpaceSettings != null)
+                    hashCode = hashCode * 59 + this.SpaceSettings.GetHashCode();
                 return hashCode;
             }
         }

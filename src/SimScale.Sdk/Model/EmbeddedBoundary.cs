@@ -65,9 +65,11 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: EmbeddedBoundary (required) (default to &quot;EMBEDDED_BOUNDARY&quot;).</param>
         /// <param name="isInternalFlow">If active it indicates that the fluid region is contained within the uploaded geometry. (default to false).</param>
+        /// <param name="allowExternalFlow">Help text for this field (default to false).</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
         /// <param name="initialConditions">initialConditions.</param>
+        /// <param name="externalFlowBoundaryCondition">externalFlowBoundaryCondition.</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
         /// <param name="advancedConcepts">advancedConcepts.</param>
         /// <param name="numerics">numerics.</param>
@@ -79,14 +81,16 @@ namespace SimScale.Sdk.Model
         /// <param name="enableJouleHeating">Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
-        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? isInternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), EmbeddedBoundaryMeshing embeddedBoundaryMeshing = default(EmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency))
+        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? isInternalFlow = default(bool?), bool? allowExternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), OneOfEmbeddedBoundaryExternalFlowBoundaryCondition externalFlowBoundaryCondition = default(OneOfEmbeddedBoundaryExternalFlowBoundaryCondition), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), EmbeddedBoundaryMeshing embeddedBoundaryMeshing = default(EmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for EmbeddedBoundary and cannot be null");
             this.IsInternalFlow = isInternalFlow;
+            this.AllowExternalFlow = allowExternalFlow;
             this.Model = model;
             this.Materials = materials;
             this.InitialConditions = initialConditions;
+            this.ExternalFlowBoundaryCondition = externalFlowBoundaryCondition;
             this.BoundaryConditions = boundaryConditions;
             this.AdvancedConcepts = advancedConcepts;
             this.Numerics = numerics;
@@ -115,6 +119,13 @@ namespace SimScale.Sdk.Model
         public bool? IsInternalFlow { get; set; }
 
         /// <summary>
+        /// Help text for this field
+        /// </summary>
+        /// <value>Help text for this field</value>
+        [DataMember(Name="allowExternalFlow", EmitDefaultValue=false)]
+        public bool? AllowExternalFlow { get; set; }
+
+        /// <summary>
         /// Gets or Sets Model
         /// </summary>
         [DataMember(Name="model", EmitDefaultValue=false)]
@@ -131,6 +142,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="initialConditions", EmitDefaultValue=false)]
         public FluidInitialConditions InitialConditions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalFlowBoundaryCondition
+        /// </summary>
+        [DataMember(Name="externalFlowBoundaryCondition", EmitDefaultValue=false)]
+        public OneOfEmbeddedBoundaryExternalFlowBoundaryCondition ExternalFlowBoundaryCondition { get; set; }
 
         /// <summary>
         /// Gets or Sets BoundaryConditions
@@ -205,9 +222,11 @@ namespace SimScale.Sdk.Model
             sb.Append("class EmbeddedBoundary {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  IsInternalFlow: ").Append(IsInternalFlow).Append("\n");
+            sb.Append("  AllowExternalFlow: ").Append(AllowExternalFlow).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
+            sb.Append("  ExternalFlowBoundaryCondition: ").Append(ExternalFlowBoundaryCondition).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
             sb.Append("  AdvancedConcepts: ").Append(AdvancedConcepts).Append("\n");
             sb.Append("  Numerics: ").Append(Numerics).Append("\n");
@@ -264,6 +283,11 @@ namespace SimScale.Sdk.Model
                     this.IsInternalFlow.Equals(input.IsInternalFlow))
                 ) && 
                 (
+                    this.AllowExternalFlow == input.AllowExternalFlow ||
+                    (this.AllowExternalFlow != null &&
+                    this.AllowExternalFlow.Equals(input.AllowExternalFlow))
+                ) && 
+                (
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
@@ -277,6 +301,11 @@ namespace SimScale.Sdk.Model
                     this.InitialConditions == input.InitialConditions ||
                     (this.InitialConditions != null &&
                     this.InitialConditions.Equals(input.InitialConditions))
+                ) && 
+                (
+                    this.ExternalFlowBoundaryCondition == input.ExternalFlowBoundaryCondition ||
+                    (this.ExternalFlowBoundaryCondition != null &&
+                    this.ExternalFlowBoundaryCondition.Equals(input.ExternalFlowBoundaryCondition))
                 ) && 
                 (
                     this.BoundaryConditions == input.BoundaryConditions ||
@@ -348,12 +377,16 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.IsInternalFlow != null)
                     hashCode = hashCode * 59 + this.IsInternalFlow.GetHashCode();
+                if (this.AllowExternalFlow != null)
+                    hashCode = hashCode * 59 + this.AllowExternalFlow.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
                 if (this.Materials != null)
                     hashCode = hashCode * 59 + this.Materials.GetHashCode();
                 if (this.InitialConditions != null)
                     hashCode = hashCode * 59 + this.InitialConditions.GetHashCode();
+                if (this.ExternalFlowBoundaryCondition != null)
+                    hashCode = hashCode * 59 + this.ExternalFlowBoundaryCondition.GetHashCode();
                 if (this.BoundaryConditions != null)
                     hashCode = hashCode * 59 + this.BoundaryConditions.GetHashCode();
                 if (this.AdvancedConcepts != null)

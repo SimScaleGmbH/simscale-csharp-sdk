@@ -89,12 +89,14 @@ namespace SimScale.Sdk.Model
         /// <param name="numOfComputingProcessors">&lt;p&gt;Set the number of processors which shall be used for the parallel computation.&lt;/p&gt; (default to -1).</param>
         /// <param name="domainDecomposition">domainDecomposition.</param>
         /// <param name="numOfThreads">numOfThreads (default to 1).</param>
-        public ComputingCore(NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), int? numOfComputingProcessors = default(int?), OneOfComputingCoreDomainDecomposition domainDecomposition = default(OneOfComputingCoreDomainDecomposition), int? numOfThreads = default(int?))
+        /// <param name="partitionMesh">partitionMesh (default to false).</param>
+        public ComputingCore(NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), int? numOfComputingProcessors = default(int?), OneOfComputingCoreDomainDecomposition domainDecomposition = default(OneOfComputingCoreDomainDecomposition), int? numOfThreads = default(int?), bool? partitionMesh = default(bool?))
         {
             this.NumOfProcessors = numOfProcessors;
             this.NumOfComputingProcessors = numOfComputingProcessors;
             this.DomainDecomposition = domainDecomposition;
             this.NumOfThreads = numOfThreads;
+            this.PartitionMesh = partitionMesh;
         }
         
         /// <summary>
@@ -117,6 +119,12 @@ namespace SimScale.Sdk.Model
         public int? NumOfThreads { get; set; }
 
         /// <summary>
+        /// Gets or Sets PartitionMesh
+        /// </summary>
+        [DataMember(Name="partitionMesh", EmitDefaultValue=false)]
+        public bool? PartitionMesh { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -128,6 +136,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  NumOfComputingProcessors: ").Append(NumOfComputingProcessors).Append("\n");
             sb.Append("  DomainDecomposition: ").Append(DomainDecomposition).Append("\n");
             sb.Append("  NumOfThreads: ").Append(NumOfThreads).Append("\n");
+            sb.Append("  PartitionMesh: ").Append(PartitionMesh).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -180,6 +189,11 @@ namespace SimScale.Sdk.Model
                     this.NumOfThreads == input.NumOfThreads ||
                     (this.NumOfThreads != null &&
                     this.NumOfThreads.Equals(input.NumOfThreads))
+                ) && 
+                (
+                    this.PartitionMesh == input.PartitionMesh ||
+                    (this.PartitionMesh != null &&
+                    this.PartitionMesh.Equals(input.PartitionMesh))
                 );
         }
 
@@ -199,6 +213,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.DomainDecomposition.GetHashCode();
                 if (this.NumOfThreads != null)
                     hashCode = hashCode * 59 + this.NumOfThreads.GetHashCode();
+                if (this.PartitionMesh != null)
+                    hashCode = hashCode * 59 + this.PartitionMesh.GetHashCode();
                 return hashCode;
             }
         }

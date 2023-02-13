@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// &lt;p&gt;This boundary condition is suitable for an &lt;b&gt;open boundary&lt;/b&gt; where the air can enter or exit freely from or to the &lt;b&gt;atmosphere&lt;b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/natural-convection-inlet-outlet/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/P&gt;
     /// </summary>
     [DataContract]
-    public partial class NaturalConvectionInletOutletBC : OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, IEquatable<NaturalConvectionInletOutletBC>
+    public partial class NaturalConvectionInletOutletBC : OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfEmbeddedBoundaryExternalFlowBoundaryCondition, IEquatable<NaturalConvectionInletOutletBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NaturalConvectionInletOutletBC" /> class.

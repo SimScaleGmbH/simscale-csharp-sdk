@@ -24,12 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfContactConnections
+    /// OneOfEmbeddedBoundaryExternalFlowBoundaryCondition
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(BondedContact), "BONDED_CONTACT")]
-    [JsonSubtypes.KnownSubType(typeof(SlidingContact), "SLIDING_CONTACT")]
-    public interface OneOfContactConnections
+    [JsonSubtypes.KnownSubType(typeof(WallBC), "WALL_V34")]
+    [JsonSubtypes.KnownSubType(typeof(NaturalConvectionInletOutletBC), "NATURAL_CONVECTION_INLET_OUTLET")]
+    public interface OneOfEmbeddedBoundaryExternalFlowBoundaryCondition
     {
         /// <summary>
         /// Gets Type

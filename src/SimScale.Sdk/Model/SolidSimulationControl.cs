@@ -33,7 +33,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="timestepDefinition">timestepDefinition.</param>
         /// <param name="pseudoTimeStepping">pseudoTimeStepping.</param>
-        /// <param name="autoLoadRamping">Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values. (default to true).</param>
+        /// <param name="autoLoadRamping">Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values and if no creep formulation has been defined for the materials. (default to true).</param>
         /// <param name="writeControlDefinition">writeControlDefinition.</param>
         /// <param name="excitationFrequencies">excitationFrequencies.</param>
         /// <param name="eigenfrequencyScope">eigenfrequencyScope.</param>
@@ -64,9 +64,9 @@ namespace SimScale.Sdk.Model
         public OneOfSolidSimulationControlPseudoTimeStepping PseudoTimeStepping { get; set; }
 
         /// <summary>
-        /// Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values.
+        /// Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values and if no creep formulation has been defined for the materials.
         /// </summary>
-        /// <value>Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values.</value>
+        /// <value>Loads and enforced motions will be ramped linearly over the simulation interval to aid solution convergence. Automatic ramping will only be applied if all boundary conditions (including gravity) are applied with constant values and if no creep formulation has been defined for the materials.</value>
         [DataMember(Name="autoLoadRamping", EmitDefaultValue=false)]
         public bool? AutoLoadRamping { get; set; }
 

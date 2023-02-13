@@ -23,41 +23,30 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedValueRHBC
+    /// SpaceSettings
     /// </summary>
     [DataContract]
-    public partial class FixedValueRHBC : IEquatable<FixedValueRHBC>
+    public partial class SpaceSettings : IEquatable<SpaceSettings>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
+        /// Gets or Sets SharingControl
+        /// </summary>
+        [DataMember(Name="sharingControl", EmitDefaultValue=false)]
+        public SharingControl SharingControl { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SpaceSettings" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedValueRHBC() { }
+        protected SpaceSettings() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
+        /// Initializes a new instance of the <see cref="SpaceSettings" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedValueRHBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
-        /// <param name="value">value (default to 50M).</param>
-        public FixedValueRHBC(string type = "FIXED_VALUE", decimal? value = default(decimal?))
+        /// <param name="sharingControl">sharingControl (required).</param>
+        public SpaceSettings(SharingControl sharingControl = default(SharingControl))
         {
-            // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedValueRHBC and cannot be null");
-            this.Value = value;
+            this.SharingControl = sharingControl;
         }
         
-        /// <summary>
-        /// Schema name: FixedValueRHBC
-        /// </summary>
-        /// <value>Schema name: FixedValueRHBC</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -65,9 +54,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FixedValueRHBC {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class SpaceSettings {\n");
+            sb.Append("  SharingControl: ").Append(SharingControl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,29 +76,23 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedValueRHBC);
+            return this.Equals(input as SpaceSettings);
         }
 
         /// <summary>
-        /// Returns true if FixedValueRHBC instances are equal
+        /// Returns true if SpaceSettings instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedValueRHBC to be compared</param>
+        /// <param name="input">Instance of SpaceSettings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedValueRHBC input)
+        public bool Equals(SpaceSettings input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.SharingControl == input.SharingControl ||
+                    this.SharingControl.Equals(input.SharingControl)
                 );
         }
 
@@ -123,10 +105,7 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = hashCode * 59 + this.SharingControl.GetHashCode();
                 return hashCode;
             }
         }

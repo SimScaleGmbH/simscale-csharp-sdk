@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// CyclicSymmetryContact
+    /// CyclicSymmetryBC
     /// </summary>
     [DataContract]
-    public partial class CyclicSymmetryContact : OneOfContactConnections, IEquatable<CyclicSymmetryContact>
+    public partial class CyclicSymmetryBC : OneOfDynamicAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfHeatTransferBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<CyclicSymmetryBC>
     {
         /// <summary>
         /// Defines EnableHeatTransfer
@@ -60,14 +60,14 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="enableHeatTransfer", EmitDefaultValue=false)]
         public EnableHeatTransferEnum? EnableHeatTransfer { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CyclicSymmetryContact" /> class.
+        /// Initializes a new instance of the <see cref="CyclicSymmetryBC" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CyclicSymmetryContact() { }
+        protected CyclicSymmetryBC() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CyclicSymmetryContact" /> class.
+        /// Initializes a new instance of the <see cref="CyclicSymmetryBC" /> class.
         /// </summary>
-        /// <param name="type">Schema name: CyclicSymmetryContact (required) (default to &quot;CYCLIC_SYMMETRY&quot;).</param>
+        /// <param name="type">Schema name: CyclicSymmetryBC (required) (default to &quot;CYCLIC_SYMMETRY&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="enableHeatTransfer">enableHeatTransfer (default to EnableHeatTransferEnum.YES).</param>
         /// <param name="axisOrigin">axisOrigin.</param>
@@ -75,10 +75,10 @@ namespace SimScale.Sdk.Model
         /// <param name="sectorAngle">sectorAngle.</param>
         /// <param name="masterTopologicalReference">masterTopologicalReference.</param>
         /// <param name="slaveTopologicalReference">slaveTopologicalReference.</param>
-        public CyclicSymmetryContact(string type = "CYCLIC_SYMMETRY", string name = default(string), EnableHeatTransferEnum? enableHeatTransfer = default(EnableHeatTransferEnum?), DimensionalVectorLength axisOrigin = default(DimensionalVectorLength), DimensionalVectorLength axisDirection = default(DimensionalVectorLength), DimensionalAngle sectorAngle = default(DimensionalAngle), TopologicalReference masterTopologicalReference = default(TopologicalReference), TopologicalReference slaveTopologicalReference = default(TopologicalReference))
+        public CyclicSymmetryBC(string type = "CYCLIC_SYMMETRY", string name = default(string), EnableHeatTransferEnum? enableHeatTransfer = default(EnableHeatTransferEnum?), DimensionalVectorLength axisOrigin = default(DimensionalVectorLength), DimensionalVectorLength axisDirection = default(DimensionalVectorLength), DimensionalAngle sectorAngle = default(DimensionalAngle), TopologicalReference masterTopologicalReference = default(TopologicalReference), TopologicalReference slaveTopologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for CyclicSymmetryContact and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for CyclicSymmetryBC and cannot be null");
             this.Name = name;
             this.EnableHeatTransfer = enableHeatTransfer;
             this.AxisOrigin = axisOrigin;
@@ -89,9 +89,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: CyclicSymmetryContact
+        /// Schema name: CyclicSymmetryBC
         /// </summary>
-        /// <value>Schema name: CyclicSymmetryContact</value>
+        /// <value>Schema name: CyclicSymmetryBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -138,7 +138,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CyclicSymmetryContact {\n");
+            sb.Append("class CyclicSymmetryBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  EnableHeatTransfer: ").Append(EnableHeatTransfer).Append("\n");
@@ -167,15 +167,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CyclicSymmetryContact);
+            return this.Equals(input as CyclicSymmetryBC);
         }
 
         /// <summary>
-        /// Returns true if CyclicSymmetryContact instances are equal
+        /// Returns true if CyclicSymmetryBC instances are equal
         /// </summary>
-        /// <param name="input">Instance of CyclicSymmetryContact to be compared</param>
+        /// <param name="input">Instance of CyclicSymmetryBC to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CyclicSymmetryContact input)
+        public bool Equals(CyclicSymmetryBC input)
         {
             if (input == null)
                 return false;

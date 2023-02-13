@@ -22,151 +22,155 @@ namespace SimScale.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISpacesApiSync : IApiAccessor
+    public interface ISpacePermissionsApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Space Info
+        /// Get User Space Permissions
         /// </summary>
         /// <remarks>
-        /// Get Space metadata, current user permissions, and view Space settings
-        /// </remarks>
-        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="spaceId">The space ID</param>
-        /// <returns>Space</returns>
-        Space GetSpaceInfo (Guid? spaceId = default(Guid?));
-
-        /// <summary>
-        /// Get Space Info
-        /// </summary>
-        /// <remarks>
-        /// Get Space metadata, current user permissions, and view Space settings
-        /// </remarks>
-        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="spaceId">The space ID</param>
-        /// <returns>ApiResponse of Space</returns>
-        ApiResponse<Space> GetSpaceInfoWithHttpInfo (Guid? spaceId = default(Guid?));
-        /// <summary>
-        /// Get User Spaces
-        /// </summary>
-        /// <remarks>
-        /// Get Info about the User Personal Space and all the Team Spaces the user has access to.
-        /// </remarks>
-        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Spaces</returns>
-        Spaces GetUserSpaces ();
-
-        /// <summary>
-        /// Get User Spaces
-        /// </summary>
-        /// <remarks>
-        /// Get Info about the User Personal Space and all the Team Spaces the user has access to.
-        /// </remarks>
-        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Spaces</returns>
-        ApiResponse<Spaces> GetUserSpacesWithHttpInfo ();
-        /// <summary>
-        /// Update Space
-        /// </summary>
-        /// <remarks>
-        /// Update Space metadata and settings
+        /// Get Info about the Permissions that the current requester user has in this Space.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
-        /// <param name="space"></param>
-        /// <returns>Space</returns>
-        Space UpdateSpace (Guid? spaceId = default(Guid?), Space space = default(Space));
+        /// <returns>SpacePermissions</returns>
+        SpacePermissions GetRequesterSpacePermissions (Guid? spaceId = default(Guid?));
 
         /// <summary>
-        /// Update Space
+        /// Get User Space Permissions
         /// </summary>
         /// <remarks>
-        /// Update Space metadata and settings
+        /// Get Info about the Permissions that the current requester user has in this Space.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
-        /// <param name="space"></param>
-        /// <returns>ApiResponse of Space</returns>
-        ApiResponse<Space> UpdateSpaceWithHttpInfo (Guid? spaceId = default(Guid?), Space space = default(Space));
+        /// <returns>ApiResponse of SpacePermissions</returns>
+        ApiResponse<SpacePermissions> GetRequesterSpacePermissionsWithHttpInfo (Guid? spaceId = default(Guid?));
+        /// <summary>
+        /// List Space Permissions
+        /// </summary>
+        /// <remarks>
+        /// See who has access to a Space
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <returns>Permissions</returns>
+        Permissions ListSpacePermissions (Guid? spaceId = default(Guid?));
+
+        /// <summary>
+        /// List Space Permissions
+        /// </summary>
+        /// <remarks>
+        /// See who has access to a Space
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <returns>ApiResponse of Permissions</returns>
+        ApiResponse<Permissions> ListSpacePermissionsWithHttpInfo (Guid? spaceId = default(Guid?));
+        /// <summary>
+        /// Update Space Permissions
+        /// </summary>
+        /// <remarks>
+        /// Update who has access to a Space.
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <param name="permissions"></param>
+        /// <returns>Permissions</returns>
+        Permissions UpdateSpacePermissions (Guid? spaceId = default(Guid?), Permissions permissions = default(Permissions));
+
+        /// <summary>
+        /// Update Space Permissions
+        /// </summary>
+        /// <remarks>
+        /// Update who has access to a Space.
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <param name="permissions"></param>
+        /// <returns>ApiResponse of Permissions</returns>
+        ApiResponse<Permissions> UpdateSpacePermissionsWithHttpInfo (Guid? spaceId = default(Guid?), Permissions permissions = default(Permissions));
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISpacesApiAsync : IApiAccessor
+    public interface ISpacePermissionsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get Space Info
+        /// Get User Space Permissions
         /// </summary>
         /// <remarks>
-        /// Get Space metadata, current user permissions, and view Space settings
-        /// </remarks>
-        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="spaceId">The space ID</param>
-        /// <returns>Task of Space</returns>
-        System.Threading.Tasks.Task<Space> GetSpaceInfoAsync (Guid? spaceId = default(Guid?));
-
-        /// <summary>
-        /// Get Space Info
-        /// </summary>
-        /// <remarks>
-        /// Get Space metadata, current user permissions, and view Space settings
-        /// </remarks>
-        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="spaceId">The space ID</param>
-        /// <returns>Task of ApiResponse (Space)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Space>> GetSpaceInfoAsyncWithHttpInfo (Guid? spaceId = default(Guid?));
-        /// <summary>
-        /// Get User Spaces
-        /// </summary>
-        /// <remarks>
-        /// Get Info about the User Personal Space and all the Team Spaces the user has access to.
-        /// </remarks>
-        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of Spaces</returns>
-        System.Threading.Tasks.Task<Spaces> GetUserSpacesAsync ();
-
-        /// <summary>
-        /// Get User Spaces
-        /// </summary>
-        /// <remarks>
-        /// Get Info about the User Personal Space and all the Team Spaces the user has access to.
-        /// </remarks>
-        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (Spaces)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Spaces>> GetUserSpacesAsyncWithHttpInfo ();
-        /// <summary>
-        /// Update Space
-        /// </summary>
-        /// <remarks>
-        /// Update Space metadata and settings
+        /// Get Info about the Permissions that the current requester user has in this Space.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
-        /// <param name="space"></param>
-        /// <returns>Task of Space</returns>
-        System.Threading.Tasks.Task<Space> UpdateSpaceAsync (Guid? spaceId = default(Guid?), Space space = default(Space));
+        /// <returns>Task of SpacePermissions</returns>
+        System.Threading.Tasks.Task<SpacePermissions> GetRequesterSpacePermissionsAsync (Guid? spaceId = default(Guid?));
 
         /// <summary>
-        /// Update Space
+        /// Get User Space Permissions
         /// </summary>
         /// <remarks>
-        /// Update Space metadata and settings
+        /// Get Info about the Permissions that the current requester user has in this Space.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
-        /// <param name="space"></param>
-        /// <returns>Task of ApiResponse (Space)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Space>> UpdateSpaceAsyncWithHttpInfo (Guid? spaceId = default(Guid?), Space space = default(Space));
+        /// <returns>Task of ApiResponse (SpacePermissions)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SpacePermissions>> GetRequesterSpacePermissionsAsyncWithHttpInfo (Guid? spaceId = default(Guid?));
+        /// <summary>
+        /// List Space Permissions
+        /// </summary>
+        /// <remarks>
+        /// See who has access to a Space
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <returns>Task of Permissions</returns>
+        System.Threading.Tasks.Task<Permissions> ListSpacePermissionsAsync (Guid? spaceId = default(Guid?));
+
+        /// <summary>
+        /// List Space Permissions
+        /// </summary>
+        /// <remarks>
+        /// See who has access to a Space
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <returns>Task of ApiResponse (Permissions)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Permissions>> ListSpacePermissionsAsyncWithHttpInfo (Guid? spaceId = default(Guid?));
+        /// <summary>
+        /// Update Space Permissions
+        /// </summary>
+        /// <remarks>
+        /// Update who has access to a Space.
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <param name="permissions"></param>
+        /// <returns>Task of Permissions</returns>
+        System.Threading.Tasks.Task<Permissions> UpdateSpacePermissionsAsync (Guid? spaceId = default(Guid?), Permissions permissions = default(Permissions));
+
+        /// <summary>
+        /// Update Space Permissions
+        /// </summary>
+        /// <remarks>
+        /// Update who has access to a Space.
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spaceId"></param>
+        /// <param name="permissions"></param>
+        /// <returns>Task of ApiResponse (Permissions)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Permissions>> UpdateSpacePermissionsAsyncWithHttpInfo (Guid? spaceId = default(Guid?), Permissions permissions = default(Permissions));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISpacesApi : ISpacesApiSync, ISpacesApiAsync
+    public interface ISpacePermissionsApi : ISpacePermissionsApiSync, ISpacePermissionsApiAsync
     {
 
     }
@@ -174,23 +178,23 @@ namespace SimScale.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SpacesApi : ISpacesApi
+    public partial class SpacePermissionsApi : ISpacePermissionsApi
     {
         private SimScale.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpacesApi"/> class.
+        /// Initializes a new instance of the <see cref="SpacePermissionsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SpacesApi() : this((string) null)
+        public SpacePermissionsApi() : this((string) null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpacesApi"/> class.
+        /// Initializes a new instance of the <see cref="SpacePermissionsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SpacesApi(String basePath)
+        public SpacePermissionsApi(String basePath)
         {
             this.Configuration = SimScale.Sdk.Client.Configuration.MergeConfigurations(
                 SimScale.Sdk.Client.GlobalConfiguration.Instance,
@@ -202,12 +206,12 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpacesApi"/> class
+        /// Initializes a new instance of the <see cref="SpacePermissionsApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public SpacesApi(SimScale.Sdk.Client.Configuration configuration)
+        public SpacePermissionsApi(SimScale.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -221,13 +225,13 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpacesApi"/> class
+        /// Initializes a new instance of the <see cref="SpacePermissionsApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public SpacesApi(SimScale.Sdk.Client.ISynchronousClient client,SimScale.Sdk.Client.IAsynchronousClient asyncClient, SimScale.Sdk.Client.IReadableConfiguration configuration)
+        public SpacePermissionsApi(SimScale.Sdk.Client.ISynchronousClient client,SimScale.Sdk.Client.IAsynchronousClient asyncClient, SimScale.Sdk.Client.IReadableConfiguration configuration)
         {
             if(client == null) throw new ArgumentNullException("client");
             if(asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -281,28 +285,28 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Space Info Get Space metadata, current user permissions, and view Space settings
+        /// Get User Space Permissions Get Info about the Permissions that the current requester user has in this Space.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="spaceId">The space ID</param>
-        /// <returns>Space</returns>
-        public Space GetSpaceInfo (Guid? spaceId = default(Guid?))
+        /// <param name="spaceId"></param>
+        /// <returns>SpacePermissions</returns>
+        public SpacePermissions GetRequesterSpacePermissions (Guid? spaceId = default(Guid?))
         {
-             SimScale.Sdk.Client.ApiResponse<Space> localVarResponse = GetSpaceInfoWithHttpInfo(spaceId);
+             SimScale.Sdk.Client.ApiResponse<SpacePermissions> localVarResponse = GetRequesterSpacePermissionsWithHttpInfo(spaceId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Space Info Get Space metadata, current user permissions, and view Space settings
+        /// Get User Space Permissions Get Info about the Permissions that the current requester user has in this Space.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="spaceId">The space ID</param>
-        /// <returns>ApiResponse of Space</returns>
-        public SimScale.Sdk.Client.ApiResponse< Space > GetSpaceInfoWithHttpInfo (Guid? spaceId = default(Guid?))
+        /// <param name="spaceId"></param>
+        /// <returns>ApiResponse of SpacePermissions</returns>
+        public SimScale.Sdk.Client.ApiResponse< SpacePermissions > GetRequesterSpacePermissionsWithHttpInfo (Guid? spaceId = default(Guid?))
         {
             // verify the required parameter 'spaceId' is set
             if (spaceId == null)
-                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacesApi->GetSpaceInfo");
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacePermissionsApi->GetRequesterSpacePermissions");
 
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
 
@@ -329,11 +333,11 @@ namespace SimScale.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< Space >("/spaces/{spaceId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< SpacePermissions >("/permissions/spaces/{spaceId}/requester", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSpaceInfo", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetRequesterSpacePermissions", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -341,29 +345,29 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Space Info Get Space metadata, current user permissions, and view Space settings
+        /// Get User Space Permissions Get Info about the Permissions that the current requester user has in this Space.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="spaceId">The space ID</param>
-        /// <returns>Task of Space</returns>
-        public async System.Threading.Tasks.Task<Space> GetSpaceInfoAsync (Guid? spaceId = default(Guid?))
+        /// <param name="spaceId"></param>
+        /// <returns>Task of SpacePermissions</returns>
+        public async System.Threading.Tasks.Task<SpacePermissions> GetRequesterSpacePermissionsAsync (Guid? spaceId = default(Guid?))
         {
-             SimScale.Sdk.Client.ApiResponse<Space> localVarResponse = await GetSpaceInfoAsyncWithHttpInfo(spaceId);
+             SimScale.Sdk.Client.ApiResponse<SpacePermissions> localVarResponse = await GetRequesterSpacePermissionsAsyncWithHttpInfo(spaceId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get Space Info Get Space metadata, current user permissions, and view Space settings
+        /// Get User Space Permissions Get Info about the Permissions that the current requester user has in this Space.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="spaceId">The space ID</param>
-        /// <returns>Task of ApiResponse (Space)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Space>> GetSpaceInfoAsyncWithHttpInfo (Guid? spaceId = default(Guid?))
+        /// <param name="spaceId"></param>
+        /// <returns>Task of ApiResponse (SpacePermissions)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SpacePermissions>> GetRequesterSpacePermissionsAsyncWithHttpInfo (Guid? spaceId = default(Guid?))
         {
             // verify the required parameter 'spaceId' is set
             if (spaceId == null)
-                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacesApi->GetSpaceInfo");
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacePermissionsApi->GetRequesterSpacePermissions");
 
 
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
@@ -392,11 +396,11 @@ namespace SimScale.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Space>("/spaces/{spaceId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SpacePermissions>("/permissions/spaces/{spaceId}/requester", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetSpaceInfo", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetRequesterSpacePermissions", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -404,23 +408,29 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get User Spaces Get Info about the User Personal Space and all the Team Spaces the user has access to.
+        /// List Space Permissions See who has access to a Space
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Spaces</returns>
-        public Spaces GetUserSpaces ()
+        /// <param name="spaceId"></param>
+        /// <returns>Permissions</returns>
+        public Permissions ListSpacePermissions (Guid? spaceId = default(Guid?))
         {
-             SimScale.Sdk.Client.ApiResponse<Spaces> localVarResponse = GetUserSpacesWithHttpInfo();
+             SimScale.Sdk.Client.ApiResponse<Permissions> localVarResponse = ListSpacePermissionsWithHttpInfo(spaceId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get User Spaces Get Info about the User Personal Space and all the Team Spaces the user has access to.
+        /// List Space Permissions See who has access to a Space
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Spaces</returns>
-        public SimScale.Sdk.Client.ApiResponse< Spaces > GetUserSpacesWithHttpInfo ()
+        /// <param name="spaceId"></param>
+        /// <returns>ApiResponse of Permissions</returns>
+        public SimScale.Sdk.Client.ApiResponse< Permissions > ListSpacePermissionsWithHttpInfo (Guid? spaceId = default(Guid?))
         {
+            // verify the required parameter 'spaceId' is set
+            if (spaceId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacePermissionsApi->ListSpacePermissions");
+
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
@@ -437,6 +447,7 @@ namespace SimScale.Sdk.Api
             var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            localVarRequestOptions.PathParameters.Add("spaceId", SimScale.Sdk.Client.ClientUtils.ParameterToString(spaceId)); // path parameter
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -445,11 +456,11 @@ namespace SimScale.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< Spaces >("/spaces", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< Permissions >("/permissions/spaces/{spaceId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetUserSpaces", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListSpacePermissions", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -457,24 +468,30 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get User Spaces Get Info about the User Personal Space and all the Team Spaces the user has access to.
+        /// List Space Permissions See who has access to a Space
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of Spaces</returns>
-        public async System.Threading.Tasks.Task<Spaces> GetUserSpacesAsync ()
+        /// <param name="spaceId"></param>
+        /// <returns>Task of Permissions</returns>
+        public async System.Threading.Tasks.Task<Permissions> ListSpacePermissionsAsync (Guid? spaceId = default(Guid?))
         {
-             SimScale.Sdk.Client.ApiResponse<Spaces> localVarResponse = await GetUserSpacesAsyncWithHttpInfo();
+             SimScale.Sdk.Client.ApiResponse<Permissions> localVarResponse = await ListSpacePermissionsAsyncWithHttpInfo(spaceId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get User Spaces Get Info about the User Personal Space and all the Team Spaces the user has access to.
+        /// List Space Permissions See who has access to a Space
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (Spaces)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Spaces>> GetUserSpacesAsyncWithHttpInfo ()
+        /// <param name="spaceId"></param>
+        /// <returns>Task of ApiResponse (Permissions)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Permissions>> ListSpacePermissionsAsyncWithHttpInfo (Guid? spaceId = default(Guid?))
         {
+            // verify the required parameter 'spaceId' is set
+            if (spaceId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacePermissionsApi->ListSpacePermissions");
+
 
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
 
@@ -492,6 +509,7 @@ namespace SimScale.Sdk.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
+            localVarRequestOptions.PathParameters.Add("spaceId", SimScale.Sdk.Client.ClientUtils.ParameterToString(spaceId)); // path parameter
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -501,11 +519,11 @@ namespace SimScale.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Spaces>("/spaces", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Permissions>("/permissions/spaces/{spaceId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetUserSpaces", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListSpacePermissions", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -513,34 +531,34 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Update Space Update Space metadata and settings
+        /// Update Space Permissions Update who has access to a Space.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
-        /// <param name="space"></param>
-        /// <returns>Space</returns>
-        public Space UpdateSpace (Guid? spaceId = default(Guid?), Space space = default(Space))
+        /// <param name="permissions"></param>
+        /// <returns>Permissions</returns>
+        public Permissions UpdateSpacePermissions (Guid? spaceId = default(Guid?), Permissions permissions = default(Permissions))
         {
-             SimScale.Sdk.Client.ApiResponse<Space> localVarResponse = UpdateSpaceWithHttpInfo(spaceId, space);
+             SimScale.Sdk.Client.ApiResponse<Permissions> localVarResponse = UpdateSpacePermissionsWithHttpInfo(spaceId, permissions);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update Space Update Space metadata and settings
+        /// Update Space Permissions Update who has access to a Space.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
-        /// <param name="space"></param>
-        /// <returns>ApiResponse of Space</returns>
-        public SimScale.Sdk.Client.ApiResponse< Space > UpdateSpaceWithHttpInfo (Guid? spaceId = default(Guid?), Space space = default(Space))
+        /// <param name="permissions"></param>
+        /// <returns>ApiResponse of Permissions</returns>
+        public SimScale.Sdk.Client.ApiResponse< Permissions > UpdateSpacePermissionsWithHttpInfo (Guid? spaceId = default(Guid?), Permissions permissions = default(Permissions))
         {
             // verify the required parameter 'spaceId' is set
             if (spaceId == null)
-                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacesApi->UpdateSpace");
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacePermissionsApi->UpdateSpacePermissions");
 
-            // verify the required parameter 'space' is set
-            if (space == null)
-                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'space' when calling SpacesApi->UpdateSpace");
+            // verify the required parameter 'permissions' is set
+            if (permissions == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'permissions' when calling SpacePermissionsApi->UpdateSpacePermissions");
 
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
 
@@ -560,7 +578,7 @@ namespace SimScale.Sdk.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("spaceId", SimScale.Sdk.Client.ClientUtils.ParameterToString(spaceId)); // path parameter
-            localVarRequestOptions.Data = space;
+            localVarRequestOptions.Data = permissions;
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -569,11 +587,11 @@ namespace SimScale.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put< Space >("/spaces/{spaceId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put< Permissions >("/permissions/spaces/{spaceId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateSpace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateSpacePermissions", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -581,35 +599,35 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Update Space Update Space metadata and settings
+        /// Update Space Permissions Update who has access to a Space.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
-        /// <param name="space"></param>
-        /// <returns>Task of Space</returns>
-        public async System.Threading.Tasks.Task<Space> UpdateSpaceAsync (Guid? spaceId = default(Guid?), Space space = default(Space))
+        /// <param name="permissions"></param>
+        /// <returns>Task of Permissions</returns>
+        public async System.Threading.Tasks.Task<Permissions> UpdateSpacePermissionsAsync (Guid? spaceId = default(Guid?), Permissions permissions = default(Permissions))
         {
-             SimScale.Sdk.Client.ApiResponse<Space> localVarResponse = await UpdateSpaceAsyncWithHttpInfo(spaceId, space);
+             SimScale.Sdk.Client.ApiResponse<Permissions> localVarResponse = await UpdateSpacePermissionsAsyncWithHttpInfo(spaceId, permissions);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Update Space Update Space metadata and settings
+        /// Update Space Permissions Update who has access to a Space.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
-        /// <param name="space"></param>
-        /// <returns>Task of ApiResponse (Space)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Space>> UpdateSpaceAsyncWithHttpInfo (Guid? spaceId = default(Guid?), Space space = default(Space))
+        /// <param name="permissions"></param>
+        /// <returns>Task of ApiResponse (Permissions)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Permissions>> UpdateSpacePermissionsAsyncWithHttpInfo (Guid? spaceId = default(Guid?), Permissions permissions = default(Permissions))
         {
             // verify the required parameter 'spaceId' is set
             if (spaceId == null)
-                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacesApi->UpdateSpace");
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'spaceId' when calling SpacePermissionsApi->UpdateSpacePermissions");
 
-            // verify the required parameter 'space' is set
-            if (space == null)
-                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'space' when calling SpacesApi->UpdateSpace");
+            // verify the required parameter 'permissions' is set
+            if (permissions == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'permissions' when calling SpacePermissionsApi->UpdateSpacePermissions");
 
 
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
@@ -630,7 +648,7 @@ namespace SimScale.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
             localVarRequestOptions.PathParameters.Add("spaceId", SimScale.Sdk.Client.ClientUtils.ParameterToString(spaceId)); // path parameter
-            localVarRequestOptions.Data = space;
+            localVarRequestOptions.Data = permissions;
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -640,11 +658,11 @@ namespace SimScale.Sdk.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Space>("/spaces/{spaceId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Permissions>("/permissions/spaces/{spaceId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateSpace", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateSpacePermissions", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

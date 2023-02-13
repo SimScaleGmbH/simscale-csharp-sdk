@@ -44,7 +44,7 @@ namespace SimScale.Sdk.Model
         /// <param name="epsilonDissipationRateEquation">epsilonDissipationRateEquation.</param>
         /// <param name="nuTildaEquation">nuTildaEquation.</param>
         /// <param name="netRadiativeHeatFluxField">netRadiativeHeatFluxField.</param>
-        /// <param name="radiativeIntensityRayEquation">radiativeIntensityRayEquation.</param>
+        /// <param name="radiativeIntensityRayEquation">radiativeIntensityRayEquation (default to 0.8M).</param>
         /// <param name="specificHumidityEquation">specificHumidityEquation (default to 0.9M).</param>
         public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?), decimal? specificHumidityEquation = default(decimal?))
         {

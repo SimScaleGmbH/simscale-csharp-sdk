@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(AutomaticDomainDecomposition), "AUTOMATIC")]
     [JsonSubtypes.KnownSubType(typeof(CentralizedDomainDecomposition), "CENTRALIZED")]
+    [JsonSubtypes.KnownSubType(typeof(ElementGroupsDomainDecomposition), "ELEMENT_GROUPS")]
     [JsonSubtypes.KnownSubType(typeof(CustomDomainDecomposition), "CUSTOM")]
     public interface OneOfComputingCoreDomainDecomposition
     {
