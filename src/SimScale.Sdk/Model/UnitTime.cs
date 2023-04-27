@@ -50,12 +50,20 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnitTime" /> class.
         /// </summary>
+        /// <param name="value">value.</param>
         /// <param name="unit">unit.</param>
-        public UnitTime(UnitEnum? unit = default(UnitEnum?))
+        public UnitTime(decimal? value = default(decimal?), UnitEnum? unit = default(UnitEnum?))
         {
+            this.Value = value;
             this.Unit = unit;
         }
         
+        /// <summary>
+        /// Gets or Sets Value
+        /// </summary>
+        [DataMember(Name="value", EmitDefaultValue=false)]
+        public decimal? Value { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -64,6 +72,7 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UnitTime {\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -100,6 +109,11 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
+                ) && 
+                (
                     this.Unit == input.Unit ||
                     this.Unit.Equals(input.Unit)
                 );
@@ -114,6 +128,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Value != null)
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 hashCode = hashCode * 59 + this.Unit.GetHashCode();
                 return hashCode;
             }

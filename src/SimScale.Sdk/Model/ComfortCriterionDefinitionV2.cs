@@ -23,33 +23,25 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// EigenModeVerification
+    /// ComfortCriterionDefinitionV2
     /// </summary>
     [DataContract]
-    public partial class EigenModeVerification : IEquatable<EigenModeVerification>
+    public partial class ComfortCriterionDefinitionV2 : IEquatable<ComfortCriterionDefinitionV2>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EigenModeVerification" /> class.
+        /// Initializes a new instance of the <see cref="ComfortCriterionDefinitionV2" /> class.
         /// </summary>
-        /// <param name="threshold">threshold (default to 0.0000010M).</param>
-        /// <param name="precisionShift">precisionShift (default to 0.05M).</param>
-        public EigenModeVerification(decimal? threshold = default(decimal?), decimal? precisionShift = default(decimal?))
+        /// <param name="windSpeedThresholds">windSpeedThresholds.</param>
+        public ComfortCriterionDefinitionV2(DimensionalFunctionSpeed windSpeedThresholds = default(DimensionalFunctionSpeed))
         {
-            this.Threshold = threshold;
-            this.PrecisionShift = precisionShift;
+            this.WindSpeedThresholds = windSpeedThresholds;
         }
         
         /// <summary>
-        /// Gets or Sets Threshold
+        /// Gets or Sets WindSpeedThresholds
         /// </summary>
-        [DataMember(Name="threshold", EmitDefaultValue=false)]
-        public decimal? Threshold { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PrecisionShift
-        /// </summary>
-        [DataMember(Name="precisionShift", EmitDefaultValue=false)]
-        public decimal? PrecisionShift { get; set; }
+        [DataMember(Name="windSpeedThresholds", EmitDefaultValue=false)]
+        public DimensionalFunctionSpeed WindSpeedThresholds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +50,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class EigenModeVerification {\n");
-            sb.Append("  Threshold: ").Append(Threshold).Append("\n");
-            sb.Append("  PrecisionShift: ").Append(PrecisionShift).Append("\n");
+            sb.Append("class ComfortCriterionDefinitionV2 {\n");
+            sb.Append("  WindSpeedThresholds: ").Append(WindSpeedThresholds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,29 +72,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EigenModeVerification);
+            return this.Equals(input as ComfortCriterionDefinitionV2);
         }
 
         /// <summary>
-        /// Returns true if EigenModeVerification instances are equal
+        /// Returns true if ComfortCriterionDefinitionV2 instances are equal
         /// </summary>
-        /// <param name="input">Instance of EigenModeVerification to be compared</param>
+        /// <param name="input">Instance of ComfortCriterionDefinitionV2 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EigenModeVerification input)
+        public bool Equals(ComfortCriterionDefinitionV2 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Threshold == input.Threshold ||
-                    (this.Threshold != null &&
-                    this.Threshold.Equals(input.Threshold))
-                ) && 
-                (
-                    this.PrecisionShift == input.PrecisionShift ||
-                    (this.PrecisionShift != null &&
-                    this.PrecisionShift.Equals(input.PrecisionShift))
+                    this.WindSpeedThresholds == input.WindSpeedThresholds ||
+                    (this.WindSpeedThresholds != null &&
+                    this.WindSpeedThresholds.Equals(input.WindSpeedThresholds))
                 );
         }
 
@@ -116,10 +102,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Threshold != null)
-                    hashCode = hashCode * 59 + this.Threshold.GetHashCode();
-                if (this.PrecisionShift != null)
-                    hashCode = hashCode * 59 + this.PrecisionShift.GetHashCode();
+                if (this.WindSpeedThresholds != null)
+                    hashCode = hashCode * 59 + this.WindSpeedThresholds.GetHashCode();
                 return hashCode;
             }
         }

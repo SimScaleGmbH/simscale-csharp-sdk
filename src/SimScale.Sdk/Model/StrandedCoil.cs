@@ -23,32 +23,48 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// SolidCoil
+    /// StrandedCoil
     /// </summary>
     [DataContract]
-    public partial class SolidCoil : OneOfCoilCoilType, IEquatable<SolidCoil>
+    public partial class StrandedCoil : OneOfCoilCoilType, IEquatable<StrandedCoil>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SolidCoil" /> class.
+        /// Initializes a new instance of the <see cref="StrandedCoil" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SolidCoil() { }
+        protected StrandedCoil() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SolidCoil" /> class.
+        /// Initializes a new instance of the <see cref="StrandedCoil" /> class.
         /// </summary>
-        /// <param name="type">Schema name: SolidCoil (required) (default to &quot;SOLID_COIL&quot;).</param>
-        public SolidCoil(string type = "SOLID_COIL")
+        /// <param name="type">Schema name: StrandedCoil (required) (default to &quot;STRANDED_COIL&quot;).</param>
+        /// <param name="numberOfTurns">numberOfTurns (default to 1).</param>
+        /// <param name="wireDiameter">wireDiameter.</param>
+        public StrandedCoil(string type = "STRANDED_COIL", int? numberOfTurns = default(int?), DimensionalLength wireDiameter = default(DimensionalLength))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for SolidCoil and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for StrandedCoil and cannot be null");
+            this.NumberOfTurns = numberOfTurns;
+            this.WireDiameter = wireDiameter;
         }
         
         /// <summary>
-        /// Schema name: SolidCoil
+        /// Schema name: StrandedCoil
         /// </summary>
-        /// <value>Schema name: SolidCoil</value>
+        /// <value>Schema name: StrandedCoil</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NumberOfTurns
+        /// </summary>
+        [DataMember(Name="numberOfTurns", EmitDefaultValue=false)]
+        public int? NumberOfTurns { get; set; }
+
+        /// <summary>
+        /// Gets or Sets WireDiameter
+        /// </summary>
+        [DataMember(Name="wireDiameter", EmitDefaultValue=false)]
+        public DimensionalLength WireDiameter { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,8 +73,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SolidCoil {\n");
+            sb.Append("class StrandedCoil {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  NumberOfTurns: ").Append(NumberOfTurns).Append("\n");
+            sb.Append("  WireDiameter: ").Append(WireDiameter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -79,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SolidCoil);
+            return this.Equals(input as StrandedCoil);
         }
 
         /// <summary>
-        /// Returns true if SolidCoil instances are equal
+        /// Returns true if StrandedCoil instances are equal
         /// </summary>
-        /// <param name="input">Instance of SolidCoil to be compared</param>
+        /// <param name="input">Instance of StrandedCoil to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SolidCoil input)
+        public bool Equals(StrandedCoil input)
         {
             if (input == null)
                 return false;
@@ -97,6 +115,16 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.NumberOfTurns == input.NumberOfTurns ||
+                    (this.NumberOfTurns != null &&
+                    this.NumberOfTurns.Equals(input.NumberOfTurns))
+                ) && 
+                (
+                    this.WireDiameter == input.WireDiameter ||
+                    (this.WireDiameter != null &&
+                    this.WireDiameter.Equals(input.WireDiameter))
                 );
         }
 
@@ -111,6 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.NumberOfTurns != null)
+                    hashCode = hashCode * 59 + this.NumberOfTurns.GetHashCode();
+                if (this.WireDiameter != null)
+                    hashCode = hashCode * 59 + this.WireDiameter.GetHashCode();
                 return hashCode;
             }
         }

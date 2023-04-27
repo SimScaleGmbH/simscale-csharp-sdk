@@ -23,34 +23,34 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// This boundary condition provides a symmetry condition on any face by applying a mirror effect. The fluxes and the normal components across the symmetry face are set to zero. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/symmetry/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+    /// MagneticFluxTangential
     /// </summary>
     [DataContract]
-    public partial class SymmetryBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, OneOfSimericsAnalysisBoundaryConditions, IEquatable<SymmetryBC>
+    public partial class MagneticFluxTangential : IEquatable<MagneticFluxTangential>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SymmetryBC" /> class.
+        /// Initializes a new instance of the <see cref="MagneticFluxTangential" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SymmetryBC() { }
+        protected MagneticFluxTangential() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SymmetryBC" /> class.
+        /// Initializes a new instance of the <see cref="MagneticFluxTangential" /> class.
         /// </summary>
-        /// <param name="type">This boundary condition provides a symmetry condition on any face by applying a mirror effect. The fluxes and the normal components across the symmetry face are set to zero. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/symmetry/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: SymmetryBC (required) (default to &quot;SYMMETRY&quot;).</param>
+        /// <param name="type">Schema name: MagneticFluxTangential (required) (default to &quot;MAGNETIC_FLUX_TANGENTIAL&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public SymmetryBC(string type = "SYMMETRY", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
+        public MagneticFluxTangential(string type = "MAGNETIC_FLUX_TANGENTIAL", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for SymmetryBC and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for MagneticFluxTangential and cannot be null");
             this.Name = name;
             this.TopologicalReference = topologicalReference;
         }
         
         /// <summary>
-        /// This boundary condition provides a symmetry condition on any face by applying a mirror effect. The fluxes and the normal components across the symmetry face are set to zero. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/symmetry/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: SymmetryBC
+        /// Schema name: MagneticFluxTangential
         /// </summary>
-        /// <value>This boundary condition provides a symmetry condition on any face by applying a mirror effect. The fluxes and the normal components across the symmetry face are set to zero. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/symmetry/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: SymmetryBC</value>
+        /// <value>Schema name: MagneticFluxTangential</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -73,7 +73,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SymmetryBC {\n");
+            sb.Append("class MagneticFluxTangential {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
@@ -97,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SymmetryBC);
+            return this.Equals(input as MagneticFluxTangential);
         }
 
         /// <summary>
-        /// Returns true if SymmetryBC instances are equal
+        /// Returns true if MagneticFluxTangential instances are equal
         /// </summary>
-        /// <param name="input">Instance of SymmetryBC to be compared</param>
+        /// <param name="input">Instance of MagneticFluxTangential to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SymmetryBC input)
+        public bool Equals(MagneticFluxTangential input)
         {
             if (input == null)
                 return false;

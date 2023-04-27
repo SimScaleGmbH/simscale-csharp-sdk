@@ -23,33 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// EigenModeVerification
+    /// CurrentExcitation
     /// </summary>
     [DataContract]
-    public partial class EigenModeVerification : IEquatable<EigenModeVerification>
+    public partial class CurrentExcitation : IEquatable<CurrentExcitation>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EigenModeVerification" /> class.
+        /// Initializes a new instance of the <see cref="CurrentExcitation" /> class.
         /// </summary>
-        /// <param name="threshold">threshold (default to 0.0000010M).</param>
-        /// <param name="precisionShift">precisionShift (default to 0.05M).</param>
-        public EigenModeVerification(decimal? threshold = default(decimal?), decimal? precisionShift = default(decimal?))
+        [JsonConstructorAttribute]
+        protected CurrentExcitation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurrentExcitation" /> class.
+        /// </summary>
+        /// <param name="type">Schema name: CurrentExcitation (required) (default to &quot;CURRENT_EXCITATION&quot;).</param>
+        /// <param name="current">current.</param>
+        public CurrentExcitation(string type = "CURRENT_EXCITATION", DimensionalElectricCurrent current = default(DimensionalElectricCurrent))
         {
-            this.Threshold = threshold;
-            this.PrecisionShift = precisionShift;
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for CurrentExcitation and cannot be null");
+            this.Current = current;
         }
         
         /// <summary>
-        /// Gets or Sets Threshold
+        /// Schema name: CurrentExcitation
         /// </summary>
-        [DataMember(Name="threshold", EmitDefaultValue=false)]
-        public decimal? Threshold { get; set; }
+        /// <value>Schema name: CurrentExcitation</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets PrecisionShift
+        /// Gets or Sets Current
         /// </summary>
-        [DataMember(Name="precisionShift", EmitDefaultValue=false)]
-        public decimal? PrecisionShift { get; set; }
+        [DataMember(Name="current", EmitDefaultValue=false)]
+        public DimensionalElectricCurrent Current { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class EigenModeVerification {\n");
-            sb.Append("  Threshold: ").Append(Threshold).Append("\n");
-            sb.Append("  PrecisionShift: ").Append(PrecisionShift).Append("\n");
+            sb.Append("class CurrentExcitation {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Current: ").Append(Current).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,29 +88,29 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EigenModeVerification);
+            return this.Equals(input as CurrentExcitation);
         }
 
         /// <summary>
-        /// Returns true if EigenModeVerification instances are equal
+        /// Returns true if CurrentExcitation instances are equal
         /// </summary>
-        /// <param name="input">Instance of EigenModeVerification to be compared</param>
+        /// <param name="input">Instance of CurrentExcitation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EigenModeVerification input)
+        public bool Equals(CurrentExcitation input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Threshold == input.Threshold ||
-                    (this.Threshold != null &&
-                    this.Threshold.Equals(input.Threshold))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.PrecisionShift == input.PrecisionShift ||
-                    (this.PrecisionShift != null &&
-                    this.PrecisionShift.Equals(input.PrecisionShift))
+                    this.Current == input.Current ||
+                    (this.Current != null &&
+                    this.Current.Equals(input.Current))
                 );
         }
 
@@ -116,10 +123,10 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Threshold != null)
-                    hashCode = hashCode * 59 + this.Threshold.GetHashCode();
-                if (this.PrecisionShift != null)
-                    hashCode = hashCode * 59 + this.PrecisionShift.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Current != null)
+                    hashCode = hashCode * 59 + this.Current.GetHashCode();
                 return hashCode;
             }
         }

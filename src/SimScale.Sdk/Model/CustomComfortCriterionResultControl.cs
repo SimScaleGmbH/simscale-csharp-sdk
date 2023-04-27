@@ -38,15 +38,15 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: CustomComfortCriterionResultControl (required) (default to &quot;CUSTOM_COMFORT_CRITERION&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="comfortCriterionDefinition">comfortCriterionDefinition.</param>
+        /// <param name="comfortCriterionDefinitionV2">comfortCriterionDefinitionV2.</param>
         /// <param name="outOfBoundsName">It defines the name of the category that is reached if all defined criteria are exceeded. (default to &quot;Uncomfortable&quot;).</param>
         /// <param name="advancedSettings">advancedSettings.</param>
-        public CustomComfortCriterionResultControl(string type = "CUSTOM_COMFORT_CRITERION", string name = default(string), TableDefinedComfortCriterionDefinition comfortCriterionDefinition = default(TableDefinedComfortCriterionDefinition), string outOfBoundsName = default(string), AdvancedComfortCriterionSettings advancedSettings = default(AdvancedComfortCriterionSettings))
+        public CustomComfortCriterionResultControl(string type = "CUSTOM_COMFORT_CRITERION", string name = default(string), ComfortCriterionDefinitionV2 comfortCriterionDefinitionV2 = default(ComfortCriterionDefinitionV2), string outOfBoundsName = default(string), AdvancedComfortCriterionSettings advancedSettings = default(AdvancedComfortCriterionSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CustomComfortCriterionResultControl and cannot be null");
             this.Name = name;
-            this.ComfortCriterionDefinition = comfortCriterionDefinition;
+            this.ComfortCriterionDefinitionV2 = comfortCriterionDefinitionV2;
             this.OutOfBoundsName = outOfBoundsName;
             this.AdvancedSettings = advancedSettings;
         }
@@ -65,10 +65,10 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets ComfortCriterionDefinition
+        /// Gets or Sets ComfortCriterionDefinitionV2
         /// </summary>
-        [DataMember(Name="comfortCriterionDefinition", EmitDefaultValue=false)]
-        public TableDefinedComfortCriterionDefinition ComfortCriterionDefinition { get; set; }
+        [DataMember(Name="comfortCriterionDefinitionV2", EmitDefaultValue=false)]
+        public ComfortCriterionDefinitionV2 ComfortCriterionDefinitionV2 { get; set; }
 
         /// <summary>
         /// It defines the name of the category that is reached if all defined criteria are exceeded.
@@ -93,7 +93,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class CustomComfortCriterionResultControl {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ComfortCriterionDefinition: ").Append(ComfortCriterionDefinition).Append("\n");
+            sb.Append("  ComfortCriterionDefinitionV2: ").Append(ComfortCriterionDefinitionV2).Append("\n");
             sb.Append("  OutOfBoundsName: ").Append(OutOfBoundsName).Append("\n");
             sb.Append("  AdvancedSettings: ").Append(AdvancedSettings).Append("\n");
             sb.Append("}\n");
@@ -141,9 +141,9 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.ComfortCriterionDefinition == input.ComfortCriterionDefinition ||
-                    (this.ComfortCriterionDefinition != null &&
-                    this.ComfortCriterionDefinition.Equals(input.ComfortCriterionDefinition))
+                    this.ComfortCriterionDefinitionV2 == input.ComfortCriterionDefinitionV2 ||
+                    (this.ComfortCriterionDefinitionV2 != null &&
+                    this.ComfortCriterionDefinitionV2.Equals(input.ComfortCriterionDefinitionV2))
                 ) && 
                 (
                     this.OutOfBoundsName == input.OutOfBoundsName ||
@@ -170,8 +170,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.ComfortCriterionDefinition != null)
-                    hashCode = hashCode * 59 + this.ComfortCriterionDefinition.GetHashCode();
+                if (this.ComfortCriterionDefinitionV2 != null)
+                    hashCode = hashCode * 59 + this.ComfortCriterionDefinitionV2.GetHashCode();
                 if (this.OutOfBoundsName != null)
                     hashCode = hashCode * 59 + this.OutOfBoundsName.GetHashCode();
                 if (this.AdvancedSettings != null)

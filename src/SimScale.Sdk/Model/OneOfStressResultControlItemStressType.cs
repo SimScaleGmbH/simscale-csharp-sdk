@@ -31,6 +31,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(GlobalCauchyStressType), "CAUCHY")]
     [JsonSubtypes.KnownSubType(typeof(GlobalPrincipalStressType), "PRINCIPAL")]
     [JsonSubtypes.KnownSubType(typeof(GlobalVonMisesStressType), "VON_MISES")]
+    [JsonSubtypes.KnownSubType(typeof(GlobalMaxOverPhaseVonMisesStressType), "MAX_OVER_PHASE_VON_MISES")]
     [JsonSubtypes.KnownSubType(typeof(GlobalSignedVonMisesStressType), "SIGNED_VON_MISES")]
     public interface OneOfStressResultControlItemStressType
     {

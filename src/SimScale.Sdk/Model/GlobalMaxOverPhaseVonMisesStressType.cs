@@ -23,33 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// EigenModeVerification
+    /// GlobalMaxOverPhaseVonMisesStressType
     /// </summary>
     [DataContract]
-    public partial class EigenModeVerification : IEquatable<EigenModeVerification>
+    public partial class GlobalMaxOverPhaseVonMisesStressType : OneOfStressResultControlItemStressType, IEquatable<GlobalMaxOverPhaseVonMisesStressType>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EigenModeVerification" /> class.
+        /// Initializes a new instance of the <see cref="GlobalMaxOverPhaseVonMisesStressType" /> class.
         /// </summary>
-        /// <param name="threshold">threshold (default to 0.0000010M).</param>
-        /// <param name="precisionShift">precisionShift (default to 0.05M).</param>
-        public EigenModeVerification(decimal? threshold = default(decimal?), decimal? precisionShift = default(decimal?))
+        [JsonConstructorAttribute]
+        protected GlobalMaxOverPhaseVonMisesStressType() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GlobalMaxOverPhaseVonMisesStressType" /> class.
+        /// </summary>
+        /// <param name="type">Schema name: GlobalMaxOverPhaseVonMisesStressType (required) (default to &quot;MAX_OVER_PHASE_VON_MISES&quot;).</param>
+        public GlobalMaxOverPhaseVonMisesStressType(string type = "MAX_OVER_PHASE_VON_MISES")
         {
-            this.Threshold = threshold;
-            this.PrecisionShift = precisionShift;
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for GlobalMaxOverPhaseVonMisesStressType and cannot be null");
         }
         
         /// <summary>
-        /// Gets or Sets Threshold
+        /// Schema name: GlobalMaxOverPhaseVonMisesStressType
         /// </summary>
-        [DataMember(Name="threshold", EmitDefaultValue=false)]
-        public decimal? Threshold { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PrecisionShift
-        /// </summary>
-        [DataMember(Name="precisionShift", EmitDefaultValue=false)]
-        public decimal? PrecisionShift { get; set; }
+        /// <value>Schema name: GlobalMaxOverPhaseVonMisesStressType</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class EigenModeVerification {\n");
-            sb.Append("  Threshold: ").Append(Threshold).Append("\n");
-            sb.Append("  PrecisionShift: ").Append(PrecisionShift).Append("\n");
+            sb.Append("class GlobalMaxOverPhaseVonMisesStressType {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,29 +79,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EigenModeVerification);
+            return this.Equals(input as GlobalMaxOverPhaseVonMisesStressType);
         }
 
         /// <summary>
-        /// Returns true if EigenModeVerification instances are equal
+        /// Returns true if GlobalMaxOverPhaseVonMisesStressType instances are equal
         /// </summary>
-        /// <param name="input">Instance of EigenModeVerification to be compared</param>
+        /// <param name="input">Instance of GlobalMaxOverPhaseVonMisesStressType to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EigenModeVerification input)
+        public bool Equals(GlobalMaxOverPhaseVonMisesStressType input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Threshold == input.Threshold ||
-                    (this.Threshold != null &&
-                    this.Threshold.Equals(input.Threshold))
-                ) && 
-                (
-                    this.PrecisionShift == input.PrecisionShift ||
-                    (this.PrecisionShift != null &&
-                    this.PrecisionShift.Equals(input.PrecisionShift))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -116,10 +109,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Threshold != null)
-                    hashCode = hashCode * 59 + this.Threshold.GetHashCode();
-                if (this.PrecisionShift != null)
-                    hashCode = hashCode * 59 + this.PrecisionShift.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

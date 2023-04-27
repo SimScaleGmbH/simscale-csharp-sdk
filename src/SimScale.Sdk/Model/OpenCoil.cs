@@ -23,32 +23,48 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// SolidCoil
+    /// OpenCoil
     /// </summary>
     [DataContract]
-    public partial class SolidCoil : OneOfCoilCoilType, IEquatable<SolidCoil>
+    public partial class OpenCoil : IEquatable<OpenCoil>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SolidCoil" /> class.
+        /// Initializes a new instance of the <see cref="OpenCoil" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SolidCoil() { }
+        protected OpenCoil() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SolidCoil" /> class.
+        /// Initializes a new instance of the <see cref="OpenCoil" /> class.
         /// </summary>
-        /// <param name="type">Schema name: SolidCoil (required) (default to &quot;SOLID_COIL&quot;).</param>
-        public SolidCoil(string type = "SOLID_COIL")
+        /// <param name="type">Schema name: OpenCoil (required) (default to &quot;OPEN_COIL&quot;).</param>
+        /// <param name="entryPort">entryPort.</param>
+        /// <param name="exitPort">exitPort.</param>
+        public OpenCoil(string type = "OPEN_COIL", TopologicalReference entryPort = default(TopologicalReference), TopologicalReference exitPort = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for SolidCoil and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for OpenCoil and cannot be null");
+            this.EntryPort = entryPort;
+            this.ExitPort = exitPort;
         }
         
         /// <summary>
-        /// Schema name: SolidCoil
+        /// Schema name: OpenCoil
         /// </summary>
-        /// <value>Schema name: SolidCoil</value>
+        /// <value>Schema name: OpenCoil</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EntryPort
+        /// </summary>
+        [DataMember(Name="entryPort", EmitDefaultValue=false)]
+        public TopologicalReference EntryPort { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExitPort
+        /// </summary>
+        [DataMember(Name="exitPort", EmitDefaultValue=false)]
+        public TopologicalReference ExitPort { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,8 +73,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SolidCoil {\n");
+            sb.Append("class OpenCoil {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  EntryPort: ").Append(EntryPort).Append("\n");
+            sb.Append("  ExitPort: ").Append(ExitPort).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -79,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SolidCoil);
+            return this.Equals(input as OpenCoil);
         }
 
         /// <summary>
-        /// Returns true if SolidCoil instances are equal
+        /// Returns true if OpenCoil instances are equal
         /// </summary>
-        /// <param name="input">Instance of SolidCoil to be compared</param>
+        /// <param name="input">Instance of OpenCoil to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SolidCoil input)
+        public bool Equals(OpenCoil input)
         {
             if (input == null)
                 return false;
@@ -97,6 +115,16 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.EntryPort == input.EntryPort ||
+                    (this.EntryPort != null &&
+                    this.EntryPort.Equals(input.EntryPort))
+                ) && 
+                (
+                    this.ExitPort == input.ExitPort ||
+                    (this.ExitPort != null &&
+                    this.ExitPort.Equals(input.ExitPort))
                 );
         }
 
@@ -111,6 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.EntryPort != null)
+                    hashCode = hashCode * 59 + this.EntryPort.GetHashCode();
+                if (this.ExitPort != null)
+                    hashCode = hashCode * 59 + this.ExitPort.GetHashCode();
                 return hashCode;
             }
         }

@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// UnitPressure
+    /// UnitText
     /// </summary>
     [DataContract]
-    public partial class UnitPressure : IEquatable<UnitPressure>
+    public partial class UnitText : IEquatable<UnitText>
     {
         /// <summary>
         /// Defines Unit
@@ -35,46 +35,10 @@ namespace SimScale.Sdk.Model
         public enum UnitEnum
         {
             /// <summary>
-            /// Enum Pa for value: Pa
+            /// Enum Empty for value: 
             /// </summary>
-            [EnumMember(Value = "Pa")]
-            Pa = 1,
-
-            /// <summary>
-            /// Enum LbfIn for value: lbf/in²
-            /// </summary>
-            [EnumMember(Value = "lbf/in²")]
-            LbfIn = 2,
-
-            /// <summary>
-            /// Enum KPa for value: kPa
-            /// </summary>
-            [EnumMember(Value = "kPa")]
-            KPa = 3,
-
-            /// <summary>
-            /// Enum MPa for value: MPa
-            /// </summary>
-            [EnumMember(Value = "MPa")]
-            MPa = 4,
-
-            /// <summary>
-            /// Enum Bar for value: bar
-            /// </summary>
-            [EnumMember(Value = "bar")]
-            Bar = 5,
-
-            /// <summary>
-            /// Enum Mbar for value: mbar
-            /// </summary>
-            [EnumMember(Value = "mbar")]
-            Mbar = 6,
-
-            /// <summary>
-            /// Enum MH2O for value: mH2O
-            /// </summary>
-            [EnumMember(Value = "mH2O")]
-            MH2O = 7
+            [EnumMember(Value = "")]
+            Empty = 1
 
         }
 
@@ -84,11 +48,11 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="unit", EmitDefaultValue=false)]
         public UnitEnum? Unit { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnitPressure" /> class.
+        /// Initializes a new instance of the <see cref="UnitText" /> class.
         /// </summary>
         /// <param name="value">value.</param>
         /// <param name="unit">unit.</param>
-        public UnitPressure(decimal? value = default(decimal?), UnitEnum? unit = default(UnitEnum?))
+        public UnitText(string value = default(string), UnitEnum? unit = default(UnitEnum?))
         {
             this.Value = value;
             this.Unit = unit;
@@ -98,7 +62,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,7 +71,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UnitPressure {\n");
+            sb.Append("class UnitText {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
@@ -130,15 +94,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UnitPressure);
+            return this.Equals(input as UnitText);
         }
 
         /// <summary>
-        /// Returns true if UnitPressure instances are equal
+        /// Returns true if UnitText instances are equal
         /// </summary>
-        /// <param name="input">Instance of UnitPressure to be compared</param>
+        /// <param name="input">Instance of UnitText to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UnitPressure input)
+        public bool Equals(UnitText input)
         {
             if (input == null)
                 return false;

@@ -40,7 +40,8 @@ namespace SimScale.Sdk.Model
         /// <param name="description">The description of the report..</param>
         /// <param name="resultIds">The resultIds the report should be created for. (required).</param>
         /// <param name="reportProperties">reportProperties (required).</param>
-        public ReportRequest(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), OneOfReportProperties reportProperties = default(OneOfReportProperties))
+        /// <param name="reportId">If provided, the newly created report will have this value for its UUID..</param>
+        public ReportRequest(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), OneOfReportProperties reportProperties = default(OneOfReportProperties), Guid? reportId = default(Guid?))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for ReportRequest and cannot be null");
@@ -49,6 +50,7 @@ namespace SimScale.Sdk.Model
             // to ensure "reportProperties" is required (not null)
             this.ReportProperties = reportProperties ?? throw new ArgumentNullException("reportProperties is a required property for ReportRequest and cannot be null");
             this.Description = description;
+            this.ReportId = reportId;
         }
         
         /// <summary>
@@ -79,6 +81,13 @@ namespace SimScale.Sdk.Model
         public OneOfReportProperties ReportProperties { get; set; }
 
         /// <summary>
+        /// If provided, the newly created report will have this value for its UUID.
+        /// </summary>
+        /// <value>If provided, the newly created report will have this value for its UUID.</value>
+        [DataMember(Name="reportId", EmitDefaultValue=false)]
+        public Guid? ReportId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +99,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ResultIds: ").Append(ResultIds).Append("\n");
             sb.Append("  ReportProperties: ").Append(ReportProperties).Append("\n");
+            sb.Append("  ReportId: ").Append(ReportId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,6 +154,11 @@ namespace SimScale.Sdk.Model
                     this.ReportProperties == input.ReportProperties ||
                     (this.ReportProperties != null &&
                     this.ReportProperties.Equals(input.ReportProperties))
+                ) && 
+                (
+                    this.ReportId == input.ReportId ||
+                    (this.ReportId != null &&
+                    this.ReportId.Equals(input.ReportId))
                 );
         }
 
@@ -164,6 +179,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ResultIds.GetHashCode();
                 if (this.ReportProperties != null)
                     hashCode = hashCode * 59 + this.ReportProperties.GetHashCode();
+                if (this.ReportId != null)
+                    hashCode = hashCode * 59 + this.ReportId.GetHashCode();
                 return hashCode;
             }
         }

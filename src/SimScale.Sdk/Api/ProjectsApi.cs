@@ -29,7 +29,7 @@ namespace SimScale.Sdk.Api
         /// Create a new project
         /// </summary>
         /// <remarks>
-        /// 
+        /// The visibility of the Project will be determined by the available capabilities of the requesting user. If the user can create private projects, the Project will be private. Otherwise, it will be public. 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Api
         /// Create a new project
         /// </summary>
         /// <remarks>
-        /// 
+        /// The visibility of the Project will be determined by the available capabilities of the requesting user. If the user can create private projects, the Project will be private. Otherwise, it will be public. 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
@@ -126,7 +126,7 @@ namespace SimScale.Sdk.Api
         /// Create a new project
         /// </summary>
         /// <remarks>
-        /// 
+        /// The visibility of the Project will be determined by the available capabilities of the requesting user. If the user can create private projects, the Project will be private. Otherwise, it will be public. 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
@@ -137,7 +137,7 @@ namespace SimScale.Sdk.Api
         /// Create a new project
         /// </summary>
         /// <remarks>
-        /// 
+        /// The visibility of the Project will be determined by the available capabilities of the requesting user. If the user can create private projects, the Project will be private. Otherwise, it will be public. 
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
@@ -331,7 +331,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Create a new project 
+        /// Create a new project The visibility of the Project will be determined by the available capabilities of the requesting user. If the user can create private projects, the Project will be private. Otherwise, it will be public. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
@@ -343,7 +343,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Create a new project 
+        /// Create a new project The visibility of the Project will be determined by the available capabilities of the requesting user. If the user can create private projects, the Project will be private. Otherwise, it will be public. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
@@ -392,7 +392,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Create a new project 
+        /// Create a new project The visibility of the Project will be determined by the available capabilities of the requesting user. If the user can create private projects, the Project will be private. Otherwise, it will be public. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>
@@ -405,7 +405,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Create a new project 
+        /// Create a new project The visibility of the Project will be determined by the available capabilities of the requesting user. If the user can create private projects, the Project will be private. Otherwise, it will be public. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="project">Project to be created</param>

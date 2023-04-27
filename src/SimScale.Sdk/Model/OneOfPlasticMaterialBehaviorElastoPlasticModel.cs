@@ -24,18 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfEmbeddedBoundaryBoundaryConditions
+    /// OneOfPlasticMaterialBehaviorElastoPlasticModel
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(VelocityInletBC), "VELOCITY_INLET_V3")]
-    [JsonSubtypes.KnownSubType(typeof(VelocityOutletBC), "VELOCITY_OUTLET_V7")]
-    [JsonSubtypes.KnownSubType(typeof(PressureInletBC), "PRESSURE_INLET_V31")]
-    [JsonSubtypes.KnownSubType(typeof(PressureOutletBC), "PRESSURE_OUTLET_V30")]
-    [JsonSubtypes.KnownSubType(typeof(WallBC), "WALL_V34")]
-    [JsonSubtypes.KnownSubType(typeof(FanBC), "FAN")]
-    [JsonSubtypes.KnownSubType(typeof(SymmetryBC), "SYMMETRY")]
-    [JsonSubtypes.KnownSubType(typeof(NaturalConvectionInletOutletBC), "NATURAL_CONVECTION_INLET_OUTLET")]
-    public interface OneOfEmbeddedBoundaryBoundaryConditions
+    [JsonSubtypes.KnownSubType(typeof(BilinearElastoPlasticModel), "BILINEAR")]
+    [JsonSubtypes.KnownSubType(typeof(MultilinearElastoPlasticModel), "MULTILINEAR")]
+    public interface OneOfPlasticMaterialBehaviorElastoPlasticModel
     {
         /// <summary>
         /// Gets Type

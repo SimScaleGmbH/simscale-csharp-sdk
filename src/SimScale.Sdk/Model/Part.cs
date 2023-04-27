@@ -42,13 +42,15 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Part" /> class.
         /// </summary>
         /// <param name="partIdentifier">The identifier of the part in the result. (required).</param>
+        /// <param name="parentIdentifier">The identifier of the parent of the part in the result. This value is necessary in cases where multiple parts appear in the result with the same name/identifier..</param>
         /// <param name="opacity">opacity.</param>
         /// <param name="renderMode">renderMode.</param>
         /// <param name="solidColor">solidColor.</param>
-        public Part(string partIdentifier = default(string), double? opacity = default(double?), RenderMode? renderMode = default(RenderMode?), Color solidColor = default(Color))
+        public Part(string partIdentifier = default(string), string parentIdentifier = default(string), double? opacity = default(double?), RenderMode? renderMode = default(RenderMode?), Color solidColor = default(Color))
         {
             // to ensure "partIdentifier" is required (not null)
             this.PartIdentifier = partIdentifier ?? throw new ArgumentNullException("partIdentifier is a required property for Part and cannot be null");
+            this.ParentIdentifier = parentIdentifier;
             this.Opacity = opacity;
             this.RenderMode = renderMode;
             this.SolidColor = solidColor;
@@ -60,6 +62,13 @@ namespace SimScale.Sdk.Model
         /// <value>The identifier of the part in the result.</value>
         [DataMember(Name="partIdentifier", EmitDefaultValue=false)]
         public string PartIdentifier { get; set; }
+
+        /// <summary>
+        /// The identifier of the parent of the part in the result. This value is necessary in cases where multiple parts appear in the result with the same name/identifier.
+        /// </summary>
+        /// <value>The identifier of the parent of the part in the result. This value is necessary in cases where multiple parts appear in the result with the same name/identifier.</value>
+        [DataMember(Name="parentIdentifier", EmitDefaultValue=false)]
+        public string ParentIdentifier { get; set; }
 
         /// <summary>
         /// Gets or Sets Opacity
@@ -82,6 +91,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class Part {\n");
             sb.Append("  PartIdentifier: ").Append(PartIdentifier).Append("\n");
+            sb.Append("  ParentIdentifier: ").Append(ParentIdentifier).Append("\n");
             sb.Append("  Opacity: ").Append(Opacity).Append("\n");
             sb.Append("  RenderMode: ").Append(RenderMode).Append("\n");
             sb.Append("  SolidColor: ").Append(SolidColor).Append("\n");
@@ -125,6 +135,11 @@ namespace SimScale.Sdk.Model
                     this.PartIdentifier.Equals(input.PartIdentifier))
                 ) && 
                 (
+                    this.ParentIdentifier == input.ParentIdentifier ||
+                    (this.ParentIdentifier != null &&
+                    this.ParentIdentifier.Equals(input.ParentIdentifier))
+                ) && 
+                (
                     this.Opacity == input.Opacity ||
                     (this.Opacity != null &&
                     this.Opacity.Equals(input.Opacity))
@@ -151,6 +166,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.PartIdentifier != null)
                     hashCode = hashCode * 59 + this.PartIdentifier.GetHashCode();
+                if (this.ParentIdentifier != null)
+                    hashCode = hashCode * 59 + this.ParentIdentifier.GetHashCode();
                 if (this.Opacity != null)
                     hashCode = hashCode * 59 + this.Opacity.GetHashCode();
                 hashCode = hashCode * 59 + this.RenderMode.GetHashCode();

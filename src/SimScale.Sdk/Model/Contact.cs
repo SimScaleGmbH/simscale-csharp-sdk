@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Contact" /> class.
         /// </summary>
         /// <param name="type">Schema name: Contact (required) (default to &quot;CONTACT&quot;).</param>
-        /// <param name="nodeMergingBonded">&lt;p&gt;Allow node merging where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt; (default to false).</param>
+        /// <param name="nodeMergingBonded">&lt;p&gt;Allow node merging for bonded contacts where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt; (default to false).</param>
         /// <param name="connections">connections.</param>
         public Contact(string type = "CONTACT", bool? nodeMergingBonded = default(bool?), List<OneOfContactConnections> connections = default(List<OneOfContactConnections>))
         {
@@ -55,9 +55,9 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;Allow node merging where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt;
+        /// &lt;p&gt;Allow node merging for bonded contacts where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt;
         /// </summary>
-        /// <value>&lt;p&gt;Allow node merging where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt;</value>
+        /// <value>&lt;p&gt;Allow node merging for bonded contacts where possible to increase contact accuracy and solution efficiency. For contact pairs where nodes cannot be merged, linear relations will be used with the defined position tolerance.&lt;/p&gt;</value>
         [DataMember(Name="nodeMergingBonded", EmitDefaultValue=false)]
         public bool? NodeMergingBonded { get; set; }
 

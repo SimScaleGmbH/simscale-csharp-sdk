@@ -33,7 +33,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="pressureField">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="pressureRghField">pressureRghField (default to 0.7M).</param>
-        /// <param name="passiveScalarEquation">passiveScalarEquation (default to 1M).</param>
+        /// <param name="passiveScalarEquation">passiveScalarEquation.</param>
         /// <param name="velocityEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="temperatureEquation">temperatureEquation.</param>
         /// <param name="densityField">densityField.</param>
