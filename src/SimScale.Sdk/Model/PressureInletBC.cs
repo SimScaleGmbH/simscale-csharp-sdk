@@ -42,6 +42,7 @@ namespace SimScale.Sdk.Model
         /// <param name="pressureRgh">pressureRgh.</param>
         /// <param name="gaugePressure">gaugePressure.</param>
         /// <param name="gaugePressureRgh">gaugePressureRgh.</param>
+        /// <param name="turbulence">turbulence.</param>
         /// <param name="temperature">temperature.</param>
         /// <param name="passiveScalars">Please choose a boundary condition for passive scalar (T)..</param>
         /// <param name="phaseFraction">phaseFraction.</param>
@@ -50,7 +51,7 @@ namespace SimScale.Sdk.Model
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), List<PhaseNameAndFixedValuePFBC> associatedPhaseFractions = default(List<PhaseNameAndFixedValuePFBC>), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), OneOfPressureInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTurbulence turbulence = default(OneOfPressureInletBCTurbulence), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), List<PhaseNameAndFixedValuePFBC> associatedPhaseFractions = default(List<PhaseNameAndFixedValuePFBC>), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), OneOfPressureInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureInletBC and cannot be null");
@@ -59,6 +60,7 @@ namespace SimScale.Sdk.Model
             this.PressureRgh = pressureRgh;
             this.GaugePressure = gaugePressure;
             this.GaugePressureRgh = gaugePressureRgh;
+            this.Turbulence = turbulence;
             this.Temperature = temperature;
             this.PassiveScalars = passiveScalars;
             this.PhaseFraction = phaseFraction;
@@ -105,6 +107,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="gaugePressureRgh", EmitDefaultValue=false)]
         public TotalPBC GaugePressureRgh { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Turbulence
+        /// </summary>
+        [DataMember(Name="turbulence", EmitDefaultValue=false)]
+        public OneOfPressureInletBCTurbulence Turbulence { get; set; }
 
         /// <summary>
         /// Gets or Sets Temperature
@@ -170,6 +178,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PressureRgh: ").Append(PressureRgh).Append("\n");
             sb.Append("  GaugePressure: ").Append(GaugePressure).Append("\n");
             sb.Append("  GaugePressureRgh: ").Append(GaugePressureRgh).Append("\n");
+            sb.Append("  Turbulence: ").Append(Turbulence).Append("\n");
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
             sb.Append("  PassiveScalars: ").Append(PassiveScalars).Append("\n");
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
@@ -243,6 +252,11 @@ namespace SimScale.Sdk.Model
                     this.GaugePressureRgh.Equals(input.GaugePressureRgh))
                 ) && 
                 (
+                    this.Turbulence == input.Turbulence ||
+                    (this.Turbulence != null &&
+                    this.Turbulence.Equals(input.Turbulence))
+                ) && 
+                (
                     this.Temperature == input.Temperature ||
                     (this.Temperature != null &&
                     this.Temperature.Equals(input.Temperature))
@@ -307,6 +321,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.GaugePressure.GetHashCode();
                 if (this.GaugePressureRgh != null)
                     hashCode = hashCode * 59 + this.GaugePressureRgh.GetHashCode();
+                if (this.Turbulence != null)
+                    hashCode = hashCode * 59 + this.Turbulence.GetHashCode();
                 if (this.Temperature != null)
                     hashCode = hashCode * 59 + this.Temperature.GetHashCode();
                 if (this.PassiveScalars != null)

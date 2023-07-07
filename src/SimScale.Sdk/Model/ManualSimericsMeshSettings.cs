@@ -39,7 +39,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: ManualSimericsMeshSettings (required) (default to &quot;MANUAL_SETTINGS&quot;).</param>
         /// <param name="refinements">refinements.</param>
         /// <param name="cellSizeSpecification">cellSizeSpecification.</param>
-        /// <param name="enableCADSurfaceMerging">Merge all CAD surfaces that are &lt;em&gt;not&lt;/em&gt; assigned a boundary condition. Applying this setting significantly increases the probability of successful mesh-generation for more complicated geometry; such as when the model is comprised of many smaller, independent surfaces that are in close proximity to each other. (default to false).</param>
+        /// <param name="enableCADSurfaceMerging">&lt;b&gt;Merge CAD surfaces&lt;/b&gt; combines all surfaces of the CAD model that are &lt;i&gt;not&lt;/i&gt; assigned a boundary condition or result control. With this turned on, the probability of successful mesh generation for more complicated geometries significantly increases. If you need to inspect unassigned surfaces separately, turn it off. For more information, please contact Support. (default to true).</param>
         public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), OneOfManualSimericsMeshSettingsCellSizeSpecification cellSizeSpecification = default(OneOfManualSimericsMeshSettingsCellSizeSpecification), bool? enableCADSurfaceMerging = default(bool?))
         {
             // to ensure "type" is required (not null)
@@ -69,9 +69,9 @@ namespace SimScale.Sdk.Model
         public OneOfManualSimericsMeshSettingsCellSizeSpecification CellSizeSpecification { get; set; }
 
         /// <summary>
-        /// Merge all CAD surfaces that are &lt;em&gt;not&lt;/em&gt; assigned a boundary condition. Applying this setting significantly increases the probability of successful mesh-generation for more complicated geometry; such as when the model is comprised of many smaller, independent surfaces that are in close proximity to each other.
+        /// &lt;b&gt;Merge CAD surfaces&lt;/b&gt; combines all surfaces of the CAD model that are &lt;i&gt;not&lt;/i&gt; assigned a boundary condition or result control. With this turned on, the probability of successful mesh generation for more complicated geometries significantly increases. If you need to inspect unassigned surfaces separately, turn it off. For more information, please contact Support.
         /// </summary>
-        /// <value>Merge all CAD surfaces that are &lt;em&gt;not&lt;/em&gt; assigned a boundary condition. Applying this setting significantly increases the probability of successful mesh-generation for more complicated geometry; such as when the model is comprised of many smaller, independent surfaces that are in close proximity to each other.</value>
+        /// <value>&lt;b&gt;Merge CAD surfaces&lt;/b&gt; combines all surfaces of the CAD model that are &lt;i&gt;not&lt;/i&gt; assigned a boundary condition or result control. With this turned on, the probability of successful mesh generation for more complicated geometries significantly increases. If you need to inspect unassigned surfaces separately, turn it off. For more information, please contact Support.</value>
         [DataMember(Name="enableCADSurfaceMerging", EmitDefaultValue=false)]
         public bool? EnableCADSurfaceMerging { get; set; }
 

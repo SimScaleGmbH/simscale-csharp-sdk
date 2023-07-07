@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// &lt;i&gt;Humidity sources&lt;/i&gt; can be used to simulate humidity generation or purification from a volume. Three types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Species source&lt;/b&gt; (recommended)&lt;/li&gt;: Used when the mass of the species entering the fluid domain per second are known.&lt;li&gt;&lt;b&gt;Absolute humidity source&lt;/b&gt;&lt;/li&gt;: Used when the local change of the absolute humidity over time is known.&lt;li&gt;&lt;b&gt;Specific humidity source&lt;/b&gt;&lt;/li&gt;: Similar to absolute humidity source but for the specific humidity.
     /// </summary>
     [DataContract]
-    public partial class SpeciesHumiditySource : OneOfAdvancedConceptsHumiditySources, IEquatable<SpeciesHumiditySource>
+    public partial class SpeciesHumiditySource : IEquatable<SpeciesHumiditySource>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SpeciesHumiditySource" /> class.

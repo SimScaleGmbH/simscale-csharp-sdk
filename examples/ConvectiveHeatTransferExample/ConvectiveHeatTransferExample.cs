@@ -474,10 +474,41 @@ public class ConvectiveHeatTransferExample {
             Console.WriteLine("Simulation run status: " + run?.Status + " - " + run?.Progress);
         }
 
-        // Get result metadata and download results
-        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(projectId, simulationId, runId);
-        SimulationRunResultSolution solutionInfo = (SimulationRunResultSolution) results.Embedded.FindAll(r => r.Type == "SOLUTION_FIELD")[0];
+        // Get result metadata and download results (response is paginated)
+        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(
+            projectId: projectId,
+            simulationId: simulationId,
+            runId: runId,
+            page: 1,
+            limit: 100,
+            type: "SOLUTION_FIELD"
+        );
 
+        // Download solution field
+        SimulationRunResultSolution solutionInfo = (SimulationRunResultSolution) results.Embedded[0];
+        var solutionRequest = new RestRequest(solutionInfo.Download.Url, Method.GET);
+        solutionRequest.AddHeader(API_KEY_HEADER, API_KEY);
+        using (var writer = File.OpenWrite(@"solution.zip"))
+        {
+            solutionRequest.ResponseWriter = responseStream =>
+            {
+                using (responseStream)
+                {
+                    responseStream.CopyTo(writer);
+                }
+            };
+            restClient.DownloadData(solutionRequest);
+        }
+        using (var zip = System.IO.Compression.ZipFile.OpenRead(@"solution.zip"))
+        {
+            Console.WriteLine("Result ZIP file content:");
+            foreach (var entry in zip.Entries)
+            {
+                Console.WriteLine(entry);
+            }
+        }
+
+        // Create report
         var reportRequest = new ReportRequest(
             name: "Report 1",
             description: "Simulation report",

@@ -69,6 +69,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: FrequencyAnalysis (required) (default to &quot;FREQUENCY_ANALYSIS&quot;).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
+        /// <param name="connectors">connectors.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
@@ -78,11 +79,12 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.FIRST).</param>
-        public FrequencyAnalysis(string type = "FREQUENCY_ANALYSIS", List<Contact> connectionGroups = default(List<Contact>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfFrequencyAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfFrequencyAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public FrequencyAnalysis(string type = "FREQUENCY_ANALYSIS", List<Contact> connectionGroups = default(List<Contact>), List<PinConnector> connectors = default(List<PinConnector>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfFrequencyAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfFrequencyAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FrequencyAnalysis and cannot be null");
             this.ConnectionGroups = connectionGroups;
+            this.Connectors = connectors;
             this.ElementTechnology = elementTechnology;
             this.Model = model;
             this.Materials = materials;
@@ -106,6 +108,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="connectionGroups", EmitDefaultValue=false)]
         public List<Contact> ConnectionGroups { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Connectors
+        /// </summary>
+        [DataMember(Name="connectors", EmitDefaultValue=false)]
+        public List<PinConnector> Connectors { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementTechnology
@@ -165,6 +173,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class FrequencyAnalysis {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ConnectionGroups: ").Append(ConnectionGroups).Append("\n");
+            sb.Append("  Connectors: ").Append(Connectors).Append("\n");
             sb.Append("  ElementTechnology: ").Append(ElementTechnology).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
@@ -218,6 +227,12 @@ namespace SimScale.Sdk.Model
                     this.ConnectionGroups != null &&
                     input.ConnectionGroups != null &&
                     this.ConnectionGroups.SequenceEqual(input.ConnectionGroups)
+                ) && 
+                (
+                    this.Connectors == input.Connectors ||
+                    this.Connectors != null &&
+                    input.Connectors != null &&
+                    this.Connectors.SequenceEqual(input.Connectors)
                 ) && 
                 (
                     this.ElementTechnology == input.ElementTechnology ||
@@ -280,6 +295,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.ConnectionGroups != null)
                     hashCode = hashCode * 59 + this.ConnectionGroups.GetHashCode();
+                if (this.Connectors != null)
+                    hashCode = hashCode * 59 + this.Connectors.GetHashCode();
                 if (this.ElementTechnology != null)
                     hashCode = hashCode * 59 + this.ElementTechnology.GetHashCode();
                 if (this.Model != null)

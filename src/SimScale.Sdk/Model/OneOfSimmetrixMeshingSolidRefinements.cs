@@ -28,6 +28,8 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(RegionRefinementWithLength), "REGION_LENGTH")]
+    [JsonSubtypes.KnownSubType(typeof(SurfaceCustomSizing), "SURFACE_CUSTOM_SIZING")]
+    [JsonSubtypes.KnownSubType(typeof(VolumeCustomSizing), "VOLUME_CUSTOM_SIZING")]
     [JsonSubtypes.KnownSubType(typeof(SimmetrixLocalSizingRefinement), "SIMMETRIX_LOCAL_SIZING_V10")]
     [JsonSubtypes.KnownSubType(typeof(SimmetrixBoundaryLayerRefinement), "SIMMETRIX_BOUNDARY_LAYER_V13")]
     [JsonSubtypes.KnownSubType(typeof(SimmetrixSweptMeshRefinement), "SIMMETRIX_SWEPT_MESH_REFINEMENT")]

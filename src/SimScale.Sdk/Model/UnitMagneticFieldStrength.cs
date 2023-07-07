@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// DimensionalSpecificHumidityRate
+    /// UnitMagneticFieldStrength
     /// </summary>
     [DataContract]
-    public partial class DimensionalSpecificHumidityRate : IEquatable<DimensionalSpecificHumidityRate>
+    public partial class UnitMagneticFieldStrength : IEquatable<UnitMagneticFieldStrength>
     {
         /// <summary>
         /// Defines Unit
@@ -35,22 +35,16 @@ namespace SimScale.Sdk.Model
         public enum UnitEnum
         {
             /// <summary>
-            /// Enum _1S for value: 1/s
+            /// Enum M for value: A/m
             /// </summary>
-            [EnumMember(Value = "1/s")]
-            _1S = 1,
+            [EnumMember(Value = "A/m")]
+            M = 1,
 
             /// <summary>
-            /// Enum Gkgs for value: g/(kg·s)
+            /// Enum In for value: A/in
             /// </summary>
-            [EnumMember(Value = "g/(kg·s)")]
-            Gkgs = 2,
-
-            /// <summary>
-            /// Enum Grlbs for value: gr/(lb·s)
-            /// </summary>
-            [EnumMember(Value = "gr/(lb·s)")]
-            Grlbs = 3
+            [EnumMember(Value = "A/in")]
+            In = 2
 
         }
 
@@ -58,21 +52,16 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Unit
         /// </summary>
         [DataMember(Name="unit", EmitDefaultValue=false)]
-        public UnitEnum Unit { get; set; }
+        public UnitEnum? Unit { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalSpecificHumidityRate" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected DimensionalSpecificHumidityRate() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalSpecificHumidityRate" /> class.
+        /// Initializes a new instance of the <see cref="UnitMagneticFieldStrength" /> class.
         /// </summary>
         /// <param name="value">value.</param>
-        /// <param name="unit">unit (required).</param>
-        public DimensionalSpecificHumidityRate(decimal? value = default(decimal?), UnitEnum unit = default(UnitEnum))
+        /// <param name="unit">unit.</param>
+        public UnitMagneticFieldStrength(decimal? value = default(decimal?), UnitEnum? unit = default(UnitEnum?))
         {
-            this.Unit = unit;
             this.Value = value;
+            this.Unit = unit;
         }
         
         /// <summary>
@@ -88,7 +77,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DimensionalSpecificHumidityRate {\n");
+            sb.Append("class UnitMagneticFieldStrength {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
@@ -111,15 +100,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DimensionalSpecificHumidityRate);
+            return this.Equals(input as UnitMagneticFieldStrength);
         }
 
         /// <summary>
-        /// Returns true if DimensionalSpecificHumidityRate instances are equal
+        /// Returns true if UnitMagneticFieldStrength instances are equal
         /// </summary>
-        /// <param name="input">Instance of DimensionalSpecificHumidityRate to be compared</param>
+        /// <param name="input">Instance of UnitMagneticFieldStrength to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DimensionalSpecificHumidityRate input)
+        public bool Equals(UnitMagneticFieldStrength input)
         {
             if (input == null)
                 return false;

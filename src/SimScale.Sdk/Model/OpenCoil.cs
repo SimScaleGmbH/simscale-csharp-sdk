@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// OpenCoil
     /// </summary>
     [DataContract]
-    public partial class OpenCoil : IEquatable<OpenCoil>
+    public partial class OpenCoil : OneOfCoilTopology, IEquatable<OpenCoil>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenCoil" /> class.
@@ -37,12 +37,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="OpenCoil" /> class.
         /// </summary>
         /// <param name="type">Schema name: OpenCoil (required) (default to &quot;OPEN_COIL&quot;).</param>
+        /// <param name="bodies">bodies.</param>
         /// <param name="entryPort">entryPort.</param>
         /// <param name="exitPort">exitPort.</param>
-        public OpenCoil(string type = "OPEN_COIL", TopologicalReference entryPort = default(TopologicalReference), TopologicalReference exitPort = default(TopologicalReference))
+        public OpenCoil(string type = "OPEN_COIL", TopologicalReference bodies = default(TopologicalReference), TopologicalReference entryPort = default(TopologicalReference), TopologicalReference exitPort = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for OpenCoil and cannot be null");
+            this.Bodies = bodies;
             this.EntryPort = entryPort;
             this.ExitPort = exitPort;
         }
@@ -53,6 +55,12 @@ namespace SimScale.Sdk.Model
         /// <value>Schema name: OpenCoil</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bodies
+        /// </summary>
+        [DataMember(Name="bodies", EmitDefaultValue=false)]
+        public TopologicalReference Bodies { get; set; }
 
         /// <summary>
         /// Gets or Sets EntryPort
@@ -75,6 +83,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class OpenCoil {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Bodies: ").Append(Bodies).Append("\n");
             sb.Append("  EntryPort: ").Append(EntryPort).Append("\n");
             sb.Append("  ExitPort: ").Append(ExitPort).Append("\n");
             sb.Append("}\n");
@@ -117,6 +126,11 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.Bodies == input.Bodies ||
+                    (this.Bodies != null &&
+                    this.Bodies.Equals(input.Bodies))
+                ) && 
+                (
                     this.EntryPort == input.EntryPort ||
                     (this.EntryPort != null &&
                     this.EntryPort.Equals(input.EntryPort))
@@ -139,6 +153,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Bodies != null)
+                    hashCode = hashCode * 59 + this.Bodies.GetHashCode();
                 if (this.EntryPort != null)
                     hashCode = hashCode * 59 + this.EntryPort.GetHashCode();
                 if (this.ExitPort != null)

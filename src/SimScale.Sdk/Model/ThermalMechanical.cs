@@ -72,6 +72,7 @@ namespace SimScale.Sdk.Model
         /// <param name="inertiaEffect">&lt;p&gt;Select if inertia effects should be considered in the analysis. If high loading accelerations or impacts are present then &lt;b&gt;dynamic&lt;/b&gt; is the right choice for this parameter. If the dynamic effects are negligible, &lt;b&gt;static&lt;/b&gt; should be selected.&lt;/p&gt; (default to &quot;STATIC&quot;).</param>
         /// <param name="nonLinearAnalysis">&lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt; (default to false).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
+        /// <param name="connectors">connectors.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
@@ -81,7 +82,7 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.NONE).</param>
-        public ThermalMechanical(string type = "THERMAL_MECHANICAL", OneOfThermalMechanicalTimeDependency timeDependency = default(OneOfThermalMechanicalTimeDependency), string inertiaEffect = default(string), bool? nonLinearAnalysis = default(bool?), List<OneOfThermalMechanicalConnectionGroups> connectionGroups = default(List<OneOfThermalMechanicalConnectionGroups>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfThermalMechanicalBoundaryConditions> boundaryConditions = default(List<OneOfThermalMechanicalBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public ThermalMechanical(string type = "THERMAL_MECHANICAL", OneOfThermalMechanicalTimeDependency timeDependency = default(OneOfThermalMechanicalTimeDependency), string inertiaEffect = default(string), bool? nonLinearAnalysis = default(bool?), List<OneOfThermalMechanicalConnectionGroups> connectionGroups = default(List<OneOfThermalMechanicalConnectionGroups>), List<PinConnector> connectors = default(List<PinConnector>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfThermalMechanicalBoundaryConditions> boundaryConditions = default(List<OneOfThermalMechanicalBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ThermalMechanical and cannot be null");
@@ -89,6 +90,7 @@ namespace SimScale.Sdk.Model
             this.InertiaEffect = inertiaEffect;
             this.NonLinearAnalysis = nonLinearAnalysis;
             this.ConnectionGroups = connectionGroups;
+            this.Connectors = connectors;
             this.ElementTechnology = elementTechnology;
             this.Model = model;
             this.Materials = materials;
@@ -132,6 +134,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="connectionGroups", EmitDefaultValue=false)]
         public List<OneOfThermalMechanicalConnectionGroups> ConnectionGroups { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Connectors
+        /// </summary>
+        [DataMember(Name="connectors", EmitDefaultValue=false)]
+        public List<PinConnector> Connectors { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementTechnology
@@ -194,6 +202,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  InertiaEffect: ").Append(InertiaEffect).Append("\n");
             sb.Append("  NonLinearAnalysis: ").Append(NonLinearAnalysis).Append("\n");
             sb.Append("  ConnectionGroups: ").Append(ConnectionGroups).Append("\n");
+            sb.Append("  Connectors: ").Append(Connectors).Append("\n");
             sb.Append("  ElementTechnology: ").Append(ElementTechnology).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
@@ -264,6 +273,12 @@ namespace SimScale.Sdk.Model
                     this.ConnectionGroups.SequenceEqual(input.ConnectionGroups)
                 ) && 
                 (
+                    this.Connectors == input.Connectors ||
+                    this.Connectors != null &&
+                    input.Connectors != null &&
+                    this.Connectors.SequenceEqual(input.Connectors)
+                ) && 
+                (
                     this.ElementTechnology == input.ElementTechnology ||
                     (this.ElementTechnology != null &&
                     this.ElementTechnology.Equals(input.ElementTechnology))
@@ -330,6 +345,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.NonLinearAnalysis.GetHashCode();
                 if (this.ConnectionGroups != null)
                     hashCode = hashCode * 59 + this.ConnectionGroups.GetHashCode();
+                if (this.Connectors != null)
+                    hashCode = hashCode * 59 + this.Connectors.GetHashCode();
                 if (this.ElementTechnology != null)
                     hashCode = hashCode * 59 + this.ElementTechnology.GetHashCode();
                 if (this.Model != null)

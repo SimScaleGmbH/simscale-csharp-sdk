@@ -65,6 +65,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: IncompressibleMaterial (required) (default to &quot;INCOMPRESSIBLE&quot;).</param>
         /// <param name="name">name.</param>
+        /// <param name="fluidType">fluidType.</param>
         /// <param name="associatedPhase">&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt; (default to AssociatedPhaseEnum._0).</param>
         /// <param name="viscosityModel">viscosityModel.</param>
         /// <param name="density">density.</param>
@@ -79,11 +80,12 @@ namespace SimScale.Sdk.Model
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public IncompressibleMaterial(string type = "INCOMPRESSIBLE", string name = default(string), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), OneOfIncompressibleMaterialViscosityModel viscosityModel = default(OneOfIncompressibleMaterialViscosityModel), DimensionalDensity density = default(DimensionalDensity), DimensionalThermalExpansionRate thermalExpansionCoefficient = default(DimensionalThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature), decimal? laminarPrandtlNumber = default(decimal?), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalMolarMass molarWeight = default(DimensionalMolarMass), Cavitation cavitation = default(Cavitation), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public IncompressibleMaterial(string type = "INCOMPRESSIBLE", string name = default(string), OneOfIncompressibleMaterialFluidType fluidType = default(OneOfIncompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), OneOfIncompressibleMaterialViscosityModel viscosityModel = default(OneOfIncompressibleMaterialViscosityModel), DimensionalDensity density = default(DimensionalDensity), DimensionalThermalExpansionRate thermalExpansionCoefficient = default(DimensionalThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature), decimal? laminarPrandtlNumber = default(decimal?), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalMolarMass molarWeight = default(DimensionalMolarMass), Cavitation cavitation = default(Cavitation), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IncompressibleMaterial and cannot be null");
             this.Name = name;
+            this.FluidType = fluidType;
             this.AssociatedPhase = associatedPhase;
             this.ViscosityModel = viscosityModel;
             this.Density = density;
@@ -112,6 +114,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FluidType
+        /// </summary>
+        [DataMember(Name="fluidType", EmitDefaultValue=false)]
+        public OneOfIncompressibleMaterialFluidType FluidType { get; set; }
 
         /// <summary>
         /// Gets or Sets ViscosityModel
@@ -203,6 +211,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class IncompressibleMaterial {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  FluidType: ").Append(FluidType).Append("\n");
             sb.Append("  AssociatedPhase: ").Append(AssociatedPhase).Append("\n");
             sb.Append("  ViscosityModel: ").Append(ViscosityModel).Append("\n");
             sb.Append("  Density: ").Append(Density).Append("\n");
@@ -260,6 +269,11 @@ namespace SimScale.Sdk.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.FluidType == input.FluidType ||
+                    (this.FluidType != null &&
+                    this.FluidType.Equals(input.FluidType))
                 ) && 
                 (
                     this.AssociatedPhase == input.AssociatedPhase ||
@@ -346,6 +360,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.FluidType != null)
+                    hashCode = hashCode * 59 + this.FluidType.GetHashCode();
                 hashCode = hashCode * 59 + this.AssociatedPhase.GetHashCode();
                 if (this.ViscosityModel != null)
                     hashCode = hashCode * 59 + this.ViscosityModel.GetHashCode();

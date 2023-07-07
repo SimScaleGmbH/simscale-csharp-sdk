@@ -64,7 +64,6 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="EmbeddedBoundary" /> class.
         /// </summary>
         /// <param name="type">Schema name: EmbeddedBoundary (required) (default to &quot;EMBEDDED_BOUNDARY&quot;).</param>
-        /// <param name="isInternalFlow">If active it indicates that the fluid region is contained within the uploaded geometry. (default to true).</param>
         /// <param name="allowExternalFlow">This toggle allows you to create an additional external fluid domain via a Cartesian box. Enable this toggle if you want to simulate for example natural convection around your system and the external flow domain is not represented in your CAD model as a solid body. (default to false).</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
@@ -81,11 +80,10 @@ namespace SimScale.Sdk.Model
         /// <param name="enableJouleHeating">Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, Realizable k-epsilon ,&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
-        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? isInternalFlow = default(bool?), bool? allowExternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), OneOfEmbeddedBoundaryExternalFlowBoundaryCondition externalFlowBoundaryCondition = default(OneOfEmbeddedBoundaryExternalFlowBoundaryCondition), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), EmbeddedBoundaryMeshing embeddedBoundaryMeshing = default(EmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency))
+        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? allowExternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), OneOfEmbeddedBoundaryExternalFlowBoundaryCondition externalFlowBoundaryCondition = default(OneOfEmbeddedBoundaryExternalFlowBoundaryCondition), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), EmbeddedBoundaryMeshing embeddedBoundaryMeshing = default(EmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for EmbeddedBoundary and cannot be null");
-            this.IsInternalFlow = isInternalFlow;
             this.AllowExternalFlow = allowExternalFlow;
             this.Model = model;
             this.Materials = materials;
@@ -110,13 +108,6 @@ namespace SimScale.Sdk.Model
         /// <value>Schema name: EmbeddedBoundary</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// If active it indicates that the fluid region is contained within the uploaded geometry.
-        /// </summary>
-        /// <value>If active it indicates that the fluid region is contained within the uploaded geometry.</value>
-        [DataMember(Name="isInternalFlow", EmitDefaultValue=false)]
-        public bool? IsInternalFlow { get; set; }
 
         /// <summary>
         /// This toggle allows you to create an additional external fluid domain via a Cartesian box. Enable this toggle if you want to simulate for example natural convection around your system and the external flow domain is not represented in your CAD model as a solid body.
@@ -221,7 +212,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class EmbeddedBoundary {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  IsInternalFlow: ").Append(IsInternalFlow).Append("\n");
             sb.Append("  AllowExternalFlow: ").Append(AllowExternalFlow).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
@@ -276,11 +266,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.IsInternalFlow == input.IsInternalFlow ||
-                    (this.IsInternalFlow != null &&
-                    this.IsInternalFlow.Equals(input.IsInternalFlow))
                 ) && 
                 (
                     this.AllowExternalFlow == input.AllowExternalFlow ||
@@ -375,8 +360,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.IsInternalFlow != null)
-                    hashCode = hashCode * 59 + this.IsInternalFlow.GetHashCode();
                 if (this.AllowExternalFlow != null)
                     hashCode = hashCode * 59 + this.AllowExternalFlow.GetHashCode();
                 if (this.Model != null)

@@ -37,10 +37,10 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(WindComfort), "WIND_COMFORT")]
     [JsonSubtypes.KnownSubType(typeof(Compressible), "COMPRESSIBLE")]
     [JsonSubtypes.KnownSubType(typeof(ConvectiveHeatTransfer), "CONVECTIVE_HEAT_TRANSFER")]
-    [JsonSubtypes.KnownSubType(typeof(ConjugateHeatTransfer), "CONJUGATE_HEAT_TRANSFER")]
     [JsonSubtypes.KnownSubType(typeof(CoupledConjugateHeatTransfer), "COUPLED_CONJUGATE_HEAT_TRANSFER")]
     [JsonSubtypes.KnownSubType(typeof(EmbeddedBoundary), "EMBEDDED_BOUNDARY")]
     [JsonSubtypes.KnownSubType(typeof(Multiphase), "MULTIPHASE")]
+    [JsonSubtypes.KnownSubType(typeof(ConjugateHeatTransfer), "CONJUGATE_HEAT_TRANSFER")]
     [JsonSubtypes.KnownSubType(typeof(HarmonicAnalysis), "HARMONIC_ANALYSIS")]
     [JsonSubtypes.KnownSubType(typeof(FrequencyAnalysis), "FREQUENCY_ANALYSIS")]
     public interface Analysis

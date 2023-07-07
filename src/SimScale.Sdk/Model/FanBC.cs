@@ -42,12 +42,13 @@ namespace SimScale.Sdk.Model
         /// <param name="pressureRgh">pressureRgh.</param>
         /// <param name="gaugePressure">gaugePressure.</param>
         /// <param name="gaugePressureRgh">gaugePressureRgh.</param>
+        /// <param name="turbulence">turbulence.</param>
         /// <param name="temperature">temperature.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), FixedValueTBC temperature = default(FixedValueTBC), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), OneOfFanBCTurbulence turbulence = default(OneOfFanBCTurbulence), FixedValueTBC temperature = default(FixedValueTBC), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanBC and cannot be null");
@@ -56,6 +57,7 @@ namespace SimScale.Sdk.Model
             this.PressureRgh = pressureRgh;
             this.GaugePressure = gaugePressure;
             this.GaugePressureRgh = gaugePressureRgh;
+            this.Turbulence = turbulence;
             this.Temperature = temperature;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
@@ -101,6 +103,12 @@ namespace SimScale.Sdk.Model
         public FanPBC GaugePressureRgh { get; set; }
 
         /// <summary>
+        /// Gets or Sets Turbulence
+        /// </summary>
+        [DataMember(Name="turbulence", EmitDefaultValue=false)]
+        public OneOfFanBCTurbulence Turbulence { get; set; }
+
+        /// <summary>
         /// Gets or Sets Temperature
         /// </summary>
         [DataMember(Name="temperature", EmitDefaultValue=false)]
@@ -144,6 +152,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PressureRgh: ").Append(PressureRgh).Append("\n");
             sb.Append("  GaugePressure: ").Append(GaugePressure).Append("\n");
             sb.Append("  GaugePressureRgh: ").Append(GaugePressureRgh).Append("\n");
+            sb.Append("  Turbulence: ").Append(Turbulence).Append("\n");
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
@@ -214,6 +223,11 @@ namespace SimScale.Sdk.Model
                     this.GaugePressureRgh.Equals(input.GaugePressureRgh))
                 ) && 
                 (
+                    this.Turbulence == input.Turbulence ||
+                    (this.Turbulence != null &&
+                    this.Turbulence.Equals(input.Turbulence))
+                ) && 
+                (
                     this.Temperature == input.Temperature ||
                     (this.Temperature != null &&
                     this.Temperature.Equals(input.Temperature))
@@ -261,6 +275,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.GaugePressure.GetHashCode();
                 if (this.GaugePressureRgh != null)
                     hashCode = hashCode * 59 + this.GaugePressureRgh.GetHashCode();
+                if (this.Turbulence != null)
+                    hashCode = hashCode * 59 + this.Turbulence.GetHashCode();
                 if (this.Temperature != null)
                     hashCode = hashCode * 59 + this.Temperature.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)

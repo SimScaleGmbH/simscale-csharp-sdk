@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// DimensionalAbsoluteHumidityRate
+    /// DimensionalStiffness
     /// </summary>
     [DataContract]
-    public partial class DimensionalAbsoluteHumidityRate : IEquatable<DimensionalAbsoluteHumidityRate>
+    public partial class DimensionalStiffness : IEquatable<DimensionalStiffness>
     {
         /// <summary>
         /// Defines Unit
@@ -35,16 +35,16 @@ namespace SimScale.Sdk.Model
         public enum UnitEnum
         {
             /// <summary>
-            /// Enum Kgms for value: kg/(m³·s)
+            /// Enum NM for value: N/m
             /// </summary>
-            [EnumMember(Value = "kg/(m³·s)")]
-            Kgms = 1,
+            [EnumMember(Value = "N/m")]
+            NM = 1,
 
             /// <summary>
-            /// Enum Lbins for value: lb/(in³·s)
+            /// Enum LbfIn for value: lbf/in
             /// </summary>
-            [EnumMember(Value = "lb/(in³·s)")]
-            Lbins = 2
+            [EnumMember(Value = "lbf/in")]
+            LbfIn = 2
 
         }
 
@@ -54,16 +54,16 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="unit", EmitDefaultValue=false)]
         public UnitEnum Unit { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalAbsoluteHumidityRate" /> class.
+        /// Initializes a new instance of the <see cref="DimensionalStiffness" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DimensionalAbsoluteHumidityRate() { }
+        protected DimensionalStiffness() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalAbsoluteHumidityRate" /> class.
+        /// Initializes a new instance of the <see cref="DimensionalStiffness" /> class.
         /// </summary>
         /// <param name="value">value.</param>
         /// <param name="unit">unit (required).</param>
-        public DimensionalAbsoluteHumidityRate(decimal? value = default(decimal?), UnitEnum unit = default(UnitEnum))
+        public DimensionalStiffness(decimal? value = default(decimal?), UnitEnum unit = default(UnitEnum))
         {
             this.Unit = unit;
             this.Value = value;
@@ -82,7 +82,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DimensionalAbsoluteHumidityRate {\n");
+            sb.Append("class DimensionalStiffness {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
@@ -105,15 +105,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DimensionalAbsoluteHumidityRate);
+            return this.Equals(input as DimensionalStiffness);
         }
 
         /// <summary>
-        /// Returns true if DimensionalAbsoluteHumidityRate instances are equal
+        /// Returns true if DimensionalStiffness instances are equal
         /// </summary>
-        /// <param name="input">Instance of DimensionalAbsoluteHumidityRate to be compared</param>
+        /// <param name="input">Instance of DimensionalStiffness to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DimensionalAbsoluteHumidityRate input)
+        public bool Equals(DimensionalStiffness input)
         {
             if (input == null)
                 return false;

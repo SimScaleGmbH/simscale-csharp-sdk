@@ -70,6 +70,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: StaticAnalysis (required) (default to &quot;STATIC_ANALYSIS&quot;).</param>
         /// <param name="nonLinearAnalysis">&lt;p&gt;Choose if your analysis should feature any kind of &lt;b&gt;nonlinearity&lt;/b&gt; like &lt;b&gt;physical contacts, nonlinear materials&lt;/b&gt; as hyperelasticity or plasticity or &lt;b&gt;large rotations&lt;/b&gt; and &lt;b&gt;large deformations, temperature dependant material properties&lt;/b&gt; or &lt;b&gt;temperature dependant boundary conditions&lt;/b&gt;. For a &lt;b&gt;linear analysis&lt;/b&gt; none of those nonlinearities are available.&lt;/p&gt; (default to false).</param>
         /// <param name="connectionGroups">connectionGroups.</param>
+        /// <param name="connectors">connectors.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
@@ -79,12 +80,13 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.NONE).</param>
-        public StaticAnalysis(string type = "STATIC_ANALYSIS", bool? nonLinearAnalysis = default(bool?), List<OneOfStaticAnalysisConnectionGroups> connectionGroups = default(List<OneOfStaticAnalysisConnectionGroups>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfStaticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfStaticAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public StaticAnalysis(string type = "STATIC_ANALYSIS", bool? nonLinearAnalysis = default(bool?), List<OneOfStaticAnalysisConnectionGroups> connectionGroups = default(List<OneOfStaticAnalysisConnectionGroups>), List<PinConnector> connectors = default(List<PinConnector>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfStaticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfStaticAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for StaticAnalysis and cannot be null");
             this.NonLinearAnalysis = nonLinearAnalysis;
             this.ConnectionGroups = connectionGroups;
+            this.Connectors = connectors;
             this.ElementTechnology = elementTechnology;
             this.Model = model;
             this.Materials = materials;
@@ -115,6 +117,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="connectionGroups", EmitDefaultValue=false)]
         public List<OneOfStaticAnalysisConnectionGroups> ConnectionGroups { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Connectors
+        /// </summary>
+        [DataMember(Name="connectors", EmitDefaultValue=false)]
+        public List<PinConnector> Connectors { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementTechnology
@@ -175,6 +183,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  NonLinearAnalysis: ").Append(NonLinearAnalysis).Append("\n");
             sb.Append("  ConnectionGroups: ").Append(ConnectionGroups).Append("\n");
+            sb.Append("  Connectors: ").Append(Connectors).Append("\n");
             sb.Append("  ElementTechnology: ").Append(ElementTechnology).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
@@ -233,6 +242,12 @@ namespace SimScale.Sdk.Model
                     this.ConnectionGroups != null &&
                     input.ConnectionGroups != null &&
                     this.ConnectionGroups.SequenceEqual(input.ConnectionGroups)
+                ) && 
+                (
+                    this.Connectors == input.Connectors ||
+                    this.Connectors != null &&
+                    input.Connectors != null &&
+                    this.Connectors.SequenceEqual(input.Connectors)
                 ) && 
                 (
                     this.ElementTechnology == input.ElementTechnology ||
@@ -297,6 +312,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.NonLinearAnalysis.GetHashCode();
                 if (this.ConnectionGroups != null)
                     hashCode = hashCode * 59 + this.ConnectionGroups.GetHashCode();
+                if (this.Connectors != null)
+                    hashCode = hashCode * 59 + this.Connectors.GetHashCode();
                 if (this.ElementTechnology != null)
                     hashCode = hashCode * 59 + this.ElementTechnology.GetHashCode();
                 if (this.Model != null)

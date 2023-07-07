@@ -39,6 +39,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">This boundary condition imposes a known &lt;b&gt;velocity&lt;/b&gt;-based constraint at an inlet.  Schema name: VelocityInletBC (required) (default to &quot;VELOCITY_INLET_V3&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="velocity">velocity.</param>
+        /// <param name="turbulence">turbulence.</param>
         /// <param name="temperature">temperature.</param>
         /// <param name="passiveScalars">Please choose a boundary condition for passive scalar (T)..</param>
         /// <param name="phaseFraction">phaseFraction.</param>
@@ -49,12 +50,13 @@ namespace SimScale.Sdk.Model
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public VelocityInletBC(string type = "VELOCITY_INLET_V3", string name = default(string), OneOfVelocityInletBCVelocity velocity = default(OneOfVelocityInletBCVelocity), OneOfVelocityInletBCTemperature temperature = default(OneOfVelocityInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), List<PhaseNameAndFixedValuePFBC> associatedPhaseFractions = default(List<PhaseNameAndFixedValuePFBC>), OneOfVelocityInletBCTurbulenceIntensity turbulenceIntensity = default(OneOfVelocityInletBCTurbulenceIntensity), OneOfVelocityInletBCDissipationType dissipationType = default(OneOfVelocityInletBCDissipationType), OneOfVelocityInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityInletBCNetRadiativeHeatFlux), OneOfVelocityInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfVelocityInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public VelocityInletBC(string type = "VELOCITY_INLET_V3", string name = default(string), OneOfVelocityInletBCVelocity velocity = default(OneOfVelocityInletBCVelocity), OneOfVelocityInletBCTurbulence turbulence = default(OneOfVelocityInletBCTurbulence), OneOfVelocityInletBCTemperature temperature = default(OneOfVelocityInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), List<PhaseNameAndFixedValuePFBC> associatedPhaseFractions = default(List<PhaseNameAndFixedValuePFBC>), OneOfVelocityInletBCTurbulenceIntensity turbulenceIntensity = default(OneOfVelocityInletBCTurbulenceIntensity), OneOfVelocityInletBCDissipationType dissipationType = default(OneOfVelocityInletBCDissipationType), OneOfVelocityInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityInletBCNetRadiativeHeatFlux), OneOfVelocityInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfVelocityInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VelocityInletBC and cannot be null");
             this.Name = name;
             this.Velocity = velocity;
+            this.Turbulence = turbulence;
             this.Temperature = temperature;
             this.PassiveScalars = passiveScalars;
             this.PhaseFraction = phaseFraction;
@@ -85,6 +87,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="velocity", EmitDefaultValue=false)]
         public OneOfVelocityInletBCVelocity Velocity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Turbulence
+        /// </summary>
+        [DataMember(Name="turbulence", EmitDefaultValue=false)]
+        public OneOfVelocityInletBCTurbulence Turbulence { get; set; }
 
         /// <summary>
         /// Gets or Sets Temperature
@@ -159,6 +167,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Velocity: ").Append(Velocity).Append("\n");
+            sb.Append("  Turbulence: ").Append(Turbulence).Append("\n");
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
             sb.Append("  PassiveScalars: ").Append(PassiveScalars).Append("\n");
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
@@ -217,6 +226,11 @@ namespace SimScale.Sdk.Model
                     this.Velocity == input.Velocity ||
                     (this.Velocity != null &&
                     this.Velocity.Equals(input.Velocity))
+                ) && 
+                (
+                    this.Turbulence == input.Turbulence ||
+                    (this.Turbulence != null &&
+                    this.Turbulence.Equals(input.Turbulence))
                 ) && 
                 (
                     this.Temperature == input.Temperature ||
@@ -287,6 +301,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Velocity != null)
                     hashCode = hashCode * 59 + this.Velocity.GetHashCode();
+                if (this.Turbulence != null)
+                    hashCode = hashCode * 59 + this.Turbulence.GetHashCode();
                 if (this.Temperature != null)
                     hashCode = hashCode * 59 + this.Temperature.GetHashCode();
                 if (this.PassiveScalars != null)

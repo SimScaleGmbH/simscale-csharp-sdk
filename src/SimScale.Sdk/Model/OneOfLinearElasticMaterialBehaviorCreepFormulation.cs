@@ -24,14 +24,13 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfLinearElasticMaterialBehaviorCreepFormulation
+    /// &lt;p&gt;Define the Creep formulation. Three different formulations are available: &lt;b&gt;Norton&lt;/b&gt;, &lt;b&gt;Strain Hardening&lt;/b&gt; or &lt;b&gt;Time Hardening&lt;/b&gt;.&lt;br&gt;They are based on the &lt;b&gt;Power Law&lt;/b&gt;:&lt;br&gt;&lt;b&gt;&amp;epsilon;&amp;#775 &#x3D; m*A*&amp;sigma;&lt;sup&gt;n&lt;/sup&gt;*t&lt;sup&gt;m-1&lt;/sup&gt;&lt;/b&gt;&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(NortonCreepFormulation), "NORTON")]
     [JsonSubtypes.KnownSubType(typeof(NoCreepFormulation), "NO_CREEP")]
     [JsonSubtypes.KnownSubType(typeof(StrainHardeningCreepFormulation), "STRAIN_HARDENING")]
     [JsonSubtypes.KnownSubType(typeof(TimeHardeningCreepFormulation), "TIME_HARDENING")]
-    [JsonSubtypes.KnownSubType(typeof(GarofaloCreepFormulation), "GAROFALO")]
     public interface OneOfLinearElasticMaterialBehaviorCreepFormulation
     {
         /// <summary>

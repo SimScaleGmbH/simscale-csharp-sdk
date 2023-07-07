@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AutomaticMeshSizingSimmetrix
     /// </summary>
     [DataContract]
-    public partial class AutomaticMeshSizingSimmetrix : OneOfSimmetrixMeshingFluidSizing, OneOfSimmetrixMeshingSolidSizing, IEquatable<AutomaticMeshSizingSimmetrix>
+    public partial class AutomaticMeshSizingSimmetrix : OneOfInsideVolumeCustomSizingSizing, OneOfSimmetrixMeshingFluidSizing, OneOfSimmetrixMeshingSolidSizing, OneOfSurfaceCustomSizingSizing, IEquatable<AutomaticMeshSizingSimmetrix>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticMeshSizingSimmetrix" /> class.

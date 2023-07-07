@@ -219,7 +219,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
@@ -239,7 +239,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
@@ -284,9 +284,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        SimulationSpec GetSimulationRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "17.0");
+        SimulationSpec GetSimulationRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "18.0");
 
         /// <summary>
         /// Get the simulation run spec
@@ -298,9 +298,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        ApiResponse<SimulationSpec> GetSimulationRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "17.0");
+        ApiResponse<SimulationSpec> GetSimulationRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "18.0");
         /// <summary>
         /// Get the simulation sub-run results
         /// </summary>
@@ -315,7 +315,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <returns>SimulationRunResults</returns>
@@ -335,7 +335,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <returns>ApiResponse of SimulationRunResults</returns>
@@ -351,9 +351,9 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
         /// <param name="subRunId">The simulation sub-run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        SimulationSpec GetSimulationRunSubRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "17.0");
+        SimulationSpec GetSimulationRunSubRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "18.0");
 
         /// <summary>
         /// Get the simulation sub-run spec
@@ -366,9 +366,9 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
         /// <param name="subRunId">The simulation sub-run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        ApiResponse<SimulationSpec> GetSimulationRunSubRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "17.0");
+        ApiResponse<SimulationSpec> GetSimulationRunSubRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "18.0");
         /// <summary>
         /// List of subruns of parametric runs
         /// </summary>
@@ -680,7 +680,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
@@ -700,7 +700,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
@@ -745,9 +745,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "17.0");
+        System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "18.0");
 
         /// <summary>
         /// Get the simulation run spec
@@ -759,9 +759,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "17.0");
+        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "18.0");
         /// <summary>
         /// Get the simulation sub-run results
         /// </summary>
@@ -776,7 +776,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <returns>Task of SimulationRunResults</returns>
@@ -796,7 +796,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <returns>Task of ApiResponse (SimulationRunResults)</returns>
@@ -812,9 +812,9 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
         /// <param name="subRunId">The simulation sub-run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSubRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "17.0");
+        System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSubRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "18.0");
 
         /// <summary>
         /// Get the simulation sub-run spec
@@ -827,9 +827,9 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
         /// <param name="subRunId">The simulation sub-run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationRunSubRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "17.0");
+        System.Threading.Tasks.Task<ApiResponse<SimulationSpec>> GetSimulationRunSubRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "18.0");
         /// <summary>
         /// List of subruns of parametric runs
         /// </summary>
@@ -2165,7 +2165,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
@@ -2186,7 +2186,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
@@ -2281,7 +2281,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
@@ -2303,7 +2303,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <param name="direction">The result direction, only applies to Pedestrian Wind Comfort analysis. (optional)</param>
@@ -2574,9 +2574,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        public SimulationSpec GetSimulationRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "17.0")
+        public SimulationSpec GetSimulationRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "18.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = GetSimulationRunSpecWithHttpInfo(projectId, simulationId, runId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -2589,9 +2589,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "17.0")
+        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "18.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -2654,9 +2654,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "17.0")
+        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "18.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = await GetSimulationRunSpecAsyncWithHttpInfo(projectId, simulationId, runId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -2670,9 +2670,9 @@ namespace SimScale.Sdk.Api
         /// <param name="projectId">The project ID</param>
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "17.0")
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), string simulationSpecSchemaVersion = "18.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -2741,7 +2741,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <returns>SimulationRunResults</returns>
@@ -2762,7 +2762,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <returns>ApiResponse of SimulationRunResults</returns>
@@ -2858,7 +2858,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <returns>Task of SimulationRunResults</returns>
@@ -2880,7 +2880,7 @@ namespace SimScale.Sdk.Api
         /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="type">The result type. The possible values are &#39;SOLUTION_FIELD&#39;, &#39;CONVERGENCE_PLOT&#39;, &#39;PLOT&#39;, &#39;TABLE&#39;.  (optional)</param>
-        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
+        /// <param name="category">The result category. For solution fields values include &#39;SOLUTION&#39;, &#39;AVERAGED_SOLUTION&#39;, &#39;TRANSIENT_SOLUTION&#39;, &#39;STATISTICAL_SURFACE_SOLUTION&#39;, etc. For convergence plots values include &#39;RESIDUALS_PLOT&#39;, &#39;NUMBER_OF_NEWTON_ITERATIONS&#39;, etc. For plots values include &#39;FORCE_PLOT&#39;, &#39;MOMENT_PLOT&#39;, &#39;FORCE_COEFFICIENTS_PLOT&#39;, &#39;PROBE_POINT_PLOT&#39;, &#39;AREA_AVERAGE&#39;, &#39;FACE_CALC&#39;, etc.  (optional)</param>
         /// <param name="quantity">The result quantity, only applies to plot result types. Valid values include &#39;Ux&#39;, &#39;Uy&#39;, &#39;Uz&#39;, &#39;p&#39;, &#39;k&#39;, &#39;omega&#39;, &#39;T&#39;, &#39;displacement&#39;, &#39;von Mises stress&#39;, etc.  (optional)</param>
         /// <param name="name">The name that was defined for extra simulation result outputs. (optional)</param>
         /// <returns>Task of ApiResponse (SimulationRunResults)</returns>
@@ -2975,9 +2975,9 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
         /// <param name="subRunId">The simulation sub-run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>SimulationSpec</returns>
-        public SimulationSpec GetSimulationRunSubRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "17.0")
+        public SimulationSpec GetSimulationRunSubRunSpec (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "18.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = GetSimulationRunSubRunSpecWithHttpInfo(projectId, simulationId, runId, subRunId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -2991,9 +2991,9 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
         /// <param name="subRunId">The simulation sub-run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>ApiResponse of SimulationSpec</returns>
-        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationRunSubRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "17.0")
+        public SimScale.Sdk.Client.ApiResponse< SimulationSpec > GetSimulationRunSubRunSpecWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "18.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -3062,9 +3062,9 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
         /// <param name="subRunId">The simulation sub-run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>Task of SimulationSpec</returns>
-        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSubRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "17.0")
+        public async System.Threading.Tasks.Task<SimulationSpec> GetSimulationRunSubRunSpecAsync (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "18.0")
         {
              SimScale.Sdk.Client.ApiResponse<SimulationSpec> localVarResponse = await GetSimulationRunSubRunSpecAsyncWithHttpInfo(projectId, simulationId, runId, subRunId, simulationSpecSchemaVersion);
              return localVarResponse.Data;
@@ -3079,9 +3079,9 @@ namespace SimScale.Sdk.Api
         /// <param name="simulationId">The simulation ID</param>
         /// <param name="runId">The simulation run ID</param>
         /// <param name="subRunId">The simulation sub-run ID</param>
-        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;17.0&quot;)</param>
+        /// <param name="simulationSpecSchemaVersion">Version of the schema the simulation spec should conform to (optional, default to &quot;18.0&quot;)</param>
         /// <returns>Task of ApiResponse (SimulationSpec)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationRunSubRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "17.0")
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<SimulationSpec>> GetSimulationRunSubRunSpecAsyncWithHttpInfo (string projectId = default(string), Guid? simulationId = default(Guid?), Guid? runId = default(Guid?), Guid? subRunId = default(Guid?), string simulationSpecSchemaVersion = "18.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)

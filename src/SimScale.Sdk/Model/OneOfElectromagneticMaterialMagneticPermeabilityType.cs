@@ -24,13 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfAdvancedConceptsHumiditySources
+    /// OneOfElectromagneticMaterialMagneticPermeabilityType
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(SpeciesHumiditySource), "SPECIES_MASS_FLOW_RATE")]
-    [JsonSubtypes.KnownSubType(typeof(AbsoluteHumiditySource), "ABSOLUTE_HUMIDITY_RATE")]
-    [JsonSubtypes.KnownSubType(typeof(SpecificHumiditySource), "SPECIFIC_HUMIDITY_RATE")]
-    public interface OneOfAdvancedConceptsHumiditySources
+    [JsonSubtypes.KnownSubType(typeof(LinearIsotropicPermeabiltiy), "LINEAR_ISOTROPIC")]
+    [JsonSubtypes.KnownSubType(typeof(NonlinearIsotropicPermeability), "NONLINEAR_ISOTROPIC")]
+    public interface OneOfElectromagneticMaterialMagneticPermeabilityType
     {
         /// <summary>
         /// Gets Type

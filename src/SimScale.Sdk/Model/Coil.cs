@@ -35,7 +35,7 @@ namespace SimScale.Sdk.Model
         /// <param name="topology">topology.</param>
         /// <param name="coilType">coilType.</param>
         /// <param name="excitation">excitation.</param>
-        public Coil(string name = default(string), OpenCoil topology = default(OpenCoil), OneOfCoilCoilType coilType = default(OneOfCoilCoilType), CurrentExcitation excitation = default(CurrentExcitation))
+        public Coil(string name = default(string), OneOfCoilTopology topology = default(OneOfCoilTopology), OneOfCoilCoilType coilType = default(OneOfCoilCoilType), CurrentExcitation excitation = default(CurrentExcitation))
         {
             this.Name = name;
             this.Topology = topology;
@@ -53,7 +53,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Topology
         /// </summary>
         [DataMember(Name="topology", EmitDefaultValue=false)]
-        public OpenCoil Topology { get; set; }
+        public OneOfCoilTopology Topology { get; set; }
 
         /// <summary>
         /// Gets or Sets CoilType

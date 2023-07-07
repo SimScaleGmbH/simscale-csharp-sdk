@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Model
         /// <param name="thermalResistanceNetworks">thermalResistanceNetworks.</param>
         /// <param name="thermalContactResistance">thermalContactResistance.</param>
         /// <param name="humiditySources">humiditySources.</param>
-        public AdvancedConcepts(List<OneOfAdvancedConceptsRotatingZones> rotatingZones = default(List<OneOfAdvancedConceptsRotatingZones>), List<OneOfAdvancedConceptsPorousMediums> porousMediums = default(List<OneOfAdvancedConceptsPorousMediums>), List<OneOfAdvancedConceptsSolidBodyMotions> solidBodyMotions = default(List<OneOfAdvancedConceptsSolidBodyMotions>), List<OneOfAdvancedConceptsPowerSources> powerSources = default(List<OneOfAdvancedConceptsPowerSources>), List<OneOfAdvancedConceptsMomentumSources> momentumSources = default(List<OneOfAdvancedConceptsMomentumSources>), List<OneOfAdvancedConceptsPassiveScalarSources> passiveScalarSources = default(List<OneOfAdvancedConceptsPassiveScalarSources>), List<OneOfAdvancedConceptsThermalResistanceNetworks> thermalResistanceNetworks = default(List<OneOfAdvancedConceptsThermalResistanceNetworks>), List<OneOfAdvancedConceptsThermalContactResistance> thermalContactResistance = default(List<OneOfAdvancedConceptsThermalContactResistance>), List<OneOfAdvancedConceptsHumiditySources> humiditySources = default(List<OneOfAdvancedConceptsHumiditySources>))
+        public AdvancedConcepts(List<OneOfAdvancedConceptsRotatingZones> rotatingZones = default(List<OneOfAdvancedConceptsRotatingZones>), List<OneOfAdvancedConceptsPorousMediums> porousMediums = default(List<OneOfAdvancedConceptsPorousMediums>), List<OneOfAdvancedConceptsSolidBodyMotions> solidBodyMotions = default(List<OneOfAdvancedConceptsSolidBodyMotions>), List<OneOfAdvancedConceptsPowerSources> powerSources = default(List<OneOfAdvancedConceptsPowerSources>), List<OneOfAdvancedConceptsMomentumSources> momentumSources = default(List<OneOfAdvancedConceptsMomentumSources>), List<OneOfAdvancedConceptsPassiveScalarSources> passiveScalarSources = default(List<OneOfAdvancedConceptsPassiveScalarSources>), List<OneOfAdvancedConceptsThermalResistanceNetworks> thermalResistanceNetworks = default(List<OneOfAdvancedConceptsThermalResistanceNetworks>), List<OneOfAdvancedConceptsThermalContactResistance> thermalContactResistance = default(List<OneOfAdvancedConceptsThermalContactResistance>), List<SpeciesHumiditySource> humiditySources = default(List<SpeciesHumiditySource>))
         {
             this.RotatingZones = rotatingZones;
             this.PorousMediums = porousMediums;
@@ -105,7 +105,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets HumiditySources
         /// </summary>
         [DataMember(Name="humiditySources", EmitDefaultValue=false)]
-        public List<OneOfAdvancedConceptsHumiditySources> HumiditySources { get; set; }
+        public List<SpeciesHumiditySource> HumiditySources { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

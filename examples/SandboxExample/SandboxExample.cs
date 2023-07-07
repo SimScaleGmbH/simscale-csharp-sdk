@@ -36,7 +36,14 @@ class SandboxExample
 
         // Get result metadata: GET /projects/{projectId}/simulations/{simulationId}/runs/{runId}/results
         // Verify deserialization of oneOf schema (limited support in C#)
-        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(PROJECT_ID, SIMULATION_ID, RUN_ID, null, null, "SOLUTION_FIELD", null, null, null, null);
+        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(
+            projectId: PROJECT_ID,
+            simulationId: SIMULATION_ID,
+            runId: RUN_ID,
+            page: 1,
+            limit: 100,
+            type: "SOLUTION_FIELD"
+        );
         if (results.Embedded[0].Type != "SOLUTION_FIELD") {
             throw new Exception("Retrieved result[0] has wrong type: " + results);
         }

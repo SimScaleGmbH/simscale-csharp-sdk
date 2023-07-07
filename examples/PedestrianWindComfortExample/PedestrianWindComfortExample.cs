@@ -252,8 +252,17 @@ class PedestrianWindComfortExample
             Console.WriteLine("Simulation run status: " + run?.Status + " - " + run?.Progress);
         }
 
-        // Get result metadata and download results
-        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(projectId, simulationId, runId, null, null, "SOLUTION_FIELD", "STATISTICAL_SURFACE_SOLUTION", null, null, null);
+        // Get result metadata and download results (response is paginated)
+        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(
+            projectId: projectId,
+            simulationId: simulationId,
+            runId: runId,
+            page: 1,
+            limit: 100,
+            type: "SOLUTION_FIELD",
+            category: "STATISTICAL_SURFACE_SOLUTION"
+        );
+
         // Download averaged solution
         var statisticalSurfaceSolutionInfo = (SimulationRunResultSolution) results.Embedded[0];
         var statisticalSurfaceSolutionRequest = new RestRequest(statisticalSurfaceSolutionInfo.Download.Url, Method.GET);
@@ -278,6 +287,7 @@ class PedestrianWindComfortExample
             }
         }
 
+        // Create report
         var reportRequest = new ReportRequest(
             name: "Report 1",
             description: "Simulation report",

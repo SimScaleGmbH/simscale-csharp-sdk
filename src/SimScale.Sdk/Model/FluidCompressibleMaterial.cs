@@ -65,6 +65,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: FluidCompressibleMaterial (required) (default to &quot;COMPRESSIBLE&quot;).</param>
         /// <param name="name">name.</param>
+        /// <param name="fluidType">fluidType.</param>
         /// <param name="associatedPhase">&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt; (default to AssociatedPhaseEnum._0).</param>
         /// <param name="specie">specie.</param>
         /// <param name="transport">transport.</param>
@@ -72,11 +73,12 @@ namespace SimScale.Sdk.Model
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), OneOfFluidCompressibleMaterialFluidType fluidType = default(OneOfFluidCompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FluidCompressibleMaterial and cannot be null");
             this.Name = name;
+            this.FluidType = fluidType;
             this.AssociatedPhase = associatedPhase;
             this.Specie = specie;
             this.Transport = transport;
@@ -98,6 +100,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FluidType
+        /// </summary>
+        [DataMember(Name="fluidType", EmitDefaultValue=false)]
+        public OneOfFluidCompressibleMaterialFluidType FluidType { get; set; }
 
         /// <summary>
         /// Gets or Sets Specie
@@ -145,6 +153,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class FluidCompressibleMaterial {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  FluidType: ").Append(FluidType).Append("\n");
             sb.Append("  AssociatedPhase: ").Append(AssociatedPhase).Append("\n");
             sb.Append("  Specie: ").Append(Specie).Append("\n");
             sb.Append("  Transport: ").Append(Transport).Append("\n");
@@ -197,6 +206,11 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.FluidType == input.FluidType ||
+                    (this.FluidType != null &&
+                    this.FluidType.Equals(input.FluidType))
+                ) && 
+                (
                     this.AssociatedPhase == input.AssociatedPhase ||
                     this.AssociatedPhase.Equals(input.AssociatedPhase)
                 ) && 
@@ -246,6 +260,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.FluidType != null)
+                    hashCode = hashCode * 59 + this.FluidType.GetHashCode();
                 hashCode = hashCode * 59 + this.AssociatedPhase.GetHashCode();
                 if (this.Specie != null)
                     hashCode = hashCode * 59 + this.Specie.GetHashCode();

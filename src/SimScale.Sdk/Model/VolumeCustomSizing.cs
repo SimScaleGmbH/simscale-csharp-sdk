@@ -23,38 +23,38 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;i&gt;Humidity sources&lt;/i&gt; can be used to simulate humidity generation or purification from a volume. Three types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Species source&lt;/b&gt; (recommended)&lt;/li&gt;: Used when the mass of the species entering the fluid domain per second are known.&lt;li&gt;&lt;b&gt;Absolute humidity source&lt;/b&gt;&lt;/li&gt;: Used when the local change of the absolute humidity over time is known.&lt;li&gt;&lt;b&gt;Specific humidity source&lt;/b&gt;&lt;/li&gt;: Similar to absolute humidity source but for the specific humidity.
+    /// VolumeCustomSizing
     /// </summary>
     [DataContract]
-    public partial class AbsoluteHumiditySource : OneOfAdvancedConceptsHumiditySources, IEquatable<AbsoluteHumiditySource>
+    public partial class VolumeCustomSizing : OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<VolumeCustomSizing>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AbsoluteHumiditySource" /> class.
+        /// Initializes a new instance of the <see cref="VolumeCustomSizing" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AbsoluteHumiditySource() { }
+        protected VolumeCustomSizing() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AbsoluteHumiditySource" /> class.
+        /// Initializes a new instance of the <see cref="VolumeCustomSizing" /> class.
         /// </summary>
-        /// <param name="type">&lt;i&gt;Humidity sources&lt;/i&gt; can be used to simulate humidity generation or purification from a volume. Three types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Species source&lt;/b&gt; (recommended)&lt;/li&gt;: Used when the mass of the species entering the fluid domain per second are known.&lt;li&gt;&lt;b&gt;Absolute humidity source&lt;/b&gt;&lt;/li&gt;: Used when the local change of the absolute humidity over time is known.&lt;li&gt;&lt;b&gt;Specific humidity source&lt;/b&gt;&lt;/li&gt;: Similar to absolute humidity source but for the specific humidity.  Schema name: AbsoluteHumiditySource (required) (default to &quot;ABSOLUTE_HUMIDITY_RATE&quot;).</param>
-        /// <param name="name">name.</param>
-        /// <param name="absoluteHumidityRate">absoluteHumidityRate.</param>
+        /// <param name="type">Schema name: VolumeCustomSizing (required) (default to &quot;VOLUME_CUSTOM_SIZING&quot;).</param>
+        /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
+        /// <param name="customSizingModes">customSizingModes.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public AbsoluteHumiditySource(string type = "ABSOLUTE_HUMIDITY_RATE", string name = default(string), DimensionalAbsoluteHumidityRate absoluteHumidityRate = default(DimensionalAbsoluteHumidityRate), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public VolumeCustomSizing(string type = "VOLUME_CUSTOM_SIZING", string name = default(string), OneOfVolumeCustomSizingCustomSizingModes customSizingModes = default(OneOfVolumeCustomSizingCustomSizingModes), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for AbsoluteHumiditySource and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for VolumeCustomSizing and cannot be null");
             this.Name = name;
-            this.AbsoluteHumidityRate = absoluteHumidityRate;
+            this.CustomSizingModes = customSizingModes;
             this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
         
         /// <summary>
-        /// &lt;i&gt;Humidity sources&lt;/i&gt; can be used to simulate humidity generation or purification from a volume. Three types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Species source&lt;/b&gt; (recommended)&lt;/li&gt;: Used when the mass of the species entering the fluid domain per second are known.&lt;li&gt;&lt;b&gt;Absolute humidity source&lt;/b&gt;&lt;/li&gt;: Used when the local change of the absolute humidity over time is known.&lt;li&gt;&lt;b&gt;Specific humidity source&lt;/b&gt;&lt;/li&gt;: Similar to absolute humidity source but for the specific humidity.  Schema name: AbsoluteHumiditySource
+        /// Schema name: VolumeCustomSizing
         /// </summary>
-        /// <value>&lt;i&gt;Humidity sources&lt;/i&gt; can be used to simulate humidity generation or purification from a volume. Three types are available:&lt;br&gt;&lt;li&gt;&lt;b&gt;Species source&lt;/b&gt; (recommended)&lt;/li&gt;: Used when the mass of the species entering the fluid domain per second are known.&lt;li&gt;&lt;b&gt;Absolute humidity source&lt;/b&gt;&lt;/li&gt;: Used when the local change of the absolute humidity over time is known.&lt;li&gt;&lt;b&gt;Specific humidity source&lt;/b&gt;&lt;/li&gt;: Similar to absolute humidity source but for the specific humidity.  Schema name: AbsoluteHumiditySource</value>
+        /// <value>Schema name: VolumeCustomSizing</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -65,10 +65,10 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets AbsoluteHumidityRate
+        /// Gets or Sets CustomSizingModes
         /// </summary>
-        [DataMember(Name="absoluteHumidityRate", EmitDefaultValue=false)]
-        public DimensionalAbsoluteHumidityRate AbsoluteHumidityRate { get; set; }
+        [DataMember(Name="customSizingModes", EmitDefaultValue=false)]
+        public OneOfVolumeCustomSizingCustomSizingModes CustomSizingModes { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -89,10 +89,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AbsoluteHumiditySource {\n");
+            sb.Append("class VolumeCustomSizing {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  AbsoluteHumidityRate: ").Append(AbsoluteHumidityRate).Append("\n");
+            sb.Append("  CustomSizingModes: ").Append(CustomSizingModes).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("}\n");
@@ -115,15 +115,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AbsoluteHumiditySource);
+            return this.Equals(input as VolumeCustomSizing);
         }
 
         /// <summary>
-        /// Returns true if AbsoluteHumiditySource instances are equal
+        /// Returns true if VolumeCustomSizing instances are equal
         /// </summary>
-        /// <param name="input">Instance of AbsoluteHumiditySource to be compared</param>
+        /// <param name="input">Instance of VolumeCustomSizing to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AbsoluteHumiditySource input)
+        public bool Equals(VolumeCustomSizing input)
         {
             if (input == null)
                 return false;
@@ -140,9 +140,9 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.AbsoluteHumidityRate == input.AbsoluteHumidityRate ||
-                    (this.AbsoluteHumidityRate != null &&
-                    this.AbsoluteHumidityRate.Equals(input.AbsoluteHumidityRate))
+                    this.CustomSizingModes == input.CustomSizingModes ||
+                    (this.CustomSizingModes != null &&
+                    this.CustomSizingModes.Equals(input.CustomSizingModes))
                 ) && 
                 (
                     this.TopologicalReference == input.TopologicalReference ||
@@ -170,8 +170,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.AbsoluteHumidityRate != null)
-                    hashCode = hashCode * 59 + this.AbsoluteHumidityRate.GetHashCode();
+                if (this.CustomSizingModes != null)
+                    hashCode = hashCode * 59 + this.CustomSizingModes.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)

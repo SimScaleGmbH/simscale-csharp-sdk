@@ -338,8 +338,14 @@ class IncompressibleLbmExample
             Console.WriteLine("Simulation run status: " + run?.Status + " - " + run?.Progress);
         }
 
-        // Get result metadata and download results
-        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(projectId, simulationId, runId);
+        // Get result metadata and download results (response is paginated)
+        SimulationRunResults results = simulationRunApi.GetSimulationRunResults(
+            projectId: projectId,
+            simulationId: simulationId,
+            runId: runId,
+            page: 1,
+            limit: 100
+        );
 
         // Download probe point statistical data
         var probePointPlotStatisticalDataInfo = results.Embedded.Where(r => r.Type == "TABLE").Select(r => (SimulationRunResultTable)r).Where(r => r.Category == "PROBE_POINT_PLOT_STATISTICAL_DATA").ToList()[0];
@@ -374,6 +380,7 @@ class IncompressibleLbmExample
             }
         }
 
+        // Create Report
         var reportRequest = new ReportRequest(
             name: "Report 1",
             description: "Simulation report",
