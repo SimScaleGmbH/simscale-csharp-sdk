@@ -509,6 +509,10 @@ public class ConvectiveHeatTransferExample {
         }
 
         // Create report
+        var scalarField = new ScalarField(
+            fieldName: "Temperature",
+            dataType: DataType.CELL
+        );
         var reportRequest = new ReportRequest(
             name: "Report 1",
             description: "Simulation report",
@@ -517,42 +521,32 @@ public class ConvectiveHeatTransferExample {
             },
             reportProperties : new ScreenshotReportProperties(
                 modelSettings: new ModelSettings(
-                    parts: new List < Part > {
-                        new Part(
-                            partIdentifier: "default_region",
-                            solidColor: new Color(r: 0.8f, g: 0.2f, b: 0.4f))
-                    },
-                    scalarField: new ScalarField(
-                        fieldName: "Velocity",
-                        component: "X",
-                        dataType: DataType.CELL
-                    )
+                    scalarField: scalarField
                 ),
-                filters: null,
-                cameraSettings: new UserInputCameraSettings(
+                filters: new Filters(
+                    cuttingPlanes: new List < CuttingPlane > {
+                        new CuttingPlane(
+                            name: "velocity-plane",
+                            scalarField: scalarField,
+                            center: new Vector3D(x: 0.05m, y: 0m, z: 0m),
+                            normal: new Vector3D(x: 1m, y: 0m, z: 0m),
+                            opacity: 1,
+                            clipping: true,
+                            renderMode: RenderMode.SURFACES
+                        )
+                    }
+                ),
+                cameraSettings: new TopViewPredefinedCameraSettings(
                     projectionType: ProjectionType.ORTHOGONAL,
-                    up: new Vector3D(
-                        x: (decimal) 0.5,
-                        y: (decimal) 0.3,
-                        z: (decimal) 0.2
-                    ),
-                    eye: new Vector3D(
-                        x: (decimal) 0.0,
-                        y: (decimal) 5.0,
-                        z: (decimal) 10.0
-                    ),
-                    center: new Vector3D(
-                        x: (decimal) 10.0,
-                        y: (decimal) 12.0,
-                        z: (decimal) 1.0
-                    ),
-                    frontPlaneFrustumHeight: (decimal) 0.5
+                    directionSpecifier: TopViewPredefinedCameraSettings.DirectionSpecifierEnum.XNEGATIVE
                 ),
                 outputSettings: new ScreenshotOutputSettings(
                     name: "Output 1",
                     format: ScreenshotOutputSettings.FormatEnum.PNG,
-                    resolution: new ResolutionInfo(x: 800, y: 800),
-                    frameIndex: 0
+                    resolution: new ResolutionInfo(x: 1440, y: 1080),
+                    frameIndex: 1,
+                    showLegend: true,
+                    showCube: false
                 )
             )
         );

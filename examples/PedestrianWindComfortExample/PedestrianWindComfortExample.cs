@@ -297,36 +297,22 @@ class PedestrianWindComfortExample
             reportProperties : new ScreenshotReportProperties(
                 modelSettings: new ModelSettings(
                     parts: new List < Part > {
-                        new Part(
-                            partIdentifier: "Pedestrian level 1",
-                            solidColor: new Color(r: 0.8f, g: 0.2f, b: 0.4f))
+                        new Part(partIdentifier: "solid 1 input - group-all-volumes"),
+                        new Part(partIdentifier: "Pedestrian level 1")
                     }
                 ),
                 filters: null,
-                cameraSettings: new UserInputCameraSettings(
+                cameraSettings: new TopViewPredefinedCameraSettings(
                     projectionType: ProjectionType.ORTHOGONAL,
-                    up: new Vector3D(
-                        x: (decimal) 0.5,
-                        y: (decimal) 0.3,
-                        z: (decimal) 0.2
-                    ),
-                    eye: new Vector3D(
-                        x: (decimal) 0.0,
-                        y: (decimal) 5.0,
-                        z: (decimal) 10.0
-                    ),
-                    center: new Vector3D(
-                        x: (decimal) 10.0,
-                        y: (decimal) 12.0,
-                        z: (decimal) 1.0
-                    ),
-                    frontPlaneFrustumHeight: (decimal) 0.5
+                    directionSpecifier: TopViewPredefinedCameraSettings.DirectionSpecifierEnum.ZNEGATIVE
                 ),
                 outputSettings: new ScreenshotOutputSettings(
                     name: "Output 1",
                     format: ScreenshotOutputSettings.FormatEnum.PNG,
-                    resolution: new ResolutionInfo(x: 800, y: 800),
-                    frameIndex: 0
+                    resolution: new ResolutionInfo(x: 1440, y: 1080),
+                    frameIndex: 0,
+                    showLegend: true,
+                    showCube: false
                 )
             )
         );
