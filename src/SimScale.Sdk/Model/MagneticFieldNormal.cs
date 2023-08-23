@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MagneticFieldNormal
     /// </summary>
     [DataContract]
-    public partial class MagneticFieldNormal : IEquatable<MagneticFieldNormal>
+    public partial class MagneticFieldNormal : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<MagneticFieldNormal>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MagneticFieldNormal" /> class.

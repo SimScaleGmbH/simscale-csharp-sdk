@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// Refine specific faces of interest or complex geometrical shapes by defining a local element size. This will ensure a relatively uniform mesh.
     /// </summary>
     [DataContract]
-    public partial class SimmetrixLocalSizingRefinement : OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<SimmetrixLocalSizingRefinement>
+    public partial class SimmetrixLocalSizingRefinement : OneOfSimmetrixMeshingElectromagneticsRefinements, OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<SimmetrixLocalSizingRefinement>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SimmetrixLocalSizingRefinement" /> class.

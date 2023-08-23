@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PETSC&lt;/b&gt; is an iterative solver specially designed to deal with large systems. It scales very effectively in parallel and is the best choice for large problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCPC&lt;/b&gt; is an iterative solver of the pre-conditioned conjugate gradient type. It scales well in parallel and is also usable for large problems.&lt;/p&gt;&lt;/ul&gt;
+    /// MultifrontalSolver
     /// </summary>
     [DataContract]
-    public partial class MultifrontalSolver : OneOfSolidNumericsSolver, IEquatable<MultifrontalSolver>
+    public partial class MultifrontalSolver : OneOfHarmonicResponseSolver, OneOfModalSolverSolver, OneOfSolidNumericsSolver, IEquatable<MultifrontalSolver>
     {
         /// <summary>
         /// Choose a renumbering method for the solution process.&lt;br/&gt;For large models around and above 50000 degrees of freedom you should consider using MDA.
@@ -63,7 +63,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultifrontalSolver" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PETSC&lt;/b&gt; is an iterative solver specially designed to deal with large systems. It scales very effectively in parallel and is the best choice for large problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCPC&lt;/b&gt; is an iterative solver of the pre-conditioned conjugate gradient type. It scales well in parallel and is also usable for large problems.&lt;/p&gt;&lt;/ul&gt;  Schema name: MultifrontalSolver (required) (default to &quot;MULTIFRONT&quot;).</param>
+        /// <param name="type">Schema name: MultifrontalSolver (required) (default to &quot;MULTIFRONT&quot;).</param>
         /// <param name="renumberingMethod">Choose a renumbering method for the solution process.&lt;br/&gt;For large models around and above 50000 degrees of freedom you should consider using MDA. (default to RenumberingMethodEnum.MDA).</param>
         /// <param name="forceSymmetric">Choose if you want to enforce a symmetric matrix. (default to false).</param>
         /// <param name="precisionSingularityDetection">Define the precision value for the detection of a singular matrix. (default to 8).</param>
@@ -81,9 +81,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PETSC&lt;/b&gt; is an iterative solver specially designed to deal with large systems. It scales very effectively in parallel and is the best choice for large problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCPC&lt;/b&gt; is an iterative solver of the pre-conditioned conjugate gradient type. It scales well in parallel and is also usable for large problems.&lt;/p&gt;&lt;/ul&gt;  Schema name: MultifrontalSolver
+        /// Schema name: MultifrontalSolver
         /// </summary>
-        /// <value>&lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PETSC&lt;/b&gt; is an iterative solver specially designed to deal with large systems. It scales very effectively in parallel and is the best choice for large problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCPC&lt;/b&gt; is an iterative solver of the pre-conditioned conjugate gradient type. It scales well in parallel and is also usable for large problems.&lt;/p&gt;&lt;/ul&gt;  Schema name: MultifrontalSolver</value>
+        /// <value>Schema name: MultifrontalSolver</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

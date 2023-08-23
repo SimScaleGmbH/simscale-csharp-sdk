@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose the directional dependency for this property. &lt;b&gt;Anisotropic and orthotropic materials will be available soon.&lt;/b&gt;&lt;/p&gt;
+    /// IsotropicDirectionalDependency
     /// </summary>
     [DataContract]
-    public partial class IsotropicDirectionalDependency : IEquatable<IsotropicDirectionalDependency>
+    public partial class IsotropicDirectionalDependency : OneOfLinearElasticMaterialBehaviorDirectionalDependency, IEquatable<IsotropicDirectionalDependency>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IsotropicDirectionalDependency" /> class.
@@ -36,21 +36,25 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsotropicDirectionalDependency" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Choose the directional dependency for this property. &lt;b&gt;Anisotropic and orthotropic materials will be available soon.&lt;/b&gt;&lt;/p&gt;  Schema name: IsotropicDirectionalDependency (required) (default to &quot;ISOTROPIC&quot;).</param>
+        /// <param name="type">Schema name: IsotropicDirectionalDependency (required) (default to &quot;ISOTROPIC&quot;).</param>
         /// <param name="youngsModulus">youngsModulus.</param>
         /// <param name="poissonsRatio">poissonsRatio.</param>
-        public IsotropicDirectionalDependency(string type = "ISOTROPIC", DimensionalFunctionPressure youngsModulus = default(DimensionalFunctionPressure), OneOfIsotropicDirectionalDependencyPoissonsRatio poissonsRatio = default(OneOfIsotropicDirectionalDependencyPoissonsRatio))
+        /// <param name="expansionCoefficient">expansionCoefficient.</param>
+        /// <param name="referenceTemperature">referenceTemperature.</param>
+        public IsotropicDirectionalDependency(string type = "ISOTROPIC", DimensionalFunctionPressure youngsModulus = default(DimensionalFunctionPressure), OneOfIsotropicDirectionalDependencyPoissonsRatio poissonsRatio = default(OneOfIsotropicDirectionalDependencyPoissonsRatio), DimensionalFunctionThermalExpansionRate expansionCoefficient = default(DimensionalFunctionThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IsotropicDirectionalDependency and cannot be null");
             this.YoungsModulus = youngsModulus;
             this.PoissonsRatio = poissonsRatio;
+            this.ExpansionCoefficient = expansionCoefficient;
+            this.ReferenceTemperature = referenceTemperature;
         }
         
         /// <summary>
-        /// &lt;p&gt;Choose the directional dependency for this property. &lt;b&gt;Anisotropic and orthotropic materials will be available soon.&lt;/b&gt;&lt;/p&gt;  Schema name: IsotropicDirectionalDependency
+        /// Schema name: IsotropicDirectionalDependency
         /// </summary>
-        /// <value>&lt;p&gt;Choose the directional dependency for this property. &lt;b&gt;Anisotropic and orthotropic materials will be available soon.&lt;/b&gt;&lt;/p&gt;  Schema name: IsotropicDirectionalDependency</value>
+        /// <value>Schema name: IsotropicDirectionalDependency</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -67,6 +71,18 @@ namespace SimScale.Sdk.Model
         public OneOfIsotropicDirectionalDependencyPoissonsRatio PoissonsRatio { get; set; }
 
         /// <summary>
+        /// Gets or Sets ExpansionCoefficient
+        /// </summary>
+        [DataMember(Name="expansionCoefficient", EmitDefaultValue=false)]
+        public DimensionalFunctionThermalExpansionRate ExpansionCoefficient { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReferenceTemperature
+        /// </summary>
+        [DataMember(Name="referenceTemperature", EmitDefaultValue=false)]
+        public DimensionalTemperature ReferenceTemperature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +93,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  YoungsModulus: ").Append(YoungsModulus).Append("\n");
             sb.Append("  PoissonsRatio: ").Append(PoissonsRatio).Append("\n");
+            sb.Append("  ExpansionCoefficient: ").Append(ExpansionCoefficient).Append("\n");
+            sb.Append("  ReferenceTemperature: ").Append(ReferenceTemperature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +143,16 @@ namespace SimScale.Sdk.Model
                     this.PoissonsRatio == input.PoissonsRatio ||
                     (this.PoissonsRatio != null &&
                     this.PoissonsRatio.Equals(input.PoissonsRatio))
+                ) && 
+                (
+                    this.ExpansionCoefficient == input.ExpansionCoefficient ||
+                    (this.ExpansionCoefficient != null &&
+                    this.ExpansionCoefficient.Equals(input.ExpansionCoefficient))
+                ) && 
+                (
+                    this.ReferenceTemperature == input.ReferenceTemperature ||
+                    (this.ReferenceTemperature != null &&
+                    this.ReferenceTemperature.Equals(input.ReferenceTemperature))
                 );
         }
 
@@ -143,6 +171,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.YoungsModulus.GetHashCode();
                 if (this.PoissonsRatio != null)
                     hashCode = hashCode * 59 + this.PoissonsRatio.GetHashCode();
+                if (this.ExpansionCoefficient != null)
+                    hashCode = hashCode * 59 + this.ExpansionCoefficient.GetHashCode();
+                if (this.ReferenceTemperature != null)
+                    hashCode = hashCode * 59 + this.ReferenceTemperature.GetHashCode();
                 return hashCode;
             }
         }

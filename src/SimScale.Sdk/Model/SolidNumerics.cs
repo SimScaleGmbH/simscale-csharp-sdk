@@ -29,28 +29,59 @@ namespace SimScale.Sdk.Model
     public partial class SolidNumerics : IEquatable<SolidNumerics>
     {
         /// <summary>
+        /// Defines HarmonicSolutionMethod
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum HarmonicSolutionMethodEnum
+        {
+            /// <summary>
+            /// Enum MODALBASED for value: MODAL_BASED
+            /// </summary>
+            [EnumMember(Value = "MODAL_BASED")]
+            MODALBASED = 1,
+
+            /// <summary>
+            /// Enum DIRECT for value: DIRECT
+            /// </summary>
+            [EnumMember(Value = "DIRECT")]
+            DIRECT = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets HarmonicSolutionMethod
+        /// </summary>
+        [DataMember(Name="harmonicSolutionMethod", EmitDefaultValue=false)]
+        public HarmonicSolutionMethodEnum? HarmonicSolutionMethod { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SolidNumerics" /> class.
         /// </summary>
+        /// <param name="harmonicSolutionMethod">harmonicSolutionMethod (default to HarmonicSolutionMethodEnum.DIRECT).</param>
         /// <param name="solver">solver.</param>
         /// <param name="solveModel">solveModel.</param>
         /// <param name="eigenSolver">eigenSolver.</param>
         /// <param name="calculateFrequency">calculateFrequency.</param>
         /// <param name="eigenMode">eigenMode.</param>
         /// <param name="enhancedAccuracy">Further increase the accuracy of the results by running two simulations. The results of the first one will be used as input for the second one to fine-tune the setup. (default to false).</param>
+        /// <param name="modalBase">modalBase.</param>
+        /// <param name="harmonicResponse">harmonicResponse.</param>
         /// <param name="mechanicalTimeIntegrationType">mechanicalTimeIntegrationType.</param>
         /// <param name="mechanicalResolutionType">mechanicalResolutionType.</param>
         /// <param name="mechanicalLineSearch">mechanicalLineSearch.</param>
         /// <param name="thermalTimeIntegrationType">thermalTimeIntegrationType.</param>
         /// <param name="thermalResolutionType">thermalResolutionType.</param>
         /// <param name="thermalLineSearch">thermalLineSearch.</param>
-        public SolidNumerics(OneOfSolidNumericsSolver solver = default(OneOfSolidNumericsSolver), Object solveModel = default(Object), OneOfSolidNumericsEigenSolver eigenSolver = default(OneOfSolidNumericsEigenSolver), CalculateFrequency calculateFrequency = default(CalculateFrequency), EigenModeVerification eigenMode = default(EigenModeVerification), bool? enhancedAccuracy = default(bool?), OneOfSolidNumericsMechanicalTimeIntegrationType mechanicalTimeIntegrationType = default(OneOfSolidNumericsMechanicalTimeIntegrationType), OneOfSolidNumericsMechanicalResolutionType mechanicalResolutionType = default(OneOfSolidNumericsMechanicalResolutionType), OneOfSolidNumericsMechanicalLineSearch mechanicalLineSearch = default(OneOfSolidNumericsMechanicalLineSearch), ThetaMethodTimeIntegrationType thermalTimeIntegrationType = default(ThetaMethodTimeIntegrationType), OneOfSolidNumericsThermalResolutionType thermalResolutionType = default(OneOfSolidNumericsThermalResolutionType), OneOfSolidNumericsThermalLineSearch thermalLineSearch = default(OneOfSolidNumericsThermalLineSearch))
+        public SolidNumerics(HarmonicSolutionMethodEnum? harmonicSolutionMethod = default(HarmonicSolutionMethodEnum?), OneOfSolidNumericsSolver solver = default(OneOfSolidNumericsSolver), Object solveModel = default(Object), OneOfSolidNumericsEigenSolver eigenSolver = default(OneOfSolidNumericsEigenSolver), CalculateFrequency calculateFrequency = default(CalculateFrequency), EigenModeVerification eigenMode = default(EigenModeVerification), bool? enhancedAccuracy = default(bool?), ModalSolver modalBase = default(ModalSolver), HarmonicResponse harmonicResponse = default(HarmonicResponse), OneOfSolidNumericsMechanicalTimeIntegrationType mechanicalTimeIntegrationType = default(OneOfSolidNumericsMechanicalTimeIntegrationType), OneOfSolidNumericsMechanicalResolutionType mechanicalResolutionType = default(OneOfSolidNumericsMechanicalResolutionType), OneOfSolidNumericsMechanicalLineSearch mechanicalLineSearch = default(OneOfSolidNumericsMechanicalLineSearch), ThetaMethodTimeIntegrationType thermalTimeIntegrationType = default(ThetaMethodTimeIntegrationType), OneOfSolidNumericsThermalResolutionType thermalResolutionType = default(OneOfSolidNumericsThermalResolutionType), OneOfSolidNumericsThermalLineSearch thermalLineSearch = default(OneOfSolidNumericsThermalLineSearch))
         {
+            this.HarmonicSolutionMethod = harmonicSolutionMethod;
             this.Solver = solver;
             this.SolveModel = solveModel;
             this.EigenSolver = eigenSolver;
             this.CalculateFrequency = calculateFrequency;
             this.EigenMode = eigenMode;
             this.EnhancedAccuracy = enhancedAccuracy;
+            this.ModalBase = modalBase;
+            this.HarmonicResponse = harmonicResponse;
             this.MechanicalTimeIntegrationType = mechanicalTimeIntegrationType;
             this.MechanicalResolutionType = mechanicalResolutionType;
             this.MechanicalLineSearch = mechanicalLineSearch;
@@ -97,6 +128,18 @@ namespace SimScale.Sdk.Model
         public bool? EnhancedAccuracy { get; set; }
 
         /// <summary>
+        /// Gets or Sets ModalBase
+        /// </summary>
+        [DataMember(Name="modalBase", EmitDefaultValue=false)]
+        public ModalSolver ModalBase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HarmonicResponse
+        /// </summary>
+        [DataMember(Name="harmonicResponse", EmitDefaultValue=false)]
+        public HarmonicResponse HarmonicResponse { get; set; }
+
+        /// <summary>
         /// Gets or Sets MechanicalTimeIntegrationType
         /// </summary>
         [DataMember(Name="mechanicalTimeIntegrationType", EmitDefaultValue=false)]
@@ -140,12 +183,15 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SolidNumerics {\n");
+            sb.Append("  HarmonicSolutionMethod: ").Append(HarmonicSolutionMethod).Append("\n");
             sb.Append("  Solver: ").Append(Solver).Append("\n");
             sb.Append("  SolveModel: ").Append(SolveModel).Append("\n");
             sb.Append("  EigenSolver: ").Append(EigenSolver).Append("\n");
             sb.Append("  CalculateFrequency: ").Append(CalculateFrequency).Append("\n");
             sb.Append("  EigenMode: ").Append(EigenMode).Append("\n");
             sb.Append("  EnhancedAccuracy: ").Append(EnhancedAccuracy).Append("\n");
+            sb.Append("  ModalBase: ").Append(ModalBase).Append("\n");
+            sb.Append("  HarmonicResponse: ").Append(HarmonicResponse).Append("\n");
             sb.Append("  MechanicalTimeIntegrationType: ").Append(MechanicalTimeIntegrationType).Append("\n");
             sb.Append("  MechanicalResolutionType: ").Append(MechanicalResolutionType).Append("\n");
             sb.Append("  MechanicalLineSearch: ").Append(MechanicalLineSearch).Append("\n");
@@ -187,6 +233,10 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
+                    this.HarmonicSolutionMethod == input.HarmonicSolutionMethod ||
+                    this.HarmonicSolutionMethod.Equals(input.HarmonicSolutionMethod)
+                ) && 
+                (
                     this.Solver == input.Solver ||
                     (this.Solver != null &&
                     this.Solver.Equals(input.Solver))
@@ -215,6 +265,16 @@ namespace SimScale.Sdk.Model
                     this.EnhancedAccuracy == input.EnhancedAccuracy ||
                     (this.EnhancedAccuracy != null &&
                     this.EnhancedAccuracy.Equals(input.EnhancedAccuracy))
+                ) && 
+                (
+                    this.ModalBase == input.ModalBase ||
+                    (this.ModalBase != null &&
+                    this.ModalBase.Equals(input.ModalBase))
+                ) && 
+                (
+                    this.HarmonicResponse == input.HarmonicResponse ||
+                    (this.HarmonicResponse != null &&
+                    this.HarmonicResponse.Equals(input.HarmonicResponse))
                 ) && 
                 (
                     this.MechanicalTimeIntegrationType == input.MechanicalTimeIntegrationType ||
@@ -257,6 +317,7 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.HarmonicSolutionMethod.GetHashCode();
                 if (this.Solver != null)
                     hashCode = hashCode * 59 + this.Solver.GetHashCode();
                 if (this.SolveModel != null)
@@ -269,6 +330,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.EigenMode.GetHashCode();
                 if (this.EnhancedAccuracy != null)
                     hashCode = hashCode * 59 + this.EnhancedAccuracy.GetHashCode();
+                if (this.ModalBase != null)
+                    hashCode = hashCode * 59 + this.ModalBase.GetHashCode();
+                if (this.HarmonicResponse != null)
+                    hashCode = hashCode * 59 + this.HarmonicResponse.GetHashCode();
                 if (this.MechanicalTimeIntegrationType != null)
                     hashCode = hashCode * 59 + this.MechanicalTimeIntegrationType.GetHashCode();
                 if (this.MechanicalResolutionType != null)

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// Lanczos
     /// </summary>
     [DataContract]
-    public partial class Lanczos : OneOfSolidNumericsEigenSolver, IEquatable<Lanczos>
+    public partial class Lanczos : OneOfModalSolverEigenSolver, OneOfSolidNumericsEigenSolver, IEquatable<Lanczos>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Lanczos" /> class.

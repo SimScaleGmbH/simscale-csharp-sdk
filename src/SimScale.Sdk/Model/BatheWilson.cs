@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// BatheWilson
     /// </summary>
     [DataContract]
-    public partial class BatheWilson : OneOfSolidNumericsEigenSolver, IEquatable<BatheWilson>
+    public partial class BatheWilson : OneOfModalSolverEigenSolver, OneOfSolidNumericsEigenSolver, IEquatable<BatheWilson>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BatheWilson" /> class.

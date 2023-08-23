@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Model
         /// <param name="directionalDependency">directionalDependency.</param>
         /// <param name="damping">damping.</param>
         /// <param name="creepFormulation">creepFormulation.</param>
-        public LinearElasticMaterialBehavior(string type = "LINEAR_ELASTIC", IsotropicDirectionalDependency directionalDependency = default(IsotropicDirectionalDependency), OneOfLinearElasticMaterialBehaviorDamping damping = default(OneOfLinearElasticMaterialBehaviorDamping), OneOfLinearElasticMaterialBehaviorCreepFormulation creepFormulation = default(OneOfLinearElasticMaterialBehaviorCreepFormulation))
+        public LinearElasticMaterialBehavior(string type = "LINEAR_ELASTIC", OneOfLinearElasticMaterialBehaviorDirectionalDependency directionalDependency = default(OneOfLinearElasticMaterialBehaviorDirectionalDependency), OneOfLinearElasticMaterialBehaviorDamping damping = default(OneOfLinearElasticMaterialBehaviorDamping), OneOfLinearElasticMaterialBehaviorCreepFormulation creepFormulation = default(OneOfLinearElasticMaterialBehaviorCreepFormulation))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for LinearElasticMaterialBehavior and cannot be null");
@@ -60,7 +60,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets DirectionalDependency
         /// </summary>
         [DataMember(Name="directionalDependency", EmitDefaultValue=false)]
-        public IsotropicDirectionalDependency DirectionalDependency { get; set; }
+        public OneOfLinearElasticMaterialBehaviorDirectionalDependency DirectionalDependency { get; set; }
 
         /// <summary>
         /// Gets or Sets Damping

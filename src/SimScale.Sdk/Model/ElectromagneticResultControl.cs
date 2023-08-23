@@ -31,12 +31,20 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ElectromagneticResultControl" /> class.
         /// </summary>
+        /// <param name="calculateInductances">calculateInductances (default to false).</param>
         /// <param name="forcesAndTorques">forcesAndTorques.</param>
-        public ElectromagneticResultControl(List<ForceAndTorque> forcesAndTorques = default(List<ForceAndTorque>))
+        public ElectromagneticResultControl(bool? calculateInductances = default(bool?), List<ForceAndTorque> forcesAndTorques = default(List<ForceAndTorque>))
         {
+            this.CalculateInductances = calculateInductances;
             this.ForcesAndTorques = forcesAndTorques;
         }
         
+        /// <summary>
+        /// Gets or Sets CalculateInductances
+        /// </summary>
+        [DataMember(Name="calculateInductances", EmitDefaultValue=false)]
+        public bool? CalculateInductances { get; set; }
+
         /// <summary>
         /// Gets or Sets ForcesAndTorques
         /// </summary>
@@ -51,6 +59,7 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ElectromagneticResultControl {\n");
+            sb.Append("  CalculateInductances: ").Append(CalculateInductances).Append("\n");
             sb.Append("  ForcesAndTorques: ").Append(ForcesAndTorques).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -87,6 +96,11 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
+                    this.CalculateInductances == input.CalculateInductances ||
+                    (this.CalculateInductances != null &&
+                    this.CalculateInductances.Equals(input.CalculateInductances))
+                ) && 
+                (
                     this.ForcesAndTorques == input.ForcesAndTorques ||
                     this.ForcesAndTorques != null &&
                     input.ForcesAndTorques != null &&
@@ -103,6 +117,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CalculateInductances != null)
+                    hashCode = hashCode * 59 + this.CalculateInductances.GetHashCode();
                 if (this.ForcesAndTorques != null)
                     hashCode = hashCode * 59 + this.ForcesAndTorques.GetHashCode();
                 return hashCode;

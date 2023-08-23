@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(SimmetrixMeshingFluid), "SIMMETRIX_MESHING_FLUID_V16")]
     [JsonSubtypes.KnownSubType(typeof(SimmetrixMeshingSolid), "SIMMETRIX_MESHING_SOLID")]
+    [JsonSubtypes.KnownSubType(typeof(SimmetrixMeshingElectromagnetics), "SIMMETRIX_MESHING_ELECTROMAGNETICS")]
     [JsonSubtypes.KnownSubType(typeof(HexDominantSnappy), "HEX_DOMINANT_SNAPPY_V5")]
     public interface Algorithm
     {

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MagneticFluxTangential
     /// </summary>
     [DataContract]
-    public partial class MagneticFluxTangential : IEquatable<MagneticFluxTangential>
+    public partial class MagneticFluxTangential : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<MagneticFluxTangential>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MagneticFluxTangential" /> class.

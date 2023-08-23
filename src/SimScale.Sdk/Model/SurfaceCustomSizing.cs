@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// SurfaceCustomSizing
     /// </summary>
     [DataContract]
-    public partial class SurfaceCustomSizing : OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<SurfaceCustomSizing>
+    public partial class SurfaceCustomSizing : OneOfSimmetrixMeshingElectromagneticsRefinements, OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<SurfaceCustomSizing>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SurfaceCustomSizing" /> class.

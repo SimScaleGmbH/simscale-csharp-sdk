@@ -43,6 +43,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(ConjugateHeatTransfer), "CONJUGATE_HEAT_TRANSFER")]
     [JsonSubtypes.KnownSubType(typeof(HarmonicAnalysis), "HARMONIC_ANALYSIS")]
     [JsonSubtypes.KnownSubType(typeof(FrequencyAnalysis), "FREQUENCY_ANALYSIS")]
+    [JsonSubtypes.KnownSubType(typeof(ElectromagneticAnalysis), "ELECTROMAGNETIC_ANALYSIS")]
     public interface Analysis
     {
         /// <summary>

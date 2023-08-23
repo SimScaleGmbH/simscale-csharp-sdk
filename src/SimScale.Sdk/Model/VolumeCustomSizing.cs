@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// VolumeCustomSizing
     /// </summary>
     [DataContract]
-    public partial class VolumeCustomSizing : OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<VolumeCustomSizing>
+    public partial class VolumeCustomSizing : OneOfSimmetrixMeshingElectromagneticsRefinements, OneOfSimmetrixMeshingFluidRefinements, OneOfSimmetrixMeshingSolidRefinements, IEquatable<VolumeCustomSizing>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VolumeCustomSizing" /> class.

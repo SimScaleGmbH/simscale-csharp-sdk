@@ -37,12 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="FixedValueRHBC" /> class.
         /// </summary>
         /// <param name="type">Schema name: FixedValueRHBC (required) (default to &quot;FIXED_VALUE&quot;).</param>
-        /// <param name="value">value (default to 50M).</param>
-        public FixedValueRHBC(string type = "FIXED_VALUE", decimal? value = default(decimal?))
+        /// <param name="humidityValue">humidityValue.</param>
+        public FixedValueRHBC(string type = "FIXED_VALUE", OneOfFixedValueRHBCHumidityValue humidityValue = default(OneOfFixedValueRHBCHumidityValue))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedValueRHBC and cannot be null");
-            this.Value = value;
+            this.HumidityValue = humidityValue;
         }
         
         /// <summary>
@@ -53,10 +53,10 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Gets or Sets HumidityValue
         /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        [DataMember(Name="humidityValue", EmitDefaultValue=false)]
+        public OneOfFixedValueRHBCHumidityValue HumidityValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class FixedValueRHBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  HumidityValue: ").Append(HumidityValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.HumidityValue == input.HumidityValue ||
+                    (this.HumidityValue != null &&
+                    this.HumidityValue.Equals(input.HumidityValue))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.HumidityValue != null)
+                    hashCode = hashCode * 59 + this.HumidityValue.GetHashCode();
                 return hashCode;
             }
         }

@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfSolidSimulationControlExcitationFrequencies
+    /// &lt;p&gt;Set the frequencies for the harmonic excitation. Setting it to &lt;b&gt;single frequency&lt;/b&gt; will only compute harmonic excitation on that frequency. To have harmonic excitations on multiple frequencies, please choose &lt;b&gt;frequency list&lt;/b&gt;. &lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(SingleFrequency), "SINGLE")]

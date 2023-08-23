@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// FirstMode
     /// </summary>
     [DataContract]
-    public partial class FirstMode : OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<FirstMode>
+    public partial class FirstMode : OneOfModalBaseControlEigenfrequencyScope, OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<FirstMode>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FirstMode" /> class.

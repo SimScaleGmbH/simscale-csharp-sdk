@@ -37,9 +37,11 @@ namespace SimScale.Sdk.Model
         /// <param name="writeControlDefinition">writeControlDefinition.</param>
         /// <param name="excitationFrequencies">excitationFrequencies.</param>
         /// <param name="eigenfrequencyScope">eigenfrequencyScope.</param>
+        /// <param name="modalBase">modalBase.</param>
+        /// <param name="harmonicResponse">harmonicResponse.</param>
         /// <param name="processors">processors.</param>
         /// <param name="maxRunTime">maxRunTime.</param>
-        public SolidSimulationControl(OneOfSolidSimulationControlTimestepDefinition timestepDefinition = default(OneOfSolidSimulationControlTimestepDefinition), OneOfSolidSimulationControlPseudoTimeStepping pseudoTimeStepping = default(OneOfSolidSimulationControlPseudoTimeStepping), bool? autoLoadRamping = default(bool?), OneOfSolidSimulationControlWriteControlDefinition writeControlDefinition = default(OneOfSolidSimulationControlWriteControlDefinition), OneOfSolidSimulationControlExcitationFrequencies excitationFrequencies = default(OneOfSolidSimulationControlExcitationFrequencies), OneOfSolidSimulationControlEigenfrequencyScope eigenfrequencyScope = default(OneOfSolidSimulationControlEigenfrequencyScope), ComputingCore processors = default(ComputingCore), DimensionalTime maxRunTime = default(DimensionalTime))
+        public SolidSimulationControl(OneOfSolidSimulationControlTimestepDefinition timestepDefinition = default(OneOfSolidSimulationControlTimestepDefinition), OneOfSolidSimulationControlPseudoTimeStepping pseudoTimeStepping = default(OneOfSolidSimulationControlPseudoTimeStepping), bool? autoLoadRamping = default(bool?), OneOfSolidSimulationControlWriteControlDefinition writeControlDefinition = default(OneOfSolidSimulationControlWriteControlDefinition), OneOfSolidSimulationControlExcitationFrequencies excitationFrequencies = default(OneOfSolidSimulationControlExcitationFrequencies), OneOfSolidSimulationControlEigenfrequencyScope eigenfrequencyScope = default(OneOfSolidSimulationControlEigenfrequencyScope), ModalBaseControl modalBase = default(ModalBaseControl), HarmonicResponseControl harmonicResponse = default(HarmonicResponseControl), ComputingCore processors = default(ComputingCore), DimensionalTime maxRunTime = default(DimensionalTime))
         {
             this.TimestepDefinition = timestepDefinition;
             this.PseudoTimeStepping = pseudoTimeStepping;
@@ -47,6 +49,8 @@ namespace SimScale.Sdk.Model
             this.WriteControlDefinition = writeControlDefinition;
             this.ExcitationFrequencies = excitationFrequencies;
             this.EigenfrequencyScope = eigenfrequencyScope;
+            this.ModalBase = modalBase;
+            this.HarmonicResponse = harmonicResponse;
             this.Processors = processors;
             this.MaxRunTime = maxRunTime;
         }
@@ -89,6 +93,18 @@ namespace SimScale.Sdk.Model
         public OneOfSolidSimulationControlEigenfrequencyScope EigenfrequencyScope { get; set; }
 
         /// <summary>
+        /// Gets or Sets ModalBase
+        /// </summary>
+        [DataMember(Name="modalBase", EmitDefaultValue=false)]
+        public ModalBaseControl ModalBase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HarmonicResponse
+        /// </summary>
+        [DataMember(Name="harmonicResponse", EmitDefaultValue=false)]
+        public HarmonicResponseControl HarmonicResponse { get; set; }
+
+        /// <summary>
         /// Gets or Sets Processors
         /// </summary>
         [DataMember(Name="processors", EmitDefaultValue=false)]
@@ -114,6 +130,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  WriteControlDefinition: ").Append(WriteControlDefinition).Append("\n");
             sb.Append("  ExcitationFrequencies: ").Append(ExcitationFrequencies).Append("\n");
             sb.Append("  EigenfrequencyScope: ").Append(EigenfrequencyScope).Append("\n");
+            sb.Append("  ModalBase: ").Append(ModalBase).Append("\n");
+            sb.Append("  HarmonicResponse: ").Append(HarmonicResponse).Append("\n");
             sb.Append("  Processors: ").Append(Processors).Append("\n");
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
             sb.Append("}\n");
@@ -181,6 +199,16 @@ namespace SimScale.Sdk.Model
                     this.EigenfrequencyScope.Equals(input.EigenfrequencyScope))
                 ) && 
                 (
+                    this.ModalBase == input.ModalBase ||
+                    (this.ModalBase != null &&
+                    this.ModalBase.Equals(input.ModalBase))
+                ) && 
+                (
+                    this.HarmonicResponse == input.HarmonicResponse ||
+                    (this.HarmonicResponse != null &&
+                    this.HarmonicResponse.Equals(input.HarmonicResponse))
+                ) && 
+                (
                     this.Processors == input.Processors ||
                     (this.Processors != null &&
                     this.Processors.Equals(input.Processors))
@@ -213,6 +241,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ExcitationFrequencies.GetHashCode();
                 if (this.EigenfrequencyScope != null)
                     hashCode = hashCode * 59 + this.EigenfrequencyScope.GetHashCode();
+                if (this.ModalBase != null)
+                    hashCode = hashCode * 59 + this.ModalBase.GetHashCode();
+                if (this.HarmonicResponse != null)
+                    hashCode = hashCode * 59 + this.HarmonicResponse.GetHashCode();
                 if (this.Processors != null)
                     hashCode = hashCode * 59 + this.Processors.GetHashCode();
                 if (this.MaxRunTime != null)

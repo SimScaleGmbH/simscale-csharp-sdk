@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// FrequencyRange
     /// </summary>
     [DataContract]
-    public partial class FrequencyRange : OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<FrequencyRange>
+    public partial class FrequencyRange : OneOfModalBaseControlEigenfrequencyScope, OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<FrequencyRange>
     {
         /// <summary>
         /// Defines ParallelizationLevel

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// CenterFrequency
     /// </summary>
     [DataContract]
-    public partial class CenterFrequency : OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<CenterFrequency>
+    public partial class CenterFrequency : OneOfModalBaseControlEigenfrequencyScope, OneOfSolidSimulationControlEigenfrequencyScope, IEquatable<CenterFrequency>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CenterFrequency" /> class.

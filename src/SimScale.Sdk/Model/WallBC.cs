@@ -40,18 +40,20 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name.</param>
         /// <param name="velocity">velocity.</param>
         /// <param name="temperature">temperature.</param>
+        /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="phaseFraction">phaseFraction.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="electricBoundaryCondition">electricBoundaryCondition.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public WallBC(string type = "WALL_V34", string name = default(string), OneOfWallBCVelocity velocity = default(OneOfWallBCVelocity), OneOfWallBCTemperature temperature = default(OneOfWallBCTemperature), OneOfWallBCPhaseFraction phaseFraction = default(OneOfWallBCPhaseFraction), OneOfWallBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfWallBCNetRadiativeHeatFlux), OneOfWallBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfWallBCRadiativeIntensityRay), OneOfWallBCElectricBoundaryCondition electricBoundaryCondition = default(OneOfWallBCElectricBoundaryCondition), TopologicalReference topologicalReference = default(TopologicalReference))
+        public WallBC(string type = "WALL_V34", string name = default(string), OneOfWallBCVelocity velocity = default(OneOfWallBCVelocity), OneOfWallBCTemperature temperature = default(OneOfWallBCTemperature), OneOfWallBCRelativeHumidity relativeHumidity = default(OneOfWallBCRelativeHumidity), OneOfWallBCPhaseFraction phaseFraction = default(OneOfWallBCPhaseFraction), OneOfWallBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfWallBCNetRadiativeHeatFlux), OneOfWallBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfWallBCRadiativeIntensityRay), OneOfWallBCElectricBoundaryCondition electricBoundaryCondition = default(OneOfWallBCElectricBoundaryCondition), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for WallBC and cannot be null");
             this.Name = name;
             this.Velocity = velocity;
             this.Temperature = temperature;
+            this.RelativeHumidity = relativeHumidity;
             this.PhaseFraction = phaseFraction;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
@@ -83,6 +85,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="temperature", EmitDefaultValue=false)]
         public OneOfWallBCTemperature Temperature { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RelativeHumidity
+        /// </summary>
+        [DataMember(Name="relativeHumidity", EmitDefaultValue=false)]
+        public OneOfWallBCRelativeHumidity RelativeHumidity { get; set; }
 
         /// <summary>
         /// Gets or Sets PhaseFraction
@@ -126,6 +134,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Velocity: ").Append(Velocity).Append("\n");
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
+            sb.Append("  RelativeHumidity: ").Append(RelativeHumidity).Append("\n");
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
@@ -186,6 +195,11 @@ namespace SimScale.Sdk.Model
                     this.Temperature.Equals(input.Temperature))
                 ) && 
                 (
+                    this.RelativeHumidity == input.RelativeHumidity ||
+                    (this.RelativeHumidity != null &&
+                    this.RelativeHumidity.Equals(input.RelativeHumidity))
+                ) && 
+                (
                     this.PhaseFraction == input.PhaseFraction ||
                     (this.PhaseFraction != null &&
                     this.PhaseFraction.Equals(input.PhaseFraction))
@@ -229,6 +243,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Velocity.GetHashCode();
                 if (this.Temperature != null)
                     hashCode = hashCode * 59 + this.Temperature.GetHashCode();
+                if (this.RelativeHumidity != null)
+                    hashCode = hashCode * 59 + this.RelativeHumidity.GetHashCode();
                 if (this.PhaseFraction != null)
                     hashCode = hashCode * 59 + this.PhaseFraction.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)

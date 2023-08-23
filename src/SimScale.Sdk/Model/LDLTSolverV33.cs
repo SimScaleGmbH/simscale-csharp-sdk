@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PETSC&lt;/b&gt; is an iterative solver specially designed to deal with large systems. It scales very effectively in parallel and is the best choice for large problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCPC&lt;/b&gt; is an iterative solver of the pre-conditioned conjugate gradient type. It scales well in parallel and is also usable for large problems.&lt;/p&gt;&lt;/ul&gt;
+    /// LDLTSolverV33
     /// </summary>
     [DataContract]
-    public partial class LDLTSolverV33 : OneOfSolidNumericsSolver, IEquatable<LDLTSolverV33>
+    public partial class LDLTSolverV33 : OneOfHarmonicResponseSolver, OneOfModalSolverSolver, OneOfSolidNumericsSolver, IEquatable<LDLTSolverV33>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LDLTSolverV33" /> class.
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LDLTSolverV33" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PETSC&lt;/b&gt; is an iterative solver specially designed to deal with large systems. It scales very effectively in parallel and is the best choice for large problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCPC&lt;/b&gt; is an iterative solver of the pre-conditioned conjugate gradient type. It scales well in parallel and is also usable for large problems.&lt;/p&gt;&lt;/ul&gt;  Schema name: LDLTSolverV33 (required) (default to &quot;LDLT_V33&quot;).</param>
+        /// <param name="type">Schema name: LDLTSolverV33 (required) (default to &quot;LDLT_V33&quot;).</param>
         /// <param name="forceSymmetric">Choose if you want to enforce a symmetric matrix. (default to true).</param>
         /// <param name="precisionSingularityDetection">Define the precision value for the detection of a singular matrix. (default to 8).</param>
         /// <param name="stopIfSingular">Choose if the calculation should be stopped if the problem turns out to be singular. (default to true).</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PETSC&lt;/b&gt; is an iterative solver specially designed to deal with large systems. It scales very effectively in parallel and is the best choice for large problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCPC&lt;/b&gt; is an iterative solver of the pre-conditioned conjugate gradient type. It scales well in parallel and is also usable for large problems.&lt;/p&gt;&lt;/ul&gt;  Schema name: LDLTSolverV33
+        /// Schema name: LDLTSolverV33
         /// </summary>
-        /// <value>&lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;PETSC&lt;/b&gt; is an iterative solver specially designed to deal with large systems. It scales very effectively in parallel and is the best choice for large problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCPC&lt;/b&gt; is an iterative solver of the pre-conditioned conjugate gradient type. It scales well in parallel and is also usable for large problems.&lt;/p&gt;&lt;/ul&gt;  Schema name: LDLTSolverV33</value>
+        /// <value>Schema name: LDLTSolverV33</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

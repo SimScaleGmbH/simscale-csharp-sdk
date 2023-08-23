@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// QZ
     /// </summary>
     [DataContract]
-    public partial class QZ : OneOfSolidNumericsEigenSolver, IEquatable<QZ>
+    public partial class QZ : OneOfModalSolverEigenSolver, OneOfSolidNumericsEigenSolver, IEquatable<QZ>
     {
         /// <summary>
         /// Defines TypeQZ

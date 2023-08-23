@@ -29,7 +29,6 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(FixedValuePBC), "FIXED_VALUE")]
     [JsonSubtypes.KnownSubType(typeof(MeanValuePBC), "FIXED_MEAN")]
-    [JsonSubtypes.KnownSubType(typeof(TotalPBC), "TOTAL_PRESSURE")]
     public interface OneOfPressureOutletBCGaugePressure
     {
         /// <summary>

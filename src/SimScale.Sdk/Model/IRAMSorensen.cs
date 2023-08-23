@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// IRAMSorensen
     /// </summary>
     [DataContract]
-    public partial class IRAMSorensen : OneOfSolidNumericsEigenSolver, IEquatable<IRAMSorensen>
+    public partial class IRAMSorensen : OneOfModalSolverEigenSolver, OneOfSolidNumericsEigenSolver, IEquatable<IRAMSorensen>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IRAMSorensen" /> class.
