@@ -24,12 +24,14 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfHyperElasticMaterialBehaviorHyperElasticModel
+    /// &lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(MooneyRivlinHyperElasticModel), "MOONEY_RIVLIN")]
     [JsonSubtypes.KnownSubType(typeof(NeoHookeHyperElasticModel), "NEO_HOOKE")]
     [JsonSubtypes.KnownSubType(typeof(SignoriniHyperElasticModel), "SIGNORINI")]
+    [JsonSubtypes.KnownSubType(typeof(YeohHyperElasticModel), "YEOH")]
+    [JsonSubtypes.KnownSubType(typeof(OgdenHyperElasticModel), "OGDEN")]
     public interface OneOfHyperElasticMaterialBehaviorHyperElasticModel
     {
         /// <summary>

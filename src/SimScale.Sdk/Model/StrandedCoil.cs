@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="StrandedCoil" /> class.
         /// </summary>
         /// <param name="type">Schema name: StrandedCoil (required) (default to &quot;STRANDED_COIL&quot;).</param>
-        /// <param name="numberOfTurns">numberOfTurns (default to 1).</param>
+        /// <param name="numberOfTurns">&lt;p&gt;The &lt;strong&gt;Number of Turns&lt;/strong&gt; option indicates the number of times the wire is wound around the coil&#39;s core to form loops. Each loop is a complete 360-degree winding of the wire around the core.&lt;/p&gt; (default to 1).</param>
         /// <param name="wireDiameter">wireDiameter.</param>
         public StrandedCoil(string type = "STRANDED_COIL", int? numberOfTurns = default(int?), DimensionalLength wireDiameter = default(DimensionalLength))
         {
@@ -55,8 +55,9 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets NumberOfTurns
+        /// &lt;p&gt;The &lt;strong&gt;Number of Turns&lt;/strong&gt; option indicates the number of times the wire is wound around the coil&#39;s core to form loops. Each loop is a complete 360-degree winding of the wire around the core.&lt;/p&gt;
         /// </summary>
+        /// <value>&lt;p&gt;The &lt;strong&gt;Number of Turns&lt;/strong&gt; option indicates the number of times the wire is wound around the coil&#39;s core to form loops. Each loop is a complete 360-degree winding of the wire around the core.&lt;/p&gt;</value>
         [DataMember(Name="numberOfTurns", EmitDefaultValue=false)]
         public int? NumberOfTurns { get; set; }
 

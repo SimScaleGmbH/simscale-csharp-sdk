@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfCoilCoilType
+    /// &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Solid Coil:&lt;/strong&gt; Is used for coils with usually only a few turns and large-diameter wire which requires explicit meshing. Eddy current effects are significant due to the wire&#39;s large diameter where skin depth is about the same or smaller than the wire diameter. &lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/emag-solid-coil.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of a solid coil where each wire is meshed explictly.&lt;/p&gt;  &lt;/li&gt; &lt;li&gt;&lt;strong&gt;Stranded Coil:&lt;/strong&gt; Employed when wires are closely packed, thin, and eddy currents can be neglected. This model represents multiple wires without the need of explicit meshing them, which save significant computational time.&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/emag-stranded-coil.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of a stranded coil where wires are not meshed explicitly.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(StrandedCoil), "STRANDED_COIL")]

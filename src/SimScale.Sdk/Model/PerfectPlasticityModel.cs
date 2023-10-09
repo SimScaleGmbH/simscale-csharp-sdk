@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Strain Hardening&lt;/b&gt; if the material response is a combination of linear elastic behavior and plastic hardening behavior, where the material becomes progressively stiffer with increasing strain.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Perfect Plasticity&lt;/b&gt; if the material response is a combination of linear elastic and perfect plastic hardening behavior (constant stress for applied strain).&lt;/li&gt;&lt;/ul&gt;
+    /// PerfectPlasticityModel
     /// </summary>
     [DataContract]
     public partial class PerfectPlasticityModel : OneOfBilinearElastoPlasticModelHardeningModel, IEquatable<PerfectPlasticityModel>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PerfectPlasticityModel" /> class.
         /// </summary>
-        /// <param name="type">Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Strain Hardening&lt;/b&gt; if the material response is a combination of linear elastic behavior and plastic hardening behavior, where the material becomes progressively stiffer with increasing strain.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Perfect Plasticity&lt;/b&gt; if the material response is a combination of linear elastic and perfect plastic hardening behavior (constant stress for applied strain).&lt;/li&gt;&lt;/ul&gt;  Schema name: PerfectPlasticityModel (required) (default to &quot;PERFECT_PLASTICITY&quot;).</param>
+        /// <param name="type">Schema name: PerfectPlasticityModel (required) (default to &quot;PERFECT_PLASTICITY&quot;).</param>
         /// <param name="yieldStress">yieldStress.</param>
         public PerfectPlasticityModel(string type = "PERFECT_PLASTICITY", DimensionalFunctionPressure yieldStress = default(DimensionalFunctionPressure))
         {
@@ -46,9 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Strain Hardening&lt;/b&gt; if the material response is a combination of linear elastic behavior and plastic hardening behavior, where the material becomes progressively stiffer with increasing strain.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Perfect Plasticity&lt;/b&gt; if the material response is a combination of linear elastic and perfect plastic hardening behavior (constant stress for applied strain).&lt;/li&gt;&lt;/ul&gt;  Schema name: PerfectPlasticityModel
+        /// Schema name: PerfectPlasticityModel
         /// </summary>
-        /// <value>Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Strain Hardening&lt;/b&gt; if the material response is a combination of linear elastic behavior and plastic hardening behavior, where the material becomes progressively stiffer with increasing strain.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Perfect Plasticity&lt;/b&gt; if the material response is a combination of linear elastic and perfect plastic hardening behavior (constant stress for applied strain).&lt;/li&gt;&lt;/ul&gt;  Schema name: PerfectPlasticityModel</value>
+        /// <value>Schema name: PerfectPlasticityModel</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

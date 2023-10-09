@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// &lt;br&gt;&lt;p&gt;The &lt;b&gt;Equation of state&lt;/b&gt; describes the relation between density of a fluid and the fluid pressure and temperature. The available options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Rho const:&lt;/b&gt; Fluid density is assumed constant.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Incompressibel perfect gas:&lt;/b&gt; The fluid is assumed to be an &#39;Ideal Gas&#39; that is incompressible by pressure. But, fluid density can change due to temperature.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Perfect gas:&lt;/b&gt; Fluid is assumed to be an &#39;Ideal Gas&#39; and obeys the &#39;Ideal Gas Law&#39;.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Perfect fluid:&lt;/b&gt; Fluid density can change due to pressure and temperature with respect to a base value.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Adiabatic perfect fluid:&lt;/b&gt; The fluid is a perfect fluid which is adiabatic in nature.&lt;/p&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/thermophysical-fluid-models/#equation-of-state&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
-    public partial class RhoConstEquationOfState : OneOfHConstThermoEquationOfState, IEquatable<RhoConstEquationOfState>
+    public partial class RhoConstEquationOfState : OneOfFluidCompressibleMaterialEquationOfState, OneOfHConstThermoEquationOfState, IEquatable<RhoConstEquationOfState>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RhoConstEquationOfState" /> class.
@@ -38,12 +38,14 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">&lt;br&gt;&lt;p&gt;The &lt;b&gt;Equation of state&lt;/b&gt; describes the relation between density of a fluid and the fluid pressure and temperature. The available options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Rho const:&lt;/b&gt; Fluid density is assumed constant.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Incompressibel perfect gas:&lt;/b&gt; The fluid is assumed to be an &#39;Ideal Gas&#39; that is incompressible by pressure. But, fluid density can change due to temperature.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Perfect gas:&lt;/b&gt; Fluid is assumed to be an &#39;Ideal Gas&#39; and obeys the &#39;Ideal Gas Law&#39;.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Perfect fluid:&lt;/b&gt; Fluid density can change due to pressure and temperature with respect to a base value.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Adiabatic perfect fluid:&lt;/b&gt; The fluid is a perfect fluid which is adiabatic in nature.&lt;/p&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/thermophysical-fluid-models/#equation-of-state&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: RhoConstEquationOfState (required) (default to &quot;RHO_CONST&quot;).</param>
         /// <param name="density">density.</param>
+        /// <param name="densityFunction">densityFunction.</param>
         /// <param name="energy">&lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt; (default to &quot;SENSIBLE_ENTHALPY&quot;).</param>
-        public RhoConstEquationOfState(string type = "RHO_CONST", DimensionalDensity density = default(DimensionalDensity), string energy = default(string))
+        public RhoConstEquationOfState(string type = "RHO_CONST", DimensionalDensity density = default(DimensionalDensity), DimensionalFunctionDensity densityFunction = default(DimensionalFunctionDensity), string energy = default(string))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RhoConstEquationOfState and cannot be null");
             this.Density = density;
+            this.DensityFunction = densityFunction;
             this.Energy = energy;
         }
         
@@ -59,6 +61,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="density", EmitDefaultValue=false)]
         public DimensionalDensity Density { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DensityFunction
+        /// </summary>
+        [DataMember(Name="densityFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionDensity DensityFunction { get; set; }
 
         /// <summary>
         /// &lt;p&gt;&lt;b&gt;Energy&lt;/b&gt; provides the methods for the form of energy to be used. The options are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible enthalpy:&lt;/b&gt; The enthalpy form of equation is used without the heat of formation. In most cases this is the recommended choice.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sensible internal Energy:&lt;/b&gt; The internal energy form of equation is used without the heat of formation but also incorporates energy change due to reactions.&lt;/p&gt;
@@ -77,6 +85,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class RhoConstEquationOfState {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Density: ").Append(Density).Append("\n");
+            sb.Append("  DensityFunction: ").Append(DensityFunction).Append("\n");
             sb.Append("  Energy: ").Append(Energy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -123,6 +132,11 @@ namespace SimScale.Sdk.Model
                     this.Density.Equals(input.Density))
                 ) && 
                 (
+                    this.DensityFunction == input.DensityFunction ||
+                    (this.DensityFunction != null &&
+                    this.DensityFunction.Equals(input.DensityFunction))
+                ) && 
+                (
                     this.Energy == input.Energy ||
                     (this.Energy != null &&
                     this.Energy.Equals(input.Energy))
@@ -142,6 +156,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Density != null)
                     hashCode = hashCode * 59 + this.Density.GetHashCode();
+                if (this.DensityFunction != null)
+                    hashCode = hashCode * 59 + this.DensityFunction.GetHashCode();
                 if (this.Energy != null)
                     hashCode = hashCode * 59 + this.Energy.GetHashCode();
                 return hashCode;

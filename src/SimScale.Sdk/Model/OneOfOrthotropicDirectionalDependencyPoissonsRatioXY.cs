@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfOrthotropicDirectionalDependencyPoissonsRatioXY
+    /// &lt;p&gt;Provide the &lt;i&gt;Poisson&#39;s ratio&lt;/i&gt; value which describes the compression or elongation of a material transverse to axial strain on a &lt;b&gt;XY cartesian plane&lt;/b&gt;. &lt;i&gt;Poisson&#39;s ratio&lt;/i&gt; can have a value within range from -1 to 0.5. &lt;/p&gt;&lt;br /&gt;&lt;b&gt;Important remarks:&lt;/b&gt;&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Value less than 0 means that material is auxetic.&lt;/li&gt;&lt;li&gt;Most of the metals such as steel and aluminum have value between 0.2 to 0.35 and are considered compressible.&lt;li&gt;Value of 0.5 means that the material is incompressible such as rubber and some types of foams. Please avoid giving this value since it leads to convergence problem. You can give 0.499 rather than 0.5.&lt;/li&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(ConstantFunction), "CONSTANT")]

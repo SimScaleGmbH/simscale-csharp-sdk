@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// CurrentExcitation
+    /// The total current over all faces
     /// </summary>
     [DataContract]
-    public partial class CurrentExcitation : IEquatable<CurrentExcitation>
+    public partial class CurrentExcitation : OneOfCoilExcitation, IEquatable<CurrentExcitation>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentExcitation" /> class.
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentExcitation" /> class.
         /// </summary>
-        /// <param name="type">Schema name: CurrentExcitation (required) (default to &quot;CURRENT_EXCITATION&quot;).</param>
+        /// <param name="type">The total current over all faces  Schema name: CurrentExcitation (required) (default to &quot;CURRENT_EXCITATION&quot;).</param>
         /// <param name="current">current.</param>
         public CurrentExcitation(string type = "CURRENT_EXCITATION", DimensionalElectricCurrent current = default(DimensionalElectricCurrent))
         {
@@ -46,9 +46,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: CurrentExcitation
+        /// The total current over all faces  Schema name: CurrentExcitation
         /// </summary>
-        /// <value>Schema name: CurrentExcitation</value>
+        /// <value>The total current over all faces  Schema name: CurrentExcitation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

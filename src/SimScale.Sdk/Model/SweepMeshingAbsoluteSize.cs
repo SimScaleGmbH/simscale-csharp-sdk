@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// SweepMeshingAbsoluteSize
     /// </summary>
     [DataContract]
-    public partial class SweepMeshingAbsoluteSize : OneOfSimmetrixSweptMeshRefinementSizingType, IEquatable<SweepMeshingAbsoluteSize>
+    public partial class SweepMeshingAbsoluteSize : OneOfSimmetrixExtrusionMeshRefinementSizingType, OneOfSimmetrixSweptMeshRefinementSizingType, OneOfSimmetrixThinSectionMeshRefinementSizingType, IEquatable<SweepMeshingAbsoluteSize>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SweepMeshingAbsoluteSize" /> class.

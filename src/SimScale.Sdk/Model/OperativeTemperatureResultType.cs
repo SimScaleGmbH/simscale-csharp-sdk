@@ -23,40 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// AutomaticPenetrationControl
+    /// OperativeTemperatureResultType
     /// </summary>
     [DataContract]
-    public partial class AutomaticPenetrationControl : OneOfFrictionContactContactSolutionMethod, OneOfFrictionlessContactContactSolutionMethod, IEquatable<AutomaticPenetrationControl>
+    public partial class OperativeTemperatureResultType : IEquatable<OperativeTemperatureResultType>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AutomaticPenetrationControl" /> class.
+        /// Initializes a new instance of the <see cref="OperativeTemperatureResultType" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AutomaticPenetrationControl() { }
+        protected OperativeTemperatureResultType() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AutomaticPenetrationControl" /> class.
+        /// Initializes a new instance of the <see cref="OperativeTemperatureResultType" /> class.
         /// </summary>
-        /// <param name="type">Schema name: AutomaticPenetrationControl (required) (default to &quot;AUTOMATIC_PENETRATION_CONTROL&quot;).</param>
-        /// <param name="maxPenetration">maxPenetration.</param>
-        public AutomaticPenetrationControl(string type = "AUTOMATIC_PENETRATION_CONTROL", DimensionalLength maxPenetration = default(DimensionalLength))
+        /// <param name="type">Schema name: OperativeTemperatureResultType (required) (default to &quot;OPERATIVE_TEMPERATURE&quot;).</param>
+        public OperativeTemperatureResultType(string type = "OPERATIVE_TEMPERATURE")
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticPenetrationControl and cannot be null");
-            this.MaxPenetration = maxPenetration;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for OperativeTemperatureResultType and cannot be null");
         }
         
         /// <summary>
-        /// Schema name: AutomaticPenetrationControl
+        /// Schema name: OperativeTemperatureResultType
         /// </summary>
-        /// <value>Schema name: AutomaticPenetrationControl</value>
+        /// <value>Schema name: OperativeTemperatureResultType</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MaxPenetration
-        /// </summary>
-        [DataMember(Name="maxPenetration", EmitDefaultValue=false)]
-        public DimensionalLength MaxPenetration { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AutomaticPenetrationControl {\n");
+            sb.Append("class OperativeTemperatureResultType {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  MaxPenetration: ").Append(MaxPenetration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +79,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AutomaticPenetrationControl);
+            return this.Equals(input as OperativeTemperatureResultType);
         }
 
         /// <summary>
-        /// Returns true if AutomaticPenetrationControl instances are equal
+        /// Returns true if OperativeTemperatureResultType instances are equal
         /// </summary>
-        /// <param name="input">Instance of AutomaticPenetrationControl to be compared</param>
+        /// <param name="input">Instance of OperativeTemperatureResultType to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AutomaticPenetrationControl input)
+        public bool Equals(OperativeTemperatureResultType input)
         {
             if (input == null)
                 return false;
@@ -106,11 +97,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.MaxPenetration == input.MaxPenetration ||
-                    (this.MaxPenetration != null &&
-                    this.MaxPenetration.Equals(input.MaxPenetration))
                 );
         }
 
@@ -125,8 +111,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.MaxPenetration != null)
-                    hashCode = hashCode * 59 + this.MaxPenetration.GetHashCode();
                 return hashCode;
             }
         }

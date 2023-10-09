@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// HingeConstraintBC
+    /// Replicate the behaviour of a freely rotating hinge fixed to the ground. Note that only a single face assignment is allowed. The assigned surface is constrained such that only rotational motion around the hinge axis is free. SimScale can automatically detect the axis of the hinge based on an assigned cylindrical surface, but the boundary condition also allows for a user-defined input.
     /// </summary>
     [DataContract]
     public partial class HingeConstraintBC : OneOfDynamicAnalysisBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, IEquatable<HingeConstraintBC>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HingeConstraintBC" /> class.
         /// </summary>
-        /// <param name="type">Schema name: HingeConstraintBC (required) (default to &quot;HINGE_CONSTRAINT&quot;).</param>
+        /// <param name="type">Replicate the behaviour of a freely rotating hinge fixed to the ground. Note that only a single face assignment is allowed. The assigned surface is constrained such that only rotational motion around the hinge axis is free. SimScale can automatically detect the axis of the hinge based on an assigned cylindrical surface, but the boundary condition also allows for a user-defined input.  Schema name: HingeConstraintBC (required) (default to &quot;HINGE_CONSTRAINT&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="axisDefinition">axisDefinition.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: HingeConstraintBC
+        /// Replicate the behaviour of a freely rotating hinge fixed to the ground. Note that only a single face assignment is allowed. The assigned surface is constrained such that only rotational motion around the hinge axis is free. SimScale can automatically detect the axis of the hinge based on an assigned cylindrical surface, but the boundary condition also allows for a user-defined input.  Schema name: HingeConstraintBC
         /// </summary>
-        /// <value>Schema name: HingeConstraintBC</value>
+        /// <value>Replicate the behaviour of a freely rotating hinge fixed to the ground. Note that only a single face assignment is allowed. The assigned surface is constrained such that only rotational motion around the hinge axis is free. SimScale can automatically detect the axis of the hinge based on an assigned cylindrical surface, but the boundary condition also allows for a user-defined input.  Schema name: HingeConstraintBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

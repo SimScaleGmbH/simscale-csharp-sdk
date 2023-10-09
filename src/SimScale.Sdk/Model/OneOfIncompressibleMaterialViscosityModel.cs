@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(NewtonianViscosityModel), "NEWTONIAN")]
     [JsonSubtypes.KnownSubType(typeof(PowerLawViscosityModel), "POWER_LAW")]
+    [JsonSubtypes.KnownSubType(typeof(StandardHerschelBulkleyViscosityModel), "STD_HERSCHEL_BULKLEY")]
     [JsonSubtypes.KnownSubType(typeof(HerschelBulkleyViscosityModel), "HERSCHEL_BULKLEY")]
     [JsonSubtypes.KnownSubType(typeof(CrossPowerLawViscosityModel), "CROSS_POWER_LAW")]
     [JsonSubtypes.KnownSubType(typeof(BirdCarreauViscosityModel), "BIRD_CARREAU")]

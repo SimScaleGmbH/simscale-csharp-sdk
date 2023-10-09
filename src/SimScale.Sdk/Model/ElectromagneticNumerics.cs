@@ -29,8 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class ElectromagneticNumerics : IEquatable<ElectromagneticNumerics>
     {
         /// <summary>
-        /// Defines ElementAccuracy
+        /// Uses second order element shape functions for a higher accuracy. Especially recommended when calculating torques or forces. However this increases memory consumption and computational time.
         /// </summary>
+        /// <value>Uses second order element shape functions for a higher accuracy. Especially recommended when calculating torques or forces. However this increases memory consumption and computational time.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ElementAccuracyEnum
         {
@@ -49,19 +50,29 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets ElementAccuracy
+        /// Uses second order element shape functions for a higher accuracy. Especially recommended when calculating torques or forces. However this increases memory consumption and computational time.
         /// </summary>
+        /// <value>Uses second order element shape functions for a higher accuracy. Especially recommended when calculating torques or forces. However this increases memory consumption and computational time.</value>
         [DataMember(Name="elementAccuracy", EmitDefaultValue=false)]
         public ElementAccuracyEnum? ElementAccuracy { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ElectromagneticNumerics" /> class.
         /// </summary>
-        /// <param name="elementAccuracy">elementAccuracy (default to ElementAccuracyEnum.SECONDORDER).</param>
-        public ElectromagneticNumerics(ElementAccuracyEnum? elementAccuracy = default(ElementAccuracyEnum?))
+        /// <param name="nonlinearResidual">The nonlinear residual error is computed as the difference between the calculated and expected flux density value when a BH curve is specified. (default to 0.0000010M).</param>
+        /// <param name="elementAccuracy">Uses second order element shape functions for a higher accuracy. Especially recommended when calculating torques or forces. However this increases memory consumption and computational time. (default to ElementAccuracyEnum.SECONDORDER).</param>
+        public ElectromagneticNumerics(decimal? nonlinearResidual = default(decimal?), ElementAccuracyEnum? elementAccuracy = default(ElementAccuracyEnum?))
         {
+            this.NonlinearResidual = nonlinearResidual;
             this.ElementAccuracy = elementAccuracy;
         }
         
+        /// <summary>
+        /// The nonlinear residual error is computed as the difference between the calculated and expected flux density value when a BH curve is specified.
+        /// </summary>
+        /// <value>The nonlinear residual error is computed as the difference between the calculated and expected flux density value when a BH curve is specified.</value>
+        [DataMember(Name="nonlinearResidual", EmitDefaultValue=false)]
+        public decimal? NonlinearResidual { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -70,6 +81,7 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ElectromagneticNumerics {\n");
+            sb.Append("  NonlinearResidual: ").Append(NonlinearResidual).Append("\n");
             sb.Append("  ElementAccuracy: ").Append(ElementAccuracy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -106,6 +118,11 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
+                    this.NonlinearResidual == input.NonlinearResidual ||
+                    (this.NonlinearResidual != null &&
+                    this.NonlinearResidual.Equals(input.NonlinearResidual))
+                ) && 
+                (
                     this.ElementAccuracy == input.ElementAccuracy ||
                     this.ElementAccuracy.Equals(input.ElementAccuracy)
                 );
@@ -120,6 +137,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.NonlinearResidual != null)
+                    hashCode = hashCode * 59 + this.NonlinearResidual.GetHashCode();
                 hashCode = hashCode * 59 + this.ElementAccuracy.GetHashCode();
                 return hashCode;
             }

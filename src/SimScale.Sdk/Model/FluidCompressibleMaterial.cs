@@ -69,11 +69,16 @@ namespace SimScale.Sdk.Model
         /// <param name="associatedPhase">&lt;p&gt;Select the corresponding phase for this material:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 0&lt;/b&gt; would mean this material is represented by the phase fraction value of 0. Hence, a phase fraction of &#39;0&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phase 1&lt;/b&gt; would mean this material is represented by the phase fraction value of 1. Hence, a phase fraction of &#39;1&#39; in your setup corresponds to 100% of this fluid material.&lt;/p&gt; (default to AssociatedPhaseEnum._0).</param>
         /// <param name="specie">specie.</param>
         /// <param name="transport">transport.</param>
+        /// <param name="viscosityModel">viscosityModel.</param>
+        /// <param name="laminarPrandtlNumberFunction">laminarPrandtlNumberFunction.</param>
+        /// <param name="turbulentPrandtlNumber">Turbulent Prandtl number is used to calculate the heat transfer due to turbulent effects in the domain..</param>
+        /// <param name="specificHeatFunction">specificHeatFunction.</param>
+        /// <param name="equationOfState">equationOfState.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), OneOfFluidCompressibleMaterialFluidType fluidType = default(OneOfFluidCompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), OneOfFluidCompressibleMaterialFluidType fluidType = default(OneOfFluidCompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), OneOfFluidCompressibleMaterialViscosityModel viscosityModel = default(OneOfFluidCompressibleMaterialViscosityModel), DimensionalFunctionDimensionless laminarPrandtlNumberFunction = default(DimensionalFunctionDimensionless), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalFunctionSpecificHeat specificHeatFunction = default(DimensionalFunctionSpecificHeat), OneOfFluidCompressibleMaterialEquationOfState equationOfState = default(OneOfFluidCompressibleMaterialEquationOfState), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FluidCompressibleMaterial and cannot be null");
@@ -82,6 +87,11 @@ namespace SimScale.Sdk.Model
             this.AssociatedPhase = associatedPhase;
             this.Specie = specie;
             this.Transport = transport;
+            this.ViscosityModel = viscosityModel;
+            this.LaminarPrandtlNumberFunction = laminarPrandtlNumberFunction;
+            this.TurbulentPrandtlNumber = turbulentPrandtlNumber;
+            this.SpecificHeatFunction = specificHeatFunction;
+            this.EquationOfState = equationOfState;
             this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
             this.BuiltInMaterial = builtInMaterial;
@@ -118,6 +128,37 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="transport", EmitDefaultValue=false)]
         public OneOfFluidCompressibleMaterialTransport Transport { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ViscosityModel
+        /// </summary>
+        [DataMember(Name="viscosityModel", EmitDefaultValue=false)]
+        public OneOfFluidCompressibleMaterialViscosityModel ViscosityModel { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LaminarPrandtlNumberFunction
+        /// </summary>
+        [DataMember(Name="laminarPrandtlNumberFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionDimensionless LaminarPrandtlNumberFunction { get; set; }
+
+        /// <summary>
+        /// Turbulent Prandtl number is used to calculate the heat transfer due to turbulent effects in the domain.
+        /// </summary>
+        /// <value>Turbulent Prandtl number is used to calculate the heat transfer due to turbulent effects in the domain.</value>
+        [DataMember(Name="turbulentPrandtlNumber", EmitDefaultValue=false)]
+        public decimal? TurbulentPrandtlNumber { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SpecificHeatFunction
+        /// </summary>
+        [DataMember(Name="specificHeatFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionSpecificHeat SpecificHeatFunction { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EquationOfState
+        /// </summary>
+        [DataMember(Name="equationOfState", EmitDefaultValue=false)]
+        public OneOfFluidCompressibleMaterialEquationOfState EquationOfState { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -157,6 +198,11 @@ namespace SimScale.Sdk.Model
             sb.Append("  AssociatedPhase: ").Append(AssociatedPhase).Append("\n");
             sb.Append("  Specie: ").Append(Specie).Append("\n");
             sb.Append("  Transport: ").Append(Transport).Append("\n");
+            sb.Append("  ViscosityModel: ").Append(ViscosityModel).Append("\n");
+            sb.Append("  LaminarPrandtlNumberFunction: ").Append(LaminarPrandtlNumberFunction).Append("\n");
+            sb.Append("  TurbulentPrandtlNumber: ").Append(TurbulentPrandtlNumber).Append("\n");
+            sb.Append("  SpecificHeatFunction: ").Append(SpecificHeatFunction).Append("\n");
+            sb.Append("  EquationOfState: ").Append(EquationOfState).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
@@ -225,6 +271,31 @@ namespace SimScale.Sdk.Model
                     this.Transport.Equals(input.Transport))
                 ) && 
                 (
+                    this.ViscosityModel == input.ViscosityModel ||
+                    (this.ViscosityModel != null &&
+                    this.ViscosityModel.Equals(input.ViscosityModel))
+                ) && 
+                (
+                    this.LaminarPrandtlNumberFunction == input.LaminarPrandtlNumberFunction ||
+                    (this.LaminarPrandtlNumberFunction != null &&
+                    this.LaminarPrandtlNumberFunction.Equals(input.LaminarPrandtlNumberFunction))
+                ) && 
+                (
+                    this.TurbulentPrandtlNumber == input.TurbulentPrandtlNumber ||
+                    (this.TurbulentPrandtlNumber != null &&
+                    this.TurbulentPrandtlNumber.Equals(input.TurbulentPrandtlNumber))
+                ) && 
+                (
+                    this.SpecificHeatFunction == input.SpecificHeatFunction ||
+                    (this.SpecificHeatFunction != null &&
+                    this.SpecificHeatFunction.Equals(input.SpecificHeatFunction))
+                ) && 
+                (
+                    this.EquationOfState == input.EquationOfState ||
+                    (this.EquationOfState != null &&
+                    this.EquationOfState.Equals(input.EquationOfState))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -267,6 +338,16 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Specie.GetHashCode();
                 if (this.Transport != null)
                     hashCode = hashCode * 59 + this.Transport.GetHashCode();
+                if (this.ViscosityModel != null)
+                    hashCode = hashCode * 59 + this.ViscosityModel.GetHashCode();
+                if (this.LaminarPrandtlNumberFunction != null)
+                    hashCode = hashCode * 59 + this.LaminarPrandtlNumberFunction.GetHashCode();
+                if (this.TurbulentPrandtlNumber != null)
+                    hashCode = hashCode * 59 + this.TurbulentPrandtlNumber.GetHashCode();
+                if (this.SpecificHeatFunction != null)
+                    hashCode = hashCode * 59 + this.SpecificHeatFunction.GetHashCode();
+                if (this.EquationOfState != null)
+                    hashCode = hashCode * 59 + this.EquationOfState.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)

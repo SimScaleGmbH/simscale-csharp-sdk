@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfBilinearElastoPlasticModelHardeningModel
+    /// Choose the hardening model for your problem. &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Strain Hardening&lt;/b&gt; if the material response is a combination of linear elastic and plastic hardening behavior, where the material becomes progressively stiffer with increasing strain.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/strain_hardening_help_text.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Perfect Plasticity&lt;/b&gt; if the material response is a combination of linear elastic and perfect plastic hardening behavior (constant stress for applied strain).&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/perfect_plasticity_help_text.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;&lt;/li&gt;&lt;/ul&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/plastic-materials/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(StrainHardeningModel), "STRAIN_HARDENING")]

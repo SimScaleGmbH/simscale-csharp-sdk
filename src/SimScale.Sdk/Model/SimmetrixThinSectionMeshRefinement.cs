@@ -64,19 +64,19 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: SimmetrixThinSectionMeshRefinement (required) (default to &quot;SIMMETRIX_THIN_SECTION_MESH_REFINEMENT&quot;).</param>
         /// <param name="name">name (default to &quot;Thin section mesh refinement&quot;).</param>
         /// <param name="distanceType">distanceType.</param>
-        /// <param name="numberOfElements">&lt;b&gt;Number of elements&lt;/b&gt; defines the number of cells that will be created across the thin sections of a model region. (default to 10).</param>
+        /// <param name="sizingType">sizingType.</param>
         /// <param name="surfaceElementType">surfaceElementType (default to SurfaceElementTypeEnum.TRIANGULAR).</param>
         /// <param name="specifyLocalSize">specifyLocalSize (default to false).</param>
         /// <param name="maxElementSize">maxElementSize.</param>
         /// <param name="sourceTopologicalReference">sourceTopologicalReference.</param>
         /// <param name="destinationTopologicalReference">destinationTopologicalReference.</param>
-        public SimmetrixThinSectionMeshRefinement(string type = "SIMMETRIX_THIN_SECTION_MESH_REFINEMENT", string name = default(string), OneOfSimmetrixThinSectionMeshRefinementDistanceType distanceType = default(OneOfSimmetrixThinSectionMeshRefinementDistanceType), int? numberOfElements = default(int?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), bool? specifyLocalSize = default(bool?), DimensionalLength maxElementSize = default(DimensionalLength), TopologicalReference sourceTopologicalReference = default(TopologicalReference), TopologicalReference destinationTopologicalReference = default(TopologicalReference))
+        public SimmetrixThinSectionMeshRefinement(string type = "SIMMETRIX_THIN_SECTION_MESH_REFINEMENT", string name = default(string), OneOfSimmetrixThinSectionMeshRefinementDistanceType distanceType = default(OneOfSimmetrixThinSectionMeshRefinementDistanceType), OneOfSimmetrixThinSectionMeshRefinementSizingType sizingType = default(OneOfSimmetrixThinSectionMeshRefinementSizingType), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), bool? specifyLocalSize = default(bool?), DimensionalLength maxElementSize = default(DimensionalLength), TopologicalReference sourceTopologicalReference = default(TopologicalReference), TopologicalReference destinationTopologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixThinSectionMeshRefinement and cannot be null");
             this.Name = name;
             this.DistanceType = distanceType;
-            this.NumberOfElements = numberOfElements;
+            this.SizingType = sizingType;
             this.SurfaceElementType = surfaceElementType;
             this.SpecifyLocalSize = specifyLocalSize;
             this.MaxElementSize = maxElementSize;
@@ -104,11 +104,10 @@ namespace SimScale.Sdk.Model
         public OneOfSimmetrixThinSectionMeshRefinementDistanceType DistanceType { get; set; }
 
         /// <summary>
-        /// &lt;b&gt;Number of elements&lt;/b&gt; defines the number of cells that will be created across the thin sections of a model region.
+        /// Gets or Sets SizingType
         /// </summary>
-        /// <value>&lt;b&gt;Number of elements&lt;/b&gt; defines the number of cells that will be created across the thin sections of a model region.</value>
-        [DataMember(Name="numberOfElements", EmitDefaultValue=false)]
-        public int? NumberOfElements { get; set; }
+        [DataMember(Name="sizingType", EmitDefaultValue=false)]
+        public OneOfSimmetrixThinSectionMeshRefinementSizingType SizingType { get; set; }
 
         /// <summary>
         /// Gets or Sets SpecifyLocalSize
@@ -145,7 +144,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  DistanceType: ").Append(DistanceType).Append("\n");
-            sb.Append("  NumberOfElements: ").Append(NumberOfElements).Append("\n");
+            sb.Append("  SizingType: ").Append(SizingType).Append("\n");
             sb.Append("  SurfaceElementType: ").Append(SurfaceElementType).Append("\n");
             sb.Append("  SpecifyLocalSize: ").Append(SpecifyLocalSize).Append("\n");
             sb.Append("  MaxElementSize: ").Append(MaxElementSize).Append("\n");
@@ -201,9 +200,9 @@ namespace SimScale.Sdk.Model
                     this.DistanceType.Equals(input.DistanceType))
                 ) && 
                 (
-                    this.NumberOfElements == input.NumberOfElements ||
-                    (this.NumberOfElements != null &&
-                    this.NumberOfElements.Equals(input.NumberOfElements))
+                    this.SizingType == input.SizingType ||
+                    (this.SizingType != null &&
+                    this.SizingType.Equals(input.SizingType))
                 ) && 
                 (
                     this.SurfaceElementType == input.SurfaceElementType ||
@@ -246,8 +245,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.DistanceType != null)
                     hashCode = hashCode * 59 + this.DistanceType.GetHashCode();
-                if (this.NumberOfElements != null)
-                    hashCode = hashCode * 59 + this.NumberOfElements.GetHashCode();
+                if (this.SizingType != null)
+                    hashCode = hashCode * 59 + this.SizingType.GetHashCode();
                 hashCode = hashCode * 59 + this.SurfaceElementType.GetHashCode();
                 if (this.SpecifyLocalSize != null)
                     hashCode = hashCode * 59 + this.SpecifyLocalSize.GetHashCode();

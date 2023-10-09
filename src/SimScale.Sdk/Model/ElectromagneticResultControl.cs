@@ -31,7 +31,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ElectromagneticResultControl" /> class.
         /// </summary>
-        /// <param name="calculateInductances">calculateInductances (default to false).</param>
+        /// <param name="calculateInductances">Calculate the inductance matrix of the coils. (default to false).</param>
         /// <param name="forcesAndTorques">forcesAndTorques.</param>
         public ElectromagneticResultControl(bool? calculateInductances = default(bool?), List<ForceAndTorque> forcesAndTorques = default(List<ForceAndTorque>))
         {
@@ -40,8 +40,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Gets or Sets CalculateInductances
+        /// Calculate the inductance matrix of the coils.
         /// </summary>
+        /// <value>Calculate the inductance matrix of the coils.</value>
         [DataMember(Name="calculateInductances", EmitDefaultValue=false)]
         public bool? CalculateInductances { get; set; }
 

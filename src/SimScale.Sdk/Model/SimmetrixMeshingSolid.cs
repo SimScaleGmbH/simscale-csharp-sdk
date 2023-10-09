@@ -113,16 +113,18 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: SimmetrixMeshingSolid (required) (default to &quot;SIMMETRIX_MESHING_SOLID&quot;).</param>
         /// <param name="sizing">sizing.</param>
         /// <param name="refinements">refinements.</param>
+        /// <param name="automaticSweepParameters">automaticSweepParameters.</param>
         /// <param name="enableShellMeshing">enableShellMeshing (default to false).</param>
         /// <param name="surfaceElementType">surfaceElementType (default to SurfaceElementTypeEnum.TRIANGULAR).</param>
         /// <param name="numOfProcessors">&lt;p&gt;Selecting more processor cores might speed up the meshing process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumOfProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="advancedSimmetrixSettings">advancedSimmetrixSettings.</param>
-        public SimmetrixMeshingSolid(string type = "SIMMETRIX_MESHING_SOLID", OneOfSimmetrixMeshingSolidSizing sizing = default(OneOfSimmetrixMeshingSolidSizing), List<OneOfSimmetrixMeshingSolidRefinements> refinements = default(List<OneOfSimmetrixMeshingSolidRefinements>), bool? enableShellMeshing = default(bool?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), AdvancedSimmetrixSolidSettings advancedSimmetrixSettings = default(AdvancedSimmetrixSolidSettings))
+        public SimmetrixMeshingSolid(string type = "SIMMETRIX_MESHING_SOLID", OneOfSimmetrixMeshingSolidSizing sizing = default(OneOfSimmetrixMeshingSolidSizing), List<OneOfSimmetrixMeshingSolidRefinements> refinements = default(List<OneOfSimmetrixMeshingSolidRefinements>), OneOfSimmetrixMeshingSolidAutomaticSweepParameters automaticSweepParameters = default(OneOfSimmetrixMeshingSolidAutomaticSweepParameters), bool? enableShellMeshing = default(bool?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), AdvancedSimmetrixSolidSettings advancedSimmetrixSettings = default(AdvancedSimmetrixSolidSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixMeshingSolid and cannot be null");
             this.Sizing = sizing;
             this.Refinements = refinements;
+            this.AutomaticSweepParameters = automaticSweepParameters;
             this.EnableShellMeshing = enableShellMeshing;
             this.SurfaceElementType = surfaceElementType;
             this.NumOfProcessors = numOfProcessors;
@@ -149,6 +151,12 @@ namespace SimScale.Sdk.Model
         public List<OneOfSimmetrixMeshingSolidRefinements> Refinements { get; set; }
 
         /// <summary>
+        /// Gets or Sets AutomaticSweepParameters
+        /// </summary>
+        [DataMember(Name="automaticSweepParameters", EmitDefaultValue=false)]
+        public OneOfSimmetrixMeshingSolidAutomaticSweepParameters AutomaticSweepParameters { get; set; }
+
+        /// <summary>
         /// Gets or Sets EnableShellMeshing
         /// </summary>
         [DataMember(Name="enableShellMeshing", EmitDefaultValue=false)]
@@ -171,6 +179,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Sizing: ").Append(Sizing).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
+            sb.Append("  AutomaticSweepParameters: ").Append(AutomaticSweepParameters).Append("\n");
             sb.Append("  EnableShellMeshing: ").Append(EnableShellMeshing).Append("\n");
             sb.Append("  SurfaceElementType: ").Append(SurfaceElementType).Append("\n");
             sb.Append("  NumOfProcessors: ").Append(NumOfProcessors).Append("\n");
@@ -226,6 +235,11 @@ namespace SimScale.Sdk.Model
                     this.Refinements.SequenceEqual(input.Refinements)
                 ) && 
                 (
+                    this.AutomaticSweepParameters == input.AutomaticSweepParameters ||
+                    (this.AutomaticSweepParameters != null &&
+                    this.AutomaticSweepParameters.Equals(input.AutomaticSweepParameters))
+                ) && 
+                (
                     this.EnableShellMeshing == input.EnableShellMeshing ||
                     (this.EnableShellMeshing != null &&
                     this.EnableShellMeshing.Equals(input.EnableShellMeshing))
@@ -260,6 +274,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Sizing.GetHashCode();
                 if (this.Refinements != null)
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
+                if (this.AutomaticSweepParameters != null)
+                    hashCode = hashCode * 59 + this.AutomaticSweepParameters.GetHashCode();
                 if (this.EnableShellMeshing != null)
                     hashCode = hashCode * 59 + this.EnableShellMeshing.GetHashCode();
                 hashCode = hashCode * 59 + this.SurfaceElementType.GetHashCode();

@@ -39,8 +39,8 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: ClusterAroundModes (required) (default to &quot;CLUSTER_AROUND_MODES&quot;).</param>
         /// <param name="startFrequency">startFrequency.</param>
         /// <param name="endFrequency">endFrequency.</param>
-        /// <param name="frequenciesPerMode">frequenciesPerMode (default to 5).</param>
-        /// <param name="percentageSpread">percentageSpread (default to 10M).</param>
+        /// <param name="frequenciesPerMode">Specify the number of excitation frequencies to be clustered around each eigenfrequency. The eigenfrequency will also be considered when an even number is provided (default to 5).</param>
+        /// <param name="percentageSpread">Define the total bandwidth around each eigenfrequency as a percentage of each individual eigenfrequency within which excitation frequencies will be spaced. If a value of 10% is given, the bandwidth will extend 5% of the eigenfrequency value on both sides of the eigenfrequency. (default to 10M).</param>
         public ClusterAroundModes(string type = "CLUSTER_AROUND_MODES", DimensionalFrequency startFrequency = default(DimensionalFrequency), DimensionalFrequency endFrequency = default(DimensionalFrequency), int? frequenciesPerMode = default(int?), decimal? percentageSpread = default(decimal?))
         {
             // to ensure "type" is required (not null)
@@ -71,14 +71,16 @@ namespace SimScale.Sdk.Model
         public DimensionalFrequency EndFrequency { get; set; }
 
         /// <summary>
-        /// Gets or Sets FrequenciesPerMode
+        /// Specify the number of excitation frequencies to be clustered around each eigenfrequency. The eigenfrequency will also be considered when an even number is provided
         /// </summary>
+        /// <value>Specify the number of excitation frequencies to be clustered around each eigenfrequency. The eigenfrequency will also be considered when an even number is provided</value>
         [DataMember(Name="frequenciesPerMode", EmitDefaultValue=false)]
         public int? FrequenciesPerMode { get; set; }
 
         /// <summary>
-        /// Gets or Sets PercentageSpread
+        /// Define the total bandwidth around each eigenfrequency as a percentage of each individual eigenfrequency within which excitation frequencies will be spaced. If a value of 10% is given, the bandwidth will extend 5% of the eigenfrequency value on both sides of the eigenfrequency.
         /// </summary>
+        /// <value>Define the total bandwidth around each eigenfrequency as a percentage of each individual eigenfrequency within which excitation frequencies will be spaced. If a value of 10% is given, the bandwidth will extend 5% of the eigenfrequency value on both sides of the eigenfrequency.</value>
         [DataMember(Name="percentageSpread", EmitDefaultValue=false)]
         public decimal? PercentageSpread { get; set; }
 

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// Choose between &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/#newtonian-model&#39; target&#x3D;&#39;_blank&#39;&gt;Newtonian&lt;/a&gt; and &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/non-newtonian-models/&#39; target&#x3D;&#39;_blank&#39;&gt;Non-Newtonian&lt;/a&gt; viscosity models.
     /// </summary>
     [DataContract]
-    public partial class NewtonianViscosityModel : OneOfIncompressibleMaterialViscosityModel, IEquatable<NewtonianViscosityModel>
+    public partial class NewtonianViscosityModel : OneOfFluidCompressibleMaterialViscosityModel, OneOfIncompressibleMaterialViscosityModel, IEquatable<NewtonianViscosityModel>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NewtonianViscosityModel" /> class.
@@ -38,11 +38,15 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Choose between &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/#newtonian-model&#39; target&#x3D;&#39;_blank&#39;&gt;Newtonian&lt;/a&gt; and &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/non-newtonian-models/&#39; target&#x3D;&#39;_blank&#39;&gt;Non-Newtonian&lt;/a&gt; viscosity models.  Schema name: NewtonianViscosityModel (required) (default to &quot;NEWTONIAN&quot;).</param>
         /// <param name="kinematicViscosity">kinematicViscosity.</param>
-        public NewtonianViscosityModel(string type = "NEWTONIAN", DimensionalKinematicViscosity kinematicViscosity = default(DimensionalKinematicViscosity))
+        /// <param name="kinematicViscosityFunction">kinematicViscosityFunction.</param>
+        /// <param name="dynamicViscosityFunction">dynamicViscosityFunction.</param>
+        public NewtonianViscosityModel(string type = "NEWTONIAN", DimensionalKinematicViscosity kinematicViscosity = default(DimensionalKinematicViscosity), DimensionalFunctionKinematicViscosity kinematicViscosityFunction = default(DimensionalFunctionKinematicViscosity), DimensionalFunctionDynamicViscosity dynamicViscosityFunction = default(DimensionalFunctionDynamicViscosity))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for NewtonianViscosityModel and cannot be null");
             this.KinematicViscosity = kinematicViscosity;
+            this.KinematicViscosityFunction = kinematicViscosityFunction;
+            this.DynamicViscosityFunction = dynamicViscosityFunction;
         }
         
         /// <summary>
@@ -59,6 +63,18 @@ namespace SimScale.Sdk.Model
         public DimensionalKinematicViscosity KinematicViscosity { get; set; }
 
         /// <summary>
+        /// Gets or Sets KinematicViscosityFunction
+        /// </summary>
+        [DataMember(Name="kinematicViscosityFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionKinematicViscosity KinematicViscosityFunction { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DynamicViscosityFunction
+        /// </summary>
+        [DataMember(Name="dynamicViscosityFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionDynamicViscosity DynamicViscosityFunction { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +84,8 @@ namespace SimScale.Sdk.Model
             sb.Append("class NewtonianViscosityModel {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  KinematicViscosity: ").Append(KinematicViscosity).Append("\n");
+            sb.Append("  KinematicViscosityFunction: ").Append(KinematicViscosityFunction).Append("\n");
+            sb.Append("  DynamicViscosityFunction: ").Append(DynamicViscosityFunction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +129,16 @@ namespace SimScale.Sdk.Model
                     this.KinematicViscosity == input.KinematicViscosity ||
                     (this.KinematicViscosity != null &&
                     this.KinematicViscosity.Equals(input.KinematicViscosity))
+                ) && 
+                (
+                    this.KinematicViscosityFunction == input.KinematicViscosityFunction ||
+                    (this.KinematicViscosityFunction != null &&
+                    this.KinematicViscosityFunction.Equals(input.KinematicViscosityFunction))
+                ) && 
+                (
+                    this.DynamicViscosityFunction == input.DynamicViscosityFunction ||
+                    (this.DynamicViscosityFunction != null &&
+                    this.DynamicViscosityFunction.Equals(input.DynamicViscosityFunction))
                 );
         }
 
@@ -127,6 +155,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.KinematicViscosity != null)
                     hashCode = hashCode * 59 + this.KinematicViscosity.GetHashCode();
+                if (this.KinematicViscosityFunction != null)
+                    hashCode = hashCode * 59 + this.KinematicViscosityFunction.GetHashCode();
+                if (this.DynamicViscosityFunction != null)
+                    hashCode = hashCode * 59 + this.DynamicViscosityFunction.GetHashCode();
                 return hashCode;
             }
         }

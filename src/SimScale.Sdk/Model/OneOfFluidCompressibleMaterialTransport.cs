@@ -24,11 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;The Transport model defines the calculation of dynamic viscosity.The available models are:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Const:&lt;/b&gt; This will assume constant  dynamic viscosity.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sutherland:&lt;/b&gt; The dynamic viscosity is a function of temperature based on sutherland&#39;s relation.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/materials/thermophysical-fluid-models/#transport-model&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
+    /// OneOfFluidCompressibleMaterialTransport
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(ConstTransport), "CONST")]
     [JsonSubtypes.KnownSubType(typeof(SutherlandTransport), "SUTHERLAND")]
+    [JsonSubtypes.KnownSubType(typeof(HerschelBulkleyTransport), "HERSCHEL_BULKLEY")]
     public interface OneOfFluidCompressibleMaterialTransport
     {
         /// <summary>

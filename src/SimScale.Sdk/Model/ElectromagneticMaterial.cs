@@ -32,14 +32,16 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ElectromagneticMaterial" /> class.
         /// </summary>
         /// <param name="name">name.</param>
+        /// <param name="materialBehavior">materialBehavior.</param>
         /// <param name="electricConductivity">electricConductivity.</param>
         /// <param name="magneticPermeabilityType">magneticPermeabilityType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public ElectromagneticMaterial(string name = default(string), DimensionalElectricConductivity electricConductivity = default(DimensionalElectricConductivity), OneOfElectromagneticMaterialMagneticPermeabilityType magneticPermeabilityType = default(OneOfElectromagneticMaterialMagneticPermeabilityType), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public ElectromagneticMaterial(string name = default(string), OneOfElectromagneticMaterialMaterialBehavior materialBehavior = default(OneOfElectromagneticMaterialMaterialBehavior), DimensionalElectricConductivity electricConductivity = default(DimensionalElectricConductivity), OneOfElectromagneticMaterialMagneticPermeabilityType magneticPermeabilityType = default(OneOfElectromagneticMaterialMagneticPermeabilityType), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             this.Name = name;
+            this.MaterialBehavior = materialBehavior;
             this.ElectricConductivity = electricConductivity;
             this.MagneticPermeabilityType = magneticPermeabilityType;
             this.TopologicalReference = topologicalReference;
@@ -52,6 +54,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MaterialBehavior
+        /// </summary>
+        [DataMember(Name="materialBehavior", EmitDefaultValue=false)]
+        public OneOfElectromagneticMaterialMaterialBehavior MaterialBehavior { get; set; }
 
         /// <summary>
         /// Gets or Sets ElectricConductivity
@@ -92,6 +100,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ElectromagneticMaterial {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  MaterialBehavior: ").Append(MaterialBehavior).Append("\n");
             sb.Append("  ElectricConductivity: ").Append(ElectricConductivity).Append("\n");
             sb.Append("  MagneticPermeabilityType: ").Append(MagneticPermeabilityType).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
@@ -137,6 +146,11 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.MaterialBehavior == input.MaterialBehavior ||
+                    (this.MaterialBehavior != null &&
+                    this.MaterialBehavior.Equals(input.MaterialBehavior))
+                ) && 
+                (
                     this.ElectricConductivity == input.ElectricConductivity ||
                     (this.ElectricConductivity != null &&
                     this.ElectricConductivity.Equals(input.ElectricConductivity))
@@ -174,6 +188,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.MaterialBehavior != null)
+                    hashCode = hashCode * 59 + this.MaterialBehavior.GetHashCode();
                 if (this.ElectricConductivity != null)
                     hashCode = hashCode * 59 + this.ElectricConductivity.GetHashCode();
                 if (this.MagneticPermeabilityType != null)

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;
+    /// SignoriniHyperElasticModel
     /// </summary>
     [DataContract]
     public partial class SignoriniHyperElasticModel : OneOfHyperElasticMaterialBehaviorHyperElasticModel, IEquatable<SignoriniHyperElasticModel>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignoriniHyperElasticModel" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: SignoriniHyperElasticModel (required) (default to &quot;SIGNORINI&quot;).</param>
+        /// <param name="type">Schema name: SignoriniHyperElasticModel (required) (default to &quot;SIGNORINI&quot;).</param>
         /// <param name="c10">c10.</param>
         /// <param name="c01">c01.</param>
         /// <param name="c20">c20.</param>
@@ -52,9 +52,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: SignoriniHyperElasticModel
+        /// Schema name: SignoriniHyperElasticModel
         /// </summary>
-        /// <value>&lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: SignoriniHyperElasticModel</value>
+        /// <value>Schema name: SignoriniHyperElasticModel</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

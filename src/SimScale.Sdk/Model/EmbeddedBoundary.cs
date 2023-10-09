@@ -29,8 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class EmbeddedBoundary : Analysis, IEquatable<EmbeddedBoundary>
     {
         /// <summary>
-        /// Defines TurbulenceModel
+        /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt;
         /// </summary>
+        /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt;</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TurbulenceModelEnum
         {
@@ -49,10 +50,75 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets TurbulenceModel
+        /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt;
         /// </summary>
+        /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt;</value>
         [DataMember(Name="turbulenceModel", EmitDefaultValue=false)]
         public TurbulenceModelEnum? TurbulenceModel { get; set; }
+        /// <summary>
+        /// Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// </summary>
+        /// <value>Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        public enum NumOfPassiveSpeciesEnum
+        {
+            /// <summary>
+            /// Enum NUMBER_0 for value: 0
+            /// </summary>
+            NUMBER_0 = 0,
+
+            /// <summary>
+            /// Enum NUMBER_1 for value: 1
+            /// </summary>
+            NUMBER_1 = 1,
+
+            /// <summary>
+            /// Enum NUMBER_2 for value: 2
+            /// </summary>
+            NUMBER_2 = 2,
+
+            /// <summary>
+            /// Enum NUMBER_3 for value: 3
+            /// </summary>
+            NUMBER_3 = 3,
+
+            /// <summary>
+            /// Enum NUMBER_4 for value: 4
+            /// </summary>
+            NUMBER_4 = 4,
+
+            /// <summary>
+            /// Enum NUMBER_5 for value: 5
+            /// </summary>
+            NUMBER_5 = 5,
+
+            /// <summary>
+            /// Enum NUMBER_6 for value: 6
+            /// </summary>
+            NUMBER_6 = 6,
+
+            /// <summary>
+            /// Enum NUMBER_7 for value: 7
+            /// </summary>
+            NUMBER_7 = 7,
+
+            /// <summary>
+            /// Enum NUMBER_8 for value: 8
+            /// </summary>
+            NUMBER_8 = 8,
+
+            /// <summary>
+            /// Enum NUMBER_9 for value: 9
+            /// </summary>
+            NUMBER_9 = 9
+
+        }
+
+        /// <summary>
+        /// Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// </summary>
+        /// <value>Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        [DataMember(Name="numOfPassiveSpecies", EmitDefaultValue=false)]
+        public NumOfPassiveSpeciesEnum? NumOfPassiveSpecies { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedBoundary" /> class.
         /// </summary>
@@ -76,9 +142,10 @@ namespace SimScale.Sdk.Model
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperature differences in the simulation domain are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="enableJouleHeating">Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation. (default to false).</param>
-        /// <param name="turbulenceModel">turbulenceModel (default to TurbulenceModelEnum.KOMEGASST).</param>
+        /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
-        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? allowExternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), OneOfEmbeddedBoundaryExternalFlowBoundaryCondition externalFlowBoundaryCondition = default(OneOfEmbeddedBoundaryExternalFlowBoundaryCondition), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), EmbeddedBoundaryMeshing embeddedBoundaryMeshing = default(EmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency))
+        /// <param name="numOfPassiveSpecies">Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to NumOfPassiveSpeciesEnum.NUMBER_0).</param>
+        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? allowExternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), OneOfEmbeddedBoundaryExternalFlowBoundaryCondition externalFlowBoundaryCondition = default(OneOfEmbeddedBoundaryExternalFlowBoundaryCondition), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), EmbeddedBoundaryMeshing embeddedBoundaryMeshing = default(EmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for EmbeddedBoundary and cannot be null");
@@ -98,6 +165,7 @@ namespace SimScale.Sdk.Model
             this.EnableJouleHeating = enableJouleHeating;
             this.TurbulenceModel = turbulenceModel;
             this.TimeDependency = timeDependency;
+            this.NumOfPassiveSpecies = numOfPassiveSpecies;
         }
         
         /// <summary>
@@ -226,6 +294,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  EnableJouleHeating: ").Append(EnableJouleHeating).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
+            sb.Append("  NumOfPassiveSpecies: ").Append(NumOfPassiveSpecies).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -344,6 +413,10 @@ namespace SimScale.Sdk.Model
                     this.TimeDependency == input.TimeDependency ||
                     (this.TimeDependency != null &&
                     this.TimeDependency.Equals(input.TimeDependency))
+                ) && 
+                (
+                    this.NumOfPassiveSpecies == input.NumOfPassiveSpecies ||
+                    this.NumOfPassiveSpecies.Equals(input.NumOfPassiveSpecies)
                 );
         }
 
@@ -389,6 +462,7 @@ namespace SimScale.Sdk.Model
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 if (this.TimeDependency != null)
                     hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
+                hashCode = hashCode * 59 + this.NumOfPassiveSpecies.GetHashCode();
                 return hashCode;
             }
         }

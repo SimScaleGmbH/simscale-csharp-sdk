@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// MagneticFieldNormal
+    /// The magnetic field is enforced to be perpendicular to the boundary. 
     /// </summary>
     [DataContract]
     public partial class MagneticFieldNormal : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<MagneticFieldNormal>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MagneticFieldNormal" /> class.
         /// </summary>
-        /// <param name="type">Schema name: MagneticFieldNormal (required) (default to &quot;MAGNETIC_FIELD_NORMAL&quot;).</param>
+        /// <param name="type">The magnetic field is enforced to be perpendicular to the boundary.   Schema name: MagneticFieldNormal (required) (default to &quot;MAGNETIC_FIELD_NORMAL&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public MagneticFieldNormal(string type = "MAGNETIC_FIELD_NORMAL", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,9 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: MagneticFieldNormal
+        /// The magnetic field is enforced to be perpendicular to the boundary.   Schema name: MagneticFieldNormal
         /// </summary>
-        /// <value>Schema name: MagneticFieldNormal</value>
+        /// <value>The magnetic field is enforced to be perpendicular to the boundary.   Schema name: MagneticFieldNormal</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

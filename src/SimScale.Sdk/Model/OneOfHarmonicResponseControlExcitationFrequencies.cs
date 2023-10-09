@@ -24,12 +24,13 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfHarmonicResponseControlExcitationFrequencies
+    /// Frequencies at which the harmonic loads are to be applied and results are to be computed. Define excitation frequencies using the &lt;b&gt;single frequency&lt;/b&gt;, &lt;b&gt;frequency list&lt;/b&gt;, or &lt;b&gt;cluster around modes&lt;/b&gt; option.
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(SingleFrequency), "SINGLE")]
     [JsonSubtypes.KnownSubType(typeof(FrequencyList), "LIST_V20")]
     [JsonSubtypes.KnownSubType(typeof(ClusterAroundModes), "CLUSTER_AROUND_MODES")]
+    [JsonSubtypes.KnownSubType(typeof(CoverSpectrum), "COVER_SPECTRUM")]
     public interface OneOfHarmonicResponseControlExcitationFrequencies
     {
         /// <summary>

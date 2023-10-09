@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose the directional dependency for this property. &lt;b&gt;Anisotropic and orthotropic materials will be available soon.&lt;/b&gt;&lt;/p&gt;
+    /// &lt;p&gt;Choose the directional dependency for this property.&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(IsotropicDirectionalDependency), "ISOTROPIC")]

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;
+    /// MooneyRivlinHyperElasticModel
     /// </summary>
     [DataContract]
     public partial class MooneyRivlinHyperElasticModel : OneOfHyperElasticMaterialBehaviorHyperElasticModel, IEquatable<MooneyRivlinHyperElasticModel>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MooneyRivlinHyperElasticModel" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: MooneyRivlinHyperElasticModel (required) (default to &quot;MOONEY_RIVLIN&quot;).</param>
+        /// <param name="type">Schema name: MooneyRivlinHyperElasticModel (required) (default to &quot;MOONEY_RIVLIN&quot;).</param>
         /// <param name="c10">c10.</param>
         /// <param name="c01">c01.</param>
         /// <param name="d1">d1.</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: MooneyRivlinHyperElasticModel
+        /// Schema name: MooneyRivlinHyperElasticModel
         /// </summary>
-        /// <value>&lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: MooneyRivlinHyperElasticModel</value>
+        /// <value>Schema name: MooneyRivlinHyperElasticModel</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

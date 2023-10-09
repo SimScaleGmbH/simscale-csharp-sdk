@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;
+    /// NeoHookeHyperElasticModel
     /// </summary>
     [DataContract]
     public partial class NeoHookeHyperElasticModel : OneOfHyperElasticMaterialBehaviorHyperElasticModel, IEquatable<NeoHookeHyperElasticModel>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NeoHookeHyperElasticModel" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: NeoHookeHyperElasticModel (required) (default to &quot;NEO_HOOKE&quot;).</param>
+        /// <param name="type">Schema name: NeoHookeHyperElasticModel (required) (default to &quot;NEO_HOOKE&quot;).</param>
         /// <param name="c10">c10.</param>
         /// <param name="d1">d1.</param>
         public NeoHookeHyperElasticModel(string type = "NEO_HOOKE", DimensionalPressure c10 = default(DimensionalPressure), DimensionalInvPressure d1 = default(DimensionalInvPressure))
@@ -48,9 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: NeoHookeHyperElasticModel
+        /// Schema name: NeoHookeHyperElasticModel
         /// </summary>
-        /// <value>&lt;p&gt;Choose the hyperelastic material model that should be used. All models derive the stress-strain relation from a strain energy function defined by the material model parameters.&lt;/p&gt;  Schema name: NeoHookeHyperElasticModel</value>
+        /// <value>Schema name: NeoHookeHyperElasticModel</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

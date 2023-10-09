@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// SweepMeshingNumberOfElements
     /// </summary>
     [DataContract]
-    public partial class SweepMeshingNumberOfElements : OneOfSimmetrixSweptMeshRefinementSizingType, IEquatable<SweepMeshingNumberOfElements>
+    public partial class SweepMeshingNumberOfElements : OneOfSimmetrixExtrusionMeshRefinementSizingType, OneOfSimmetrixSweptMeshRefinementSizingType, OneOfSimmetrixThinSectionMeshRefinementSizingType, IEquatable<SweepMeshingNumberOfElements>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SweepMeshingNumberOfElements" /> class.

@@ -38,12 +38,14 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: TotalTBC (required) (default to &quot;TOTAL_TEMPERATURE&quot;).</param>
         /// <param name="totalTemperature">totalTemperature.</param>
+        /// <param name="totalTemperatureFunction">totalTemperatureFunction.</param>
         /// <param name="specificHeatRatio">specificHeatRatio (default to 1.4M).</param>
-        public TotalTBC(string type = "TOTAL_TEMPERATURE", DimensionalTemperature totalTemperature = default(DimensionalTemperature), decimal? specificHeatRatio = default(decimal?))
+        public TotalTBC(string type = "TOTAL_TEMPERATURE", DimensionalTemperature totalTemperature = default(DimensionalTemperature), DimensionalFunctionTemperature totalTemperatureFunction = default(DimensionalFunctionTemperature), decimal? specificHeatRatio = default(decimal?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TotalTBC and cannot be null");
             this.TotalTemperature = totalTemperature;
+            this.TotalTemperatureFunction = totalTemperatureFunction;
             this.SpecificHeatRatio = specificHeatRatio;
         }
         
@@ -61,6 +63,12 @@ namespace SimScale.Sdk.Model
         public DimensionalTemperature TotalTemperature { get; set; }
 
         /// <summary>
+        /// Gets or Sets TotalTemperatureFunction
+        /// </summary>
+        [DataMember(Name="totalTemperatureFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionTemperature TotalTemperatureFunction { get; set; }
+
+        /// <summary>
         /// Gets or Sets SpecificHeatRatio
         /// </summary>
         [DataMember(Name="specificHeatRatio", EmitDefaultValue=false)]
@@ -76,6 +84,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class TotalTBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  TotalTemperature: ").Append(TotalTemperature).Append("\n");
+            sb.Append("  TotalTemperatureFunction: ").Append(TotalTemperatureFunction).Append("\n");
             sb.Append("  SpecificHeatRatio: ").Append(SpecificHeatRatio).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -122,6 +131,11 @@ namespace SimScale.Sdk.Model
                     this.TotalTemperature.Equals(input.TotalTemperature))
                 ) && 
                 (
+                    this.TotalTemperatureFunction == input.TotalTemperatureFunction ||
+                    (this.TotalTemperatureFunction != null &&
+                    this.TotalTemperatureFunction.Equals(input.TotalTemperatureFunction))
+                ) && 
+                (
                     this.SpecificHeatRatio == input.SpecificHeatRatio ||
                     (this.SpecificHeatRatio != null &&
                     this.SpecificHeatRatio.Equals(input.SpecificHeatRatio))
@@ -141,6 +155,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.TotalTemperature != null)
                     hashCode = hashCode * 59 + this.TotalTemperature.GetHashCode();
+                if (this.TotalTemperatureFunction != null)
+                    hashCode = hashCode * 59 + this.TotalTemperatureFunction.GetHashCode();
                 if (this.SpecificHeatRatio != null)
                     hashCode = hashCode * 59 + this.SpecificHeatRatio.GetHashCode();
                 return hashCode;

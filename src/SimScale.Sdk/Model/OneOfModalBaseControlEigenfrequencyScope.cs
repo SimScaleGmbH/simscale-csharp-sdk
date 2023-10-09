@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfModalBaseControlEigenfrequencyScope
+    /// &lt;p&gt;Select the method to build the modal base, by controlling the search of the natural frequencies:&lt;br&gt; &lt;li&gt;&lt;b&gt;Twice the maximum loading frequency&lt;/b&gt;: From zero to twice the maximum excitation frequency defined under &lt;b&gt;Harmonic response&lt;/b&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;First modes&lt;/b&gt;: The first &lt;i&gt;Number of modes&lt;/i&gt; will be searched and computed in the order of low to high frequency.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Frequency range&lt;/b&gt;: All the modes within the specified frequency range will be searched and computed. The frequency range is defined by a &lt;i&gt;Start frequency&lt;/i&gt; and an &lt;i&gt;End frequency&lt;/i&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Center frequency&lt;/b&gt;: Compute the &lt;i&gt;Number of modes&lt;/i&gt; closest to the frequency defined by the &lt;i&gt;Center frequency&lt;/i&gt;.&lt;/li&gt;&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(TwiceMaxLoadingFrequency), "TWICE_MAX_LOADING_FREQUENCY")]

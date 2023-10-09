@@ -29,8 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class SolidNumerics : IEquatable<SolidNumerics>
     {
         /// <summary>
-        /// Defines HarmonicSolutionMethod
+        /// Select the basis for the computation of the harmonic analysis.
         /// </summary>
+        /// <value>Select the basis for the computation of the harmonic analysis.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum HarmonicSolutionMethodEnum
         {
@@ -49,14 +50,15 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets HarmonicSolutionMethod
+        /// Select the basis for the computation of the harmonic analysis.
         /// </summary>
+        /// <value>Select the basis for the computation of the harmonic analysis.</value>
         [DataMember(Name="harmonicSolutionMethod", EmitDefaultValue=false)]
         public HarmonicSolutionMethodEnum? HarmonicSolutionMethod { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SolidNumerics" /> class.
         /// </summary>
-        /// <param name="harmonicSolutionMethod">harmonicSolutionMethod (default to HarmonicSolutionMethodEnum.DIRECT).</param>
+        /// <param name="harmonicSolutionMethod">Select the basis for the computation of the harmonic analysis. (default to HarmonicSolutionMethodEnum.DIRECT).</param>
         /// <param name="solver">solver.</param>
         /// <param name="solveModel">solveModel.</param>
         /// <param name="eigenSolver">eigenSolver.</param>

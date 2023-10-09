@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// MagneticFluxTangential
+    /// The magnetic flux is enforced to be tangential to the boundary. This boundary is often appropriate when electric current enters or leaves the boundary.
     /// </summary>
     [DataContract]
     public partial class MagneticFluxTangential : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<MagneticFluxTangential>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MagneticFluxTangential" /> class.
         /// </summary>
-        /// <param name="type">Schema name: MagneticFluxTangential (required) (default to &quot;MAGNETIC_FLUX_TANGENTIAL&quot;).</param>
+        /// <param name="type">The magnetic flux is enforced to be tangential to the boundary. This boundary is often appropriate when electric current enters or leaves the boundary.  Schema name: MagneticFluxTangential (required) (default to &quot;MAGNETIC_FLUX_TANGENTIAL&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public MagneticFluxTangential(string type = "MAGNETIC_FLUX_TANGENTIAL", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,9 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: MagneticFluxTangential
+        /// The magnetic flux is enforced to be tangential to the boundary. This boundary is often appropriate when electric current enters or leaves the boundary.  Schema name: MagneticFluxTangential
         /// </summary>
-        /// <value>Schema name: MagneticFluxTangential</value>
+        /// <value>The magnetic flux is enforced to be tangential to the boundary. This boundary is often appropriate when electric current enters or leaves the boundary.  Schema name: MagneticFluxTangential</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

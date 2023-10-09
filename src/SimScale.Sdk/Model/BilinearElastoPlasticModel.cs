@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Bilinear&lt;/b&gt; if the material response is a combination of linear elastic and plastic behavior and is defined by the elastic modulus, yield strength, and hardening modulus.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Multilinear&lt;/b&gt; if the material response is a combination of linear elastic and plastic behavior and is defined by the elastic modulus, yield strength, and multiple hardening moduli.&lt;/li&gt;&lt;/ul&gt;
+    /// BilinearElastoPlasticModel
     /// </summary>
     [DataContract]
     public partial class BilinearElastoPlasticModel : OneOfPlasticMaterialBehaviorElastoPlasticModel, IEquatable<BilinearElastoPlasticModel>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BilinearElastoPlasticModel" /> class.
         /// </summary>
-        /// <param name="type">Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Bilinear&lt;/b&gt; if the material response is a combination of linear elastic and plastic behavior and is defined by the elastic modulus, yield strength, and hardening modulus.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Multilinear&lt;/b&gt; if the material response is a combination of linear elastic and plastic behavior and is defined by the elastic modulus, yield strength, and multiple hardening moduli.&lt;/li&gt;&lt;/ul&gt;  Schema name: BilinearElastoPlasticModel (required) (default to &quot;BILINEAR&quot;).</param>
+        /// <param name="type">Schema name: BilinearElastoPlasticModel (required) (default to &quot;BILINEAR&quot;).</param>
         /// <param name="youngsModulus">youngsModulus.</param>
         /// <param name="poissonsRatio">poissonsRatio.</param>
         /// <param name="hardeningModel">hardeningModel.</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Bilinear&lt;/b&gt; if the material response is a combination of linear elastic and plastic behavior and is defined by the elastic modulus, yield strength, and hardening modulus.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Multilinear&lt;/b&gt; if the material response is a combination of linear elastic and plastic behavior and is defined by the elastic modulus, yield strength, and multiple hardening moduli.&lt;/li&gt;&lt;/ul&gt;  Schema name: BilinearElastoPlasticModel
+        /// Schema name: BilinearElastoPlasticModel
         /// </summary>
-        /// <value>Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Bilinear&lt;/b&gt; if the material response is a combination of linear elastic and plastic behavior and is defined by the elastic modulus, yield strength, and hardening modulus.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Multilinear&lt;/b&gt; if the material response is a combination of linear elastic and plastic behavior and is defined by the elastic modulus, yield strength, and multiple hardening moduli.&lt;/li&gt;&lt;/ul&gt;  Schema name: BilinearElastoPlasticModel</value>
+        /// <value>Schema name: BilinearElastoPlasticModel</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
