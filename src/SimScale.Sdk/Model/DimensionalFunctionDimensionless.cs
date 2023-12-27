@@ -38,7 +38,13 @@ namespace SimScale.Sdk.Model
             /// Enum Empty for value: 
             /// </summary>
             [EnumMember(Value = "")]
-            Empty = 1
+            Empty = 1,
+
+            /// <summary>
+            /// Enum Percent for value: %
+            /// </summary>
+            [EnumMember(Value = "%")]
+            Percent = 2
 
         }
 

@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">&lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent. Orthotropic means directionally dependent.&lt;/p&gt;  Schema name: IsotropicConductivity (required) (default to &quot;ISOTROPIC&quot;).</param>
         /// <param name="thermalConductivity">thermalConductivity.</param>
-        public IsotropicConductivity(string type = "ISOTROPIC", DimensionalFunctionThermalConductivity thermalConductivity = default(DimensionalFunctionThermalConductivity))
+        /// <param name="thermalConductivityFunction">thermalConductivityFunction.</param>
+        public IsotropicConductivity(string type = "ISOTROPIC", DimensionalFunctionThermalConductivity thermalConductivity = default(DimensionalFunctionThermalConductivity), DimensionalFunctionThermalConductivity thermalConductivityFunction = default(DimensionalFunctionThermalConductivity))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IsotropicConductivity and cannot be null");
             this.ThermalConductivity = thermalConductivity;
+            this.ThermalConductivityFunction = thermalConductivityFunction;
         }
         
         /// <summary>
@@ -59,6 +61,12 @@ namespace SimScale.Sdk.Model
         public DimensionalFunctionThermalConductivity ThermalConductivity { get; set; }
 
         /// <summary>
+        /// Gets or Sets ThermalConductivityFunction
+        /// </summary>
+        [DataMember(Name="thermalConductivityFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionThermalConductivity ThermalConductivityFunction { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +76,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class IsotropicConductivity {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ThermalConductivity: ").Append(ThermalConductivity).Append("\n");
+            sb.Append("  ThermalConductivityFunction: ").Append(ThermalConductivityFunction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +120,11 @@ namespace SimScale.Sdk.Model
                     this.ThermalConductivity == input.ThermalConductivity ||
                     (this.ThermalConductivity != null &&
                     this.ThermalConductivity.Equals(input.ThermalConductivity))
+                ) && 
+                (
+                    this.ThermalConductivityFunction == input.ThermalConductivityFunction ||
+                    (this.ThermalConductivityFunction != null &&
+                    this.ThermalConductivityFunction.Equals(input.ThermalConductivityFunction))
                 );
         }
 
@@ -127,6 +141,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.ThermalConductivity != null)
                     hashCode = hashCode * 59 + this.ThermalConductivity.GetHashCode();
+                if (this.ThermalConductivityFunction != null)
+                    hashCode = hashCode * 59 + this.ThermalConductivityFunction.GetHashCode();
                 return hashCode;
             }
         }

@@ -44,7 +44,25 @@ namespace SimScale.Sdk.Model
             /// Enum LbIn for value: lb/in³
             /// </summary>
             [EnumMember(Value = "lb/in³")]
-            LbIn = 2
+            LbIn = 2,
+
+            /// <summary>
+            /// Enum GMm for value: g/mm³
+            /// </summary>
+            [EnumMember(Value = "g/mm³")]
+            GMm = 3,
+
+            /// <summary>
+            /// Enum GCm for value: g/cm³
+            /// </summary>
+            [EnumMember(Value = "g/cm³")]
+            GCm = 4,
+
+            /// <summary>
+            /// Enum TMm for value: t/mm³
+            /// </summary>
+            [EnumMember(Value = "t/mm³")]
+            TMm = 5
 
         }
 

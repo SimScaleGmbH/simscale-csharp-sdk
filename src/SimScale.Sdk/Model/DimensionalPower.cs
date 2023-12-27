@@ -44,7 +44,43 @@ namespace SimScale.Sdk.Model
             /// Enum BtuS for value: Btu/s
             /// </summary>
             [EnumMember(Value = "Btu/s")]
-            BtuS = 2
+            BtuS = 2,
+
+            /// <summary>
+            /// Enum KW for value: kW
+            /// </summary>
+            [EnumMember(Value = "kW")]
+            KW = 3,
+
+            /// <summary>
+            /// Enum MW for value: MW
+            /// </summary>
+            [EnumMember(Value = "MW")]
+            MW = 4,
+
+            /// <summary>
+            /// Enum HP for value: HP
+            /// </summary>
+            [EnumMember(Value = "HP")]
+            HP = 5,
+
+            /// <summary>
+            /// Enum CV for value: CV
+            /// </summary>
+            [EnumMember(Value = "CV")]
+            CV = 6,
+
+            /// <summary>
+            /// Enum BtuMin for value: Btu/min
+            /// </summary>
+            [EnumMember(Value = "Btu/min")]
+            BtuMin = 7,
+
+            /// <summary>
+            /// Enum BtuH for value: Btu/h
+            /// </summary>
+            [EnumMember(Value = "Btu/h")]
+            BtuH = 8
 
         }
 

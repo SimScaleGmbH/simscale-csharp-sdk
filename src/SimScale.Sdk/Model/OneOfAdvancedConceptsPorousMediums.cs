@@ -27,6 +27,8 @@ namespace SimScale.Sdk.Model
     /// OneOfAdvancedConceptsPorousMediums
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(DarcyMedium), "DARCY")]
+    [JsonSubtypes.KnownSubType(typeof(PressureLossFunctionMedium), "PRESSURE_LOSS_FUNCTION")]
     [JsonSubtypes.KnownSubType(typeof(DarcyForchheimerMedium), "DARCY_FORCHHEIMER")]
     [JsonSubtypes.KnownSubType(typeof(FixedCoeffMedium), "FIXED_COEFFICIENTS")]
     [JsonSubtypes.KnownSubType(typeof(PowerLawMedium), "POWER_LAW")]

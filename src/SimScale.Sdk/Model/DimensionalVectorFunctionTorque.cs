@@ -44,7 +44,13 @@ namespace SimScale.Sdk.Model
             /// Enum Lbfin for value: lbf·in
             /// </summary>
             [EnumMember(Value = "lbf·in")]
-            Lbfin = 2
+            Lbfin = 2,
+
+            /// <summary>
+            /// Enum Lbfft for value: lbf·ft
+            /// </summary>
+            [EnumMember(Value = "lbf·ft")]
+            Lbfft = 3
 
         }
 

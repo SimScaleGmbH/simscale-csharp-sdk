@@ -44,7 +44,121 @@ namespace SimScale.Sdk.Model
             /// Enum InS for value: in³/s
             /// </summary>
             [EnumMember(Value = "in³/s")]
-            InS = 2
+            InS = 2,
+
+            /// <summary>
+            /// Enum MMin for value: m³/min
+            /// </summary>
+            [EnumMember(Value = "m³/min")]
+            MMin = 3,
+
+            /// <summary>
+            /// Enum MH for value: m³/h
+            /// </summary>
+            [EnumMember(Value = "m³/h")]
+            MH = 4,
+
+            /// <summary>
+            /// Enum MmS for value: mm³/s
+            /// </summary>
+            [EnumMember(Value = "mm³/s")]
+            MmS = 5,
+
+            /// <summary>
+            /// Enum MmMin for value: mm³/min
+            /// </summary>
+            [EnumMember(Value = "mm³/min")]
+            MmMin = 6,
+
+            /// <summary>
+            /// Enum MmH for value: mm³/h
+            /// </summary>
+            [EnumMember(Value = "mm³/h")]
+            MmH = 7,
+
+            /// <summary>
+            /// Enum CmS for value: cm³/s
+            /// </summary>
+            [EnumMember(Value = "cm³/s")]
+            CmS = 8,
+
+            /// <summary>
+            /// Enum CmMin for value: cm³/min
+            /// </summary>
+            [EnumMember(Value = "cm³/min")]
+            CmMin = 9,
+
+            /// <summary>
+            /// Enum CmH for value: cm³/h
+            /// </summary>
+            [EnumMember(Value = "cm³/h")]
+            CmH = 10,
+
+            /// <summary>
+            /// Enum LS for value: l/s
+            /// </summary>
+            [EnumMember(Value = "l/s")]
+            LS = 11,
+
+            /// <summary>
+            /// Enum LMin for value: l/min
+            /// </summary>
+            [EnumMember(Value = "l/min")]
+            LMin = 12,
+
+            /// <summary>
+            /// Enum LH for value: l/h
+            /// </summary>
+            [EnumMember(Value = "l/h")]
+            LH = 13,
+
+            /// <summary>
+            /// Enum InMin for value: in³/min
+            /// </summary>
+            [EnumMember(Value = "in³/min")]
+            InMin = 14,
+
+            /// <summary>
+            /// Enum InH for value: in³/h
+            /// </summary>
+            [EnumMember(Value = "in³/h")]
+            InH = 15,
+
+            /// <summary>
+            /// Enum FtS for value: ft³/s
+            /// </summary>
+            [EnumMember(Value = "ft³/s")]
+            FtS = 16,
+
+            /// <summary>
+            /// Enum FtMin for value: ft³/min
+            /// </summary>
+            [EnumMember(Value = "ft³/min")]
+            FtMin = 17,
+
+            /// <summary>
+            /// Enum FtH for value: ft³/h
+            /// </summary>
+            [EnumMember(Value = "ft³/h")]
+            FtH = 18,
+
+            /// <summary>
+            /// Enum GalMin for value: gal/min
+            /// </summary>
+            [EnumMember(Value = "gal/min")]
+            GalMin = 19,
+
+            /// <summary>
+            /// Enum GalH for value: gal/h
+            /// </summary>
+            [EnumMember(Value = "gal/h")]
+            GalH = 20,
+
+            /// <summary>
+            /// Enum GalS for value: gal/s
+            /// </summary>
+            [EnumMember(Value = "gal/s")]
+            GalS = 21
 
         }
 

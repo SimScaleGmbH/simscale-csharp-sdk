@@ -47,34 +47,88 @@ namespace SimScale.Sdk.Model
             LbfIn = 2,
 
             /// <summary>
+            /// Enum HPa for value: hPa
+            /// </summary>
+            [EnumMember(Value = "hPa")]
+            HPa = 3,
+
+            /// <summary>
             /// Enum KPa for value: kPa
             /// </summary>
             [EnumMember(Value = "kPa")]
-            KPa = 3,
+            KPa = 4,
 
             /// <summary>
             /// Enum MPa for value: MPa
             /// </summary>
             [EnumMember(Value = "MPa")]
-            MPa = 4,
+            MPa = 5,
 
             /// <summary>
-            /// Enum Bar for value: bar
+            /// Enum Atm for value: atm
             /// </summary>
-            [EnumMember(Value = "bar")]
-            Bar = 5,
+            [EnumMember(Value = "atm")]
+            Atm = 6,
 
             /// <summary>
             /// Enum Mbar for value: mbar
             /// </summary>
             [EnumMember(Value = "mbar")]
-            Mbar = 6,
+            Mbar = 7,
+
+            /// <summary>
+            /// Enum Bar for value: bar
+            /// </summary>
+            [EnumMember(Value = "bar")]
+            Bar = 8,
 
             /// <summary>
             /// Enum MH2O for value: mH2O
             /// </summary>
             [EnumMember(Value = "mH2O")]
-            MH2O = 7
+            MH2O = 9,
+
+            /// <summary>
+            /// Enum MmH2O for value: mmH2O
+            /// </summary>
+            [EnumMember(Value = "mmH2O")]
+            MmH2O = 10,
+
+            /// <summary>
+            /// Enum MmHg for value: mmHg
+            /// </summary>
+            [EnumMember(Value = "mmHg")]
+            MmHg = 11,
+
+            /// <summary>
+            /// Enum DyneCm for value: dyne/cm²
+            /// </summary>
+            [EnumMember(Value = "dyne/cm²")]
+            DyneCm = 12,
+
+            /// <summary>
+            /// Enum InH2O for value: inH2O
+            /// </summary>
+            [EnumMember(Value = "inH2O")]
+            InH2O = 13,
+
+            /// <summary>
+            /// Enum FtH2O for value: ftH2O
+            /// </summary>
+            [EnumMember(Value = "ftH2O")]
+            FtH2O = 14,
+
+            /// <summary>
+            /// Enum InHg for value: inHg
+            /// </summary>
+            [EnumMember(Value = "inHg")]
+            InHg = 15,
+
+            /// <summary>
+            /// Enum Psf for value: psf
+            /// </summary>
+            [EnumMember(Value = "psf")]
+            Psf = 16
 
         }
 

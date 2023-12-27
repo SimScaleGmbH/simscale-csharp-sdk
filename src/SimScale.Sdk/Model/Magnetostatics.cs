@@ -23,51 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// DimensionalAmountOfSubstance
+    /// Magnetostatics
     /// </summary>
     [DataContract]
-    public partial class DimensionalAmountOfSubstance : IEquatable<DimensionalAmountOfSubstance>
+    public partial class Magnetostatics : OneOfElectromagneticAnalysisModel, IEquatable<Magnetostatics>
     {
         /// <summary>
-        /// Defines Unit
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum UnitEnum
-        {
-            /// <summary>
-            /// Enum Mol for value: mol
-            /// </summary>
-            [EnumMember(Value = "mol")]
-            Mol = 1
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Unit
-        /// </summary>
-        [DataMember(Name="unit", EmitDefaultValue=false)]
-        public UnitEnum Unit { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalAmountOfSubstance" /> class.
+        /// Initializes a new instance of the <see cref="Magnetostatics" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DimensionalAmountOfSubstance() { }
+        protected Magnetostatics() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalAmountOfSubstance" /> class.
+        /// Initializes a new instance of the <see cref="Magnetostatics" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="unit">unit (required).</param>
-        public DimensionalAmountOfSubstance(decimal? value = default(decimal?), UnitEnum unit = default(UnitEnum))
+        /// <param name="type">Schema name: Magnetostatics (required) (default to &quot;MAGNETOSTATICS&quot;).</param>
+        public Magnetostatics(string type = "MAGNETOSTATICS")
         {
-            this.Unit = unit;
-            this.Value = value;
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for Magnetostatics and cannot be null");
         }
         
         /// <summary>
-        /// Gets or Sets Value
+        /// Schema name: Magnetostatics
         /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        /// <value>Schema name: Magnetostatics</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,9 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DimensionalAmountOfSubstance {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  Unit: ").Append(Unit).Append("\n");
+            sb.Append("class Magnetostatics {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,28 +79,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DimensionalAmountOfSubstance);
+            return this.Equals(input as Magnetostatics);
         }
 
         /// <summary>
-        /// Returns true if DimensionalAmountOfSubstance instances are equal
+        /// Returns true if Magnetostatics instances are equal
         /// </summary>
-        /// <param name="input">Instance of DimensionalAmountOfSubstance to be compared</param>
+        /// <param name="input">Instance of Magnetostatics to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DimensionalAmountOfSubstance input)
+        public bool Equals(Magnetostatics input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
-                ) && 
-                (
-                    this.Unit == input.Unit ||
-                    this.Unit.Equals(input.Unit)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -133,9 +109,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
-                hashCode = hashCode * 59 + this.Unit.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

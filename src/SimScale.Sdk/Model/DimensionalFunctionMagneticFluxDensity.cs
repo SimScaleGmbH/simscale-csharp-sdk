@@ -35,16 +35,10 @@ namespace SimScale.Sdk.Model
         public enum UnitEnum
         {
             /// <summary>
-            /// Enum M for value: V·s/m²
+            /// Enum T for value: T
             /// </summary>
-            [EnumMember(Value = "V·s/m²")]
-            M = 1,
-
-            /// <summary>
-            /// Enum In for value: V·s/in²
-            /// </summary>
-            [EnumMember(Value = "V·s/in²")]
-            In = 2
+            [EnumMember(Value = "T")]
+            T = 1
 
         }
 

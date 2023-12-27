@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// NewRegionRefinementPacefishV38
     /// </summary>
     [DataContract]
-    public partial class NewRegionRefinementPacefishV38 : OneOfPacefishAutomeshRefinements, OneOfPacefishMeshV38Refinements, IEquatable<NewRegionRefinementPacefishV38>
+    public partial class NewRegionRefinementPacefishV38 : OneOfPacefishAutomeshRefinements, IEquatable<NewRegionRefinementPacefishV38>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NewRegionRefinementPacefishV38" /> class.

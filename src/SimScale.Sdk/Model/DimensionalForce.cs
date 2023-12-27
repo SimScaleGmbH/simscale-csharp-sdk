@@ -44,7 +44,19 @@ namespace SimScale.Sdk.Model
             /// Enum Lbf for value: lbf
             /// </summary>
             [EnumMember(Value = "lbf")]
-            Lbf = 2
+            Lbf = 2,
+
+            /// <summary>
+            /// Enum Dyne for value: dyne
+            /// </summary>
+            [EnumMember(Value = "dyne")]
+            Dyne = 3,
+
+            /// <summary>
+            /// Enum MicroNewton for value: µN
+            /// </summary>
+            [EnumMember(Value = "µN")]
+            MicroNewton = 4
 
         }
 

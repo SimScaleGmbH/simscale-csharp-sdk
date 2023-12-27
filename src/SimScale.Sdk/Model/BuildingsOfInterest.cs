@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// BuildingsOfInterest
     /// </summary>
     [DataContract]
-    public partial class BuildingsOfInterest : OneOfPacefishAutomeshPrimaryTopology, OneOfPacefishMeshV38PrimaryTopology, IEquatable<BuildingsOfInterest>
+    public partial class BuildingsOfInterest : OneOfPacefishAutomeshPrimaryTopology, IEquatable<BuildingsOfInterest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BuildingsOfInterest" /> class.

@@ -39,6 +39,11 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsWallHeatFluxResultControl), "WALL_HEAT_FLUX")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsMeanRadiantTemperatureResultControl), "MEAN_RADIANT_TEMPERATURE")]
     [JsonSubtypes.KnownSubType(typeof(FieldCalculationsOperativeTemperatureResultControl), "OPERATIVE_TEMPERATURE")]
+    [JsonSubtypes.KnownSubType(typeof(FieldCalculationsResolvedTKEResultControl), "RESOLVED_TURBULENT_KINETIC_ENERGY")]
+    [JsonSubtypes.KnownSubType(typeof(FieldCalculationsTotalTKEResultControl), "TOTAL_TURBULENT_KINETIC_ENERGY")]
+    [JsonSubtypes.KnownSubType(typeof(FieldCalculationsModeledTIResultControl), "MODELED_TURBULENCE_INTENSITY")]
+    [JsonSubtypes.KnownSubType(typeof(FieldCalculationsResolvedTIResultControl), "RESOLVED_TURBULENCE_INTENSITY")]
+    [JsonSubtypes.KnownSubType(typeof(FieldCalculationsTotalTIResultControl), "TOTAL_TURBULENCE_INTENSITY")]
     public interface OneOfFluidResultControlsFieldCalculations
     {
         /// <summary>

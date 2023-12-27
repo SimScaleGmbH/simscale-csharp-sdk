@@ -86,6 +86,31 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="turbulenceModel", EmitDefaultValue=false)]
         public TurbulenceModelEnum? TurbulenceModel { get; set; }
         /// <summary>
+        /// Defines AdjointTurbulenceModel
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AdjointTurbulenceModelEnum
+        {
+            /// <summary>
+            /// Enum NONE for value: ADJOINT_NONE
+            /// </summary>
+            [EnumMember(Value = "ADJOINT_NONE")]
+            NONE = 1,
+
+            /// <summary>
+            /// Enum KOMEGASST for value: ADJOINT_KOMEGASST
+            /// </summary>
+            [EnumMember(Value = "ADJOINT_KOMEGASST")]
+            KOMEGASST = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets AdjointTurbulenceModel
+        /// </summary>
+        [DataMember(Name="adjointTurbulenceModel", EmitDefaultValue=false)]
+        public AdjointTurbulenceModelEnum? AdjointTurbulenceModel { get; set; }
+        /// <summary>
         /// Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
         /// <value>Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
@@ -164,6 +189,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: Incompressible (required) (default to &quot;INCOMPRESSIBLE&quot;).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#standard-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#realizable-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;Realizable k-epsilon&lt;/a&gt;, &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega and k-omega SST&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;LES&lt;/strong&gt;: Smagorinsky, Spalart-Allmaras&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
+        /// <param name="adjointTurbulenceModel">adjointTurbulenceModel (default to AdjointTurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="algorithm">algorithm (default to &quot;SIMPLE&quot;).</param>
         /// <param name="numOfPassiveSpecies">Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to NumOfPassiveSpeciesEnum.NUMBER_0).</param>
@@ -176,11 +202,12 @@ namespace SimScale.Sdk.Model
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
-        public Incompressible(string type = "INCOMPRESSIBLE", TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfIncompressibleTimeDependency timeDependency = default(OneOfIncompressibleTimeDependency), string algorithm = default(string), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), bool? enableAdjointOptimization = default(bool?), FluidModel model = default(FluidModel), IncompressibleFluidMaterials materials = default(IncompressibleFluidMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfIncompressibleBoundaryConditions> boundaryConditions = default(List<OneOfIncompressibleBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
+        public Incompressible(string type = "INCOMPRESSIBLE", TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), AdjointTurbulenceModelEnum? adjointTurbulenceModel = default(AdjointTurbulenceModelEnum?), OneOfIncompressibleTimeDependency timeDependency = default(OneOfIncompressibleTimeDependency), string algorithm = default(string), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), bool? enableAdjointOptimization = default(bool?), FluidModel model = default(FluidModel), IncompressibleFluidMaterials materials = default(IncompressibleFluidMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfIncompressibleBoundaryConditions> boundaryConditions = default(List<OneOfIncompressibleBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for Incompressible and cannot be null");
             this.TurbulenceModel = turbulenceModel;
+            this.AdjointTurbulenceModel = adjointTurbulenceModel;
             this.TimeDependency = timeDependency;
             this.Algorithm = algorithm;
             this.NumOfPassiveSpecies = numOfPassiveSpecies;
@@ -278,6 +305,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class Incompressible {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
+            sb.Append("  AdjointTurbulenceModel: ").Append(AdjointTurbulenceModel).Append("\n");
             sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
             sb.Append("  Algorithm: ").Append(Algorithm).Append("\n");
             sb.Append("  NumOfPassiveSpecies: ").Append(NumOfPassiveSpecies).Append("\n");
@@ -332,6 +360,10 @@ namespace SimScale.Sdk.Model
                 (
                     this.TurbulenceModel == input.TurbulenceModel ||
                     this.TurbulenceModel.Equals(input.TurbulenceModel)
+                ) && 
+                (
+                    this.AdjointTurbulenceModel == input.AdjointTurbulenceModel ||
+                    this.AdjointTurbulenceModel.Equals(input.AdjointTurbulenceModel)
                 ) && 
                 (
                     this.TimeDependency == input.TimeDependency ||
@@ -407,6 +439,7 @@ namespace SimScale.Sdk.Model
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
+                hashCode = hashCode * 59 + this.AdjointTurbulenceModel.GetHashCode();
                 if (this.TimeDependency != null)
                     hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
                 if (this.Algorithm != null)

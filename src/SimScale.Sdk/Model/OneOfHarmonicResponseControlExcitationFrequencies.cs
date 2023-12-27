@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Frequencies at which the harmonic loads are to be applied and results are to be computed. Define excitation frequencies using the &lt;b&gt;single frequency&lt;/b&gt;, &lt;b&gt;frequency list&lt;/b&gt;, or &lt;b&gt;cluster around modes&lt;/b&gt; option.
+    /// &lt;p&gt;Frequencies at which the harmonic loads are to be applied and results are to be computed. Define excitation frequencies using one of the following options:&lt;br&gt; &lt;li&gt;&lt;b&gt;Single frequency &lt;/b&gt;: Harmonic loads are applied at one frequency only.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Frequency list&lt;/b&gt;: Harmonic loads are applied across a range of frequencies with either a constant frequency stepping interval or a variable interval defined via a table.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Cluster around modes&lt;/b&gt;: Harmonic loads are applied at frequencies clustered around eigenfrequencies.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Cover spectrum&lt;/b&gt;: Harmonic loads are applied at frequencies clustered around and in between eigenfrequencies to fully capture the entire spectrum.&lt;/li&gt;&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(SingleFrequency), "SINGLE")]

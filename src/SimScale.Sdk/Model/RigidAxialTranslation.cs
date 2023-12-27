@@ -23,30 +23,30 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// NoPrimaryTopology
+    /// RigidAxialTranslation
     /// </summary>
     [DataContract]
-    public partial class NoPrimaryTopology : OneOfPacefishMeshV38PrimaryTopology, IEquatable<NoPrimaryTopology>
+    public partial class RigidAxialTranslation : OneOfPinKinematicBehaviorAxialTranslation, IEquatable<RigidAxialTranslation>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NoPrimaryTopology" /> class.
+        /// Initializes a new instance of the <see cref="RigidAxialTranslation" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected NoPrimaryTopology() { }
+        protected RigidAxialTranslation() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="NoPrimaryTopology" /> class.
+        /// Initializes a new instance of the <see cref="RigidAxialTranslation" /> class.
         /// </summary>
-        /// <param name="type">Schema name: NoPrimaryTopology (required) (default to &quot;NO_PRIMARY_TOPOLOGY&quot;).</param>
-        public NoPrimaryTopology(string type = "NO_PRIMARY_TOPOLOGY")
+        /// <param name="type">Schema name: RigidAxialTranslation (required) (default to &quot;RIGID&quot;).</param>
+        public RigidAxialTranslation(string type = "RIGID")
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for NoPrimaryTopology and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for RigidAxialTranslation and cannot be null");
         }
         
         /// <summary>
-        /// Schema name: NoPrimaryTopology
+        /// Schema name: RigidAxialTranslation
         /// </summary>
-        /// <value>Schema name: NoPrimaryTopology</value>
+        /// <value>Schema name: RigidAxialTranslation</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -57,7 +57,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NoPrimaryTopology {\n");
+            sb.Append("class RigidAxialTranslation {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -79,15 +79,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NoPrimaryTopology);
+            return this.Equals(input as RigidAxialTranslation);
         }
 
         /// <summary>
-        /// Returns true if NoPrimaryTopology instances are equal
+        /// Returns true if RigidAxialTranslation instances are equal
         /// </summary>
-        /// <param name="input">Instance of NoPrimaryTopology to be compared</param>
+        /// <param name="input">Instance of RigidAxialTranslation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NoPrimaryTopology input)
+        public bool Equals(RigidAxialTranslation input)
         {
             if (input == null)
                 return false;

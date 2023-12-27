@@ -44,7 +44,67 @@ namespace SimScale.Sdk.Model
             /// Enum LbS for value: lb/s
             /// </summary>
             [EnumMember(Value = "lb/s")]
-            LbS = 2
+            LbS = 2,
+
+            /// <summary>
+            /// Enum KgMin for value: kg/min
+            /// </summary>
+            [EnumMember(Value = "kg/min")]
+            KgMin = 3,
+
+            /// <summary>
+            /// Enum KgH for value: kg/h
+            /// </summary>
+            [EnumMember(Value = "kg/h")]
+            KgH = 4,
+
+            /// <summary>
+            /// Enum GS for value: g/s
+            /// </summary>
+            [EnumMember(Value = "g/s")]
+            GS = 5,
+
+            /// <summary>
+            /// Enum GMin for value: g/min
+            /// </summary>
+            [EnumMember(Value = "g/min")]
+            GMin = 6,
+
+            /// <summary>
+            /// Enum GH for value: g/h
+            /// </summary>
+            [EnumMember(Value = "g/h")]
+            GH = 7,
+
+            /// <summary>
+            /// Enum LbMin for value: lb/min
+            /// </summary>
+            [EnumMember(Value = "lb/min")]
+            LbMin = 8,
+
+            /// <summary>
+            /// Enum LbH for value: lb/h
+            /// </summary>
+            [EnumMember(Value = "lb/h")]
+            LbH = 9,
+
+            /// <summary>
+            /// Enum SlugS for value: slug/s
+            /// </summary>
+            [EnumMember(Value = "slug/s")]
+            SlugS = 10,
+
+            /// <summary>
+            /// Enum SlugMin for value: slug/min
+            /// </summary>
+            [EnumMember(Value = "slug/min")]
+            SlugMin = 11,
+
+            /// <summary>
+            /// Enum SlugH for value: slug/h
+            /// </summary>
+            [EnumMember(Value = "slug/h")]
+            SlugH = 12
 
         }
 

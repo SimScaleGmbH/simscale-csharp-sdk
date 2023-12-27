@@ -39,8 +39,8 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: CoverSpectrum (required) (default to &quot;COVER_SPECTRUM&quot;).</param>
         /// <param name="startFrequency">startFrequency.</param>
         /// <param name="endFrequency">endFrequency.</param>
-        /// <param name="frequenciesPerMode">Specify the number of excitation frequencies to be clustered around each eigenfrequency. The eigenfrequency will also be considered when an even number is provided (default to 10).</param>
-        /// <param name="growthRatio">Ratio between the adjacent distances of frequencies. It controls the distribution of the frequencies, with larger values resulting in a wider spread towards the valleys and tighter clustering around the mode peaks. Suggested value r &gt;&#x3D; 2. (default to 2M).</param>
+        /// <param name="frequenciesPerMode">Specify the number of excitation frequencies to be spread over each modal peak and neighbouring valleys. The eigenfrequency will also be considered when an even number is provided. (default to 10).</param>
+        /// <param name="growthRatio">Ratio of the adjacent distances between excitation frequencies. It controls the distribution of the frequencies, with larger values resulting in a faster spread towards the valleys and tighter clustering around the modal peaks. Suggested value r &gt;&#x3D; 2. (default to 2M).</param>
         public CoverSpectrum(string type = "COVER_SPECTRUM", DimensionalFrequency startFrequency = default(DimensionalFrequency), DimensionalFrequency endFrequency = default(DimensionalFrequency), int? frequenciesPerMode = default(int?), decimal? growthRatio = default(decimal?))
         {
             // to ensure "type" is required (not null)
@@ -71,16 +71,16 @@ namespace SimScale.Sdk.Model
         public DimensionalFrequency EndFrequency { get; set; }
 
         /// <summary>
-        /// Specify the number of excitation frequencies to be clustered around each eigenfrequency. The eigenfrequency will also be considered when an even number is provided
+        /// Specify the number of excitation frequencies to be spread over each modal peak and neighbouring valleys. The eigenfrequency will also be considered when an even number is provided.
         /// </summary>
-        /// <value>Specify the number of excitation frequencies to be clustered around each eigenfrequency. The eigenfrequency will also be considered when an even number is provided</value>
+        /// <value>Specify the number of excitation frequencies to be spread over each modal peak and neighbouring valleys. The eigenfrequency will also be considered when an even number is provided.</value>
         [DataMember(Name="frequenciesPerMode", EmitDefaultValue=false)]
         public int? FrequenciesPerMode { get; set; }
 
         /// <summary>
-        /// Ratio between the adjacent distances of frequencies. It controls the distribution of the frequencies, with larger values resulting in a wider spread towards the valleys and tighter clustering around the mode peaks. Suggested value r &gt;&#x3D; 2.
+        /// Ratio of the adjacent distances between excitation frequencies. It controls the distribution of the frequencies, with larger values resulting in a faster spread towards the valleys and tighter clustering around the modal peaks. Suggested value r &gt;&#x3D; 2.
         /// </summary>
-        /// <value>Ratio between the adjacent distances of frequencies. It controls the distribution of the frequencies, with larger values resulting in a wider spread towards the valleys and tighter clustering around the mode peaks. Suggested value r &gt;&#x3D; 2.</value>
+        /// <value>Ratio of the adjacent distances between excitation frequencies. It controls the distribution of the frequencies, with larger values resulting in a faster spread towards the valleys and tighter clustering around the modal peaks. Suggested value r &gt;&#x3D; 2.</value>
         [DataMember(Name="growthRatio", EmitDefaultValue=false)]
         public decimal? GrowthRatio { get; set; }
 

@@ -37,13 +37,11 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SpecieDefault" /> class.
         /// </summary>
         /// <param name="type">&lt;p&gt;&lt;b&gt;Specie:&lt;/b&gt; defines the molecular composition of the fluid material. Currently a single specie is available.&lt;/p&gt;  Schema name: SpecieDefault (required) (default to &quot;SPECIE&quot;).</param>
-        /// <param name="amountOfSubstance">amountOfSubstance.</param>
         /// <param name="molarWeight">molarWeight.</param>
-        public SpecieDefault(string type = "SPECIE", DimensionalAmountOfSubstance amountOfSubstance = default(DimensionalAmountOfSubstance), DimensionalMolarMass molarWeight = default(DimensionalMolarMass))
+        public SpecieDefault(string type = "SPECIE", DimensionalMolarMass molarWeight = default(DimensionalMolarMass))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SpecieDefault and cannot be null");
-            this.AmountOfSubstance = amountOfSubstance;
             this.MolarWeight = molarWeight;
         }
         
@@ -53,12 +51,6 @@ namespace SimScale.Sdk.Model
         /// <value>&lt;p&gt;&lt;b&gt;Specie:&lt;/b&gt; defines the molecular composition of the fluid material. Currently a single specie is available.&lt;/p&gt;  Schema name: SpecieDefault</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AmountOfSubstance
-        /// </summary>
-        [DataMember(Name="amountOfSubstance", EmitDefaultValue=false)]
-        public DimensionalAmountOfSubstance AmountOfSubstance { get; set; }
 
         /// <summary>
         /// Gets or Sets MolarWeight
@@ -75,7 +67,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class SpecieDefault {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  AmountOfSubstance: ").Append(AmountOfSubstance).Append("\n");
             sb.Append("  MolarWeight: ").Append(MolarWeight).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,11 +108,6 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.AmountOfSubstance == input.AmountOfSubstance ||
-                    (this.AmountOfSubstance != null &&
-                    this.AmountOfSubstance.Equals(input.AmountOfSubstance))
-                ) && 
-                (
                     this.MolarWeight == input.MolarWeight ||
                     (this.MolarWeight != null &&
                     this.MolarWeight.Equals(input.MolarWeight))
@@ -139,8 +125,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.AmountOfSubstance != null)
-                    hashCode = hashCode * 59 + this.AmountOfSubstance.GetHashCode();
                 if (this.MolarWeight != null)
                     hashCode = hashCode * 59 + this.MolarWeight.GetHashCode();
                 return hashCode;

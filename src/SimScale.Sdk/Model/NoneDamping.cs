@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. 
+    /// NoneDamping
     /// </summary>
     [DataContract]
     public partial class NoneDamping : OneOfLinearElasticMaterialBehaviorDamping, IEquatable<NoneDamping>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoneDamping" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: NoneDamping (required) (default to &quot;NONE&quot;).</param>
+        /// <param name="type">Schema name: NoneDamping (required) (default to &quot;NONE&quot;).</param>
         public NoneDamping(string type = "NONE")
         {
             // to ensure "type" is required (not null)
@@ -44,9 +44,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: NoneDamping
+        /// Schema name: NoneDamping
         /// </summary>
-        /// <value>&lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: NoneDamping</value>
+        /// <value>Schema name: NoneDamping</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

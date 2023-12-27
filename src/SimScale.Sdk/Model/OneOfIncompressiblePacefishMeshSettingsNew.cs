@@ -28,7 +28,6 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(PacefishMeshLegacy), "PACEFISH_MESH_LEGACY")]
-    [JsonSubtypes.KnownSubType(typeof(PacefishMeshV38), "PACEFISH_MESH_V38")]
     [JsonSubtypes.KnownSubType(typeof(PacefishAutomesh), "PACEFISH_AUTOMESH")]
     public interface OneOfIncompressiblePacefishMeshSettingsNew
     {

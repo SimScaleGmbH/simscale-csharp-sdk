@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="CustomTree" /> class.
         /// </summary>
         /// <param name="type">Schema name: CustomTree (required) (default to &quot;CUSTOM_TREE&quot;).</param>
-        /// <param name="leafAreaIndex">Leaf Area Index (LAI) is a dimensionless quantity that is defined as the leaf area per unit ground surface area in broadleaf canopies (default to 5.28M).</param>
+        /// <param name="leafAreaIndex">Leaf Area Index (LAI) is a dimensionless quantity that is defined as the leaf area per unit ground surface area in broadle af canopies (default to 5.28M).</param>
         /// <param name="averageTreeHeight">averageTreeHeight.</param>
         /// <param name="dragCoefficient">Drag coefficient of the tree canopy. (default to 0.2M).</param>
         public CustomTree(string type = "CUSTOM_TREE", decimal? leafAreaIndex = default(decimal?), DimensionalLength averageTreeHeight = default(DimensionalLength), decimal? dragCoefficient = default(decimal?))
@@ -57,9 +57,9 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Leaf Area Index (LAI) is a dimensionless quantity that is defined as the leaf area per unit ground surface area in broadleaf canopies
+        /// Leaf Area Index (LAI) is a dimensionless quantity that is defined as the leaf area per unit ground surface area in broadle af canopies
         /// </summary>
-        /// <value>Leaf Area Index (LAI) is a dimensionless quantity that is defined as the leaf area per unit ground surface area in broadleaf canopies</value>
+        /// <value>Leaf Area Index (LAI) is a dimensionless quantity that is defined as the leaf area per unit ground surface area in broadle af canopies</value>
         [DataMember(Name="leafAreaIndex", EmitDefaultValue=false)]
         public decimal? LeafAreaIndex { get; set; }
 

@@ -44,7 +44,13 @@ namespace SimScale.Sdk.Model
             /// Enum Lb for value: lb
             /// </summary>
             [EnumMember(Value = "lb")]
-            Lb = 2
+            Lb = 2,
+
+            /// <summary>
+            /// Enum T for value: t
+            /// </summary>
+            [EnumMember(Value = "t")]
+            T = 3
 
         }
 

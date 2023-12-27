@@ -44,7 +44,31 @@ namespace SimScale.Sdk.Model
             /// Enum In for value: 1/in²
             /// </summary>
             [EnumMember(Value = "1/in²")]
-            In = 2
+            In = 2,
+
+            /// <summary>
+            /// Enum Mm for value: 1/mm²
+            /// </summary>
+            [EnumMember(Value = "1/mm²")]
+            Mm = 3,
+
+            /// <summary>
+            /// Enum Cm for value: 1/cm²
+            /// </summary>
+            [EnumMember(Value = "1/cm²")]
+            Cm = 4,
+
+            /// <summary>
+            /// Enum Ft for value: 1/ft²
+            /// </summary>
+            [EnumMember(Value = "1/ft²")]
+            Ft = 5,
+
+            /// <summary>
+            /// Enum Yd for value: 1/yd²
+            /// </summary>
+            [EnumMember(Value = "1/yd²")]
+            Yd = 6
 
         }
 

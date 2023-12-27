@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. 
+    /// HystereticDamping
     /// </summary>
     [DataContract]
     public partial class HystereticDamping : OneOfLinearElasticMaterialBehaviorDamping, IEquatable<HystereticDamping>
@@ -36,28 +36,28 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HystereticDamping" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: HystereticDamping (required) (default to &quot;HYSTERETIC&quot;).</param>
-        /// <param name="hystereticCoefficient">&lt;p&gt;Set the hysteretic damping coefficient &lt;b&gt;&amp;kappa;&lt;/b&gt; of the material. The system equation is then: &lt;b&gt;M*ü+K*(1+i*&amp;kappa;)*u &#x3D; f&lt;/b&gt;.&lt;/p&gt; (default to 0M).</param>
-        public HystereticDamping(string type = "HYSTERETIC", decimal? hystereticCoefficient = default(decimal?))
+        /// <param name="type">Schema name: HystereticDamping (required) (default to &quot;HYSTERETIC&quot;).</param>
+        /// <param name="dampingLevel">Specify the level of damping to be applied as a percentage of critical damping. (default to 1M).</param>
+        public HystereticDamping(string type = "HYSTERETIC", decimal? dampingLevel = default(decimal?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for HystereticDamping and cannot be null");
-            this.HystereticCoefficient = hystereticCoefficient;
+            this.DampingLevel = dampingLevel;
         }
         
         /// <summary>
-        /// &lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: HystereticDamping
+        /// Schema name: HystereticDamping
         /// </summary>
-        /// <value>&lt;p&gt;Choose if damping effects should be considered. The supported damping types are:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt; which is also known as &lt;i&gt;proportional viscous damping&lt;/i&gt;. This model assumes that the damping is proportional to the vibrating velocity.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Hysteretic Damping&lt;/b&gt;, also known as &lt;i&gt;structural damping&lt;/i&gt;. Here the damping is assumed to be proportional to the displacement.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.   Schema name: HystereticDamping</value>
+        /// <value>Schema name: HystereticDamping</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;Set the hysteretic damping coefficient &lt;b&gt;&amp;kappa;&lt;/b&gt; of the material. The system equation is then: &lt;b&gt;M*ü+K*(1+i*&amp;kappa;)*u &#x3D; f&lt;/b&gt;.&lt;/p&gt;
+        /// Specify the level of damping to be applied as a percentage of critical damping.
         /// </summary>
-        /// <value>&lt;p&gt;Set the hysteretic damping coefficient &lt;b&gt;&amp;kappa;&lt;/b&gt; of the material. The system equation is then: &lt;b&gt;M*ü+K*(1+i*&amp;kappa;)*u &#x3D; f&lt;/b&gt;.&lt;/p&gt;</value>
-        [DataMember(Name="hystereticCoefficient", EmitDefaultValue=false)]
-        public decimal? HystereticCoefficient { get; set; }
+        /// <value>Specify the level of damping to be applied as a percentage of critical damping.</value>
+        [DataMember(Name="dampingLevel", EmitDefaultValue=false)]
+        public decimal? DampingLevel { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,7 +68,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class HystereticDamping {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  HystereticCoefficient: ").Append(HystereticCoefficient).Append("\n");
+            sb.Append("  DampingLevel: ").Append(DampingLevel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,9 +109,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.HystereticCoefficient == input.HystereticCoefficient ||
-                    (this.HystereticCoefficient != null &&
-                    this.HystereticCoefficient.Equals(input.HystereticCoefficient))
+                    this.DampingLevel == input.DampingLevel ||
+                    (this.DampingLevel != null &&
+                    this.DampingLevel.Equals(input.DampingLevel))
                 );
         }
 
@@ -126,8 +126,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.HystereticCoefficient != null)
-                    hashCode = hashCode * 59 + this.HystereticCoefficient.GetHashCode();
+                if (this.DampingLevel != null)
+                    hashCode = hashCode * 59 + this.DampingLevel.GetHashCode();
                 return hashCode;
             }
         }

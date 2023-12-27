@@ -38,11 +38,15 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">The total current over all faces  Schema name: CurrentExcitation (required) (default to &quot;CURRENT_EXCITATION&quot;).</param>
         /// <param name="current">current.</param>
-        public CurrentExcitation(string type = "CURRENT_EXCITATION", DimensionalElectricCurrent current = default(DimensionalElectricCurrent))
+        /// <param name="currentRMS">currentRMS.</param>
+        /// <param name="currentPhase">currentPhase.</param>
+        public CurrentExcitation(string type = "CURRENT_EXCITATION", DimensionalElectricCurrent current = default(DimensionalElectricCurrent), DimensionalElectricCurrent currentRMS = default(DimensionalElectricCurrent), DimensionalAngle currentPhase = default(DimensionalAngle))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CurrentExcitation and cannot be null");
             this.Current = current;
+            this.CurrentRMS = currentRMS;
+            this.CurrentPhase = currentPhase;
         }
         
         /// <summary>
@@ -59,6 +63,18 @@ namespace SimScale.Sdk.Model
         public DimensionalElectricCurrent Current { get; set; }
 
         /// <summary>
+        /// Gets or Sets CurrentRMS
+        /// </summary>
+        [DataMember(Name="currentRMS", EmitDefaultValue=false)]
+        public DimensionalElectricCurrent CurrentRMS { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CurrentPhase
+        /// </summary>
+        [DataMember(Name="currentPhase", EmitDefaultValue=false)]
+        public DimensionalAngle CurrentPhase { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +84,8 @@ namespace SimScale.Sdk.Model
             sb.Append("class CurrentExcitation {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Current: ").Append(Current).Append("\n");
+            sb.Append("  CurrentRMS: ").Append(CurrentRMS).Append("\n");
+            sb.Append("  CurrentPhase: ").Append(CurrentPhase).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +129,16 @@ namespace SimScale.Sdk.Model
                     this.Current == input.Current ||
                     (this.Current != null &&
                     this.Current.Equals(input.Current))
+                ) && 
+                (
+                    this.CurrentRMS == input.CurrentRMS ||
+                    (this.CurrentRMS != null &&
+                    this.CurrentRMS.Equals(input.CurrentRMS))
+                ) && 
+                (
+                    this.CurrentPhase == input.CurrentPhase ||
+                    (this.CurrentPhase != null &&
+                    this.CurrentPhase.Equals(input.CurrentPhase))
                 );
         }
 
@@ -127,6 +155,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Current != null)
                     hashCode = hashCode * 59 + this.Current.GetHashCode();
+                if (this.CurrentRMS != null)
+                    hashCode = hashCode * 59 + this.CurrentRMS.GetHashCode();
+                if (this.CurrentPhase != null)
+                    hashCode = hashCode * 59 + this.CurrentPhase.GetHashCode();
                 return hashCode;
             }
         }

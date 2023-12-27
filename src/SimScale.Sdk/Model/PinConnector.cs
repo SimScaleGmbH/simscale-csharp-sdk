@@ -29,6 +29,31 @@ namespace SimScale.Sdk.Model
     public partial class PinConnector : IEquatable<PinConnector>
     {
         /// <summary>
+        /// Defines Interaction
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum InteractionEnum
+        {
+            /// <summary>
+            /// Enum BODY for value: BODY_TO_BODY
+            /// </summary>
+            [EnumMember(Value = "BODY_TO_BODY")]
+            BODY = 1,
+
+            /// <summary>
+            /// Enum GROUND for value: BODY_TO_GROUND
+            /// </summary>
+            [EnumMember(Value = "BODY_TO_GROUND")]
+            GROUND = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets Interaction
+        /// </summary>
+        [DataMember(Name="interaction", EmitDefaultValue=false)]
+        public InteractionEnum? Interaction { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="PinConnector" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -38,17 +63,17 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: PinConnector (required) (default to &quot;PIN_CONNECTOR&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="allowAxialTranslation">Enable this toggle to allow axial elongation of the pin by defining its &lt;i&gt;axial stiffness&lt;/i&gt;. (default to false).</param>
-        /// <param name="axialStiffness">axialStiffness.</param>
+        /// <param name="interaction">interaction (default to InteractionEnum.BODY).</param>
+        /// <param name="kinematicBehavior">kinematicBehavior.</param>
         /// <param name="advancedPinSettings">advancedPinSettings.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PinConnector(string type = "PIN_CONNECTOR", string name = default(string), bool? allowAxialTranslation = default(bool?), DimensionalStiffness axialStiffness = default(DimensionalStiffness), AdvancedPinSettings advancedPinSettings = default(AdvancedPinSettings), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PinConnector(string type = "PIN_CONNECTOR", string name = default(string), InteractionEnum? interaction = default(InteractionEnum?), PinKinematicBehavior kinematicBehavior = default(PinKinematicBehavior), AdvancedPinSettings advancedPinSettings = default(AdvancedPinSettings), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PinConnector and cannot be null");
             this.Name = name;
-            this.AllowAxialTranslation = allowAxialTranslation;
-            this.AxialStiffness = axialStiffness;
+            this.Interaction = interaction;
+            this.KinematicBehavior = kinematicBehavior;
             this.AdvancedPinSettings = advancedPinSettings;
             this.TopologicalReference = topologicalReference;
         }
@@ -67,17 +92,10 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Enable this toggle to allow axial elongation of the pin by defining its &lt;i&gt;axial stiffness&lt;/i&gt;.
+        /// Gets or Sets KinematicBehavior
         /// </summary>
-        /// <value>Enable this toggle to allow axial elongation of the pin by defining its &lt;i&gt;axial stiffness&lt;/i&gt;.</value>
-        [DataMember(Name="allowAxialTranslation", EmitDefaultValue=false)]
-        public bool? AllowAxialTranslation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AxialStiffness
-        /// </summary>
-        [DataMember(Name="axialStiffness", EmitDefaultValue=false)]
-        public DimensionalStiffness AxialStiffness { get; set; }
+        [DataMember(Name="kinematicBehavior", EmitDefaultValue=false)]
+        public PinKinematicBehavior KinematicBehavior { get; set; }
 
         /// <summary>
         /// Gets or Sets AdvancedPinSettings
@@ -101,8 +119,8 @@ namespace SimScale.Sdk.Model
             sb.Append("class PinConnector {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  AllowAxialTranslation: ").Append(AllowAxialTranslation).Append("\n");
-            sb.Append("  AxialStiffness: ").Append(AxialStiffness).Append("\n");
+            sb.Append("  Interaction: ").Append(Interaction).Append("\n");
+            sb.Append("  KinematicBehavior: ").Append(KinematicBehavior).Append("\n");
             sb.Append("  AdvancedPinSettings: ").Append(AdvancedPinSettings).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
@@ -150,14 +168,13 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.AllowAxialTranslation == input.AllowAxialTranslation ||
-                    (this.AllowAxialTranslation != null &&
-                    this.AllowAxialTranslation.Equals(input.AllowAxialTranslation))
+                    this.Interaction == input.Interaction ||
+                    this.Interaction.Equals(input.Interaction)
                 ) && 
                 (
-                    this.AxialStiffness == input.AxialStiffness ||
-                    (this.AxialStiffness != null &&
-                    this.AxialStiffness.Equals(input.AxialStiffness))
+                    this.KinematicBehavior == input.KinematicBehavior ||
+                    (this.KinematicBehavior != null &&
+                    this.KinematicBehavior.Equals(input.KinematicBehavior))
                 ) && 
                 (
                     this.AdvancedPinSettings == input.AdvancedPinSettings ||
@@ -184,10 +201,9 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.AllowAxialTranslation != null)
-                    hashCode = hashCode * 59 + this.AllowAxialTranslation.GetHashCode();
-                if (this.AxialStiffness != null)
-                    hashCode = hashCode * 59 + this.AxialStiffness.GetHashCode();
+                hashCode = hashCode * 59 + this.Interaction.GetHashCode();
+                if (this.KinematicBehavior != null)
+                    hashCode = hashCode * 59 + this.KinematicBehavior.GetHashCode();
                 if (this.AdvancedPinSettings != null)
                     hashCode = hashCode * 59 + this.AdvancedPinSettings.GetHashCode();
                 if (this.TopologicalReference != null)

@@ -29,25 +29,6 @@ namespace SimScale.Sdk.Model
     public partial class ElectromagneticAnalysis : Analysis, IEquatable<ElectromagneticAnalysis>
     {
         /// <summary>
-        /// Defines DominantField
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DominantFieldEnum
-        {
-            /// <summary>
-            /// Enum MAGNETIC for value: MAGNETIC
-            /// </summary>
-            [EnumMember(Value = "MAGNETIC")]
-            MAGNETIC = 1
-
-        }
-
-        /// <summary>
-        /// Gets or Sets DominantField
-        /// </summary>
-        [DataMember(Name="dominantField", EmitDefaultValue=false)]
-        public DominantFieldEnum? DominantField { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ElectromagneticAnalysis" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -56,20 +37,18 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ElectromagneticAnalysis" /> class.
         /// </summary>
         /// <param name="type">Schema name: ElectromagneticAnalysis (required) (default to &quot;ELECTROMAGNETIC_ANALYSIS&quot;).</param>
-        /// <param name="dominantField">dominantField (default to DominantFieldEnum.MAGNETIC).</param>
-        /// <param name="timeDependency">timeDependency.</param>
+        /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
         /// <param name="coils">coils.</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
-        public ElectromagneticAnalysis(string type = "ELECTROMAGNETIC_ANALYSIS", DominantFieldEnum? dominantField = default(DominantFieldEnum?), StationaryTimeDependency timeDependency = default(StationaryTimeDependency), List<ElectromagneticMaterial> materials = default(List<ElectromagneticMaterial>), List<Coil> coils = default(List<Coil>), List<OneOfElectromagneticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfElectromagneticAnalysisBoundaryConditions>), ElectromagneticResultControl resultControl = default(ElectromagneticResultControl), ElectromagneticNumerics numerics = default(ElectromagneticNumerics), ElectromagneticSimulationControl simulationControl = default(ElectromagneticSimulationControl))
+        public ElectromagneticAnalysis(string type = "ELECTROMAGNETIC_ANALYSIS", OneOfElectromagneticAnalysisModel model = default(OneOfElectromagneticAnalysisModel), List<ElectromagneticMaterial> materials = default(List<ElectromagneticMaterial>), List<Coil> coils = default(List<Coil>), List<OneOfElectromagneticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfElectromagneticAnalysisBoundaryConditions>), ElectromagneticResultControl resultControl = default(ElectromagneticResultControl), ElectromagneticNumerics numerics = default(ElectromagneticNumerics), ElectromagneticSimulationControl simulationControl = default(ElectromagneticSimulationControl))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ElectromagneticAnalysis and cannot be null");
-            this.DominantField = dominantField;
-            this.TimeDependency = timeDependency;
+            this.Model = model;
             this.Materials = materials;
             this.Coils = coils;
             this.BoundaryConditions = boundaryConditions;
@@ -86,10 +65,10 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeDependency
+        /// Gets or Sets Model
         /// </summary>
-        [DataMember(Name="timeDependency", EmitDefaultValue=false)]
-        public StationaryTimeDependency TimeDependency { get; set; }
+        [DataMember(Name="model", EmitDefaultValue=false)]
+        public OneOfElectromagneticAnalysisModel Model { get; set; }
 
         /// <summary>
         /// Gets or Sets Materials
@@ -136,8 +115,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ElectromagneticAnalysis {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  DominantField: ").Append(DominantField).Append("\n");
-            sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
+            sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  Coils: ").Append(Coils).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
@@ -184,13 +162,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.DominantField == input.DominantField ||
-                    this.DominantField.Equals(input.DominantField)
-                ) && 
-                (
-                    this.TimeDependency == input.TimeDependency ||
-                    (this.TimeDependency != null &&
-                    this.TimeDependency.Equals(input.TimeDependency))
+                    this.Model == input.Model ||
+                    (this.Model != null &&
+                    this.Model.Equals(input.Model))
                 ) && 
                 (
                     this.Materials == input.Materials ||
@@ -238,9 +212,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.DominantField.GetHashCode();
-                if (this.TimeDependency != null)
-                    hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
+                if (this.Model != null)
+                    hashCode = hashCode * 59 + this.Model.GetHashCode();
                 if (this.Materials != null)
                     hashCode = hashCode * 59 + this.Materials.GetHashCode();
                 if (this.Coils != null)

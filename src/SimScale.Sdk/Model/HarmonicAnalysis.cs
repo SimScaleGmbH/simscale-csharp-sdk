@@ -71,6 +71,7 @@ namespace SimScale.Sdk.Model
         /// <param name="connectionGroups">connectionGroups.</param>
         /// <param name="connectors">connectors.</param>
         /// <param name="elementTechnology">elementTechnology.</param>
+        /// <param name="globalPhysics">globalPhysics.</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
         /// <param name="initialConditions">initialConditions.</param>
@@ -79,13 +80,14 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.NONE).</param>
-        public HarmonicAnalysis(string type = "HARMONIC_ANALYSIS", List<Contact> connectionGroups = default(List<Contact>), List<PinConnector> connectors = default(List<PinConnector>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfHarmonicAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfHarmonicAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public HarmonicAnalysis(string type = "HARMONIC_ANALYSIS", List<Contact> connectionGroups = default(List<Contact>), List<PinConnector> connectors = default(List<PinConnector>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidGlobalPhysics globalPhysics = default(SolidGlobalPhysics), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfHarmonicAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfHarmonicAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for HarmonicAnalysis and cannot be null");
             this.ConnectionGroups = connectionGroups;
             this.Connectors = connectors;
             this.ElementTechnology = elementTechnology;
+            this.GlobalPhysics = globalPhysics;
             this.Model = model;
             this.Materials = materials;
             this.InitialConditions = initialConditions;
@@ -120,6 +122,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="elementTechnology", EmitDefaultValue=false)]
         public SolidElementTechnology ElementTechnology { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GlobalPhysics
+        /// </summary>
+        [DataMember(Name="globalPhysics", EmitDefaultValue=false)]
+        public SolidGlobalPhysics GlobalPhysics { get; set; }
 
         /// <summary>
         /// Gets or Sets Model
@@ -175,6 +183,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  ConnectionGroups: ").Append(ConnectionGroups).Append("\n");
             sb.Append("  Connectors: ").Append(Connectors).Append("\n");
             sb.Append("  ElementTechnology: ").Append(ElementTechnology).Append("\n");
+            sb.Append("  GlobalPhysics: ").Append(GlobalPhysics).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
@@ -240,6 +249,11 @@ namespace SimScale.Sdk.Model
                     this.ElementTechnology.Equals(input.ElementTechnology))
                 ) && 
                 (
+                    this.GlobalPhysics == input.GlobalPhysics ||
+                    (this.GlobalPhysics != null &&
+                    this.GlobalPhysics.Equals(input.GlobalPhysics))
+                ) && 
+                (
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
@@ -299,6 +313,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Connectors.GetHashCode();
                 if (this.ElementTechnology != null)
                     hashCode = hashCode * 59 + this.ElementTechnology.GetHashCode();
+                if (this.GlobalPhysics != null)
+                    hashCode = hashCode * 59 + this.GlobalPhysics.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
                 if (this.Materials != null)

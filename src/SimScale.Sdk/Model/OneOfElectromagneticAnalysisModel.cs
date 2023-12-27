@@ -24,12 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfPacefishMeshV38Refinements
+    /// &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Magnetostatics&lt;/strong&gt;&lt;br&gt;Use for problems where magnetic fields are constant over time and thus no eddy currents are present. Applications include: Permanent Magnets, Magnetic Shielding, Magnetic Forces.
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(NewRegionRefinementPacefishV38), "REGION_PACEFISH_V38")]
-    [JsonSubtypes.KnownSubType(typeof(NewSurfaceRefinementPacefishV38), "SURFACE_PACEFISH_V38")]
-    public interface OneOfPacefishMeshV38Refinements
+    [JsonSubtypes.KnownSubType(typeof(Magnetostatics), "MAGNETOSTATICS")]
+    [JsonSubtypes.KnownSubType(typeof(TimeHarmonicMagnetics), "TIME_HARMONIC_MAGNETICS")]
+    public interface OneOfElectromagneticAnalysisModel
     {
         /// <summary>
         /// Gets Type

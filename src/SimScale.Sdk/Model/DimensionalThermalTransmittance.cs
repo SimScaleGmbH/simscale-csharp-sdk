@@ -44,7 +44,43 @@ namespace SimScale.Sdk.Model
             /// Enum BtusinF for value: Btu/(s·in²·°F)
             /// </summary>
             [EnumMember(Value = "Btu/(s·in²·°F)")]
-            BtusinF = 2
+            BtusinF = 2,
+
+            /// <summary>
+            /// Enum WKmm for value: W/(K·mm²)
+            /// </summary>
+            [EnumMember(Value = "W/(K·mm²)")]
+            WKmm = 3,
+
+            /// <summary>
+            /// Enum WKcm for value: W/(K·cm²)
+            /// </summary>
+            [EnumMember(Value = "W/(K·cm²)")]
+            WKcm = 4,
+
+            /// <summary>
+            /// Enum BtuhinF for value: Btu/(h·in²·°F)
+            /// </summary>
+            [EnumMember(Value = "Btu/(h·in²·°F)")]
+            BtuhinF = 5,
+
+            /// <summary>
+            /// Enum BtumininF for value: Btu/(min·in²·°F)
+            /// </summary>
+            [EnumMember(Value = "Btu/(min·in²·°F)")]
+            BtumininF = 6,
+
+            /// <summary>
+            /// Enum BtusftF for value: Btu/(s·ft²·°F)
+            /// </summary>
+            [EnumMember(Value = "Btu/(s·ft²·°F)")]
+            BtusftF = 7,
+
+            /// <summary>
+            /// Enum BtuminftF for value: Btu/(min·ft²·°F)
+            /// </summary>
+            [EnumMember(Value = "Btu/(min·ft²·°F)")]
+            BtuminftF = 8
 
         }
 

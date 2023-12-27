@@ -38,12 +38,16 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: VoltageExcitation (required) (default to &quot;VOLTAGE_EXCITATION&quot;).</param>
         /// <param name="voltage">voltage.</param>
+        /// <param name="voltageRMS">voltageRMS.</param>
+        /// <param name="voltagePhase">voltagePhase.</param>
         /// <param name="additionalResistance">additionalResistance.</param>
-        public VoltageExcitation(string type = "VOLTAGE_EXCITATION", DimensionalElectricPotential voltage = default(DimensionalElectricPotential), DimensionalElectricResistance additionalResistance = default(DimensionalElectricResistance))
+        public VoltageExcitation(string type = "VOLTAGE_EXCITATION", DimensionalElectricPotential voltage = default(DimensionalElectricPotential), DimensionalElectricPotential voltageRMS = default(DimensionalElectricPotential), DimensionalAngle voltagePhase = default(DimensionalAngle), DimensionalElectricResistance additionalResistance = default(DimensionalElectricResistance))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VoltageExcitation and cannot be null");
             this.Voltage = voltage;
+            this.VoltageRMS = voltageRMS;
+            this.VoltagePhase = voltagePhase;
             this.AdditionalResistance = additionalResistance;
         }
         
@@ -61,6 +65,18 @@ namespace SimScale.Sdk.Model
         public DimensionalElectricPotential Voltage { get; set; }
 
         /// <summary>
+        /// Gets or Sets VoltageRMS
+        /// </summary>
+        [DataMember(Name="voltageRMS", EmitDefaultValue=false)]
+        public DimensionalElectricPotential VoltageRMS { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VoltagePhase
+        /// </summary>
+        [DataMember(Name="voltagePhase", EmitDefaultValue=false)]
+        public DimensionalAngle VoltagePhase { get; set; }
+
+        /// <summary>
         /// Gets or Sets AdditionalResistance
         /// </summary>
         [DataMember(Name="additionalResistance", EmitDefaultValue=false)]
@@ -76,6 +92,8 @@ namespace SimScale.Sdk.Model
             sb.Append("class VoltageExcitation {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Voltage: ").Append(Voltage).Append("\n");
+            sb.Append("  VoltageRMS: ").Append(VoltageRMS).Append("\n");
+            sb.Append("  VoltagePhase: ").Append(VoltagePhase).Append("\n");
             sb.Append("  AdditionalResistance: ").Append(AdditionalResistance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -122,6 +140,16 @@ namespace SimScale.Sdk.Model
                     this.Voltage.Equals(input.Voltage))
                 ) && 
                 (
+                    this.VoltageRMS == input.VoltageRMS ||
+                    (this.VoltageRMS != null &&
+                    this.VoltageRMS.Equals(input.VoltageRMS))
+                ) && 
+                (
+                    this.VoltagePhase == input.VoltagePhase ||
+                    (this.VoltagePhase != null &&
+                    this.VoltagePhase.Equals(input.VoltagePhase))
+                ) && 
+                (
                     this.AdditionalResistance == input.AdditionalResistance ||
                     (this.AdditionalResistance != null &&
                     this.AdditionalResistance.Equals(input.AdditionalResistance))
@@ -141,6 +169,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Voltage != null)
                     hashCode = hashCode * 59 + this.Voltage.GetHashCode();
+                if (this.VoltageRMS != null)
+                    hashCode = hashCode * 59 + this.VoltageRMS.GetHashCode();
+                if (this.VoltagePhase != null)
+                    hashCode = hashCode * 59 + this.VoltagePhase.GetHashCode();
                 if (this.AdditionalResistance != null)
                     hashCode = hashCode * 59 + this.AdditionalResistance.GetHashCode();
                 return hashCode;

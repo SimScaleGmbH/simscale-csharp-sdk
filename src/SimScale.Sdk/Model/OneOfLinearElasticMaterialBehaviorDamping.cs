@@ -24,12 +24,13 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfLinearElasticMaterialBehaviorDamping
+    /// &lt;p&gt;Include the effects of damping on the dynamic response. Choose between the following options:&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;None&lt;/b&gt;: No damping is included.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Rayleigh Damping&lt;/b&gt;: Viscous damping that is proportional to a linear combination of the model’s mass and stiffness.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Structural Damping&lt;/b&gt;: Apply a constant material damping level across all frequencies. Structural damping acts proportionally to material deformations and is defined as a percentage of critical damping.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Use global value&lt;/b&gt;: Use the globally defined damping, see &lt;i&gt;Global physics&lt;/i&gt;.&lt;/p&gt;&lt;/ul&gt;&lt;br&gt;Please note that not all options are available, depending on other simulation settings&lt;br&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/materials/damping/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(NoneDamping), "NONE")]
     [JsonSubtypes.KnownSubType(typeof(RayleighDamping), "RAYLEIGH")]
     [JsonSubtypes.KnownSubType(typeof(HystereticDamping), "HYSTERETIC")]
+    [JsonSubtypes.KnownSubType(typeof(GlobalDampingValue), "GLOBAL_DAMPING_VALUE")]
     public interface OneOfLinearElasticMaterialBehaviorDamping
     {
         /// <summary>

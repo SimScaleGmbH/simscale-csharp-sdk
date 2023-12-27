@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: AutomaticEmbeddedBoundaryMeshSizing (required) (default to &quot;AUTOMATIC_EBM_MESH_SIZING&quot;).</param>
         /// <param name="fineness">&lt;p&gt;This parameter determines the &lt;b&gt;fineness of the mesh&lt;/b&gt; and affects the overall number of cells.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This setting will impact the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results.&lt;/p&gt; (default to 5M).</param>
-        public AutomaticEmbeddedBoundaryMeshSizing(string type = "AUTOMATIC_EBM_MESH_SIZING", decimal? fineness = default(decimal?))
+        /// <param name="physicsBasedMeshingIBM">&lt;b&gt;Physics-based meshing&lt;/b&gt; takes setup information into account to size the immersed mesh accordingly. Users can expect automatic refinements applied to the following: &lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Boundary faces&lt;/b&gt;: All of those which belong to a boundary condition.&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;&lt;b&gt;Advanced concepts&lt;/b&gt;: Power and momentum sources, porous regions and thermal resistance networks.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
+        public AutomaticEmbeddedBoundaryMeshSizing(string type = "AUTOMATIC_EBM_MESH_SIZING", decimal? fineness = default(decimal?), bool? physicsBasedMeshingIBM = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticEmbeddedBoundaryMeshSizing and cannot be null");
             this.Fineness = fineness;
+            this.PhysicsBasedMeshingIBM = physicsBasedMeshingIBM;
         }
         
         /// <summary>
@@ -60,6 +62,13 @@ namespace SimScale.Sdk.Model
         public decimal? Fineness { get; set; }
 
         /// <summary>
+        /// &lt;b&gt;Physics-based meshing&lt;/b&gt; takes setup information into account to size the immersed mesh accordingly. Users can expect automatic refinements applied to the following: &lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Boundary faces&lt;/b&gt;: All of those which belong to a boundary condition.&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;&lt;b&gt;Advanced concepts&lt;/b&gt;: Power and momentum sources, porous regions and thermal resistance networks.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+        /// </summary>
+        /// <value>&lt;b&gt;Physics-based meshing&lt;/b&gt; takes setup information into account to size the immersed mesh accordingly. Users can expect automatic refinements applied to the following: &lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Boundary faces&lt;/b&gt;: All of those which belong to a boundary condition.&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;&lt;b&gt;Advanced concepts&lt;/b&gt;: Power and momentum sources, porous regions and thermal resistance networks.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</value>
+        [DataMember(Name="physicsBasedMeshingIBM", EmitDefaultValue=false)]
+        public bool? PhysicsBasedMeshingIBM { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,6 +78,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class AutomaticEmbeddedBoundaryMeshSizing {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Fineness: ").Append(Fineness).Append("\n");
+            sb.Append("  PhysicsBasedMeshingIBM: ").Append(PhysicsBasedMeshingIBM).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,6 +122,11 @@ namespace SimScale.Sdk.Model
                     this.Fineness == input.Fineness ||
                     (this.Fineness != null &&
                     this.Fineness.Equals(input.Fineness))
+                ) && 
+                (
+                    this.PhysicsBasedMeshingIBM == input.PhysicsBasedMeshingIBM ||
+                    (this.PhysicsBasedMeshingIBM != null &&
+                    this.PhysicsBasedMeshingIBM.Equals(input.PhysicsBasedMeshingIBM))
                 );
         }
 
@@ -128,6 +143,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Fineness != null)
                     hashCode = hashCode * 59 + this.Fineness.GetHashCode();
+                if (this.PhysicsBasedMeshingIBM != null)
+                    hashCode = hashCode * 59 + this.PhysicsBasedMeshingIBM.GetHashCode();
                 return hashCode;
             }
         }

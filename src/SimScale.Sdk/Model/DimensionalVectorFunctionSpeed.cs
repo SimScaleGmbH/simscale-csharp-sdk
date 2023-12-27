@@ -47,34 +47,100 @@ namespace SimScale.Sdk.Model
             InS = 2,
 
             /// <summary>
+            /// Enum MMin for value: m/min
+            /// </summary>
+            [EnumMember(Value = "m/min")]
+            MMin = 3,
+
+            /// <summary>
+            /// Enum MH for value: m/h
+            /// </summary>
+            [EnumMember(Value = "m/h")]
+            MH = 4,
+
+            /// <summary>
+            /// Enum MmS for value: mm/s
+            /// </summary>
+            [EnumMember(Value = "mm/s")]
+            MmS = 5,
+
+            /// <summary>
+            /// Enum MmMin for value: mm/min
+            /// </summary>
+            [EnumMember(Value = "mm/min")]
+            MmMin = 6,
+
+            /// <summary>
+            /// Enum MmH for value: mm/h
+            /// </summary>
+            [EnumMember(Value = "mm/h")]
+            MmH = 7,
+
+            /// <summary>
             /// Enum CmS for value: cm/s
             /// </summary>
             [EnumMember(Value = "cm/s")]
-            CmS = 3,
+            CmS = 8,
+
+            /// <summary>
+            /// Enum CmMin for value: cm/min
+            /// </summary>
+            [EnumMember(Value = "cm/min")]
+            CmMin = 9,
+
+            /// <summary>
+            /// Enum CmH for value: cm/h
+            /// </summary>
+            [EnumMember(Value = "cm/h")]
+            CmH = 10,
 
             /// <summary>
             /// Enum KmH for value: km/h
             /// </summary>
             [EnumMember(Value = "km/h")]
-            KmH = 4,
+            KmH = 11,
 
             /// <summary>
             /// Enum FtS for value: ft/s
             /// </summary>
             [EnumMember(Value = "ft/s")]
-            FtS = 5,
+            FtS = 12,
 
             /// <summary>
             /// Enum FtMin for value: ft/min
             /// </summary>
             [EnumMember(Value = "ft/min")]
-            FtMin = 6,
+            FtMin = 13,
+
+            /// <summary>
+            /// Enum FtH for value: ft/h
+            /// </summary>
+            [EnumMember(Value = "ft/h")]
+            FtH = 14,
+
+            /// <summary>
+            /// Enum InMin for value: in/min
+            /// </summary>
+            [EnumMember(Value = "in/min")]
+            InMin = 15,
+
+            /// <summary>
+            /// Enum InH for value: in/h
+            /// </summary>
+            [EnumMember(Value = "in/h")]
+            InH = 16,
 
             /// <summary>
             /// Enum Mph for value: mph
             /// </summary>
             [EnumMember(Value = "mph")]
-            Mph = 7
+            Mph = 17,
+
+            /// <summary>
+            /// Enum Kn for value: kn
+            /// </summary>
+            [EnumMember(Value = "kn")]
+            Kn = 18
 
         }
 

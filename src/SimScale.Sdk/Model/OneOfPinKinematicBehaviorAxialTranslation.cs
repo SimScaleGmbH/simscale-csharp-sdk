@@ -24,12 +24,13 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfPacefishMeshV38PrimaryTopology
+    /// OneOfPinKinematicBehaviorAxialTranslation
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(NoPrimaryTopology), "NO_PRIMARY_TOPOLOGY")]
-    [JsonSubtypes.KnownSubType(typeof(BuildingsOfInterest), "BUILDINGS_OF_INTEREST")]
-    public interface OneOfPacefishMeshV38PrimaryTopology
+    [JsonSubtypes.KnownSubType(typeof(FreeAxialTranslation), "FREE")]
+    [JsonSubtypes.KnownSubType(typeof(RigidAxialTranslation), "RIGID")]
+    [JsonSubtypes.KnownSubType(typeof(FlexibleAxialTranslation), "FLEXIBLE")]
+    public interface OneOfPinKinematicBehaviorAxialTranslation
     {
         /// <summary>
         /// Gets Type

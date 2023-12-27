@@ -44,7 +44,13 @@ namespace SimScale.Sdk.Model
             /// Enum S for value: °/s
             /// </summary>
             [EnumMember(Value = "°/s")]
-            S = 2
+            S = 2,
+
+            /// <summary>
+            /// Enum RPM for value: RPM
+            /// </summary>
+            [EnumMember(Value = "RPM")]
+            RPM = 3
 
         }
 
