@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// Diagonal incomplete lower-upper (ILU) algorithm for non-symmetric matrices without fill-in.
     /// </summary>
     [DataContract]
-    public partial class DILUPreconditioner : OneOfPBICGSolverPreconditioner, IEquatable<DILUPreconditioner>
+    public partial class DILUPreconditioner : OneOfPBICGSolverPreconditioner, OneOfPBICGStabSolverPreconditioner, IEquatable<DILUPreconditioner>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DILUPreconditioner" /> class.

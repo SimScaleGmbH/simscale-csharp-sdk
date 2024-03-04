@@ -28,6 +28,7 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(PBICGSolver), "PBICG")]
+    [JsonSubtypes.KnownSubType(typeof(PBICGStabSolver), "PBICGStab")]
     [JsonSubtypes.KnownSubType(typeof(SmoothSolver), "SMOOTH")]
     public interface OneOfFluidSolversEpsilonDissipationRateSolver
     {

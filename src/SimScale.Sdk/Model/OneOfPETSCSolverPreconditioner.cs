@@ -32,6 +32,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(JacobiPreconditioner), "JACOBI")]
     [JsonSubtypes.KnownSubType(typeof(SorPreconditioner), "SOR")]
     [JsonSubtypes.KnownSubType(typeof(InactivePreconditioner), "INACTIVE")]
+    [JsonSubtypes.KnownSubType(typeof(ChronosPreconditioner), "CHRONOS")]
     public interface OneOfPETSCSolverPreconditioner
     {
         /// <summary>

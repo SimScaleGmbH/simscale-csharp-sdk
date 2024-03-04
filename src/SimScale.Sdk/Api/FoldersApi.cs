@@ -103,7 +103,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Folders</returns>
@@ -118,7 +118,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>ApiResponse of Folders</returns>
@@ -131,7 +131,7 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Folders</returns>
@@ -145,7 +145,7 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>ApiResponse of Folders</returns>
@@ -159,7 +159,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Projects</returns>
@@ -174,7 +174,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>ApiResponse of Projects</returns>
@@ -187,7 +187,7 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Projects</returns>
@@ -201,7 +201,7 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>ApiResponse of Projects</returns>
@@ -366,7 +366,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of Folders</returns>
@@ -381,7 +381,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of ApiResponse (Folders)</returns>
@@ -394,7 +394,7 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of Folders</returns>
@@ -408,7 +408,7 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of ApiResponse (Folders)</returns>
@@ -422,7 +422,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of Projects</returns>
@@ -437,7 +437,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of ApiResponse (Projects)</returns>
@@ -450,7 +450,7 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of Projects</returns>
@@ -464,7 +464,7 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of ApiResponse (Projects)</returns>
@@ -1077,7 +1077,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Folders</returns>
@@ -1093,7 +1093,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>ApiResponse of Folders</returns>
@@ -1162,7 +1162,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of Folders</returns>
@@ -1179,7 +1179,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of ApiResponse (Folders)</returns>
@@ -1249,7 +1249,7 @@ namespace SimScale.Sdk.Api
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Folders</returns>
@@ -1264,7 +1264,7 @@ namespace SimScale.Sdk.Api
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>ApiResponse of Folders</returns>
@@ -1327,7 +1327,7 @@ namespace SimScale.Sdk.Api
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of Folders</returns>
@@ -1343,7 +1343,7 @@ namespace SimScale.Sdk.Api
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of folders to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of ApiResponse (Folders)</returns>
@@ -1409,7 +1409,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Projects</returns>
@@ -1425,7 +1425,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>ApiResponse of Projects</returns>
@@ -1494,7 +1494,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of Projects</returns>
@@ -1511,7 +1511,7 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
         /// <param name="folderId">The folder ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of ApiResponse (Projects)</returns>
@@ -1581,7 +1581,7 @@ namespace SimScale.Sdk.Api
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Projects</returns>
@@ -1596,7 +1596,7 @@ namespace SimScale.Sdk.Api
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>ApiResponse of Projects</returns>
@@ -1659,7 +1659,7 @@ namespace SimScale.Sdk.Api
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of Projects</returns>
@@ -1675,7 +1675,7 @@ namespace SimScale.Sdk.Api
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId">The space ID</param>
-        /// <param name="limit">The number of projects to return. (optional, default to 100)</param>
+        /// <param name="limit">The number of items to return. (optional, default to 100)</param>
         /// <param name="page">The page number. Use in combination with limit. (optional, default to 1)</param>
         /// <param name="sort">A field to sort by. The available fields are: &#39;name&#39;, &#39;createdAt&#39; and &#39;lastModifiedAt&#39;. To indicate sorting direction, the field must be prefixed with &#39;+&#39; (ascending) or &#39;-&#39; (descending), e.g. ?sort&#x3D;+name (optional, default to &quot;-lastModifiedAt&quot;)</param>
         /// <returns>Task of ApiResponse (Projects)</returns>

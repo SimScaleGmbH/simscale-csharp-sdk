@@ -29,9 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class AdvancedPinSettings : IEquatable<AdvancedPinSettings>
     {
         /// <summary>
-        /// Specify whether the face to which the pin is connected should be &lt;i&gt;Deformable&lt;/i&gt; or &lt;i&gt;Undeformable&lt;/i&gt;.
+        /// &lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform without applying additional stiffness, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/remote-displacement/#deformation-behavior&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
         /// </summary>
-        /// <value>Specify whether the face to which the pin is connected should be &lt;i&gt;Deformable&lt;/i&gt; or &lt;i&gt;Undeformable&lt;/i&gt;.</value>
+        /// <value>&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform without applying additional stiffness, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/remote-displacement/#deformation-behavior&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AssignedFaceBehaviorEnum
         {
@@ -50,15 +50,15 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Specify whether the face to which the pin is connected should be &lt;i&gt;Deformable&lt;/i&gt; or &lt;i&gt;Undeformable&lt;/i&gt;.
+        /// &lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform without applying additional stiffness, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/remote-displacement/#deformation-behavior&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
         /// </summary>
-        /// <value>Specify whether the face to which the pin is connected should be &lt;i&gt;Deformable&lt;/i&gt; or &lt;i&gt;Undeformable&lt;/i&gt;.</value>
+        /// <value>&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform without applying additional stiffness, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/remote-displacement/#deformation-behavior&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;</value>
         [DataMember(Name="assignedFaceBehavior", EmitDefaultValue=false)]
         public AssignedFaceBehaviorEnum? AssignedFaceBehavior { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvancedPinSettings" /> class.
         /// </summary>
-        /// <param name="assignedFaceBehavior">Specify whether the face to which the pin is connected should be &lt;i&gt;Deformable&lt;/i&gt; or &lt;i&gt;Undeformable&lt;/i&gt;. (default to AssignedFaceBehaviorEnum.DEFORMABLE).</param>
+        /// <param name="assignedFaceBehavior">&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform without applying additional stiffness, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/remote-displacement/#deformation-behavior&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt; (default to AssignedFaceBehaviorEnum.DEFORMABLE).</param>
         public AdvancedPinSettings(AssignedFaceBehaviorEnum? assignedFaceBehavior = default(AssignedFaceBehaviorEnum?))
         {
             this.AssignedFaceBehavior = assignedFaceBehavior;

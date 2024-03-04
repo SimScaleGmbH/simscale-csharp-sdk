@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// Crout&#39;s version of the incomplete lower-upper (ILU) algorithm with arbitrary level of fill-in.
     /// </summary>
     [DataContract]
-    public partial class ILUCpPreconditioner : OneOfPBICGSolverPreconditioner, OneOfPCGSolverPreconditioner, IEquatable<ILUCpPreconditioner>
+    public partial class ILUCpPreconditioner : OneOfPBICGSolverPreconditioner, OneOfPBICGStabSolverPreconditioner, OneOfPCGSolverPreconditioner, IEquatable<ILUCpPreconditioner>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ILUCpPreconditioner" /> class.

@@ -24,13 +24,13 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfFluidSolversVelocityFinalSolver
+    /// &lt;p&gt;Choose a preconditioner for your solver. A preconditioner improves the convergence speed of your system. Therefore, it is generally recommended. DILU is a very common diagonal incomplete lower-upper decomposition preconditioner.&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(PBICGSolver), "PBICG")]
-    [JsonSubtypes.KnownSubType(typeof(PBICGStabSolver), "PBICGStab")]
-    [JsonSubtypes.KnownSubType(typeof(SmoothSolver), "SMOOTH")]
-    public interface OneOfFluidSolversVelocityFinalSolver
+    [JsonSubtypes.KnownSubType(typeof(DILUPreconditioner), "DILU")]
+    [JsonSubtypes.KnownSubType(typeof(DICPreconditioner), "DIC")]
+    [JsonSubtypes.KnownSubType(typeof(ILUCpPreconditioner), "ILUCP")]
+    public interface OneOfPBICGStabSolverPreconditioner
     {
         /// <summary>
         /// Gets Type

@@ -66,7 +66,8 @@ namespace SimScale.Sdk.Model
         /// <param name="enableSurfaceRoughness">When turned &lt;em&gt;ON&lt;/em&gt;, this wall&#39;s is no longer considered to be &lt;em&gt;smooth&lt;/em&gt;. Its roughness may be then be specified. (default to false).</param>
         /// <param name="surfaceRoughness">surfaceRoughness.</param>
         /// <param name="noSlipWallRoughnessType">noSlipWallRoughnessType.</param>
-        public NoSlipVBC(string type = "NO_SLIP", TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), bool? enableSurfaceRoughness = default(bool?), DimensionalLength surfaceRoughness = default(DimensionalLength), OneOfNoSlipVBCNoSlipWallRoughnessType noSlipWallRoughnessType = default(OneOfNoSlipVBCNoSlipWallRoughnessType))
+        /// <param name="wallContactModel">wallContactModel.</param>
+        public NoSlipVBC(string type = "NO_SLIP", TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), bool? enableSurfaceRoughness = default(bool?), DimensionalLength surfaceRoughness = default(DimensionalLength), OneOfNoSlipVBCNoSlipWallRoughnessType noSlipWallRoughnessType = default(OneOfNoSlipVBCNoSlipWallRoughnessType), List<WallContactAngle> wallContactModel = default(List<WallContactAngle>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for NoSlipVBC and cannot be null");
@@ -74,6 +75,7 @@ namespace SimScale.Sdk.Model
             this.EnableSurfaceRoughness = enableSurfaceRoughness;
             this.SurfaceRoughness = surfaceRoughness;
             this.NoSlipWallRoughnessType = noSlipWallRoughnessType;
+            this.WallContactModel = wallContactModel;
         }
         
         /// <summary>
@@ -103,6 +105,12 @@ namespace SimScale.Sdk.Model
         public OneOfNoSlipVBCNoSlipWallRoughnessType NoSlipWallRoughnessType { get; set; }
 
         /// <summary>
+        /// Gets or Sets WallContactModel
+        /// </summary>
+        [DataMember(Name="wallContactModel", EmitDefaultValue=false)]
+        public List<WallContactAngle> WallContactModel { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +123,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  EnableSurfaceRoughness: ").Append(EnableSurfaceRoughness).Append("\n");
             sb.Append("  SurfaceRoughness: ").Append(SurfaceRoughness).Append("\n");
             sb.Append("  NoSlipWallRoughnessType: ").Append(NoSlipWallRoughnessType).Append("\n");
+            sb.Append("  WallContactModel: ").Append(WallContactModel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +181,12 @@ namespace SimScale.Sdk.Model
                     this.NoSlipWallRoughnessType == input.NoSlipWallRoughnessType ||
                     (this.NoSlipWallRoughnessType != null &&
                     this.NoSlipWallRoughnessType.Equals(input.NoSlipWallRoughnessType))
+                ) && 
+                (
+                    this.WallContactModel == input.WallContactModel ||
+                    this.WallContactModel != null &&
+                    input.WallContactModel != null &&
+                    this.WallContactModel.SequenceEqual(input.WallContactModel)
                 );
         }
 
@@ -193,6 +208,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.SurfaceRoughness.GetHashCode();
                 if (this.NoSlipWallRoughnessType != null)
                     hashCode = hashCode * 59 + this.NoSlipWallRoughnessType.GetHashCode();
+                if (this.WallContactModel != null)
+                    hashCode = hashCode * 59 + this.WallContactModel.GetHashCode();
                 return hashCode;
             }
         }

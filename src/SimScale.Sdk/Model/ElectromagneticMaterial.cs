@@ -35,15 +35,17 @@ namespace SimScale.Sdk.Model
         /// <param name="materialBehavior">materialBehavior.</param>
         /// <param name="electricConductivity">electricConductivity.</param>
         /// <param name="magneticPermeabilityType">magneticPermeabilityType.</param>
+        /// <param name="coreLossesType">coreLossesType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public ElectromagneticMaterial(string name = default(string), OneOfElectromagneticMaterialMaterialBehavior materialBehavior = default(OneOfElectromagneticMaterialMaterialBehavior), DimensionalElectricConductivity electricConductivity = default(DimensionalElectricConductivity), OneOfElectromagneticMaterialMagneticPermeabilityType magneticPermeabilityType = default(OneOfElectromagneticMaterialMagneticPermeabilityType), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public ElectromagneticMaterial(string name = default(string), OneOfElectromagneticMaterialMaterialBehavior materialBehavior = default(OneOfElectromagneticMaterialMaterialBehavior), DimensionalElectricConductivity electricConductivity = default(DimensionalElectricConductivity), OneOfElectromagneticMaterialMagneticPermeabilityType magneticPermeabilityType = default(OneOfElectromagneticMaterialMagneticPermeabilityType), OneOfElectromagneticMaterialCoreLossesType coreLossesType = default(OneOfElectromagneticMaterialCoreLossesType), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             this.Name = name;
             this.MaterialBehavior = materialBehavior;
             this.ElectricConductivity = electricConductivity;
             this.MagneticPermeabilityType = magneticPermeabilityType;
+            this.CoreLossesType = coreLossesType;
             this.TopologicalReference = topologicalReference;
             this.BuiltInMaterial = builtInMaterial;
             this.MaterialLibraryReference = materialLibraryReference;
@@ -72,6 +74,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="magneticPermeabilityType", EmitDefaultValue=false)]
         public OneOfElectromagneticMaterialMagneticPermeabilityType MagneticPermeabilityType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CoreLossesType
+        /// </summary>
+        [DataMember(Name="coreLossesType", EmitDefaultValue=false)]
+        public OneOfElectromagneticMaterialCoreLossesType CoreLossesType { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -103,6 +111,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  MaterialBehavior: ").Append(MaterialBehavior).Append("\n");
             sb.Append("  ElectricConductivity: ").Append(ElectricConductivity).Append("\n");
             sb.Append("  MagneticPermeabilityType: ").Append(MagneticPermeabilityType).Append("\n");
+            sb.Append("  CoreLossesType: ").Append(CoreLossesType).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
             sb.Append("  MaterialLibraryReference: ").Append(MaterialLibraryReference).Append("\n");
@@ -161,6 +170,11 @@ namespace SimScale.Sdk.Model
                     this.MagneticPermeabilityType.Equals(input.MagneticPermeabilityType))
                 ) && 
                 (
+                    this.CoreLossesType == input.CoreLossesType ||
+                    (this.CoreLossesType != null &&
+                    this.CoreLossesType.Equals(input.CoreLossesType))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -194,6 +208,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ElectricConductivity.GetHashCode();
                 if (this.MagneticPermeabilityType != null)
                     hashCode = hashCode * 59 + this.MagneticPermeabilityType.GetHashCode();
+                if (this.CoreLossesType != null)
+                    hashCode = hashCode * 59 + this.CoreLossesType.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.BuiltInMaterial != null)

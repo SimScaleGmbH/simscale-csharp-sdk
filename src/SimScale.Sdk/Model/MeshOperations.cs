@@ -34,7 +34,7 @@ namespace SimScale.Sdk.Model
         /// <param name="links">links.</param>
         /// <param name="meta">meta.</param>
         /// <param name="embedded">embedded.</param>
-        public MeshOperations(CollectionLinks links = default(CollectionLinks), CollectionMeta meta = default(CollectionMeta), List<MeshOperation> embedded = default(List<MeshOperation>))
+        public MeshOperations(CollectionLinks links = default(CollectionLinks), CollectionMeta meta = default(CollectionMeta), List<SlimMeshOperation> embedded = default(List<SlimMeshOperation>))
         {
             this.Links = links;
             this.Meta = meta;
@@ -57,7 +57,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Embedded
         /// </summary>
         [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public List<MeshOperation> Embedded { get; set; }
+        public List<SlimMeshOperation> Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

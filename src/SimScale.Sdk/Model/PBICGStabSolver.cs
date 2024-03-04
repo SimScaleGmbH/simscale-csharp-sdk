@@ -23,71 +23,36 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// SmoothSolver
+    /// PBICGStabSolver
     /// </summary>
     [DataContract]
-    public partial class SmoothSolver : OneOfFluidSolversDensityFinalSolver, OneOfFluidSolversDensitySolver, OneOfFluidSolversEnthalpyFinalSolver, OneOfFluidSolversEnthalpySolver, OneOfFluidSolversEpsilonDissipationRateFinalSolver, OneOfFluidSolversEpsilonDissipationRateSolver, OneOfFluidSolversInternalEnergyFinalSolver, OneOfFluidSolversInternalEnergySolver, OneOfFluidSolversNuTildaFinalSolver, OneOfFluidSolversNuTildaSolver, OneOfFluidSolversOmegaDissipationRateFinalSolver, OneOfFluidSolversOmegaDissipationRateSolver, OneOfFluidSolversPassiveScalarSolver, OneOfFluidSolversPressureFinalSolver, OneOfFluidSolversPressureRghFinalSolver, OneOfFluidSolversPressureRghSolver, OneOfFluidSolversPressureSolver, OneOfFluidSolversRadiativeIntensityRaySolver, OneOfFluidSolversSolidEnthalpyFinalSolver, OneOfFluidSolversSolidEnthalpySolver, OneOfFluidSolversSpecificHumiditySolver, OneOfFluidSolversTemperatureFinalSolver, OneOfFluidSolversTemperatureSolver, OneOfFluidSolversTurbulentKineticEnergyFinalSolver, OneOfFluidSolversTurbulentKineticEnergySolver, OneOfFluidSolversVelocityFinalSolver, OneOfFluidSolversVelocitySolver, OneOfFluidSolversVoltageSolver, OneOfTrueSemiImplicitSolver, IEquatable<SmoothSolver>
+    public partial class PBICGStabSolver : OneOfFluidSolversEpsilonDissipationRateFinalSolver, OneOfFluidSolversEpsilonDissipationRateSolver, OneOfFluidSolversOmegaDissipationRateFinalSolver, OneOfFluidSolversOmegaDissipationRateSolver, OneOfFluidSolversTemperatureFinalSolver, OneOfFluidSolversTemperatureSolver, OneOfFluidSolversTurbulentKineticEnergyFinalSolver, OneOfFluidSolversTurbulentKineticEnergySolver, OneOfFluidSolversVelocityFinalSolver, OneOfFluidSolversVelocitySolver, OneOfFluidSolversVoltageSolver, IEquatable<PBICGStabSolver>
     {
         /// <summary>
-        /// &lt;p&gt;Choose a smoother for your solver.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;Choose a smoother for your solver.&lt;/p&gt;</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SmootherEnum
-        {
-            /// <summary>
-            /// Enum GAUSSSEIDEL for value: GAUSSSEIDEL
-            /// </summary>
-            [EnumMember(Value = "GAUSSSEIDEL")]
-            GAUSSSEIDEL = 1,
-
-            /// <summary>
-            /// Enum SYMGAUSSSEIDEL for value: SYMGAUSSSEIDEL
-            /// </summary>
-            [EnumMember(Value = "SYMGAUSSSEIDEL")]
-            SYMGAUSSSEIDEL = 2,
-
-            /// <summary>
-            /// Enum DIC for value: DIC
-            /// </summary>
-            [EnumMember(Value = "DIC")]
-            DIC = 3
-
-        }
-
-        /// <summary>
-        /// &lt;p&gt;Choose a smoother for your solver.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;Choose a smoother for your solver.&lt;/p&gt;</value>
-        [DataMember(Name="smoother", EmitDefaultValue=false)]
-        public SmootherEnum? Smoother { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SmoothSolver" /> class.
+        /// Initializes a new instance of the <see cref="PBICGStabSolver" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SmoothSolver() { }
+        protected PBICGStabSolver() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmoothSolver" /> class.
+        /// Initializes a new instance of the <see cref="PBICGStabSolver" /> class.
         /// </summary>
-        /// <param name="type">Schema name: SmoothSolver (required) (default to &quot;SMOOTH&quot;).</param>
-        /// <param name="absoluteTolerance">&lt;p&gt;Define the absolute tolerance for the residual. The convergence process will be stopped as soon as the residual falls below the absolute tolerance.&lt;/p&gt;.</param>
+        /// <param name="type">Schema name: PBICGStabSolver (required) (default to &quot;PBICGStab&quot;).</param>
+        /// <param name="absoluteTolerance">&lt;p&gt;Define the absolute tolerance for the residual. The convergence process will be stopped as soon as the residual falls below the absolute tolerance.&lt;/p&gt; (default to 1.0E-8M).</param>
         /// <param name="relativeTolerance">&lt;p&gt;Choose the relative tolerance for the residual. The convergence process will be stopped as soon as the ratio of current to initial residual falls below the relative tolerance.&lt;/p&gt; (default to 0.01M).</param>
-        /// <param name="smoother">&lt;p&gt;Choose a smoother for your solver.&lt;/p&gt; (default to SmootherEnum.GAUSSSEIDEL).</param>
-        /// <param name="numSweeps">&lt;p&gt;Define the numbers of sweeps.&lt;/p&gt; (default to 1).</param>
-        public SmoothSolver(string type = "SMOOTH", decimal? absoluteTolerance = default(decimal?), decimal? relativeTolerance = default(decimal?), SmootherEnum? smoother = default(SmootherEnum?), int? numSweeps = default(int?))
+        /// <param name="preconditioner">preconditioner.</param>
+        public PBICGStabSolver(string type = "PBICGStab", decimal? absoluteTolerance = default(decimal?), decimal? relativeTolerance = default(decimal?), OneOfPBICGStabSolverPreconditioner preconditioner = default(OneOfPBICGStabSolverPreconditioner))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for SmoothSolver and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for PBICGStabSolver and cannot be null");
             this.AbsoluteTolerance = absoluteTolerance;
             this.RelativeTolerance = relativeTolerance;
-            this.Smoother = smoother;
-            this.NumSweeps = numSweeps;
+            this.Preconditioner = preconditioner;
         }
         
         /// <summary>
-        /// Schema name: SmoothSolver
+        /// Schema name: PBICGStabSolver
         /// </summary>
-        /// <value>Schema name: SmoothSolver</value>
+        /// <value>Schema name: PBICGStabSolver</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -106,11 +71,10 @@ namespace SimScale.Sdk.Model
         public decimal? RelativeTolerance { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;Define the numbers of sweeps.&lt;/p&gt;
+        /// Gets or Sets Preconditioner
         /// </summary>
-        /// <value>&lt;p&gt;Define the numbers of sweeps.&lt;/p&gt;</value>
-        [DataMember(Name="numSweeps", EmitDefaultValue=false)]
-        public int? NumSweeps { get; set; }
+        [DataMember(Name="preconditioner", EmitDefaultValue=false)]
+        public OneOfPBICGStabSolverPreconditioner Preconditioner { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,12 +83,11 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SmoothSolver {\n");
+            sb.Append("class PBICGStabSolver {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  AbsoluteTolerance: ").Append(AbsoluteTolerance).Append("\n");
             sb.Append("  RelativeTolerance: ").Append(RelativeTolerance).Append("\n");
-            sb.Append("  Smoother: ").Append(Smoother).Append("\n");
-            sb.Append("  NumSweeps: ").Append(NumSweeps).Append("\n");
+            sb.Append("  Preconditioner: ").Append(Preconditioner).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,15 +108,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SmoothSolver);
+            return this.Equals(input as PBICGStabSolver);
         }
 
         /// <summary>
-        /// Returns true if SmoothSolver instances are equal
+        /// Returns true if PBICGStabSolver instances are equal
         /// </summary>
-        /// <param name="input">Instance of SmoothSolver to be compared</param>
+        /// <param name="input">Instance of PBICGStabSolver to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SmoothSolver input)
+        public bool Equals(PBICGStabSolver input)
         {
             if (input == null)
                 return false;
@@ -175,13 +138,9 @@ namespace SimScale.Sdk.Model
                     this.RelativeTolerance.Equals(input.RelativeTolerance))
                 ) && 
                 (
-                    this.Smoother == input.Smoother ||
-                    this.Smoother.Equals(input.Smoother)
-                ) && 
-                (
-                    this.NumSweeps == input.NumSweeps ||
-                    (this.NumSweeps != null &&
-                    this.NumSweeps.Equals(input.NumSweeps))
+                    this.Preconditioner == input.Preconditioner ||
+                    (this.Preconditioner != null &&
+                    this.Preconditioner.Equals(input.Preconditioner))
                 );
         }
 
@@ -200,9 +159,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.AbsoluteTolerance.GetHashCode();
                 if (this.RelativeTolerance != null)
                     hashCode = hashCode * 59 + this.RelativeTolerance.GetHashCode();
-                hashCode = hashCode * 59 + this.Smoother.GetHashCode();
-                if (this.NumSweeps != null)
-                    hashCode = hashCode * 59 + this.NumSweeps.GetHashCode();
+                if (this.Preconditioner != null)
+                    hashCode = hashCode * 59 + this.Preconditioner.GetHashCode();
                 return hashCode;
             }
         }

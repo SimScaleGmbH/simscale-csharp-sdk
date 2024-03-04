@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// Diagonal incomplete Cholesky algorithm for symmetric matrices without fill-in.
     /// </summary>
     [DataContract]
-    public partial class DICPreconditioner : OneOfPCGSolverPreconditioner, IEquatable<DICPreconditioner>
+    public partial class DICPreconditioner : OneOfPBICGStabSolverPreconditioner, OneOfPCGSolverPreconditioner, IEquatable<DICPreconditioner>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DICPreconditioner" /> class.

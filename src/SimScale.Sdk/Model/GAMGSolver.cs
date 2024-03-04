@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// GAMGSolver
     /// </summary>
     [DataContract]
-    public partial class GAMGSolver : OneOfFluidSolversDensityFinalSolver, OneOfFluidSolversDensitySolver, OneOfFluidSolversPressureFinalSolver, OneOfFluidSolversPressureRghFinalSolver, OneOfFluidSolversPressureRghSolver, OneOfFluidSolversPressureSolver, OneOfFluidSolversSolidEnthalpyFinalSolver, OneOfFluidSolversSolidEnthalpySolver, OneOfPCGSolverPreconditioner, IEquatable<GAMGSolver>
+    public partial class GAMGSolver : OneOfFluidSolversDensityFinalSolver, OneOfFluidSolversDensitySolver, OneOfFluidSolversPressureFinalSolver, OneOfFluidSolversPressureRghFinalSolver, OneOfFluidSolversPressureRghSolver, OneOfFluidSolversPressureSolver, OneOfFluidSolversSolidEnthalpyFinalSolver, OneOfFluidSolversSolidEnthalpySolver, OneOfFluidSolversVoltageSolver, OneOfPCGSolverPreconditioner, IEquatable<GAMGSolver>
     {
         /// <summary>
         /// &lt;p&gt;Choose a smoother for your solver.&lt;/p&gt;
@@ -39,7 +39,13 @@ namespace SimScale.Sdk.Model
             /// Enum GAUSSSEIDEL for value: GAUSSSEIDEL
             /// </summary>
             [EnumMember(Value = "GAUSSSEIDEL")]
-            GAUSSSEIDEL = 1
+            GAUSSSEIDEL = 1,
+
+            /// <summary>
+            /// Enum DIC for value: DIC
+            /// </summary>
+            [EnumMember(Value = "DIC")]
+            DIC = 2
 
         }
 
@@ -60,7 +66,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: GAMGSolver (required) (default to &quot;GAMG&quot;).</param>
         /// <param name="absoluteTolerance">&lt;p&gt;Define the absolute tolerance for the residual. The convergence process will be stopped as soon as the residual falls below the absolute tolerance.&lt;/p&gt;.</param>
         /// <param name="relativeTolerance">&lt;p&gt;Choose the relative tolerance for the residual. The convergence process will be stopped as soon as the ratio of current to initial residual falls below the relative tolerance.&lt;/p&gt;.</param>
-        /// <param name="smoother">&lt;p&gt;Choose a smoother for your solver.&lt;/p&gt; (default to SmootherEnum.GAUSSSEIDEL).</param>
+        /// <param name="smoother">&lt;p&gt;Choose a smoother for your solver.&lt;/p&gt;.</param>
         /// <param name="numPreSweeps">numPreSweeps.</param>
         /// <param name="numPostSweeps">numPostSweeps (default to 1).</param>
         /// <param name="cacheAgglomerationOn">cacheAgglomerationOn (default to true).</param>

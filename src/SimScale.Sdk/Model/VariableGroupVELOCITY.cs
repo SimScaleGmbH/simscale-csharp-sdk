@@ -23,32 +23,25 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// GaussInterfaceCompressionDivergenceScheme
+    /// VariableGroupVELOCITY
     /// </summary>
     [DataContract]
-    public partial class GaussInterfaceCompressionDivergenceScheme : OneOfDivergenceSchemesDivPhiAlpha, OneOfDivergenceSchemesDivPhirbAlpha, IEquatable<GaussInterfaceCompressionDivergenceScheme>
+    public partial class VariableGroupVELOCITY : IEquatable<VariableGroupVELOCITY>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GaussInterfaceCompressionDivergenceScheme" /> class.
+        /// Initializes a new instance of the <see cref="VariableGroupVELOCITY" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GaussInterfaceCompressionDivergenceScheme() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GaussInterfaceCompressionDivergenceScheme" /> class.
-        /// </summary>
-        /// <param name="type">Schema name: GaussInterfaceCompressionDivergenceScheme (required) (default to &quot;GAUSS_INTERFACECOMPRESSION&quot;).</param>
-        public GaussInterfaceCompressionDivergenceScheme(string type = "GAUSS_INTERFACECOMPRESSION")
+        /// <param name="vELOCITY">vELOCITY.</param>
+        public VariableGroupVELOCITY(UnitSpeed vELOCITY = default(UnitSpeed))
         {
-            // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for GaussInterfaceCompressionDivergenceScheme and cannot be null");
+            this.VELOCITY = vELOCITY;
         }
         
         /// <summary>
-        /// Schema name: GaussInterfaceCompressionDivergenceScheme
+        /// Gets or Sets VELOCITY
         /// </summary>
-        /// <value>Schema name: GaussInterfaceCompressionDivergenceScheme</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        [DataMember(Name="VELOCITY", EmitDefaultValue=false)]
+        public UnitSpeed VELOCITY { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,8 +50,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GaussInterfaceCompressionDivergenceScheme {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class VariableGroupVELOCITY {\n");
+            sb.Append("  VELOCITY: ").Append(VELOCITY).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -79,24 +72,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GaussInterfaceCompressionDivergenceScheme);
+            return this.Equals(input as VariableGroupVELOCITY);
         }
 
         /// <summary>
-        /// Returns true if GaussInterfaceCompressionDivergenceScheme instances are equal
+        /// Returns true if VariableGroupVELOCITY instances are equal
         /// </summary>
-        /// <param name="input">Instance of GaussInterfaceCompressionDivergenceScheme to be compared</param>
+        /// <param name="input">Instance of VariableGroupVELOCITY to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GaussInterfaceCompressionDivergenceScheme input)
+        public bool Equals(VariableGroupVELOCITY input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.VELOCITY == input.VELOCITY ||
+                    (this.VELOCITY != null &&
+                    this.VELOCITY.Equals(input.VELOCITY))
                 );
         }
 
@@ -109,8 +102,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.VELOCITY != null)
+                    hashCode = hashCode * 59 + this.VELOCITY.GetHashCode();
                 return hashCode;
             }
         }

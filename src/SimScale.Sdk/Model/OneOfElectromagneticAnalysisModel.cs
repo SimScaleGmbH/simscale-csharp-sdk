@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Magnetostatics&lt;/strong&gt;&lt;br&gt;Use for problems where magnetic fields are constant over time and thus no eddy currents are present. Applications include: Permanent Magnets, Magnetic Shielding, Magnetic Forces.
+    /// &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Magnetostatics&lt;/strong&gt;&lt;br&gt;Use for problems where magnetic fields are constant over time and thus no eddy currents are present. Applications include: Permanent Magnets, Magnetic Shielding, Magnetic Forces.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Time-Harmonic Magnetics&lt;/strong&gt;&lt;br&gt;Use for problems with sinusoidally varying electric currents and linear materials. Applications include: Transformers, Induction Heating, Wireless Charging.&lt;/li&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(Magnetostatics), "MAGNETOSTATICS")]

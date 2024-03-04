@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfPinKinematicBehaviorAxialTranslation
+    /// &lt;p&gt;Define the translation behavior between the connected entities along the virtual pin axis&lt;br /&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Free sliding&lt;/b&gt; - bodies may freely translate along the pin axis&lt;/li&gt;&lt;li&gt;&lt;b&gt;Rigid&lt;/b&gt; - translation of the bodies in the pin axis direction is locked&lt;/li&gt;&lt;li&gt;&lt;b&gt;With axial spring&lt;/b&gt; - translation is controlled by an axial spring stiffness, allowing the deformation of the virtual pin itself to affect global deformations&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(FreeAxialTranslation), "FREE")]

@@ -37,7 +37,6 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(GaussUpwindDivergenceScheme), "GAUSS_UPWIND")]
     [JsonSubtypes.KnownSubType(typeof(GaussVanleerDivergenceScheme), "GAUSS_VANLEER")]
     [JsonSubtypes.KnownSubType(typeof(GaussLinearUpwindVGradUDivergenceScheme), "GAUSS_LINEARUPWINDV_GRAD_U_")]
-    [JsonSubtypes.KnownSubType(typeof(GaussInterfaceCompressionDivergenceScheme), "GAUSS_INTERFACECOMPRESSION")]
     public interface OneOfDivergenceSchemesDivPhiVelocity
     {
         /// <summary>

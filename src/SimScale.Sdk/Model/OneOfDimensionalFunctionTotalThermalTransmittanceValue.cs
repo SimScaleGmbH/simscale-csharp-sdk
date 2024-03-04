@@ -24,13 +24,14 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfFluidSolversVelocityFinalSolver
+    /// OneOfDimensionalFunctionTotalThermalTransmittanceValue
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(PBICGSolver), "PBICG")]
-    [JsonSubtypes.KnownSubType(typeof(PBICGStabSolver), "PBICGStab")]
-    [JsonSubtypes.KnownSubType(typeof(SmoothSolver), "SMOOTH")]
-    public interface OneOfFluidSolversVelocityFinalSolver
+    [JsonSubtypes.KnownSubType(typeof(ConstantFunction), "CONSTANT")]
+    [JsonSubtypes.KnownSubType(typeof(ExpressionFunction), "EXPRESSION")]
+    [JsonSubtypes.KnownSubType(typeof(PolynomialFunction), "POLYNOMIAL")]
+    [JsonSubtypes.KnownSubType(typeof(TableDefinedFunction), "TABLE_DEFINED")]
+    public interface OneOfDimensionalFunctionTotalThermalTransmittanceValue
     {
         /// <summary>
         /// Gets Type

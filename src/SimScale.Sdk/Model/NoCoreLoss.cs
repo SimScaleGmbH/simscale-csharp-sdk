@@ -23,30 +23,30 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// GaussInterfaceCompressionDivergenceScheme
+    /// NoCoreLoss
     /// </summary>
     [DataContract]
-    public partial class GaussInterfaceCompressionDivergenceScheme : OneOfDivergenceSchemesDivPhiAlpha, OneOfDivergenceSchemesDivPhirbAlpha, IEquatable<GaussInterfaceCompressionDivergenceScheme>
+    public partial class NoCoreLoss : OneOfElectromagneticMaterialCoreLossesType, IEquatable<NoCoreLoss>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GaussInterfaceCompressionDivergenceScheme" /> class.
+        /// Initializes a new instance of the <see cref="NoCoreLoss" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GaussInterfaceCompressionDivergenceScheme() { }
+        protected NoCoreLoss() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GaussInterfaceCompressionDivergenceScheme" /> class.
+        /// Initializes a new instance of the <see cref="NoCoreLoss" /> class.
         /// </summary>
-        /// <param name="type">Schema name: GaussInterfaceCompressionDivergenceScheme (required) (default to &quot;GAUSS_INTERFACECOMPRESSION&quot;).</param>
-        public GaussInterfaceCompressionDivergenceScheme(string type = "GAUSS_INTERFACECOMPRESSION")
+        /// <param name="type">Schema name: NoCoreLoss (required) (default to &quot;NONE&quot;).</param>
+        public NoCoreLoss(string type = "NONE")
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for GaussInterfaceCompressionDivergenceScheme and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for NoCoreLoss and cannot be null");
         }
         
         /// <summary>
-        /// Schema name: GaussInterfaceCompressionDivergenceScheme
+        /// Schema name: NoCoreLoss
         /// </summary>
-        /// <value>Schema name: GaussInterfaceCompressionDivergenceScheme</value>
+        /// <value>Schema name: NoCoreLoss</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -57,7 +57,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GaussInterfaceCompressionDivergenceScheme {\n");
+            sb.Append("class NoCoreLoss {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -79,15 +79,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GaussInterfaceCompressionDivergenceScheme);
+            return this.Equals(input as NoCoreLoss);
         }
 
         /// <summary>
-        /// Returns true if GaussInterfaceCompressionDivergenceScheme instances are equal
+        /// Returns true if NoCoreLoss instances are equal
         /// </summary>
-        /// <param name="input">Instance of GaussInterfaceCompressionDivergenceScheme to be compared</param>
+        /// <param name="input">Instance of NoCoreLoss to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GaussInterfaceCompressionDivergenceScheme input)
+        public bool Equals(NoCoreLoss input)
         {
             if (input == null)
                 return false;

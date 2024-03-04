@@ -44,11 +44,12 @@ namespace SimScale.Sdk.Model
         /// <param name="gaugePressureRgh">gaugePressureRgh.</param>
         /// <param name="turbulence">turbulence.</param>
         /// <param name="temperature">temperature.</param>
+        /// <param name="passiveScalars">Please choose a boundary condition for passive scalar (T)..</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), OneOfFanBCTurbulence turbulence = default(OneOfFanBCTurbulence), FixedValueTBC temperature = default(FixedValueTBC), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), OneOfFanBCTurbulence turbulence = default(OneOfFanBCTurbulence), FixedValueTBC temperature = default(FixedValueTBC), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanBC and cannot be null");
@@ -59,6 +60,7 @@ namespace SimScale.Sdk.Model
             this.GaugePressureRgh = gaugePressureRgh;
             this.Turbulence = turbulence;
             this.Temperature = temperature;
+            this.PassiveScalars = passiveScalars;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
             this.RelativeHumidity = relativeHumidity;
@@ -115,6 +117,13 @@ namespace SimScale.Sdk.Model
         public FixedValueTBC Temperature { get; set; }
 
         /// <summary>
+        /// Please choose a boundary condition for passive scalar (T).
+        /// </summary>
+        /// <value>Please choose a boundary condition for passive scalar (T).</value>
+        [DataMember(Name="passiveScalars", EmitDefaultValue=false)]
+        public List<FixedValuePSBC> PassiveScalars { get; set; }
+
+        /// <summary>
         /// Gets or Sets NetRadiativeHeatFlux
         /// </summary>
         [DataMember(Name="netRadiativeHeatFlux", EmitDefaultValue=false)]
@@ -154,6 +163,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  GaugePressureRgh: ").Append(GaugePressureRgh).Append("\n");
             sb.Append("  Turbulence: ").Append(Turbulence).Append("\n");
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
+            sb.Append("  PassiveScalars: ").Append(PassiveScalars).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
             sb.Append("  RelativeHumidity: ").Append(RelativeHumidity).Append("\n");
@@ -233,6 +243,12 @@ namespace SimScale.Sdk.Model
                     this.Temperature.Equals(input.Temperature))
                 ) && 
                 (
+                    this.PassiveScalars == input.PassiveScalars ||
+                    this.PassiveScalars != null &&
+                    input.PassiveScalars != null &&
+                    this.PassiveScalars.SequenceEqual(input.PassiveScalars)
+                ) && 
+                (
                     this.NetRadiativeHeatFlux == input.NetRadiativeHeatFlux ||
                     (this.NetRadiativeHeatFlux != null &&
                     this.NetRadiativeHeatFlux.Equals(input.NetRadiativeHeatFlux))
@@ -279,6 +295,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Turbulence.GetHashCode();
                 if (this.Temperature != null)
                     hashCode = hashCode * 59 + this.Temperature.GetHashCode();
+                if (this.PassiveScalars != null)
+                    hashCode = hashCode * 59 + this.PassiveScalars.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)
                     hashCode = hashCode * 59 + this.NetRadiativeHeatFlux.GetHashCode();
                 if (this.RadiativeIntensityRay != null)

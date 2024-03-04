@@ -31,51 +31,39 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdvancedConcepts" /> class.
         /// </summary>
-        /// <param name="rotatingZones">rotatingZones.</param>
-        /// <param name="porousMediums">porousMediums.</param>
-        /// <param name="solidBodyMotions">solidBodyMotions.</param>
-        /// <param name="powerSources">powerSources.</param>
-        /// <param name="momentumSources">momentumSources.</param>
-        /// <param name="passiveScalarSources">passiveScalarSources.</param>
-        /// <param name="thermalResistanceNetworks">thermalResistanceNetworks.</param>
         /// <param name="thermalContactResistance">thermalContactResistance.</param>
         /// <param name="humiditySources">humiditySources.</param>
-        public AdvancedConcepts(List<OneOfAdvancedConceptsRotatingZones> rotatingZones = default(List<OneOfAdvancedConceptsRotatingZones>), List<OneOfAdvancedConceptsPorousMediums> porousMediums = default(List<OneOfAdvancedConceptsPorousMediums>), List<OneOfAdvancedConceptsSolidBodyMotions> solidBodyMotions = default(List<OneOfAdvancedConceptsSolidBodyMotions>), List<OneOfAdvancedConceptsPowerSources> powerSources = default(List<OneOfAdvancedConceptsPowerSources>), List<OneOfAdvancedConceptsMomentumSources> momentumSources = default(List<OneOfAdvancedConceptsMomentumSources>), List<OneOfAdvancedConceptsPassiveScalarSources> passiveScalarSources = default(List<OneOfAdvancedConceptsPassiveScalarSources>), List<OneOfAdvancedConceptsThermalResistanceNetworks> thermalResistanceNetworks = default(List<OneOfAdvancedConceptsThermalResistanceNetworks>), List<OneOfAdvancedConceptsThermalContactResistance> thermalContactResistance = default(List<OneOfAdvancedConceptsThermalContactResistance>), List<OneOfAdvancedConceptsHumiditySources> humiditySources = default(List<OneOfAdvancedConceptsHumiditySources>))
+        /// <param name="momentumSources">momentumSources.</param>
+        /// <param name="passiveScalarSources">passiveScalarSources.</param>
+        /// <param name="porousMediums">porousMediums.</param>
+        /// <param name="powerSources">powerSources.</param>
+        /// <param name="rotatingZones">rotatingZones.</param>
+        /// <param name="solidBodyMotions">solidBodyMotions.</param>
+        /// <param name="thermalResistanceNetworks">thermalResistanceNetworks.</param>
+        public AdvancedConcepts(List<OneOfAdvancedConceptsThermalContactResistance> thermalContactResistance = default(List<OneOfAdvancedConceptsThermalContactResistance>), List<OneOfAdvancedConceptsHumiditySources> humiditySources = default(List<OneOfAdvancedConceptsHumiditySources>), List<OneOfAdvancedConceptsMomentumSources> momentumSources = default(List<OneOfAdvancedConceptsMomentumSources>), List<OneOfAdvancedConceptsPassiveScalarSources> passiveScalarSources = default(List<OneOfAdvancedConceptsPassiveScalarSources>), List<OneOfAdvancedConceptsPorousMediums> porousMediums = default(List<OneOfAdvancedConceptsPorousMediums>), List<OneOfAdvancedConceptsPowerSources> powerSources = default(List<OneOfAdvancedConceptsPowerSources>), List<OneOfAdvancedConceptsRotatingZones> rotatingZones = default(List<OneOfAdvancedConceptsRotatingZones>), List<OneOfAdvancedConceptsSolidBodyMotions> solidBodyMotions = default(List<OneOfAdvancedConceptsSolidBodyMotions>), List<OneOfAdvancedConceptsThermalResistanceNetworks> thermalResistanceNetworks = default(List<OneOfAdvancedConceptsThermalResistanceNetworks>))
         {
-            this.RotatingZones = rotatingZones;
-            this.PorousMediums = porousMediums;
-            this.SolidBodyMotions = solidBodyMotions;
-            this.PowerSources = powerSources;
-            this.MomentumSources = momentumSources;
-            this.PassiveScalarSources = passiveScalarSources;
-            this.ThermalResistanceNetworks = thermalResistanceNetworks;
             this.ThermalContactResistance = thermalContactResistance;
             this.HumiditySources = humiditySources;
+            this.MomentumSources = momentumSources;
+            this.PassiveScalarSources = passiveScalarSources;
+            this.PorousMediums = porousMediums;
+            this.PowerSources = powerSources;
+            this.RotatingZones = rotatingZones;
+            this.SolidBodyMotions = solidBodyMotions;
+            this.ThermalResistanceNetworks = thermalResistanceNetworks;
         }
         
         /// <summary>
-        /// Gets or Sets RotatingZones
+        /// Gets or Sets ThermalContactResistance
         /// </summary>
-        [DataMember(Name="rotatingZones", EmitDefaultValue=false)]
-        public List<OneOfAdvancedConceptsRotatingZones> RotatingZones { get; set; }
+        [DataMember(Name="thermalContactResistance", EmitDefaultValue=false)]
+        public List<OneOfAdvancedConceptsThermalContactResistance> ThermalContactResistance { get; set; }
 
         /// <summary>
-        /// Gets or Sets PorousMediums
+        /// Gets or Sets HumiditySources
         /// </summary>
-        [DataMember(Name="porousMediums", EmitDefaultValue=false)]
-        public List<OneOfAdvancedConceptsPorousMediums> PorousMediums { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SolidBodyMotions
-        /// </summary>
-        [DataMember(Name="solidBodyMotions", EmitDefaultValue=false)]
-        public List<OneOfAdvancedConceptsSolidBodyMotions> SolidBodyMotions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PowerSources
-        /// </summary>
-        [DataMember(Name="powerSources", EmitDefaultValue=false)]
-        public List<OneOfAdvancedConceptsPowerSources> PowerSources { get; set; }
+        [DataMember(Name="humiditySources", EmitDefaultValue=false)]
+        public List<OneOfAdvancedConceptsHumiditySources> HumiditySources { get; set; }
 
         /// <summary>
         /// Gets or Sets MomentumSources
@@ -90,22 +78,34 @@ namespace SimScale.Sdk.Model
         public List<OneOfAdvancedConceptsPassiveScalarSources> PassiveScalarSources { get; set; }
 
         /// <summary>
+        /// Gets or Sets PorousMediums
+        /// </summary>
+        [DataMember(Name="porousMediums", EmitDefaultValue=false)]
+        public List<OneOfAdvancedConceptsPorousMediums> PorousMediums { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PowerSources
+        /// </summary>
+        [DataMember(Name="powerSources", EmitDefaultValue=false)]
+        public List<OneOfAdvancedConceptsPowerSources> PowerSources { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RotatingZones
+        /// </summary>
+        [DataMember(Name="rotatingZones", EmitDefaultValue=false)]
+        public List<OneOfAdvancedConceptsRotatingZones> RotatingZones { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SolidBodyMotions
+        /// </summary>
+        [DataMember(Name="solidBodyMotions", EmitDefaultValue=false)]
+        public List<OneOfAdvancedConceptsSolidBodyMotions> SolidBodyMotions { get; set; }
+
+        /// <summary>
         /// Gets or Sets ThermalResistanceNetworks
         /// </summary>
         [DataMember(Name="thermalResistanceNetworks", EmitDefaultValue=false)]
         public List<OneOfAdvancedConceptsThermalResistanceNetworks> ThermalResistanceNetworks { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ThermalContactResistance
-        /// </summary>
-        [DataMember(Name="thermalContactResistance", EmitDefaultValue=false)]
-        public List<OneOfAdvancedConceptsThermalContactResistance> ThermalContactResistance { get; set; }
-
-        /// <summary>
-        /// Gets or Sets HumiditySources
-        /// </summary>
-        [DataMember(Name="humiditySources", EmitDefaultValue=false)]
-        public List<OneOfAdvancedConceptsHumiditySources> HumiditySources { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,15 +115,15 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AdvancedConcepts {\n");
-            sb.Append("  RotatingZones: ").Append(RotatingZones).Append("\n");
-            sb.Append("  PorousMediums: ").Append(PorousMediums).Append("\n");
-            sb.Append("  SolidBodyMotions: ").Append(SolidBodyMotions).Append("\n");
-            sb.Append("  PowerSources: ").Append(PowerSources).Append("\n");
-            sb.Append("  MomentumSources: ").Append(MomentumSources).Append("\n");
-            sb.Append("  PassiveScalarSources: ").Append(PassiveScalarSources).Append("\n");
-            sb.Append("  ThermalResistanceNetworks: ").Append(ThermalResistanceNetworks).Append("\n");
             sb.Append("  ThermalContactResistance: ").Append(ThermalContactResistance).Append("\n");
             sb.Append("  HumiditySources: ").Append(HumiditySources).Append("\n");
+            sb.Append("  MomentumSources: ").Append(MomentumSources).Append("\n");
+            sb.Append("  PassiveScalarSources: ").Append(PassiveScalarSources).Append("\n");
+            sb.Append("  PorousMediums: ").Append(PorousMediums).Append("\n");
+            sb.Append("  PowerSources: ").Append(PowerSources).Append("\n");
+            sb.Append("  RotatingZones: ").Append(RotatingZones).Append("\n");
+            sb.Append("  SolidBodyMotions: ").Append(SolidBodyMotions).Append("\n");
+            sb.Append("  ThermalResistanceNetworks: ").Append(ThermalResistanceNetworks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -159,28 +159,16 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
-                    this.RotatingZones == input.RotatingZones ||
-                    this.RotatingZones != null &&
-                    input.RotatingZones != null &&
-                    this.RotatingZones.SequenceEqual(input.RotatingZones)
+                    this.ThermalContactResistance == input.ThermalContactResistance ||
+                    this.ThermalContactResistance != null &&
+                    input.ThermalContactResistance != null &&
+                    this.ThermalContactResistance.SequenceEqual(input.ThermalContactResistance)
                 ) && 
                 (
-                    this.PorousMediums == input.PorousMediums ||
-                    this.PorousMediums != null &&
-                    input.PorousMediums != null &&
-                    this.PorousMediums.SequenceEqual(input.PorousMediums)
-                ) && 
-                (
-                    this.SolidBodyMotions == input.SolidBodyMotions ||
-                    this.SolidBodyMotions != null &&
-                    input.SolidBodyMotions != null &&
-                    this.SolidBodyMotions.SequenceEqual(input.SolidBodyMotions)
-                ) && 
-                (
-                    this.PowerSources == input.PowerSources ||
-                    this.PowerSources != null &&
-                    input.PowerSources != null &&
-                    this.PowerSources.SequenceEqual(input.PowerSources)
+                    this.HumiditySources == input.HumiditySources ||
+                    this.HumiditySources != null &&
+                    input.HumiditySources != null &&
+                    this.HumiditySources.SequenceEqual(input.HumiditySources)
                 ) && 
                 (
                     this.MomentumSources == input.MomentumSources ||
@@ -195,22 +183,34 @@ namespace SimScale.Sdk.Model
                     this.PassiveScalarSources.SequenceEqual(input.PassiveScalarSources)
                 ) && 
                 (
+                    this.PorousMediums == input.PorousMediums ||
+                    this.PorousMediums != null &&
+                    input.PorousMediums != null &&
+                    this.PorousMediums.SequenceEqual(input.PorousMediums)
+                ) && 
+                (
+                    this.PowerSources == input.PowerSources ||
+                    this.PowerSources != null &&
+                    input.PowerSources != null &&
+                    this.PowerSources.SequenceEqual(input.PowerSources)
+                ) && 
+                (
+                    this.RotatingZones == input.RotatingZones ||
+                    this.RotatingZones != null &&
+                    input.RotatingZones != null &&
+                    this.RotatingZones.SequenceEqual(input.RotatingZones)
+                ) && 
+                (
+                    this.SolidBodyMotions == input.SolidBodyMotions ||
+                    this.SolidBodyMotions != null &&
+                    input.SolidBodyMotions != null &&
+                    this.SolidBodyMotions.SequenceEqual(input.SolidBodyMotions)
+                ) && 
+                (
                     this.ThermalResistanceNetworks == input.ThermalResistanceNetworks ||
                     this.ThermalResistanceNetworks != null &&
                     input.ThermalResistanceNetworks != null &&
                     this.ThermalResistanceNetworks.SequenceEqual(input.ThermalResistanceNetworks)
-                ) && 
-                (
-                    this.ThermalContactResistance == input.ThermalContactResistance ||
-                    this.ThermalContactResistance != null &&
-                    input.ThermalContactResistance != null &&
-                    this.ThermalContactResistance.SequenceEqual(input.ThermalContactResistance)
-                ) && 
-                (
-                    this.HumiditySources == input.HumiditySources ||
-                    this.HumiditySources != null &&
-                    input.HumiditySources != null &&
-                    this.HumiditySources.SequenceEqual(input.HumiditySources)
                 );
         }
 
@@ -223,24 +223,24 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.RotatingZones != null)
-                    hashCode = hashCode * 59 + this.RotatingZones.GetHashCode();
-                if (this.PorousMediums != null)
-                    hashCode = hashCode * 59 + this.PorousMediums.GetHashCode();
-                if (this.SolidBodyMotions != null)
-                    hashCode = hashCode * 59 + this.SolidBodyMotions.GetHashCode();
-                if (this.PowerSources != null)
-                    hashCode = hashCode * 59 + this.PowerSources.GetHashCode();
-                if (this.MomentumSources != null)
-                    hashCode = hashCode * 59 + this.MomentumSources.GetHashCode();
-                if (this.PassiveScalarSources != null)
-                    hashCode = hashCode * 59 + this.PassiveScalarSources.GetHashCode();
-                if (this.ThermalResistanceNetworks != null)
-                    hashCode = hashCode * 59 + this.ThermalResistanceNetworks.GetHashCode();
                 if (this.ThermalContactResistance != null)
                     hashCode = hashCode * 59 + this.ThermalContactResistance.GetHashCode();
                 if (this.HumiditySources != null)
                     hashCode = hashCode * 59 + this.HumiditySources.GetHashCode();
+                if (this.MomentumSources != null)
+                    hashCode = hashCode * 59 + this.MomentumSources.GetHashCode();
+                if (this.PassiveScalarSources != null)
+                    hashCode = hashCode * 59 + this.PassiveScalarSources.GetHashCode();
+                if (this.PorousMediums != null)
+                    hashCode = hashCode * 59 + this.PorousMediums.GetHashCode();
+                if (this.PowerSources != null)
+                    hashCode = hashCode * 59 + this.PowerSources.GetHashCode();
+                if (this.RotatingZones != null)
+                    hashCode = hashCode * 59 + this.RotatingZones.GetHashCode();
+                if (this.SolidBodyMotions != null)
+                    hashCode = hashCode * 59 + this.SolidBodyMotions.GetHashCode();
+                if (this.ThermalResistanceNetworks != null)
+                    hashCode = hashCode * 59 + this.ThermalResistanceNetworks.GetHashCode();
                 return hashCode;
             }
         }

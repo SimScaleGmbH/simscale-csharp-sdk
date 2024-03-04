@@ -78,11 +78,13 @@ namespace SimScale.Sdk.Model
         /// <param name="pressureReferenceCell">&lt;p&gt;Enter the cell where you want to define reference pressure in the PISO/SIMPLE/PIMPLE algorithm.&lt;/p&gt; (default to 0).</param>
         /// <param name="pressureReferenceValue">pressureReferenceValue.</param>
         /// <param name="velocityLimit">velocityLimit.</param>
+        /// <param name="maxVoltageInitialIterations">maxVoltageInitialIterations (default to 200M).</param>
+        /// <param name="voltageInitialTolerance">voltageInitialTolerance (default to 1.0E-8M).</param>
         /// <param name="residualControls">residualControls.</param>
         /// <param name="solvers">solvers.</param>
         /// <param name="schemes">schemes.</param>
         /// <param name="stabilization">stabilization.</param>
-        public FluidNumerics(string relaxationType = default(string), RelaxationFactor relaxationFactor = default(RelaxationFactor), RadiationResolutionEnum? radiationResolution = default(RadiationResolutionEnum?), bool? momentumPredictor = default(bool?), bool? transonic = default(bool?), int? numOuterCorrectors = default(int?), int? numCorrectors = default(int?), int? numNonOrthogonalCorrectors = default(int?), decimal? smoothingParameter = default(decimal?), decimal? dampingCoefficient = default(decimal?), int? numAlphaSpreadIterations = default(int?), int? numAlphaSweepIterations = default(int?), bool? evaluateTurbulenceOnlyOnFinalIteration = default(bool?), int? pressureReferenceCell = default(int?), DimensionalPressure pressureReferenceValue = default(DimensionalPressure), DimensionalSpeed velocityLimit = default(DimensionalSpeed), ResidualControls residualControls = default(ResidualControls), FluidSolvers solvers = default(FluidSolvers), Schemes schemes = default(Schemes), Stabilization stabilization = default(Stabilization))
+        public FluidNumerics(string relaxationType = default(string), RelaxationFactor relaxationFactor = default(RelaxationFactor), RadiationResolutionEnum? radiationResolution = default(RadiationResolutionEnum?), bool? momentumPredictor = default(bool?), bool? transonic = default(bool?), int? numOuterCorrectors = default(int?), int? numCorrectors = default(int?), int? numNonOrthogonalCorrectors = default(int?), decimal? smoothingParameter = default(decimal?), decimal? dampingCoefficient = default(decimal?), int? numAlphaSpreadIterations = default(int?), int? numAlphaSweepIterations = default(int?), bool? evaluateTurbulenceOnlyOnFinalIteration = default(bool?), int? pressureReferenceCell = default(int?), DimensionalPressure pressureReferenceValue = default(DimensionalPressure), DimensionalSpeed velocityLimit = default(DimensionalSpeed), decimal? maxVoltageInitialIterations = default(decimal?), decimal? voltageInitialTolerance = default(decimal?), ResidualControls residualControls = default(ResidualControls), FluidSolvers solvers = default(FluidSolvers), Schemes schemes = default(Schemes), Stabilization stabilization = default(Stabilization))
         {
             this.RelaxationType = relaxationType;
             this.RelaxationFactor = relaxationFactor;
@@ -100,6 +102,8 @@ namespace SimScale.Sdk.Model
             this.PressureReferenceCell = pressureReferenceCell;
             this.PressureReferenceValue = pressureReferenceValue;
             this.VelocityLimit = velocityLimit;
+            this.MaxVoltageInitialIterations = maxVoltageInitialIterations;
+            this.VoltageInitialTolerance = voltageInitialTolerance;
             this.ResidualControls = residualControls;
             this.Solvers = solvers;
             this.Schemes = schemes;
@@ -199,6 +203,18 @@ namespace SimScale.Sdk.Model
         public DimensionalSpeed VelocityLimit { get; set; }
 
         /// <summary>
+        /// Gets or Sets MaxVoltageInitialIterations
+        /// </summary>
+        [DataMember(Name="maxVoltageInitialIterations", EmitDefaultValue=false)]
+        public decimal? MaxVoltageInitialIterations { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VoltageInitialTolerance
+        /// </summary>
+        [DataMember(Name="voltageInitialTolerance", EmitDefaultValue=false)]
+        public decimal? VoltageInitialTolerance { get; set; }
+
+        /// <summary>
         /// Gets or Sets ResidualControls
         /// </summary>
         [DataMember(Name="residualControls", EmitDefaultValue=false)]
@@ -246,6 +262,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  PressureReferenceCell: ").Append(PressureReferenceCell).Append("\n");
             sb.Append("  PressureReferenceValue: ").Append(PressureReferenceValue).Append("\n");
             sb.Append("  VelocityLimit: ").Append(VelocityLimit).Append("\n");
+            sb.Append("  MaxVoltageInitialIterations: ").Append(MaxVoltageInitialIterations).Append("\n");
+            sb.Append("  VoltageInitialTolerance: ").Append(VoltageInitialTolerance).Append("\n");
             sb.Append("  ResidualControls: ").Append(ResidualControls).Append("\n");
             sb.Append("  Solvers: ").Append(Solvers).Append("\n");
             sb.Append("  Schemes: ").Append(Schemes).Append("\n");
@@ -364,6 +382,16 @@ namespace SimScale.Sdk.Model
                     this.VelocityLimit.Equals(input.VelocityLimit))
                 ) && 
                 (
+                    this.MaxVoltageInitialIterations == input.MaxVoltageInitialIterations ||
+                    (this.MaxVoltageInitialIterations != null &&
+                    this.MaxVoltageInitialIterations.Equals(input.MaxVoltageInitialIterations))
+                ) && 
+                (
+                    this.VoltageInitialTolerance == input.VoltageInitialTolerance ||
+                    (this.VoltageInitialTolerance != null &&
+                    this.VoltageInitialTolerance.Equals(input.VoltageInitialTolerance))
+                ) && 
+                (
                     this.ResidualControls == input.ResidualControls ||
                     (this.ResidualControls != null &&
                     this.ResidualControls.Equals(input.ResidualControls))
@@ -425,6 +453,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PressureReferenceValue.GetHashCode();
                 if (this.VelocityLimit != null)
                     hashCode = hashCode * 59 + this.VelocityLimit.GetHashCode();
+                if (this.MaxVoltageInitialIterations != null)
+                    hashCode = hashCode * 59 + this.MaxVoltageInitialIterations.GetHashCode();
+                if (this.VoltageInitialTolerance != null)
+                    hashCode = hashCode * 59 + this.VoltageInitialTolerance.GetHashCode();
                 if (this.ResidualControls != null)
                     hashCode = hashCode * 59 + this.ResidualControls.GetHashCode();
                 if (this.Solvers != null)

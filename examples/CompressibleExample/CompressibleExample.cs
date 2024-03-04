@@ -332,8 +332,7 @@ public class CompressibleExample {
             model: new SimmetrixMeshingFluid(
                 physicsBasedMeshing: true,
                 automaticLayerSettings: new AutomaticLayerOn()
-            ),
-            version: "0.3"
+            )
         ));
         var meshOperationId = meshOperation.MeshOperationId;
         Console.WriteLine("meshOperationId: " + meshOperationId);

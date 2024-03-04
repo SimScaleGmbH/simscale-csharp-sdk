@@ -44,7 +44,6 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(RotatingWallVBC), "ROTATING_WALL_VELOCITY")]
     [JsonSubtypes.KnownSubType(typeof(ZeroGradientVBC), "ZERO_GRADIENT")]
     [JsonSubtypes.KnownSubType(typeof(SlipVBC), "SLIP")]
-    [JsonSubtypes.KnownSubType(typeof(TurbulentDFSEMInletVBC), "TURBULENT_DFSEM_INLET")]
     public interface OneOfCustomFluidBCVelocity
     {
         /// <summary>

@@ -64,12 +64,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: RotatingWallVBC (required) (default to &quot;ROTATING_WALL_VELOCITY&quot;).</param>
         /// <param name="rotation">rotation.</param>
         /// <param name="turbulenceWall">turbulenceWall (default to TurbulenceWallEnum.WALLFUNCTION).</param>
-        public RotatingWallVBC(string type = "ROTATING_WALL_VELOCITY", AngularRotation rotation = default(AngularRotation), TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?))
+        /// <param name="wallContactModel">wallContactModel.</param>
+        public RotatingWallVBC(string type = "ROTATING_WALL_VELOCITY", AngularRotation rotation = default(AngularRotation), TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), List<WallContactAngle> wallContactModel = default(List<WallContactAngle>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RotatingWallVBC and cannot be null");
             this.Rotation = rotation;
             this.TurbulenceWall = turbulenceWall;
+            this.WallContactModel = wallContactModel;
         }
         
         /// <summary>
@@ -86,6 +88,12 @@ namespace SimScale.Sdk.Model
         public AngularRotation Rotation { get; set; }
 
         /// <summary>
+        /// Gets or Sets WallContactModel
+        /// </summary>
+        [DataMember(Name="wallContactModel", EmitDefaultValue=false)]
+        public List<WallContactAngle> WallContactModel { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +104,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Rotation: ").Append(Rotation).Append("\n");
             sb.Append("  TurbulenceWall: ").Append(TurbulenceWall).Append("\n");
+            sb.Append("  WallContactModel: ").Append(WallContactModel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,6 +152,12 @@ namespace SimScale.Sdk.Model
                 (
                     this.TurbulenceWall == input.TurbulenceWall ||
                     this.TurbulenceWall.Equals(input.TurbulenceWall)
+                ) && 
+                (
+                    this.WallContactModel == input.WallContactModel ||
+                    this.WallContactModel != null &&
+                    input.WallContactModel != null &&
+                    this.WallContactModel.SequenceEqual(input.WallContactModel)
                 );
         }
 
@@ -160,6 +175,8 @@ namespace SimScale.Sdk.Model
                 if (this.Rotation != null)
                     hashCode = hashCode * 59 + this.Rotation.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceWall.GetHashCode();
+                if (this.WallContactModel != null)
+                    hashCode = hashCode * 59 + this.WallContactModel.GetHashCode();
                 return hashCode;
             }
         }
