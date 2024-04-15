@@ -29,9 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class HeatTransferCoefficients : OneOfHeatExchangerSourceHeatExchangerMode, IEquatable<HeatTransferCoefficients>
     {
         /// <summary>
-        /// Heat exchanger heat distribution place holder
+        /// Sampling method for the field temperature (T) in T - Tref. This indicates whether the temperature (T) is averaged on the complete heat exchanger or sampled at each position.
         /// </summary>
-        /// <value>Heat exchanger heat distribution place holder</value>
+        /// <value>Sampling method for the field temperature (T) in T - Tref. This indicates whether the temperature (T) is averaged on the complete heat exchanger or sampled at each position.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum HeatDistributionEnum
         {
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Heat exchanger heat distribution place holder
+        /// Sampling method for the field temperature (T) in T - Tref. This indicates whether the temperature (T) is averaged on the complete heat exchanger or sampled at each position.
         /// </summary>
-        /// <value>Heat exchanger heat distribution place holder</value>
+        /// <value>Sampling method for the field temperature (T) in T - Tref. This indicates whether the temperature (T) is averaged on the complete heat exchanger or sampled at each position.</value>
         [DataMember(Name="heatDistribution", EmitDefaultValue=false)]
         public HeatDistributionEnum? HeatDistribution { get; set; }
         /// <summary>
@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
         /// <param name="refTemperature">refTemperature.</param>
         /// <param name="heatTransferCoefficient">heatTransferCoefficient.</param>
         /// <param name="surfaceAreaDensity">surfaceAreaDensity.</param>
-        /// <param name="heatDistribution">Heat exchanger heat distribution place holder (default to HeatDistributionEnum.LOCAL).</param>
+        /// <param name="heatDistribution">Sampling method for the field temperature (T) in T - Tref. This indicates whether the temperature (T) is averaged on the complete heat exchanger or sampled at each position. (default to HeatDistributionEnum.LOCAL).</param>
         public HeatTransferCoefficients(string type = "HEAT_TRANSFER_COEFFICIENTS", DimensionalFunctionTemperature refTemperature = default(DimensionalFunctionTemperature), DimensionalFunctionThermalTransmittance heatTransferCoefficient = default(DimensionalFunctionThermalTransmittance), DimensionalAbsorptivity surfaceAreaDensity = default(DimensionalAbsorptivity), HeatDistributionEnum? heatDistribution = default(HeatDistributionEnum?))
         {
             // to ensure "type" is required (not null)

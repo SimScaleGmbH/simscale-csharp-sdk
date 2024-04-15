@@ -117,8 +117,9 @@ namespace SimScale.Sdk.Model
         /// <param name="enableShellMeshing">enableShellMeshing (default to false).</param>
         /// <param name="surfaceElementType">surfaceElementType (default to SurfaceElementTypeEnum.TRIANGULAR).</param>
         /// <param name="numOfProcessors">&lt;p&gt;Selecting more processor cores might speed up the meshing process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumOfProcessorsEnum.NUMBER_MINUS_1).</param>
+        /// <param name="maxMeshingRunTime">maxMeshingRunTime.</param>
         /// <param name="advancedSimmetrixSettings">advancedSimmetrixSettings.</param>
-        public SimmetrixMeshingSolid(string type = "SIMMETRIX_MESHING_SOLID", OneOfSimmetrixMeshingSolidSizing sizing = default(OneOfSimmetrixMeshingSolidSizing), List<OneOfSimmetrixMeshingSolidRefinements> refinements = default(List<OneOfSimmetrixMeshingSolidRefinements>), OneOfSimmetrixMeshingSolidAutomaticSweepParameters automaticSweepParameters = default(OneOfSimmetrixMeshingSolidAutomaticSweepParameters), bool? enableShellMeshing = default(bool?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), AdvancedSimmetrixSolidSettings advancedSimmetrixSettings = default(AdvancedSimmetrixSolidSettings))
+        public SimmetrixMeshingSolid(string type = "SIMMETRIX_MESHING_SOLID", OneOfSimmetrixMeshingSolidSizing sizing = default(OneOfSimmetrixMeshingSolidSizing), List<OneOfSimmetrixMeshingSolidRefinements> refinements = default(List<OneOfSimmetrixMeshingSolidRefinements>), OneOfSimmetrixMeshingSolidAutomaticSweepParameters automaticSweepParameters = default(OneOfSimmetrixMeshingSolidAutomaticSweepParameters), bool? enableShellMeshing = default(bool?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), DimensionalTime maxMeshingRunTime = default(DimensionalTime), AdvancedSimmetrixSolidSettings advancedSimmetrixSettings = default(AdvancedSimmetrixSolidSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixMeshingSolid and cannot be null");
@@ -128,6 +129,7 @@ namespace SimScale.Sdk.Model
             this.EnableShellMeshing = enableShellMeshing;
             this.SurfaceElementType = surfaceElementType;
             this.NumOfProcessors = numOfProcessors;
+            this.MaxMeshingRunTime = maxMeshingRunTime;
             this.AdvancedSimmetrixSettings = advancedSimmetrixSettings;
         }
         
@@ -163,6 +165,12 @@ namespace SimScale.Sdk.Model
         public bool? EnableShellMeshing { get; set; }
 
         /// <summary>
+        /// Gets or Sets MaxMeshingRunTime
+        /// </summary>
+        [DataMember(Name="maxMeshingRunTime", EmitDefaultValue=false)]
+        public DimensionalTime MaxMeshingRunTime { get; set; }
+
+        /// <summary>
         /// Gets or Sets AdvancedSimmetrixSettings
         /// </summary>
         [DataMember(Name="advancedSimmetrixSettings", EmitDefaultValue=false)]
@@ -183,6 +191,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  EnableShellMeshing: ").Append(EnableShellMeshing).Append("\n");
             sb.Append("  SurfaceElementType: ").Append(SurfaceElementType).Append("\n");
             sb.Append("  NumOfProcessors: ").Append(NumOfProcessors).Append("\n");
+            sb.Append("  MaxMeshingRunTime: ").Append(MaxMeshingRunTime).Append("\n");
             sb.Append("  AdvancedSimmetrixSettings: ").Append(AdvancedSimmetrixSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -253,6 +262,11 @@ namespace SimScale.Sdk.Model
                     this.NumOfProcessors.Equals(input.NumOfProcessors)
                 ) && 
                 (
+                    this.MaxMeshingRunTime == input.MaxMeshingRunTime ||
+                    (this.MaxMeshingRunTime != null &&
+                    this.MaxMeshingRunTime.Equals(input.MaxMeshingRunTime))
+                ) && 
+                (
                     this.AdvancedSimmetrixSettings == input.AdvancedSimmetrixSettings ||
                     (this.AdvancedSimmetrixSettings != null &&
                     this.AdvancedSimmetrixSettings.Equals(input.AdvancedSimmetrixSettings))
@@ -280,6 +294,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.EnableShellMeshing.GetHashCode();
                 hashCode = hashCode * 59 + this.SurfaceElementType.GetHashCode();
                 hashCode = hashCode * 59 + this.NumOfProcessors.GetHashCode();
+                if (this.MaxMeshingRunTime != null)
+                    hashCode = hashCode * 59 + this.MaxMeshingRunTime.GetHashCode();
                 if (this.AdvancedSimmetrixSettings != null)
                     hashCode = hashCode * 59 + this.AdvancedSimmetrixSettings.GetHashCode();
                 return hashCode;

@@ -44,8 +44,9 @@ namespace SimScale.Sdk.Model
         /// <param name="passiveScalars">passiveScalars.</param>
         /// <param name="phaseFraction">phaseFraction.</param>
         /// <param name="phaseFractions">phaseFractions.</param>
+        /// <param name="massFractions">massFractions.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
-        public FluidInitialConditions(DimensionalInitialConditionDomainsPressure pressure = default(DimensionalInitialConditionDomainsPressure), DimensionalInitialConditionDomainsPressure pressureRgh = default(DimensionalInitialConditionDomainsPressure), DimensionalInitialConditionDomainsPressure gaugePressure = default(DimensionalInitialConditionDomainsPressure), DimensionalInitialConditionDomainsPressure gaugePressureRgh = default(DimensionalInitialConditionDomainsPressure), DimensionalVectorInitialConditionDomainsSpeed velocity = default(DimensionalVectorInitialConditionDomainsSpeed), DimensionalInitialConditionDomainsTemperature temperature = default(DimensionalInitialConditionDomainsTemperature), DimensionalInitialConditionDomainsTurbulenceKineticEnergy turbulentKineticEnergy = default(DimensionalInitialConditionDomainsTurbulenceKineticEnergy), DimensionalInitialConditionDomainsSpecificTurbulenceDissipationRate omegaDissipationRate = default(DimensionalInitialConditionDomainsSpecificTurbulenceDissipationRate), DimensionalInitialConditionDomainsTurbulentDissipation epsilonDissipationRate = default(DimensionalInitialConditionDomainsTurbulentDissipation), DimensionalInitialConditionDomainsKinematicViscosity nuTilda = default(DimensionalInitialConditionDomainsKinematicViscosity), List<DimensionalInitialConditionDomainsDimensionless> passiveScalars = default(List<DimensionalInitialConditionDomainsDimensionless>), DimensionalInitialConditionDomainsDimensionless phaseFraction = default(DimensionalInitialConditionDomainsDimensionless), DimensionlessInitialConditionDomains phaseFractions = default(DimensionlessInitialConditionDomains), DimensionalInitialConditionDomainsDimensionless relativeHumidity = default(DimensionalInitialConditionDomainsDimensionless))
+        public FluidInitialConditions(DimensionalInitialConditionDomainsPressure pressure = default(DimensionalInitialConditionDomainsPressure), DimensionalInitialConditionDomainsPressure pressureRgh = default(DimensionalInitialConditionDomainsPressure), DimensionalInitialConditionDomainsPressure gaugePressure = default(DimensionalInitialConditionDomainsPressure), DimensionalInitialConditionDomainsPressure gaugePressureRgh = default(DimensionalInitialConditionDomainsPressure), DimensionalVectorInitialConditionDomainsSpeed velocity = default(DimensionalVectorInitialConditionDomainsSpeed), DimensionalInitialConditionDomainsTemperature temperature = default(DimensionalInitialConditionDomainsTemperature), DimensionalInitialConditionDomainsTurbulenceKineticEnergy turbulentKineticEnergy = default(DimensionalInitialConditionDomainsTurbulenceKineticEnergy), DimensionalInitialConditionDomainsSpecificTurbulenceDissipationRate omegaDissipationRate = default(DimensionalInitialConditionDomainsSpecificTurbulenceDissipationRate), DimensionalInitialConditionDomainsTurbulentDissipation epsilonDissipationRate = default(DimensionalInitialConditionDomainsTurbulentDissipation), DimensionalInitialConditionDomainsKinematicViscosity nuTilda = default(DimensionalInitialConditionDomainsKinematicViscosity), List<DimensionalInitialConditionDomainsDimensionless> passiveScalars = default(List<DimensionalInitialConditionDomainsDimensionless>), DimensionalInitialConditionDomainsDimensionless phaseFraction = default(DimensionalInitialConditionDomainsDimensionless), DimensionlessInitialConditionDomains phaseFractions = default(DimensionlessInitialConditionDomains), FractionValuesInitialConditions massFractions = default(FractionValuesInitialConditions), DimensionalInitialConditionDomainsDimensionless relativeHumidity = default(DimensionalInitialConditionDomainsDimensionless))
         {
             this.Pressure = pressure;
             this.PressureRgh = pressureRgh;
@@ -60,6 +61,7 @@ namespace SimScale.Sdk.Model
             this.PassiveScalars = passiveScalars;
             this.PhaseFraction = phaseFraction;
             this.PhaseFractions = phaseFractions;
+            this.MassFractions = massFractions;
             this.RelativeHumidity = relativeHumidity;
         }
         
@@ -142,6 +144,12 @@ namespace SimScale.Sdk.Model
         public DimensionlessInitialConditionDomains PhaseFractions { get; set; }
 
         /// <summary>
+        /// Gets or Sets MassFractions
+        /// </summary>
+        [DataMember(Name="massFractions", EmitDefaultValue=false)]
+        public FractionValuesInitialConditions MassFractions { get; set; }
+
+        /// <summary>
         /// Gets or Sets RelativeHumidity
         /// </summary>
         [DataMember(Name="relativeHumidity", EmitDefaultValue=false)]
@@ -168,6 +176,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PassiveScalars: ").Append(PassiveScalars).Append("\n");
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
             sb.Append("  PhaseFractions: ").Append(PhaseFractions).Append("\n");
+            sb.Append("  MassFractions: ").Append(MassFractions).Append("\n");
             sb.Append("  RelativeHumidity: ").Append(RelativeHumidity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -270,6 +279,11 @@ namespace SimScale.Sdk.Model
                     this.PhaseFractions.Equals(input.PhaseFractions))
                 ) && 
                 (
+                    this.MassFractions == input.MassFractions ||
+                    (this.MassFractions != null &&
+                    this.MassFractions.Equals(input.MassFractions))
+                ) && 
+                (
                     this.RelativeHumidity == input.RelativeHumidity ||
                     (this.RelativeHumidity != null &&
                     this.RelativeHumidity.Equals(input.RelativeHumidity))
@@ -311,6 +325,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PhaseFraction.GetHashCode();
                 if (this.PhaseFractions != null)
                     hashCode = hashCode * 59 + this.PhaseFractions.GetHashCode();
+                if (this.MassFractions != null)
+                    hashCode = hashCode * 59 + this.MassFractions.GetHashCode();
                 if (this.RelativeHumidity != null)
                     hashCode = hashCode * 59 + this.RelativeHumidity.GetHashCode();
                 return hashCode;

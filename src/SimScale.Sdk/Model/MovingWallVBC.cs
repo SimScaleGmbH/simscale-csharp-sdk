@@ -90,13 +90,15 @@ namespace SimScale.Sdk.Model
         /// <param name="value">value.</param>
         /// <param name="turbulenceWall">turbulenceWall (default to TurbulenceWallEnum.WALLFUNCTION).</param>
         /// <param name="orientationReference">orientationReference (default to OrientationReferenceEnum.FLOWDOMAIN).</param>
-        public MovingWallVBC(string type = "MOVING_WALL_VELOCITY", DimensionalVectorSpeed value = default(DimensionalVectorSpeed), TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), OrientationReferenceEnum? orientationReference = default(OrientationReferenceEnum?))
+        /// <param name="wallContactModel">wallContactModel.</param>
+        public MovingWallVBC(string type = "MOVING_WALL_VELOCITY", DimensionalVectorSpeed value = default(DimensionalVectorSpeed), TurbulenceWallEnum? turbulenceWall = default(TurbulenceWallEnum?), OrientationReferenceEnum? orientationReference = default(OrientationReferenceEnum?), List<WallContactAngle> wallContactModel = default(List<WallContactAngle>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MovingWallVBC and cannot be null");
             this.Value = value;
             this.TurbulenceWall = turbulenceWall;
             this.OrientationReference = orientationReference;
+            this.WallContactModel = wallContactModel;
         }
         
         /// <summary>
@@ -113,6 +115,12 @@ namespace SimScale.Sdk.Model
         public DimensionalVectorSpeed Value { get; set; }
 
         /// <summary>
+        /// Gets or Sets WallContactModel
+        /// </summary>
+        [DataMember(Name="wallContactModel", EmitDefaultValue=false)]
+        public List<WallContactAngle> WallContactModel { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -124,6 +132,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  TurbulenceWall: ").Append(TurbulenceWall).Append("\n");
             sb.Append("  OrientationReference: ").Append(OrientationReference).Append("\n");
+            sb.Append("  WallContactModel: ").Append(WallContactModel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -175,6 +184,12 @@ namespace SimScale.Sdk.Model
                 (
                     this.OrientationReference == input.OrientationReference ||
                     this.OrientationReference.Equals(input.OrientationReference)
+                ) && 
+                (
+                    this.WallContactModel == input.WallContactModel ||
+                    this.WallContactModel != null &&
+                    input.WallContactModel != null &&
+                    this.WallContactModel.SequenceEqual(input.WallContactModel)
                 );
         }
 
@@ -193,6 +208,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceWall.GetHashCode();
                 hashCode = hashCode * 59 + this.OrientationReference.GetHashCode();
+                if (this.WallContactModel != null)
+                    hashCode = hashCode * 59 + this.WallContactModel.GetHashCode();
                 return hashCode;
             }
         }

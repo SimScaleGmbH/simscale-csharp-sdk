@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: TotalConductanceInterfaceThermal (required) (default to &quot;TOTAL_CONDUCTANCE&quot;).</param>
         /// <param name="contactConductance">contactConductance.</param>
-        public TotalConductanceInterfaceThermal(string type = "TOTAL_CONDUCTANCE", DimensionalTotalThermalTransmittance contactConductance = default(DimensionalTotalThermalTransmittance))
+        /// <param name="electricConductance">electricConductance.</param>
+        public TotalConductanceInterfaceThermal(string type = "TOTAL_CONDUCTANCE", DimensionalTotalThermalTransmittance contactConductance = default(DimensionalTotalThermalTransmittance), DimensionalElectricConductance electricConductance = default(DimensionalElectricConductance))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TotalConductanceInterfaceThermal and cannot be null");
             this.ContactConductance = contactConductance;
+            this.ElectricConductance = electricConductance;
         }
         
         /// <summary>
@@ -59,6 +61,12 @@ namespace SimScale.Sdk.Model
         public DimensionalTotalThermalTransmittance ContactConductance { get; set; }
 
         /// <summary>
+        /// Gets or Sets ElectricConductance
+        /// </summary>
+        [DataMember(Name="electricConductance", EmitDefaultValue=false)]
+        public DimensionalElectricConductance ElectricConductance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +76,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class TotalConductanceInterfaceThermal {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ContactConductance: ").Append(ContactConductance).Append("\n");
+            sb.Append("  ElectricConductance: ").Append(ElectricConductance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +120,11 @@ namespace SimScale.Sdk.Model
                     this.ContactConductance == input.ContactConductance ||
                     (this.ContactConductance != null &&
                     this.ContactConductance.Equals(input.ContactConductance))
+                ) && 
+                (
+                    this.ElectricConductance == input.ElectricConductance ||
+                    (this.ElectricConductance != null &&
+                    this.ElectricConductance.Equals(input.ElectricConductance))
                 );
         }
 
@@ -127,6 +141,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.ContactConductance != null)
                     hashCode = hashCode * 59 + this.ContactConductance.GetHashCode();
+                if (this.ElectricConductance != null)
+                    hashCode = hashCode * 59 + this.ElectricConductance.GetHashCode();
                 return hashCode;
             }
         }

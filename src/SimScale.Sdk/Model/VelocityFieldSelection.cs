@@ -66,6 +66,33 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="componentSelection", EmitDefaultValue=false)]
         public ComponentSelectionEnum? ComponentSelection { get; set; }
         /// <summary>
+        /// &lt;p&gt;This option allows to control the output frequency and accuracy:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Post simulation:&lt;/b&gt; Point data output is synchronised with global solution fields. Data is interpolated from nodes surrounding the geometry primitive.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Live:&lt;/b&gt; Point data is output continuously during the simulation at all computed timesteps. Data is taken directly from the nearest mesh node and no interpolation is performed.&lt;/p&gt;&lt;/ul&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;This option allows to control the output frequency and accuracy:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Post simulation:&lt;/b&gt; Point data output is synchronised with global solution fields. Data is interpolated from nodes surrounding the geometry primitive.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Live:&lt;/b&gt; Point data is output continuously during the simulation at all computed timesteps. Data is taken directly from the nearest mesh node and no interpolation is performed.&lt;/p&gt;&lt;/ul&gt;</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum OutputMethodEnum
+        {
+            /// <summary>
+            /// Enum POSTSIMULATION for value: POST_SIMULATION
+            /// </summary>
+            [EnumMember(Value = "POST_SIMULATION")]
+            POSTSIMULATION = 1,
+
+            /// <summary>
+            /// Enum LIVE for value: LIVE
+            /// </summary>
+            [EnumMember(Value = "LIVE")]
+            LIVE = 2
+
+        }
+
+        /// <summary>
+        /// &lt;p&gt;This option allows to control the output frequency and accuracy:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Post simulation:&lt;/b&gt; Point data output is synchronised with global solution fields. Data is interpolated from nodes surrounding the geometry primitive.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Live:&lt;/b&gt; Point data is output continuously during the simulation at all computed timesteps. Data is taken directly from the nearest mesh node and no interpolation is performed.&lt;/p&gt;&lt;/ul&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;This option allows to control the output frequency and accuracy:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Post simulation:&lt;/b&gt; Point data output is synchronised with global solution fields. Data is interpolated from nodes surrounding the geometry primitive.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Live:&lt;/b&gt; Point data is output continuously during the simulation at all computed timesteps. Data is taken directly from the nearest mesh node and no interpolation is performed.&lt;/p&gt;&lt;/ul&gt;</value>
+        [DataMember(Name="outputMethod", EmitDefaultValue=false)]
+        public OutputMethodEnum? OutputMethod { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="VelocityFieldSelection" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -76,12 +103,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: VelocityFieldSelection (required) (default to &quot;VELOCITY&quot;).</param>
         /// <param name="velocityType">velocityType.</param>
         /// <param name="componentSelection">componentSelection (default to ComponentSelectionEnum.ALL).</param>
-        public VelocityFieldSelection(string type = "VELOCITY", OneOfVelocityFieldSelectionVelocityType velocityType = default(OneOfVelocityFieldSelectionVelocityType), ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?))
+        /// <param name="outputMethod">&lt;p&gt;This option allows to control the output frequency and accuracy:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Post simulation:&lt;/b&gt; Point data output is synchronised with global solution fields. Data is interpolated from nodes surrounding the geometry primitive.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Live:&lt;/b&gt; Point data is output continuously during the simulation at all computed timesteps. Data is taken directly from the nearest mesh node and no interpolation is performed.&lt;/p&gt;&lt;/ul&gt; (default to OutputMethodEnum.POSTSIMULATION).</param>
+        public VelocityFieldSelection(string type = "VELOCITY", OneOfVelocityFieldSelectionVelocityType velocityType = default(OneOfVelocityFieldSelectionVelocityType), ComponentSelectionEnum? componentSelection = default(ComponentSelectionEnum?), OutputMethodEnum? outputMethod = default(OutputMethodEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VelocityFieldSelection and cannot be null");
             this.VelocityType = velocityType;
             this.ComponentSelection = componentSelection;
+            this.OutputMethod = outputMethod;
         }
         
         /// <summary>
@@ -108,6 +137,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  VelocityType: ").Append(VelocityType).Append("\n");
             sb.Append("  ComponentSelection: ").Append(ComponentSelection).Append("\n");
+            sb.Append("  OutputMethod: ").Append(OutputMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +185,10 @@ namespace SimScale.Sdk.Model
                 (
                     this.ComponentSelection == input.ComponentSelection ||
                     this.ComponentSelection.Equals(input.ComponentSelection)
+                ) && 
+                (
+                    this.OutputMethod == input.OutputMethod ||
+                    this.OutputMethod.Equals(input.OutputMethod)
                 );
         }
 
@@ -172,6 +206,7 @@ namespace SimScale.Sdk.Model
                 if (this.VelocityType != null)
                     hashCode = hashCode * 59 + this.VelocityType.GetHashCode();
                 hashCode = hashCode * 59 + this.ComponentSelection.GetHashCode();
+                hashCode = hashCode * 59 + this.OutputMethod.GetHashCode();
                 return hashCode;
             }
         }

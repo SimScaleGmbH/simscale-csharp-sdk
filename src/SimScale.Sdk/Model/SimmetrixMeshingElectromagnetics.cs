@@ -89,14 +89,16 @@ namespace SimScale.Sdk.Model
         /// <param name="sizing">sizing.</param>
         /// <param name="refinements">refinements.</param>
         /// <param name="numOfProcessors">&lt;p&gt;Selecting more processor cores might speed up the meshing process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumOfProcessorsEnum.NUMBER_MINUS_1).</param>
+        /// <param name="maxMeshingRunTime">maxMeshingRunTime.</param>
         /// <param name="advancedSimmetrixSettings">advancedSimmetrixSettings.</param>
-        public SimmetrixMeshingElectromagnetics(string type = "SIMMETRIX_MESHING_ELECTROMAGNETICS", AutomaticMeshSizingSimmetrix sizing = default(AutomaticMeshSizingSimmetrix), List<OneOfSimmetrixMeshingElectromagneticsRefinements> refinements = default(List<OneOfSimmetrixMeshingElectromagneticsRefinements>), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), AdvancedSimmetrixEmSettings advancedSimmetrixSettings = default(AdvancedSimmetrixEmSettings))
+        public SimmetrixMeshingElectromagnetics(string type = "SIMMETRIX_MESHING_ELECTROMAGNETICS", AutomaticMeshSizingSimmetrix sizing = default(AutomaticMeshSizingSimmetrix), List<OneOfSimmetrixMeshingElectromagneticsRefinements> refinements = default(List<OneOfSimmetrixMeshingElectromagneticsRefinements>), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), DimensionalTime maxMeshingRunTime = default(DimensionalTime), AdvancedSimmetrixEmSettings advancedSimmetrixSettings = default(AdvancedSimmetrixEmSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixMeshingElectromagnetics and cannot be null");
             this.Sizing = sizing;
             this.Refinements = refinements;
             this.NumOfProcessors = numOfProcessors;
+            this.MaxMeshingRunTime = maxMeshingRunTime;
             this.AdvancedSimmetrixSettings = advancedSimmetrixSettings;
         }
         
@@ -120,6 +122,12 @@ namespace SimScale.Sdk.Model
         public List<OneOfSimmetrixMeshingElectromagneticsRefinements> Refinements { get; set; }
 
         /// <summary>
+        /// Gets or Sets MaxMeshingRunTime
+        /// </summary>
+        [DataMember(Name="maxMeshingRunTime", EmitDefaultValue=false)]
+        public DimensionalTime MaxMeshingRunTime { get; set; }
+
+        /// <summary>
         /// Gets or Sets AdvancedSimmetrixSettings
         /// </summary>
         [DataMember(Name="advancedSimmetrixSettings", EmitDefaultValue=false)]
@@ -137,6 +145,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Sizing: ").Append(Sizing).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("  NumOfProcessors: ").Append(NumOfProcessors).Append("\n");
+            sb.Append("  MaxMeshingRunTime: ").Append(MaxMeshingRunTime).Append("\n");
             sb.Append("  AdvancedSimmetrixSettings: ").Append(AdvancedSimmetrixSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -193,6 +202,11 @@ namespace SimScale.Sdk.Model
                     this.NumOfProcessors.Equals(input.NumOfProcessors)
                 ) && 
                 (
+                    this.MaxMeshingRunTime == input.MaxMeshingRunTime ||
+                    (this.MaxMeshingRunTime != null &&
+                    this.MaxMeshingRunTime.Equals(input.MaxMeshingRunTime))
+                ) && 
+                (
                     this.AdvancedSimmetrixSettings == input.AdvancedSimmetrixSettings ||
                     (this.AdvancedSimmetrixSettings != null &&
                     this.AdvancedSimmetrixSettings.Equals(input.AdvancedSimmetrixSettings))
@@ -215,6 +229,8 @@ namespace SimScale.Sdk.Model
                 if (this.Refinements != null)
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
                 hashCode = hashCode * 59 + this.NumOfProcessors.GetHashCode();
+                if (this.MaxMeshingRunTime != null)
+                    hashCode = hashCode * 59 + this.MaxMeshingRunTime.GetHashCode();
                 if (this.AdvancedSimmetrixSettings != null)
                     hashCode = hashCode * 59 + this.AdvancedSimmetrixSettings.GetHashCode();
                 return hashCode;

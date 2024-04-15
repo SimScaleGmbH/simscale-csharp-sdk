@@ -42,12 +42,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="MeshOperation" /> class.
         /// </summary>
         /// <param name="name">The name of the mesh operation. (required).</param>
-        /// <param name="version">version (required) (default to &quot;3.0&quot;).</param>
+        /// <param name="version">version (required) (default to &quot;4.0&quot;).</param>
         /// <param name="geometryId">The geometry ID of the mesh operation. (required).</param>
         /// <param name="model">model (required).</param>
         /// <param name="computeResource">computeResource.</param>
         /// <param name="status">status.</param>
-        public MeshOperation(string name = default(string), string version = "3.0", Guid? geometryId = default(Guid?), Algorithm model = default(Algorithm), MeshOperationComputeResource computeResource = default(MeshOperationComputeResource), Status? status = default(Status?))
+        public MeshOperation(string name = default(string), string version = "4.0", Guid? geometryId = default(Guid?), Algorithm model = default(Algorithm), MeshOperationComputeResource computeResource = default(MeshOperationComputeResource), Status? status = default(Status?))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for MeshOperation and cannot be null");

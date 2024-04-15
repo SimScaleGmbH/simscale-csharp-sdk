@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// AdvancedPinSettings
+    /// AdvancedConnectorSettings
     /// </summary>
     [DataContract]
-    public partial class AdvancedPinSettings : IEquatable<AdvancedPinSettings>
+    public partial class AdvancedConnectorSettings : IEquatable<AdvancedConnectorSettings>
     {
         /// <summary>
         /// &lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform without applying additional stiffness, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/remote-displacement/#deformation-behavior&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
@@ -56,10 +56,10 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="assignedFaceBehavior", EmitDefaultValue=false)]
         public AssignedFaceBehaviorEnum? AssignedFaceBehavior { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdvancedPinSettings" /> class.
+        /// Initializes a new instance of the <see cref="AdvancedConnectorSettings" /> class.
         /// </summary>
         /// <param name="assignedFaceBehavior">&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform without applying additional stiffness, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/remote-displacement/#deformation-behavior&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;&lt;/p&gt; (default to AssignedFaceBehaviorEnum.DEFORMABLE).</param>
-        public AdvancedPinSettings(AssignedFaceBehaviorEnum? assignedFaceBehavior = default(AssignedFaceBehaviorEnum?))
+        public AdvancedConnectorSettings(AssignedFaceBehaviorEnum? assignedFaceBehavior = default(AssignedFaceBehaviorEnum?))
         {
             this.AssignedFaceBehavior = assignedFaceBehavior;
         }
@@ -71,7 +71,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AdvancedPinSettings {\n");
+            sb.Append("class AdvancedConnectorSettings {\n");
             sb.Append("  AssignedFaceBehavior: ").Append(AssignedFaceBehavior).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -93,15 +93,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AdvancedPinSettings);
+            return this.Equals(input as AdvancedConnectorSettings);
         }
 
         /// <summary>
-        /// Returns true if AdvancedPinSettings instances are equal
+        /// Returns true if AdvancedConnectorSettings instances are equal
         /// </summary>
-        /// <param name="input">Instance of AdvancedPinSettings to be compared</param>
+        /// <param name="input">Instance of AdvancedConnectorSettings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AdvancedPinSettings input)
+        public bool Equals(AdvancedConnectorSettings input)
         {
             if (input == null)
                 return false;

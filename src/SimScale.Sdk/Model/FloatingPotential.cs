@@ -23,48 +23,48 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// HeatExchangerPerformance
+    /// FloatingPotential
     /// </summary>
     [DataContract]
-    public partial class HeatExchangerPerformance : OneOfHeatExchangerSourceHeatExchangerMode, IEquatable<HeatExchangerPerformance>
+    public partial class FloatingPotential : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<FloatingPotential>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HeatExchangerPerformance" /> class.
+        /// Initializes a new instance of the <see cref="FloatingPotential" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected HeatExchangerPerformance() { }
+        protected FloatingPotential() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="HeatExchangerPerformance" /> class.
+        /// Initializes a new instance of the <see cref="FloatingPotential" /> class.
         /// </summary>
-        /// <param name="type">Schema name: HeatExchangerPerformance (required) (default to &quot;HEAT_EXCHANGER_PERFORMANCE&quot;).</param>
-        /// <param name="refTemperature">refTemperature.</param>
-        /// <param name="performance">performance.</param>
-        public HeatExchangerPerformance(string type = "HEAT_EXCHANGER_PERFORMANCE", DimensionalFunctionTemperature refTemperature = default(DimensionalFunctionTemperature), DimensionalFunctionTotalThermalTransmittance performance = default(DimensionalFunctionTotalThermalTransmittance))
+        /// <param name="type">Schema name: FloatingPotential (required) (default to &quot;FLOATING_POTENTIAL&quot;).</param>
+        /// <param name="name">name.</param>
+        /// <param name="topologicalReference">topologicalReference.</param>
+        public FloatingPotential(string type = "FLOATING_POTENTIAL", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for HeatExchangerPerformance and cannot be null");
-            this.RefTemperature = refTemperature;
-            this.Performance = performance;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for FloatingPotential and cannot be null");
+            this.Name = name;
+            this.TopologicalReference = topologicalReference;
         }
         
         /// <summary>
-        /// Schema name: HeatExchangerPerformance
+        /// Schema name: FloatingPotential
         /// </summary>
-        /// <value>Schema name: HeatExchangerPerformance</value>
+        /// <value>Schema name: FloatingPotential</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets RefTemperature
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="refTemperature", EmitDefaultValue=false)]
-        public DimensionalFunctionTemperature RefTemperature { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Performance
+        /// Gets or Sets TopologicalReference
         /// </summary>
-        [DataMember(Name="performance", EmitDefaultValue=false)]
-        public DimensionalFunctionTotalThermalTransmittance Performance { get; set; }
+        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
+        public TopologicalReference TopologicalReference { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,10 +73,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class HeatExchangerPerformance {\n");
+            sb.Append("class FloatingPotential {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  RefTemperature: ").Append(RefTemperature).Append("\n");
-            sb.Append("  Performance: ").Append(Performance).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HeatExchangerPerformance);
+            return this.Equals(input as FloatingPotential);
         }
 
         /// <summary>
-        /// Returns true if HeatExchangerPerformance instances are equal
+        /// Returns true if FloatingPotential instances are equal
         /// </summary>
-        /// <param name="input">Instance of HeatExchangerPerformance to be compared</param>
+        /// <param name="input">Instance of FloatingPotential to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HeatExchangerPerformance input)
+        public bool Equals(FloatingPotential input)
         {
             if (input == null)
                 return false;
@@ -117,14 +117,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.RefTemperature == input.RefTemperature ||
-                    (this.RefTemperature != null &&
-                    this.RefTemperature.Equals(input.RefTemperature))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Performance == input.Performance ||
-                    (this.Performance != null &&
-                    this.Performance.Equals(input.Performance))
+                    this.TopologicalReference == input.TopologicalReference ||
+                    (this.TopologicalReference != null &&
+                    this.TopologicalReference.Equals(input.TopologicalReference))
                 );
         }
 
@@ -139,10 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.RefTemperature != null)
-                    hashCode = hashCode * 59 + this.RefTemperature.GetHashCode();
-                if (this.Performance != null)
-                    hashCode = hashCode * 59 + this.Performance.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.TopologicalReference != null)
+                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;
             }
         }

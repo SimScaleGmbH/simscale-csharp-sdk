@@ -79,7 +79,7 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.NONE).</param>
-        public DynamicAnalysis(string type = "DYNAMIC_ANALYSIS", List<OneOfDynamicAnalysisConnectionGroups> connectionGroups = default(List<OneOfDynamicAnalysisConnectionGroups>), List<PinConnector> connectors = default(List<PinConnector>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfDynamicAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfDynamicAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public DynamicAnalysis(string type = "DYNAMIC_ANALYSIS", List<OneOfDynamicAnalysisConnectionGroups> connectionGroups = default(List<OneOfDynamicAnalysisConnectionGroups>), List<OneOfDynamicAnalysisConnectors> connectors = default(List<OneOfDynamicAnalysisConnectors>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfDynamicAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfDynamicAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for DynamicAnalysis and cannot be null");
@@ -113,7 +113,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Connectors
         /// </summary>
         [DataMember(Name="connectors", EmitDefaultValue=false)]
-        public List<PinConnector> Connectors { get; set; }
+        public List<OneOfDynamicAnalysisConnectors> Connectors { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementTechnology

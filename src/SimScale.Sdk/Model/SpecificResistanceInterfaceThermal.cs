@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: SpecificResistanceInterfaceThermal (required) (default to &quot;SPECIFIC_RESISTANCE&quot;).</param>
         /// <param name="contactResistance">contactResistance.</param>
-        public SpecificResistanceInterfaceThermal(string type = "SPECIFIC_RESISTANCE", DimensionalSpecificContactResistance contactResistance = default(DimensionalSpecificContactResistance))
+        /// <param name="electricResistance">electricResistance.</param>
+        public SpecificResistanceInterfaceThermal(string type = "SPECIFIC_RESISTANCE", DimensionalSpecificContactResistance contactResistance = default(DimensionalSpecificContactResistance), DimensionalSpecificElectricResistance electricResistance = default(DimensionalSpecificElectricResistance))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SpecificResistanceInterfaceThermal and cannot be null");
             this.ContactResistance = contactResistance;
+            this.ElectricResistance = electricResistance;
         }
         
         /// <summary>
@@ -59,6 +61,12 @@ namespace SimScale.Sdk.Model
         public DimensionalSpecificContactResistance ContactResistance { get; set; }
 
         /// <summary>
+        /// Gets or Sets ElectricResistance
+        /// </summary>
+        [DataMember(Name="electricResistance", EmitDefaultValue=false)]
+        public DimensionalSpecificElectricResistance ElectricResistance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +76,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class SpecificResistanceInterfaceThermal {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ContactResistance: ").Append(ContactResistance).Append("\n");
+            sb.Append("  ElectricResistance: ").Append(ElectricResistance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +120,11 @@ namespace SimScale.Sdk.Model
                     this.ContactResistance == input.ContactResistance ||
                     (this.ContactResistance != null &&
                     this.ContactResistance.Equals(input.ContactResistance))
+                ) && 
+                (
+                    this.ElectricResistance == input.ElectricResistance ||
+                    (this.ElectricResistance != null &&
+                    this.ElectricResistance.Equals(input.ElectricResistance))
                 );
         }
 
@@ -127,6 +141,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.ContactResistance != null)
                     hashCode = hashCode * 59 + this.ContactResistance.GetHashCode();
+                if (this.ElectricResistance != null)
+                    hashCode = hashCode * 59 + this.ElectricResistance.GetHashCode();
                 return hashCode;
             }
         }

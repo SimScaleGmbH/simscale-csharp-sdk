@@ -111,8 +111,9 @@ namespace SimScale.Sdk.Model
         /// <param name="sizing">sizing.</param>
         /// <param name="physicsBasedMeshing">This toggle enables the automatic creation of boundary layers at no-slip walls. When toggled on, the meshing is started together with the simulation run. (default to true).</param>
         /// <param name="numOfProcessors">&lt;p&gt;Selecting more processor cores might speed up the meshing process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumOfProcessorsEnum.NUMBER_MINUS_1).</param>
+        /// <param name="maxMeshingRunTime">maxMeshingRunTime.</param>
         /// <param name="refinements">refinements.</param>
-        public HexDominantSnappy(string type = "HEX_DOMINANT_SNAPPY_V5", MeshingModeEnum? meshingMode = default(MeshingModeEnum?), OneOfHexDominantSnappySizing sizing = default(OneOfHexDominantSnappySizing), bool? physicsBasedMeshing = default(bool?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), List<OneOfHexDominantSnappyRefinements> refinements = default(List<OneOfHexDominantSnappyRefinements>))
+        public HexDominantSnappy(string type = "HEX_DOMINANT_SNAPPY_V5", MeshingModeEnum? meshingMode = default(MeshingModeEnum?), OneOfHexDominantSnappySizing sizing = default(OneOfHexDominantSnappySizing), bool? physicsBasedMeshing = default(bool?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), DimensionalTime maxMeshingRunTime = default(DimensionalTime), List<OneOfHexDominantSnappyRefinements> refinements = default(List<OneOfHexDominantSnappyRefinements>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for HexDominantSnappy and cannot be null");
@@ -120,6 +121,7 @@ namespace SimScale.Sdk.Model
             this.Sizing = sizing;
             this.PhysicsBasedMeshing = physicsBasedMeshing;
             this.NumOfProcessors = numOfProcessors;
+            this.MaxMeshingRunTime = maxMeshingRunTime;
             this.Refinements = refinements;
         }
         
@@ -144,6 +146,12 @@ namespace SimScale.Sdk.Model
         public bool? PhysicsBasedMeshing { get; set; }
 
         /// <summary>
+        /// Gets or Sets MaxMeshingRunTime
+        /// </summary>
+        [DataMember(Name="maxMeshingRunTime", EmitDefaultValue=false)]
+        public DimensionalTime MaxMeshingRunTime { get; set; }
+
+        /// <summary>
         /// Gets or Sets Refinements
         /// </summary>
         [DataMember(Name="refinements", EmitDefaultValue=false)]
@@ -162,6 +170,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Sizing: ").Append(Sizing).Append("\n");
             sb.Append("  PhysicsBasedMeshing: ").Append(PhysicsBasedMeshing).Append("\n");
             sb.Append("  NumOfProcessors: ").Append(NumOfProcessors).Append("\n");
+            sb.Append("  MaxMeshingRunTime: ").Append(MaxMeshingRunTime).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -221,6 +230,11 @@ namespace SimScale.Sdk.Model
                     this.NumOfProcessors.Equals(input.NumOfProcessors)
                 ) && 
                 (
+                    this.MaxMeshingRunTime == input.MaxMeshingRunTime ||
+                    (this.MaxMeshingRunTime != null &&
+                    this.MaxMeshingRunTime.Equals(input.MaxMeshingRunTime))
+                ) && 
+                (
                     this.Refinements == input.Refinements ||
                     this.Refinements != null &&
                     input.Refinements != null &&
@@ -245,6 +259,8 @@ namespace SimScale.Sdk.Model
                 if (this.PhysicsBasedMeshing != null)
                     hashCode = hashCode * 59 + this.PhysicsBasedMeshing.GetHashCode();
                 hashCode = hashCode * 59 + this.NumOfProcessors.GetHashCode();
+                if (this.MaxMeshingRunTime != null)
+                    hashCode = hashCode * 59 + this.MaxMeshingRunTime.GetHashCode();
                 if (this.Refinements != null)
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
                 return hashCode;

@@ -32,10 +32,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ConductivityThicknessPair" /> class.
         /// </summary>
         /// <param name="thermalConductivity">thermalConductivity.</param>
+        /// <param name="electricResistivity">electricResistivity.</param>
         /// <param name="layerThickness">layerThickness.</param>
-        public ConductivityThicknessPair(DimensionalThermalConductivity thermalConductivity = default(DimensionalThermalConductivity), DimensionalLength layerThickness = default(DimensionalLength))
+        public ConductivityThicknessPair(DimensionalThermalConductivity thermalConductivity = default(DimensionalThermalConductivity), DimensionalElectricResistivity electricResistivity = default(DimensionalElectricResistivity), DimensionalLength layerThickness = default(DimensionalLength))
         {
             this.ThermalConductivity = thermalConductivity;
+            this.ElectricResistivity = electricResistivity;
             this.LayerThickness = layerThickness;
         }
         
@@ -44,6 +46,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="thermalConductivity", EmitDefaultValue=false)]
         public DimensionalThermalConductivity ThermalConductivity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ElectricResistivity
+        /// </summary>
+        [DataMember(Name="electricResistivity", EmitDefaultValue=false)]
+        public DimensionalElectricResistivity ElectricResistivity { get; set; }
 
         /// <summary>
         /// Gets or Sets LayerThickness
@@ -60,6 +68,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ConductivityThicknessPair {\n");
             sb.Append("  ThermalConductivity: ").Append(ThermalConductivity).Append("\n");
+            sb.Append("  ElectricResistivity: ").Append(ElectricResistivity).Append("\n");
             sb.Append("  LayerThickness: ").Append(LayerThickness).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -101,6 +110,11 @@ namespace SimScale.Sdk.Model
                     this.ThermalConductivity.Equals(input.ThermalConductivity))
                 ) && 
                 (
+                    this.ElectricResistivity == input.ElectricResistivity ||
+                    (this.ElectricResistivity != null &&
+                    this.ElectricResistivity.Equals(input.ElectricResistivity))
+                ) && 
+                (
                     this.LayerThickness == input.LayerThickness ||
                     (this.LayerThickness != null &&
                     this.LayerThickness.Equals(input.LayerThickness))
@@ -118,6 +132,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.ThermalConductivity != null)
                     hashCode = hashCode * 59 + this.ThermalConductivity.GetHashCode();
+                if (this.ElectricResistivity != null)
+                    hashCode = hashCode * 59 + this.ElectricResistivity.GetHashCode();
                 if (this.LayerThickness != null)
                     hashCode = hashCode * 59 + this.LayerThickness.GetHashCode();
                 return hashCode;

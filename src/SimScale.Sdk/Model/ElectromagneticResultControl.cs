@@ -32,10 +32,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ElectromagneticResultControl" /> class.
         /// </summary>
         /// <param name="calculateInductances">Calculate the inductance matrix of the coils. (default to false).</param>
+        /// <param name="calculateCapacitances">calculateCapacitances (default to false).</param>
         /// <param name="forcesAndTorques">forcesAndTorques.</param>
-        public ElectromagneticResultControl(bool? calculateInductances = default(bool?), List<ForceAndTorque> forcesAndTorques = default(List<ForceAndTorque>))
+        public ElectromagneticResultControl(bool? calculateInductances = default(bool?), bool? calculateCapacitances = default(bool?), List<ForceAndTorque> forcesAndTorques = default(List<ForceAndTorque>))
         {
             this.CalculateInductances = calculateInductances;
+            this.CalculateCapacitances = calculateCapacitances;
             this.ForcesAndTorques = forcesAndTorques;
         }
         
@@ -45,6 +47,12 @@ namespace SimScale.Sdk.Model
         /// <value>Calculate the inductance matrix of the coils.</value>
         [DataMember(Name="calculateInductances", EmitDefaultValue=false)]
         public bool? CalculateInductances { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CalculateCapacitances
+        /// </summary>
+        [DataMember(Name="calculateCapacitances", EmitDefaultValue=false)]
+        public bool? CalculateCapacitances { get; set; }
 
         /// <summary>
         /// Gets or Sets ForcesAndTorques
@@ -61,6 +69,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ElectromagneticResultControl {\n");
             sb.Append("  CalculateInductances: ").Append(CalculateInductances).Append("\n");
+            sb.Append("  CalculateCapacitances: ").Append(CalculateCapacitances).Append("\n");
             sb.Append("  ForcesAndTorques: ").Append(ForcesAndTorques).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -102,6 +111,11 @@ namespace SimScale.Sdk.Model
                     this.CalculateInductances.Equals(input.CalculateInductances))
                 ) && 
                 (
+                    this.CalculateCapacitances == input.CalculateCapacitances ||
+                    (this.CalculateCapacitances != null &&
+                    this.CalculateCapacitances.Equals(input.CalculateCapacitances))
+                ) && 
+                (
                     this.ForcesAndTorques == input.ForcesAndTorques ||
                     this.ForcesAndTorques != null &&
                     input.ForcesAndTorques != null &&
@@ -120,6 +134,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.CalculateInductances != null)
                     hashCode = hashCode * 59 + this.CalculateInductances.GetHashCode();
+                if (this.CalculateCapacitances != null)
+                    hashCode = hashCode * 59 + this.CalculateCapacitances.GetHashCode();
                 if (this.ForcesAndTorques != null)
                     hashCode = hashCode * 59 + this.ForcesAndTorques.GetHashCode();
                 return hashCode;

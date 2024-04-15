@@ -79,7 +79,7 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshOrder">meshOrder (default to MeshOrderEnum.FIRST).</param>
-        public FrequencyAnalysis(string type = "FREQUENCY_ANALYSIS", List<Contact> connectionGroups = default(List<Contact>), List<PinConnector> connectors = default(List<PinConnector>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfFrequencyAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfFrequencyAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
+        public FrequencyAnalysis(string type = "FREQUENCY_ANALYSIS", List<Contact> connectionGroups = default(List<Contact>), List<OneOfFrequencyAnalysisConnectors> connectors = default(List<OneOfFrequencyAnalysisConnectors>), SolidElementTechnology elementTechnology = default(SolidElementTechnology), SolidModel model = default(SolidModel), List<SolidMaterial> materials = default(List<SolidMaterial>), SolidInitialConditions initialConditions = default(SolidInitialConditions), List<OneOfFrequencyAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfFrequencyAnalysisBoundaryConditions>), SolidNumerics numerics = default(SolidNumerics), SolidSimulationControl simulationControl = default(SolidSimulationControl), SolidResultControl resultControl = default(SolidResultControl), MeshOrderEnum? meshOrder = default(MeshOrderEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FrequencyAnalysis and cannot be null");
@@ -113,7 +113,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Connectors
         /// </summary>
         [DataMember(Name="connectors", EmitDefaultValue=false)]
-        public List<PinConnector> Connectors { get; set; }
+        public List<OneOfFrequencyAnalysisConnectors> Connectors { get; set; }
 
         /// <summary>
         /// Gets or Sets ElementTechnology

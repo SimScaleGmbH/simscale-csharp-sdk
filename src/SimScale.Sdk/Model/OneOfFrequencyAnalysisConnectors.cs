@@ -24,16 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfElectromagneticAnalysisBoundaryConditions
+    /// OneOfFrequencyAnalysisConnectors
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(MagneticFieldNormal), "MAGNETIC_FIELD_NORMAL")]
-    [JsonSubtypes.KnownSubType(typeof(MagneticFluxTangential), "MAGNETIC_FLUX_TANGENTIAL")]
-    [JsonSubtypes.KnownSubType(typeof(FixedPotential), "FIXED_POTENTIAL")]
-    [JsonSubtypes.KnownSubType(typeof(FloatingPotential), "FLOATING_POTENTIAL")]
-    [JsonSubtypes.KnownSubType(typeof(ChargeDensity), "CHARGE_DENSITY")]
-    [JsonSubtypes.KnownSubType(typeof(TotalCharge), "TOTAL_CHARGE")]
-    public interface OneOfElectromagneticAnalysisBoundaryConditions
+    [JsonSubtypes.KnownSubType(typeof(PinConnector), "PIN_CONNECTOR")]
+    [JsonSubtypes.KnownSubType(typeof(BoltConnector), "BOLT_CONNECTOR")]
+    public interface OneOfFrequencyAnalysisConnectors
     {
         /// <summary>
         /// Gets Type

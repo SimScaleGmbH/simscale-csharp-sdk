@@ -72,13 +72,14 @@ namespace SimScale.Sdk.Model
         /// <param name="viscosityModel">viscosityModel.</param>
         /// <param name="laminarPrandtlNumberFunction">laminarPrandtlNumberFunction.</param>
         /// <param name="turbulentPrandtlNumber">Turbulent Prandtl number is used to calculate the heat transfer due to turbulent effects in the domain..</param>
+        /// <param name="schmidtNumber">The Schmidt number is a dimensionless number defined as the ratio of viscous diffusion to molecular mass diffusion. In dilute flows where a dominant carrier gas advects other species, it is assumed to be constant and a typical value is Sc &#x3D; 5/6. (default to 0.8333M).</param>
         /// <param name="specificHeatFunction">specificHeatFunction.</param>
         /// <param name="equationOfState">equationOfState.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), OneOfFluidCompressibleMaterialFluidType fluidType = default(OneOfFluidCompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), OneOfFluidCompressibleMaterialViscosityModel viscosityModel = default(OneOfFluidCompressibleMaterialViscosityModel), DimensionalFunctionDimensionless laminarPrandtlNumberFunction = default(DimensionalFunctionDimensionless), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalFunctionSpecificHeat specificHeatFunction = default(DimensionalFunctionSpecificHeat), OneOfFluidCompressibleMaterialEquationOfState equationOfState = default(OneOfFluidCompressibleMaterialEquationOfState), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), OneOfFluidCompressibleMaterialFluidType fluidType = default(OneOfFluidCompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), OneOfFluidCompressibleMaterialViscosityModel viscosityModel = default(OneOfFluidCompressibleMaterialViscosityModel), DimensionalFunctionDimensionless laminarPrandtlNumberFunction = default(DimensionalFunctionDimensionless), decimal? turbulentPrandtlNumber = default(decimal?), decimal? schmidtNumber = default(decimal?), DimensionalFunctionSpecificHeat specificHeatFunction = default(DimensionalFunctionSpecificHeat), OneOfFluidCompressibleMaterialEquationOfState equationOfState = default(OneOfFluidCompressibleMaterialEquationOfState), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FluidCompressibleMaterial and cannot be null");
@@ -90,6 +91,7 @@ namespace SimScale.Sdk.Model
             this.ViscosityModel = viscosityModel;
             this.LaminarPrandtlNumberFunction = laminarPrandtlNumberFunction;
             this.TurbulentPrandtlNumber = turbulentPrandtlNumber;
+            this.SchmidtNumber = schmidtNumber;
             this.SpecificHeatFunction = specificHeatFunction;
             this.EquationOfState = equationOfState;
             this.TopologicalReference = topologicalReference;
@@ -149,6 +151,13 @@ namespace SimScale.Sdk.Model
         public decimal? TurbulentPrandtlNumber { get; set; }
 
         /// <summary>
+        /// The Schmidt number is a dimensionless number defined as the ratio of viscous diffusion to molecular mass diffusion. In dilute flows where a dominant carrier gas advects other species, it is assumed to be constant and a typical value is Sc &#x3D; 5/6.
+        /// </summary>
+        /// <value>The Schmidt number is a dimensionless number defined as the ratio of viscous diffusion to molecular mass diffusion. In dilute flows where a dominant carrier gas advects other species, it is assumed to be constant and a typical value is Sc &#x3D; 5/6.</value>
+        [DataMember(Name="schmidtNumber", EmitDefaultValue=false)]
+        public decimal? SchmidtNumber { get; set; }
+
+        /// <summary>
         /// Gets or Sets SpecificHeatFunction
         /// </summary>
         [DataMember(Name="specificHeatFunction", EmitDefaultValue=false)]
@@ -201,6 +210,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  ViscosityModel: ").Append(ViscosityModel).Append("\n");
             sb.Append("  LaminarPrandtlNumberFunction: ").Append(LaminarPrandtlNumberFunction).Append("\n");
             sb.Append("  TurbulentPrandtlNumber: ").Append(TurbulentPrandtlNumber).Append("\n");
+            sb.Append("  SchmidtNumber: ").Append(SchmidtNumber).Append("\n");
             sb.Append("  SpecificHeatFunction: ").Append(SpecificHeatFunction).Append("\n");
             sb.Append("  EquationOfState: ").Append(EquationOfState).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
@@ -286,6 +296,11 @@ namespace SimScale.Sdk.Model
                     this.TurbulentPrandtlNumber.Equals(input.TurbulentPrandtlNumber))
                 ) && 
                 (
+                    this.SchmidtNumber == input.SchmidtNumber ||
+                    (this.SchmidtNumber != null &&
+                    this.SchmidtNumber.Equals(input.SchmidtNumber))
+                ) && 
+                (
                     this.SpecificHeatFunction == input.SpecificHeatFunction ||
                     (this.SpecificHeatFunction != null &&
                     this.SpecificHeatFunction.Equals(input.SpecificHeatFunction))
@@ -344,6 +359,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.LaminarPrandtlNumberFunction.GetHashCode();
                 if (this.TurbulentPrandtlNumber != null)
                     hashCode = hashCode * 59 + this.TurbulentPrandtlNumber.GetHashCode();
+                if (this.SchmidtNumber != null)
+                    hashCode = hashCode * 59 + this.SchmidtNumber.GetHashCode();
                 if (this.SpecificHeatFunction != null)
                     hashCode = hashCode * 59 + this.SpecificHeatFunction.GetHashCode();
                 if (this.EquationOfState != null)

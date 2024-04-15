@@ -93,8 +93,9 @@ namespace SimScale.Sdk.Model
         /// <param name="physicsBasedMeshing">Physics-based meshing takes setup information like materials, boundary conditions, and source terms into account to size the mesh accordingly. When enabled, the following adaptations will be made:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Refinements on inlets and outlets&lt;/li&gt;&lt;li&gt;Different sizing for solid and fluid regions in CHT simulations&lt;/li&gt;&lt;/ul&gt; &lt;br&gt;When toggled on users don’t have to worry about creating a &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;separate cell zone&lt;/a&gt;. (default to true).</param>
         /// <param name="hexCore">&lt;p&gt;If &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#hexcore&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Hex element core&lt;/b&gt;&lt;/a&gt; is activated, the interior of the mesh gets covered by &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#hexcore&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;hexahedral elements&lt;/b&gt;&lt;/a&gt;. The transition to the triangulated surface mesh is covered by tetrahedral and pyramid elements.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-hexcore.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Meshclip through a hex-core mesh.&lt;/p&gt; (default to true).</param>
         /// <param name="numOfProcessors">&lt;p&gt;Selecting more processor cores might speed up the meshing process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumOfProcessorsEnum.NUMBER_MINUS_1).</param>
+        /// <param name="maxMeshingRunTime">maxMeshingRunTime.</param>
         /// <param name="advancedSimmetrixSettings">advancedSimmetrixSettings.</param>
-        public SimmetrixMeshingFluid(string type = "SIMMETRIX_MESHING_FLUID_V16", OneOfSimmetrixMeshingFluidSizing sizing = default(OneOfSimmetrixMeshingFluidSizing), List<OneOfSimmetrixMeshingFluidRefinements> refinements = default(List<OneOfSimmetrixMeshingFluidRefinements>), List<SimmetrixCellZones> cellZones = default(List<SimmetrixCellZones>), OneOfSimmetrixMeshingFluidAutomaticLayerSettings automaticLayerSettings = default(OneOfSimmetrixMeshingFluidAutomaticLayerSettings), bool? physicsBasedMeshing = default(bool?), bool? hexCore = default(bool?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), AdvancedSimmetrixFluidSettings advancedSimmetrixSettings = default(AdvancedSimmetrixFluidSettings))
+        public SimmetrixMeshingFluid(string type = "SIMMETRIX_MESHING_FLUID_V16", OneOfSimmetrixMeshingFluidSizing sizing = default(OneOfSimmetrixMeshingFluidSizing), List<OneOfSimmetrixMeshingFluidRefinements> refinements = default(List<OneOfSimmetrixMeshingFluidRefinements>), List<SimmetrixCellZones> cellZones = default(List<SimmetrixCellZones>), OneOfSimmetrixMeshingFluidAutomaticLayerSettings automaticLayerSettings = default(OneOfSimmetrixMeshingFluidAutomaticLayerSettings), bool? physicsBasedMeshing = default(bool?), bool? hexCore = default(bool?), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), DimensionalTime maxMeshingRunTime = default(DimensionalTime), AdvancedSimmetrixFluidSettings advancedSimmetrixSettings = default(AdvancedSimmetrixFluidSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixMeshingFluid and cannot be null");
@@ -105,6 +106,7 @@ namespace SimScale.Sdk.Model
             this.PhysicsBasedMeshing = physicsBasedMeshing;
             this.HexCore = hexCore;
             this.NumOfProcessors = numOfProcessors;
+            this.MaxMeshingRunTime = maxMeshingRunTime;
             this.AdvancedSimmetrixSettings = advancedSimmetrixSettings;
         }
         
@@ -154,6 +156,12 @@ namespace SimScale.Sdk.Model
         public bool? HexCore { get; set; }
 
         /// <summary>
+        /// Gets or Sets MaxMeshingRunTime
+        /// </summary>
+        [DataMember(Name="maxMeshingRunTime", EmitDefaultValue=false)]
+        public DimensionalTime MaxMeshingRunTime { get; set; }
+
+        /// <summary>
         /// Gets or Sets AdvancedSimmetrixSettings
         /// </summary>
         [DataMember(Name="advancedSimmetrixSettings", EmitDefaultValue=false)]
@@ -175,6 +183,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PhysicsBasedMeshing: ").Append(PhysicsBasedMeshing).Append("\n");
             sb.Append("  HexCore: ").Append(HexCore).Append("\n");
             sb.Append("  NumOfProcessors: ").Append(NumOfProcessors).Append("\n");
+            sb.Append("  MaxMeshingRunTime: ").Append(MaxMeshingRunTime).Append("\n");
             sb.Append("  AdvancedSimmetrixSettings: ").Append(AdvancedSimmetrixSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -252,6 +261,11 @@ namespace SimScale.Sdk.Model
                     this.NumOfProcessors.Equals(input.NumOfProcessors)
                 ) && 
                 (
+                    this.MaxMeshingRunTime == input.MaxMeshingRunTime ||
+                    (this.MaxMeshingRunTime != null &&
+                    this.MaxMeshingRunTime.Equals(input.MaxMeshingRunTime))
+                ) && 
+                (
                     this.AdvancedSimmetrixSettings == input.AdvancedSimmetrixSettings ||
                     (this.AdvancedSimmetrixSettings != null &&
                     this.AdvancedSimmetrixSettings.Equals(input.AdvancedSimmetrixSettings))
@@ -282,6 +296,8 @@ namespace SimScale.Sdk.Model
                 if (this.HexCore != null)
                     hashCode = hashCode * 59 + this.HexCore.GetHashCode();
                 hashCode = hashCode * 59 + this.NumOfProcessors.GetHashCode();
+                if (this.MaxMeshingRunTime != null)
+                    hashCode = hashCode * 59 + this.MaxMeshingRunTime.GetHashCode();
                 if (this.AdvancedSimmetrixSettings != null)
                     hashCode = hashCode * 59 + this.AdvancedSimmetrixSettings.GetHashCode();
                 return hashCode;

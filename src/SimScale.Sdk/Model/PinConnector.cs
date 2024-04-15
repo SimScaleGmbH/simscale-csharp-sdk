@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Connect multiple bodies via a virtual pin &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Usage&lt;/b&gt;: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Define a separate pin connector item for each virtual pin&lt;/li&gt;&lt;li&gt;Assign only cylindrical surfaces&lt;/li&gt;&lt;ul/&gt;&lt;b&gt;Behavior&lt;/b&gt;:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Option to connect bodies to bodies or bodies to the ground via virtual pins&lt;/li&gt;&lt;li&gt;Bodies freely rotate relative to one another about the virtual pin axis&lt;/li&gt;&lt;li&gt;Users have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+    /// &lt;p&gt;Connect multiple bodies via a virtual pin &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Usage&lt;/b&gt;: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Define a separate pin connector item for each virtual pin&lt;/li&gt;&lt;li&gt;Assign only cylindrical surfaces&lt;/li&gt;&lt;/ul&gt;&lt;b&gt;Behavior&lt;/b&gt;:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Option to connect bodies to bodies or bodies to the ground via virtual pins&lt;/li&gt;&lt;li&gt;Bodies freely rotate relative to one another about the virtual pin axis&lt;/li&gt;&lt;li&gt;Users have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
     /// </summary>
     [DataContract]
-    public partial class PinConnector : IEquatable<PinConnector>
+    public partial class PinConnector : OneOfDynamicAnalysisConnectors, OneOfFrequencyAnalysisConnectors, OneOfHarmonicAnalysisConnectors, OneOfStaticAnalysisConnectors, IEquatable<PinConnector>
     {
         /// <summary>
         /// &lt;p&gt;Select an interaction option&lt;br /&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Body to body&lt;/b&gt; - Two or more bodies may be connected to each other via a single virtual pin. The pin will move with the bodies.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Body to ground&lt;/b&gt; - Two or more bodies may be connected to the ground via a single virtual pin. The pin remains stationary.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
@@ -63,13 +63,13 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PinConnector" /> class.
         /// </summary>
-        /// <param name="type">&lt;p&gt;Connect multiple bodies via a virtual pin &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Usage&lt;/b&gt;: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Define a separate pin connector item for each virtual pin&lt;/li&gt;&lt;li&gt;Assign only cylindrical surfaces&lt;/li&gt;&lt;ul/&gt;&lt;b&gt;Behavior&lt;/b&gt;:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Option to connect bodies to bodies or bodies to the ground via virtual pins&lt;/li&gt;&lt;li&gt;Bodies freely rotate relative to one another about the virtual pin axis&lt;/li&gt;&lt;li&gt;Users have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: PinConnector (required) (default to &quot;PIN_CONNECTOR&quot;).</param>
+        /// <param name="type">&lt;p&gt;Connect multiple bodies via a virtual pin &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Usage&lt;/b&gt;: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Define a separate pin connector item for each virtual pin&lt;/li&gt;&lt;li&gt;Assign only cylindrical surfaces&lt;/li&gt;&lt;/ul&gt;&lt;b&gt;Behavior&lt;/b&gt;:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Option to connect bodies to bodies or bodies to the ground via virtual pins&lt;/li&gt;&lt;li&gt;Bodies freely rotate relative to one another about the virtual pin axis&lt;/li&gt;&lt;li&gt;Users have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: PinConnector (required) (default to &quot;PIN_CONNECTOR&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="interaction">&lt;p&gt;Select an interaction option&lt;br /&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Body to body&lt;/b&gt; - Two or more bodies may be connected to each other via a single virtual pin. The pin will move with the bodies.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Body to ground&lt;/b&gt; - Two or more bodies may be connected to the ground via a single virtual pin. The pin remains stationary.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt; (default to InteractionEnum.BODY).</param>
         /// <param name="kinematicBehavior">kinematicBehavior.</param>
         /// <param name="advancedPinSettings">advancedPinSettings.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PinConnector(string type = "PIN_CONNECTOR", string name = default(string), InteractionEnum? interaction = default(InteractionEnum?), PinKinematicBehavior kinematicBehavior = default(PinKinematicBehavior), AdvancedPinSettings advancedPinSettings = default(AdvancedPinSettings), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PinConnector(string type = "PIN_CONNECTOR", string name = default(string), InteractionEnum? interaction = default(InteractionEnum?), PinKinematicBehavior kinematicBehavior = default(PinKinematicBehavior), AdvancedConnectorSettings advancedPinSettings = default(AdvancedConnectorSettings), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PinConnector and cannot be null");
@@ -81,9 +81,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// &lt;p&gt;Connect multiple bodies via a virtual pin &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Usage&lt;/b&gt;: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Define a separate pin connector item for each virtual pin&lt;/li&gt;&lt;li&gt;Assign only cylindrical surfaces&lt;/li&gt;&lt;ul/&gt;&lt;b&gt;Behavior&lt;/b&gt;:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Option to connect bodies to bodies or bodies to the ground via virtual pins&lt;/li&gt;&lt;li&gt;Bodies freely rotate relative to one another about the virtual pin axis&lt;/li&gt;&lt;li&gt;Users have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: PinConnector
+        /// &lt;p&gt;Connect multiple bodies via a virtual pin &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Usage&lt;/b&gt;: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Define a separate pin connector item for each virtual pin&lt;/li&gt;&lt;li&gt;Assign only cylindrical surfaces&lt;/li&gt;&lt;/ul&gt;&lt;b&gt;Behavior&lt;/b&gt;:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Option to connect bodies to bodies or bodies to the ground via virtual pins&lt;/li&gt;&lt;li&gt;Bodies freely rotate relative to one another about the virtual pin axis&lt;/li&gt;&lt;li&gt;Users have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: PinConnector
         /// </summary>
-        /// <value>&lt;p&gt;Connect multiple bodies via a virtual pin &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Usage&lt;/b&gt;: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Define a separate pin connector item for each virtual pin&lt;/li&gt;&lt;li&gt;Assign only cylindrical surfaces&lt;/li&gt;&lt;ul/&gt;&lt;b&gt;Behavior&lt;/b&gt;:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Option to connect bodies to bodies or bodies to the ground via virtual pins&lt;/li&gt;&lt;li&gt;Bodies freely rotate relative to one another about the virtual pin axis&lt;/li&gt;&lt;li&gt;Users have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: PinConnector</value>
+        /// <value>&lt;p&gt;Connect multiple bodies via a virtual pin &lt;br /&gt;&lt;br /&gt;&lt;b&gt;Usage&lt;/b&gt;: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Define a separate pin connector item for each virtual pin&lt;/li&gt;&lt;li&gt;Assign only cylindrical surfaces&lt;/li&gt;&lt;/ul&gt;&lt;b&gt;Behavior&lt;/b&gt;:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Option to connect bodies to bodies or bodies to the ground via virtual pins&lt;/li&gt;&lt;li&gt;Bodies freely rotate relative to one another about the virtual pin axis&lt;/li&gt;&lt;li&gt;Users have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: PinConnector</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -103,7 +103,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets AdvancedPinSettings
         /// </summary>
         [DataMember(Name="advancedPinSettings", EmitDefaultValue=false)]
-        public AdvancedPinSettings AdvancedPinSettings { get; set; }
+        public AdvancedConnectorSettings AdvancedPinSettings { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference

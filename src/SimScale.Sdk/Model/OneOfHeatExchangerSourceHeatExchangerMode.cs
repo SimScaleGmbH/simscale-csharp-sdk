@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Heat exchanger help text place holder.
+    /// The overall conductance (U) of the heat exchanger can be modelled in two different ways:&lt;br&gt;&lt;li&gt;&lt;b&gt;Heat transfer coefficients&lt;/b&gt;: In this model the overall conductance (U) is computed using the heat transfer coefficient (h), the surface area density or surface to volume ratio (&amp;rho;) and the exchanger volume (V) as U &#x3D; h &amp;rho; V. &lt;li&gt;&lt;b&gt;Heat exchanger performance&lt;/b&gt;: This model takes the overall conductance (U) as the heat exchanger performance (P).
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(HeatTransferCoefficients), "HEAT_TRANSFER_COEFFICIENTS")]
