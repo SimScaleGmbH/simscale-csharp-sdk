@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SurfaceCustomSizing" /> class.
         /// </summary>
         /// <param name="type">Schema name: SurfaceCustomSizing (required) (default to &quot;SURFACE_CUSTOM_SIZING&quot;).</param>
-        /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
+        /// <param name="name">name (default to &quot;Surface sizing&quot;).</param>
         /// <param name="sizing">sizing.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public SurfaceCustomSizing(string type = "SURFACE_CUSTOM_SIZING", string name = default(string), OneOfSurfaceCustomSizingSizing sizing = default(OneOfSurfaceCustomSizingSizing), TopologicalReference topologicalReference = default(TopologicalReference))

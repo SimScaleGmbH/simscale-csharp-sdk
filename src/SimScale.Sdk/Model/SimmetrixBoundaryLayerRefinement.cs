@@ -38,17 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#layer-inflation&#39; target&#x3D;&#39;_blank&#39;&gt;&lt;b&gt;Layer inflation&lt;/b&gt;&lt;/a&gt; allows the creation of prismatic boundary layers for certain mesh regions.&lt;/p&gt;&lt;p&gt;Prismatic layers are mostly used in CFD simulations on no-slip walls in order to efficiently capture the boundary layer velocity profile, but they may be also used in certain structural simulations like stamping or deep-drawing processes.&lt;/p&gt;&lt;p&gt;&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-layers.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; The figure shows a sample mesh with boundary layers added.&lt;/p&gt;  Schema name: SimmetrixBoundaryLayerRefinement (required) (default to &quot;SIMMETRIX_BOUNDARY_LAYER_V13&quot;).</param>
         /// <param name="name">name (default to &quot;Inflate boundary layer&quot;).</param>
-        /// <param name="numberOfLayers">The &lt;i&gt;Number of layers&lt;/i&gt; defines how many prismatic boundary layers should be created. 3 is default. (default to 3).</param>
-        /// <param name="totalRelativeThickness">It defines the thickness of all prismatic boundary layers combined in relation to the local element size.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-overall-layer-thickness.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example 3-layer thickness of 40% (0.4) of the local mesh size. (default to 0.4M).</param>
         /// <param name="layerType">layerType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public SimmetrixBoundaryLayerRefinement(string type = "SIMMETRIX_BOUNDARY_LAYER_V13", string name = default(string), int? numberOfLayers = default(int?), decimal? totalRelativeThickness = default(decimal?), OneOfSimmetrixBoundaryLayerRefinementLayerType layerType = default(OneOfSimmetrixBoundaryLayerRefinementLayerType), TopologicalReference topologicalReference = default(TopologicalReference))
+        public SimmetrixBoundaryLayerRefinement(string type = "SIMMETRIX_BOUNDARY_LAYER_V13", string name = default(string), OneOfSimmetrixBoundaryLayerRefinementLayerType layerType = default(OneOfSimmetrixBoundaryLayerRefinementLayerType), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixBoundaryLayerRefinement and cannot be null");
             this.Name = name;
-            this.NumberOfLayers = numberOfLayers;
-            this.TotalRelativeThickness = totalRelativeThickness;
             this.LayerType = layerType;
             this.TopologicalReference = topologicalReference;
         }
@@ -65,20 +61,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
-
-        /// <summary>
-        /// The &lt;i&gt;Number of layers&lt;/i&gt; defines how many prismatic boundary layers should be created. 3 is default.
-        /// </summary>
-        /// <value>The &lt;i&gt;Number of layers&lt;/i&gt; defines how many prismatic boundary layers should be created. 3 is default.</value>
-        [DataMember(Name="numberOfLayers", EmitDefaultValue=false)]
-        public int? NumberOfLayers { get; set; }
-
-        /// <summary>
-        /// It defines the thickness of all prismatic boundary layers combined in relation to the local element size.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-overall-layer-thickness.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example 3-layer thickness of 40% (0.4) of the local mesh size.
-        /// </summary>
-        /// <value>It defines the thickness of all prismatic boundary layers combined in relation to the local element size.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-overall-layer-thickness.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example 3-layer thickness of 40% (0.4) of the local mesh size.</value>
-        [DataMember(Name="totalRelativeThickness", EmitDefaultValue=false)]
-        public decimal? TotalRelativeThickness { get; set; }
 
         /// <summary>
         /// Gets or Sets LayerType
@@ -102,8 +84,6 @@ namespace SimScale.Sdk.Model
             sb.Append("class SimmetrixBoundaryLayerRefinement {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  NumberOfLayers: ").Append(NumberOfLayers).Append("\n");
-            sb.Append("  TotalRelativeThickness: ").Append(TotalRelativeThickness).Append("\n");
             sb.Append("  LayerType: ").Append(LayerType).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
@@ -151,16 +131,6 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.NumberOfLayers == input.NumberOfLayers ||
-                    (this.NumberOfLayers != null &&
-                    this.NumberOfLayers.Equals(input.NumberOfLayers))
-                ) && 
-                (
-                    this.TotalRelativeThickness == input.TotalRelativeThickness ||
-                    (this.TotalRelativeThickness != null &&
-                    this.TotalRelativeThickness.Equals(input.TotalRelativeThickness))
-                ) && 
-                (
                     this.LayerType == input.LayerType ||
                     (this.LayerType != null &&
                     this.LayerType.Equals(input.LayerType))
@@ -185,10 +155,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.NumberOfLayers != null)
-                    hashCode = hashCode * 59 + this.NumberOfLayers.GetHashCode();
-                if (this.TotalRelativeThickness != null)
-                    hashCode = hashCode * 59 + this.TotalRelativeThickness.GetHashCode();
                 if (this.LayerType != null)
                     hashCode = hashCode * 59 + this.LayerType.GetHashCode();
                 if (this.TopologicalReference != null)

@@ -161,8 +161,8 @@ namespace SimScale.Sdk.Model
         /// <param name="windEngineeringStandard">windEngineeringStandard (default to WindEngineeringStandardEnum.EU).</param>
         /// <param name="windDataSource">windDataSource.</param>
         /// <param name="addSurfaceRoughness">addSurfaceRoughness (default to true).</param>
-        /// <param name="gustFactor">gustFactor (default to 2.5M).</param>
-        public WindRose(int? numDirections = default(int?), List<WindRoseVelocityBucket> velocityBuckets = default(List<WindRoseVelocityBucket>), string velocityUnit = "m/s", List<ExposureCategoriesEnum> exposureCategories = default(List<ExposureCategoriesEnum>), WindEngineeringStandardEnum? windEngineeringStandard = default(WindEngineeringStandardEnum?), WindDataSourceEnum? windDataSource = default(WindDataSourceEnum?), bool? addSurfaceRoughness = default(bool?), decimal? gustFactor = default(decimal?))
+        /// <param name="gustFactorV2">gustFactorV2 (default to 2.5M).</param>
+        public WindRose(int? numDirections = default(int?), List<WindRoseVelocityBucket> velocityBuckets = default(List<WindRoseVelocityBucket>), string velocityUnit = "m/s", List<ExposureCategoriesEnum> exposureCategories = default(List<ExposureCategoriesEnum>), WindEngineeringStandardEnum? windEngineeringStandard = default(WindEngineeringStandardEnum?), WindDataSourceEnum? windDataSource = default(WindDataSourceEnum?), bool? addSurfaceRoughness = default(bool?), decimal? gustFactorV2 = default(decimal?))
         {
             // to ensure "velocityUnit" is required (not null)
             this.VelocityUnit = velocityUnit ?? throw new ArgumentNullException("velocityUnit is a required property for WindRose and cannot be null");
@@ -172,7 +172,7 @@ namespace SimScale.Sdk.Model
             this.WindEngineeringStandard = windEngineeringStandard;
             this.WindDataSource = windDataSource;
             this.AddSurfaceRoughness = addSurfaceRoughness;
-            this.GustFactor = gustFactor;
+            this.GustFactorV2 = gustFactorV2;
         }
         
         /// <summary>
@@ -200,10 +200,10 @@ namespace SimScale.Sdk.Model
         public bool? AddSurfaceRoughness { get; set; }
 
         /// <summary>
-        /// Gets or Sets GustFactor
+        /// Gets or Sets GustFactorV2
         /// </summary>
-        [DataMember(Name="gustFactor", EmitDefaultValue=false)]
-        public decimal? GustFactor { get; set; }
+        [DataMember(Name="gustFactorV2", EmitDefaultValue=false)]
+        public decimal? GustFactorV2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -220,7 +220,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  WindEngineeringStandard: ").Append(WindEngineeringStandard).Append("\n");
             sb.Append("  WindDataSource: ").Append(WindDataSource).Append("\n");
             sb.Append("  AddSurfaceRoughness: ").Append(AddSurfaceRoughness).Append("\n");
-            sb.Append("  GustFactor: ").Append(GustFactor).Append("\n");
+            sb.Append("  GustFactorV2: ").Append(GustFactorV2).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -289,9 +289,9 @@ namespace SimScale.Sdk.Model
                     this.AddSurfaceRoughness.Equals(input.AddSurfaceRoughness))
                 ) && 
                 (
-                    this.GustFactor == input.GustFactor ||
-                    (this.GustFactor != null &&
-                    this.GustFactor.Equals(input.GustFactor))
+                    this.GustFactorV2 == input.GustFactorV2 ||
+                    (this.GustFactorV2 != null &&
+                    this.GustFactorV2.Equals(input.GustFactorV2))
                 );
         }
 
@@ -315,8 +315,8 @@ namespace SimScale.Sdk.Model
                 hashCode = hashCode * 59 + this.WindDataSource.GetHashCode();
                 if (this.AddSurfaceRoughness != null)
                     hashCode = hashCode * 59 + this.AddSurfaceRoughness.GetHashCode();
-                if (this.GustFactor != null)
-                    hashCode = hashCode * 59 + this.GustFactor.GetHashCode();
+                if (this.GustFactorV2 != null)
+                    hashCode = hashCode * 59 + this.GustFactorV2.GetHashCode();
                 return hashCode;
             }
         }

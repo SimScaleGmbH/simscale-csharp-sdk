@@ -41,12 +41,14 @@ namespace SimScale.Sdk.Model
         /// <param name="pressure">pressure.</param>
         /// <param name="pressureRgh">pressureRgh.</param>
         /// <param name="gaugePressure">gaugePressure.</param>
+        /// <param name="phaseFractionsV2">phaseFractionsV2.</param>
+        /// <param name="massFractionsV2">massFractionsV2.</param>
         /// <param name="gaugePressureRgh">gaugePressureRgh.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureOutletBC(string type = "PRESSURE_OUTLET_V30", string name = default(string), OneOfPressureOutletBCPressure pressure = default(OneOfPressureOutletBCPressure), OneOfPressureOutletBCPressureRgh pressureRgh = default(OneOfPressureOutletBCPressureRgh), OneOfPressureOutletBCGaugePressure gaugePressure = default(OneOfPressureOutletBCGaugePressure), OneOfPressureOutletBCGaugePressureRgh gaugePressureRgh = default(OneOfPressureOutletBCGaugePressureRgh), OneOfPressureOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureOutletBCNetRadiativeHeatFlux), OneOfPressureOutletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureOutletBCRadiativeIntensityRay), InletOutletRHBC relativeHumidity = default(InletOutletRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureOutletBC(string type = "PRESSURE_OUTLET_V30", string name = default(string), OneOfPressureOutletBCPressure pressure = default(OneOfPressureOutletBCPressure), OneOfPressureOutletBCPressureRgh pressureRgh = default(OneOfPressureOutletBCPressureRgh), OneOfPressureOutletBCGaugePressure gaugePressure = default(OneOfPressureOutletBCGaugePressure), OneOfPressureOutletBCPhaseFractionsV2 phaseFractionsV2 = default(OneOfPressureOutletBCPhaseFractionsV2), OutletBackFlowMFValues massFractionsV2 = default(OutletBackFlowMFValues), OneOfPressureOutletBCGaugePressureRgh gaugePressureRgh = default(OneOfPressureOutletBCGaugePressureRgh), OneOfPressureOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureOutletBCNetRadiativeHeatFlux), OneOfPressureOutletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureOutletBCRadiativeIntensityRay), InletOutletRHBC relativeHumidity = default(InletOutletRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureOutletBC and cannot be null");
@@ -54,6 +56,8 @@ namespace SimScale.Sdk.Model
             this.Pressure = pressure;
             this.PressureRgh = pressureRgh;
             this.GaugePressure = gaugePressure;
+            this.PhaseFractionsV2 = phaseFractionsV2;
+            this.MassFractionsV2 = massFractionsV2;
             this.GaugePressureRgh = gaugePressureRgh;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
@@ -91,6 +95,18 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="gaugePressure", EmitDefaultValue=false)]
         public OneOfPressureOutletBCGaugePressure GaugePressure { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PhaseFractionsV2
+        /// </summary>
+        [DataMember(Name="phaseFractionsV2", EmitDefaultValue=false)]
+        public OneOfPressureOutletBCPhaseFractionsV2 PhaseFractionsV2 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MassFractionsV2
+        /// </summary>
+        [DataMember(Name="massFractionsV2", EmitDefaultValue=false)]
+        public OutletBackFlowMFValues MassFractionsV2 { get; set; }
 
         /// <summary>
         /// Gets or Sets GaugePressureRgh
@@ -135,6 +151,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Pressure: ").Append(Pressure).Append("\n");
             sb.Append("  PressureRgh: ").Append(PressureRgh).Append("\n");
             sb.Append("  GaugePressure: ").Append(GaugePressure).Append("\n");
+            sb.Append("  PhaseFractionsV2: ").Append(PhaseFractionsV2).Append("\n");
+            sb.Append("  MassFractionsV2: ").Append(MassFractionsV2).Append("\n");
             sb.Append("  GaugePressureRgh: ").Append(GaugePressureRgh).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
@@ -200,6 +218,16 @@ namespace SimScale.Sdk.Model
                     this.GaugePressure.Equals(input.GaugePressure))
                 ) && 
                 (
+                    this.PhaseFractionsV2 == input.PhaseFractionsV2 ||
+                    (this.PhaseFractionsV2 != null &&
+                    this.PhaseFractionsV2.Equals(input.PhaseFractionsV2))
+                ) && 
+                (
+                    this.MassFractionsV2 == input.MassFractionsV2 ||
+                    (this.MassFractionsV2 != null &&
+                    this.MassFractionsV2.Equals(input.MassFractionsV2))
+                ) && 
+                (
                     this.GaugePressureRgh == input.GaugePressureRgh ||
                     (this.GaugePressureRgh != null &&
                     this.GaugePressureRgh.Equals(input.GaugePressureRgh))
@@ -245,6 +273,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PressureRgh.GetHashCode();
                 if (this.GaugePressure != null)
                     hashCode = hashCode * 59 + this.GaugePressure.GetHashCode();
+                if (this.PhaseFractionsV2 != null)
+                    hashCode = hashCode * 59 + this.PhaseFractionsV2.GetHashCode();
+                if (this.MassFractionsV2 != null)
+                    hashCode = hashCode * 59 + this.MassFractionsV2.GetHashCode();
                 if (this.GaugePressureRgh != null)
                     hashCode = hashCode * 59 + this.GaugePressureRgh.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)

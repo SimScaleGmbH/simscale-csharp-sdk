@@ -30,7 +30,11 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(ExternalWallHeatFluxTBC), "EXTERNAL_WALL_HEAT_FLUX_TEMPERATURE")]
     [JsonSubtypes.KnownSubType(typeof(FixedValueTBC), "FIXED_VALUE")]
     [JsonSubtypes.KnownSubType(typeof(AdiabaticTBC), "ADIABATIC")]
+    [JsonSubtypes.KnownSubType(typeof(TotalTBC), "TOTAL_TEMPERATURE")]
     [JsonSubtypes.KnownSubType(typeof(TurbulentHeatFluxTBC), "TURBULENT_HEAT_FLUX_TEMPERATURE")]
+    [JsonSubtypes.KnownSubType(typeof(ConvectionTBC), "CONVECTIVE_HEAT_TRANSFER")]
+    [JsonSubtypes.KnownSubType(typeof(RadiationTBC), "RADIATIVE_HEAT_TRANSFER")]
+    [JsonSubtypes.KnownSubType(typeof(ConvectionRadiationTBC), "CONVECTIVE_RADIATIVE_HEAT_TRANSFER")]
     public interface OneOfWallBCTemperature
     {
         /// <summary>

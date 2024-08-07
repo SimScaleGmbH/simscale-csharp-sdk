@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: DistanceVolumeCustomSizing (required) (default to &quot;DISTANCE_CUSTOM_SIZING&quot;).</param>
         /// <param name="distanceSizingValues">Define the desired cell size based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;increasing order&lt;/u&gt;, while the sizes must be in &lt;u&gt;decreasing order&lt;/u&gt;. When the distance is 0, the corresponding size is applied inside the specified volumes..</param>
-        public DistanceVolumeCustomSizing(string type = "DISTANCE_CUSTOM_SIZING", List<DistanceSizing> distanceSizingValues = default(List<DistanceSizing>))
+        /// <param name="curvature">curvature.</param>
+        public DistanceVolumeCustomSizing(string type = "DISTANCE_CUSTOM_SIZING", List<DistanceSizing> distanceSizingValues = default(List<DistanceSizing>), OneOfDistanceVolumeCustomSizingCurvature curvature = default(OneOfDistanceVolumeCustomSizingCurvature))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for DistanceVolumeCustomSizing and cannot be null");
             this.DistanceSizingValues = distanceSizingValues;
+            this.Curvature = curvature;
         }
         
         /// <summary>
@@ -60,6 +62,12 @@ namespace SimScale.Sdk.Model
         public List<DistanceSizing> DistanceSizingValues { get; set; }
 
         /// <summary>
+        /// Gets or Sets Curvature
+        /// </summary>
+        [DataMember(Name="curvature", EmitDefaultValue=false)]
+        public OneOfDistanceVolumeCustomSizingCurvature Curvature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,6 +77,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class DistanceVolumeCustomSizing {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  DistanceSizingValues: ").Append(DistanceSizingValues).Append("\n");
+            sb.Append("  Curvature: ").Append(Curvature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,6 +122,11 @@ namespace SimScale.Sdk.Model
                     this.DistanceSizingValues != null &&
                     input.DistanceSizingValues != null &&
                     this.DistanceSizingValues.SequenceEqual(input.DistanceSizingValues)
+                ) && 
+                (
+                    this.Curvature == input.Curvature ||
+                    (this.Curvature != null &&
+                    this.Curvature.Equals(input.Curvature))
                 );
         }
 
@@ -129,6 +143,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.DistanceSizingValues != null)
                     hashCode = hashCode * 59 + this.DistanceSizingValues.GetHashCode();
+                if (this.Curvature != null)
+                    hashCode = hashCode * 59 + this.Curvature.GetHashCode();
                 return hashCode;
             }
         }

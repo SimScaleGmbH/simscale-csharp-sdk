@@ -32,7 +32,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ElectromagneticResultControl" /> class.
         /// </summary>
         /// <param name="calculateInductances">Calculate the inductance matrix of the coils. (default to false).</param>
-        /// <param name="calculateCapacitances">calculateCapacitances (default to false).</param>
+        /// <param name="calculateCapacitances">Calculate the capacitance matrix of the conductive bodies.&lt;strong&gt;&lt;span style&#x3D;&#39;color: red;&#39;&gt;Note that the field solution will be modified.&lt;/span&gt;&lt;/strong&gt; (default to false).</param>
         /// <param name="forcesAndTorques">forcesAndTorques.</param>
         public ElectromagneticResultControl(bool? calculateInductances = default(bool?), bool? calculateCapacitances = default(bool?), List<ForceAndTorque> forcesAndTorques = default(List<ForceAndTorque>))
         {
@@ -49,8 +49,9 @@ namespace SimScale.Sdk.Model
         public bool? CalculateInductances { get; set; }
 
         /// <summary>
-        /// Gets or Sets CalculateCapacitances
+        /// Calculate the capacitance matrix of the conductive bodies.&lt;strong&gt;&lt;span style&#x3D;&#39;color: red;&#39;&gt;Note that the field solution will be modified.&lt;/span&gt;&lt;/strong&gt;
         /// </summary>
+        /// <value>Calculate the capacitance matrix of the conductive bodies.&lt;strong&gt;&lt;span style&#x3D;&#39;color: red;&#39;&gt;Note that the field solution will be modified.&lt;/span&gt;&lt;/strong&gt;</value>
         [DataMember(Name="calculateCapacitances", EmitDefaultValue=false)]
         public bool? CalculateCapacitances { get; set; }
 

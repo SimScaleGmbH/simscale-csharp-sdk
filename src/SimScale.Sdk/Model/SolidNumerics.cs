@@ -73,7 +73,8 @@ namespace SimScale.Sdk.Model
         /// <param name="thermalTimeIntegrationType">thermalTimeIntegrationType.</param>
         /// <param name="thermalResolutionType">thermalResolutionType.</param>
         /// <param name="thermalLineSearch">thermalLineSearch.</param>
-        public SolidNumerics(HarmonicSolutionMethodEnum? harmonicSolutionMethod = default(HarmonicSolutionMethodEnum?), OneOfSolidNumericsSolver solver = default(OneOfSolidNumericsSolver), Object solveModel = default(Object), OneOfSolidNumericsEigenSolver eigenSolver = default(OneOfSolidNumericsEigenSolver), CalculateFrequency calculateFrequency = default(CalculateFrequency), EigenModeVerification eigenMode = default(EigenModeVerification), bool? enhancedAccuracy = default(bool?), ModalSolver modalBase = default(ModalSolver), HarmonicResponse harmonicResponse = default(HarmonicResponse), OneOfSolidNumericsMechanicalTimeIntegrationType mechanicalTimeIntegrationType = default(OneOfSolidNumericsMechanicalTimeIntegrationType), OneOfSolidNumericsMechanicalResolutionType mechanicalResolutionType = default(OneOfSolidNumericsMechanicalResolutionType), OneOfSolidNumericsMechanicalLineSearch mechanicalLineSearch = default(OneOfSolidNumericsMechanicalLineSearch), ThetaMethodTimeIntegrationType thermalTimeIntegrationType = default(ThetaMethodTimeIntegrationType), OneOfSolidNumericsThermalResolutionType thermalResolutionType = default(OneOfSolidNumericsThermalResolutionType), OneOfSolidNumericsThermalLineSearch thermalLineSearch = default(OneOfSolidNumericsThermalLineSearch))
+        /// <param name="remotePointStiffnessMultiplier">remotePointStiffnessMultiplier (default to 1.0E-12M).</param>
+        public SolidNumerics(HarmonicSolutionMethodEnum? harmonicSolutionMethod = default(HarmonicSolutionMethodEnum?), OneOfSolidNumericsSolver solver = default(OneOfSolidNumericsSolver), Object solveModel = default(Object), OneOfSolidNumericsEigenSolver eigenSolver = default(OneOfSolidNumericsEigenSolver), CalculateFrequency calculateFrequency = default(CalculateFrequency), EigenModeVerification eigenMode = default(EigenModeVerification), bool? enhancedAccuracy = default(bool?), ModalSolver modalBase = default(ModalSolver), HarmonicResponse harmonicResponse = default(HarmonicResponse), OneOfSolidNumericsMechanicalTimeIntegrationType mechanicalTimeIntegrationType = default(OneOfSolidNumericsMechanicalTimeIntegrationType), OneOfSolidNumericsMechanicalResolutionType mechanicalResolutionType = default(OneOfSolidNumericsMechanicalResolutionType), OneOfSolidNumericsMechanicalLineSearch mechanicalLineSearch = default(OneOfSolidNumericsMechanicalLineSearch), ThetaMethodTimeIntegrationType thermalTimeIntegrationType = default(ThetaMethodTimeIntegrationType), OneOfSolidNumericsThermalResolutionType thermalResolutionType = default(OneOfSolidNumericsThermalResolutionType), OneOfSolidNumericsThermalLineSearch thermalLineSearch = default(OneOfSolidNumericsThermalLineSearch), decimal? remotePointStiffnessMultiplier = default(decimal?))
         {
             this.HarmonicSolutionMethod = harmonicSolutionMethod;
             this.Solver = solver;
@@ -90,6 +91,7 @@ namespace SimScale.Sdk.Model
             this.ThermalTimeIntegrationType = thermalTimeIntegrationType;
             this.ThermalResolutionType = thermalResolutionType;
             this.ThermalLineSearch = thermalLineSearch;
+            this.RemotePointStiffnessMultiplier = remotePointStiffnessMultiplier;
         }
         
         /// <summary>
@@ -178,6 +180,12 @@ namespace SimScale.Sdk.Model
         public OneOfSolidNumericsThermalLineSearch ThermalLineSearch { get; set; }
 
         /// <summary>
+        /// Gets or Sets RemotePointStiffnessMultiplier
+        /// </summary>
+        [DataMember(Name="remotePointStiffnessMultiplier", EmitDefaultValue=false)]
+        public decimal? RemotePointStiffnessMultiplier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -200,6 +208,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  ThermalTimeIntegrationType: ").Append(ThermalTimeIntegrationType).Append("\n");
             sb.Append("  ThermalResolutionType: ").Append(ThermalResolutionType).Append("\n");
             sb.Append("  ThermalLineSearch: ").Append(ThermalLineSearch).Append("\n");
+            sb.Append("  RemotePointStiffnessMultiplier: ").Append(RemotePointStiffnessMultiplier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -307,6 +316,11 @@ namespace SimScale.Sdk.Model
                     this.ThermalLineSearch == input.ThermalLineSearch ||
                     (this.ThermalLineSearch != null &&
                     this.ThermalLineSearch.Equals(input.ThermalLineSearch))
+                ) && 
+                (
+                    this.RemotePointStiffnessMultiplier == input.RemotePointStiffnessMultiplier ||
+                    (this.RemotePointStiffnessMultiplier != null &&
+                    this.RemotePointStiffnessMultiplier.Equals(input.RemotePointStiffnessMultiplier))
                 );
         }
 
@@ -348,6 +362,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ThermalResolutionType.GetHashCode();
                 if (this.ThermalLineSearch != null)
                     hashCode = hashCode * 59 + this.ThermalLineSearch.GetHashCode();
+                if (this.RemotePointStiffnessMultiplier != null)
+                    hashCode = hashCode * 59 + this.RemotePointStiffnessMultiplier.GetHashCode();
                 return hashCode;
             }
         }

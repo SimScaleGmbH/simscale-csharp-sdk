@@ -70,9 +70,29 @@ namespace SimScale.Sdk.Model
             NUMBER_32 = 32,
 
             /// <summary>
+            /// Enum NUMBER_48 for value: 48
+            /// </summary>
+            NUMBER_48 = 48,
+
+            /// <summary>
             /// Enum NUMBER_64 for value: 64
             /// </summary>
-            NUMBER_64 = 64
+            NUMBER_64 = 64,
+
+            /// <summary>
+            /// Enum NUMBER_96 for value: 96
+            /// </summary>
+            NUMBER_96 = 96,
+
+            /// <summary>
+            /// Enum NUMBER_128 for value: 128
+            /// </summary>
+            NUMBER_128 = 128,
+
+            /// <summary>
+            /// Enum NUMBER_192 for value: 192
+            /// </summary>
+            NUMBER_192 = 192
 
         }
 

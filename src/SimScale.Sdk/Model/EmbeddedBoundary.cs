@@ -130,6 +130,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: EmbeddedBoundary (required) (default to &quot;EMBEDDED_BOUNDARY&quot;).</param>
         /// <param name="allowExternalFlow">This toggle allows you to create an additional external fluid domain via a Cartesian box. Enable this toggle if you want to simulate for example natural convection around your system and the external flow domain is not represented in your CAD model as a solid body. (default to false).</param>
         /// <param name="model">model.</param>
+        /// <param name="solarCalculator">solarCalculator.</param>
         /// <param name="materials">materials.</param>
         /// <param name="initialConditions">initialConditions.</param>
         /// <param name="externalFlowBoundaryCondition">externalFlowBoundaryCondition.</param>
@@ -141,17 +142,19 @@ namespace SimScale.Sdk.Model
         /// <param name="embeddedBoundaryMeshing">embeddedBoundaryMeshing.</param>
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperature differences in the simulation domain are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
+        /// <param name="enableSolarLoad">Enables the &lt;b&gt;solar load&lt;/b&gt; model in the simulation. &lt;b&gt;Diffuse&lt;/b&gt; and/or &lt;b&gt;directional&lt;/b&gt; solar load contributions are specified in the &lt;b&gt;solar calculator&lt;/b&gt;. The solar load terms will heat the external faces of the simulation domain. Moreover, if transparent and/or semi-transparent boundaries are present, internal surfaces of the domain might also be heated. All &lt;b&gt;internal solids&lt;/b&gt; will be considered &lt;b&gt;opaque&lt;/b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="enableHumidityModel">&lt;b&gt;Humidity model&lt;/b&gt; to simulate wet air. First turn on the &lt;em&gt;compressible&lt;/em&gt; toggle to enable it. The simulation will take the effect of humid air on the flow field into account. Dry air is heavier than wet air and hence sinks. The model does not account for condensation and evaporation and is not applicable in cases where this is of concern, for example dehumidifiers. It is suitable for HVAC analysis and for temperature ranges of &lt;b&gt;0° to 100°C&lt;/b&gt;. &lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/global-settings/humidity-modeling/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="enableJouleHeating">Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation. (default to false).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="numOfPassiveSpecies">Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to NumOfPassiveSpeciesEnum.NUMBER_0).</param>
-        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? allowExternalFlow = default(bool?), FluidModel model = default(FluidModel), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), OneOfEmbeddedBoundaryExternalFlowBoundaryCondition externalFlowBoundaryCondition = default(OneOfEmbeddedBoundaryExternalFlowBoundaryCondition), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), EmbeddedBoundaryMeshing embeddedBoundaryMeshing = default(EmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableHumidityModel = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?))
+        public EmbeddedBoundary(string type = "EMBEDDED_BOUNDARY", bool? allowExternalFlow = default(bool?), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), OneOfEmbeddedBoundaryExternalFlowBoundaryCondition externalFlowBoundaryCondition = default(OneOfEmbeddedBoundaryExternalFlowBoundaryCondition), List<OneOfEmbeddedBoundaryBoundaryConditions> boundaryConditions = default(List<OneOfEmbeddedBoundaryBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), EmbeddedBoundaryMeshing embeddedBoundaryMeshing = default(EmbeddedBoundaryMeshing), bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), bool? enableHumidityModel = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfEmbeddedBoundaryTimeDependency timeDependency = default(OneOfEmbeddedBoundaryTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for EmbeddedBoundary and cannot be null");
             this.AllowExternalFlow = allowExternalFlow;
             this.Model = model;
+            this.SolarCalculator = solarCalculator;
             this.Materials = materials;
             this.InitialConditions = initialConditions;
             this.ExternalFlowBoundaryCondition = externalFlowBoundaryCondition;
@@ -163,6 +166,7 @@ namespace SimScale.Sdk.Model
             this.EmbeddedBoundaryMeshing = embeddedBoundaryMeshing;
             this.IsCompressible = isCompressible;
             this.EnableRadiation = enableRadiation;
+            this.EnableSolarLoad = enableSolarLoad;
             this.EnableHumidityModel = enableHumidityModel;
             this.EnableJouleHeating = enableJouleHeating;
             this.TurbulenceModel = turbulenceModel;
@@ -189,6 +193,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="model", EmitDefaultValue=false)]
         public FluidModel Model { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SolarCalculator
+        /// </summary>
+        [DataMember(Name="solarCalculator", EmitDefaultValue=false)]
+        public SolarCalculator SolarCalculator { get; set; }
 
         /// <summary>
         /// Gets or Sets Materials
@@ -259,6 +269,13 @@ namespace SimScale.Sdk.Model
         public bool? EnableRadiation { get; set; }
 
         /// <summary>
+        /// Enables the &lt;b&gt;solar load&lt;/b&gt; model in the simulation. &lt;b&gt;Diffuse&lt;/b&gt; and/or &lt;b&gt;directional&lt;/b&gt; solar load contributions are specified in the &lt;b&gt;solar calculator&lt;/b&gt;. The solar load terms will heat the external faces of the simulation domain. Moreover, if transparent and/or semi-transparent boundaries are present, internal surfaces of the domain might also be heated. All &lt;b&gt;internal solids&lt;/b&gt; will be considered &lt;b&gt;opaque&lt;/b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+        /// </summary>
+        /// <value>Enables the &lt;b&gt;solar load&lt;/b&gt; model in the simulation. &lt;b&gt;Diffuse&lt;/b&gt; and/or &lt;b&gt;directional&lt;/b&gt; solar load contributions are specified in the &lt;b&gt;solar calculator&lt;/b&gt;. The solar load terms will heat the external faces of the simulation domain. Moreover, if transparent and/or semi-transparent boundaries are present, internal surfaces of the domain might also be heated. All &lt;b&gt;internal solids&lt;/b&gt; will be considered &lt;b&gt;opaque&lt;/b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
+        [DataMember(Name="enableSolarLoad", EmitDefaultValue=false)]
+        public bool? EnableSolarLoad { get; set; }
+
+        /// <summary>
         /// &lt;b&gt;Humidity model&lt;/b&gt; to simulate wet air. First turn on the &lt;em&gt;compressible&lt;/em&gt; toggle to enable it. The simulation will take the effect of humid air on the flow field into account. Dry air is heavier than wet air and hence sinks. The model does not account for condensation and evaporation and is not applicable in cases where this is of concern, for example dehumidifiers. It is suitable for HVAC analysis and for temperature ranges of &lt;b&gt;0° to 100°C&lt;/b&gt;. &lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/global-settings/humidity-modeling/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
         /// <value>&lt;b&gt;Humidity model&lt;/b&gt; to simulate wet air. First turn on the &lt;em&gt;compressible&lt;/em&gt; toggle to enable it. The simulation will take the effect of humid air on the flow field into account. Dry air is heavier than wet air and hence sinks. The model does not account for condensation and evaporation and is not applicable in cases where this is of concern, for example dehumidifiers. It is suitable for HVAC analysis and for temperature ranges of &lt;b&gt;0° to 100°C&lt;/b&gt;. &lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/global-settings/humidity-modeling/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
@@ -289,6 +306,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  AllowExternalFlow: ").Append(AllowExternalFlow).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
+            sb.Append("  SolarCalculator: ").Append(SolarCalculator).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
             sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
             sb.Append("  ExternalFlowBoundaryCondition: ").Append(ExternalFlowBoundaryCondition).Append("\n");
@@ -300,6 +318,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  EmbeddedBoundaryMeshing: ").Append(EmbeddedBoundaryMeshing).Append("\n");
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
+            sb.Append("  EnableSolarLoad: ").Append(EnableSolarLoad).Append("\n");
             sb.Append("  EnableHumidityModel: ").Append(EnableHumidityModel).Append("\n");
             sb.Append("  EnableJouleHeating: ").Append(EnableJouleHeating).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
@@ -353,6 +372,11 @@ namespace SimScale.Sdk.Model
                     this.Model == input.Model ||
                     (this.Model != null &&
                     this.Model.Equals(input.Model))
+                ) && 
+                (
+                    this.SolarCalculator == input.SolarCalculator ||
+                    (this.SolarCalculator != null &&
+                    this.SolarCalculator.Equals(input.SolarCalculator))
                 ) && 
                 (
                     this.Materials == input.Materials ||
@@ -411,6 +435,11 @@ namespace SimScale.Sdk.Model
                     this.EnableRadiation.Equals(input.EnableRadiation))
                 ) && 
                 (
+                    this.EnableSolarLoad == input.EnableSolarLoad ||
+                    (this.EnableSolarLoad != null &&
+                    this.EnableSolarLoad.Equals(input.EnableSolarLoad))
+                ) && 
+                (
                     this.EnableHumidityModel == input.EnableHumidityModel ||
                     (this.EnableHumidityModel != null &&
                     this.EnableHumidityModel.Equals(input.EnableHumidityModel))
@@ -450,6 +479,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.AllowExternalFlow.GetHashCode();
                 if (this.Model != null)
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
+                if (this.SolarCalculator != null)
+                    hashCode = hashCode * 59 + this.SolarCalculator.GetHashCode();
                 if (this.Materials != null)
                     hashCode = hashCode * 59 + this.Materials.GetHashCode();
                 if (this.InitialConditions != null)
@@ -472,6 +503,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
                 if (this.EnableRadiation != null)
                     hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
+                if (this.EnableSolarLoad != null)
+                    hashCode = hashCode * 59 + this.EnableSolarLoad.GetHashCode();
                 if (this.EnableHumidityModel != null)
                     hashCode = hashCode * 59 + this.EnableHumidityModel.GetHashCode();
                 if (this.EnableJouleHeating != null)

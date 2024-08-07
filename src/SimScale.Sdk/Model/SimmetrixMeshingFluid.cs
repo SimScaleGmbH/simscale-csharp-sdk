@@ -60,6 +60,11 @@ namespace SimScale.Sdk.Model
             NUMBER_32 = 32,
 
             /// <summary>
+            /// Enum NUMBER_48 for value: 48
+            /// </summary>
+            NUMBER_48 = 48,
+
+            /// <summary>
             /// Enum NUMBER_64 for value: 64
             /// </summary>
             NUMBER_64 = 64,

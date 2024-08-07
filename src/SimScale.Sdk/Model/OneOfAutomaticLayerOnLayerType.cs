@@ -24,11 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Define how the layers should be distributed within the overall layer thickness:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Specify growth rate&lt;/b&gt;: Define the growth rate between adjacent layers. &lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;&lt;b&gt;Specify first layer thickness:&lt;/b&gt; Define the absolute thickness of the first layer. The remaining layers are distributed automatically. Choose this option for example to strictly control the y+ value. &lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+    /// &lt;p&gt;Define how the layers should be distributed within the overall layer thickness:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Specify growth rate:&lt;/b&gt; Define the growth rate between adjacent layers. &lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;&lt;b&gt;Specify first layer thickness:&lt;/b&gt; Define the absolute thickness of the first layer. The remaining layers are distributed automatically. Choose this option for example to strictly control the y+ value. &lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;&lt;b&gt;Specify first layer and total absolute thickness:&lt;/b&gt; Define the absolute value of the first layer and the total layer thickness. The growth rate is computed automatically using a geometric progression. &lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(FractionalHeight1), "FRACTIONAL_HEIGHT_1")]
     [JsonSubtypes.KnownSubType(typeof(FractionalHeight2), "FRACTIONAL_HEIGHT_2")]
+    [JsonSubtypes.KnownSubType(typeof(GeometricGrowth), "GEOMETRIC_GROWTH")]
     public interface OneOfAutomaticLayerOnLayerType
     {
         /// <summary>

@@ -37,15 +37,15 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="VoltageExcitation" /> class.
         /// </summary>
         /// <param name="type">Schema name: VoltageExcitation (required) (default to &quot;VOLTAGE_EXCITATION&quot;).</param>
-        /// <param name="voltage">voltage.</param>
+        /// <param name="voltageType">voltageType.</param>
         /// <param name="voltageRMS">voltageRMS.</param>
         /// <param name="voltagePhase">voltagePhase.</param>
         /// <param name="additionalResistance">additionalResistance.</param>
-        public VoltageExcitation(string type = "VOLTAGE_EXCITATION", DimensionalElectricPotential voltage = default(DimensionalElectricPotential), DimensionalElectricPotential voltageRMS = default(DimensionalElectricPotential), DimensionalAngle voltagePhase = default(DimensionalAngle), DimensionalElectricResistance additionalResistance = default(DimensionalElectricResistance))
+        public VoltageExcitation(string type = "VOLTAGE_EXCITATION", OneOfVoltageExcitationVoltageType voltageType = default(OneOfVoltageExcitationVoltageType), DimensionalElectricPotential voltageRMS = default(DimensionalElectricPotential), DimensionalAngle voltagePhase = default(DimensionalAngle), DimensionalElectricResistance additionalResistance = default(DimensionalElectricResistance))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VoltageExcitation and cannot be null");
-            this.Voltage = voltage;
+            this.VoltageType = voltageType;
             this.VoltageRMS = voltageRMS;
             this.VoltagePhase = voltagePhase;
             this.AdditionalResistance = additionalResistance;
@@ -59,10 +59,10 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Voltage
+        /// Gets or Sets VoltageType
         /// </summary>
-        [DataMember(Name="voltage", EmitDefaultValue=false)]
-        public DimensionalElectricPotential Voltage { get; set; }
+        [DataMember(Name="voltageType", EmitDefaultValue=false)]
+        public OneOfVoltageExcitationVoltageType VoltageType { get; set; }
 
         /// <summary>
         /// Gets or Sets VoltageRMS
@@ -91,7 +91,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class VoltageExcitation {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Voltage: ").Append(Voltage).Append("\n");
+            sb.Append("  VoltageType: ").Append(VoltageType).Append("\n");
             sb.Append("  VoltageRMS: ").Append(VoltageRMS).Append("\n");
             sb.Append("  VoltagePhase: ").Append(VoltagePhase).Append("\n");
             sb.Append("  AdditionalResistance: ").Append(AdditionalResistance).Append("\n");
@@ -135,9 +135,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Voltage == input.Voltage ||
-                    (this.Voltage != null &&
-                    this.Voltage.Equals(input.Voltage))
+                    this.VoltageType == input.VoltageType ||
+                    (this.VoltageType != null &&
+                    this.VoltageType.Equals(input.VoltageType))
                 ) && 
                 (
                     this.VoltageRMS == input.VoltageRMS ||
@@ -167,8 +167,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Voltage != null)
-                    hashCode = hashCode * 59 + this.Voltage.GetHashCode();
+                if (this.VoltageType != null)
+                    hashCode = hashCode * 59 + this.VoltageType.GetHashCode();
                 if (this.VoltageRMS != null)
                     hashCode = hashCode * 59 + this.VoltageRMS.GetHashCode();
                 if (this.VoltagePhase != null)

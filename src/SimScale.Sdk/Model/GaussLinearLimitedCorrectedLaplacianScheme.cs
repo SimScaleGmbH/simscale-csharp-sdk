@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="GaussLinearLimitedCorrectedLaplacianScheme" /> class.
         /// </summary>
         /// <param name="type">Schema name: GaussLinearLimitedCorrectedLaplacianScheme (required) (default to &quot;GAUSS_LINEAR_LIMITED_CORRECTED&quot;).</param>
-        /// <param name="limiterCoefficient">This property defines a limiter coefficient for the scheme. 1 ensures boundedness while 0 applies no limiting. (default to 0.5M).</param>
+        /// <param name="limiterCoefficient">This property defines a limiter coefficient for the scheme:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;0&lt;/strong&gt;: no correction, equivalent to the uncorrected scheme&lt;/li&gt;&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;: full non-orthogonal correction applied&lt;/li&gt;&lt;li&gt;&lt;strong&gt;0.5&lt;/strong&gt;: non-orthogonal contribution does not exceed the orthogonal part&lt;/li&gt;&lt;/ul&gt; (default to 0.5M).</param>
         public GaussLinearLimitedCorrectedLaplacianScheme(string type = "GAUSS_LINEAR_LIMITED_CORRECTED", decimal? limiterCoefficient = default(decimal?))
         {
             // to ensure "type" is required (not null)
@@ -53,9 +53,9 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// This property defines a limiter coefficient for the scheme. 1 ensures boundedness while 0 applies no limiting.
+        /// This property defines a limiter coefficient for the scheme:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;0&lt;/strong&gt;: no correction, equivalent to the uncorrected scheme&lt;/li&gt;&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;: full non-orthogonal correction applied&lt;/li&gt;&lt;li&gt;&lt;strong&gt;0.5&lt;/strong&gt;: non-orthogonal contribution does not exceed the orthogonal part&lt;/li&gt;&lt;/ul&gt;
         /// </summary>
-        /// <value>This property defines a limiter coefficient for the scheme. 1 ensures boundedness while 0 applies no limiting.</value>
+        /// <value>This property defines a limiter coefficient for the scheme:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;0&lt;/strong&gt;: no correction, equivalent to the uncorrected scheme&lt;/li&gt;&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;: full non-orthogonal correction applied&lt;/li&gt;&lt;li&gt;&lt;strong&gt;0.5&lt;/strong&gt;: non-orthogonal contribution does not exceed the orthogonal part&lt;/li&gt;&lt;/ul&gt;</value>
         [DataMember(Name="limiterCoefficient", EmitDefaultValue=false)]
         public decimal? LimiterCoefficient { get; set; }
 

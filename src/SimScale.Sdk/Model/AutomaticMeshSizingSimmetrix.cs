@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AutomaticMeshSizingSimmetrix
     /// </summary>
     [DataContract]
-    public partial class AutomaticMeshSizingSimmetrix : OneOfInsideVolumeCustomSizingSizing, OneOfSimmetrixMeshingFluidSizing, OneOfSimmetrixMeshingSolidSizing, OneOfSurfaceCustomSizingSizing, IEquatable<AutomaticMeshSizingSimmetrix>
+    public partial class AutomaticMeshSizingSimmetrix : OneOfInsideVolumeCustomSizingSizing, OneOfSimmetrixMeshingElectromagneticsSizing, OneOfSimmetrixMeshingFluidSizing, OneOfSimmetrixMeshingSolidSizing, OneOfSurfaceCustomSizingSizing, IEquatable<AutomaticMeshSizingSimmetrix>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticMeshSizingSimmetrix" /> class.
@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: AutomaticMeshSizingSimmetrix (required) (default to &quot;AUTOMATIC_V9&quot;).</param>
         /// <param name="fineness">&lt;p&gt;Adjust the overall mesh sizing from coarse (value: 0) to fine (10).&lt;/p&gt; (default to 5M).</param>
-        public AutomaticMeshSizingSimmetrix(string type = "AUTOMATIC_V9", decimal? fineness = default(decimal?))
+        /// <param name="curvature">curvature.</param>
+        public AutomaticMeshSizingSimmetrix(string type = "AUTOMATIC_V9", decimal? fineness = default(decimal?), OneOfAutomaticMeshSizingSimmetrixCurvature curvature = default(OneOfAutomaticMeshSizingSimmetrixCurvature))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticMeshSizingSimmetrix and cannot be null");
             this.Fineness = fineness;
+            this.Curvature = curvature;
         }
         
         /// <summary>
@@ -60,6 +62,12 @@ namespace SimScale.Sdk.Model
         public decimal? Fineness { get; set; }
 
         /// <summary>
+        /// Gets or Sets Curvature
+        /// </summary>
+        [DataMember(Name="curvature", EmitDefaultValue=false)]
+        public OneOfAutomaticMeshSizingSimmetrixCurvature Curvature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,6 +77,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class AutomaticMeshSizingSimmetrix {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Fineness: ").Append(Fineness).Append("\n");
+            sb.Append("  Curvature: ").Append(Curvature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,6 +121,11 @@ namespace SimScale.Sdk.Model
                     this.Fineness == input.Fineness ||
                     (this.Fineness != null &&
                     this.Fineness.Equals(input.Fineness))
+                ) && 
+                (
+                    this.Curvature == input.Curvature ||
+                    (this.Curvature != null &&
+                    this.Curvature.Equals(input.Curvature))
                 );
         }
 
@@ -128,6 +142,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Fineness != null)
                     hashCode = hashCode * 59 + this.Fineness.GetHashCode();
+                if (this.Curvature != null)
+                    hashCode = hashCode * 59 + this.Curvature.GetHashCode();
                 return hashCode;
             }
         }

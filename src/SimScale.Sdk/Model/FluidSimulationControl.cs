@@ -70,6 +70,11 @@ namespace SimScale.Sdk.Model
             NUMBER_32 = 32,
 
             /// <summary>
+            /// Enum NUMBER_48 for value: 48
+            /// </summary>
+            NUMBER_48 = 48,
+
+            /// <summary>
             /// Enum NUMBER_64 for value: 64
             /// </summary>
             NUMBER_64 = 64,
@@ -77,7 +82,17 @@ namespace SimScale.Sdk.Model
             /// <summary>
             /// Enum NUMBER_96 for value: 96
             /// </summary>
-            NUMBER_96 = 96
+            NUMBER_96 = 96,
+
+            /// <summary>
+            /// Enum NUMBER_128 for value: 128
+            /// </summary>
+            NUMBER_128 = 128,
+
+            /// <summary>
+            /// Enum NUMBER_192 for value: 192
+            /// </summary>
+            NUMBER_192 = 192
 
         }
 
@@ -92,7 +107,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="endTime">endTime.</param>
         /// <param name="adjointEndTime">adjointEndTime.</param>
-        /// <param name="numberOfIterations">&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the number of total iterations at which the termination of simulation happens. No more iterations will be executed beyond that. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the number of iterations per time step. The recommended value is 25. The larger the &lt;i&gt;Delta t&lt;/i&gt; value is, the larger the &lt;i&gt;Number of iterations&lt;/i&gt; has to be, in order to obtain more stable, converged solution. The simulation will terminate only when the &lt;i&gt;End time&lt;/i&gt; is reached.&lt;/br&gt;.</param>
+        /// <param name="numberOfIterations">This represents the total number of iterations at which the simulation will terminate. No further iterations will be performed beyond this point. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;..</param>
         /// <param name="deltaT">deltaT.</param>
         /// <param name="adjustableTimestep">adjustableTimestep.</param>
         /// <param name="writeControl">writeControl.</param>
@@ -131,9 +146,9 @@ namespace SimScale.Sdk.Model
         public DimensionalTime AdjointEndTime { get; set; }
 
         /// <summary>
-        /// &lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the number of total iterations at which the termination of simulation happens. No more iterations will be executed beyond that. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the number of iterations per time step. The recommended value is 25. The larger the &lt;i&gt;Delta t&lt;/i&gt; value is, the larger the &lt;i&gt;Number of iterations&lt;/i&gt; has to be, in order to obtain more stable, converged solution. The simulation will terminate only when the &lt;i&gt;End time&lt;/i&gt; is reached.&lt;/br&gt;
+        /// This represents the total number of iterations at which the simulation will terminate. No further iterations will be performed beyond this point. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
         /// </summary>
-        /// <value>&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the number of total iterations at which the termination of simulation happens. No more iterations will be executed beyond that. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the number of iterations per time step. The recommended value is 25. The larger the &lt;i&gt;Delta t&lt;/i&gt; value is, the larger the &lt;i&gt;Number of iterations&lt;/i&gt; has to be, in order to obtain more stable, converged solution. The simulation will terminate only when the &lt;i&gt;End time&lt;/i&gt; is reached.&lt;/br&gt;</value>
+        /// <value>This represents the total number of iterations at which the simulation will terminate. No further iterations will be performed beyond this point. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.</value>
         [DataMember(Name="numberOfIterations", EmitDefaultValue=false)]
         public int? NumberOfIterations { get; set; }
 

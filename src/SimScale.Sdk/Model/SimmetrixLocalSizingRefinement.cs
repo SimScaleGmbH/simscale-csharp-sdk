@@ -39,13 +39,15 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Refine specific faces of interest or complex geometrical shapes by defining a local element size. This will ensure a relatively uniform mesh.  Schema name: SimmetrixLocalSizingRefinement (required) (default to &quot;SIMMETRIX_LOCAL_SIZING_V10&quot;).</param>
         /// <param name="name">name (default to &quot;Local element size&quot;).</param>
         /// <param name="maxElementSize">maxElementSize.</param>
+        /// <param name="curvature">curvature.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public SimmetrixLocalSizingRefinement(string type = "SIMMETRIX_LOCAL_SIZING_V10", string name = default(string), DimensionalLength maxElementSize = default(DimensionalLength), TopologicalReference topologicalReference = default(TopologicalReference))
+        public SimmetrixLocalSizingRefinement(string type = "SIMMETRIX_LOCAL_SIZING_V10", string name = default(string), DimensionalLength maxElementSize = default(DimensionalLength), OneOfSimmetrixLocalSizingRefinementCurvature curvature = default(OneOfSimmetrixLocalSizingRefinementCurvature), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixLocalSizingRefinement and cannot be null");
             this.Name = name;
             this.MaxElementSize = maxElementSize;
+            this.Curvature = curvature;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -69,6 +71,12 @@ namespace SimScale.Sdk.Model
         public DimensionalLength MaxElementSize { get; set; }
 
         /// <summary>
+        /// Gets or Sets Curvature
+        /// </summary>
+        [DataMember(Name="curvature", EmitDefaultValue=false)]
+        public OneOfSimmetrixLocalSizingRefinementCurvature Curvature { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -85,6 +93,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  MaxElementSize: ").Append(MaxElementSize).Append("\n");
+            sb.Append("  Curvature: ").Append(Curvature).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -136,6 +145,11 @@ namespace SimScale.Sdk.Model
                     this.MaxElementSize.Equals(input.MaxElementSize))
                 ) && 
                 (
+                    this.Curvature == input.Curvature ||
+                    (this.Curvature != null &&
+                    this.Curvature.Equals(input.Curvature))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -157,6 +171,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.MaxElementSize != null)
                     hashCode = hashCode * 59 + this.MaxElementSize.GetHashCode();
+                if (this.Curvature != null)
+                    hashCode = hashCode * 59 + this.Curvature.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

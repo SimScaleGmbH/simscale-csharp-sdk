@@ -23,59 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// PhaseNameAndFixedValuePFBC
+    /// ElectromagneticCurrentTypeConstant
     /// </summary>
     [DataContract]
-    public partial class PhaseNameAndFixedValuePFBC : IEquatable<PhaseNameAndFixedValuePFBC>
+    public partial class ElectromagneticCurrentTypeConstant : OneOfCurrentExcitationCurrentType, IEquatable<ElectromagneticCurrentTypeConstant>
     {
         /// <summary>
-        /// Defines AssociatedPhase
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum AssociatedPhaseEnum
-        {
-            /// <summary>
-            /// Enum _0 for value: PHASE_0
-            /// </summary>
-            [EnumMember(Value = "PHASE_0")]
-            _0 = 1,
-
-            /// <summary>
-            /// Enum _1 for value: PHASE_1
-            /// </summary>
-            [EnumMember(Value = "PHASE_1")]
-            _1 = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets AssociatedPhase
-        /// </summary>
-        [DataMember(Name="associatedPhase", EmitDefaultValue=false)]
-        public AssociatedPhaseEnum? AssociatedPhase { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PhaseNameAndFixedValuePFBC" /> class.
+        /// Initializes a new instance of the <see cref="ElectromagneticCurrentTypeConstant" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PhaseNameAndFixedValuePFBC() { }
+        protected ElectromagneticCurrentTypeConstant() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PhaseNameAndFixedValuePFBC" /> class.
+        /// Initializes a new instance of the <see cref="ElectromagneticCurrentTypeConstant" /> class.
         /// </summary>
-        /// <param name="type">Schema name: PhaseNameAndFixedValuePFBC (required) (default to &quot;PHASE_NAME_AND_FIXED_VALUE&quot;).</param>
-        /// <param name="associatedPhase">associatedPhase (default to AssociatedPhaseEnum._0).</param>
-        /// <param name="value">value (default to 0M).</param>
-        public PhaseNameAndFixedValuePFBC(string type = "PHASE_NAME_AND_FIXED_VALUE", AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), decimal? value = default(decimal?))
+        /// <param name="type">Schema name: ElectromagneticCurrentTypeConstant (required) (default to &quot;CURRENT_TYPE_CONSTANT&quot;).</param>
+        /// <param name="value">value.</param>
+        public ElectromagneticCurrentTypeConstant(string type = "CURRENT_TYPE_CONSTANT", DimensionalElectricCurrent value = default(DimensionalElectricCurrent))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for PhaseNameAndFixedValuePFBC and cannot be null");
-            this.AssociatedPhase = associatedPhase;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for ElectromagneticCurrentTypeConstant and cannot be null");
             this.Value = value;
         }
         
         /// <summary>
-        /// Schema name: PhaseNameAndFixedValuePFBC
+        /// Schema name: ElectromagneticCurrentTypeConstant
         /// </summary>
-        /// <value>Schema name: PhaseNameAndFixedValuePFBC</value>
+        /// <value>Schema name: ElectromagneticCurrentTypeConstant</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -83,7 +56,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        public DimensionalElectricCurrent Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,9 +65,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PhaseNameAndFixedValuePFBC {\n");
+            sb.Append("class ElectromagneticCurrentTypeConstant {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  AssociatedPhase: ").Append(AssociatedPhase).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -116,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PhaseNameAndFixedValuePFBC);
+            return this.Equals(input as ElectromagneticCurrentTypeConstant);
         }
 
         /// <summary>
-        /// Returns true if PhaseNameAndFixedValuePFBC instances are equal
+        /// Returns true if ElectromagneticCurrentTypeConstant instances are equal
         /// </summary>
-        /// <param name="input">Instance of PhaseNameAndFixedValuePFBC to be compared</param>
+        /// <param name="input">Instance of ElectromagneticCurrentTypeConstant to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PhaseNameAndFixedValuePFBC input)
+        public bool Equals(ElectromagneticCurrentTypeConstant input)
         {
             if (input == null)
                 return false;
@@ -134,10 +106,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.AssociatedPhase == input.AssociatedPhase ||
-                    this.AssociatedPhase.Equals(input.AssociatedPhase)
                 ) && 
                 (
                     this.Value == input.Value ||
@@ -157,7 +125,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.AssociatedPhase.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 return hashCode;

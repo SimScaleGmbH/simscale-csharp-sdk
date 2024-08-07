@@ -39,12 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: CustomMeshSizingSimmetrix (required) (default to &quot;CUSTOM&quot;).</param>
         /// <param name="defaultSize">defaultSize.</param>
         /// <param name="minSize">minSize.</param>
-        public CustomMeshSizingSimmetrix(string type = "CUSTOM", DimensionalLength defaultSize = default(DimensionalLength), DimensionalLength minSize = default(DimensionalLength))
+        /// <param name="curvature">curvature.</param>
+        public CustomMeshSizingSimmetrix(string type = "CUSTOM", DimensionalLength defaultSize = default(DimensionalLength), DimensionalLength minSize = default(DimensionalLength), OneOfCustomMeshSizingSimmetrixCurvature curvature = default(OneOfCustomMeshSizingSimmetrixCurvature))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CustomMeshSizingSimmetrix and cannot be null");
             this.DefaultSize = defaultSize;
             this.MinSize = minSize;
+            this.Curvature = curvature;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace SimScale.Sdk.Model
         public DimensionalLength MinSize { get; set; }
 
         /// <summary>
+        /// Gets or Sets Curvature
+        /// </summary>
+        [DataMember(Name="curvature", EmitDefaultValue=false)]
+        public OneOfCustomMeshSizingSimmetrixCurvature Curvature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +85,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  DefaultSize: ").Append(DefaultSize).Append("\n");
             sb.Append("  MinSize: ").Append(MinSize).Append("\n");
+            sb.Append("  Curvature: ").Append(Curvature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace SimScale.Sdk.Model
                     this.MinSize == input.MinSize ||
                     (this.MinSize != null &&
                     this.MinSize.Equals(input.MinSize))
+                ) && 
+                (
+                    this.Curvature == input.Curvature ||
+                    (this.Curvature != null &&
+                    this.Curvature.Equals(input.Curvature))
                 );
         }
 
@@ -143,6 +157,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.DefaultSize.GetHashCode();
                 if (this.MinSize != null)
                     hashCode = hashCode * 59 + this.MinSize.GetHashCode();
+                if (this.Curvature != null)
+                    hashCode = hashCode * 59 + this.Curvature.GetHashCode();
                 return hashCode;
             }
         }

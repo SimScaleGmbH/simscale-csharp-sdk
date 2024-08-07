@@ -39,7 +39,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: RelativeToAllCadSurfacesSettings (required) (default to &quot;RELATIVE_TO_ALL_CAD_SURFACES&quot;).</param>
         /// <param name="minimumCellSize">&lt;p&gt;This parameter specifies the &lt;b&gt;minimum size for all cells&lt;/b&gt; of the mesh relative to the diagonal of the CAD model. A higher value leads to a coarser mesh. Our recommendation is to start with the default value and if necessary, gradually lower the parameter until a desired mesh fineness is obtained.&lt;/p&gt; (default to 0.00070M).</param>
         /// <param name="maximumCellSize">&lt;p&gt;This parameter specifies the &lt;b&gt;maximum size for all cells&lt;/b&gt; of the mesh relative to the diagonal of the CAD model. A lower value leads to a finer mesh. Our recommendation is to start with the default value and if necessary, gradually lower the parameter until a desired mesh fineness is obtained.&lt;/p&gt; (default to 0.02M).</param>
-        /// <param name="cellSizeOnSurfaces">cellSizeOnSurfaces (default to 0.01M).</param>
+        /// <param name="cellSizeOnSurfaces">&lt;p&gt;This parameter specifies the &lt;b&gt;size of cells close to the surfaces&lt;/b&gt; relative to the diagonal of the CAD model. A higher value leads to a coarser mesh. Our recommendation is to start with the default value and if necessary, gradually lower the parameter until a desired mesh fineness is obtained.&lt;/p&gt; (default to 0.01M).</param>
         public RelativeToAllCadSurfacesSettings(string type = "RELATIVE_TO_ALL_CAD_SURFACES", decimal? minimumCellSize = default(decimal?), decimal? maximumCellSize = default(decimal?), decimal? cellSizeOnSurfaces = default(decimal?))
         {
             // to ensure "type" is required (not null)
@@ -71,8 +71,9 @@ namespace SimScale.Sdk.Model
         public decimal? MaximumCellSize { get; set; }
 
         /// <summary>
-        /// Gets or Sets CellSizeOnSurfaces
+        /// &lt;p&gt;This parameter specifies the &lt;b&gt;size of cells close to the surfaces&lt;/b&gt; relative to the diagonal of the CAD model. A higher value leads to a coarser mesh. Our recommendation is to start with the default value and if necessary, gradually lower the parameter until a desired mesh fineness is obtained.&lt;/p&gt;
         /// </summary>
+        /// <value>&lt;p&gt;This parameter specifies the &lt;b&gt;size of cells close to the surfaces&lt;/b&gt; relative to the diagonal of the CAD model. A higher value leads to a coarser mesh. Our recommendation is to start with the default value and if necessary, gradually lower the parameter until a desired mesh fineness is obtained.&lt;/p&gt;</value>
         [DataMember(Name="cellSizeOnSurfaces", EmitDefaultValue=false)]
         public decimal? CellSizeOnSurfaces { get; set; }
 

@@ -31,6 +31,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(MUMPSSolver), "MUMPS")]
     [JsonSubtypes.KnownSubType(typeof(MultifrontalSolver), "MULTIFRONT")]
     [JsonSubtypes.KnownSubType(typeof(PETSCSolver), "PETSC")]
+    [JsonSubtypes.KnownSubType(typeof(ChronosSolver), "CHRONOS")]
     public interface OneOfSolidNumericsSolver
     {
         /// <summary>

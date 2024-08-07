@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// TotalTBC
     /// </summary>
     [DataContract]
-    public partial class TotalTBC : OneOfCustomFluidBCTemperature, OneOfPressureInletBCTemperature, OneOfVelocityInletBCTemperature, IEquatable<TotalTBC>
+    public partial class TotalTBC : OneOfCustomFluidBCTemperature, OneOfPressureInletBCTemperature, OneOfVelocityInletBCTemperature, OneOfWallBCTemperature, IEquatable<TotalTBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalTBC" /> class.

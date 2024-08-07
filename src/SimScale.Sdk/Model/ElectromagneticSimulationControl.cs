@@ -29,14 +29,98 @@ namespace SimScale.Sdk.Model
     public partial class ElectromagneticSimulationControl : IEquatable<ElectromagneticSimulationControl>
     {
         /// <summary>
+        /// &lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
+        public enum NumProcessorsEnum
+        {
+            /// <summary>
+            /// Enum NUMBER_MINUS_1 for value: -1
+            /// </summary>
+            NUMBER_MINUS_1 = -1,
+
+            /// <summary>
+            /// Enum NUMBER_1 for value: 1
+            /// </summary>
+            NUMBER_1 = 1,
+
+            /// <summary>
+            /// Enum NUMBER_2 for value: 2
+            /// </summary>
+            NUMBER_2 = 2,
+
+            /// <summary>
+            /// Enum NUMBER_4 for value: 4
+            /// </summary>
+            NUMBER_4 = 4,
+
+            /// <summary>
+            /// Enum NUMBER_8 for value: 8
+            /// </summary>
+            NUMBER_8 = 8,
+
+            /// <summary>
+            /// Enum NUMBER_16 for value: 16
+            /// </summary>
+            NUMBER_16 = 16,
+
+            /// <summary>
+            /// Enum NUMBER_32 for value: 32
+            /// </summary>
+            NUMBER_32 = 32,
+
+            /// <summary>
+            /// Enum NUMBER_48 for value: 48
+            /// </summary>
+            NUMBER_48 = 48,
+
+            /// <summary>
+            /// Enum NUMBER_64 for value: 64
+            /// </summary>
+            NUMBER_64 = 64,
+
+            /// <summary>
+            /// Enum NUMBER_96 for value: 96
+            /// </summary>
+            NUMBER_96 = 96,
+
+            /// <summary>
+            /// Enum NUMBER_128 for value: 128
+            /// </summary>
+            NUMBER_128 = 128,
+
+            /// <summary>
+            /// Enum NUMBER_192 for value: 192
+            /// </summary>
+            NUMBER_192 = 192
+
+        }
+
+        /// <summary>
+        /// &lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
+        [DataMember(Name="numProcessors", EmitDefaultValue=false)]
+        public NumProcessorsEnum? NumProcessors { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ElectromagneticSimulationControl" /> class.
         /// </summary>
+        /// <param name="transientMagneticsControl">transientMagneticsControl.</param>
+        /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
-        public ElectromagneticSimulationControl(DimensionalTime maxRunTime = default(DimensionalTime))
+        public ElectromagneticSimulationControl(ElectromagneticTransientControl transientMagneticsControl = default(ElectromagneticTransientControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime))
         {
+            this.TransientMagneticsControl = transientMagneticsControl;
+            this.NumProcessors = numProcessors;
             this.MaxRunTime = maxRunTime;
         }
         
+        /// <summary>
+        /// Gets or Sets TransientMagneticsControl
+        /// </summary>
+        [DataMember(Name="transientMagneticsControl", EmitDefaultValue=false)]
+        public ElectromagneticTransientControl TransientMagneticsControl { get; set; }
+
         /// <summary>
         /// Gets or Sets MaxRunTime
         /// </summary>
@@ -51,6 +135,8 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ElectromagneticSimulationControl {\n");
+            sb.Append("  TransientMagneticsControl: ").Append(TransientMagneticsControl).Append("\n");
+            sb.Append("  NumProcessors: ").Append(NumProcessors).Append("\n");
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -87,6 +173,15 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
+                    this.TransientMagneticsControl == input.TransientMagneticsControl ||
+                    (this.TransientMagneticsControl != null &&
+                    this.TransientMagneticsControl.Equals(input.TransientMagneticsControl))
+                ) && 
+                (
+                    this.NumProcessors == input.NumProcessors ||
+                    this.NumProcessors.Equals(input.NumProcessors)
+                ) && 
+                (
                     this.MaxRunTime == input.MaxRunTime ||
                     (this.MaxRunTime != null &&
                     this.MaxRunTime.Equals(input.MaxRunTime))
@@ -102,6 +197,9 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TransientMagneticsControl != null)
+                    hashCode = hashCode * 59 + this.TransientMagneticsControl.GetHashCode();
+                hashCode = hashCode * 59 + this.NumProcessors.GetHashCode();
                 if (this.MaxRunTime != null)
                     hashCode = hashCode * 59 + this.MaxRunTime.GetHashCode();
                 return hashCode;

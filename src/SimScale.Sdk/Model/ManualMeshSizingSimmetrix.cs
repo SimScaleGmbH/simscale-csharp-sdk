@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// ManualMeshSizingSimmetrix
     /// </summary>
     [DataContract]
-    public partial class ManualMeshSizingSimmetrix : OneOfSimmetrixMeshingFluidSizing, OneOfSimmetrixMeshingSolidSizing, IEquatable<ManualMeshSizingSimmetrix>
+    public partial class ManualMeshSizingSimmetrix : OneOfSimmetrixMeshingElectromagneticsSizing, OneOfSimmetrixMeshingFluidSizing, OneOfSimmetrixMeshingSolidSizing, IEquatable<ManualMeshSizingSimmetrix>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ManualMeshSizingSimmetrix" /> class.
@@ -39,12 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: ManualMeshSizingSimmetrix (required) (default to &quot;MANUAL&quot;).</param>
         /// <param name="maximumEdgeLength">maximumEdgeLength.</param>
         /// <param name="minimumEdgeLength">minimumEdgeLength.</param>
-        public ManualMeshSizingSimmetrix(string type = "MANUAL", DimensionalLength maximumEdgeLength = default(DimensionalLength), DimensionalLength minimumEdgeLength = default(DimensionalLength))
+        /// <param name="curvature">curvature.</param>
+        public ManualMeshSizingSimmetrix(string type = "MANUAL", DimensionalLength maximumEdgeLength = default(DimensionalLength), DimensionalLength minimumEdgeLength = default(DimensionalLength), OneOfManualMeshSizingSimmetrixCurvature curvature = default(OneOfManualMeshSizingSimmetrixCurvature))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ManualMeshSizingSimmetrix and cannot be null");
             this.MaximumEdgeLength = maximumEdgeLength;
             this.MinimumEdgeLength = minimumEdgeLength;
+            this.Curvature = curvature;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace SimScale.Sdk.Model
         public DimensionalLength MinimumEdgeLength { get; set; }
 
         /// <summary>
+        /// Gets or Sets Curvature
+        /// </summary>
+        [DataMember(Name="curvature", EmitDefaultValue=false)]
+        public OneOfManualMeshSizingSimmetrixCurvature Curvature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +85,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  MaximumEdgeLength: ").Append(MaximumEdgeLength).Append("\n");
             sb.Append("  MinimumEdgeLength: ").Append(MinimumEdgeLength).Append("\n");
+            sb.Append("  Curvature: ").Append(Curvature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace SimScale.Sdk.Model
                     this.MinimumEdgeLength == input.MinimumEdgeLength ||
                     (this.MinimumEdgeLength != null &&
                     this.MinimumEdgeLength.Equals(input.MinimumEdgeLength))
+                ) && 
+                (
+                    this.Curvature == input.Curvature ||
+                    (this.Curvature != null &&
+                    this.Curvature.Equals(input.Curvature))
                 );
         }
 
@@ -143,6 +157,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MaximumEdgeLength.GetHashCode();
                 if (this.MinimumEdgeLength != null)
                     hashCode = hashCode * 59 + this.MinimumEdgeLength.GetHashCode();
+                if (this.Curvature != null)
+                    hashCode = hashCode * 59 + this.Curvature.GetHashCode();
                 return hashCode;
             }
         }

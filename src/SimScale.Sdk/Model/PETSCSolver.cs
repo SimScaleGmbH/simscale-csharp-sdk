@@ -81,7 +81,7 @@ namespace SimScale.Sdk.Model
         /// <param name="preconditioner">preconditioner.</param>
         /// <param name="maxIterations">Set the maximum number of iterations for the iterative solver. If set to 0 PETSC sets an estimate of the maximum number of iterations. (default to 0).</param>
         /// <param name="convergenceThreshold">Set the threshold value for convergence detection for the relative convergence criteria. (default to 0.000010M).</param>
-        /// <param name="distributedMatrixStorage">Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. (default to true).</param>
+        /// <param name="distributedMatrixStorage">Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. Enabling this can significantly reductions in memory consumption, but introduces numerical instability in rare occasions. (default to true).</param>
         public PETSCSolver(string type = "PETSC", bool? forceSymmetric = default(bool?), AlgorithmEnum? algorithm = default(AlgorithmEnum?), OneOfPETSCSolverPreconditioner preconditioner = default(OneOfPETSCSolverPreconditioner), int? maxIterations = default(int?), decimal? convergenceThreshold = default(decimal?), bool? distributedMatrixStorage = default(bool?))
         {
             // to ensure "type" is required (not null)
@@ -129,9 +129,9 @@ namespace SimScale.Sdk.Model
         public decimal? ConvergenceThreshold { get; set; }
 
         /// <summary>
-        /// Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor.
+        /// Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. Enabling this can significantly reductions in memory consumption, but introduces numerical instability in rare occasions.
         /// </summary>
-        /// <value>Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor.</value>
+        /// <value>Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. Enabling this can significantly reductions in memory consumption, but introduces numerical instability in rare occasions.</value>
         [DataMember(Name="distributedMatrixStorage", EmitDefaultValue=false)]
         public bool? DistributedMatrixStorage { get; set; }
 

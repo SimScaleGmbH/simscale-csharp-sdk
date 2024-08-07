@@ -37,15 +37,11 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="AutomaticLayerOn" /> class.
         /// </summary>
         /// <param name="type">Schema name: AutomaticLayerOn (required) (default to &quot;AUTOMATIC_LAYER_ON&quot;).</param>
-        /// <param name="numberOfLayers">The &lt;i&gt;Number of layers&lt;/i&gt; defines how many prismatic boundary layers should be created. 3 is default. (default to 3).</param>
-        /// <param name="totalRelativeThickness">It defines the thickness of all prismatic boundary layers combined in relation to the local element size.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-overall-layer-thickness.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example 3-layer thickness of 40% (0.4) of the local mesh size. (default to 0.4M).</param>
         /// <param name="layerType">layerType.</param>
-        public AutomaticLayerOn(string type = "AUTOMATIC_LAYER_ON", int? numberOfLayers = default(int?), decimal? totalRelativeThickness = default(decimal?), OneOfAutomaticLayerOnLayerType layerType = default(OneOfAutomaticLayerOnLayerType))
+        public AutomaticLayerOn(string type = "AUTOMATIC_LAYER_ON", OneOfAutomaticLayerOnLayerType layerType = default(OneOfAutomaticLayerOnLayerType))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticLayerOn and cannot be null");
-            this.NumberOfLayers = numberOfLayers;
-            this.TotalRelativeThickness = totalRelativeThickness;
             this.LayerType = layerType;
         }
         
@@ -55,20 +51,6 @@ namespace SimScale.Sdk.Model
         /// <value>Schema name: AutomaticLayerOn</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// The &lt;i&gt;Number of layers&lt;/i&gt; defines how many prismatic boundary layers should be created. 3 is default.
-        /// </summary>
-        /// <value>The &lt;i&gt;Number of layers&lt;/i&gt; defines how many prismatic boundary layers should be created. 3 is default.</value>
-        [DataMember(Name="numberOfLayers", EmitDefaultValue=false)]
-        public int? NumberOfLayers { get; set; }
-
-        /// <summary>
-        /// It defines the thickness of all prismatic boundary layers combined in relation to the local element size.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-overall-layer-thickness.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example 3-layer thickness of 40% (0.4) of the local mesh size.
-        /// </summary>
-        /// <value>It defines the thickness of all prismatic boundary layers combined in relation to the local element size.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-overall-layer-thickness.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example 3-layer thickness of 40% (0.4) of the local mesh size.</value>
-        [DataMember(Name="totalRelativeThickness", EmitDefaultValue=false)]
-        public decimal? TotalRelativeThickness { get; set; }
 
         /// <summary>
         /// Gets or Sets LayerType
@@ -85,8 +67,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class AutomaticLayerOn {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  NumberOfLayers: ").Append(NumberOfLayers).Append("\n");
-            sb.Append("  TotalRelativeThickness: ").Append(TotalRelativeThickness).Append("\n");
             sb.Append("  LayerType: ").Append(LayerType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -128,16 +108,6 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.NumberOfLayers == input.NumberOfLayers ||
-                    (this.NumberOfLayers != null &&
-                    this.NumberOfLayers.Equals(input.NumberOfLayers))
-                ) && 
-                (
-                    this.TotalRelativeThickness == input.TotalRelativeThickness ||
-                    (this.TotalRelativeThickness != null &&
-                    this.TotalRelativeThickness.Equals(input.TotalRelativeThickness))
-                ) && 
-                (
                     this.LayerType == input.LayerType ||
                     (this.LayerType != null &&
                     this.LayerType.Equals(input.LayerType))
@@ -155,10 +125,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.NumberOfLayers != null)
-                    hashCode = hashCode * 59 + this.NumberOfLayers.GetHashCode();
-                if (this.TotalRelativeThickness != null)
-                    hashCode = hashCode * 59 + this.TotalRelativeThickness.GetHashCode();
                 if (this.LayerType != null)
                     hashCode = hashCode * 59 + this.LayerType.GetHashCode();
                 return hashCode;

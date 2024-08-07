@@ -32,9 +32,13 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="AdvancedSimmetrixEmSettings" /> class.
         /// </summary>
         /// <param name="smallFeatureTolerance">smallFeatureTolerance.</param>
-        public AdvancedSimmetrixEmSettings(DimensionalLength smallFeatureTolerance = default(DimensionalLength))
+        /// <param name="gapElements">&lt;p&gt;Define a target number of elements across thin gaps. The &lt;i&gt;Gap refinement factor&lt;/i&gt; is the ratio between gap thickness and the cell longest edge in that gap. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#gap-refinement-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-gap-elements.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of gap refinements applied with a target of 4 elements across the thickness&lt;/p&gt; (default to 0M).</param>
+        /// <param name="globalGradationRate">&lt;p&gt;Adjust the transition from small to large cells. This value is the ratio between the size of two adjacent cells. The allowed range is 1.0 - 3.0. 1.0 would produce a uniform mesh with the smallest size everywhere. This is generally not recommended, as it may produce very large meshes.&lt;/p&gt; (default to 1.22M).</param>
+        public AdvancedSimmetrixEmSettings(DimensionalLength smallFeatureTolerance = default(DimensionalLength), decimal? gapElements = default(decimal?), decimal? globalGradationRate = default(decimal?))
         {
             this.SmallFeatureTolerance = smallFeatureTolerance;
+            this.GapElements = gapElements;
+            this.GlobalGradationRate = globalGradationRate;
         }
         
         /// <summary>
@@ -42,6 +46,20 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="smallFeatureTolerance", EmitDefaultValue=false)]
         public DimensionalLength SmallFeatureTolerance { get; set; }
+
+        /// <summary>
+        /// &lt;p&gt;Define a target number of elements across thin gaps. The &lt;i&gt;Gap refinement factor&lt;/i&gt; is the ratio between gap thickness and the cell longest edge in that gap. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#gap-refinement-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-gap-elements.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of gap refinements applied with a target of 4 elements across the thickness&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;Define a target number of elements across thin gaps. The &lt;i&gt;Gap refinement factor&lt;/i&gt; is the ratio between gap thickness and the cell longest edge in that gap. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/standard/#gap-refinement-factor&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;img src&#x3D;\&quot;/spec/resources/help/imgs/simmetrix-gap-elements.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;Example of gap refinements applied with a target of 4 elements across the thickness&lt;/p&gt;</value>
+        [DataMember(Name="gapElements", EmitDefaultValue=false)]
+        public decimal? GapElements { get; set; }
+
+        /// <summary>
+        /// &lt;p&gt;Adjust the transition from small to large cells. This value is the ratio between the size of two adjacent cells. The allowed range is 1.0 - 3.0. 1.0 would produce a uniform mesh with the smallest size everywhere. This is generally not recommended, as it may produce very large meshes.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;Adjust the transition from small to large cells. This value is the ratio between the size of two adjacent cells. The allowed range is 1.0 - 3.0. 1.0 would produce a uniform mesh with the smallest size everywhere. This is generally not recommended, as it may produce very large meshes.&lt;/p&gt;</value>
+        [DataMember(Name="globalGradationRate", EmitDefaultValue=false)]
+        public decimal? GlobalGradationRate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,6 +70,8 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class AdvancedSimmetrixEmSettings {\n");
             sb.Append("  SmallFeatureTolerance: ").Append(SmallFeatureTolerance).Append("\n");
+            sb.Append("  GapElements: ").Append(GapElements).Append("\n");
+            sb.Append("  GlobalGradationRate: ").Append(GlobalGradationRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,6 +110,16 @@ namespace SimScale.Sdk.Model
                     this.SmallFeatureTolerance == input.SmallFeatureTolerance ||
                     (this.SmallFeatureTolerance != null &&
                     this.SmallFeatureTolerance.Equals(input.SmallFeatureTolerance))
+                ) && 
+                (
+                    this.GapElements == input.GapElements ||
+                    (this.GapElements != null &&
+                    this.GapElements.Equals(input.GapElements))
+                ) && 
+                (
+                    this.GlobalGradationRate == input.GlobalGradationRate ||
+                    (this.GlobalGradationRate != null &&
+                    this.GlobalGradationRate.Equals(input.GlobalGradationRate))
                 );
         }
 
@@ -104,6 +134,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.SmallFeatureTolerance != null)
                     hashCode = hashCode * 59 + this.SmallFeatureTolerance.GetHashCode();
+                if (this.GapElements != null)
+                    hashCode = hashCode * 59 + this.GapElements.GetHashCode();
+                if (this.GlobalGradationRate != null)
+                    hashCode = hashCode * 59 + this.GlobalGradationRate.GetHashCode();
                 return hashCode;
             }
         }

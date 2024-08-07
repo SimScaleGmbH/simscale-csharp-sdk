@@ -60,6 +60,11 @@ namespace SimScale.Sdk.Model
             NUMBER_32 = 32,
 
             /// <summary>
+            /// Enum NUMBER_48 for value: 48
+            /// </summary>
+            NUMBER_48 = 48,
+
+            /// <summary>
             /// Enum NUMBER_64 for value: 64
             /// </summary>
             NUMBER_64 = 64,
@@ -91,7 +96,7 @@ namespace SimScale.Sdk.Model
         /// <param name="numOfProcessors">&lt;p&gt;Selecting more processor cores might speed up the meshing process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/meshing/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumOfProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="maxMeshingRunTime">maxMeshingRunTime.</param>
         /// <param name="advancedSimmetrixSettings">advancedSimmetrixSettings.</param>
-        public SimmetrixMeshingElectromagnetics(string type = "SIMMETRIX_MESHING_ELECTROMAGNETICS", AutomaticMeshSizingSimmetrix sizing = default(AutomaticMeshSizingSimmetrix), List<OneOfSimmetrixMeshingElectromagneticsRefinements> refinements = default(List<OneOfSimmetrixMeshingElectromagneticsRefinements>), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), DimensionalTime maxMeshingRunTime = default(DimensionalTime), AdvancedSimmetrixEmSettings advancedSimmetrixSettings = default(AdvancedSimmetrixEmSettings))
+        public SimmetrixMeshingElectromagnetics(string type = "SIMMETRIX_MESHING_ELECTROMAGNETICS", OneOfSimmetrixMeshingElectromagneticsSizing sizing = default(OneOfSimmetrixMeshingElectromagneticsSizing), List<OneOfSimmetrixMeshingElectromagneticsRefinements> refinements = default(List<OneOfSimmetrixMeshingElectromagneticsRefinements>), NumOfProcessorsEnum? numOfProcessors = default(NumOfProcessorsEnum?), DimensionalTime maxMeshingRunTime = default(DimensionalTime), AdvancedSimmetrixEmSettings advancedSimmetrixSettings = default(AdvancedSimmetrixEmSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimmetrixMeshingElectromagnetics and cannot be null");
@@ -113,7 +118,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Sizing
         /// </summary>
         [DataMember(Name="sizing", EmitDefaultValue=false)]
-        public AutomaticMeshSizingSimmetrix Sizing { get; set; }
+        public OneOfSimmetrixMeshingElectromagneticsSizing Sizing { get; set; }
 
         /// <summary>
         /// Gets or Sets Refinements

@@ -37,14 +37,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="CurrentExcitation" /> class.
         /// </summary>
         /// <param name="type">The total current over all faces  Schema name: CurrentExcitation (required) (default to &quot;CURRENT_EXCITATION&quot;).</param>
-        /// <param name="current">current.</param>
+        /// <param name="currentType">currentType.</param>
         /// <param name="currentRMS">currentRMS.</param>
         /// <param name="currentPhase">currentPhase.</param>
-        public CurrentExcitation(string type = "CURRENT_EXCITATION", DimensionalElectricCurrent current = default(DimensionalElectricCurrent), DimensionalElectricCurrent currentRMS = default(DimensionalElectricCurrent), DimensionalAngle currentPhase = default(DimensionalAngle))
+        public CurrentExcitation(string type = "CURRENT_EXCITATION", OneOfCurrentExcitationCurrentType currentType = default(OneOfCurrentExcitationCurrentType), DimensionalElectricCurrent currentRMS = default(DimensionalElectricCurrent), DimensionalAngle currentPhase = default(DimensionalAngle))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CurrentExcitation and cannot be null");
-            this.Current = current;
+            this.CurrentType = currentType;
             this.CurrentRMS = currentRMS;
             this.CurrentPhase = currentPhase;
         }
@@ -57,10 +57,10 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Current
+        /// Gets or Sets CurrentType
         /// </summary>
-        [DataMember(Name="current", EmitDefaultValue=false)]
-        public DimensionalElectricCurrent Current { get; set; }
+        [DataMember(Name="currentType", EmitDefaultValue=false)]
+        public OneOfCurrentExcitationCurrentType CurrentType { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentRMS
@@ -83,7 +83,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class CurrentExcitation {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Current: ").Append(Current).Append("\n");
+            sb.Append("  CurrentType: ").Append(CurrentType).Append("\n");
             sb.Append("  CurrentRMS: ").Append(CurrentRMS).Append("\n");
             sb.Append("  CurrentPhase: ").Append(CurrentPhase).Append("\n");
             sb.Append("}\n");
@@ -126,9 +126,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Current == input.Current ||
-                    (this.Current != null &&
-                    this.Current.Equals(input.Current))
+                    this.CurrentType == input.CurrentType ||
+                    (this.CurrentType != null &&
+                    this.CurrentType.Equals(input.CurrentType))
                 ) && 
                 (
                     this.CurrentRMS == input.CurrentRMS ||
@@ -153,8 +153,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Current != null)
-                    hashCode = hashCode * 59 + this.Current.GetHashCode();
+                if (this.CurrentType != null)
+                    hashCode = hashCode * 59 + this.CurrentType.GetHashCode();
                 if (this.CurrentRMS != null)
                     hashCode = hashCode * 59 + this.CurrentRMS.GetHashCode();
                 if (this.CurrentPhase != null)

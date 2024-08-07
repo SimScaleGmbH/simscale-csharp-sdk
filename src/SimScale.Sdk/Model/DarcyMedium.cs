@@ -38,7 +38,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: DarcyMedium (required) (default to &quot;DARCY&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="porosity">Porosity is the fraction of a volume of material is that is void. It ranges from φ &#x3D; 0 (completely empty) to φ &#x3D; 1 (completely solid). (default to 1M).</param>
+        /// <param name="porosity">Porosity is the fraction of a volume of material is that is void. It ranges from φ &#x3D; 1 (completely empty) to φ &#x3D; 0 (completely solid). (default to 1M).</param>
         /// <param name="permeability">permeability.</param>
         /// <param name="dragCoefficient">The Darcy law may be extended to include the Forchheimer drag term for more inertial flows (Re &gt; 10). This term is quadratic in flow velocity. Its coefficient includes the fluid drag coefficient Cd. (default to 0M).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -67,9 +67,9 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Porosity is the fraction of a volume of material is that is void. It ranges from φ &#x3D; 0 (completely empty) to φ &#x3D; 1 (completely solid).
+        /// Porosity is the fraction of a volume of material is that is void. It ranges from φ &#x3D; 1 (completely empty) to φ &#x3D; 0 (completely solid).
         /// </summary>
-        /// <value>Porosity is the fraction of a volume of material is that is void. It ranges from φ &#x3D; 0 (completely empty) to φ &#x3D; 1 (completely solid).</value>
+        /// <value>Porosity is the fraction of a volume of material is that is void. It ranges from φ &#x3D; 1 (completely empty) to φ &#x3D; 0 (completely solid).</value>
         [DataMember(Name="porosity", EmitDefaultValue=false)]
         public decimal? Porosity { get; set; }
 

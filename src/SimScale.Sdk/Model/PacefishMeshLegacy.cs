@@ -81,14 +81,16 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">&lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishMeshLegacy (required) (default to &quot;PACEFISH_MESH_LEGACY&quot;).</param>
         /// <param name="fineness">fineness (default to FinenessEnum.COARSE).</param>
+        /// <param name="progressiveRefinement">progressiveRefinement.</param>
         /// <param name="referenceLength">referenceLength.</param>
         /// <param name="reynoldsScalingType">reynoldsScalingType.</param>
         /// <param name="refinements">refinements.</param>
-        public PacefishMeshLegacy(string type = "PACEFISH_MESH_LEGACY", FinenessEnum? fineness = default(FinenessEnum?), DimensionalLength referenceLength = default(DimensionalLength), ManualReynoldsScaling reynoldsScalingType = default(ManualReynoldsScaling), List<OneOfPacefishMeshLegacyRefinements> refinements = default(List<OneOfPacefishMeshLegacyRefinements>))
+        public PacefishMeshLegacy(string type = "PACEFISH_MESH_LEGACY", FinenessEnum? fineness = default(FinenessEnum?), ProgressiveRefinement progressiveRefinement = default(ProgressiveRefinement), DimensionalLength referenceLength = default(DimensionalLength), ManualReynoldsScaling reynoldsScalingType = default(ManualReynoldsScaling), List<OneOfPacefishMeshLegacyRefinements> refinements = default(List<OneOfPacefishMeshLegacyRefinements>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PacefishMeshLegacy and cannot be null");
             this.Fineness = fineness;
+            this.ProgressiveRefinement = progressiveRefinement;
             this.ReferenceLength = referenceLength;
             this.ReynoldsScalingType = reynoldsScalingType;
             this.Refinements = refinements;
@@ -100,6 +102,12 @@ namespace SimScale.Sdk.Model
         /// <value>&lt;p&gt;Choose between &lt;i&gt;Automatic&lt;/i&gt; and &lt;i&gt;Manual&lt;/i&gt; mesh settings. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/incompressible-lbm/#mesh&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; Mesh fineness impacts the accuracy of your results as well as computing time and result size. A finer mesh will be more demanding in terms of machine size and memory but lead to more accurate results in most cases.&lt;/p&gt;  Schema name: PacefishMeshLegacy</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProgressiveRefinement
+        /// </summary>
+        [DataMember(Name="progressiveRefinement", EmitDefaultValue=false)]
+        public ProgressiveRefinement ProgressiveRefinement { get; set; }
 
         /// <summary>
         /// Gets or Sets ReferenceLength
@@ -129,6 +137,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class PacefishMeshLegacy {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Fineness: ").Append(Fineness).Append("\n");
+            sb.Append("  ProgressiveRefinement: ").Append(ProgressiveRefinement).Append("\n");
             sb.Append("  ReferenceLength: ").Append(ReferenceLength).Append("\n");
             sb.Append("  ReynoldsScalingType: ").Append(ReynoldsScalingType).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
@@ -176,6 +185,11 @@ namespace SimScale.Sdk.Model
                     this.Fineness.Equals(input.Fineness)
                 ) && 
                 (
+                    this.ProgressiveRefinement == input.ProgressiveRefinement ||
+                    (this.ProgressiveRefinement != null &&
+                    this.ProgressiveRefinement.Equals(input.ProgressiveRefinement))
+                ) && 
+                (
                     this.ReferenceLength == input.ReferenceLength ||
                     (this.ReferenceLength != null &&
                     this.ReferenceLength.Equals(input.ReferenceLength))
@@ -205,6 +219,8 @@ namespace SimScale.Sdk.Model
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.Fineness.GetHashCode();
+                if (this.ProgressiveRefinement != null)
+                    hashCode = hashCode * 59 + this.ProgressiveRefinement.GetHashCode();
                 if (this.ReferenceLength != null)
                     hashCode = hashCode * 59 + this.ReferenceLength.GetHashCode();
                 if (this.ReynoldsScalingType != null)

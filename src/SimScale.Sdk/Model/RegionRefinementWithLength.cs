@@ -39,14 +39,16 @@ namespace SimScale.Sdk.Model
         /// <param name="type">A &lt;b&gt;region refinement&lt;/b&gt; can be used to refine the mesh in a given area. The refinement area needs to be defined either via an existing solid or a geometry primitive.  Schema name: RegionRefinementWithLength (required) (default to &quot;REGION_LENGTH&quot;).</param>
         /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
         /// <param name="refinement">refinement.</param>
+        /// <param name="curvature">curvature.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
-        public RegionRefinementWithLength(string type = "REGION_LENGTH", string name = default(string), OneOfRegionRefinementWithLengthRefinement refinement = default(OneOfRegionRefinementWithLengthRefinement), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
+        public RegionRefinementWithLength(string type = "REGION_LENGTH", string name = default(string), OneOfRegionRefinementWithLengthRefinement refinement = default(OneOfRegionRefinementWithLengthRefinement), OneOfRegionRefinementWithLengthCurvature curvature = default(OneOfRegionRefinementWithLengthCurvature), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RegionRefinementWithLength and cannot be null");
             this.Name = name;
             this.Refinement = refinement;
+            this.Curvature = curvature;
             this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
         }
@@ -71,6 +73,12 @@ namespace SimScale.Sdk.Model
         public OneOfRegionRefinementWithLengthRefinement Refinement { get; set; }
 
         /// <summary>
+        /// Gets or Sets Curvature
+        /// </summary>
+        [DataMember(Name="curvature", EmitDefaultValue=false)]
+        public OneOfRegionRefinementWithLengthCurvature Curvature { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -93,6 +101,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Refinement: ").Append(Refinement).Append("\n");
+            sb.Append("  Curvature: ").Append(Curvature).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("}\n");
@@ -145,6 +154,11 @@ namespace SimScale.Sdk.Model
                     this.Refinement.Equals(input.Refinement))
                 ) && 
                 (
+                    this.Curvature == input.Curvature ||
+                    (this.Curvature != null &&
+                    this.Curvature.Equals(input.Curvature))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -172,6 +186,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Refinement != null)
                     hashCode = hashCode * 59 + this.Refinement.GetHashCode();
+                if (this.Curvature != null)
+                    hashCode = hashCode * 59 + this.Curvature.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)

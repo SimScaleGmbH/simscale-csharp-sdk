@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="VolumeCustomSizing" /> class.
         /// </summary>
         /// <param name="type">Schema name: VolumeCustomSizing (required) (default to &quot;VOLUME_CUSTOM_SIZING&quot;).</param>
-        /// <param name="name">name (default to &quot;Region refinement&quot;).</param>
+        /// <param name="name">name (default to &quot;Volume sizing&quot;).</param>
         /// <param name="customSizingModes">customSizingModes.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>

@@ -43,15 +43,15 @@ namespace SimScale.Sdk.Model
         /// <param name="temperature">temperature.</param>
         /// <param name="passiveScalars">Please choose a boundary condition for passive scalar (T)..</param>
         /// <param name="phaseFraction">phaseFraction.</param>
-        /// <param name="associatedPhaseFractions">Please choose a boundary condition for phase fraction (alpha)..</param>
-        /// <param name="massFractions">Please choose a boundary condition for component mass density fraction..</param>
+        /// <param name="phaseFractionsV2">phaseFractionsV2.</param>
+        /// <param name="massFractionsV2">massFractionsV2.</param>
         /// <param name="turbulenceIntensity">turbulenceIntensity.</param>
         /// <param name="dissipationType">dissipationType.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public VelocityInletBC(string type = "VELOCITY_INLET_V3", string name = default(string), OneOfVelocityInletBCVelocity velocity = default(OneOfVelocityInletBCVelocity), OneOfVelocityInletBCTurbulence turbulence = default(OneOfVelocityInletBCTurbulence), OneOfVelocityInletBCTemperature temperature = default(OneOfVelocityInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), List<PhaseNameAndFixedValuePFBC> associatedPhaseFractions = default(List<PhaseNameAndFixedValuePFBC>), List<FixedValueMassFractionBC> massFractions = default(List<FixedValueMassFractionBC>), OneOfVelocityInletBCTurbulenceIntensity turbulenceIntensity = default(OneOfVelocityInletBCTurbulenceIntensity), OneOfVelocityInletBCDissipationType dissipationType = default(OneOfVelocityInletBCDissipationType), OneOfVelocityInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityInletBCNetRadiativeHeatFlux), OneOfVelocityInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfVelocityInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public VelocityInletBC(string type = "VELOCITY_INLET_V3", string name = default(string), OneOfVelocityInletBCVelocity velocity = default(OneOfVelocityInletBCVelocity), OneOfVelocityInletBCTurbulence turbulence = default(OneOfVelocityInletBCTurbulence), OneOfVelocityInletBCTemperature temperature = default(OneOfVelocityInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), InletFixedPFValues phaseFractionsV2 = default(InletFixedPFValues), InletFixedMFValues massFractionsV2 = default(InletFixedMFValues), OneOfVelocityInletBCTurbulenceIntensity turbulenceIntensity = default(OneOfVelocityInletBCTurbulenceIntensity), OneOfVelocityInletBCDissipationType dissipationType = default(OneOfVelocityInletBCDissipationType), OneOfVelocityInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfVelocityInletBCNetRadiativeHeatFlux), OneOfVelocityInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfVelocityInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for VelocityInletBC and cannot be null");
@@ -61,8 +61,8 @@ namespace SimScale.Sdk.Model
             this.Temperature = temperature;
             this.PassiveScalars = passiveScalars;
             this.PhaseFraction = phaseFraction;
-            this.AssociatedPhaseFractions = associatedPhaseFractions;
-            this.MassFractions = massFractions;
+            this.PhaseFractionsV2 = phaseFractionsV2;
+            this.MassFractionsV2 = massFractionsV2;
             this.TurbulenceIntensity = turbulenceIntensity;
             this.DissipationType = dissipationType;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
@@ -116,18 +116,16 @@ namespace SimScale.Sdk.Model
         public FixedValuePFBC PhaseFraction { get; set; }
 
         /// <summary>
-        /// Please choose a boundary condition for phase fraction (alpha).
+        /// Gets or Sets PhaseFractionsV2
         /// </summary>
-        /// <value>Please choose a boundary condition for phase fraction (alpha).</value>
-        [DataMember(Name="associatedPhaseFractions", EmitDefaultValue=false)]
-        public List<PhaseNameAndFixedValuePFBC> AssociatedPhaseFractions { get; set; }
+        [DataMember(Name="phaseFractionsV2", EmitDefaultValue=false)]
+        public InletFixedPFValues PhaseFractionsV2 { get; set; }
 
         /// <summary>
-        /// Please choose a boundary condition for component mass density fraction.
+        /// Gets or Sets MassFractionsV2
         /// </summary>
-        /// <value>Please choose a boundary condition for component mass density fraction.</value>
-        [DataMember(Name="massFractions", EmitDefaultValue=false)]
-        public List<FixedValueMassFractionBC> MassFractions { get; set; }
+        [DataMember(Name="massFractionsV2", EmitDefaultValue=false)]
+        public InletFixedMFValues MassFractionsV2 { get; set; }
 
         /// <summary>
         /// Gets or Sets TurbulenceIntensity
@@ -180,8 +178,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Temperature: ").Append(Temperature).Append("\n");
             sb.Append("  PassiveScalars: ").Append(PassiveScalars).Append("\n");
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
-            sb.Append("  AssociatedPhaseFractions: ").Append(AssociatedPhaseFractions).Append("\n");
-            sb.Append("  MassFractions: ").Append(MassFractions).Append("\n");
+            sb.Append("  PhaseFractionsV2: ").Append(PhaseFractionsV2).Append("\n");
+            sb.Append("  MassFractionsV2: ").Append(MassFractionsV2).Append("\n");
             sb.Append("  TurbulenceIntensity: ").Append(TurbulenceIntensity).Append("\n");
             sb.Append("  DissipationType: ").Append(DissipationType).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
@@ -259,16 +257,14 @@ namespace SimScale.Sdk.Model
                     this.PhaseFraction.Equals(input.PhaseFraction))
                 ) && 
                 (
-                    this.AssociatedPhaseFractions == input.AssociatedPhaseFractions ||
-                    this.AssociatedPhaseFractions != null &&
-                    input.AssociatedPhaseFractions != null &&
-                    this.AssociatedPhaseFractions.SequenceEqual(input.AssociatedPhaseFractions)
+                    this.PhaseFractionsV2 == input.PhaseFractionsV2 ||
+                    (this.PhaseFractionsV2 != null &&
+                    this.PhaseFractionsV2.Equals(input.PhaseFractionsV2))
                 ) && 
                 (
-                    this.MassFractions == input.MassFractions ||
-                    this.MassFractions != null &&
-                    input.MassFractions != null &&
-                    this.MassFractions.SequenceEqual(input.MassFractions)
+                    this.MassFractionsV2 == input.MassFractionsV2 ||
+                    (this.MassFractionsV2 != null &&
+                    this.MassFractionsV2.Equals(input.MassFractionsV2))
                 ) && 
                 (
                     this.TurbulenceIntensity == input.TurbulenceIntensity ||
@@ -325,10 +321,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PassiveScalars.GetHashCode();
                 if (this.PhaseFraction != null)
                     hashCode = hashCode * 59 + this.PhaseFraction.GetHashCode();
-                if (this.AssociatedPhaseFractions != null)
-                    hashCode = hashCode * 59 + this.AssociatedPhaseFractions.GetHashCode();
-                if (this.MassFractions != null)
-                    hashCode = hashCode * 59 + this.MassFractions.GetHashCode();
+                if (this.PhaseFractionsV2 != null)
+                    hashCode = hashCode * 59 + this.PhaseFractionsV2.GetHashCode();
+                if (this.MassFractionsV2 != null)
+                    hashCode = hashCode * 59 + this.MassFractionsV2.GetHashCode();
                 if (this.TurbulenceIntensity != null)
                     hashCode = hashCode * 59 + this.TurbulenceIntensity.GetHashCode();
                 if (this.DissipationType != null)
