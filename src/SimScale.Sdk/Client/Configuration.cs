@@ -29,7 +29,7 @@ namespace SimScale.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "9.0.0";
+        public const string Version = "0.0.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -94,8 +94,8 @@ namespace SimScale.Sdk.Client
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration()
         {
-            UserAgent = "OpenAPI-Generator/9.0.0/csharp";
-            BasePath = "https://api.simscale.com/v0";
+            UserAgent = "OpenAPI-Generator/0.0.0/csharp";
+            BasePath = "http://localhost:61831/v0";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -112,7 +112,7 @@ namespace SimScale.Sdk.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://api.simscale.com/v0") : this()
+            string basePath = "http://localhost:61831/v0") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -349,7 +349,7 @@ namespace SimScale.Sdk.Client
             String report = "C# SDK (SimScale.Sdk) Debug Report:\n";
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
             report += "    Version of the API: 0.0.0\n";
-            report += "    SDK Package Version: 9.0.0\n";
+            report += "    SDK Package Version: 0.0.0\n";
 
             return report;
         }
