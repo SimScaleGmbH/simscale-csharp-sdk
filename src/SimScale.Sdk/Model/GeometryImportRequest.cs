@@ -42,28 +42,28 @@ namespace SimScale.Sdk.Model
             ACIS = 1,
 
             /// <summary>
-            /// Enum AUTODESK for value: AUTODESK
-            /// </summary>
-            [EnumMember(Value = "AUTODESK")]
-            AUTODESK = 2,
-
-            /// <summary>
             /// Enum CATIA for value: CATIA
             /// </summary>
             [EnumMember(Value = "CATIA")]
-            CATIA = 3,
+            CATIA = 2,
 
             /// <summary>
             /// Enum CREO for value: CREO
             /// </summary>
             [EnumMember(Value = "CREO")]
-            CREO = 4,
+            CREO = 3,
 
             /// <summary>
             /// Enum IGES for value: IGES
             /// </summary>
             [EnumMember(Value = "IGES")]
-            IGES = 5,
+            IGES = 4,
+
+            /// <summary>
+            /// Enum INVENTOR for value: INVENTOR
+            /// </summary>
+            [EnumMember(Value = "INVENTOR")]
+            INVENTOR = 5,
 
             /// <summary>
             /// Enum NX for value: NX

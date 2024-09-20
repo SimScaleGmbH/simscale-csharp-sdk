@@ -23,24 +23,30 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// SingleErrorResponseAllOf
+    /// AvailableAiModel
     /// </summary>
     [DataContract]
-    public partial class SingleErrorResponseAllOf : IEquatable<SingleErrorResponseAllOf>
+    public partial class AvailableAiModel : IEquatable<AvailableAiModel>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SingleErrorResponseAllOf" /> class.
+        /// Initializes a new instance of the <see cref="AvailableAiModel" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public SingleErrorResponseAllOf()
+        public AvailableAiModel()
         {
         }
         
         /// <summary>
-        /// Gets or Sets Trace
+        /// Gets or Sets AiModelLabel
         /// </summary>
-        [DataMember(Name="trace", EmitDefaultValue=false)]
-        public string Trace { get; private set; }
+        [DataMember(Name="aiModelLabel", EmitDefaultValue=false)]
+        public string AiModelLabel { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets AiModelId
+        /// </summary>
+        [DataMember(Name="aiModelId", EmitDefaultValue=false)]
+        public Guid? AiModelId { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -49,8 +55,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SingleErrorResponseAllOf {\n");
-            sb.Append("  Trace: ").Append(Trace).Append("\n");
+            sb.Append("class AvailableAiModel {\n");
+            sb.Append("  AiModelLabel: ").Append(AiModelLabel).Append("\n");
+            sb.Append("  AiModelId: ").Append(AiModelId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -71,24 +78,29 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SingleErrorResponseAllOf);
+            return this.Equals(input as AvailableAiModel);
         }
 
         /// <summary>
-        /// Returns true if SingleErrorResponseAllOf instances are equal
+        /// Returns true if AvailableAiModel instances are equal
         /// </summary>
-        /// <param name="input">Instance of SingleErrorResponseAllOf to be compared</param>
+        /// <param name="input">Instance of AvailableAiModel to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SingleErrorResponseAllOf input)
+        public bool Equals(AvailableAiModel input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Trace == input.Trace ||
-                    (this.Trace != null &&
-                    this.Trace.Equals(input.Trace))
+                    this.AiModelLabel == input.AiModelLabel ||
+                    (this.AiModelLabel != null &&
+                    this.AiModelLabel.Equals(input.AiModelLabel))
+                ) && 
+                (
+                    this.AiModelId == input.AiModelId ||
+                    (this.AiModelId != null &&
+                    this.AiModelId.Equals(input.AiModelId))
                 );
         }
 
@@ -101,8 +113,10 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Trace != null)
-                    hashCode = hashCode * 59 + this.Trace.GetHashCode();
+                if (this.AiModelLabel != null)
+                    hashCode = hashCode * 59 + this.AiModelLabel.GetHashCode();
+                if (this.AiModelId != null)
+                    hashCode = hashCode * 59 + this.AiModelId.GetHashCode();
                 return hashCode;
             }
         }

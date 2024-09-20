@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimScale.Sdk", "src\SimScale.Sdk\SimScale.Sdk.csproj", "{23FDC4EC-F713-4085-8593-7A980C10D139}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimScale.Sdk", "src\SimScale.Sdk\SimScale.Sdk.csproj", "{879364B2-FB29-4172-97EE-B486B4795CE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{23FDC4EC-F713-4085-8593-7A980C10D139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23FDC4EC-F713-4085-8593-7A980C10D139}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23FDC4EC-F713-4085-8593-7A980C10D139}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23FDC4EC-F713-4085-8593-7A980C10D139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{879364B2-FB29-4172-97EE-B486B4795CE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{879364B2-FB29-4172-97EE-B486B4795CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{879364B2-FB29-4172-97EE-B486B4795CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{879364B2-FB29-4172-97EE-B486B4795CE9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

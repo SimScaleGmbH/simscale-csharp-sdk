@@ -23,31 +23,33 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Material update request schema
+    /// CreateAiPredictionResponseAvailableFields
     /// </summary>
     [DataContract]
-    public partial class MaterialUpdateRequest : IEquatable<MaterialUpdateRequest>
+    public partial class CreateAiPredictionResponseAvailableFields : IEquatable<CreateAiPredictionResponseAvailableFields>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialUpdateRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateAiPredictionResponseAvailableFields" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MaterialUpdateRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialUpdateRequest" /> class.
-        /// </summary>
-        /// <param name="operations">operations (required).</param>
-        public MaterialUpdateRequest(List<MaterialUpdateOperation> operations = default(List<MaterialUpdateOperation>))
+        /// <param name="name">name.</param>
+        /// <param name="components">components.</param>
+        public CreateAiPredictionResponseAvailableFields(string name = default(string), List<string> components = default(List<string>))
         {
-            // to ensure "operations" is required (not null)
-            this.Operations = operations ?? throw new ArgumentNullException("operations is a required property for MaterialUpdateRequest and cannot be null");
+            this.Name = name;
+            this.Components = components;
         }
         
         /// <summary>
-        /// Gets or Sets Operations
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="operations", EmitDefaultValue=false)]
-        public List<MaterialUpdateOperation> Operations { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Components
+        /// </summary>
+        [DataMember(Name="components", EmitDefaultValue=false)]
+        public List<string> Components { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,8 +58,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MaterialUpdateRequest {\n");
-            sb.Append("  Operations: ").Append(Operations).Append("\n");
+            sb.Append("class CreateAiPredictionResponseAvailableFields {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Components: ").Append(Components).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -78,25 +81,30 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MaterialUpdateRequest);
+            return this.Equals(input as CreateAiPredictionResponseAvailableFields);
         }
 
         /// <summary>
-        /// Returns true if MaterialUpdateRequest instances are equal
+        /// Returns true if CreateAiPredictionResponseAvailableFields instances are equal
         /// </summary>
-        /// <param name="input">Instance of MaterialUpdateRequest to be compared</param>
+        /// <param name="input">Instance of CreateAiPredictionResponseAvailableFields to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MaterialUpdateRequest input)
+        public bool Equals(CreateAiPredictionResponseAvailableFields input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Operations == input.Operations ||
-                    this.Operations != null &&
-                    input.Operations != null &&
-                    this.Operations.SequenceEqual(input.Operations)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Components == input.Components ||
+                    this.Components != null &&
+                    input.Components != null &&
+                    this.Components.SequenceEqual(input.Components)
                 );
         }
 
@@ -109,8 +117,10 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Operations != null)
-                    hashCode = hashCode * 59 + this.Operations.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Components != null)
+                    hashCode = hashCode * 59 + this.Components.GetHashCode();
                 return hashCode;
             }
         }
