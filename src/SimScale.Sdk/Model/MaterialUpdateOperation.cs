@@ -29,6 +29,38 @@ namespace SimScale.Sdk.Model
     public partial class MaterialUpdateOperation : IEquatable<MaterialUpdateOperation>
     {
         /// <summary>
+        /// Defines MaterialDataSources
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MaterialDataSourcesEnum
+        {
+            /// <summary>
+            /// Enum MATERIALLIBRARYDATA for value: MATERIAL_LIBRARY_DATA
+            /// </summary>
+            [EnumMember(Value = "MATERIAL_LIBRARY_DATA")]
+            MATERIALLIBRARYDATA = 1,
+
+            /// <summary>
+            /// Enum SPECDATA for value: SPEC_DATA
+            /// </summary>
+            [EnumMember(Value = "SPEC_DATA")]
+            SPECDATA = 2,
+
+            /// <summary>
+            /// Enum SCHEMADEFAULT for value: SCHEMA_DEFAULT
+            /// </summary>
+            [EnumMember(Value = "SCHEMA_DEFAULT")]
+            SCHEMADEFAULT = 3
+
+        }
+
+
+        /// <summary>
+        /// Gets or Sets MaterialDataSources
+        /// </summary>
+        [DataMember(Name="materialDataSources", EmitDefaultValue=false)]
+        public List<MaterialDataSourcesEnum> MaterialDataSources { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="MaterialUpdateOperation" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -37,16 +69,19 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="MaterialUpdateOperation" /> class.
         /// </summary>
         /// <param name="path">JSON pointer (considering the &#x60;model&#x60; field as root) specifying where to add the material. If it points to a container (e.g. &#x60;/materials&#x60; or &#x60;/materials/solids&#x60;), the material will be added to that container. If it points to an existing material instead (e.g. &#x60;/materials/0&#x60; or &#x60;/materials/solids/0&#x60;), the new material will replace the one the pointer points to.  (required).</param>
-        /// <param name="materialData">materialData.</param>
+        /// <param name="materialData">materialData (required).</param>
         /// <param name="materialSpec">Material spec object that will be used as the base to apply the physical properties passed in &#x60;materialData&#x60;..</param>
         /// <param name="reference">reference.</param>
-        public MaterialUpdateOperation(string path = default(string), MaterialResponse materialData = default(MaterialResponse), Object materialSpec = default(Object), MaterialUpdateOperationReference reference = default(MaterialUpdateOperationReference))
+        /// <param name="materialDataSources">materialDataSources.</param>
+        public MaterialUpdateOperation(string path = default(string), MaterialResponse materialData = default(MaterialResponse), Object materialSpec = default(Object), MaterialUpdateOperationReference reference = default(MaterialUpdateOperationReference), List<MaterialDataSourcesEnum> materialDataSources = default(List<MaterialDataSourcesEnum>))
         {
             // to ensure "path" is required (not null)
             this.Path = path ?? throw new ArgumentNullException("path is a required property for MaterialUpdateOperation and cannot be null");
-            this.MaterialData = materialData;
+            // to ensure "materialData" is required (not null)
+            this.MaterialData = materialData ?? throw new ArgumentNullException("materialData is a required property for MaterialUpdateOperation and cannot be null");
             this.MaterialSpec = materialSpec;
             this.Reference = reference;
+            this.MaterialDataSources = materialDataSources;
         }
         
         /// <summary>
@@ -87,6 +122,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  MaterialData: ").Append(MaterialData).Append("\n");
             sb.Append("  MaterialSpec: ").Append(MaterialSpec).Append("\n");
             sb.Append("  Reference: ").Append(Reference).Append("\n");
+            sb.Append("  MaterialDataSources: ").Append(MaterialDataSources).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +176,10 @@ namespace SimScale.Sdk.Model
                     this.Reference == input.Reference ||
                     (this.Reference != null &&
                     this.Reference.Equals(input.Reference))
+                ) && 
+                (
+                    this.MaterialDataSources == input.MaterialDataSources ||
+                    this.MaterialDataSources.SequenceEqual(input.MaterialDataSources)
                 );
         }
 
@@ -160,6 +200,7 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MaterialSpec.GetHashCode();
                 if (this.Reference != null)
                     hashCode = hashCode * 59 + this.Reference.GetHashCode();
+                hashCode = hashCode * 59 + this.MaterialDataSources.GetHashCode();
                 return hashCode;
             }
         }

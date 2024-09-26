@@ -25,7 +25,161 @@ namespace SimScale.Sdk.Model
     /// <summary>
     /// ErrorResponse
     /// </summary>
-    public interface ErrorResponse
+    [DataContract]
+    public partial class ErrorResponse : IEquatable<ErrorResponse>
     {
+        /// <summary>
+        /// Gets or Sets Severity
+        /// </summary>
+        [DataMember(Name="severity", EmitDefaultValue=false)]
+        public LogSeverity? Severity { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
+        /// </summary>
+        /// <param name="severity">severity.</param>
+        public ErrorResponse(LogSeverity? severity = default(LogSeverity?))
+        {
+            this.Severity = severity;
+        }
+        
+        /// <summary>
+        /// Code for e.g. programmatic handling of error conditions.
+        /// </summary>
+        /// <value>Code for e.g. programmatic handling of error conditions.</value>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public string Code { get; private set; }
+
+        /// <summary>
+        /// Human-readable description of the entry.
+        /// </summary>
+        /// <value>Human-readable description of the entry.</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; private set; }
+
+        /// <summary>
+        /// Additional data to interpret and handle the entry.
+        /// </summary>
+        /// <value>Additional data to interpret and handle the entry.</value>
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public Dictionary<string, Object> Details { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Entries
+        /// </summary>
+        [DataMember(Name="entries", EmitDefaultValue=false)]
+        public List<LogEntry> Entries { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Trace
+        /// </summary>
+        [DataMember(Name="trace", EmitDefaultValue=false)]
+        public string Trace { get; private set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class ErrorResponse {\n");
+            sb.Append("  Severity: ").Append(Severity).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  Entries: ").Append(Entries).Append("\n");
+            sb.Append("  Trace: ").Append(Trace).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as ErrorResponse);
+        }
+
+        /// <summary>
+        /// Returns true if ErrorResponse instances are equal
+        /// </summary>
+        /// <param name="input">Instance of ErrorResponse to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(ErrorResponse input)
+        {
+            if (input == null)
+                return false;
+
+            return 
+                (
+                    this.Severity == input.Severity ||
+                    this.Severity.Equals(input.Severity)
+                ) && 
+                (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.Details == input.Details ||
+                    this.Details != null &&
+                    input.Details != null &&
+                    this.Details.SequenceEqual(input.Details)
+                ) && 
+                (
+                    this.Entries == input.Entries ||
+                    this.Entries != null &&
+                    input.Entries != null &&
+                    this.Entries.SequenceEqual(input.Entries)
+                ) && 
+                (
+                    this.Trace == input.Trace ||
+                    (this.Trace != null &&
+                    this.Trace.Equals(input.Trace))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = hashCode * 59 + this.Severity.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.Details != null)
+                    hashCode = hashCode * 59 + this.Details.GetHashCode();
+                if (this.Entries != null)
+                    hashCode = hashCode * 59 + this.Entries.GetHashCode();
+                if (this.Trace != null)
+                    hashCode = hashCode * 59 + this.Trace.GetHashCode();
+                return hashCode;
+            }
+        }
+
     }
+
 }

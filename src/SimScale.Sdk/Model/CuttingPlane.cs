@@ -49,9 +49,10 @@ namespace SimScale.Sdk.Model
         /// <param name="vectorGridSpacing">This field is required if projectVectorsOntoPlane is set to true. (default to 0.02D).</param>
         /// <param name="scalarField">scalarField.</param>
         /// <param name="vectorField">vectorField.</param>
+        /// <param name="solidColor">solidColor.</param>
         /// <param name="projectVectorsOntoPlane">If a vectorField is provided, this flag will project the vector field onto the cutting plane. (required) (default to false).</param>
         /// <param name="renderMode">renderMode.</param>
-        public CuttingPlane(string name = default(string), Vector3D center = default(Vector3D), Vector3D normal = default(Vector3D), double? opacity = default(double?), bool? clipping = true, double? vectorGridSpacing = default(double?), ScalarField scalarField = default(ScalarField), VectorField vectorField = default(VectorField), bool? projectVectorsOntoPlane = false, RenderMode? renderMode = default(RenderMode?))
+        public CuttingPlane(string name = default(string), Vector3D center = default(Vector3D), Vector3D normal = default(Vector3D), double? opacity = default(double?), bool? clipping = true, double? vectorGridSpacing = default(double?), ScalarField scalarField = default(ScalarField), VectorField vectorField = default(VectorField), Color solidColor = default(Color), bool? projectVectorsOntoPlane = false, RenderMode? renderMode = default(RenderMode?))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CuttingPlane and cannot be null");
@@ -67,6 +68,7 @@ namespace SimScale.Sdk.Model
             this.VectorGridSpacing = vectorGridSpacing;
             this.ScalarField = scalarField;
             this.VectorField = vectorField;
+            this.SolidColor = solidColor;
             this.RenderMode = renderMode;
         }
         
@@ -120,6 +122,12 @@ namespace SimScale.Sdk.Model
         public VectorField VectorField { get; set; }
 
         /// <summary>
+        /// Gets or Sets SolidColor
+        /// </summary>
+        [DataMember(Name="solidColor", EmitDefaultValue=false)]
+        public Color SolidColor { get; set; }
+
+        /// <summary>
         /// If a vectorField is provided, this flag will project the vector field onto the cutting plane.
         /// </summary>
         /// <value>If a vectorField is provided, this flag will project the vector field onto the cutting plane.</value>
@@ -142,6 +150,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  VectorGridSpacing: ").Append(VectorGridSpacing).Append("\n");
             sb.Append("  ScalarField: ").Append(ScalarField).Append("\n");
             sb.Append("  VectorField: ").Append(VectorField).Append("\n");
+            sb.Append("  SolidColor: ").Append(SolidColor).Append("\n");
             sb.Append("  ProjectVectorsOntoPlane: ").Append(ProjectVectorsOntoPlane).Append("\n");
             sb.Append("  RenderMode: ").Append(RenderMode).Append("\n");
             sb.Append("}\n");
@@ -219,6 +228,11 @@ namespace SimScale.Sdk.Model
                     this.VectorField.Equals(input.VectorField))
                 ) && 
                 (
+                    this.SolidColor == input.SolidColor ||
+                    (this.SolidColor != null &&
+                    this.SolidColor.Equals(input.SolidColor))
+                ) && 
+                (
                     this.ProjectVectorsOntoPlane == input.ProjectVectorsOntoPlane ||
                     (this.ProjectVectorsOntoPlane != null &&
                     this.ProjectVectorsOntoPlane.Equals(input.ProjectVectorsOntoPlane))
@@ -254,6 +268,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ScalarField.GetHashCode();
                 if (this.VectorField != null)
                     hashCode = hashCode * 59 + this.VectorField.GetHashCode();
+                if (this.SolidColor != null)
+                    hashCode = hashCode * 59 + this.SolidColor.GetHashCode();
                 if (this.ProjectVectorsOntoPlane != null)
                     hashCode = hashCode * 59 + this.ProjectVectorsOntoPlane.GetHashCode();
                 hashCode = hashCode * 59 + this.RenderMode.GetHashCode();

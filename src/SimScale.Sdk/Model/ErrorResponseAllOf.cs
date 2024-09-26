@@ -23,23 +23,17 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// MultipleErrorsResponse
+    /// ErrorResponseAllOf
     /// </summary>
     [DataContract]
-    public partial class MultipleErrorsResponse : ErrorResponse, IEquatable<MultipleErrorsResponse>
+    public partial class ErrorResponseAllOf : IEquatable<ErrorResponseAllOf>
     {
         /// <summary>
-        /// Gets or Sets Severity
+        /// Initializes a new instance of the <see cref="ErrorResponseAllOf" /> class.
         /// </summary>
-        [DataMember(Name="severity", EmitDefaultValue=false)]
-        public LogSeverity? Severity { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MultipleErrorsResponse" /> class.
-        /// </summary>
-        /// <param name="severity">severity.</param>
-        public MultipleErrorsResponse(LogSeverity? severity = default(LogSeverity?))
+        [JsonConstructorAttribute]
+        public ErrorResponseAllOf()
         {
-            this.Severity = severity;
         }
         
         /// <summary>
@@ -61,8 +55,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MultipleErrorsResponse {\n");
-            sb.Append("  Severity: ").Append(Severity).Append("\n");
+            sb.Append("class ErrorResponseAllOf {\n");
             sb.Append("  Entries: ").Append(Entries).Append("\n");
             sb.Append("  Trace: ").Append(Trace).Append("\n");
             sb.Append("}\n");
@@ -85,24 +78,20 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MultipleErrorsResponse);
+            return this.Equals(input as ErrorResponseAllOf);
         }
 
         /// <summary>
-        /// Returns true if MultipleErrorsResponse instances are equal
+        /// Returns true if ErrorResponseAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of MultipleErrorsResponse to be compared</param>
+        /// <param name="input">Instance of ErrorResponseAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MultipleErrorsResponse input)
+        public bool Equals(ErrorResponseAllOf input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.Severity == input.Severity ||
-                    this.Severity.Equals(input.Severity)
-                ) && 
                 (
                     this.Entries == input.Entries ||
                     this.Entries != null &&
@@ -125,7 +114,6 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Severity.GetHashCode();
                 if (this.Entries != null)
                     hashCode = hashCode * 59 + this.Entries.GetHashCode();
                 if (this.Trace != null)

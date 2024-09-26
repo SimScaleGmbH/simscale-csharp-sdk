@@ -33,10 +33,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="materialGroupId">Identifier of the material group.</param>
         /// <param name="materialId">Identifier of the material.</param>
-        public MaterialUpdateOperationReference(string materialGroupId = default(string), string materialId = default(string))
+        /// <param name="interpolationParameters">Parameters taken into account when some material property values need to be interpolated. When this object is part of a request, the parameters will be taken into account during interpolation, while when it&#39;s part of the response, the parameters show the values which were used (if any) during the interpolation. Note that the values used during interpolation might differ from what is requested. .</param>
+        public MaterialUpdateOperationReference(string materialGroupId = default(string), string materialId = default(string), Dictionary<string, Object> interpolationParameters = default(Dictionary<string, Object>))
         {
             this.MaterialGroupId = materialGroupId;
             this.MaterialId = materialId;
+            this.InterpolationParameters = interpolationParameters;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace SimScale.Sdk.Model
         public string MaterialId { get; set; }
 
         /// <summary>
+        /// Parameters taken into account when some material property values need to be interpolated. When this object is part of a request, the parameters will be taken into account during interpolation, while when it&#39;s part of the response, the parameters show the values which were used (if any) during the interpolation. Note that the values used during interpolation might differ from what is requested. 
+        /// </summary>
+        /// <value>Parameters taken into account when some material property values need to be interpolated. When this object is part of a request, the parameters will be taken into account during interpolation, while when it&#39;s part of the response, the parameters show the values which were used (if any) during the interpolation. Note that the values used during interpolation might differ from what is requested. </value>
+        [DataMember(Name="interpolationParameters", EmitDefaultValue=false)]
+        public Dictionary<string, Object> InterpolationParameters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class MaterialUpdateOperationReference {\n");
             sb.Append("  MaterialGroupId: ").Append(MaterialGroupId).Append("\n");
             sb.Append("  MaterialId: ").Append(MaterialId).Append("\n");
+            sb.Append("  InterpolationParameters: ").Append(InterpolationParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +116,12 @@ namespace SimScale.Sdk.Model
                     this.MaterialId == input.MaterialId ||
                     (this.MaterialId != null &&
                     this.MaterialId.Equals(input.MaterialId))
+                ) && 
+                (
+                    this.InterpolationParameters == input.InterpolationParameters ||
+                    this.InterpolationParameters != null &&
+                    input.InterpolationParameters != null &&
+                    this.InterpolationParameters.SequenceEqual(input.InterpolationParameters)
                 );
         }
 
@@ -122,6 +138,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MaterialGroupId.GetHashCode();
                 if (this.MaterialId != null)
                     hashCode = hashCode * 59 + this.MaterialId.GetHashCode();
+                if (this.InterpolationParameters != null)
+                    hashCode = hashCode * 59 + this.InterpolationParameters.GetHashCode();
                 return hashCode;
             }
         }
