@@ -35,7 +35,7 @@ namespace SimScale.Sdk.Model
         /// <param name="availableFields">availableFields.</param>
         /// <param name="confidenceScore">confidenceScore.</param>
         /// <param name="globalOutputs">globalOutputs.</param>
-        public CreateAiPredictionResponse(Guid? predictionId = default(Guid?), CreateAiPredictionResponseAvailableFields availableFields = default(CreateAiPredictionResponseAvailableFields), double? confidenceScore = default(double?), List<CreateAiPredictionResponseGlobalOutputs> globalOutputs = default(List<CreateAiPredictionResponseGlobalOutputs>))
+        public CreateAiPredictionResponse(Guid? predictionId = default(Guid?), List<CreateAiPredictionResponseAvailableFields> availableFields = default(List<CreateAiPredictionResponseAvailableFields>), double? confidenceScore = default(double?), List<CreateAiPredictionResponseGlobalOutputs> globalOutputs = default(List<CreateAiPredictionResponseGlobalOutputs>))
         {
             this.PredictionId = predictionId;
             this.AvailableFields = availableFields;
@@ -53,7 +53,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets AvailableFields
         /// </summary>
         [DataMember(Name="availableFields", EmitDefaultValue=false)]
-        public CreateAiPredictionResponseAvailableFields AvailableFields { get; set; }
+        public List<CreateAiPredictionResponseAvailableFields> AvailableFields { get; set; }
 
         /// <summary>
         /// Gets or Sets ConfidenceScore
@@ -120,8 +120,9 @@ namespace SimScale.Sdk.Model
                 ) && 
                 (
                     this.AvailableFields == input.AvailableFields ||
-                    (this.AvailableFields != null &&
-                    this.AvailableFields.Equals(input.AvailableFields))
+                    this.AvailableFields != null &&
+                    input.AvailableFields != null &&
+                    this.AvailableFields.SequenceEqual(input.AvailableFields)
                 ) && 
                 (
                     this.ConfidenceScore == input.ConfidenceScore ||
