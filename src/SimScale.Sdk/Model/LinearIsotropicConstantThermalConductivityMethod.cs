@@ -23,40 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// LinearIsotropicPermeabiltiy
+    /// LinearIsotropicConstantThermalConductivityMethod
     /// </summary>
     [DataContract]
-    public partial class LinearIsotropicPermeabiltiy : OneOfElectromagneticMaterialMagneticPermeabilityType, IEquatable<LinearIsotropicPermeabiltiy>
+    public partial class LinearIsotropicConstantThermalConductivityMethod : IEquatable<LinearIsotropicConstantThermalConductivityMethod>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinearIsotropicPermeabiltiy" /> class.
+        /// Initializes a new instance of the <see cref="LinearIsotropicConstantThermalConductivityMethod" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LinearIsotropicPermeabiltiy() { }
+        protected LinearIsotropicConstantThermalConductivityMethod() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinearIsotropicPermeabiltiy" /> class.
+        /// Initializes a new instance of the <see cref="LinearIsotropicConstantThermalConductivityMethod" /> class.
         /// </summary>
-        /// <param name="type">Schema name: LinearIsotropicPermeabiltiy (required) (default to &quot;LINEAR_ISOTROPIC&quot;).</param>
-        /// <param name="relativeMagneticPermeability">relativeMagneticPermeability.</param>
-        public LinearIsotropicPermeabiltiy(string type = "LINEAR_ISOTROPIC", decimal? relativeMagneticPermeability = default(decimal?))
+        /// <param name="type">Schema name: LinearIsotropicConstantThermalConductivityMethod (required) (default to &quot;LINEAR_ISOTROPIC_CONSTANT_THERMAL_CONDUCTIVITY&quot;).</param>
+        /// <param name="conductivity">conductivity.</param>
+        public LinearIsotropicConstantThermalConductivityMethod(string type = "LINEAR_ISOTROPIC_CONSTANT_THERMAL_CONDUCTIVITY", DimensionalThermalConductivity conductivity = default(DimensionalThermalConductivity))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for LinearIsotropicPermeabiltiy and cannot be null");
-            this.RelativeMagneticPermeability = relativeMagneticPermeability;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for LinearIsotropicConstantThermalConductivityMethod and cannot be null");
+            this.Conductivity = conductivity;
         }
         
         /// <summary>
-        /// Schema name: LinearIsotropicPermeabiltiy
+        /// Schema name: LinearIsotropicConstantThermalConductivityMethod
         /// </summary>
-        /// <value>Schema name: LinearIsotropicPermeabiltiy</value>
+        /// <value>Schema name: LinearIsotropicConstantThermalConductivityMethod</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets RelativeMagneticPermeability
+        /// Gets or Sets Conductivity
         /// </summary>
-        [DataMember(Name="relativeMagneticPermeability", EmitDefaultValue=false)]
-        public decimal? RelativeMagneticPermeability { get; set; }
+        [DataMember(Name="conductivity", EmitDefaultValue=false)]
+        public DimensionalThermalConductivity Conductivity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LinearIsotropicPermeabiltiy {\n");
+            sb.Append("class LinearIsotropicConstantThermalConductivityMethod {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  RelativeMagneticPermeability: ").Append(RelativeMagneticPermeability).Append("\n");
+            sb.Append("  Conductivity: ").Append(Conductivity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LinearIsotropicPermeabiltiy);
+            return this.Equals(input as LinearIsotropicConstantThermalConductivityMethod);
         }
 
         /// <summary>
-        /// Returns true if LinearIsotropicPermeabiltiy instances are equal
+        /// Returns true if LinearIsotropicConstantThermalConductivityMethod instances are equal
         /// </summary>
-        /// <param name="input">Instance of LinearIsotropicPermeabiltiy to be compared</param>
+        /// <param name="input">Instance of LinearIsotropicConstantThermalConductivityMethod to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LinearIsotropicPermeabiltiy input)
+        public bool Equals(LinearIsotropicConstantThermalConductivityMethod input)
         {
             if (input == null)
                 return false;
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.RelativeMagneticPermeability == input.RelativeMagneticPermeability ||
-                    (this.RelativeMagneticPermeability != null &&
-                    this.RelativeMagneticPermeability.Equals(input.RelativeMagneticPermeability))
+                    this.Conductivity == input.Conductivity ||
+                    (this.Conductivity != null &&
+                    this.Conductivity.Equals(input.Conductivity))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.RelativeMagneticPermeability != null)
-                    hashCode = hashCode * 59 + this.RelativeMagneticPermeability.GetHashCode();
+                if (this.Conductivity != null)
+                    hashCode = hashCode * 59 + this.Conductivity.GetHashCode();
                 return hashCode;
             }
         }

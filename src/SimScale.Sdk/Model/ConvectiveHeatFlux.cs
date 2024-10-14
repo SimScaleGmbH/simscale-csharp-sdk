@@ -23,36 +23,38 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Assign a specific charge density to a body.
+    /// Represents heat transfer between a surface and a fluid.
     /// </summary>
     [DataContract]
-    public partial class ChargeDensity : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<ChargeDensity>
+    public partial class ConvectiveHeatFlux : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<ConvectiveHeatFlux>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChargeDensity" /> class.
+        /// Initializes a new instance of the <see cref="ConvectiveHeatFlux" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ChargeDensity() { }
+        protected ConvectiveHeatFlux() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChargeDensity" /> class.
+        /// Initializes a new instance of the <see cref="ConvectiveHeatFlux" /> class.
         /// </summary>
-        /// <param name="type">Assign a specific charge density to a body.  Schema name: ChargeDensity (required) (default to &quot;CHARGE_DENSITY&quot;).</param>
+        /// <param name="type">Represents heat transfer between a surface and a fluid.  Schema name: ConvectiveHeatFlux (required) (default to &quot;CONVECTIVE_HEAT_FLUX&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="chargeDensity">chargeDensity.</param>
+        /// <param name="heatTransferCoefficient">heatTransferCoefficient.</param>
+        /// <param name="ambientTemperature">ambientTemperature.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public ChargeDensity(string type = "CHARGE_DENSITY", string name = default(string), DimensionalChargeDensity chargeDensity = default(DimensionalChargeDensity), TopologicalReference topologicalReference = default(TopologicalReference))
+        public ConvectiveHeatFlux(string type = "CONVECTIVE_HEAT_FLUX", string name = default(string), DimensionalFunctionThermalTransmittance heatTransferCoefficient = default(DimensionalFunctionThermalTransmittance), DimensionalFunctionTemperature ambientTemperature = default(DimensionalFunctionTemperature), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for ChargeDensity and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for ConvectiveHeatFlux and cannot be null");
             this.Name = name;
-            this._ChargeDensity = chargeDensity;
+            this.HeatTransferCoefficient = heatTransferCoefficient;
+            this.AmbientTemperature = ambientTemperature;
             this.TopologicalReference = topologicalReference;
         }
         
         /// <summary>
-        /// Assign a specific charge density to a body.  Schema name: ChargeDensity
+        /// Represents heat transfer between a surface and a fluid.  Schema name: ConvectiveHeatFlux
         /// </summary>
-        /// <value>Assign a specific charge density to a body.  Schema name: ChargeDensity</value>
+        /// <value>Represents heat transfer between a surface and a fluid.  Schema name: ConvectiveHeatFlux</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -63,10 +65,16 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets _ChargeDensity
+        /// Gets or Sets HeatTransferCoefficient
         /// </summary>
-        [DataMember(Name="chargeDensity", EmitDefaultValue=false)]
-        public DimensionalChargeDensity _ChargeDensity { get; set; }
+        [DataMember(Name="heatTransferCoefficient", EmitDefaultValue=false)]
+        public DimensionalFunctionThermalTransmittance HeatTransferCoefficient { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AmbientTemperature
+        /// </summary>
+        [DataMember(Name="ambientTemperature", EmitDefaultValue=false)]
+        public DimensionalFunctionTemperature AmbientTemperature { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -81,10 +89,11 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ChargeDensity {\n");
+            sb.Append("class ConvectiveHeatFlux {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  _ChargeDensity: ").Append(_ChargeDensity).Append("\n");
+            sb.Append("  HeatTransferCoefficient: ").Append(HeatTransferCoefficient).Append("\n");
+            sb.Append("  AmbientTemperature: ").Append(AmbientTemperature).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -106,15 +115,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ChargeDensity);
+            return this.Equals(input as ConvectiveHeatFlux);
         }
 
         /// <summary>
-        /// Returns true if ChargeDensity instances are equal
+        /// Returns true if ConvectiveHeatFlux instances are equal
         /// </summary>
-        /// <param name="input">Instance of ChargeDensity to be compared</param>
+        /// <param name="input">Instance of ConvectiveHeatFlux to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChargeDensity input)
+        public bool Equals(ConvectiveHeatFlux input)
         {
             if (input == null)
                 return false;
@@ -131,9 +140,14 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this._ChargeDensity == input._ChargeDensity ||
-                    (this._ChargeDensity != null &&
-                    this._ChargeDensity.Equals(input._ChargeDensity))
+                    this.HeatTransferCoefficient == input.HeatTransferCoefficient ||
+                    (this.HeatTransferCoefficient != null &&
+                    this.HeatTransferCoefficient.Equals(input.HeatTransferCoefficient))
+                ) && 
+                (
+                    this.AmbientTemperature == input.AmbientTemperature ||
+                    (this.AmbientTemperature != null &&
+                    this.AmbientTemperature.Equals(input.AmbientTemperature))
                 ) && 
                 (
                     this.TopologicalReference == input.TopologicalReference ||
@@ -155,8 +169,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this._ChargeDensity != null)
-                    hashCode = hashCode * 59 + this._ChargeDensity.GetHashCode();
+                if (this.HeatTransferCoefficient != null)
+                    hashCode = hashCode * 59 + this.HeatTransferCoefficient.GetHashCode();
+                if (this.AmbientTemperature != null)
+                    hashCode = hashCode * 59 + this.AmbientTemperature.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

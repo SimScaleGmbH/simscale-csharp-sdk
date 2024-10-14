@@ -23,40 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedElectricPotentialEBC
+    /// GlobalCartesianMagnetizationDirectionMethod
     /// </summary>
     [DataContract]
-    public partial class FixedElectricPotentialEBC : OneOfWallBCElectricBoundaryCondition, IEquatable<FixedElectricPotentialEBC>
+    public partial class GlobalCartesianMagnetizationDirectionMethod : OneOfPermanentMagnetMaterialMagnetizationDirectionType, IEquatable<GlobalCartesianMagnetizationDirectionMethod>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedElectricPotentialEBC" /> class.
+        /// Initializes a new instance of the <see cref="GlobalCartesianMagnetizationDirectionMethod" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedElectricPotentialEBC() { }
+        protected GlobalCartesianMagnetizationDirectionMethod() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedElectricPotentialEBC" /> class.
+        /// Initializes a new instance of the <see cref="GlobalCartesianMagnetizationDirectionMethod" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedElectricPotentialEBC (required) (default to &quot;FIXED_ELECTRIC_POTENTIAL&quot;).</param>
-        /// <param name="potentialFunction">potentialFunction.</param>
-        public FixedElectricPotentialEBC(string type = "FIXED_ELECTRIC_POTENTIAL", DimensionalFunctionElectricPotential potentialFunction = default(DimensionalFunctionElectricPotential))
+        /// <param name="type">Schema name: GlobalCartesianMagnetizationDirectionMethod (required) (default to &quot;GLOBAL_CARTESIAN&quot;).</param>
+        /// <param name="magnetizationDirection">magnetizationDirection.</param>
+        public GlobalCartesianMagnetizationDirectionMethod(string type = "GLOBAL_CARTESIAN", DimensionalVectorDimensionless magnetizationDirection = default(DimensionalVectorDimensionless))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedElectricPotentialEBC and cannot be null");
-            this.PotentialFunction = potentialFunction;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for GlobalCartesianMagnetizationDirectionMethod and cannot be null");
+            this.MagnetizationDirection = magnetizationDirection;
         }
         
         /// <summary>
-        /// Schema name: FixedElectricPotentialEBC
+        /// Schema name: GlobalCartesianMagnetizationDirectionMethod
         /// </summary>
-        /// <value>Schema name: FixedElectricPotentialEBC</value>
+        /// <value>Schema name: GlobalCartesianMagnetizationDirectionMethod</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets PotentialFunction
+        /// Gets or Sets MagnetizationDirection
         /// </summary>
-        [DataMember(Name="potentialFunction", EmitDefaultValue=false)]
-        public DimensionalFunctionElectricPotential PotentialFunction { get; set; }
+        [DataMember(Name="magnetizationDirection", EmitDefaultValue=false)]
+        public DimensionalVectorDimensionless MagnetizationDirection { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FixedElectricPotentialEBC {\n");
+            sb.Append("class GlobalCartesianMagnetizationDirectionMethod {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  PotentialFunction: ").Append(PotentialFunction).Append("\n");
+            sb.Append("  MagnetizationDirection: ").Append(MagnetizationDirection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedElectricPotentialEBC);
+            return this.Equals(input as GlobalCartesianMagnetizationDirectionMethod);
         }
 
         /// <summary>
-        /// Returns true if FixedElectricPotentialEBC instances are equal
+        /// Returns true if GlobalCartesianMagnetizationDirectionMethod instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedElectricPotentialEBC to be compared</param>
+        /// <param name="input">Instance of GlobalCartesianMagnetizationDirectionMethod to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedElectricPotentialEBC input)
+        public bool Equals(GlobalCartesianMagnetizationDirectionMethod input)
         {
             if (input == null)
                 return false;
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.PotentialFunction == input.PotentialFunction ||
-                    (this.PotentialFunction != null &&
-                    this.PotentialFunction.Equals(input.PotentialFunction))
+                    this.MagnetizationDirection == input.MagnetizationDirection ||
+                    (this.MagnetizationDirection != null &&
+                    this.MagnetizationDirection.Equals(input.MagnetizationDirection))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.PotentialFunction != null)
-                    hashCode = hashCode * 59 + this.PotentialFunction.GetHashCode();
+                if (this.MagnetizationDirection != null)
+                    hashCode = hashCode * 59 + this.MagnetizationDirection.GetHashCode();
                 return hashCode;
             }
         }

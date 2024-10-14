@@ -24,12 +24,11 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Multfront&lt;/b&gt; is a direct solver of the multifrontal type. It is easy to set up and behaves well for most problems.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;
+    /// &lt;p&gt;Choose a linear equation system solver for your calculation:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;MUMPS&lt;/b&gt; is a general purpose direct solver of the multifrontal type. It provides a lot of parameter settings to allow the best fitting to your problems needs.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;LDLT&lt;/b&gt; is a direct solver which uses a Gaussian Algortihm. It is comparatively slow for big problems.&lt;/p&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(LDLTSolverV33), "LDLT_V33")]
     [JsonSubtypes.KnownSubType(typeof(MUMPSSolver), "MUMPS")]
-    [JsonSubtypes.KnownSubType(typeof(MultifrontalSolver), "MULTIFRONT")]
     public interface OneOfHarmonicResponseSolver
     {
         /// <summary>

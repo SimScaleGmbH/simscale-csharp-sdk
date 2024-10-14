@@ -62,7 +62,13 @@ namespace SimScale.Sdk.Model
             /// Enum TMm for value: t/mm³
             /// </summary>
             [EnumMember(Value = "t/mm³")]
-            TMm = 5
+            TMm = 5,
+
+            /// <summary>
+            /// Enum LbFt for value: lb/ft³
+            /// </summary>
+            [EnumMember(Value = "lb/ft³")]
+            LbFt = 6
 
         }
 

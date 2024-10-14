@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: TimeHarmonicMagnetics (required) (default to &quot;TIME_HARMONIC_MAGNETICS&quot;).</param>
         /// <param name="frequency">frequency.</param>
-        public TimeHarmonicMagnetics(string type = "TIME_HARMONIC_MAGNETICS", DimensionalFrequency frequency = default(DimensionalFrequency))
+        /// <param name="thermal">Coupling with thermal solves for the temperature by considering electromagnetic losses such as Ohmic, hysteric or displacement losses. (default to false).</param>
+        public TimeHarmonicMagnetics(string type = "TIME_HARMONIC_MAGNETICS", DimensionalFrequency frequency = default(DimensionalFrequency), bool? thermal = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TimeHarmonicMagnetics and cannot be null");
             this.Frequency = frequency;
+            this.Thermal = thermal;
         }
         
         /// <summary>
@@ -59,6 +61,13 @@ namespace SimScale.Sdk.Model
         public DimensionalFrequency Frequency { get; set; }
 
         /// <summary>
+        /// Coupling with thermal solves for the temperature by considering electromagnetic losses such as Ohmic, hysteric or displacement losses.
+        /// </summary>
+        /// <value>Coupling with thermal solves for the temperature by considering electromagnetic losses such as Ohmic, hysteric or displacement losses.</value>
+        [DataMember(Name="thermal", EmitDefaultValue=false)]
+        public bool? Thermal { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +77,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class TimeHarmonicMagnetics {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            sb.Append("  Thermal: ").Append(Thermal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +121,11 @@ namespace SimScale.Sdk.Model
                     this.Frequency == input.Frequency ||
                     (this.Frequency != null &&
                     this.Frequency.Equals(input.Frequency))
+                ) && 
+                (
+                    this.Thermal == input.Thermal ||
+                    (this.Thermal != null &&
+                    this.Thermal.Equals(input.Thermal))
                 );
         }
 
@@ -127,6 +142,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Frequency != null)
                     hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                if (this.Thermal != null)
+                    hashCode = hashCode * 59 + this.Thermal.GetHashCode();
                 return hashCode;
             }
         }

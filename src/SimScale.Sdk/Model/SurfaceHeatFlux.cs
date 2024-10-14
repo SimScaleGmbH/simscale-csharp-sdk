@@ -23,36 +23,36 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Assign a specific charge density to a body.
+    /// Specify the rate of heat transfer per unit area at the boundary. Used for heating or cooling surfaces.
     /// </summary>
     [DataContract]
-    public partial class ChargeDensity : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<ChargeDensity>
+    public partial class SurfaceHeatFlux : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<SurfaceHeatFlux>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChargeDensity" /> class.
+        /// Initializes a new instance of the <see cref="SurfaceHeatFlux" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ChargeDensity() { }
+        protected SurfaceHeatFlux() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChargeDensity" /> class.
+        /// Initializes a new instance of the <see cref="SurfaceHeatFlux" /> class.
         /// </summary>
-        /// <param name="type">Assign a specific charge density to a body.  Schema name: ChargeDensity (required) (default to &quot;CHARGE_DENSITY&quot;).</param>
+        /// <param name="type">Specify the rate of heat transfer per unit area at the boundary. Used for heating or cooling surfaces.  Schema name: SurfaceHeatFlux (required) (default to &quot;SURFACE_HEAT_FLUX&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="chargeDensity">chargeDensity.</param>
+        /// <param name="heatFluxValue">heatFluxValue.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public ChargeDensity(string type = "CHARGE_DENSITY", string name = default(string), DimensionalChargeDensity chargeDensity = default(DimensionalChargeDensity), TopologicalReference topologicalReference = default(TopologicalReference))
+        public SurfaceHeatFlux(string type = "SURFACE_HEAT_FLUX", string name = default(string), DimensionalFunctionHeatFlux heatFluxValue = default(DimensionalFunctionHeatFlux), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for ChargeDensity and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for SurfaceHeatFlux and cannot be null");
             this.Name = name;
-            this._ChargeDensity = chargeDensity;
+            this.HeatFluxValue = heatFluxValue;
             this.TopologicalReference = topologicalReference;
         }
         
         /// <summary>
-        /// Assign a specific charge density to a body.  Schema name: ChargeDensity
+        /// Specify the rate of heat transfer per unit area at the boundary. Used for heating or cooling surfaces.  Schema name: SurfaceHeatFlux
         /// </summary>
-        /// <value>Assign a specific charge density to a body.  Schema name: ChargeDensity</value>
+        /// <value>Specify the rate of heat transfer per unit area at the boundary. Used for heating or cooling surfaces.  Schema name: SurfaceHeatFlux</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -63,10 +63,10 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets _ChargeDensity
+        /// Gets or Sets HeatFluxValue
         /// </summary>
-        [DataMember(Name="chargeDensity", EmitDefaultValue=false)]
-        public DimensionalChargeDensity _ChargeDensity { get; set; }
+        [DataMember(Name="heatFluxValue", EmitDefaultValue=false)]
+        public DimensionalFunctionHeatFlux HeatFluxValue { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -81,10 +81,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ChargeDensity {\n");
+            sb.Append("class SurfaceHeatFlux {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  _ChargeDensity: ").Append(_ChargeDensity).Append("\n");
+            sb.Append("  HeatFluxValue: ").Append(HeatFluxValue).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -106,15 +106,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ChargeDensity);
+            return this.Equals(input as SurfaceHeatFlux);
         }
 
         /// <summary>
-        /// Returns true if ChargeDensity instances are equal
+        /// Returns true if SurfaceHeatFlux instances are equal
         /// </summary>
-        /// <param name="input">Instance of ChargeDensity to be compared</param>
+        /// <param name="input">Instance of SurfaceHeatFlux to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChargeDensity input)
+        public bool Equals(SurfaceHeatFlux input)
         {
             if (input == null)
                 return false;
@@ -131,9 +131,9 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this._ChargeDensity == input._ChargeDensity ||
-                    (this._ChargeDensity != null &&
-                    this._ChargeDensity.Equals(input._ChargeDensity))
+                    this.HeatFluxValue == input.HeatFluxValue ||
+                    (this.HeatFluxValue != null &&
+                    this.HeatFluxValue.Equals(input.HeatFluxValue))
                 ) && 
                 (
                     this.TopologicalReference == input.TopologicalReference ||
@@ -155,8 +155,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this._ChargeDensity != null)
-                    hashCode = hashCode * 59 + this._ChargeDensity.GetHashCode();
+                if (this.HeatFluxValue != null)
+                    hashCode = hashCode * 59 + this.HeatFluxValue.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

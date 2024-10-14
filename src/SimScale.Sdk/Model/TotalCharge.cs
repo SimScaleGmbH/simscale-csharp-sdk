@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// TotalCharge
+    /// Set the total charge of a body.
     /// </summary>
     [DataContract]
     public partial class TotalCharge : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<TotalCharge>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalCharge" /> class.
         /// </summary>
-        /// <param name="type">Schema name: TotalCharge (required) (default to &quot;TOTAL_CHARGE&quot;).</param>
+        /// <param name="type">Set the total charge of a body.  Schema name: TotalCharge (required) (default to &quot;TOTAL_CHARGE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="totalCharge">totalCharge.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: TotalCharge
+        /// Set the total charge of a body.  Schema name: TotalCharge
         /// </summary>
-        /// <value>Schema name: TotalCharge</value>
+        /// <value>Set the total charge of a body.  Schema name: TotalCharge</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

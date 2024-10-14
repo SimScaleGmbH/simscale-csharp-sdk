@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="DistanceVolumeCustomSizing" /> class.
         /// </summary>
         /// <param name="type">Schema name: DistanceVolumeCustomSizing (required) (default to &quot;DISTANCE_CUSTOM_SIZING&quot;).</param>
-        /// <param name="distanceSizingValues">Define the desired cell size based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;increasing order&lt;/u&gt;, while the sizes must be in &lt;u&gt;decreasing order&lt;/u&gt;. When the distance is 0, the corresponding size is applied inside the specified volumes..</param>
+        /// <param name="distanceSizingValues">Define the desired cell size based on the distance to the surface of the assigned volumes. The distance and mesh size need to be specified in &lt;u&gt;increasing order&lt;/u&gt; (e.g. d1 &#x3D; 0.1 m - s1 &#x3D; 0.01m; d2 &#x3D; 0.5 m - s2 &#x3D; 0.03m etc);. When the distance is 0, the corresponding size is applied inside the specified volumes..</param>
         /// <param name="curvature">curvature.</param>
         public DistanceVolumeCustomSizing(string type = "DISTANCE_CUSTOM_SIZING", List<DistanceSizing> distanceSizingValues = default(List<DistanceSizing>), OneOfDistanceVolumeCustomSizingCurvature curvature = default(OneOfDistanceVolumeCustomSizingCurvature))
         {
@@ -55,9 +55,9 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Define the desired cell size based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;increasing order&lt;/u&gt;, while the sizes must be in &lt;u&gt;decreasing order&lt;/u&gt;. When the distance is 0, the corresponding size is applied inside the specified volumes.
+        /// Define the desired cell size based on the distance to the surface of the assigned volumes. The distance and mesh size need to be specified in &lt;u&gt;increasing order&lt;/u&gt; (e.g. d1 &#x3D; 0.1 m - s1 &#x3D; 0.01m; d2 &#x3D; 0.5 m - s2 &#x3D; 0.03m etc);. When the distance is 0, the corresponding size is applied inside the specified volumes.
         /// </summary>
-        /// <value>Define the desired cell size based on the distance to the surface of the assigned volumes. The distances need to be specified in &lt;u&gt;increasing order&lt;/u&gt;, while the sizes must be in &lt;u&gt;decreasing order&lt;/u&gt;. When the distance is 0, the corresponding size is applied inside the specified volumes.</value>
+        /// <value>Define the desired cell size based on the distance to the surface of the assigned volumes. The distance and mesh size need to be specified in &lt;u&gt;increasing order&lt;/u&gt; (e.g. d1 &#x3D; 0.1 m - s1 &#x3D; 0.01m; d2 &#x3D; 0.5 m - s2 &#x3D; 0.03m etc);. When the distance is 0, the corresponding size is applied inside the specified volumes.</value>
         [DataMember(Name="distanceSizingValues", EmitDefaultValue=false)]
         public List<DistanceSizing> DistanceSizingValues { get; set; }
 

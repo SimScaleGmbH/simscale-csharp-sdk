@@ -23,36 +23,38 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Assign a specific charge density to a body.
+    /// Accounts for heat transfer due to thermal radiation between surfaces.
     /// </summary>
     [DataContract]
-    public partial class ChargeDensity : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<ChargeDensity>
+    public partial class RadiationHeatFlux : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<RadiationHeatFlux>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChargeDensity" /> class.
+        /// Initializes a new instance of the <see cref="RadiationHeatFlux" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ChargeDensity() { }
+        protected RadiationHeatFlux() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChargeDensity" /> class.
+        /// Initializes a new instance of the <see cref="RadiationHeatFlux" /> class.
         /// </summary>
-        /// <param name="type">Assign a specific charge density to a body.  Schema name: ChargeDensity (required) (default to &quot;CHARGE_DENSITY&quot;).</param>
+        /// <param name="type">Accounts for heat transfer due to thermal radiation between surfaces.  Schema name: RadiationHeatFlux (required) (default to &quot;RADIATION_HEAT_FLUX&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="chargeDensity">chargeDensity.</param>
+        /// <param name="emissivity">emissivity.</param>
+        /// <param name="ambientTemperature">ambientTemperature.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public ChargeDensity(string type = "CHARGE_DENSITY", string name = default(string), DimensionalChargeDensity chargeDensity = default(DimensionalChargeDensity), TopologicalReference topologicalReference = default(TopologicalReference))
+        public RadiationHeatFlux(string type = "RADIATION_HEAT_FLUX", string name = default(string), DimensionalFunctionDimensionless emissivity = default(DimensionalFunctionDimensionless), DimensionalFunctionTemperature ambientTemperature = default(DimensionalFunctionTemperature), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for ChargeDensity and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for RadiationHeatFlux and cannot be null");
             this.Name = name;
-            this._ChargeDensity = chargeDensity;
+            this.Emissivity = emissivity;
+            this.AmbientTemperature = ambientTemperature;
             this.TopologicalReference = topologicalReference;
         }
         
         /// <summary>
-        /// Assign a specific charge density to a body.  Schema name: ChargeDensity
+        /// Accounts for heat transfer due to thermal radiation between surfaces.  Schema name: RadiationHeatFlux
         /// </summary>
-        /// <value>Assign a specific charge density to a body.  Schema name: ChargeDensity</value>
+        /// <value>Accounts for heat transfer due to thermal radiation between surfaces.  Schema name: RadiationHeatFlux</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -63,10 +65,16 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets _ChargeDensity
+        /// Gets or Sets Emissivity
         /// </summary>
-        [DataMember(Name="chargeDensity", EmitDefaultValue=false)]
-        public DimensionalChargeDensity _ChargeDensity { get; set; }
+        [DataMember(Name="emissivity", EmitDefaultValue=false)]
+        public DimensionalFunctionDimensionless Emissivity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AmbientTemperature
+        /// </summary>
+        [DataMember(Name="ambientTemperature", EmitDefaultValue=false)]
+        public DimensionalFunctionTemperature AmbientTemperature { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference
@@ -81,10 +89,11 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ChargeDensity {\n");
+            sb.Append("class RadiationHeatFlux {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  _ChargeDensity: ").Append(_ChargeDensity).Append("\n");
+            sb.Append("  Emissivity: ").Append(Emissivity).Append("\n");
+            sb.Append("  AmbientTemperature: ").Append(AmbientTemperature).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -106,15 +115,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ChargeDensity);
+            return this.Equals(input as RadiationHeatFlux);
         }
 
         /// <summary>
-        /// Returns true if ChargeDensity instances are equal
+        /// Returns true if RadiationHeatFlux instances are equal
         /// </summary>
-        /// <param name="input">Instance of ChargeDensity to be compared</param>
+        /// <param name="input">Instance of RadiationHeatFlux to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChargeDensity input)
+        public bool Equals(RadiationHeatFlux input)
         {
             if (input == null)
                 return false;
@@ -131,9 +140,14 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this._ChargeDensity == input._ChargeDensity ||
-                    (this._ChargeDensity != null &&
-                    this._ChargeDensity.Equals(input._ChargeDensity))
+                    this.Emissivity == input.Emissivity ||
+                    (this.Emissivity != null &&
+                    this.Emissivity.Equals(input.Emissivity))
+                ) && 
+                (
+                    this.AmbientTemperature == input.AmbientTemperature ||
+                    (this.AmbientTemperature != null &&
+                    this.AmbientTemperature.Equals(input.AmbientTemperature))
                 ) && 
                 (
                     this.TopologicalReference == input.TopologicalReference ||
@@ -155,8 +169,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this._ChargeDensity != null)
-                    hashCode = hashCode * 59 + this._ChargeDensity.GetHashCode();
+                if (this.Emissivity != null)
+                    hashCode = hashCode * 59 + this.Emissivity.GetHashCode();
+                if (this.AmbientTemperature != null)
+                    hashCode = hashCode * 59 + this.AmbientTemperature.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

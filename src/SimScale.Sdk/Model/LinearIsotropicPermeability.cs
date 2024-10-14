@@ -23,40 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedElectricPotentialEBC
+    /// LinearIsotropicPermeability
     /// </summary>
     [DataContract]
-    public partial class FixedElectricPotentialEBC : OneOfWallBCElectricBoundaryCondition, IEquatable<FixedElectricPotentialEBC>
+    public partial class LinearIsotropicPermeability : OneOfElectromagneticMaterialMagneticPermeabilityType, IEquatable<LinearIsotropicPermeability>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedElectricPotentialEBC" /> class.
+        /// Initializes a new instance of the <see cref="LinearIsotropicPermeability" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedElectricPotentialEBC() { }
+        protected LinearIsotropicPermeability() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedElectricPotentialEBC" /> class.
+        /// Initializes a new instance of the <see cref="LinearIsotropicPermeability" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedElectricPotentialEBC (required) (default to &quot;FIXED_ELECTRIC_POTENTIAL&quot;).</param>
-        /// <param name="potentialFunction">potentialFunction.</param>
-        public FixedElectricPotentialEBC(string type = "FIXED_ELECTRIC_POTENTIAL", DimensionalFunctionElectricPotential potentialFunction = default(DimensionalFunctionElectricPotential))
+        /// <param name="type">Schema name: LinearIsotropicPermeability (required) (default to &quot;LINEAR_ISOTROPIC&quot;).</param>
+        /// <param name="relativeMagneticPermeability">relativeMagneticPermeability.</param>
+        public LinearIsotropicPermeability(string type = "LINEAR_ISOTROPIC", decimal? relativeMagneticPermeability = default(decimal?))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedElectricPotentialEBC and cannot be null");
-            this.PotentialFunction = potentialFunction;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for LinearIsotropicPermeability and cannot be null");
+            this.RelativeMagneticPermeability = relativeMagneticPermeability;
         }
         
         /// <summary>
-        /// Schema name: FixedElectricPotentialEBC
+        /// Schema name: LinearIsotropicPermeability
         /// </summary>
-        /// <value>Schema name: FixedElectricPotentialEBC</value>
+        /// <value>Schema name: LinearIsotropicPermeability</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets PotentialFunction
+        /// Gets or Sets RelativeMagneticPermeability
         /// </summary>
-        [DataMember(Name="potentialFunction", EmitDefaultValue=false)]
-        public DimensionalFunctionElectricPotential PotentialFunction { get; set; }
+        [DataMember(Name="relativeMagneticPermeability", EmitDefaultValue=false)]
+        public decimal? RelativeMagneticPermeability { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FixedElectricPotentialEBC {\n");
+            sb.Append("class LinearIsotropicPermeability {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  PotentialFunction: ").Append(PotentialFunction).Append("\n");
+            sb.Append("  RelativeMagneticPermeability: ").Append(RelativeMagneticPermeability).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedElectricPotentialEBC);
+            return this.Equals(input as LinearIsotropicPermeability);
         }
 
         /// <summary>
-        /// Returns true if FixedElectricPotentialEBC instances are equal
+        /// Returns true if LinearIsotropicPermeability instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedElectricPotentialEBC to be compared</param>
+        /// <param name="input">Instance of LinearIsotropicPermeability to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedElectricPotentialEBC input)
+        public bool Equals(LinearIsotropicPermeability input)
         {
             if (input == null)
                 return false;
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.PotentialFunction == input.PotentialFunction ||
-                    (this.PotentialFunction != null &&
-                    this.PotentialFunction.Equals(input.PotentialFunction))
+                    this.RelativeMagneticPermeability == input.RelativeMagneticPermeability ||
+                    (this.RelativeMagneticPermeability != null &&
+                    this.RelativeMagneticPermeability.Equals(input.RelativeMagneticPermeability))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.PotentialFunction != null)
-                    hashCode = hashCode * 59 + this.PotentialFunction.GetHashCode();
+                if (this.RelativeMagneticPermeability != null)
+                    hashCode = hashCode * 59 + this.RelativeMagneticPermeability.GetHashCode();
                 return hashCode;
             }
         }

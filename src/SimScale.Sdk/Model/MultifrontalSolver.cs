@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MultifrontalSolver
     /// </summary>
     [DataContract]
-    public partial class MultifrontalSolver : OneOfHarmonicResponseSolver, OneOfModalSolverSolver, OneOfSolidNumericsSolver, IEquatable<MultifrontalSolver>
+    public partial class MultifrontalSolver : OneOfModalSolverSolver, OneOfSolidNumericsSolver, IEquatable<MultifrontalSolver>
     {
         /// <summary>
         /// Choose a renumbering method for the solution process.&lt;br/&gt;For large models around and above 50000 degrees of freedom you should consider using MDA.

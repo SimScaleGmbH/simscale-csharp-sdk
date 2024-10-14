@@ -23,14 +23,15 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// CyclicSymmetryBC
+    /// &lt;p&gt;The &lt;b&gt;cyclic symmetry&lt;/b&gt; constraint enables to model only a sector of a 360° cyclic periodic structure and reduces the computation time and memory consumption considerably. The user defines the center and axis of the cyclic symmetry as well as the sector angle. The &lt;b&gt;master&lt;/b&gt; and &lt;b&gt;slave&lt;/b&gt; surfaces define the cyclic periodicity boundaries. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;All DOFs of the slave nodes will be constrained, adding an additional constraint on those nodes may lead to an overconstrained system.&lt;/li&gt;&lt;li&gt;This is a &lt;b&gt;linear&lt;/b&gt; constraint, so no large rotations or large deformations are allowed in the proximity of cyclic symmetry boundaries.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt; &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/cyclic_symmetry.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-to-apply-cyclic-symmetry-fea&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
     /// </summary>
     [DataContract]
     public partial class CyclicSymmetryBC : OneOfDynamicAnalysisBoundaryConditions, OneOfHarmonicAnalysisBoundaryConditions, OneOfHeatTransferBoundaryConditions, OneOfStaticAnalysisBoundaryConditions, OneOfThermalMechanicalBoundaryConditions, IEquatable<CyclicSymmetryBC>
     {
         /// <summary>
-        /// Defines EnableHeatTransfer
+        /// &lt;p&gt;Define if heat transfer should be allowed across the contact. If &lt;b&gt;yes&lt;/b&gt; is chosen a perfectly bonded heat contact is assumed whereas if &lt;b&gt;no&lt;/b&gt; is selected no heat transfer across the contact is allowed. Mechanical contact stays with both options active. With the selection of &lt;b&gt;heat transfer only&lt;/b&gt; no mechanical contact is activated but only a bonded heat contact.&lt;/p&gt;
         /// </summary>
+        /// <value>&lt;p&gt;Define if heat transfer should be allowed across the contact. If &lt;b&gt;yes&lt;/b&gt; is chosen a perfectly bonded heat contact is assumed whereas if &lt;b&gt;no&lt;/b&gt; is selected no heat transfer across the contact is allowed. Mechanical contact stays with both options active. With the selection of &lt;b&gt;heat transfer only&lt;/b&gt; no mechanical contact is activated but only a bonded heat contact.&lt;/p&gt;</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EnableHeatTransferEnum
         {
@@ -55,8 +56,9 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets EnableHeatTransfer
+        /// &lt;p&gt;Define if heat transfer should be allowed across the contact. If &lt;b&gt;yes&lt;/b&gt; is chosen a perfectly bonded heat contact is assumed whereas if &lt;b&gt;no&lt;/b&gt; is selected no heat transfer across the contact is allowed. Mechanical contact stays with both options active. With the selection of &lt;b&gt;heat transfer only&lt;/b&gt; no mechanical contact is activated but only a bonded heat contact.&lt;/p&gt;
         /// </summary>
+        /// <value>&lt;p&gt;Define if heat transfer should be allowed across the contact. If &lt;b&gt;yes&lt;/b&gt; is chosen a perfectly bonded heat contact is assumed whereas if &lt;b&gt;no&lt;/b&gt; is selected no heat transfer across the contact is allowed. Mechanical contact stays with both options active. With the selection of &lt;b&gt;heat transfer only&lt;/b&gt; no mechanical contact is activated but only a bonded heat contact.&lt;/p&gt;</value>
         [DataMember(Name="enableHeatTransfer", EmitDefaultValue=false)]
         public EnableHeatTransferEnum? EnableHeatTransfer { get; set; }
         /// <summary>
@@ -67,9 +69,9 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CyclicSymmetryBC" /> class.
         /// </summary>
-        /// <param name="type">Schema name: CyclicSymmetryBC (required) (default to &quot;CYCLIC_SYMMETRY&quot;).</param>
+        /// <param name="type">&lt;p&gt;The &lt;b&gt;cyclic symmetry&lt;/b&gt; constraint enables to model only a sector of a 360° cyclic periodic structure and reduces the computation time and memory consumption considerably. The user defines the center and axis of the cyclic symmetry as well as the sector angle. The &lt;b&gt;master&lt;/b&gt; and &lt;b&gt;slave&lt;/b&gt; surfaces define the cyclic periodicity boundaries. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;All DOFs of the slave nodes will be constrained, adding an additional constraint on those nodes may lead to an overconstrained system.&lt;/li&gt;&lt;li&gt;This is a &lt;b&gt;linear&lt;/b&gt; constraint, so no large rotations or large deformations are allowed in the proximity of cyclic symmetry boundaries.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt; &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/cyclic_symmetry.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-to-apply-cyclic-symmetry-fea&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: CyclicSymmetryBC (required) (default to &quot;CYCLIC_SYMMETRY&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="enableHeatTransfer">enableHeatTransfer (default to EnableHeatTransferEnum.YES).</param>
+        /// <param name="enableHeatTransfer">&lt;p&gt;Define if heat transfer should be allowed across the contact. If &lt;b&gt;yes&lt;/b&gt; is chosen a perfectly bonded heat contact is assumed whereas if &lt;b&gt;no&lt;/b&gt; is selected no heat transfer across the contact is allowed. Mechanical contact stays with both options active. With the selection of &lt;b&gt;heat transfer only&lt;/b&gt; no mechanical contact is activated but only a bonded heat contact.&lt;/p&gt; (default to EnableHeatTransferEnum.YES).</param>
         /// <param name="axisOrigin">axisOrigin.</param>
         /// <param name="axisDirection">axisDirection.</param>
         /// <param name="sectorAngle">sectorAngle.</param>
@@ -89,9 +91,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: CyclicSymmetryBC
+        /// &lt;p&gt;The &lt;b&gt;cyclic symmetry&lt;/b&gt; constraint enables to model only a sector of a 360° cyclic periodic structure and reduces the computation time and memory consumption considerably. The user defines the center and axis of the cyclic symmetry as well as the sector angle. The &lt;b&gt;master&lt;/b&gt; and &lt;b&gt;slave&lt;/b&gt; surfaces define the cyclic periodicity boundaries. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;All DOFs of the slave nodes will be constrained, adding an additional constraint on those nodes may lead to an overconstrained system.&lt;/li&gt;&lt;li&gt;This is a &lt;b&gt;linear&lt;/b&gt; constraint, so no large rotations or large deformations are allowed in the proximity of cyclic symmetry boundaries.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt; &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/cyclic_symmetry.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-to-apply-cyclic-symmetry-fea&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: CyclicSymmetryBC
         /// </summary>
-        /// <value>Schema name: CyclicSymmetryBC</value>
+        /// <value>&lt;p&gt;The &lt;b&gt;cyclic symmetry&lt;/b&gt; constraint enables to model only a sector of a 360° cyclic periodic structure and reduces the computation time and memory consumption considerably. The user defines the center and axis of the cyclic symmetry as well as the sector angle. The &lt;b&gt;master&lt;/b&gt; and &lt;b&gt;slave&lt;/b&gt; surfaces define the cyclic periodicity boundaries. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;All DOFs of the slave nodes will be constrained, adding an additional constraint on those nodes may lead to an overconstrained system.&lt;/li&gt;&lt;li&gt;This is a &lt;b&gt;linear&lt;/b&gt; constraint, so no large rotations or large deformations are allowed in the proximity of cyclic symmetry boundaries.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt; &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/cyclic_symmetry.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-to-apply-cyclic-symmetry-fea&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;  Schema name: CyclicSymmetryBC</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

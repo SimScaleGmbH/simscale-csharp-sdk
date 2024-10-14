@@ -37,12 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="CurrentOutflowEBC" /> class.
         /// </summary>
         /// <param name="type">Schema name: CurrentOutflowEBC (required) (default to &quot;CURRENT_OUTFLOW&quot;).</param>
-        /// <param name="current">current.</param>
-        public CurrentOutflowEBC(string type = "CURRENT_OUTFLOW", DimensionalElectricCurrent current = default(DimensionalElectricCurrent))
+        /// <param name="currentFunction">currentFunction.</param>
+        public CurrentOutflowEBC(string type = "CURRENT_OUTFLOW", DimensionalFunctionElectricCurrent currentFunction = default(DimensionalFunctionElectricCurrent))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CurrentOutflowEBC and cannot be null");
-            this.Current = current;
+            this.CurrentFunction = currentFunction;
         }
         
         /// <summary>
@@ -53,10 +53,10 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Current
+        /// Gets or Sets CurrentFunction
         /// </summary>
-        [DataMember(Name="current", EmitDefaultValue=false)]
-        public DimensionalElectricCurrent Current { get; set; }
+        [DataMember(Name="currentFunction", EmitDefaultValue=false)]
+        public DimensionalFunctionElectricCurrent CurrentFunction { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,7 +67,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class CurrentOutflowEBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Current: ").Append(Current).Append("\n");
+            sb.Append("  CurrentFunction: ").Append(CurrentFunction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Current == input.Current ||
-                    (this.Current != null &&
-                    this.Current.Equals(input.Current))
+                    this.CurrentFunction == input.CurrentFunction ||
+                    (this.CurrentFunction != null &&
+                    this.CurrentFunction.Equals(input.CurrentFunction))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Current != null)
-                    hashCode = hashCode * 59 + this.Current.GetHashCode();
+                if (this.CurrentFunction != null)
+                    hashCode = hashCode * 59 + this.CurrentFunction.GetHashCode();
                 return hashCode;
             }
         }

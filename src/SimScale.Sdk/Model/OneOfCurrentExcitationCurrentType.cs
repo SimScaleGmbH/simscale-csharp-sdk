@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Constant:&lt;/strong&gt; This method allows the specification of a constant current value. It is suitable for steady-state analyses where the current does not change over time.&lt;/li&gt;  &lt;li&gt;&lt;strong&gt;Sinusoidal:&lt;/strong&gt; Use this method to define a current that varies sinusoidally with time. It is essential for simulating scenarios where the current varies in a regular pattern, characterized by amplitude, frequency, and phase shift parameters.&lt;/li&gt;  &lt;li&gt;&lt;strong&gt;Table:&lt;/strong&gt; The table method provides the most flexibility, allowing the definition of current values at specific points in time. This method is ideal for irregular current variations that cannot be easily described by standard functions.&lt;/li&gt;&lt;/ul&gt;
+    /// &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Constant:&lt;/strong&gt; Definition of a constant current value.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Sinusoidal:&lt;/strong&gt; Definition of a current that changes sinusoidally with time.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Table:&lt;/strong&gt; Definition of current values at specific time intervals.&lt;/li&gt;&lt;/ul&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(ElectromagneticCurrentTypeConstant), "CURRENT_TYPE_CONSTANT")]

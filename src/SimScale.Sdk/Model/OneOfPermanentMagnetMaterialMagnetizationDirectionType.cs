@@ -24,13 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// &lt;ul&gt;&lt;li&gt;&lt;strong&gt;Constant:&lt;/strong&gt; Definition of a constant voltage value.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Sinusoidal:&lt;/strong&gt; Definition of a voltage that changes sinusoidally with time.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Table:&lt;/strong&gt; Definition of voltage values at specific time intervals.&lt;/li&gt;&lt;/ul&gt;
+    /// OneOfPermanentMagnetMaterialMagnetizationDirectionType
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(ElectromagneticVoltageTypeConstant), "VOLTAGE_TYPE_CONSTANT")]
-    [JsonSubtypes.KnownSubType(typeof(ElectromagneticVoltageTypeSinusoidal), "VOLTAGE_TYPE_SINUSOIDAL")]
-    [JsonSubtypes.KnownSubType(typeof(ElectromagneticVoltageTypeTable), "VOLTAGE_TYPE_TABLE")]
-    public interface OneOfVoltageExcitationVoltageType
+    [JsonSubtypes.KnownSubType(typeof(GlobalCartesianMagnetizationDirectionMethod), "GLOBAL_CARTESIAN")]
+    [JsonSubtypes.KnownSubType(typeof(FaceNormalMagnetizationDirectionMethod), "FACE_NORMAL")]
+    public interface OneOfPermanentMagnetMaterialMagnetizationDirectionType
     {
         /// <summary>
         /// Gets Type

@@ -23,40 +23,48 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedElectricPotentialEBC
+    /// ERPDensityResultControlItem
     /// </summary>
     [DataContract]
-    public partial class FixedElectricPotentialEBC : OneOfWallBCElectricBoundaryCondition, IEquatable<FixedElectricPotentialEBC>
+    public partial class ERPDensityResultControlItem : OneOfSolidResultControlSolutionFields, IEquatable<ERPDensityResultControlItem>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedElectricPotentialEBC" /> class.
+        /// Initializes a new instance of the <see cref="ERPDensityResultControlItem" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedElectricPotentialEBC() { }
+        protected ERPDensityResultControlItem() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedElectricPotentialEBC" /> class.
+        /// Initializes a new instance of the <see cref="ERPDensityResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedElectricPotentialEBC (required) (default to &quot;FIXED_ELECTRIC_POTENTIAL&quot;).</param>
-        /// <param name="potentialFunction">potentialFunction.</param>
-        public FixedElectricPotentialEBC(string type = "FIXED_ELECTRIC_POTENTIAL", DimensionalFunctionElectricPotential potentialFunction = default(DimensionalFunctionElectricPotential))
+        /// <param name="type">Schema name: ERPDensityResultControlItem (required) (default to &quot;ERP_DENSITY&quot;).</param>
+        /// <param name="name">name.</param>
+        /// <param name="densityType">densityType.</param>
+        public ERPDensityResultControlItem(string type = "ERP_DENSITY", string name = default(string), EquivalentRadiatedPowerDensityType densityType = default(EquivalentRadiatedPowerDensityType))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedElectricPotentialEBC and cannot be null");
-            this.PotentialFunction = potentialFunction;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for ERPDensityResultControlItem and cannot be null");
+            this.Name = name;
+            this.DensityType = densityType;
         }
         
         /// <summary>
-        /// Schema name: FixedElectricPotentialEBC
+        /// Schema name: ERPDensityResultControlItem
         /// </summary>
-        /// <value>Schema name: FixedElectricPotentialEBC</value>
+        /// <value>Schema name: ERPDensityResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets PotentialFunction
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="potentialFunction", EmitDefaultValue=false)]
-        public DimensionalFunctionElectricPotential PotentialFunction { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DensityType
+        /// </summary>
+        [DataMember(Name="densityType", EmitDefaultValue=false)]
+        public EquivalentRadiatedPowerDensityType DensityType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +73,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FixedElectricPotentialEBC {\n");
+            sb.Append("class ERPDensityResultControlItem {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  PotentialFunction: ").Append(PotentialFunction).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DensityType: ").Append(DensityType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedElectricPotentialEBC);
+            return this.Equals(input as ERPDensityResultControlItem);
         }
 
         /// <summary>
-        /// Returns true if FixedElectricPotentialEBC instances are equal
+        /// Returns true if ERPDensityResultControlItem instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedElectricPotentialEBC to be compared</param>
+        /// <param name="input">Instance of ERPDensityResultControlItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedElectricPotentialEBC input)
+        public bool Equals(ERPDensityResultControlItem input)
         {
             if (input == null)
                 return false;
@@ -108,9 +117,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.PotentialFunction == input.PotentialFunction ||
-                    (this.PotentialFunction != null &&
-                    this.PotentialFunction.Equals(input.PotentialFunction))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.DensityType == input.DensityType ||
+                    (this.DensityType != null &&
+                    this.DensityType.Equals(input.DensityType))
                 );
         }
 
@@ -125,8 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.PotentialFunction != null)
-                    hashCode = hashCode * 59 + this.PotentialFunction.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.DensityType != null)
+                    hashCode = hashCode * 59 + this.DensityType.GetHashCode();
                 return hashCode;
             }
         }

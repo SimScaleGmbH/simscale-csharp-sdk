@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FloatingPotential
+    /// Specify a floating potential on a boundary or a body for conductive bodies with a constant but unspecified voltage value.
     /// </summary>
     [DataContract]
     public partial class FloatingPotential : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<FloatingPotential>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FloatingPotential" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FloatingPotential (required) (default to &quot;FLOATING_POTENTIAL&quot;).</param>
+        /// <param name="type">Specify a floating potential on a boundary or a body for conductive bodies with a constant but unspecified voltage value.  Schema name: FloatingPotential (required) (default to &quot;FLOATING_POTENTIAL&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public FloatingPotential(string type = "FLOATING_POTENTIAL", string name = default(string), TopologicalReference topologicalReference = default(TopologicalReference))
@@ -48,9 +48,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: FloatingPotential
+        /// Specify a floating potential on a boundary or a body for conductive bodies with a constant but unspecified voltage value.  Schema name: FloatingPotential
         /// </summary>
-        /// <value>Schema name: FloatingPotential</value>
+        /// <value>Specify a floating potential on a boundary or a body for conductive bodies with a constant but unspecified voltage value.  Schema name: FloatingPotential</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

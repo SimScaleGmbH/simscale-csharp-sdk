@@ -37,10 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="Magnetostatics" /> class.
         /// </summary>
         /// <param name="type">Schema name: Magnetostatics (required) (default to &quot;MAGNETOSTATICS&quot;).</param>
-        public Magnetostatics(string type = "MAGNETOSTATICS")
+        /// <param name="thermal">Coupling with thermal solves for the temperature by considering electromagnetic losses such as Ohmic, hysteric or displacement losses. (default to false).</param>
+        public Magnetostatics(string type = "MAGNETOSTATICS", bool? thermal = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for Magnetostatics and cannot be null");
+            this.Thermal = thermal;
         }
         
         /// <summary>
@@ -51,6 +53,13 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Coupling with thermal solves for the temperature by considering electromagnetic losses such as Ohmic, hysteric or displacement losses.
+        /// </summary>
+        /// <value>Coupling with thermal solves for the temperature by considering electromagnetic losses such as Ohmic, hysteric or displacement losses.</value>
+        [DataMember(Name="thermal", EmitDefaultValue=false)]
+        public bool? Thermal { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -59,6 +68,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class Magnetostatics {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Thermal: ").Append(Thermal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,6 +107,11 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.Thermal == input.Thermal ||
+                    (this.Thermal != null &&
+                    this.Thermal.Equals(input.Thermal))
                 );
         }
 
@@ -111,6 +126,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Thermal != null)
+                    hashCode = hashCode * 59 + this.Thermal.GetHashCode();
                 return hashCode;
             }
         }

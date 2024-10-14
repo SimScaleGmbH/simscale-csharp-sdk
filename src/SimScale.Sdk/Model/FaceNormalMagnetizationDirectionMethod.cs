@@ -23,40 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedElectricPotentialEBC
+    /// FaceNormalMagnetizationDirectionMethod
     /// </summary>
     [DataContract]
-    public partial class FixedElectricPotentialEBC : OneOfWallBCElectricBoundaryCondition, IEquatable<FixedElectricPotentialEBC>
+    public partial class FaceNormalMagnetizationDirectionMethod : OneOfPermanentMagnetMaterialMagnetizationDirectionType, IEquatable<FaceNormalMagnetizationDirectionMethod>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedElectricPotentialEBC" /> class.
+        /// Initializes a new instance of the <see cref="FaceNormalMagnetizationDirectionMethod" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedElectricPotentialEBC() { }
+        protected FaceNormalMagnetizationDirectionMethod() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedElectricPotentialEBC" /> class.
+        /// Initializes a new instance of the <see cref="FaceNormalMagnetizationDirectionMethod" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedElectricPotentialEBC (required) (default to &quot;FIXED_ELECTRIC_POTENTIAL&quot;).</param>
-        /// <param name="potentialFunction">potentialFunction.</param>
-        public FixedElectricPotentialEBC(string type = "FIXED_ELECTRIC_POTENTIAL", DimensionalFunctionElectricPotential potentialFunction = default(DimensionalFunctionElectricPotential))
+        /// <param name="type">Schema name: FaceNormalMagnetizationDirectionMethod (required) (default to &quot;FACE_NORMAL&quot;).</param>
+        /// <param name="magnetFaces">magnetFaces.</param>
+        public FaceNormalMagnetizationDirectionMethod(string type = "FACE_NORMAL", TopologicalReference magnetFaces = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedElectricPotentialEBC and cannot be null");
-            this.PotentialFunction = potentialFunction;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for FaceNormalMagnetizationDirectionMethod and cannot be null");
+            this.MagnetFaces = magnetFaces;
         }
         
         /// <summary>
-        /// Schema name: FixedElectricPotentialEBC
+        /// Schema name: FaceNormalMagnetizationDirectionMethod
         /// </summary>
-        /// <value>Schema name: FixedElectricPotentialEBC</value>
+        /// <value>Schema name: FaceNormalMagnetizationDirectionMethod</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets PotentialFunction
+        /// Gets or Sets MagnetFaces
         /// </summary>
-        [DataMember(Name="potentialFunction", EmitDefaultValue=false)]
-        public DimensionalFunctionElectricPotential PotentialFunction { get; set; }
+        [DataMember(Name="magnetFaces", EmitDefaultValue=false)]
+        public TopologicalReference MagnetFaces { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FixedElectricPotentialEBC {\n");
+            sb.Append("class FaceNormalMagnetizationDirectionMethod {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  PotentialFunction: ").Append(PotentialFunction).Append("\n");
+            sb.Append("  MagnetFaces: ").Append(MagnetFaces).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedElectricPotentialEBC);
+            return this.Equals(input as FaceNormalMagnetizationDirectionMethod);
         }
 
         /// <summary>
-        /// Returns true if FixedElectricPotentialEBC instances are equal
+        /// Returns true if FaceNormalMagnetizationDirectionMethod instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedElectricPotentialEBC to be compared</param>
+        /// <param name="input">Instance of FaceNormalMagnetizationDirectionMethod to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedElectricPotentialEBC input)
+        public bool Equals(FaceNormalMagnetizationDirectionMethod input)
         {
             if (input == null)
                 return false;
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.PotentialFunction == input.PotentialFunction ||
-                    (this.PotentialFunction != null &&
-                    this.PotentialFunction.Equals(input.PotentialFunction))
+                    this.MagnetFaces == input.MagnetFaces ||
+                    (this.MagnetFaces != null &&
+                    this.MagnetFaces.Equals(input.MagnetFaces))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.PotentialFunction != null)
-                    hashCode = hashCode * 59 + this.PotentialFunction.GetHashCode();
+                if (this.MagnetFaces != null)
+                    hashCode = hashCode * 59 + this.MagnetFaces.GetHashCode();
                 return hashCode;
             }
         }

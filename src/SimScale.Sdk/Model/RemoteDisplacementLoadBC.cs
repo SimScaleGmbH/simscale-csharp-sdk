@@ -69,8 +69,10 @@ namespace SimScale.Sdk.Model
         /// <param name="rotation">rotation.</param>
         /// <param name="externalPoint">externalPoint.</param>
         /// <param name="deformationBehavior">&lt;p&gt;Choose the deformation behavior of the assigned entity. If &lt;b&gt;deformable&lt;/b&gt; is selected, the entity is allowed to deform, selecting &lt;b&gt;undeformable&lt;/b&gt; leads to a rigid entity.&lt;/p&gt; (default to DeformationBehaviorEnum.DEFORMABLE).</param>
+        /// <param name="enableSearchRadius">enableSearchRadius (default to false).</param>
+        /// <param name="searchRadius">searchRadius.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public RemoteDisplacementLoadBC(string type = "REMOTE_DISPLACEMENT_LOAD", string name = default(string), DimensionalPartialVectorFunctionLength displacement = default(DimensionalPartialVectorFunctionLength), DimensionalPartialVectorFunctionAngle rotation = default(DimensionalPartialVectorFunctionAngle), DimensionalVectorLength externalPoint = default(DimensionalVectorLength), DeformationBehaviorEnum? deformationBehavior = default(DeformationBehaviorEnum?), TopologicalReference topologicalReference = default(TopologicalReference))
+        public RemoteDisplacementLoadBC(string type = "REMOTE_DISPLACEMENT_LOAD", string name = default(string), DimensionalPartialVectorFunctionLength displacement = default(DimensionalPartialVectorFunctionLength), DimensionalPartialVectorFunctionAngle rotation = default(DimensionalPartialVectorFunctionAngle), DimensionalVectorLength externalPoint = default(DimensionalVectorLength), DeformationBehaviorEnum? deformationBehavior = default(DeformationBehaviorEnum?), bool? enableSearchRadius = default(bool?), DimensionalLength searchRadius = default(DimensionalLength), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RemoteDisplacementLoadBC and cannot be null");
@@ -79,6 +81,8 @@ namespace SimScale.Sdk.Model
             this.Rotation = rotation;
             this.ExternalPoint = externalPoint;
             this.DeformationBehavior = deformationBehavior;
+            this.EnableSearchRadius = enableSearchRadius;
+            this.SearchRadius = searchRadius;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -114,6 +118,18 @@ namespace SimScale.Sdk.Model
         public DimensionalVectorLength ExternalPoint { get; set; }
 
         /// <summary>
+        /// Gets or Sets EnableSearchRadius
+        /// </summary>
+        [DataMember(Name="enableSearchRadius", EmitDefaultValue=false)]
+        public bool? EnableSearchRadius { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SearchRadius
+        /// </summary>
+        [DataMember(Name="searchRadius", EmitDefaultValue=false)]
+        public DimensionalLength SearchRadius { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -133,6 +149,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Rotation: ").Append(Rotation).Append("\n");
             sb.Append("  ExternalPoint: ").Append(ExternalPoint).Append("\n");
             sb.Append("  DeformationBehavior: ").Append(DeformationBehavior).Append("\n");
+            sb.Append("  EnableSearchRadius: ").Append(EnableSearchRadius).Append("\n");
+            sb.Append("  SearchRadius: ").Append(SearchRadius).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -198,6 +216,16 @@ namespace SimScale.Sdk.Model
                     this.DeformationBehavior.Equals(input.DeformationBehavior)
                 ) && 
                 (
+                    this.EnableSearchRadius == input.EnableSearchRadius ||
+                    (this.EnableSearchRadius != null &&
+                    this.EnableSearchRadius.Equals(input.EnableSearchRadius))
+                ) && 
+                (
+                    this.SearchRadius == input.SearchRadius ||
+                    (this.SearchRadius != null &&
+                    this.SearchRadius.Equals(input.SearchRadius))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -224,6 +252,10 @@ namespace SimScale.Sdk.Model
                 if (this.ExternalPoint != null)
                     hashCode = hashCode * 59 + this.ExternalPoint.GetHashCode();
                 hashCode = hashCode * 59 + this.DeformationBehavior.GetHashCode();
+                if (this.EnableSearchRadius != null)
+                    hashCode = hashCode * 59 + this.EnableSearchRadius.GetHashCode();
+                if (this.SearchRadius != null)
+                    hashCode = hashCode * 59 + this.SearchRadius.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

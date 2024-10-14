@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FixedPotential
+    /// Specify a constant electric potential (voltage) on a boundary or a body.
     /// </summary>
     [DataContract]
     public partial class FixedPotential : OneOfElectromagneticAnalysisBoundaryConditions, IEquatable<FixedPotential>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedPotential" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FixedPotential (required) (default to &quot;FIXED_POTENTIAL&quot;).</param>
+        /// <param name="type">Specify a constant electric potential (voltage) on a boundary or a body.  Schema name: FixedPotential (required) (default to &quot;FIXED_POTENTIAL&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="potential">potential.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: FixedPotential
+        /// Specify a constant electric potential (voltage) on a boundary or a body.  Schema name: FixedPotential
         /// </summary>
-        /// <value>Schema name: FixedPotential</value>
+        /// <value>Specify a constant electric potential (voltage) on a boundary or a body.  Schema name: FixedPotential</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

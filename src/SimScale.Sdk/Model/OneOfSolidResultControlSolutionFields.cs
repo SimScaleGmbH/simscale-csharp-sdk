@@ -40,6 +40,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(HarmonicAccelerationResultControlItem), "HARMONIC_ACCELERATION")]
     [JsonSubtypes.KnownSubType(typeof(TemperatureResultControlItem), "TEMPERATURE")]
     [JsonSubtypes.KnownSubType(typeof(HeatFluxResultControlItem), "HEAT_FLUX")]
+    [JsonSubtypes.KnownSubType(typeof(ERPDensityResultControlItem), "ERP_DENSITY")]
     public interface OneOfSolidResultControlSolutionFields
     {
         /// <summary>

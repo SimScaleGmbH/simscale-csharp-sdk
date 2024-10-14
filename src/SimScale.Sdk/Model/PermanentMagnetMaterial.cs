@@ -38,13 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">A permanent magnet retains a significant portion of its magnetization indefinitely, even without an external magnetic field.  Schema name: PermanentMagnetMaterial (required) (default to &quot;PERMANENT_MAGNET&quot;).</param>
         /// <param name="remanence">remanence.</param>
-        /// <param name="magnetizationDirection">magnetizationDirection.</param>
-        public PermanentMagnetMaterial(string type = "PERMANENT_MAGNET", DimensionalMagneticFluxDensity remanence = default(DimensionalMagneticFluxDensity), DimensionalVectorDimensionless magnetizationDirection = default(DimensionalVectorDimensionless))
+        /// <param name="magnetizationDirectionType">magnetizationDirectionType.</param>
+        public PermanentMagnetMaterial(string type = "PERMANENT_MAGNET", DimensionalMagneticFluxDensity remanence = default(DimensionalMagneticFluxDensity), OneOfPermanentMagnetMaterialMagnetizationDirectionType magnetizationDirectionType = default(OneOfPermanentMagnetMaterialMagnetizationDirectionType))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PermanentMagnetMaterial and cannot be null");
             this.Remanence = remanence;
-            this.MagnetizationDirection = magnetizationDirection;
+            this.MagnetizationDirectionType = magnetizationDirectionType;
         }
         
         /// <summary>
@@ -61,10 +61,10 @@ namespace SimScale.Sdk.Model
         public DimensionalMagneticFluxDensity Remanence { get; set; }
 
         /// <summary>
-        /// Gets or Sets MagnetizationDirection
+        /// Gets or Sets MagnetizationDirectionType
         /// </summary>
-        [DataMember(Name="magnetizationDirection", EmitDefaultValue=false)]
-        public DimensionalVectorDimensionless MagnetizationDirection { get; set; }
+        [DataMember(Name="magnetizationDirectionType", EmitDefaultValue=false)]
+        public OneOfPermanentMagnetMaterialMagnetizationDirectionType MagnetizationDirectionType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,7 +76,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class PermanentMagnetMaterial {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Remanence: ").Append(Remanence).Append("\n");
-            sb.Append("  MagnetizationDirection: ").Append(MagnetizationDirection).Append("\n");
+            sb.Append("  MagnetizationDirectionType: ").Append(MagnetizationDirectionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,9 +122,9 @@ namespace SimScale.Sdk.Model
                     this.Remanence.Equals(input.Remanence))
                 ) && 
                 (
-                    this.MagnetizationDirection == input.MagnetizationDirection ||
-                    (this.MagnetizationDirection != null &&
-                    this.MagnetizationDirection.Equals(input.MagnetizationDirection))
+                    this.MagnetizationDirectionType == input.MagnetizationDirectionType ||
+                    (this.MagnetizationDirectionType != null &&
+                    this.MagnetizationDirectionType.Equals(input.MagnetizationDirectionType))
                 );
         }
 
@@ -141,8 +141,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Remanence != null)
                     hashCode = hashCode * 59 + this.Remanence.GetHashCode();
-                if (this.MagnetizationDirection != null)
-                    hashCode = hashCode * 59 + this.MagnetizationDirection.GetHashCode();
+                if (this.MagnetizationDirectionType != null)
+                    hashCode = hashCode * 59 + this.MagnetizationDirectionType.GetHashCode();
                 return hashCode;
             }
         }

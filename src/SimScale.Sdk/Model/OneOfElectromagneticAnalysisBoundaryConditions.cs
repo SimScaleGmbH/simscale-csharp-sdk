@@ -33,6 +33,11 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(FloatingPotential), "FLOATING_POTENTIAL")]
     [JsonSubtypes.KnownSubType(typeof(ChargeDensity), "CHARGE_DENSITY")]
     [JsonSubtypes.KnownSubType(typeof(TotalCharge), "TOTAL_CHARGE")]
+    [JsonSubtypes.KnownSubType(typeof(FixedTemperature), "FIXED_TEMPERATURE")]
+    [JsonSubtypes.KnownSubType(typeof(SurfaceHeatFlux), "SURFACE_HEAT_FLUX")]
+    [JsonSubtypes.KnownSubType(typeof(VolumeHeatFlux), "VOLUME_HEAT_FLUX")]
+    [JsonSubtypes.KnownSubType(typeof(ConvectiveHeatFlux), "CONVECTIVE_HEAT_FLUX")]
+    [JsonSubtypes.KnownSubType(typeof(RadiationHeatFlux), "RADIATION_HEAT_FLUX")]
     public interface OneOfElectromagneticAnalysisBoundaryConditions
     {
         /// <summary>
