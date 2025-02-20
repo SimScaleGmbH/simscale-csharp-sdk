@@ -41,7 +41,8 @@ namespace SimScale.Sdk.Model
         /// <param name="clothingCoefficientFactor">clothingCoefficientFactor (default to 1M).</param>
         /// <param name="metabolicRateFactor">metabolicRateFactor (default to 1M).</param>
         /// <param name="relativeHumidityFactor">relativeHumidityFactor (default to 50M).</param>
-        public FieldCalculationsThermalComfortResultControl(string type = "THERMAL_COMFORT", string name = default(string), decimal? clothingCoefficientFactor = default(decimal?), decimal? metabolicRateFactor = default(decimal?), decimal? relativeHumidityFactor = default(decimal?))
+        /// <param name="mrtSolarParameters">mrtSolarParameters.</param>
+        public FieldCalculationsThermalComfortResultControl(string type = "THERMAL_COMFORT", string name = default(string), decimal? clothingCoefficientFactor = default(decimal?), decimal? metabolicRateFactor = default(decimal?), decimal? relativeHumidityFactor = default(decimal?), MrtSolarParameters mrtSolarParameters = default(MrtSolarParameters))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FieldCalculationsThermalComfortResultControl and cannot be null");
@@ -49,6 +50,7 @@ namespace SimScale.Sdk.Model
             this.ClothingCoefficientFactor = clothingCoefficientFactor;
             this.MetabolicRateFactor = metabolicRateFactor;
             this.RelativeHumidityFactor = relativeHumidityFactor;
+            this.MrtSolarParameters = mrtSolarParameters;
         }
         
         /// <summary>
@@ -83,6 +85,12 @@ namespace SimScale.Sdk.Model
         public decimal? RelativeHumidityFactor { get; set; }
 
         /// <summary>
+        /// Gets or Sets MrtSolarParameters
+        /// </summary>
+        [DataMember(Name="mrtSolarParameters", EmitDefaultValue=false)]
+        public MrtSolarParameters MrtSolarParameters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +103,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  ClothingCoefficientFactor: ").Append(ClothingCoefficientFactor).Append("\n");
             sb.Append("  MetabolicRateFactor: ").Append(MetabolicRateFactor).Append("\n");
             sb.Append("  RelativeHumidityFactor: ").Append(RelativeHumidityFactor).Append("\n");
+            sb.Append("  MrtSolarParameters: ").Append(MrtSolarParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +162,11 @@ namespace SimScale.Sdk.Model
                     this.RelativeHumidityFactor == input.RelativeHumidityFactor ||
                     (this.RelativeHumidityFactor != null &&
                     this.RelativeHumidityFactor.Equals(input.RelativeHumidityFactor))
+                ) && 
+                (
+                    this.MrtSolarParameters == input.MrtSolarParameters ||
+                    (this.MrtSolarParameters != null &&
+                    this.MrtSolarParameters.Equals(input.MrtSolarParameters))
                 );
         }
 
@@ -175,6 +189,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MetabolicRateFactor.GetHashCode();
                 if (this.RelativeHumidityFactor != null)
                     hashCode = hashCode * 59 + this.RelativeHumidityFactor.GetHashCode();
+                if (this.MrtSolarParameters != null)
+                    hashCode = hashCode * 59 + this.MrtSolarParameters.GetHashCode();
                 return hashCode;
             }
         }

@@ -35,6 +35,7 @@ namespace SimScale.Sdk.Model
         /// <param name="pressureRghField">pressureRghField (default to 0.7M).</param>
         /// <param name="passiveScalarEquation">passiveScalarEquation.</param>
         /// <param name="velocityEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
+        /// <param name="velocity">velocity.</param>
         /// <param name="temperatureEquation">temperatureEquation.</param>
         /// <param name="densityField">densityField.</param>
         /// <param name="enthalpyEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
@@ -42,18 +43,23 @@ namespace SimScale.Sdk.Model
         /// <param name="turbulentKineticEnergyEquation">turbulentKineticEnergyEquation.</param>
         /// <param name="omegaDissipationRateEquation">omegaDissipationRateEquation.</param>
         /// <param name="epsilonDissipationRateEquation">epsilonDissipationRateEquation.</param>
+        /// <param name="turbulentKineticEnergy">turbulentKineticEnergy.</param>
+        /// <param name="turbulentEnergyDissipationRate">turbulentEnergyDissipationRate.</param>
         /// <param name="nuTildaEquation">nuTildaEquation.</param>
         /// <param name="netRadiativeHeatFluxField">netRadiativeHeatFluxField.</param>
+        /// <param name="internalEnergy">internalEnergy.</param>
+        /// <param name="gasMixtureTransport">gasMixtureTransport (default to 0M).</param>
         /// <param name="radiativeIntensityRayEquation">radiativeIntensityRayEquation (default to 0.8M).</param>
-        /// <param name="specificHumidityEquation">specificHumidityEquation (default to 0.9M).</param>
+        /// <param name="specificHumidityEquation">specificHumidityEquation (default to 0.7M).</param>
         /// <param name="ageOfFluidEquation">ageOfFluidEquation.</param>
         /// <param name="voltageField">voltageField (default to 0.5M).</param>
-        public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?), decimal? specificHumidityEquation = default(decimal?), decimal? ageOfFluidEquation = default(decimal?), decimal? voltageField = default(decimal?))
+        public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? velocity = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? turbulentKineticEnergy = default(decimal?), decimal? turbulentEnergyDissipationRate = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? internalEnergy = default(decimal?), decimal? gasMixtureTransport = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?), decimal? specificHumidityEquation = default(decimal?), decimal? ageOfFluidEquation = default(decimal?), decimal? voltageField = default(decimal?))
         {
             this.PressureField = pressureField;
             this.PressureRghField = pressureRghField;
             this.PassiveScalarEquation = passiveScalarEquation;
             this.VelocityEquation = velocityEquation;
+            this.Velocity = velocity;
             this.TemperatureEquation = temperatureEquation;
             this.DensityField = densityField;
             this.EnthalpyEquation = enthalpyEquation;
@@ -61,8 +67,12 @@ namespace SimScale.Sdk.Model
             this.TurbulentKineticEnergyEquation = turbulentKineticEnergyEquation;
             this.OmegaDissipationRateEquation = omegaDissipationRateEquation;
             this.EpsilonDissipationRateEquation = epsilonDissipationRateEquation;
+            this.TurbulentKineticEnergy = turbulentKineticEnergy;
+            this.TurbulentEnergyDissipationRate = turbulentEnergyDissipationRate;
             this.NuTildaEquation = nuTildaEquation;
             this.NetRadiativeHeatFluxField = netRadiativeHeatFluxField;
+            this.InternalEnergy = internalEnergy;
+            this.GasMixtureTransport = gasMixtureTransport;
             this.RadiativeIntensityRayEquation = radiativeIntensityRayEquation;
             this.SpecificHumidityEquation = specificHumidityEquation;
             this.AgeOfFluidEquation = ageOfFluidEquation;
@@ -94,6 +104,12 @@ namespace SimScale.Sdk.Model
         /// <value>&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;</value>
         [DataMember(Name="velocityEquation", EmitDefaultValue=false)]
         public decimal? VelocityEquation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Velocity
+        /// </summary>
+        [DataMember(Name="velocity", EmitDefaultValue=false)]
+        public decimal? Velocity { get; set; }
 
         /// <summary>
         /// Gets or Sets TemperatureEquation
@@ -140,6 +156,18 @@ namespace SimScale.Sdk.Model
         public decimal? EpsilonDissipationRateEquation { get; set; }
 
         /// <summary>
+        /// Gets or Sets TurbulentKineticEnergy
+        /// </summary>
+        [DataMember(Name="turbulentKineticEnergy", EmitDefaultValue=false)]
+        public decimal? TurbulentKineticEnergy { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TurbulentEnergyDissipationRate
+        /// </summary>
+        [DataMember(Name="turbulentEnergyDissipationRate", EmitDefaultValue=false)]
+        public decimal? TurbulentEnergyDissipationRate { get; set; }
+
+        /// <summary>
         /// Gets or Sets NuTildaEquation
         /// </summary>
         [DataMember(Name="nuTildaEquation", EmitDefaultValue=false)]
@@ -150,6 +178,18 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="netRadiativeHeatFluxField", EmitDefaultValue=false)]
         public decimal? NetRadiativeHeatFluxField { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InternalEnergy
+        /// </summary>
+        [DataMember(Name="internalEnergy", EmitDefaultValue=false)]
+        public decimal? InternalEnergy { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GasMixtureTransport
+        /// </summary>
+        [DataMember(Name="gasMixtureTransport", EmitDefaultValue=false)]
+        public decimal? GasMixtureTransport { get; set; }
 
         /// <summary>
         /// Gets or Sets RadiativeIntensityRayEquation
@@ -187,6 +227,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PressureRghField: ").Append(PressureRghField).Append("\n");
             sb.Append("  PassiveScalarEquation: ").Append(PassiveScalarEquation).Append("\n");
             sb.Append("  VelocityEquation: ").Append(VelocityEquation).Append("\n");
+            sb.Append("  Velocity: ").Append(Velocity).Append("\n");
             sb.Append("  TemperatureEquation: ").Append(TemperatureEquation).Append("\n");
             sb.Append("  DensityField: ").Append(DensityField).Append("\n");
             sb.Append("  EnthalpyEquation: ").Append(EnthalpyEquation).Append("\n");
@@ -194,8 +235,12 @@ namespace SimScale.Sdk.Model
             sb.Append("  TurbulentKineticEnergyEquation: ").Append(TurbulentKineticEnergyEquation).Append("\n");
             sb.Append("  OmegaDissipationRateEquation: ").Append(OmegaDissipationRateEquation).Append("\n");
             sb.Append("  EpsilonDissipationRateEquation: ").Append(EpsilonDissipationRateEquation).Append("\n");
+            sb.Append("  TurbulentKineticEnergy: ").Append(TurbulentKineticEnergy).Append("\n");
+            sb.Append("  TurbulentEnergyDissipationRate: ").Append(TurbulentEnergyDissipationRate).Append("\n");
             sb.Append("  NuTildaEquation: ").Append(NuTildaEquation).Append("\n");
             sb.Append("  NetRadiativeHeatFluxField: ").Append(NetRadiativeHeatFluxField).Append("\n");
+            sb.Append("  InternalEnergy: ").Append(InternalEnergy).Append("\n");
+            sb.Append("  GasMixtureTransport: ").Append(GasMixtureTransport).Append("\n");
             sb.Append("  RadiativeIntensityRayEquation: ").Append(RadiativeIntensityRayEquation).Append("\n");
             sb.Append("  SpecificHumidityEquation: ").Append(SpecificHumidityEquation).Append("\n");
             sb.Append("  AgeOfFluidEquation: ").Append(AgeOfFluidEquation).Append("\n");
@@ -255,6 +300,11 @@ namespace SimScale.Sdk.Model
                     this.VelocityEquation.Equals(input.VelocityEquation))
                 ) && 
                 (
+                    this.Velocity == input.Velocity ||
+                    (this.Velocity != null &&
+                    this.Velocity.Equals(input.Velocity))
+                ) && 
+                (
                     this.TemperatureEquation == input.TemperatureEquation ||
                     (this.TemperatureEquation != null &&
                     this.TemperatureEquation.Equals(input.TemperatureEquation))
@@ -290,6 +340,16 @@ namespace SimScale.Sdk.Model
                     this.EpsilonDissipationRateEquation.Equals(input.EpsilonDissipationRateEquation))
                 ) && 
                 (
+                    this.TurbulentKineticEnergy == input.TurbulentKineticEnergy ||
+                    (this.TurbulentKineticEnergy != null &&
+                    this.TurbulentKineticEnergy.Equals(input.TurbulentKineticEnergy))
+                ) && 
+                (
+                    this.TurbulentEnergyDissipationRate == input.TurbulentEnergyDissipationRate ||
+                    (this.TurbulentEnergyDissipationRate != null &&
+                    this.TurbulentEnergyDissipationRate.Equals(input.TurbulentEnergyDissipationRate))
+                ) && 
+                (
                     this.NuTildaEquation == input.NuTildaEquation ||
                     (this.NuTildaEquation != null &&
                     this.NuTildaEquation.Equals(input.NuTildaEquation))
@@ -298,6 +358,16 @@ namespace SimScale.Sdk.Model
                     this.NetRadiativeHeatFluxField == input.NetRadiativeHeatFluxField ||
                     (this.NetRadiativeHeatFluxField != null &&
                     this.NetRadiativeHeatFluxField.Equals(input.NetRadiativeHeatFluxField))
+                ) && 
+                (
+                    this.InternalEnergy == input.InternalEnergy ||
+                    (this.InternalEnergy != null &&
+                    this.InternalEnergy.Equals(input.InternalEnergy))
+                ) && 
+                (
+                    this.GasMixtureTransport == input.GasMixtureTransport ||
+                    (this.GasMixtureTransport != null &&
+                    this.GasMixtureTransport.Equals(input.GasMixtureTransport))
                 ) && 
                 (
                     this.RadiativeIntensityRayEquation == input.RadiativeIntensityRayEquation ||
@@ -338,6 +408,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PassiveScalarEquation.GetHashCode();
                 if (this.VelocityEquation != null)
                     hashCode = hashCode * 59 + this.VelocityEquation.GetHashCode();
+                if (this.Velocity != null)
+                    hashCode = hashCode * 59 + this.Velocity.GetHashCode();
                 if (this.TemperatureEquation != null)
                     hashCode = hashCode * 59 + this.TemperatureEquation.GetHashCode();
                 if (this.DensityField != null)
@@ -352,10 +424,18 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.OmegaDissipationRateEquation.GetHashCode();
                 if (this.EpsilonDissipationRateEquation != null)
                     hashCode = hashCode * 59 + this.EpsilonDissipationRateEquation.GetHashCode();
+                if (this.TurbulentKineticEnergy != null)
+                    hashCode = hashCode * 59 + this.TurbulentKineticEnergy.GetHashCode();
+                if (this.TurbulentEnergyDissipationRate != null)
+                    hashCode = hashCode * 59 + this.TurbulentEnergyDissipationRate.GetHashCode();
                 if (this.NuTildaEquation != null)
                     hashCode = hashCode * 59 + this.NuTildaEquation.GetHashCode();
                 if (this.NetRadiativeHeatFluxField != null)
                     hashCode = hashCode * 59 + this.NetRadiativeHeatFluxField.GetHashCode();
+                if (this.InternalEnergy != null)
+                    hashCode = hashCode * 59 + this.InternalEnergy.GetHashCode();
+                if (this.GasMixtureTransport != null)
+                    hashCode = hashCode * 59 + this.GasMixtureTransport.GetHashCode();
                 if (this.RadiativeIntensityRayEquation != null)
                     hashCode = hashCode * 59 + this.RadiativeIntensityRayEquation.GetHashCode();
                 if (this.SpecificHumidityEquation != null)

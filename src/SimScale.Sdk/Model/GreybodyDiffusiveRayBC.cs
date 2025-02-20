@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">&lt;p&gt;&lt;b&gt;Radiative behaviour of the wall&lt;/b&gt;. The Kirchhoff&#39;s law of thermal radiation is applied in all options. This means that the &lt;b&gt;absorptivity of the surface is equal to its emissivity&lt;/b&gt;. &lt;br&gt; &lt;ul&gt;&lt;li&gt;&lt;b&gt;Opaque&lt;/b&gt; is applied to surfaces with transmissivity equal to 0. The radiation that hits the surface will be absorbed and reflected, but not transmitted, e.g.: brick or concrete walls.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Transparent&lt;/b&gt; is applied to surfaces with transmissivity equal to 1. The radiation that hits the surface will be fully transmitted to the other side, e.g.: inlets, outlets or regular windows.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Semi-transparent&lt;/b&gt; is applied to non-fully transparent surfaces. The radiation that hits the surface will be absorbed, reflected and transmitted, e.g. some stained glass windows.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;  Schema name: GreybodyDiffusiveRayBC (required) (default to &quot;GREYBODY_DIFFUSIVE_RAY&quot;).</param>
         /// <param name="emissivity">emissivity (default to 0.9M).</param>
-        public GreybodyDiffusiveRayBC(string type = "GREYBODY_DIFFUSIVE_RAY", decimal? emissivity = default(decimal?))
+        /// <param name="farfieldBlackBodyTemperature">farfieldBlackBodyTemperature.</param>
+        public GreybodyDiffusiveRayBC(string type = "GREYBODY_DIFFUSIVE_RAY", decimal? emissivity = default(decimal?), DimensionalTemperature farfieldBlackBodyTemperature = default(DimensionalTemperature))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for GreybodyDiffusiveRayBC and cannot be null");
             this.Emissivity = emissivity;
+            this.FarfieldBlackBodyTemperature = farfieldBlackBodyTemperature;
         }
         
         /// <summary>
@@ -59,6 +61,12 @@ namespace SimScale.Sdk.Model
         public decimal? Emissivity { get; set; }
 
         /// <summary>
+        /// Gets or Sets FarfieldBlackBodyTemperature
+        /// </summary>
+        [DataMember(Name="farfieldBlackBodyTemperature", EmitDefaultValue=false)]
+        public DimensionalTemperature FarfieldBlackBodyTemperature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +76,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class GreybodyDiffusiveRayBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Emissivity: ").Append(Emissivity).Append("\n");
+            sb.Append("  FarfieldBlackBodyTemperature: ").Append(FarfieldBlackBodyTemperature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +120,11 @@ namespace SimScale.Sdk.Model
                     this.Emissivity == input.Emissivity ||
                     (this.Emissivity != null &&
                     this.Emissivity.Equals(input.Emissivity))
+                ) && 
+                (
+                    this.FarfieldBlackBodyTemperature == input.FarfieldBlackBodyTemperature ||
+                    (this.FarfieldBlackBodyTemperature != null &&
+                    this.FarfieldBlackBodyTemperature.Equals(input.FarfieldBlackBodyTemperature))
                 );
         }
 
@@ -127,6 +141,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Emissivity != null)
                     hashCode = hashCode * 59 + this.Emissivity.GetHashCode();
+                if (this.FarfieldBlackBodyTemperature != null)
+                    hashCode = hashCode * 59 + this.FarfieldBlackBodyTemperature.GetHashCode();
                 return hashCode;
             }
         }

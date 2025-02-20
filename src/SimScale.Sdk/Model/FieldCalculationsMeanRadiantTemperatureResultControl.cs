@@ -39,12 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Computes the &lt;b&gt;Mean Radiant Temperature (MRT)&lt;/b&gt;. It is defined as the uniform surface temperature of an imaginary black enclosure in which an every point of the domain would exchange the same amount of radiative heat as in the actual nonuniform space  Schema name: FieldCalculationsMeanRadiantTemperatureResultControl (required) (default to &quot;MEAN_RADIANT_TEMPERATURE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="resultType">resultType.</param>
-        public FieldCalculationsMeanRadiantTemperatureResultControl(string type = "MEAN_RADIANT_TEMPERATURE", string name = default(string), MeanRadiantTemperatureResultType resultType = default(MeanRadiantTemperatureResultType))
+        /// <param name="mrtSolarParameters">mrtSolarParameters.</param>
+        public FieldCalculationsMeanRadiantTemperatureResultControl(string type = "MEAN_RADIANT_TEMPERATURE", string name = default(string), MeanRadiantTemperatureResultType resultType = default(MeanRadiantTemperatureResultType), MrtSolarParameters mrtSolarParameters = default(MrtSolarParameters))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FieldCalculationsMeanRadiantTemperatureResultControl and cannot be null");
             this.Name = name;
             this.ResultType = resultType;
+            this.MrtSolarParameters = mrtSolarParameters;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace SimScale.Sdk.Model
         public MeanRadiantTemperatureResultType ResultType { get; set; }
 
         /// <summary>
+        /// Gets or Sets MrtSolarParameters
+        /// </summary>
+        [DataMember(Name="mrtSolarParameters", EmitDefaultValue=false)]
+        public MrtSolarParameters MrtSolarParameters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +85,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ResultType: ").Append(ResultType).Append("\n");
+            sb.Append("  MrtSolarParameters: ").Append(MrtSolarParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace SimScale.Sdk.Model
                     this.ResultType == input.ResultType ||
                     (this.ResultType != null &&
                     this.ResultType.Equals(input.ResultType))
+                ) && 
+                (
+                    this.MrtSolarParameters == input.MrtSolarParameters ||
+                    (this.MrtSolarParameters != null &&
+                    this.MrtSolarParameters.Equals(input.MrtSolarParameters))
                 );
         }
 
@@ -143,6 +157,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.ResultType != null)
                     hashCode = hashCode * 59 + this.ResultType.GetHashCode();
+                if (this.MrtSolarParameters != null)
+                    hashCode = hashCode * 59 + this.MrtSolarParameters.GetHashCode();
                 return hashCode;
             }
         }

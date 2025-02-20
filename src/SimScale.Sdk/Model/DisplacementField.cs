@@ -51,13 +51,7 @@ namespace SimScale.Sdk.Model
             /// Enum Z for value: Z
             /// </summary>
             [EnumMember(Value = "Z")]
-            Z = 3,
-
-            /// <summary>
-            /// Enum ALL for value: ALL
-            /// </summary>
-            [EnumMember(Value = "ALL")]
-            ALL = 4
+            Z = 3
 
         }
 

@@ -41,7 +41,7 @@ namespace SimScale.Sdk.Model
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public ElectromagneticMaterial(string name = default(string), OneOfElectromagneticMaterialMaterialBehavior materialBehavior = default(OneOfElectromagneticMaterialMaterialBehavior), LinearIsotropicConductivityMethod electricConductivityType = default(LinearIsotropicConductivityMethod), OneOfElectromagneticMaterialMagneticPermeabilityType magneticPermeabilityType = default(OneOfElectromagneticMaterialMagneticPermeabilityType), OneOfElectromagneticMaterialCoreLossesType coreLossesType = default(OneOfElectromagneticMaterialCoreLossesType), LinearIsotropicPermittivityMethod electricPermittivityType = default(LinearIsotropicPermittivityMethod), LinearIsotropicConstantThermalConductivityMethod thermalConductivity = default(LinearIsotropicConstantThermalConductivityMethod), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public ElectromagneticMaterial(string name = default(string), OneOfElectromagneticMaterialMaterialBehavior materialBehavior = default(OneOfElectromagneticMaterialMaterialBehavior), IsotropicElectricConductivityMethod electricConductivityType = default(IsotropicElectricConductivityMethod), OneOfElectromagneticMaterialMagneticPermeabilityType magneticPermeabilityType = default(OneOfElectromagneticMaterialMagneticPermeabilityType), OneOfElectromagneticMaterialCoreLossesType coreLossesType = default(OneOfElectromagneticMaterialCoreLossesType), LinearIsotropicPermittivityMethod electricPermittivityType = default(LinearIsotropicPermittivityMethod), IsotropicThermalConductivityMethod thermalConductivity = default(IsotropicThermalConductivityMethod), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             this.Name = name;
             this.MaterialBehavior = materialBehavior;
@@ -71,7 +71,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets ElectricConductivityType
         /// </summary>
         [DataMember(Name="electricConductivityType", EmitDefaultValue=false)]
-        public LinearIsotropicConductivityMethod ElectricConductivityType { get; set; }
+        public IsotropicElectricConductivityMethod ElectricConductivityType { get; set; }
 
         /// <summary>
         /// Gets or Sets MagneticPermeabilityType
@@ -95,7 +95,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets ThermalConductivity
         /// </summary>
         [DataMember(Name="thermalConductivity", EmitDefaultValue=false)]
-        public LinearIsotropicConstantThermalConductivityMethod ThermalConductivity { get; set; }
+        public IsotropicThermalConductivityMethod ThermalConductivity { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference

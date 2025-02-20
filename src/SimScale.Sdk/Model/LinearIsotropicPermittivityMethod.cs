@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="LinearIsotropicPermittivityMethod" /> class.
         /// </summary>
         /// <param name="type">Schema name: LinearIsotropicPermittivityMethod (required) (default to &quot;LINEAR_ISOTROPIC&quot;).</param>
-        /// <param name="relativeElectricPermittivity">relativeElectricPermittivity.</param>
+        /// <param name="relativeElectricPermittivity">relativeElectricPermittivity (default to 1M).</param>
         public LinearIsotropicPermittivityMethod(string type = "LINEAR_ISOTROPIC", decimal? relativeElectricPermittivity = default(decimal?))
         {
             // to ensure "type" is required (not null)

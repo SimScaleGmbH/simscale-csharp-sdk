@@ -66,8 +66,8 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: MultifrontalSolver (required) (default to &quot;MULTIFRONT&quot;).</param>
         /// <param name="renumberingMethod">Choose a renumbering method for the solution process.&lt;br/&gt;For large models around and above 50000 degrees of freedom you should consider using MDA. (default to RenumberingMethodEnum.MDA).</param>
         /// <param name="forceSymmetric">Choose if you want to enforce a symmetric matrix. (default to false).</param>
-        /// <param name="precisionSingularityDetection">Define the precision value for the detection of a singular matrix. (default to 8).</param>
-        /// <param name="stopIfSingular">Choose if the calculation should be stopped if the problem turns out to be singular. (default to true).</param>
+        /// <param name="precisionSingularityDetection">Define the precision value for the detection of a singular matrix. Setting it to -1 disables the singularity check. Positive values enable the check, with 9 being a good starting point. Smaller values make the check more strict. This is an advanced option that should only be used to debug a model. (default to 8).</param>
+        /// <param name="stopIfSingular">Choose if the calculation should be stopped if the problem turns out to be singular. This is only relevant if the precision for detecting a singular matrix is set to a positive value. (default to true).</param>
         /// <param name="eliminateLagrangeMultipliers">This option makes it possible to eliminate the Lagrange Multipliers which are introduced by generalized boundary conditions like bonded contact, remote boundary conditions and symmetry conditions. If activated, this option removes the Lagrange Multipliers which leads to a reduction of the total number of unknowns and can increase the robustness of iterative solvers. (default to false).</param>
         public MultifrontalSolver(string type = "MULTIFRONT", RenumberingMethodEnum? renumberingMethod = default(RenumberingMethodEnum?), bool? forceSymmetric = default(bool?), int? precisionSingularityDetection = default(int?), bool? stopIfSingular = default(bool?), bool? eliminateLagrangeMultipliers = default(bool?))
         {
@@ -95,16 +95,16 @@ namespace SimScale.Sdk.Model
         public bool? ForceSymmetric { get; set; }
 
         /// <summary>
-        /// Define the precision value for the detection of a singular matrix.
+        /// Define the precision value for the detection of a singular matrix. Setting it to -1 disables the singularity check. Positive values enable the check, with 9 being a good starting point. Smaller values make the check more strict. This is an advanced option that should only be used to debug a model.
         /// </summary>
-        /// <value>Define the precision value for the detection of a singular matrix.</value>
+        /// <value>Define the precision value for the detection of a singular matrix. Setting it to -1 disables the singularity check. Positive values enable the check, with 9 being a good starting point. Smaller values make the check more strict. This is an advanced option that should only be used to debug a model.</value>
         [DataMember(Name="precisionSingularityDetection", EmitDefaultValue=false)]
         public int? PrecisionSingularityDetection { get; set; }
 
         /// <summary>
-        /// Choose if the calculation should be stopped if the problem turns out to be singular.
+        /// Choose if the calculation should be stopped if the problem turns out to be singular. This is only relevant if the precision for detecting a singular matrix is set to a positive value.
         /// </summary>
-        /// <value>Choose if the calculation should be stopped if the problem turns out to be singular.</value>
+        /// <value>Choose if the calculation should be stopped if the problem turns out to be singular. This is only relevant if the precision for detecting a singular matrix is set to a positive value.</value>
         [DataMember(Name="stopIfSingular", EmitDefaultValue=false)]
         public bool? StopIfSingular { get; set; }
 

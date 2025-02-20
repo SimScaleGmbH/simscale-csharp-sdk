@@ -23,40 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// LinearIsotropicConductivityMethod
+    /// HighResolutionSpatialScheme
     /// </summary>
     [DataContract]
-    public partial class LinearIsotropicConductivityMethod : IEquatable<LinearIsotropicConductivityMethod>
+    public partial class HighResolutionSpatialScheme : OneOfSpatialDiscretizationSchemesVolumeOfFluid, IEquatable<HighResolutionSpatialScheme>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinearIsotropicConductivityMethod" /> class.
+        /// Initializes a new instance of the <see cref="HighResolutionSpatialScheme" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LinearIsotropicConductivityMethod() { }
+        protected HighResolutionSpatialScheme() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinearIsotropicConductivityMethod" /> class.
+        /// Initializes a new instance of the <see cref="HighResolutionSpatialScheme" /> class.
         /// </summary>
-        /// <param name="type">Schema name: LinearIsotropicConductivityMethod (required) (default to &quot;LINEAR_ISOTROPIC&quot;).</param>
-        /// <param name="electricConductivity">electricConductivity.</param>
-        public LinearIsotropicConductivityMethod(string type = "LINEAR_ISOTROPIC", DimensionalElectricConductivity electricConductivity = default(DimensionalElectricConductivity))
+        /// <param name="type">Schema name: HighResolutionSpatialScheme (required) (default to &quot;HIGH_RESOLUTION&quot;).</param>
+        public HighResolutionSpatialScheme(string type = "HIGH_RESOLUTION")
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for LinearIsotropicConductivityMethod and cannot be null");
-            this.ElectricConductivity = electricConductivity;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for HighResolutionSpatialScheme and cannot be null");
         }
         
         /// <summary>
-        /// Schema name: LinearIsotropicConductivityMethod
+        /// Schema name: HighResolutionSpatialScheme
         /// </summary>
-        /// <value>Schema name: LinearIsotropicConductivityMethod</value>
+        /// <value>Schema name: HighResolutionSpatialScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ElectricConductivity
-        /// </summary>
-        [DataMember(Name="electricConductivity", EmitDefaultValue=false)]
-        public DimensionalElectricConductivity ElectricConductivity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LinearIsotropicConductivityMethod {\n");
+            sb.Append("class HighResolutionSpatialScheme {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  ElectricConductivity: ").Append(ElectricConductivity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +79,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LinearIsotropicConductivityMethod);
+            return this.Equals(input as HighResolutionSpatialScheme);
         }
 
         /// <summary>
-        /// Returns true if LinearIsotropicConductivityMethod instances are equal
+        /// Returns true if HighResolutionSpatialScheme instances are equal
         /// </summary>
-        /// <param name="input">Instance of LinearIsotropicConductivityMethod to be compared</param>
+        /// <param name="input">Instance of HighResolutionSpatialScheme to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LinearIsotropicConductivityMethod input)
+        public bool Equals(HighResolutionSpatialScheme input)
         {
             if (input == null)
                 return false;
@@ -106,11 +97,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.ElectricConductivity == input.ElectricConductivity ||
-                    (this.ElectricConductivity != null &&
-                    this.ElectricConductivity.Equals(input.ElectricConductivity))
                 );
         }
 
@@ -125,8 +111,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.ElectricConductivity != null)
-                    hashCode = hashCode * 59 + this.ElectricConductivity.GetHashCode();
                 return hashCode;
             }
         }

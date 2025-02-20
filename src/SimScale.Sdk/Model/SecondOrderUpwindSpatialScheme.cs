@@ -23,40 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// LinearIsotropicPermeability
+    /// SecondOrderUpwindSpatialScheme
     /// </summary>
     [DataContract]
-    public partial class LinearIsotropicPermeability : OneOfElectromagneticMaterialMagneticPermeabilityType, IEquatable<LinearIsotropicPermeability>
+    public partial class SecondOrderUpwindSpatialScheme : OneOfSpatialDiscretizationSchemesDensity, OneOfSpatialDiscretizationSchemesGasMixtureTransport, OneOfSpatialDiscretizationSchemesInternalEnergy, OneOfSpatialDiscretizationSchemesTurbulentEnergyDissipationRate, OneOfSpatialDiscretizationSchemesTurbulentKineticEnergy, OneOfSpatialDiscretizationSchemesVelocity, OneOfSpatialDiscretizationSchemesVolumeOfFluid, IEquatable<SecondOrderUpwindSpatialScheme>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinearIsotropicPermeability" /> class.
+        /// Initializes a new instance of the <see cref="SecondOrderUpwindSpatialScheme" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LinearIsotropicPermeability() { }
+        protected SecondOrderUpwindSpatialScheme() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinearIsotropicPermeability" /> class.
+        /// Initializes a new instance of the <see cref="SecondOrderUpwindSpatialScheme" /> class.
         /// </summary>
-        /// <param name="type">Schema name: LinearIsotropicPermeability (required) (default to &quot;LINEAR_ISOTROPIC&quot;).</param>
-        /// <param name="relativeMagneticPermeability">relativeMagneticPermeability.</param>
-        public LinearIsotropicPermeability(string type = "LINEAR_ISOTROPIC", decimal? relativeMagneticPermeability = default(decimal?))
+        /// <param name="type">Schema name: SecondOrderUpwindSpatialScheme (required) (default to &quot;UPWIND_2ND&quot;).</param>
+        public SecondOrderUpwindSpatialScheme(string type = "UPWIND_2ND")
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for LinearIsotropicPermeability and cannot be null");
-            this.RelativeMagneticPermeability = relativeMagneticPermeability;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for SecondOrderUpwindSpatialScheme and cannot be null");
         }
         
         /// <summary>
-        /// Schema name: LinearIsotropicPermeability
+        /// Schema name: SecondOrderUpwindSpatialScheme
         /// </summary>
-        /// <value>Schema name: LinearIsotropicPermeability</value>
+        /// <value>Schema name: SecondOrderUpwindSpatialScheme</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RelativeMagneticPermeability
-        /// </summary>
-        [DataMember(Name="relativeMagneticPermeability", EmitDefaultValue=false)]
-        public decimal? RelativeMagneticPermeability { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LinearIsotropicPermeability {\n");
+            sb.Append("class SecondOrderUpwindSpatialScheme {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  RelativeMagneticPermeability: ").Append(RelativeMagneticPermeability).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +79,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LinearIsotropicPermeability);
+            return this.Equals(input as SecondOrderUpwindSpatialScheme);
         }
 
         /// <summary>
-        /// Returns true if LinearIsotropicPermeability instances are equal
+        /// Returns true if SecondOrderUpwindSpatialScheme instances are equal
         /// </summary>
-        /// <param name="input">Instance of LinearIsotropicPermeability to be compared</param>
+        /// <param name="input">Instance of SecondOrderUpwindSpatialScheme to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LinearIsotropicPermeability input)
+        public bool Equals(SecondOrderUpwindSpatialScheme input)
         {
             if (input == null)
                 return false;
@@ -106,11 +97,6 @@ namespace SimScale.Sdk.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.RelativeMagneticPermeability == input.RelativeMagneticPermeability ||
-                    (this.RelativeMagneticPermeability != null &&
-                    this.RelativeMagneticPermeability.Equals(input.RelativeMagneticPermeability))
                 );
         }
 
@@ -125,8 +111,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.RelativeMagneticPermeability != null)
-                    hashCode = hashCode * 59 + this.RelativeMagneticPermeability.GetHashCode();
                 return hashCode;
             }
         }

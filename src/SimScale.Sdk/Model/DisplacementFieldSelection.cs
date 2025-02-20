@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// DisplacementFieldSelection
     /// </summary>
     [DataContract]
-    public partial class DisplacementFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfHarmonicResponseResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfSumFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<DisplacementFieldSelection>
+    public partial class DisplacementFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfHarmonicResponseResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<DisplacementFieldSelection>
     {
         /// <summary>
         /// Defines ComponentSelection

@@ -23,40 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// LinearIsotropicConstantThermalConductivityMethod
+    /// MumpsDirectSolver
     /// </summary>
     [DataContract]
-    public partial class LinearIsotropicConstantThermalConductivityMethod : IEquatable<LinearIsotropicConstantThermalConductivityMethod>
+    public partial class MumpsDirectSolver : OneOfMarcSolverSettingsLinearSolver, IEquatable<MumpsDirectSolver>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinearIsotropicConstantThermalConductivityMethod" /> class.
+        /// Initializes a new instance of the <see cref="MumpsDirectSolver" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LinearIsotropicConstantThermalConductivityMethod() { }
+        protected MumpsDirectSolver() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LinearIsotropicConstantThermalConductivityMethod" /> class.
+        /// Initializes a new instance of the <see cref="MumpsDirectSolver" /> class.
         /// </summary>
-        /// <param name="type">Schema name: LinearIsotropicConstantThermalConductivityMethod (required) (default to &quot;LINEAR_ISOTROPIC_CONSTANT_THERMAL_CONDUCTIVITY&quot;).</param>
-        /// <param name="conductivity">conductivity.</param>
-        public LinearIsotropicConstantThermalConductivityMethod(string type = "LINEAR_ISOTROPIC_CONSTANT_THERMAL_CONDUCTIVITY", DimensionalThermalConductivity conductivity = default(DimensionalThermalConductivity))
+        /// <param name="type">Schema name: MumpsDirectSolver (required) (default to &quot;MUMPS_DIRECT&quot;).</param>
+        /// <param name="autoConstrain">autoConstrain (default to false).</param>
+        public MumpsDirectSolver(string type = "MUMPS_DIRECT", bool? autoConstrain = default(bool?))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for LinearIsotropicConstantThermalConductivityMethod and cannot be null");
-            this.Conductivity = conductivity;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for MumpsDirectSolver and cannot be null");
+            this.AutoConstrain = autoConstrain;
         }
         
         /// <summary>
-        /// Schema name: LinearIsotropicConstantThermalConductivityMethod
+        /// Schema name: MumpsDirectSolver
         /// </summary>
-        /// <value>Schema name: LinearIsotropicConstantThermalConductivityMethod</value>
+        /// <value>Schema name: MumpsDirectSolver</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Conductivity
+        /// Gets or Sets AutoConstrain
         /// </summary>
-        [DataMember(Name="conductivity", EmitDefaultValue=false)]
-        public DimensionalThermalConductivity Conductivity { get; set; }
+        [DataMember(Name="autoConstrain", EmitDefaultValue=false)]
+        public bool? AutoConstrain { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LinearIsotropicConstantThermalConductivityMethod {\n");
+            sb.Append("class MumpsDirectSolver {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Conductivity: ").Append(Conductivity).Append("\n");
+            sb.Append("  AutoConstrain: ").Append(AutoConstrain).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LinearIsotropicConstantThermalConductivityMethod);
+            return this.Equals(input as MumpsDirectSolver);
         }
 
         /// <summary>
-        /// Returns true if LinearIsotropicConstantThermalConductivityMethod instances are equal
+        /// Returns true if MumpsDirectSolver instances are equal
         /// </summary>
-        /// <param name="input">Instance of LinearIsotropicConstantThermalConductivityMethod to be compared</param>
+        /// <param name="input">Instance of MumpsDirectSolver to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LinearIsotropicConstantThermalConductivityMethod input)
+        public bool Equals(MumpsDirectSolver input)
         {
             if (input == null)
                 return false;
@@ -108,9 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Conductivity == input.Conductivity ||
-                    (this.Conductivity != null &&
-                    this.Conductivity.Equals(input.Conductivity))
+                    this.AutoConstrain == input.AutoConstrain ||
+                    (this.AutoConstrain != null &&
+                    this.AutoConstrain.Equals(input.AutoConstrain))
                 );
         }
 
@@ -125,8 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Conductivity != null)
-                    hashCode = hashCode * 59 + this.Conductivity.GetHashCode();
+                if (this.AutoConstrain != null)
+                    hashCode = hashCode * 59 + this.AutoConstrain.GetHashCode();
                 return hashCode;
             }
         }

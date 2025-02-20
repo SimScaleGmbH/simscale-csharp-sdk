@@ -106,11 +106,13 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ElectromagneticSimulationControl" /> class.
         /// </summary>
         /// <param name="transientMagneticsControl">transientMagneticsControl.</param>
+        /// <param name="writeControl">writeControl.</param>
         /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
-        public ElectromagneticSimulationControl(ElectromagneticTransientControl transientMagneticsControl = default(ElectromagneticTransientControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime))
+        public ElectromagneticSimulationControl(ElectromagneticTransientControl transientMagneticsControl = default(ElectromagneticTransientControl), TimeStepWriteControl writeControl = default(TimeStepWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime))
         {
             this.TransientMagneticsControl = transientMagneticsControl;
+            this.WriteControl = writeControl;
             this.NumProcessors = numProcessors;
             this.MaxRunTime = maxRunTime;
         }
@@ -120,6 +122,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="transientMagneticsControl", EmitDefaultValue=false)]
         public ElectromagneticTransientControl TransientMagneticsControl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets WriteControl
+        /// </summary>
+        [DataMember(Name="writeControl", EmitDefaultValue=false)]
+        public TimeStepWriteControl WriteControl { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxRunTime
@@ -136,6 +144,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class ElectromagneticSimulationControl {\n");
             sb.Append("  TransientMagneticsControl: ").Append(TransientMagneticsControl).Append("\n");
+            sb.Append("  WriteControl: ").Append(WriteControl).Append("\n");
             sb.Append("  NumProcessors: ").Append(NumProcessors).Append("\n");
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
             sb.Append("}\n");
@@ -178,6 +187,11 @@ namespace SimScale.Sdk.Model
                     this.TransientMagneticsControl.Equals(input.TransientMagneticsControl))
                 ) && 
                 (
+                    this.WriteControl == input.WriteControl ||
+                    (this.WriteControl != null &&
+                    this.WriteControl.Equals(input.WriteControl))
+                ) && 
+                (
                     this.NumProcessors == input.NumProcessors ||
                     this.NumProcessors.Equals(input.NumProcessors)
                 ) && 
@@ -199,6 +213,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.TransientMagneticsControl != null)
                     hashCode = hashCode * 59 + this.TransientMagneticsControl.GetHashCode();
+                if (this.WriteControl != null)
+                    hashCode = hashCode * 59 + this.WriteControl.GetHashCode();
                 hashCode = hashCode * 59 + this.NumProcessors.GetHashCode();
                 if (this.MaxRunTime != null)
                     hashCode = hashCode * 59 + this.MaxRunTime.GetHashCode();

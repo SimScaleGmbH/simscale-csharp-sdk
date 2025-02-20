@@ -37,9 +37,9 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ElectricalSteelCoreLoss" /> class.
         /// </summary>
         /// <param name="type">Schema name: ElectricalSteelCoreLoss (required) (default to &quot;ELECTRICAL_STEEL&quot;).</param>
-        /// <param name="hysteresisLoss">hysteresisLoss.</param>
-        /// <param name="eddyLoss">eddyLoss.</param>
-        /// <param name="excessLoss">excessLoss.</param>
+        /// <param name="hysteresisLoss">hysteresisLoss (default to 0M).</param>
+        /// <param name="eddyLoss">eddyLoss (default to 0M).</param>
+        /// <param name="excessLoss">excessLoss (default to 0M).</param>
         public ElectricalSteelCoreLoss(string type = "ELECTRICAL_STEEL", decimal? hysteresisLoss = default(decimal?), decimal? eddyLoss = default(decimal?), decimal? excessLoss = default(decimal?))
         {
             // to ensure "type" is required (not null)

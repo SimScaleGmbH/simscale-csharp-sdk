@@ -27,7 +27,7 @@ namespace SimScale.Sdk.Model
     /// OneOfElectromagneticMaterialMagneticPermeabilityType
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(LinearIsotropicPermeability), "LINEAR_ISOTROPIC")]
+    [JsonSubtypes.KnownSubType(typeof(IsotropicRelativePermeabilityMethod), "ISOTROPIC_RELATIVE_MAGNETIC_PERMEABILITY")]
     [JsonSubtypes.KnownSubType(typeof(NonlinearIsotropicPermeability), "NONLINEAR_ISOTROPIC")]
     public interface OneOfElectromagneticMaterialMagneticPermeabilityType
     {

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// StrainFieldSelection
     /// </summary>
     [DataContract]
-    public partial class StrainFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfHarmonicResponseResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfSumFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<StrainFieldSelection>
+    public partial class StrainFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfHarmonicResponseResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<StrainFieldSelection>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StrainFieldSelection" /> class.

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AutomaticSweepOff
     /// </summary>
     [DataContract]
-    public partial class AutomaticSweepOff : OneOfSimmetrixMeshingSolidAutomaticSweepParameters, IEquatable<AutomaticSweepOff>
+    public partial class AutomaticSweepOff : OneOfSimmetrixMeshingFluidAutomaticSweepParameters, OneOfSimmetrixMeshingSolidAutomaticSweepParameters, IEquatable<AutomaticSweepOff>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticSweepOff" /> class.

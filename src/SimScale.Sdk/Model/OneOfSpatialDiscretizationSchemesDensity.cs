@@ -24,12 +24,13 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfSimericsFluidMaterialsFluids
+    /// OneOfSpatialDiscretizationSchemesDensity
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(IncompressibleMaterial), "INCOMPRESSIBLE")]
-    [JsonSubtypes.KnownSubType(typeof(FluidCompressibleMaterial), "COMPRESSIBLE")]
-    public interface OneOfSimericsFluidMaterialsFluids
+    [JsonSubtypes.KnownSubType(typeof(FirstOrderUpwindSpatialScheme), "UPWIND_1ST")]
+    [JsonSubtypes.KnownSubType(typeof(SecondOrderUpwindSpatialScheme), "UPWIND_2ND")]
+    [JsonSubtypes.KnownSubType(typeof(CentralDifferenceSpatialScheme), "CENTRAL_DIFFERENCE")]
+    public interface OneOfSpatialDiscretizationSchemesDensity
     {
         /// <summary>
         /// Gets Type

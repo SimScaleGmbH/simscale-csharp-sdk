@@ -44,7 +44,13 @@ namespace SimScale.Sdk.Model
             /// Enum RPM for value: RPM
             /// </summary>
             [EnumMember(Value = "RPM")]
-            RPM = 2
+            RPM = 2,
+
+            /// <summary>
+            /// Enum Hz for value: Hz
+            /// </summary>
+            [EnumMember(Value = "Hz")]
+            Hz = 3
 
         }
 

@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// DimensionalElectricConductivity
+    /// DimensionalFunctionElectricConductivity
     /// </summary>
     [DataContract]
-    public partial class DimensionalElectricConductivity : IEquatable<DimensionalElectricConductivity>
+    public partial class DimensionalFunctionElectricConductivity : IEquatable<DimensionalFunctionElectricConductivity>
     {
         /// <summary>
         /// Defines Unit
@@ -60,16 +60,16 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="unit", EmitDefaultValue=false)]
         public UnitEnum Unit { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalElectricConductivity" /> class.
+        /// Initializes a new instance of the <see cref="DimensionalFunctionElectricConductivity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DimensionalElectricConductivity() { }
+        protected DimensionalFunctionElectricConductivity() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DimensionalElectricConductivity" /> class.
+        /// Initializes a new instance of the <see cref="DimensionalFunctionElectricConductivity" /> class.
         /// </summary>
         /// <param name="value">value.</param>
         /// <param name="unit">unit (required).</param>
-        public DimensionalElectricConductivity(decimal? value = default(decimal?), UnitEnum unit = default(UnitEnum))
+        public DimensionalFunctionElectricConductivity(OneOfDimensionalFunctionElectricConductivityValue value = default(OneOfDimensionalFunctionElectricConductivityValue), UnitEnum unit = default(UnitEnum))
         {
             this.Unit = unit;
             this.Value = value;
@@ -79,7 +79,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        public OneOfDimensionalFunctionElectricConductivityValue Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -88,7 +88,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DimensionalElectricConductivity {\n");
+            sb.Append("class DimensionalFunctionElectricConductivity {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
@@ -111,15 +111,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DimensionalElectricConductivity);
+            return this.Equals(input as DimensionalFunctionElectricConductivity);
         }
 
         /// <summary>
-        /// Returns true if DimensionalElectricConductivity instances are equal
+        /// Returns true if DimensionalFunctionElectricConductivity instances are equal
         /// </summary>
-        /// <param name="input">Instance of DimensionalElectricConductivity to be compared</param>
+        /// <param name="input">Instance of DimensionalFunctionElectricConductivity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DimensionalElectricConductivity input)
+        public bool Equals(DimensionalFunctionElectricConductivity input)
         {
             if (input == null)
                 return false;

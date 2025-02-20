@@ -26,6 +26,29 @@ namespace SimScale.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Copy an existing project
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="projectCopyRequest">Project to be copied</param>
+        /// <returns>Project</returns>
+        Project CopyProject (string projectId = default(string), ProjectCopyRequest projectCopyRequest = default(ProjectCopyRequest));
+
+        /// <summary>
+        /// Copy an existing project
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="projectCopyRequest">Project to be copied</param>
+        /// <returns>ApiResponse of Project</returns>
+        ApiResponse<Project> CopyProjectWithHttpInfo (string projectId = default(string), ProjectCopyRequest projectCopyRequest = default(ProjectCopyRequest));
+        /// <summary>
         /// Create a new project
         /// </summary>
         /// <remarks>
@@ -122,6 +145,29 @@ namespace SimScale.Sdk.Api
     public interface IProjectsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Copy an existing project
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="projectCopyRequest">Project to be copied</param>
+        /// <returns>Task of Project</returns>
+        System.Threading.Tasks.Task<Project> CopyProjectAsync (string projectId = default(string), ProjectCopyRequest projectCopyRequest = default(ProjectCopyRequest));
+
+        /// <summary>
+        /// Copy an existing project
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="projectCopyRequest">Project to be copied</param>
+        /// <returns>Task of ApiResponse (Project)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Project>> CopyProjectAsyncWithHttpInfo (string projectId = default(string), ProjectCopyRequest projectCopyRequest = default(ProjectCopyRequest));
         /// <summary>
         /// Create a new project
         /// </summary>
@@ -328,6 +374,145 @@ namespace SimScale.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Copy an existing project 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="projectCopyRequest">Project to be copied</param>
+        /// <returns>Project</returns>
+        public Project CopyProject (string projectId = default(string), ProjectCopyRequest projectCopyRequest = default(ProjectCopyRequest))
+        {
+             SimScale.Sdk.Client.ApiResponse<Project> localVarResponse = CopyProjectWithHttpInfo(projectId, projectCopyRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Copy an existing project 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="projectCopyRequest">Project to be copied</param>
+        /// <returns>ApiResponse of Project</returns>
+        public SimScale.Sdk.Client.ApiResponse< Project > CopyProjectWithHttpInfo (string projectId = default(string), ProjectCopyRequest projectCopyRequest = default(ProjectCopyRequest))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling ProjectsApi->CopyProject");
+
+            // verify the required parameter 'projectCopyRequest' is set
+            if (projectCopyRequest == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectCopyRequest' when calling ProjectsApi->CopyProject");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.Data = projectCopyRequest;
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< Project >("/projects/{projectId}/copy", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CopyProject", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Copy an existing project 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="projectCopyRequest">Project to be copied</param>
+        /// <returns>Task of Project</returns>
+        public async System.Threading.Tasks.Task<Project> CopyProjectAsync (string projectId = default(string), ProjectCopyRequest projectCopyRequest = default(ProjectCopyRequest))
+        {
+             SimScale.Sdk.Client.ApiResponse<Project> localVarResponse = await CopyProjectAsyncWithHttpInfo(projectId, projectCopyRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Copy an existing project 
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="projectCopyRequest">Project to be copied</param>
+        /// <returns>Task of ApiResponse (Project)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<Project>> CopyProjectAsyncWithHttpInfo (string projectId = default(string), ProjectCopyRequest projectCopyRequest = default(ProjectCopyRequest))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling ProjectsApi->CopyProject");
+
+            // verify the required parameter 'projectCopyRequest' is set
+            if (projectCopyRequest == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectCopyRequest' when calling ProjectsApi->CopyProject");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.Data = projectCopyRequest;
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Project>("/projects/{projectId}/copy", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CopyProject", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

@@ -23,25 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// SimericsFluidMaterials
+    /// SittingFractionBodySurface
     /// </summary>
     [DataContract]
-    public partial class SimericsFluidMaterials : IEquatable<SimericsFluidMaterials>
+    public partial class SittingFractionBodySurface : OneOfMrtSolarParametersFractionBodySurface, IEquatable<SittingFractionBodySurface>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SimericsFluidMaterials" /> class.
+        /// Initializes a new instance of the <see cref="SittingFractionBodySurface" /> class.
         /// </summary>
-        /// <param name="fluids">fluids.</param>
-        public SimericsFluidMaterials(List<OneOfSimericsFluidMaterialsFluids> fluids = default(List<OneOfSimericsFluidMaterialsFluids>))
+        [JsonConstructorAttribute]
+        protected SittingFractionBodySurface() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SittingFractionBodySurface" /> class.
+        /// </summary>
+        /// <param name="type">Schema name: SittingFractionBodySurface (required) (default to &quot;SITTING_FRACTION_BODY_SURFACE&quot;).</param>
+        public SittingFractionBodySurface(string type = "SITTING_FRACTION_BODY_SURFACE")
         {
-            this.Fluids = fluids;
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for SittingFractionBodySurface and cannot be null");
         }
         
         /// <summary>
-        /// Gets or Sets Fluids
+        /// Schema name: SittingFractionBodySurface
         /// </summary>
-        [DataMember(Name="fluids", EmitDefaultValue=false)]
-        public List<OneOfSimericsFluidMaterialsFluids> Fluids { get; set; }
+        /// <value>Schema name: SittingFractionBodySurface</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -50,8 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SimericsFluidMaterials {\n");
-            sb.Append("  Fluids: ").Append(Fluids).Append("\n");
+            sb.Append("class SittingFractionBodySurface {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -72,25 +79,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SimericsFluidMaterials);
+            return this.Equals(input as SittingFractionBodySurface);
         }
 
         /// <summary>
-        /// Returns true if SimericsFluidMaterials instances are equal
+        /// Returns true if SittingFractionBodySurface instances are equal
         /// </summary>
-        /// <param name="input">Instance of SimericsFluidMaterials to be compared</param>
+        /// <param name="input">Instance of SittingFractionBodySurface to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SimericsFluidMaterials input)
+        public bool Equals(SittingFractionBodySurface input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Fluids == input.Fluids ||
-                    this.Fluids != null &&
-                    input.Fluids != null &&
-                    this.Fluids.SequenceEqual(input.Fluids)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -103,8 +109,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Fluids != null)
-                    hashCode = hashCode * 59 + this.Fluids.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

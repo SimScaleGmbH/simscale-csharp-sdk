@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// TemperatureFieldSelection
     /// </summary>
     [DataContract]
-    public partial class TemperatureFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfSumFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<TemperatureFieldSelection>
+    public partial class TemperatureFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<TemperatureFieldSelection>
     {
         /// <summary>
         /// Defines ComponentSelection

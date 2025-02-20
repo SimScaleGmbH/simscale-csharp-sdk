@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AccelerationFieldSelection
     /// </summary>
     [DataContract]
-    public partial class AccelerationFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfHarmonicResponseResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfSumFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<AccelerationFieldSelection>
+    public partial class AccelerationFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfHarmonicResponseResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<AccelerationFieldSelection>
     {
         /// <summary>
         /// Defines ComponentSelection

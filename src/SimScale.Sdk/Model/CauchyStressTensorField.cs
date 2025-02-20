@@ -69,13 +69,7 @@ namespace SimScale.Sdk.Model
             /// Enum YZ for value: YZ
             /// </summary>
             [EnumMember(Value = "YZ")]
-            YZ = 6,
-
-            /// <summary>
-            /// Enum ALL for value: ALL
-            /// </summary>
-            [EnumMember(Value = "ALL")]
-            ALL = 7
+            YZ = 6
 
         }
 

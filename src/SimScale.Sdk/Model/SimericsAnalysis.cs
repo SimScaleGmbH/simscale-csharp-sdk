@@ -89,38 +89,38 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SimericsAnalysis" /> class.
         /// </summary>
         /// <param name="type">Schema name: SimericsAnalysis (required) (default to &quot;SIMERICS_ANALYSIS&quot;).</param>
-        /// <param name="model">model.</param>
-        /// <param name="materials">materials.</param>
-        /// <param name="initialConditions">initialConditions.</param>
         /// <param name="isCompressible">isCompressible (default to false).</param>
-        /// <param name="isCHT">isCHT (default to false).</param>
         /// <param name="isMulticomponent">isMulticomponent (default to false).</param>
         /// <param name="isMultiphase">isMultiphase (default to false).</param>
+        /// <param name="isCHT">isCHT (default to false).</param>
         /// <param name="numberOfPhases">numberOfPhases (default to 2).</param>
         /// <param name="cavitationModel">cavitationModel (default to CavitationModelEnum.NONE).</param>
         /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/blog/2017/12/turbulence-cfd-analysis/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to TurbulenceModelEnum.KEPSILON).</param>
         /// <param name="timeDependency">timeDependency.</param>
+        /// <param name="model">model.</param>
+        /// <param name="materials">materials.</param>
+        /// <param name="initialConditions">initialConditions.</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
         /// <param name="advancedConcepts">advancedConcepts.</param>
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="meshSettings">meshSettings.</param>
-        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", FluidModel model = default(FluidModel), SimericsFluidMaterials materials = default(SimericsFluidMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), bool? isCompressible = default(bool?), bool? isCHT = default(bool?), bool? isMulticomponent = default(bool?), bool? isMultiphase = default(bool?), int? numberOfPhases = default(int?), CavitationModelEnum? cavitationModel = default(CavitationModelEnum?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfSimericsAnalysisTimeDependency timeDependency = default(OneOfSimericsAnalysisTimeDependency), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), OneOfSimericsAnalysisMeshSettings meshSettings = default(OneOfSimericsAnalysisMeshSettings))
+        public SimericsAnalysis(string type = "SIMERICS_ANALYSIS", bool? isCompressible = default(bool?), bool? isMulticomponent = default(bool?), bool? isMultiphase = default(bool?), bool? isCHT = default(bool?), int? numberOfPhases = default(int?), CavitationModelEnum? cavitationModel = default(CavitationModelEnum?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfSimericsAnalysisTimeDependency timeDependency = default(OneOfSimericsAnalysisTimeDependency), FluidModel model = default(FluidModel), SimericsMaterials materials = default(SimericsMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfSimericsAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfSimericsAnalysisBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), OneOfSimericsAnalysisMeshSettings meshSettings = default(OneOfSimericsAnalysisMeshSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimericsAnalysis and cannot be null");
-            this.Model = model;
-            this.Materials = materials;
-            this.InitialConditions = initialConditions;
             this.IsCompressible = isCompressible;
-            this.IsCHT = isCHT;
             this.IsMulticomponent = isMulticomponent;
             this.IsMultiphase = isMultiphase;
+            this.IsCHT = isCHT;
             this.NumberOfPhases = numberOfPhases;
             this.CavitationModel = cavitationModel;
             this.TurbulenceModel = turbulenceModel;
             this.TimeDependency = timeDependency;
+            this.Model = model;
+            this.Materials = materials;
+            this.InitialConditions = initialConditions;
             this.BoundaryConditions = boundaryConditions;
             this.AdvancedConcepts = advancedConcepts;
             this.Numerics = numerics;
@@ -137,34 +137,10 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Model
-        /// </summary>
-        [DataMember(Name="model", EmitDefaultValue=false)]
-        public FluidModel Model { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Materials
-        /// </summary>
-        [DataMember(Name="materials", EmitDefaultValue=false)]
-        public SimericsFluidMaterials Materials { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InitialConditions
-        /// </summary>
-        [DataMember(Name="initialConditions", EmitDefaultValue=false)]
-        public FluidInitialConditions InitialConditions { get; set; }
-
-        /// <summary>
         /// Gets or Sets IsCompressible
         /// </summary>
         [DataMember(Name="isCompressible", EmitDefaultValue=false)]
         public bool? IsCompressible { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsCHT
-        /// </summary>
-        [DataMember(Name="isCHT", EmitDefaultValue=false)]
-        public bool? IsCHT { get; set; }
 
         /// <summary>
         /// Gets or Sets IsMulticomponent
@@ -179,6 +155,12 @@ namespace SimScale.Sdk.Model
         public bool? IsMultiphase { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsCHT
+        /// </summary>
+        [DataMember(Name="isCHT", EmitDefaultValue=false)]
+        public bool? IsCHT { get; set; }
+
+        /// <summary>
         /// Gets or Sets NumberOfPhases
         /// </summary>
         [DataMember(Name="numberOfPhases", EmitDefaultValue=false)]
@@ -189,6 +171,24 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="timeDependency", EmitDefaultValue=false)]
         public OneOfSimericsAnalysisTimeDependency TimeDependency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Model
+        /// </summary>
+        [DataMember(Name="model", EmitDefaultValue=false)]
+        public FluidModel Model { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Materials
+        /// </summary>
+        [DataMember(Name="materials", EmitDefaultValue=false)]
+        public SimericsMaterials Materials { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InitialConditions
+        /// </summary>
+        [DataMember(Name="initialConditions", EmitDefaultValue=false)]
+        public FluidInitialConditions InitialConditions { get; set; }
 
         /// <summary>
         /// Gets or Sets BoundaryConditions
@@ -235,17 +235,17 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class SimericsAnalysis {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Model: ").Append(Model).Append("\n");
-            sb.Append("  Materials: ").Append(Materials).Append("\n");
-            sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
-            sb.Append("  IsCHT: ").Append(IsCHT).Append("\n");
             sb.Append("  IsMulticomponent: ").Append(IsMulticomponent).Append("\n");
             sb.Append("  IsMultiphase: ").Append(IsMultiphase).Append("\n");
+            sb.Append("  IsCHT: ").Append(IsCHT).Append("\n");
             sb.Append("  NumberOfPhases: ").Append(NumberOfPhases).Append("\n");
             sb.Append("  CavitationModel: ").Append(CavitationModel).Append("\n");
             sb.Append("  TurbulenceModel: ").Append(TurbulenceModel).Append("\n");
             sb.Append("  TimeDependency: ").Append(TimeDependency).Append("\n");
+            sb.Append("  Model: ").Append(Model).Append("\n");
+            sb.Append("  Materials: ").Append(Materials).Append("\n");
+            sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
             sb.Append("  AdvancedConcepts: ").Append(AdvancedConcepts).Append("\n");
             sb.Append("  Numerics: ").Append(Numerics).Append("\n");
@@ -292,29 +292,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Model == input.Model ||
-                    (this.Model != null &&
-                    this.Model.Equals(input.Model))
-                ) && 
-                (
-                    this.Materials == input.Materials ||
-                    (this.Materials != null &&
-                    this.Materials.Equals(input.Materials))
-                ) && 
-                (
-                    this.InitialConditions == input.InitialConditions ||
-                    (this.InitialConditions != null &&
-                    this.InitialConditions.Equals(input.InitialConditions))
-                ) && 
-                (
                     this.IsCompressible == input.IsCompressible ||
                     (this.IsCompressible != null &&
                     this.IsCompressible.Equals(input.IsCompressible))
-                ) && 
-                (
-                    this.IsCHT == input.IsCHT ||
-                    (this.IsCHT != null &&
-                    this.IsCHT.Equals(input.IsCHT))
                 ) && 
                 (
                     this.IsMulticomponent == input.IsMulticomponent ||
@@ -325,6 +305,11 @@ namespace SimScale.Sdk.Model
                     this.IsMultiphase == input.IsMultiphase ||
                     (this.IsMultiphase != null &&
                     this.IsMultiphase.Equals(input.IsMultiphase))
+                ) && 
+                (
+                    this.IsCHT == input.IsCHT ||
+                    (this.IsCHT != null &&
+                    this.IsCHT.Equals(input.IsCHT))
                 ) && 
                 (
                     this.NumberOfPhases == input.NumberOfPhases ||
@@ -343,6 +328,21 @@ namespace SimScale.Sdk.Model
                     this.TimeDependency == input.TimeDependency ||
                     (this.TimeDependency != null &&
                     this.TimeDependency.Equals(input.TimeDependency))
+                ) && 
+                (
+                    this.Model == input.Model ||
+                    (this.Model != null &&
+                    this.Model.Equals(input.Model))
+                ) && 
+                (
+                    this.Materials == input.Materials ||
+                    (this.Materials != null &&
+                    this.Materials.Equals(input.Materials))
+                ) && 
+                (
+                    this.InitialConditions == input.InitialConditions ||
+                    (this.InitialConditions != null &&
+                    this.InitialConditions.Equals(input.InitialConditions))
                 ) && 
                 (
                     this.BoundaryConditions == input.BoundaryConditions ||
@@ -388,26 +388,26 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Model != null)
-                    hashCode = hashCode * 59 + this.Model.GetHashCode();
-                if (this.Materials != null)
-                    hashCode = hashCode * 59 + this.Materials.GetHashCode();
-                if (this.InitialConditions != null)
-                    hashCode = hashCode * 59 + this.InitialConditions.GetHashCode();
                 if (this.IsCompressible != null)
                     hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
-                if (this.IsCHT != null)
-                    hashCode = hashCode * 59 + this.IsCHT.GetHashCode();
                 if (this.IsMulticomponent != null)
                     hashCode = hashCode * 59 + this.IsMulticomponent.GetHashCode();
                 if (this.IsMultiphase != null)
                     hashCode = hashCode * 59 + this.IsMultiphase.GetHashCode();
+                if (this.IsCHT != null)
+                    hashCode = hashCode * 59 + this.IsCHT.GetHashCode();
                 if (this.NumberOfPhases != null)
                     hashCode = hashCode * 59 + this.NumberOfPhases.GetHashCode();
                 hashCode = hashCode * 59 + this.CavitationModel.GetHashCode();
                 hashCode = hashCode * 59 + this.TurbulenceModel.GetHashCode();
                 if (this.TimeDependency != null)
                     hashCode = hashCode * 59 + this.TimeDependency.GetHashCode();
+                if (this.Model != null)
+                    hashCode = hashCode * 59 + this.Model.GetHashCode();
+                if (this.Materials != null)
+                    hashCode = hashCode * 59 + this.Materials.GetHashCode();
+                if (this.InitialConditions != null)
+                    hashCode = hashCode * 59 + this.InitialConditions.GetHashCode();
                 if (this.BoundaryConditions != null)
                     hashCode = hashCode * 59 + this.BoundaryConditions.GetHashCode();
                 if (this.AdvancedConcepts != null)

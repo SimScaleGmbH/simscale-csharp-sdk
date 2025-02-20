@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MUMPSSolver
     /// </summary>
     [DataContract]
-    public partial class MUMPSSolver : OneOfHarmonicResponseSolver, OneOfModalSolverSolver, OneOfSolidNumericsSolver, IEquatable<MUMPSSolver>
+    public partial class MUMPSSolver : OneOfModalSolverSolver, OneOfSolidNumericsSolver, IEquatable<MUMPSSolver>
     {
         /// <summary>
         /// &lt;p&gt;Choose the type of your system matrix by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indefinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; otherwise.
@@ -161,8 +161,8 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: MUMPSSolver (required) (default to &quot;MUMPS&quot;).</param>
         /// <param name="forceSymmetric">Choose if you want to enforce a symmetric matrix. (default to false).</param>
-        /// <param name="precisionSingularityDetection">Define the precision value for the detection of a singular matrix. (default to 9).</param>
-        /// <param name="stopIfSingular">Choose if the calculation should be stopped if the problem turns out to be singular. (default to true).</param>
+        /// <param name="precisionSingularityDetection">Define the precision value for the detection of a singular matrix. Setting it to -1 disables the singularity check. Positive values enable the check, with 9 being a good starting point. Smaller values make the check more strict. This is an advanced option that should only be used to debug a model..</param>
+        /// <param name="stopIfSingular">Choose if the calculation should be stopped if the problem turns out to be singular. This is only relevant if the precision for detecting a singular matrix is set to a positive value. (default to false).</param>
         /// <param name="matrixType">&lt;p&gt;Choose the type of your system matrix by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indefinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; otherwise. (default to MatrixTypeEnum.AUTOMATICDETECTION).</param>
         /// <param name="memoryPercentageForPivoting">Define how much additional memory should be reserved for the pivoting operations. If MUMPS estimates that the necessary space for factorising the matrix would be 100, choosing a value of 20 would mean that MUMPS allocates a memory space of 120. (default to 20M).</param>
         /// <param name="linearSystemRelativeResidual">Set the maximum allowable numerical error in solving the linear equation system. Use -1 if you do not wish to carry out a check on the solution error (not recommended). (default to 0.000010M).</param>
@@ -209,16 +209,16 @@ namespace SimScale.Sdk.Model
         public bool? ForceSymmetric { get; set; }
 
         /// <summary>
-        /// Define the precision value for the detection of a singular matrix.
+        /// Define the precision value for the detection of a singular matrix. Setting it to -1 disables the singularity check. Positive values enable the check, with 9 being a good starting point. Smaller values make the check more strict. This is an advanced option that should only be used to debug a model.
         /// </summary>
-        /// <value>Define the precision value for the detection of a singular matrix.</value>
+        /// <value>Define the precision value for the detection of a singular matrix. Setting it to -1 disables the singularity check. Positive values enable the check, with 9 being a good starting point. Smaller values make the check more strict. This is an advanced option that should only be used to debug a model.</value>
         [DataMember(Name="precisionSingularityDetection", EmitDefaultValue=false)]
         public int? PrecisionSingularityDetection { get; set; }
 
         /// <summary>
-        /// Choose if the calculation should be stopped if the problem turns out to be singular.
+        /// Choose if the calculation should be stopped if the problem turns out to be singular. This is only relevant if the precision for detecting a singular matrix is set to a positive value.
         /// </summary>
-        /// <value>Choose if the calculation should be stopped if the problem turns out to be singular.</value>
+        /// <value>Choose if the calculation should be stopped if the problem turns out to be singular. This is only relevant if the precision for detecting a singular matrix is set to a positive value.</value>
         [DataMember(Name="stopIfSingular", EmitDefaultValue=false)]
         public bool? StopIfSingular { get; set; }
 

@@ -32,7 +32,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="HarmonicResponse" /> class.
         /// </summary>
         /// <param name="solver">solver.</param>
-        public HarmonicResponse(OneOfHarmonicResponseSolver solver = default(OneOfHarmonicResponseSolver))
+        public HarmonicResponse(MUMPSSolver solver = default(MUMPSSolver))
         {
             this.Solver = solver;
         }
@@ -41,7 +41,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Solver
         /// </summary>
         [DataMember(Name="solver", EmitDefaultValue=false)]
-        public OneOfHarmonicResponseSolver Solver { get; set; }
+        public MUMPSSolver Solver { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

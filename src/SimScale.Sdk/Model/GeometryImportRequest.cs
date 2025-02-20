@@ -111,7 +111,13 @@ namespace SimScale.Sdk.Model
             /// Enum STL for value: STL
             /// </summary>
             [EnumMember(Value = "STL")]
-            STL = 13
+            STL = 13,
+
+            /// <summary>
+            /// Enum NTOP for value: NTOP
+            /// </summary>
+            [EnumMember(Value = "NTOP")]
+            NTOP = 14
 
         }
 

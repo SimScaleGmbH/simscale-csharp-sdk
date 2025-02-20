@@ -37,9 +37,9 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="PowerFerriteCoreLoss" /> class.
         /// </summary>
         /// <param name="type">Schema name: PowerFerriteCoreLoss (required) (default to &quot;POWER_FERRITE&quot;).</param>
-        /// <param name="steinmetzConstant">steinmetzConstant.</param>
-        /// <param name="frequencyExponent">frequencyExponent.</param>
-        /// <param name="fluxDensityExponent">fluxDensityExponent.</param>
+        /// <param name="steinmetzConstant">steinmetzConstant (default to 0M).</param>
+        /// <param name="frequencyExponent">frequencyExponent (default to 0M).</param>
+        /// <param name="fluxDensityExponent">fluxDensityExponent (default to 0M).</param>
         public PowerFerriteCoreLoss(string type = "POWER_FERRITE", decimal? steinmetzConstant = default(decimal?), decimal? frequencyExponent = default(decimal?), decimal? fluxDensityExponent = default(decimal?))
         {
             // to ensure "type" is required (not null)

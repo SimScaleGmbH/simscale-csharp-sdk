@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// StressFieldSelection
     /// </summary>
     [DataContract]
-    public partial class StressFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfHarmonicResponseResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfSumFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<StressFieldSelection>
+    public partial class StressFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfHarmonicResponseResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<StressFieldSelection>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StressFieldSelection" /> class.

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// ThinResistanceLayer
+    /// &lt;p&gt;Choose the type of the contact resistance:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To specify presence of thin layers with known thermal conductivity or/and electric resistivity and thickness, choose &lt;b&gt;Thin layer resistance&lt;/b&gt;.&lt;/p&gt;&lt;li&gt;&lt;p&gt;If the thermal/electric contact resistance is known (e.g. due to an imperfectly matching interface, choose &lt;b&gt;Contact resistance&lt;/b&gt;. The resistance can be defined as surface-dependent or not, i.e. total or specific. To make a resistance inactive, set it to 0. Enter a high value to make it an isolator.&lt;/p&gt;&lt;li&gt;&lt;p&gt;Conversely, if the thermal/electric contact conductance is known, choose &lt;b&gt;Specific conductance&lt;/b&gt;&lt;/p&gt;&lt;/ul&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/contact-resistance/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
     public partial class ThinResistanceLayer : OneOfAdvancedConceptsThermalContactResistance, IEquatable<ThinResistanceLayer>
@@ -36,7 +36,7 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThinResistanceLayer" /> class.
         /// </summary>
-        /// <param name="type">Schema name: ThinResistanceLayer (required) (default to &quot;THIN_RESISTANCE_LAYER&quot;).</param>
+        /// <param name="type">&lt;p&gt;Choose the type of the contact resistance:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To specify presence of thin layers with known thermal conductivity or/and electric resistivity and thickness, choose &lt;b&gt;Thin layer resistance&lt;/b&gt;.&lt;/p&gt;&lt;li&gt;&lt;p&gt;If the thermal/electric contact resistance is known (e.g. due to an imperfectly matching interface, choose &lt;b&gt;Contact resistance&lt;/b&gt;. The resistance can be defined as surface-dependent or not, i.e. total or specific. To make a resistance inactive, set it to 0. Enter a high value to make it an isolator.&lt;/p&gt;&lt;li&gt;&lt;p&gt;Conversely, if the thermal/electric contact conductance is known, choose &lt;b&gt;Specific conductance&lt;/b&gt;&lt;/p&gt;&lt;/ul&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/contact-resistance/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: ThinResistanceLayer (required) (default to &quot;THIN_RESISTANCE_LAYER&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="interfaceThermal">interfaceThermal.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
@@ -50,9 +50,9 @@ namespace SimScale.Sdk.Model
         }
         
         /// <summary>
-        /// Schema name: ThinResistanceLayer
+        /// &lt;p&gt;Choose the type of the contact resistance:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To specify presence of thin layers with known thermal conductivity or/and electric resistivity and thickness, choose &lt;b&gt;Thin layer resistance&lt;/b&gt;.&lt;/p&gt;&lt;li&gt;&lt;p&gt;If the thermal/electric contact resistance is known (e.g. due to an imperfectly matching interface, choose &lt;b&gt;Contact resistance&lt;/b&gt;. The resistance can be defined as surface-dependent or not, i.e. total or specific. To make a resistance inactive, set it to 0. Enter a high value to make it an isolator.&lt;/p&gt;&lt;li&gt;&lt;p&gt;Conversely, if the thermal/electric contact conductance is known, choose &lt;b&gt;Specific conductance&lt;/b&gt;&lt;/p&gt;&lt;/ul&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/contact-resistance/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: ThinResistanceLayer
         /// </summary>
-        /// <value>Schema name: ThinResistanceLayer</value>
+        /// <value>&lt;p&gt;Choose the type of the contact resistance:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To specify presence of thin layers with known thermal conductivity or/and electric resistivity and thickness, choose &lt;b&gt;Thin layer resistance&lt;/b&gt;.&lt;/p&gt;&lt;li&gt;&lt;p&gt;If the thermal/electric contact resistance is known (e.g. due to an imperfectly matching interface, choose &lt;b&gt;Contact resistance&lt;/b&gt;. The resistance can be defined as surface-dependent or not, i.e. total or specific. To make a resistance inactive, set it to 0. Enter a high value to make it an isolator.&lt;/p&gt;&lt;li&gt;&lt;p&gt;Conversely, if the thermal/electric contact conductance is known, choose &lt;b&gt;Specific conductance&lt;/b&gt;&lt;/p&gt;&lt;/ul&gt;&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/contact-resistance/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: ThinResistanceLayer</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

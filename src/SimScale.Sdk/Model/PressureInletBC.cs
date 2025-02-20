@@ -48,11 +48,12 @@ namespace SimScale.Sdk.Model
         /// <param name="phaseFraction">phaseFraction.</param>
         /// <param name="phaseFractionsV2">phaseFractionsV2.</param>
         /// <param name="massFractionsV2">massFractionsV2.</param>
+        /// <param name="hydrostaticPressure">hydrostaticPressure.</param>
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTurbulence turbulence = default(OneOfPressureInletBCTurbulence), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), InletFixedPFValues phaseFractionsV2 = default(InletFixedPFValues), InletFixedMFValues massFractionsV2 = default(InletFixedMFValues), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), OneOfPressureInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTurbulence turbulence = default(OneOfPressureInletBCTurbulence), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), InletFixedPFValues phaseFractionsV2 = default(InletFixedPFValues), InletFixedMFValues massFractionsV2 = default(InletFixedMFValues), HydrostaticPressure hydrostaticPressure = default(HydrostaticPressure), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), OneOfPressureInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureInletBC and cannot be null");
@@ -67,6 +68,7 @@ namespace SimScale.Sdk.Model
             this.PhaseFraction = phaseFraction;
             this.PhaseFractionsV2 = phaseFractionsV2;
             this.MassFractionsV2 = massFractionsV2;
+            this.HydrostaticPressure = hydrostaticPressure;
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
             this.RelativeHumidity = relativeHumidity;
@@ -148,6 +150,12 @@ namespace SimScale.Sdk.Model
         public InletFixedMFValues MassFractionsV2 { get; set; }
 
         /// <summary>
+        /// Gets or Sets HydrostaticPressure
+        /// </summary>
+        [DataMember(Name="hydrostaticPressure", EmitDefaultValue=false)]
+        public HydrostaticPressure HydrostaticPressure { get; set; }
+
+        /// <summary>
         /// Gets or Sets NetRadiativeHeatFlux
         /// </summary>
         [DataMember(Name="netRadiativeHeatFlux", EmitDefaultValue=false)]
@@ -191,6 +199,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  PhaseFraction: ").Append(PhaseFraction).Append("\n");
             sb.Append("  PhaseFractionsV2: ").Append(PhaseFractionsV2).Append("\n");
             sb.Append("  MassFractionsV2: ").Append(MassFractionsV2).Append("\n");
+            sb.Append("  HydrostaticPressure: ").Append(HydrostaticPressure).Append("\n");
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
             sb.Append("  RelativeHumidity: ").Append(RelativeHumidity).Append("\n");
@@ -291,6 +300,11 @@ namespace SimScale.Sdk.Model
                     this.MassFractionsV2.Equals(input.MassFractionsV2))
                 ) && 
                 (
+                    this.HydrostaticPressure == input.HydrostaticPressure ||
+                    (this.HydrostaticPressure != null &&
+                    this.HydrostaticPressure.Equals(input.HydrostaticPressure))
+                ) && 
+                (
                     this.NetRadiativeHeatFlux == input.NetRadiativeHeatFlux ||
                     (this.NetRadiativeHeatFlux != null &&
                     this.NetRadiativeHeatFlux.Equals(input.NetRadiativeHeatFlux))
@@ -345,6 +359,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PhaseFractionsV2.GetHashCode();
                 if (this.MassFractionsV2 != null)
                     hashCode = hashCode * 59 + this.MassFractionsV2.GetHashCode();
+                if (this.HydrostaticPressure != null)
+                    hashCode = hashCode * 59 + this.HydrostaticPressure.GetHashCode();
                 if (this.NetRadiativeHeatFlux != null)
                     hashCode = hashCode * 59 + this.NetRadiativeHeatFlux.GetHashCode();
                 if (this.RadiativeIntensityRay != null)

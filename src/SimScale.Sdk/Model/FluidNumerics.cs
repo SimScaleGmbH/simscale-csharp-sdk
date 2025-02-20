@@ -64,6 +64,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="relaxationType">relaxationType (default to &quot;MANUAL&quot;).</param>
         /// <param name="relaxationFactor">relaxationFactor.</param>
+        /// <param name="diagonalRelaxationFactor">diagonalRelaxationFactor.</param>
         /// <param name="radiationResolution">radiationResolution (default to RadiationResolutionEnum.MODERATE).</param>
         /// <param name="momentumPredictor">momentumPredictor.</param>
         /// <param name="transonic">transonic (default to false).</param>
@@ -84,10 +85,11 @@ namespace SimScale.Sdk.Model
         /// <param name="solvers">solvers.</param>
         /// <param name="schemes">schemes.</param>
         /// <param name="stabilization">stabilization.</param>
-        public FluidNumerics(string relaxationType = default(string), RelaxationFactor relaxationFactor = default(RelaxationFactor), RadiationResolutionEnum? radiationResolution = default(RadiationResolutionEnum?), bool? momentumPredictor = default(bool?), bool? transonic = default(bool?), int? numOuterCorrectors = default(int?), int? numCorrectors = default(int?), int? numNonOrthogonalCorrectors = default(int?), decimal? smoothingParameter = default(decimal?), decimal? dampingCoefficient = default(decimal?), int? numAlphaSpreadIterations = default(int?), int? numAlphaSweepIterations = default(int?), bool? evaluateTurbulenceOnlyOnFinalIteration = default(bool?), int? pressureReferenceCell = default(int?), DimensionalPressure pressureReferenceValue = default(DimensionalPressure), DimensionalSpeed velocityLimit = default(DimensionalSpeed), decimal? maxVoltageInitialIterations = default(decimal?), decimal? voltageInitialTolerance = default(decimal?), ResidualControls residualControls = default(ResidualControls), FluidSolvers solvers = default(FluidSolvers), Schemes schemes = default(Schemes), Stabilization stabilization = default(Stabilization))
+        public FluidNumerics(string relaxationType = default(string), RelaxationFactor relaxationFactor = default(RelaxationFactor), RelaxationFactor diagonalRelaxationFactor = default(RelaxationFactor), RadiationResolutionEnum? radiationResolution = default(RadiationResolutionEnum?), bool? momentumPredictor = default(bool?), bool? transonic = default(bool?), int? numOuterCorrectors = default(int?), int? numCorrectors = default(int?), int? numNonOrthogonalCorrectors = default(int?), decimal? smoothingParameter = default(decimal?), decimal? dampingCoefficient = default(decimal?), int? numAlphaSpreadIterations = default(int?), int? numAlphaSweepIterations = default(int?), bool? evaluateTurbulenceOnlyOnFinalIteration = default(bool?), int? pressureReferenceCell = default(int?), DimensionalPressure pressureReferenceValue = default(DimensionalPressure), DimensionalSpeed velocityLimit = default(DimensionalSpeed), decimal? maxVoltageInitialIterations = default(decimal?), decimal? voltageInitialTolerance = default(decimal?), ResidualControls residualControls = default(ResidualControls), FluidSolvers solvers = default(FluidSolvers), Schemes schemes = default(Schemes), Stabilization stabilization = default(Stabilization))
         {
             this.RelaxationType = relaxationType;
             this.RelaxationFactor = relaxationFactor;
+            this.DiagonalRelaxationFactor = diagonalRelaxationFactor;
             this.RadiationResolution = radiationResolution;
             this.MomentumPredictor = momentumPredictor;
             this.Transonic = transonic;
@@ -121,6 +123,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="relaxationFactor", EmitDefaultValue=false)]
         public RelaxationFactor RelaxationFactor { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DiagonalRelaxationFactor
+        /// </summary>
+        [DataMember(Name="diagonalRelaxationFactor", EmitDefaultValue=false)]
+        public RelaxationFactor DiagonalRelaxationFactor { get; set; }
 
         /// <summary>
         /// Gets or Sets MomentumPredictor
@@ -248,6 +256,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class FluidNumerics {\n");
             sb.Append("  RelaxationType: ").Append(RelaxationType).Append("\n");
             sb.Append("  RelaxationFactor: ").Append(RelaxationFactor).Append("\n");
+            sb.Append("  DiagonalRelaxationFactor: ").Append(DiagonalRelaxationFactor).Append("\n");
             sb.Append("  RadiationResolution: ").Append(RadiationResolution).Append("\n");
             sb.Append("  MomentumPredictor: ").Append(MomentumPredictor).Append("\n");
             sb.Append("  Transonic: ").Append(Transonic).Append("\n");
@@ -311,6 +320,11 @@ namespace SimScale.Sdk.Model
                     this.RelaxationFactor == input.RelaxationFactor ||
                     (this.RelaxationFactor != null &&
                     this.RelaxationFactor.Equals(input.RelaxationFactor))
+                ) && 
+                (
+                    this.DiagonalRelaxationFactor == input.DiagonalRelaxationFactor ||
+                    (this.DiagonalRelaxationFactor != null &&
+                    this.DiagonalRelaxationFactor.Equals(input.DiagonalRelaxationFactor))
                 ) && 
                 (
                     this.RadiationResolution == input.RadiationResolution ||
@@ -426,6 +440,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.RelaxationType.GetHashCode();
                 if (this.RelaxationFactor != null)
                     hashCode = hashCode * 59 + this.RelaxationFactor.GetHashCode();
+                if (this.DiagonalRelaxationFactor != null)
+                    hashCode = hashCode * 59 + this.DiagonalRelaxationFactor.GetHashCode();
                 hashCode = hashCode * 59 + this.RadiationResolution.GetHashCode();
                 if (this.MomentumPredictor != null)
                     hashCode = hashCode * 59 + this.MomentumPredictor.GetHashCode();

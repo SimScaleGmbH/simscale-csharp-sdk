@@ -27,15 +27,8 @@ namespace SimScale.Sdk.Model
     /// OneOfSumFieldsCalculationResultControlItemFieldSelection
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(DisplacementFieldSelection), "DISPLACEMENT")]
     [JsonSubtypes.KnownSubType(typeof(ForceFieldSelection), "FORCE")]
     [JsonSubtypes.KnownSubType(typeof(MomentFieldSelection), "MOMENT")]
-    [JsonSubtypes.KnownSubType(typeof(StrainFieldSelection), "STRAIN")]
-    [JsonSubtypes.KnownSubType(typeof(StressFieldSelection), "STRESS")]
-    [JsonSubtypes.KnownSubType(typeof(VelocityFieldSelection), "VELOCITY")]
-    [JsonSubtypes.KnownSubType(typeof(AccelerationFieldSelection), "ACCELERATION")]
-    [JsonSubtypes.KnownSubType(typeof(TemperatureFieldSelection), "TEMPERATURE")]
-    [JsonSubtypes.KnownSubType(typeof(HeatFluxFieldSelection), "HEAT_FLUX")]
     public interface OneOfSumFieldsCalculationResultControlItemFieldSelection
     {
         /// <summary>

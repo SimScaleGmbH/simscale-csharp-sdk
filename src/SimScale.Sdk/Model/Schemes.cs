@@ -33,16 +33,18 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="flux">flux.</param>
         /// <param name="timeDifferentiation">timeDifferentiation.</param>
+        /// <param name="spatialDiscretization">spatialDiscretization.</param>
         /// <param name="gradient">gradient.</param>
         /// <param name="divergence">divergence.</param>
         /// <param name="laplacian">laplacian.</param>
         /// <param name="interpolation">interpolation.</param>
         /// <param name="surfaceNormalGradient">surfaceNormalGradient.</param>
         /// <param name="secondOrderConvection">Whether to use second-order convection scheme, which is less stable but more accurate for a given mesh. If false, first-order accurate upwind scheme is used. (default to false).</param>
-        public Schemes(FluxSchemes flux = default(FluxSchemes), TimeDifferentiationSchemes timeDifferentiation = default(TimeDifferentiationSchemes), GradientSchemes gradient = default(GradientSchemes), DivergenceSchemes divergence = default(DivergenceSchemes), LaplacianSchemes laplacian = default(LaplacianSchemes), InterpolationSchemes interpolation = default(InterpolationSchemes), SurfaceNormalGradientSchemes surfaceNormalGradient = default(SurfaceNormalGradientSchemes), bool? secondOrderConvection = default(bool?))
+        public Schemes(FluxSchemes flux = default(FluxSchemes), TimeDifferentiationSchemes timeDifferentiation = default(TimeDifferentiationSchemes), SpatialDiscretizationSchemes spatialDiscretization = default(SpatialDiscretizationSchemes), GradientSchemes gradient = default(GradientSchemes), DivergenceSchemes divergence = default(DivergenceSchemes), LaplacianSchemes laplacian = default(LaplacianSchemes), InterpolationSchemes interpolation = default(InterpolationSchemes), SurfaceNormalGradientSchemes surfaceNormalGradient = default(SurfaceNormalGradientSchemes), bool? secondOrderConvection = default(bool?))
         {
             this.Flux = flux;
             this.TimeDifferentiation = timeDifferentiation;
+            this.SpatialDiscretization = spatialDiscretization;
             this.Gradient = gradient;
             this.Divergence = divergence;
             this.Laplacian = laplacian;
@@ -62,6 +64,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="timeDifferentiation", EmitDefaultValue=false)]
         public TimeDifferentiationSchemes TimeDifferentiation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SpatialDiscretization
+        /// </summary>
+        [DataMember(Name="spatialDiscretization", EmitDefaultValue=false)]
+        public SpatialDiscretizationSchemes SpatialDiscretization { get; set; }
 
         /// <summary>
         /// Gets or Sets Gradient
@@ -110,6 +118,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class Schemes {\n");
             sb.Append("  Flux: ").Append(Flux).Append("\n");
             sb.Append("  TimeDifferentiation: ").Append(TimeDifferentiation).Append("\n");
+            sb.Append("  SpatialDiscretization: ").Append(SpatialDiscretization).Append("\n");
             sb.Append("  Gradient: ").Append(Gradient).Append("\n");
             sb.Append("  Divergence: ").Append(Divergence).Append("\n");
             sb.Append("  Laplacian: ").Append(Laplacian).Append("\n");
@@ -161,6 +170,11 @@ namespace SimScale.Sdk.Model
                     this.TimeDifferentiation.Equals(input.TimeDifferentiation))
                 ) && 
                 (
+                    this.SpatialDiscretization == input.SpatialDiscretization ||
+                    (this.SpatialDiscretization != null &&
+                    this.SpatialDiscretization.Equals(input.SpatialDiscretization))
+                ) && 
+                (
                     this.Gradient == input.Gradient ||
                     (this.Gradient != null &&
                     this.Gradient.Equals(input.Gradient))
@@ -205,6 +219,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Flux.GetHashCode();
                 if (this.TimeDifferentiation != null)
                     hashCode = hashCode * 59 + this.TimeDifferentiation.GetHashCode();
+                if (this.SpatialDiscretization != null)
+                    hashCode = hashCode * 59 + this.SpatialDiscretization.GetHashCode();
                 if (this.Gradient != null)
                     hashCode = hashCode * 59 + this.Gradient.GetHashCode();
                 if (this.Divergence != null)

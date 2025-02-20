@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// HeatFluxFieldSelection
     /// </summary>
     [DataContract]
-    public partial class HeatFluxFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfSumFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<HeatFluxFieldSelection>
+    public partial class HeatFluxFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<HeatFluxFieldSelection>
     {
         /// <summary>
         /// Defines ComponentSelection

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AutomaticSweepOn
     /// </summary>
     [DataContract]
-    public partial class AutomaticSweepOn : OneOfSimmetrixMeshingSolidAutomaticSweepParameters, IEquatable<AutomaticSweepOn>
+    public partial class AutomaticSweepOn : OneOfSimmetrixMeshingFluidAutomaticSweepParameters, OneOfSimmetrixMeshingSolidAutomaticSweepParameters, IEquatable<AutomaticSweepOn>
     {
         /// <summary>
         /// Defines SurfaceElementType
