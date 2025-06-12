@@ -37,6 +37,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(ZeroGradientPBC), "ZERO_GRADIENT")]
     [JsonSubtypes.KnownSubType(typeof(TotalPBC), "TOTAL_PRESSURE")]
     [JsonSubtypes.KnownSubType(typeof(WaveTransmissivePBC), "WAVE_TRANSMISSIVE")]
+    [JsonSubtypes.KnownSubType(typeof(HydrostaticFanPBC), "HYDROSTATIC_ISOTHERMAL_FAN_PRESSURE")]
     public interface OneOfCustomFluidBCPressure
     {
         /// <summary>

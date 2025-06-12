@@ -37,12 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SimulationSpec" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        /// <param name="version">version (required) (default to &quot;26.0&quot;).</param>
+        /// <param name="version">version (required) (default to &quot;27.0&quot;).</param>
         /// <param name="geometryId">geometryId (required).</param>
         /// <param name="meshId">The generated mesh ID which is to be used in the simulation. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, and &#39;SIMERICS_ANALYSIS&#39;..</param>
         /// <param name="model">model (required).</param>
         /// <param name="parameters">parameters.</param>
-        public SimulationSpec(string name = default(string), string version = "26.0", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis), Dictionary<string, OneOfParameters> parameters = default(Dictionary<string, OneOfParameters>))
+        public SimulationSpec(string name = default(string), string version = "27.0", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis), Dictionary<string, OneOfParameters> parameters = default(Dictionary<string, OneOfParameters>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SimulationSpec and cannot be null");

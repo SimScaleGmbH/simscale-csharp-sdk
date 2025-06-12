@@ -78,11 +78,12 @@ namespace SimScale.Sdk.Model
         /// <param name="specificHeatFunction">specificHeatFunction.</param>
         /// <param name="molarWeight">molarWeight.</param>
         /// <param name="cavitation">cavitation.</param>
+        /// <param name="radiativeBehavior">radiativeBehavior.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public IncompressibleMaterial(string type = "INCOMPRESSIBLE", string name = default(string), OneOfIncompressibleMaterialFluidType fluidType = default(OneOfIncompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), OneOfIncompressibleMaterialViscosityModel viscosityModel = default(OneOfIncompressibleMaterialViscosityModel), DimensionalDensity density = default(DimensionalDensity), DimensionalThermalExpansionRate thermalExpansionCoefficient = default(DimensionalThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature), decimal? laminarPrandtlNumber = default(decimal?), DimensionalFunctionDimensionless laminarPrandtlNumberFunction = default(DimensionalFunctionDimensionless), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalFunctionSpecificHeat specificHeatFunction = default(DimensionalFunctionSpecificHeat), DimensionalMolarMass molarWeight = default(DimensionalMolarMass), Cavitation cavitation = default(Cavitation), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public IncompressibleMaterial(string type = "INCOMPRESSIBLE", string name = default(string), OneOfIncompressibleMaterialFluidType fluidType = default(OneOfIncompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), OneOfIncompressibleMaterialViscosityModel viscosityModel = default(OneOfIncompressibleMaterialViscosityModel), DimensionalDensity density = default(DimensionalDensity), DimensionalThermalExpansionRate thermalExpansionCoefficient = default(DimensionalThermalExpansionRate), DimensionalTemperature referenceTemperature = default(DimensionalTemperature), decimal? laminarPrandtlNumber = default(decimal?), DimensionalFunctionDimensionless laminarPrandtlNumberFunction = default(DimensionalFunctionDimensionless), decimal? turbulentPrandtlNumber = default(decimal?), DimensionalSpecificHeat specificHeat = default(DimensionalSpecificHeat), DimensionalFunctionSpecificHeat specificHeatFunction = default(DimensionalFunctionSpecificHeat), DimensionalMolarMass molarWeight = default(DimensionalMolarMass), Cavitation cavitation = default(Cavitation), TransparentMaterial radiativeBehavior = default(TransparentMaterial), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IncompressibleMaterial and cannot be null");
@@ -100,6 +101,7 @@ namespace SimScale.Sdk.Model
             this.SpecificHeatFunction = specificHeatFunction;
             this.MolarWeight = molarWeight;
             this.Cavitation = cavitation;
+            this.RadiativeBehavior = radiativeBehavior;
             this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
             this.BuiltInMaterial = builtInMaterial;
@@ -194,6 +196,12 @@ namespace SimScale.Sdk.Model
         public Cavitation Cavitation { get; set; }
 
         /// <summary>
+        /// Gets or Sets RadiativeBehavior
+        /// </summary>
+        [DataMember(Name="radiativeBehavior", EmitDefaultValue=false)]
+        public TransparentMaterial RadiativeBehavior { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -240,6 +248,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  SpecificHeatFunction: ").Append(SpecificHeatFunction).Append("\n");
             sb.Append("  MolarWeight: ").Append(MolarWeight).Append("\n");
             sb.Append("  Cavitation: ").Append(Cavitation).Append("\n");
+            sb.Append("  RadiativeBehavior: ").Append(RadiativeBehavior).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
@@ -353,6 +362,11 @@ namespace SimScale.Sdk.Model
                     this.Cavitation.Equals(input.Cavitation))
                 ) && 
                 (
+                    this.RadiativeBehavior == input.RadiativeBehavior ||
+                    (this.RadiativeBehavior != null &&
+                    this.RadiativeBehavior.Equals(input.RadiativeBehavior))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -413,6 +427,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MolarWeight.GetHashCode();
                 if (this.Cavitation != null)
                     hashCode = hashCode * 59 + this.Cavitation.GetHashCode();
+                if (this.RadiativeBehavior != null)
+                    hashCode = hashCode * 59 + this.RadiativeBehavior.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)

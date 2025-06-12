@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// LinearElasticMarcMaterialBehavior
     /// </summary>
     [DataContract]
-    public partial class LinearElasticMarcMaterialBehavior : IEquatable<LinearElasticMarcMaterialBehavior>
+    public partial class LinearElasticMarcMaterialBehavior : OneOfMarcMaterialMarcMaterialBehavior, IEquatable<LinearElasticMarcMaterialBehavior>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LinearElasticMarcMaterialBehavior" /> class.

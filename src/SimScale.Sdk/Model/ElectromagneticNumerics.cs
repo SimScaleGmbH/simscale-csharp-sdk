@@ -59,7 +59,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ElectromagneticNumerics" /> class.
         /// </summary>
         /// <param name="nonlinearResidual">The nonlinear residual error is computed as the difference between the calculated and expected flux density value when a BH curve is specified. (default to 0.0000010M).</param>
-        /// <param name="elementAccuracy">Uses second order element shape functions for a higher accuracy. Especially recommended when calculating torques or forces. However this increases memory consumption and computational time. (default to ElementAccuracyEnum.SECONDORDER).</param>
+        /// <param name="elementAccuracy">Uses second order element shape functions for a higher accuracy. Especially recommended when calculating torques or forces. However this increases memory consumption and computational time. (default to ElementAccuracyEnum.FIRSTORDER).</param>
         public ElectromagneticNumerics(decimal? nonlinearResidual = default(decimal?), ElementAccuracyEnum? elementAccuracy = default(ElementAccuracyEnum?))
         {
             this.NonlinearResidual = nonlinearResidual;

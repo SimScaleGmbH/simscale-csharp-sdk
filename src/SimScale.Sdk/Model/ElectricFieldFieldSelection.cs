@@ -23,25 +23,32 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// MarcSolverSettings
+    /// ElectricFieldFieldSelection
     /// </summary>
     [DataContract]
-    public partial class MarcSolverSettings : IEquatable<MarcSolverSettings>
+    public partial class ElectricFieldFieldSelection : OneOfElectromagneticResultControlProbePointFieldSelection, IEquatable<ElectricFieldFieldSelection>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarcSolverSettings" /> class.
+        /// Initializes a new instance of the <see cref="ElectricFieldFieldSelection" /> class.
         /// </summary>
-        /// <param name="linearSolver">linearSolver.</param>
-        public MarcSolverSettings(OneOfMarcSolverSettingsLinearSolver linearSolver = default(OneOfMarcSolverSettingsLinearSolver))
+        [JsonConstructorAttribute]
+        protected ElectricFieldFieldSelection() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ElectricFieldFieldSelection" /> class.
+        /// </summary>
+        /// <param name="type">Schema name: ElectricFieldFieldSelection (required) (default to &quot;ELECTRIC_FIELD&quot;).</param>
+        public ElectricFieldFieldSelection(string type = "ELECTRIC_FIELD")
         {
-            this.LinearSolver = linearSolver;
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for ElectricFieldFieldSelection and cannot be null");
         }
         
         /// <summary>
-        /// Gets or Sets LinearSolver
+        /// Schema name: ElectricFieldFieldSelection
         /// </summary>
-        [DataMember(Name="linearSolver", EmitDefaultValue=false)]
-        public OneOfMarcSolverSettingsLinearSolver LinearSolver { get; set; }
+        /// <value>Schema name: ElectricFieldFieldSelection</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -50,8 +57,8 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MarcSolverSettings {\n");
-            sb.Append("  LinearSolver: ").Append(LinearSolver).Append("\n");
+            sb.Append("class ElectricFieldFieldSelection {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -72,24 +79,24 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MarcSolverSettings);
+            return this.Equals(input as ElectricFieldFieldSelection);
         }
 
         /// <summary>
-        /// Returns true if MarcSolverSettings instances are equal
+        /// Returns true if ElectricFieldFieldSelection instances are equal
         /// </summary>
-        /// <param name="input">Instance of MarcSolverSettings to be compared</param>
+        /// <param name="input">Instance of ElectricFieldFieldSelection to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MarcSolverSettings input)
+        public bool Equals(ElectricFieldFieldSelection input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.LinearSolver == input.LinearSolver ||
-                    (this.LinearSolver != null &&
-                    this.LinearSolver.Equals(input.LinearSolver))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -102,8 +109,8 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LinearSolver != null)
-                    hashCode = hashCode * 59 + this.LinearSolver.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

@@ -24,13 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfMUMPSSolverMumpsAcceleration
+    /// Select the porous material behavior: &lt;p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Homogeneous:&lt;/b&gt; Uniform resistance to fluid flow in all directions.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Directional:&lt;/b&gt; Resistance to fluid flow in one or two directions.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(AutomaticAcceleration), "AUTOMATIC")]
-    [JsonSubtypes.KnownSubType(typeof(FullRankAcceleration), "FULL_RANK")]
-    [JsonSubtypes.KnownSubType(typeof(LowRankAcceleration), "LOW_RANK")]
-    public interface OneOfMUMPSSolverMumpsAcceleration
+    [JsonSubtypes.KnownSubType(typeof(HomogeneousMaterialStructure), "HOMOGENEOUS")]
+    [JsonSubtypes.KnownSubType(typeof(DirectionalMaterialStructure), "DIRECTIONAL")]
+    public interface OneOfDarcyMediumPorousMaterialType
     {
         /// <summary>
         /// Gets Type

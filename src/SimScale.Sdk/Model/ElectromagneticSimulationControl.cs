@@ -109,12 +109,14 @@ namespace SimScale.Sdk.Model
         /// <param name="writeControl">writeControl.</param>
         /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
-        public ElectromagneticSimulationControl(ElectromagneticTransientControl transientMagneticsControl = default(ElectromagneticTransientControl), TimeStepWriteControl writeControl = default(TimeStepWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime))
+        /// <param name="coreLossReferencePeriod">coreLossReferencePeriod.</param>
+        public ElectromagneticSimulationControl(ElectromagneticTransientControl transientMagneticsControl = default(ElectromagneticTransientControl), TimeStepWriteControl writeControl = default(TimeStepWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), DimensionalTime coreLossReferencePeriod = default(DimensionalTime))
         {
             this.TransientMagneticsControl = transientMagneticsControl;
             this.WriteControl = writeControl;
             this.NumProcessors = numProcessors;
             this.MaxRunTime = maxRunTime;
+            this.CoreLossReferencePeriod = coreLossReferencePeriod;
         }
         
         /// <summary>
@@ -136,6 +138,12 @@ namespace SimScale.Sdk.Model
         public DimensionalTime MaxRunTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets CoreLossReferencePeriod
+        /// </summary>
+        [DataMember(Name="coreLossReferencePeriod", EmitDefaultValue=false)]
+        public DimensionalTime CoreLossReferencePeriod { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -147,6 +155,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  WriteControl: ").Append(WriteControl).Append("\n");
             sb.Append("  NumProcessors: ").Append(NumProcessors).Append("\n");
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
+            sb.Append("  CoreLossReferencePeriod: ").Append(CoreLossReferencePeriod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +208,11 @@ namespace SimScale.Sdk.Model
                     this.MaxRunTime == input.MaxRunTime ||
                     (this.MaxRunTime != null &&
                     this.MaxRunTime.Equals(input.MaxRunTime))
+                ) && 
+                (
+                    this.CoreLossReferencePeriod == input.CoreLossReferencePeriod ||
+                    (this.CoreLossReferencePeriod != null &&
+                    this.CoreLossReferencePeriod.Equals(input.CoreLossReferencePeriod))
                 );
         }
 
@@ -218,6 +232,8 @@ namespace SimScale.Sdk.Model
                 hashCode = hashCode * 59 + this.NumProcessors.GetHashCode();
                 if (this.MaxRunTime != null)
                     hashCode = hashCode * 59 + this.MaxRunTime.GetHashCode();
+                if (this.CoreLossReferencePeriod != null)
+                    hashCode = hashCode * 59 + this.CoreLossReferencePeriod.GetHashCode();
                 return hashCode;
             }
         }

@@ -37,13 +37,11 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="IsotropicElectricConductivity" /> class.
         /// </summary>
         /// <param name="type">&lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent. Orthotropic means directionally dependent.&lt;/p&gt;  Schema name: IsotropicElectricConductivity (required) (default to &quot;ISOTROPIC_ELECTRIC_CONDUCTIVITY&quot;).</param>
-        /// <param name="electricResistivity">electricResistivity.</param>
         /// <param name="electricResistivityFunction">electricResistivityFunction.</param>
-        public IsotropicElectricConductivity(string type = "ISOTROPIC_ELECTRIC_CONDUCTIVITY", DimensionalFunctionElectricResistivity electricResistivity = default(DimensionalFunctionElectricResistivity), DimensionalFunctionElectricResistivity electricResistivityFunction = default(DimensionalFunctionElectricResistivity))
+        public IsotropicElectricConductivity(string type = "ISOTROPIC_ELECTRIC_CONDUCTIVITY", DimensionalFunctionElectricResistivity electricResistivityFunction = default(DimensionalFunctionElectricResistivity))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IsotropicElectricConductivity and cannot be null");
-            this.ElectricResistivity = electricResistivity;
             this.ElectricResistivityFunction = electricResistivityFunction;
         }
         
@@ -53,12 +51,6 @@ namespace SimScale.Sdk.Model
         /// <value>&lt;p&gt;Define the directional dependency of this property. Isotropic means directionally independent. Orthotropic means directionally dependent.&lt;/p&gt;  Schema name: IsotropicElectricConductivity</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ElectricResistivity
-        /// </summary>
-        [DataMember(Name="electricResistivity", EmitDefaultValue=false)]
-        public DimensionalFunctionElectricResistivity ElectricResistivity { get; set; }
 
         /// <summary>
         /// Gets or Sets ElectricResistivityFunction
@@ -75,7 +67,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class IsotropicElectricConductivity {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  ElectricResistivity: ").Append(ElectricResistivity).Append("\n");
             sb.Append("  ElectricResistivityFunction: ").Append(ElectricResistivityFunction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,11 +108,6 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.ElectricResistivity == input.ElectricResistivity ||
-                    (this.ElectricResistivity != null &&
-                    this.ElectricResistivity.Equals(input.ElectricResistivity))
-                ) && 
-                (
                     this.ElectricResistivityFunction == input.ElectricResistivityFunction ||
                     (this.ElectricResistivityFunction != null &&
                     this.ElectricResistivityFunction.Equals(input.ElectricResistivityFunction))
@@ -139,8 +125,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.ElectricResistivity != null)
-                    hashCode = hashCode * 59 + this.ElectricResistivity.GetHashCode();
                 if (this.ElectricResistivityFunction != null)
                     hashCode = hashCode * 59 + this.ElectricResistivityFunction.GetHashCode();
                 return hashCode;

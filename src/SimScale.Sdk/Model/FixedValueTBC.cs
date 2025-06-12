@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// FixedValueTBC
     /// </summary>
     [DataContract]
-    public partial class FixedValueTBC : OneOfCustomFluidBCTemperature, OneOfPressureInletBCTemperature, OneOfVelocityInletBCTemperature, OneOfWallBCTemperature, IEquatable<FixedValueTBC>
+    public partial class FixedValueTBC : OneOfCustomFluidBCTemperature, OneOfFanBCTemperature, OneOfPressureInletBCTemperature, OneOfVelocityInletBCTemperature, OneOfWallBCTemperature, IEquatable<FixedValueTBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedValueTBC" /> class.

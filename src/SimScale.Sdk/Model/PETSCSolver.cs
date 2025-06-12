@@ -29,45 +29,6 @@ namespace SimScale.Sdk.Model
     public partial class PETSCSolver : OneOfSolidNumericsSolver, IEquatable<PETSCSolver>
     {
         /// <summary>
-        /// Choose the iterative solver method: &lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GMRES&lt;/b&gt;: &lt;i&gt;Minimal Generalised RESidual&lt;/i&gt;, best compromise between robustness and computational speed.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CG&lt;/b&gt;: &lt;i&gt;Conjugate Gradient&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CR&lt;/b&gt;: &lt;i&gt;Conjugate Residual&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCR&lt;/b&gt;: &lt;i&gt;Generalised Conjugate Residual&lt;/i&gt;, treats general matrices&lt;/p&gt;&lt;/ul&gt;All available methods are of &lt;i&gt;Krylov&lt;/i&gt; type.
-        /// </summary>
-        /// <value>Choose the iterative solver method: &lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GMRES&lt;/b&gt;: &lt;i&gt;Minimal Generalised RESidual&lt;/i&gt;, best compromise between robustness and computational speed.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CG&lt;/b&gt;: &lt;i&gt;Conjugate Gradient&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CR&lt;/b&gt;: &lt;i&gt;Conjugate Residual&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCR&lt;/b&gt;: &lt;i&gt;Generalised Conjugate Residual&lt;/i&gt;, treats general matrices&lt;/p&gt;&lt;/ul&gt;All available methods are of &lt;i&gt;Krylov&lt;/i&gt; type.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum AlgorithmEnum
-        {
-            /// <summary>
-            /// Enum CG for value: CG
-            /// </summary>
-            [EnumMember(Value = "CG")]
-            CG = 1,
-
-            /// <summary>
-            /// Enum CR for value: CR
-            /// </summary>
-            [EnumMember(Value = "CR")]
-            CR = 2,
-
-            /// <summary>
-            /// Enum GCR for value: GCR
-            /// </summary>
-            [EnumMember(Value = "GCR")]
-            GCR = 3,
-
-            /// <summary>
-            /// Enum GMRES for value: GMRES
-            /// </summary>
-            [EnumMember(Value = "GMRES")]
-            GMRES = 4
-
-        }
-
-        /// <summary>
-        /// Choose the iterative solver method: &lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GMRES&lt;/b&gt;: &lt;i&gt;Minimal Generalised RESidual&lt;/i&gt;, best compromise between robustness and computational speed.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CG&lt;/b&gt;: &lt;i&gt;Conjugate Gradient&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CR&lt;/b&gt;: &lt;i&gt;Conjugate Residual&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCR&lt;/b&gt;: &lt;i&gt;Generalised Conjugate Residual&lt;/i&gt;, treats general matrices&lt;/p&gt;&lt;/ul&gt;All available methods are of &lt;i&gt;Krylov&lt;/i&gt; type.
-        /// </summary>
-        /// <value>Choose the iterative solver method: &lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GMRES&lt;/b&gt;: &lt;i&gt;Minimal Generalised RESidual&lt;/i&gt;, best compromise between robustness and computational speed.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CG&lt;/b&gt;: &lt;i&gt;Conjugate Gradient&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CR&lt;/b&gt;: &lt;i&gt;Conjugate Residual&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCR&lt;/b&gt;: &lt;i&gt;Generalised Conjugate Residual&lt;/i&gt;, treats general matrices&lt;/p&gt;&lt;/ul&gt;All available methods are of &lt;i&gt;Krylov&lt;/i&gt; type.</value>
-        [DataMember(Name="algorithm", EmitDefaultValue=false)]
-        public AlgorithmEnum? Algorithm { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PETSCSolver" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -76,22 +37,16 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="PETSCSolver" /> class.
         /// </summary>
         /// <param name="type">Schema name: PETSCSolver (required) (default to &quot;PETSC&quot;).</param>
-        /// <param name="forceSymmetric">Choose if you want to enforce a symmetric matrix. (default to false).</param>
-        /// <param name="algorithm">Choose the iterative solver method: &lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GMRES&lt;/b&gt;: &lt;i&gt;Minimal Generalised RESidual&lt;/i&gt;, best compromise between robustness and computational speed.&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CG&lt;/b&gt;: &lt;i&gt;Conjugate Gradient&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;CR&lt;/b&gt;: &lt;i&gt;Conjugate Residual&lt;/i&gt;, only useful for symmetric matrices&lt;/p&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;GCR&lt;/b&gt;: &lt;i&gt;Generalised Conjugate Residual&lt;/i&gt;, treats general matrices&lt;/p&gt;&lt;/ul&gt;All available methods are of &lt;i&gt;Krylov&lt;/i&gt; type..</param>
-        /// <param name="preconditioner">preconditioner.</param>
-        /// <param name="maxIterations">Set the maximum number of iterations for the iterative solver. If set to 0 PETSC sets an estimate of the maximum number of iterations. (default to 0).</param>
         /// <param name="convergenceThreshold">Set the threshold value for convergence detection for the relative convergence criteria. (default to 0.000010M).</param>
-        /// <param name="distributedMatrixStorage">Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. Enabling this can significantly reductions in memory consumption, but introduces numerical instability in rare occasions. (default to true).</param>
-        public PETSCSolver(string type = "PETSC", bool? forceSymmetric = default(bool?), AlgorithmEnum? algorithm = default(AlgorithmEnum?), OneOfPETSCSolverPreconditioner preconditioner = default(OneOfPETSCSolverPreconditioner), int? maxIterations = default(int?), decimal? convergenceThreshold = default(decimal?), bool? distributedMatrixStorage = default(bool?))
+        /// <param name="maxIterations">Set the maximum number of iterations for the iterative solver. If set to 0 PETSC sets an estimate of the maximum number of iterations. (default to 0).</param>
+        /// <param name="advancedPetscSettings">advancedPetscSettings.</param>
+        public PETSCSolver(string type = "PETSC", decimal? convergenceThreshold = default(decimal?), int? maxIterations = default(int?), AdvancedPETSCSettings advancedPetscSettings = default(AdvancedPETSCSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PETSCSolver and cannot be null");
-            this.ForceSymmetric = forceSymmetric;
-            this.Algorithm = algorithm;
-            this.Preconditioner = preconditioner;
-            this.MaxIterations = maxIterations;
             this.ConvergenceThreshold = convergenceThreshold;
-            this.DistributedMatrixStorage = distributedMatrixStorage;
+            this.MaxIterations = maxIterations;
+            this.AdvancedPetscSettings = advancedPetscSettings;
         }
         
         /// <summary>
@@ -102,17 +57,11 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Choose if you want to enforce a symmetric matrix.
+        /// Set the threshold value for convergence detection for the relative convergence criteria.
         /// </summary>
-        /// <value>Choose if you want to enforce a symmetric matrix.</value>
-        [DataMember(Name="forceSymmetric", EmitDefaultValue=false)]
-        public bool? ForceSymmetric { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Preconditioner
-        /// </summary>
-        [DataMember(Name="preconditioner", EmitDefaultValue=false)]
-        public OneOfPETSCSolverPreconditioner Preconditioner { get; set; }
+        /// <value>Set the threshold value for convergence detection for the relative convergence criteria.</value>
+        [DataMember(Name="convergenceThreshold", EmitDefaultValue=false)]
+        public decimal? ConvergenceThreshold { get; set; }
 
         /// <summary>
         /// Set the maximum number of iterations for the iterative solver. If set to 0 PETSC sets an estimate of the maximum number of iterations.
@@ -122,18 +71,10 @@ namespace SimScale.Sdk.Model
         public int? MaxIterations { get; set; }
 
         /// <summary>
-        /// Set the threshold value for convergence detection for the relative convergence criteria.
+        /// Gets or Sets AdvancedPetscSettings
         /// </summary>
-        /// <value>Set the threshold value for convergence detection for the relative convergence criteria.</value>
-        [DataMember(Name="convergenceThreshold", EmitDefaultValue=false)]
-        public decimal? ConvergenceThreshold { get; set; }
-
-        /// <summary>
-        /// Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. Enabling this can significantly reductions in memory consumption, but introduces numerical instability in rare occasions.
-        /// </summary>
-        /// <value>Choose this parameter as &lt;b&gt;true&lt;/b&gt; to ensure that the system matrix saving is distributed among the processors of the computation. If multiple cores are used only the relevant part for each core is saved. If it is set to false the whole matrix is saved for each processor. Enabling this can significantly reductions in memory consumption, but introduces numerical instability in rare occasions.</value>
-        [DataMember(Name="distributedMatrixStorage", EmitDefaultValue=false)]
-        public bool? DistributedMatrixStorage { get; set; }
+        [DataMember(Name="advancedPetscSettings", EmitDefaultValue=false)]
+        public AdvancedPETSCSettings AdvancedPetscSettings { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -144,12 +85,9 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PETSCSolver {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  ForceSymmetric: ").Append(ForceSymmetric).Append("\n");
-            sb.Append("  Algorithm: ").Append(Algorithm).Append("\n");
-            sb.Append("  Preconditioner: ").Append(Preconditioner).Append("\n");
-            sb.Append("  MaxIterations: ").Append(MaxIterations).Append("\n");
             sb.Append("  ConvergenceThreshold: ").Append(ConvergenceThreshold).Append("\n");
-            sb.Append("  DistributedMatrixStorage: ").Append(DistributedMatrixStorage).Append("\n");
+            sb.Append("  MaxIterations: ").Append(MaxIterations).Append("\n");
+            sb.Append("  AdvancedPetscSettings: ").Append(AdvancedPetscSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -190,18 +128,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.ForceSymmetric == input.ForceSymmetric ||
-                    (this.ForceSymmetric != null &&
-                    this.ForceSymmetric.Equals(input.ForceSymmetric))
-                ) && 
-                (
-                    this.Algorithm == input.Algorithm ||
-                    this.Algorithm.Equals(input.Algorithm)
-                ) && 
-                (
-                    this.Preconditioner == input.Preconditioner ||
-                    (this.Preconditioner != null &&
-                    this.Preconditioner.Equals(input.Preconditioner))
+                    this.ConvergenceThreshold == input.ConvergenceThreshold ||
+                    (this.ConvergenceThreshold != null &&
+                    this.ConvergenceThreshold.Equals(input.ConvergenceThreshold))
                 ) && 
                 (
                     this.MaxIterations == input.MaxIterations ||
@@ -209,14 +138,9 @@ namespace SimScale.Sdk.Model
                     this.MaxIterations.Equals(input.MaxIterations))
                 ) && 
                 (
-                    this.ConvergenceThreshold == input.ConvergenceThreshold ||
-                    (this.ConvergenceThreshold != null &&
-                    this.ConvergenceThreshold.Equals(input.ConvergenceThreshold))
-                ) && 
-                (
-                    this.DistributedMatrixStorage == input.DistributedMatrixStorage ||
-                    (this.DistributedMatrixStorage != null &&
-                    this.DistributedMatrixStorage.Equals(input.DistributedMatrixStorage))
+                    this.AdvancedPetscSettings == input.AdvancedPetscSettings ||
+                    (this.AdvancedPetscSettings != null &&
+                    this.AdvancedPetscSettings.Equals(input.AdvancedPetscSettings))
                 );
         }
 
@@ -231,17 +155,12 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.ForceSymmetric != null)
-                    hashCode = hashCode * 59 + this.ForceSymmetric.GetHashCode();
-                hashCode = hashCode * 59 + this.Algorithm.GetHashCode();
-                if (this.Preconditioner != null)
-                    hashCode = hashCode * 59 + this.Preconditioner.GetHashCode();
-                if (this.MaxIterations != null)
-                    hashCode = hashCode * 59 + this.MaxIterations.GetHashCode();
                 if (this.ConvergenceThreshold != null)
                     hashCode = hashCode * 59 + this.ConvergenceThreshold.GetHashCode();
-                if (this.DistributedMatrixStorage != null)
-                    hashCode = hashCode * 59 + this.DistributedMatrixStorage.GetHashCode();
+                if (this.MaxIterations != null)
+                    hashCode = hashCode * 59 + this.MaxIterations.GetHashCode();
+                if (this.AdvancedPetscSettings != null)
+                    hashCode = hashCode * 59 + this.AdvancedPetscSettings.GetHashCode();
                 return hashCode;
             }
         }

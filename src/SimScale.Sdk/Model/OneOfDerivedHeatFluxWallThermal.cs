@@ -24,7 +24,7 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfDerivedHeatFluxWallThermal
+    /// This option allows you to model a thin layer resistance on the boundary. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/advanced-concepts/contact-resistance/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(NoWallThermal), "NO_RESISTANCE")]

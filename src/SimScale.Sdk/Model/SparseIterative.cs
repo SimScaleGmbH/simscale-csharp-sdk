@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// SparseIterative
     /// </summary>
     [DataContract]
-    public partial class SparseIterative : OneOfMarcSolverSettingsLinearSolver, IEquatable<SparseIterative>
+    public partial class SparseIterative : OneOfMarcLinearSolverSettingsLinearSolver, IEquatable<SparseIterative>
     {
         /// <summary>
         /// Defines Preconditioner

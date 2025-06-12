@@ -47,7 +47,7 @@ namespace SimScale.Sdk.Model
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public NaturalConvectionInletOutletBC(string type = "NATURAL_CONVECTION_INLET_OUTLET", string name = default(string), AmbientPBC pressureRgh = default(AmbientPBC), AmbientPBC gaugePressureRgh = default(AmbientPBC), OneOfNaturalConvectionInletOutletBCTurbulence turbulence = default(OneOfNaturalConvectionInletOutletBCTurbulence), AmbientTBC temperature = default(AmbientTBC), List<InletOutletPSBC> passiveScalars = default(List<InletOutletPSBC>), OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux), OpenBoundaryRayBC radiativeIntensityRay = default(OpenBoundaryRayBC), InletOutletRHBC relativeHumidity = default(InletOutletRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public NaturalConvectionInletOutletBC(string type = "NATURAL_CONVECTION_INLET_OUTLET", string name = default(string), OneOfNaturalConvectionInletOutletBCPressureRgh pressureRgh = default(OneOfNaturalConvectionInletOutletBCPressureRgh), AmbientPBC gaugePressureRgh = default(AmbientPBC), OneOfNaturalConvectionInletOutletBCTurbulence turbulence = default(OneOfNaturalConvectionInletOutletBCTurbulence), AmbientTBC temperature = default(AmbientTBC), List<InletOutletPSBC> passiveScalars = default(List<InletOutletPSBC>), OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfNaturalConvectionInletOutletBCNetRadiativeHeatFlux), OpenBoundaryRayBC radiativeIntensityRay = default(OpenBoundaryRayBC), InletOutletRHBC relativeHumidity = default(InletOutletRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for NaturalConvectionInletOutletBC and cannot be null");
@@ -80,7 +80,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets PressureRgh
         /// </summary>
         [DataMember(Name="pressureRgh", EmitDefaultValue=false)]
-        public AmbientPBC PressureRgh { get; set; }
+        public OneOfNaturalConvectionInletOutletBCPressureRgh PressureRgh { get; set; }
 
         /// <summary>
         /// Gets or Sets GaugePressureRgh

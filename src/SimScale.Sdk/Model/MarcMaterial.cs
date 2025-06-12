@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public MarcMaterial(string name = default(string), LinearElasticMarcMaterialBehavior marcMaterialBehavior = default(LinearElasticMarcMaterialBehavior), DimensionalFunctionDensity density = default(DimensionalFunctionDensity), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public MarcMaterial(string name = default(string), OneOfMarcMaterialMarcMaterialBehavior marcMaterialBehavior = default(OneOfMarcMaterialMarcMaterialBehavior), DimensionalFunctionDensity density = default(DimensionalFunctionDensity), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             this.Name = name;
             this.MarcMaterialBehavior = marcMaterialBehavior;
@@ -57,7 +57,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets MarcMaterialBehavior
         /// </summary>
         [DataMember(Name="marcMaterialBehavior", EmitDefaultValue=false)]
-        public LinearElasticMarcMaterialBehavior MarcMaterialBehavior { get; set; }
+        public OneOfMarcMaterialMarcMaterialBehavior MarcMaterialBehavior { get; set; }
 
         /// <summary>
         /// Gets or Sets Density

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// TotalPBC
     /// </summary>
     [DataContract]
-    public partial class TotalPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfPressureInletBCGaugePressure, IEquatable<TotalPBC>
+    public partial class TotalPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfPressureInletBCGaugePressure, OneOfPressureInletBCPressure, OneOfPressureInletBCPressureRgh, IEquatable<TotalPBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TotalPBC" /> class.

@@ -24,11 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// Please choose a boundary condition for modified pressure (p_rgh). &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/pressure-inlet-and-pressure-outlet/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
+    /// OneOfPressureOutletBCPressureRgh
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(FixedValuePBC), "FIXED_VALUE")]
     [JsonSubtypes.KnownSubType(typeof(MeanValuePBC), "FIXED_MEAN")]
+    [JsonSubtypes.KnownSubType(typeof(HydrostaticIsothermalPBC), "HYDROSTATIC_ISOTHERMAL_PRESSURE")]
     public interface OneOfPressureOutletBCPressureRgh
     {
         /// <summary>

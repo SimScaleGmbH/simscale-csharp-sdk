@@ -38,11 +38,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: FreestreamVBC (required) (default to &quot;FREESTREAM&quot;).</param>
         /// <param name="value">value.</param>
-        public FreestreamVBC(string type = "FREESTREAM", DimensionalVectorSpeed value = default(DimensionalVectorSpeed))
+        /// <param name="ambientPressure">ambientPressure.</param>
+        public FreestreamVBC(string type = "FREESTREAM", DimensionalVectorSpeed value = default(DimensionalVectorSpeed), OneOfFreestreamVBCAmbientPressure ambientPressure = default(OneOfFreestreamVBCAmbientPressure))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FreestreamVBC and cannot be null");
             this.Value = value;
+            this.AmbientPressure = ambientPressure;
         }
         
         /// <summary>
@@ -59,6 +61,12 @@ namespace SimScale.Sdk.Model
         public DimensionalVectorSpeed Value { get; set; }
 
         /// <summary>
+        /// Gets or Sets AmbientPressure
+        /// </summary>
+        [DataMember(Name="ambientPressure", EmitDefaultValue=false)]
+        public OneOfFreestreamVBCAmbientPressure AmbientPressure { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +76,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class FreestreamVBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  AmbientPressure: ").Append(AmbientPressure).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +120,11 @@ namespace SimScale.Sdk.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.AmbientPressure == input.AmbientPressure ||
+                    (this.AmbientPressure != null &&
+                    this.AmbientPressure.Equals(input.AmbientPressure))
                 );
         }
 
@@ -127,6 +141,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.AmbientPressure != null)
+                    hashCode = hashCode * 59 + this.AmbientPressure.GetHashCode();
                 return hashCode;
             }
         }

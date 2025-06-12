@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// FixedValuePBC
     /// </summary>
     [DataContract]
-    public partial class FixedValuePBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfPressureInletBCGaugePressure, OneOfPressureOutletBCGaugePressure, OneOfPressureOutletBCGaugePressureRgh, OneOfPressureOutletBCPressure, OneOfPressureOutletBCPressureRgh, IEquatable<FixedValuePBC>
+    public partial class FixedValuePBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfFreestreamVBCAmbientPressure, OneOfPressureInletBCGaugePressure, OneOfPressureInletBCPressure, OneOfPressureOutletBCGaugePressure, OneOfPressureOutletBCGaugePressureRgh, OneOfPressureOutletBCPressure, OneOfPressureOutletBCPressureRgh, IEquatable<FixedValuePBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedValuePBC" /> class.

@@ -50,10 +50,11 @@ namespace SimScale.Sdk.Model
         /// <param name="internalEnergy">internalEnergy.</param>
         /// <param name="gasMixtureTransport">gasMixtureTransport (default to 0M).</param>
         /// <param name="radiativeIntensityRayEquation">radiativeIntensityRayEquation (default to 0.8M).</param>
+        /// <param name="radiativeIntensityRayField">radiativeIntensityRayField (default to 0.8M).</param>
         /// <param name="specificHumidityEquation">specificHumidityEquation (default to 0.7M).</param>
         /// <param name="ageOfFluidEquation">ageOfFluidEquation.</param>
         /// <param name="voltageField">voltageField (default to 0.5M).</param>
-        public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? velocity = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? turbulentKineticEnergy = default(decimal?), decimal? turbulentEnergyDissipationRate = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? internalEnergy = default(decimal?), decimal? gasMixtureTransport = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?), decimal? specificHumidityEquation = default(decimal?), decimal? ageOfFluidEquation = default(decimal?), decimal? voltageField = default(decimal?))
+        public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? velocity = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? turbulentKineticEnergy = default(decimal?), decimal? turbulentEnergyDissipationRate = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? internalEnergy = default(decimal?), decimal? gasMixtureTransport = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?), decimal? radiativeIntensityRayField = default(decimal?), decimal? specificHumidityEquation = default(decimal?), decimal? ageOfFluidEquation = default(decimal?), decimal? voltageField = default(decimal?))
         {
             this.PressureField = pressureField;
             this.PressureRghField = pressureRghField;
@@ -74,6 +75,7 @@ namespace SimScale.Sdk.Model
             this.InternalEnergy = internalEnergy;
             this.GasMixtureTransport = gasMixtureTransport;
             this.RadiativeIntensityRayEquation = radiativeIntensityRayEquation;
+            this.RadiativeIntensityRayField = radiativeIntensityRayField;
             this.SpecificHumidityEquation = specificHumidityEquation;
             this.AgeOfFluidEquation = ageOfFluidEquation;
             this.VoltageField = voltageField;
@@ -198,6 +200,12 @@ namespace SimScale.Sdk.Model
         public decimal? RadiativeIntensityRayEquation { get; set; }
 
         /// <summary>
+        /// Gets or Sets RadiativeIntensityRayField
+        /// </summary>
+        [DataMember(Name="radiativeIntensityRayField", EmitDefaultValue=false)]
+        public decimal? RadiativeIntensityRayField { get; set; }
+
+        /// <summary>
         /// Gets or Sets SpecificHumidityEquation
         /// </summary>
         [DataMember(Name="specificHumidityEquation", EmitDefaultValue=false)]
@@ -242,6 +250,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  InternalEnergy: ").Append(InternalEnergy).Append("\n");
             sb.Append("  GasMixtureTransport: ").Append(GasMixtureTransport).Append("\n");
             sb.Append("  RadiativeIntensityRayEquation: ").Append(RadiativeIntensityRayEquation).Append("\n");
+            sb.Append("  RadiativeIntensityRayField: ").Append(RadiativeIntensityRayField).Append("\n");
             sb.Append("  SpecificHumidityEquation: ").Append(SpecificHumidityEquation).Append("\n");
             sb.Append("  AgeOfFluidEquation: ").Append(AgeOfFluidEquation).Append("\n");
             sb.Append("  VoltageField: ").Append(VoltageField).Append("\n");
@@ -375,6 +384,11 @@ namespace SimScale.Sdk.Model
                     this.RadiativeIntensityRayEquation.Equals(input.RadiativeIntensityRayEquation))
                 ) && 
                 (
+                    this.RadiativeIntensityRayField == input.RadiativeIntensityRayField ||
+                    (this.RadiativeIntensityRayField != null &&
+                    this.RadiativeIntensityRayField.Equals(input.RadiativeIntensityRayField))
+                ) && 
+                (
                     this.SpecificHumidityEquation == input.SpecificHumidityEquation ||
                     (this.SpecificHumidityEquation != null &&
                     this.SpecificHumidityEquation.Equals(input.SpecificHumidityEquation))
@@ -438,6 +452,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.GasMixtureTransport.GetHashCode();
                 if (this.RadiativeIntensityRayEquation != null)
                     hashCode = hashCode * 59 + this.RadiativeIntensityRayEquation.GetHashCode();
+                if (this.RadiativeIntensityRayField != null)
+                    hashCode = hashCode * 59 + this.RadiativeIntensityRayField.GetHashCode();
                 if (this.SpecificHumidityEquation != null)
                     hashCode = hashCode * 59 + this.SpecificHumidityEquation.GetHashCode();
                 if (this.AgeOfFluidEquation != null)

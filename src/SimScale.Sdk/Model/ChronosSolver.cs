@@ -37,7 +37,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="ChronosSolver" /> class.
         /// </summary>
         /// <param name="type">Schema name: ChronosSolver (required) (default to &quot;CHRONOS&quot;).</param>
-        /// <param name="convergenceThreshold">Select the convergence tolerance. Can be smaller than with PETSc, and seems to have a big impact on the newton convergence. It is recommended to start with a smaller value in case of convergence problems e.g. 1e-8 - 1e-10. (default to 0.0000010M).</param>
+        /// <param name="convergenceThreshold">Select the convergence tolerance. Can be smaller than with PETSc, and has a big impact on the newton convergence. It is recommended to start with a smaller value in case of convergence problems e.g. 1e-8 - 1e-10. (default to 0.0000010M).</param>
         /// <param name="maxIterations">Maximum number of iterations for Chronos. Should be 1000 for AMG (max 3000), and 5000 with FSAI (max 10000). (default to 1000).</param>
         /// <param name="advancedSettings">advancedSettings.</param>
         public ChronosSolver(string type = "CHRONOS", decimal? convergenceThreshold = default(decimal?), int? maxIterations = default(int?), AdvancedChronosSettings advancedSettings = default(AdvancedChronosSettings))
@@ -57,9 +57,9 @@ namespace SimScale.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Select the convergence tolerance. Can be smaller than with PETSc, and seems to have a big impact on the newton convergence. It is recommended to start with a smaller value in case of convergence problems e.g. 1e-8 - 1e-10.
+        /// Select the convergence tolerance. Can be smaller than with PETSc, and has a big impact on the newton convergence. It is recommended to start with a smaller value in case of convergence problems e.g. 1e-8 - 1e-10.
         /// </summary>
-        /// <value>Select the convergence tolerance. Can be smaller than with PETSc, and seems to have a big impact on the newton convergence. It is recommended to start with a smaller value in case of convergence problems e.g. 1e-8 - 1e-10.</value>
+        /// <value>Select the convergence tolerance. Can be smaller than with PETSc, and has a big impact on the newton convergence. It is recommended to start with a smaller value in case of convergence problems e.g. 1e-8 - 1e-10.</value>
         [DataMember(Name="convergenceThreshold", EmitDefaultValue=false)]
         public decimal? ConvergenceThreshold { get; set; }
 

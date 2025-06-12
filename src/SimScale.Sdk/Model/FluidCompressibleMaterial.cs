@@ -75,11 +75,12 @@ namespace SimScale.Sdk.Model
         /// <param name="schmidtNumber">The Schmidt number is a dimensionless number defined as the ratio of viscous diffusion to molecular mass diffusion. In dilute flows where a dominant carrier gas advects other species, it is assumed to be constant and a typical value is Sc &#x3D; 5/6. (default to 0.8333M).</param>
         /// <param name="specificHeatFunction">specificHeatFunction.</param>
         /// <param name="equationOfState">equationOfState.</param>
+        /// <param name="radiativeBehavior">radiativeBehavior.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="geometryPrimitiveUuids">geometryPrimitiveUuids.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), OneOfFluidCompressibleMaterialFluidType fluidType = default(OneOfFluidCompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), OneOfFluidCompressibleMaterialViscosityModel viscosityModel = default(OneOfFluidCompressibleMaterialViscosityModel), DimensionalFunctionDimensionless laminarPrandtlNumberFunction = default(DimensionalFunctionDimensionless), decimal? turbulentPrandtlNumber = default(decimal?), decimal? schmidtNumber = default(decimal?), DimensionalFunctionSpecificHeat specificHeatFunction = default(DimensionalFunctionSpecificHeat), OneOfFluidCompressibleMaterialEquationOfState equationOfState = default(OneOfFluidCompressibleMaterialEquationOfState), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public FluidCompressibleMaterial(string type = "COMPRESSIBLE", string name = default(string), OneOfFluidCompressibleMaterialFluidType fluidType = default(OneOfFluidCompressibleMaterialFluidType), AssociatedPhaseEnum? associatedPhase = default(AssociatedPhaseEnum?), SpecieDefault specie = default(SpecieDefault), OneOfFluidCompressibleMaterialTransport transport = default(OneOfFluidCompressibleMaterialTransport), OneOfFluidCompressibleMaterialViscosityModel viscosityModel = default(OneOfFluidCompressibleMaterialViscosityModel), DimensionalFunctionDimensionless laminarPrandtlNumberFunction = default(DimensionalFunctionDimensionless), decimal? turbulentPrandtlNumber = default(decimal?), decimal? schmidtNumber = default(decimal?), DimensionalFunctionSpecificHeat specificHeatFunction = default(DimensionalFunctionSpecificHeat), OneOfFluidCompressibleMaterialEquationOfState equationOfState = default(OneOfFluidCompressibleMaterialEquationOfState), TransparentMaterial radiativeBehavior = default(TransparentMaterial), TopologicalReference topologicalReference = default(TopologicalReference), List<Guid?> geometryPrimitiveUuids = default(List<Guid?>), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FluidCompressibleMaterial and cannot be null");
@@ -94,6 +95,7 @@ namespace SimScale.Sdk.Model
             this.SchmidtNumber = schmidtNumber;
             this.SpecificHeatFunction = specificHeatFunction;
             this.EquationOfState = equationOfState;
+            this.RadiativeBehavior = radiativeBehavior;
             this.TopologicalReference = topologicalReference;
             this.GeometryPrimitiveUuids = geometryPrimitiveUuids;
             this.BuiltInMaterial = builtInMaterial;
@@ -170,6 +172,12 @@ namespace SimScale.Sdk.Model
         public OneOfFluidCompressibleMaterialEquationOfState EquationOfState { get; set; }
 
         /// <summary>
+        /// Gets or Sets RadiativeBehavior
+        /// </summary>
+        [DataMember(Name="radiativeBehavior", EmitDefaultValue=false)]
+        public TransparentMaterial RadiativeBehavior { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -213,6 +221,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  SchmidtNumber: ").Append(SchmidtNumber).Append("\n");
             sb.Append("  SpecificHeatFunction: ").Append(SpecificHeatFunction).Append("\n");
             sb.Append("  EquationOfState: ").Append(EquationOfState).Append("\n");
+            sb.Append("  RadiativeBehavior: ").Append(RadiativeBehavior).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  GeometryPrimitiveUuids: ").Append(GeometryPrimitiveUuids).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
@@ -311,6 +320,11 @@ namespace SimScale.Sdk.Model
                     this.EquationOfState.Equals(input.EquationOfState))
                 ) && 
                 (
+                    this.RadiativeBehavior == input.RadiativeBehavior ||
+                    (this.RadiativeBehavior != null &&
+                    this.RadiativeBehavior.Equals(input.RadiativeBehavior))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -365,6 +379,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.SpecificHeatFunction.GetHashCode();
                 if (this.EquationOfState != null)
                     hashCode = hashCode * 59 + this.EquationOfState.GetHashCode();
+                if (this.RadiativeBehavior != null)
+                    hashCode = hashCode * 59 + this.RadiativeBehavior.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.GeometryPrimitiveUuids != null)

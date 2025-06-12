@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Model
         /// <param name="refinements">refinements.</param>
         /// <param name="fineness">&lt;p&gt;Adjust the overall mesh sizing from coarse (value: 0) to fine (10).&lt;/p&gt; (default to 1M).</param>
         /// <param name="enableCADSurfaceMerging">&lt;b&gt;Merge CAD surfaces&lt;/b&gt; combines all surfaces of the CAD model that are &lt;i&gt;not&lt;/i&gt; assigned a boundary condition or result control. With this turned on, the probability of successful mesh generation for more complicated geometries significantly increases. If you need to inspect unassigned surfaces separately, turn it off. For more information, please contact Support. (default to true).</param>
-        public AutomaticSimericsMeshSettings(string type = "AUTOMATIC_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), decimal? fineness = default(decimal?), bool? enableCADSurfaceMerging = default(bool?))
+        public AutomaticSimericsMeshSettings(string type = "AUTOMATIC_SETTINGS", List<OneOfAutomaticSimericsMeshSettingsRefinements> refinements = default(List<OneOfAutomaticSimericsMeshSettingsRefinements>), decimal? fineness = default(decimal?), bool? enableCADSurfaceMerging = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticSimericsMeshSettings and cannot be null");
@@ -60,7 +60,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Refinements
         /// </summary>
         [DataMember(Name="refinements", EmitDefaultValue=false)]
-        public List<RegionRefinementSimerics> Refinements { get; set; }
+        public List<OneOfAutomaticSimericsMeshSettingsRefinements> Refinements { get; set; }
 
         /// <summary>
         /// &lt;p&gt;Adjust the overall mesh sizing from coarse (value: 0) to fine (10).&lt;/p&gt;

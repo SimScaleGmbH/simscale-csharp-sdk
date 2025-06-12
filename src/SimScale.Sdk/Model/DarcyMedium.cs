@@ -41,8 +41,9 @@ namespace SimScale.Sdk.Model
         /// <param name="porosity">Porosity is the fraction of a volume of material is that is void. It ranges from φ &#x3D; 1 (completely empty) to φ &#x3D; 0 (completely solid). (default to 1M).</param>
         /// <param name="permeability">permeability.</param>
         /// <param name="dragCoefficient">The Darcy law may be extended to include the Forchheimer drag term for more inertial flows (Re &gt; 10). This term is quadratic in flow velocity. Its coefficient includes the fluid drag coefficient Cd. (default to 0M).</param>
+        /// <param name="porousMaterialType">porousMaterialType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public DarcyMedium(string type = "DARCY", string name = default(string), decimal? porosity = default(decimal?), DimensionalArea permeability = default(DimensionalArea), decimal? dragCoefficient = default(decimal?), TopologicalReference topologicalReference = default(TopologicalReference))
+        public DarcyMedium(string type = "DARCY", string name = default(string), decimal? porosity = default(decimal?), DimensionalArea permeability = default(DimensionalArea), decimal? dragCoefficient = default(decimal?), OneOfDarcyMediumPorousMaterialType porousMaterialType = default(OneOfDarcyMediumPorousMaterialType), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for DarcyMedium and cannot be null");
@@ -50,6 +51,7 @@ namespace SimScale.Sdk.Model
             this.Porosity = porosity;
             this.Permeability = permeability;
             this.DragCoefficient = dragCoefficient;
+            this.PorousMaterialType = porousMaterialType;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -87,6 +89,12 @@ namespace SimScale.Sdk.Model
         public decimal? DragCoefficient { get; set; }
 
         /// <summary>
+        /// Gets or Sets PorousMaterialType
+        /// </summary>
+        [DataMember(Name="porousMaterialType", EmitDefaultValue=false)]
+        public OneOfDarcyMediumPorousMaterialType PorousMaterialType { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -105,6 +113,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Porosity: ").Append(Porosity).Append("\n");
             sb.Append("  Permeability: ").Append(Permeability).Append("\n");
             sb.Append("  DragCoefficient: ").Append(DragCoefficient).Append("\n");
+            sb.Append("  PorousMaterialType: ").Append(PorousMaterialType).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -166,6 +175,11 @@ namespace SimScale.Sdk.Model
                     this.DragCoefficient.Equals(input.DragCoefficient))
                 ) && 
                 (
+                    this.PorousMaterialType == input.PorousMaterialType ||
+                    (this.PorousMaterialType != null &&
+                    this.PorousMaterialType.Equals(input.PorousMaterialType))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -191,6 +205,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Permeability.GetHashCode();
                 if (this.DragCoefficient != null)
                     hashCode = hashCode * 59 + this.DragCoefficient.GetHashCode();
+                if (this.PorousMaterialType != null)
+                    hashCode = hashCode * 59 + this.PorousMaterialType.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

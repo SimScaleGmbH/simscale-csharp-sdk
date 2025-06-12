@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MumpsDirectSolver
     /// </summary>
     [DataContract]
-    public partial class MumpsDirectSolver : OneOfMarcSolverSettingsLinearSolver, IEquatable<MumpsDirectSolver>
+    public partial class MumpsDirectSolver : OneOfMarcLinearSolverSettingsLinearSolver, IEquatable<MumpsDirectSolver>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MumpsDirectSolver" /> class.

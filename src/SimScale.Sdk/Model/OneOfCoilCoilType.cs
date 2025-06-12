@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(StrandedCoil), "STRANDED_COIL")]
     [JsonSubtypes.KnownSubType(typeof(SolidCoil), "SOLID_COIL")]
+    [JsonSubtypes.KnownSubType(typeof(LitzWireCoil), "LITZ_WIRE_COIL")]
     public interface OneOfCoilCoilType
     {
         /// <summary>

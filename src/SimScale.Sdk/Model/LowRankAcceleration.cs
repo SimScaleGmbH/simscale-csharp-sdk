@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// LowRankAcceleration
     /// </summary>
     [DataContract]
-    public partial class LowRankAcceleration : OneOfMUMPSSolverMumpsAcceleration, IEquatable<LowRankAcceleration>
+    public partial class LowRankAcceleration : OneOfAdvancedMUMPSSettingsMumpsAcceleration, IEquatable<LowRankAcceleration>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LowRankAcceleration" /> class.

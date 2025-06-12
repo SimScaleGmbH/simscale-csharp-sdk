@@ -31,17 +31,25 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarcNumerics" /> class.
         /// </summary>
-        /// <param name="solverSettings">solverSettings.</param>
-        public MarcNumerics(MarcSolverSettings solverSettings = default(MarcSolverSettings))
+        /// <param name="linearSolverSettings">linearSolverSettings.</param>
+        /// <param name="nonlinearSolverSettings">nonlinearSolverSettings.</param>
+        public MarcNumerics(MarcLinearSolverSettings linearSolverSettings = default(MarcLinearSolverSettings), MarcNonlinearSolverSettings nonlinearSolverSettings = default(MarcNonlinearSolverSettings))
         {
-            this.SolverSettings = solverSettings;
+            this.LinearSolverSettings = linearSolverSettings;
+            this.NonlinearSolverSettings = nonlinearSolverSettings;
         }
         
         /// <summary>
-        /// Gets or Sets SolverSettings
+        /// Gets or Sets LinearSolverSettings
         /// </summary>
-        [DataMember(Name="solverSettings", EmitDefaultValue=false)]
-        public MarcSolverSettings SolverSettings { get; set; }
+        [DataMember(Name="linearSolverSettings", EmitDefaultValue=false)]
+        public MarcLinearSolverSettings LinearSolverSettings { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NonlinearSolverSettings
+        /// </summary>
+        [DataMember(Name="nonlinearSolverSettings", EmitDefaultValue=false)]
+        public MarcNonlinearSolverSettings NonlinearSolverSettings { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -51,7 +59,8 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class MarcNumerics {\n");
-            sb.Append("  SolverSettings: ").Append(SolverSettings).Append("\n");
+            sb.Append("  LinearSolverSettings: ").Append(LinearSolverSettings).Append("\n");
+            sb.Append("  NonlinearSolverSettings: ").Append(NonlinearSolverSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,9 +96,14 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
-                    this.SolverSettings == input.SolverSettings ||
-                    (this.SolverSettings != null &&
-                    this.SolverSettings.Equals(input.SolverSettings))
+                    this.LinearSolverSettings == input.LinearSolverSettings ||
+                    (this.LinearSolverSettings != null &&
+                    this.LinearSolverSettings.Equals(input.LinearSolverSettings))
+                ) && 
+                (
+                    this.NonlinearSolverSettings == input.NonlinearSolverSettings ||
+                    (this.NonlinearSolverSettings != null &&
+                    this.NonlinearSolverSettings.Equals(input.NonlinearSolverSettings))
                 );
         }
 
@@ -102,8 +116,10 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SolverSettings != null)
-                    hashCode = hashCode * 59 + this.SolverSettings.GetHashCode();
+                if (this.LinearSolverSettings != null)
+                    hashCode = hashCode * 59 + this.LinearSolverSettings.GetHashCode();
+                if (this.NonlinearSolverSettings != null)
+                    hashCode = hashCode * 59 + this.NonlinearSolverSettings.GetHashCode();
                 return hashCode;
             }
         }

@@ -36,6 +36,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(MeanValuePBC), "FIXED_MEAN")]
     [JsonSubtypes.KnownSubType(typeof(ZeroGradientPBC), "ZERO_GRADIENT")]
     [JsonSubtypes.KnownSubType(typeof(TotalPBC), "TOTAL_PRESSURE")]
+    [JsonSubtypes.KnownSubType(typeof(HydrostaticFanPBC), "HYDROSTATIC_ISOTHERMAL_FAN_PRESSURE")]
     public interface OneOfCustomFluidBCGaugePressureRgh
     {
         /// <summary>

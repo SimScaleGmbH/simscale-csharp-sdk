@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// FullRankAcceleration
     /// </summary>
     [DataContract]
-    public partial class FullRankAcceleration : OneOfMUMPSSolverMumpsAcceleration, IEquatable<FullRankAcceleration>
+    public partial class FullRankAcceleration : OneOfAdvancedMUMPSSettingsMumpsAcceleration, IEquatable<FullRankAcceleration>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FullRankAcceleration" /> class.

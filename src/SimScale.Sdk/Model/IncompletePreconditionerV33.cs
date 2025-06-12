@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// IncompletePreconditionerV33
     /// </summary>
     [DataContract]
-    public partial class IncompletePreconditionerV33 : OneOfPETSCSolverPreconditioner, IEquatable<IncompletePreconditionerV33>
+    public partial class IncompletePreconditionerV33 : OneOfAdvancedPETSCSettingsPreconditioner, IEquatable<IncompletePreconditionerV33>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IncompletePreconditionerV33" /> class.

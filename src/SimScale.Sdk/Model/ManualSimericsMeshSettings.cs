@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Model
         /// <param name="refinements">refinements.</param>
         /// <param name="cellSizeSpecification">cellSizeSpecification.</param>
         /// <param name="enableCADSurfaceMerging">&lt;b&gt;Merge CAD surfaces&lt;/b&gt; combines all surfaces of the CAD model that are &lt;i&gt;not&lt;/i&gt; assigned a boundary condition or result control. With this turned on, the probability of successful mesh generation for more complicated geometries significantly increases. If you need to inspect unassigned surfaces separately, turn it off. For more information, please contact Support. (default to true).</param>
-        public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", List<RegionRefinementSimerics> refinements = default(List<RegionRefinementSimerics>), OneOfManualSimericsMeshSettingsCellSizeSpecification cellSizeSpecification = default(OneOfManualSimericsMeshSettingsCellSizeSpecification), bool? enableCADSurfaceMerging = default(bool?))
+        public ManualSimericsMeshSettings(string type = "MANUAL_SETTINGS", List<OneOfManualSimericsMeshSettingsRefinements> refinements = default(List<OneOfManualSimericsMeshSettingsRefinements>), OneOfManualSimericsMeshSettingsCellSizeSpecification cellSizeSpecification = default(OneOfManualSimericsMeshSettingsCellSizeSpecification), bool? enableCADSurfaceMerging = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ManualSimericsMeshSettings and cannot be null");
@@ -60,7 +60,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Refinements
         /// </summary>
         [DataMember(Name="refinements", EmitDefaultValue=false)]
-        public List<RegionRefinementSimerics> Refinements { get; set; }
+        public List<OneOfManualSimericsMeshSettingsRefinements> Refinements { get; set; }
 
         /// <summary>
         /// Gets or Sets CellSizeSpecification

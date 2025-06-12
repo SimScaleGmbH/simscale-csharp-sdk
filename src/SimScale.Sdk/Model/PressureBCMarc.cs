@@ -39,7 +39,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">This is a &lt;b&gt;pressure&lt;/b&gt; boundary condition representing a distributed load on the selection. It is applied normal to the surface of all face elements.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the surface area of the selection.&lt;/li&gt;&lt;li&gt;The normal direction of the faces is computed only in the undeformed state and not updated for large deformations.&lt;/li&gt;&lt;li&gt;For transient analyses you may define a &lt;b&gt;time dependent&lt;/b&gt; value by uploading a table (csv-file).&lt;/li&gt;&lt;/ul&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/pressure/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: PressureBCMarc (required) (default to &quot;PRESSURE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressure">pressure.</param>
-        /// <param name="isFollowerPressure">isFollowerPressure (default to false).</param>
+        /// <param name="isFollowerPressure">isFollowerPressure (default to true).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         public PressureBCMarc(string type = "PRESSURE", string name = default(string), DimensionalFunctionPressure pressure = default(DimensionalFunctionPressure), bool? isFollowerPressure = default(bool?), TopologicalReference topologicalReference = default(TopologicalReference))
         {

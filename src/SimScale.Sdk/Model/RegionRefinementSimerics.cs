@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// RegionRefinementSimerics
     /// </summary>
     [DataContract]
-    public partial class RegionRefinementSimerics : IEquatable<RegionRefinementSimerics>
+    public partial class RegionRefinementSimerics : OneOfAutomaticSimericsMeshSettingsRefinements, OneOfManualSimericsMeshSettingsRefinements, IEquatable<RegionRefinementSimerics>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionRefinementSimerics" /> class.

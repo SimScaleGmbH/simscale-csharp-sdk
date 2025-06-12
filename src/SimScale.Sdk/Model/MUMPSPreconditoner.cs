@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MUMPSPreconditoner
     /// </summary>
     [DataContract]
-    public partial class MUMPSPreconditoner : OneOfPETSCSolverPreconditioner, IEquatable<MUMPSPreconditoner>
+    public partial class MUMPSPreconditoner : OneOfAdvancedPETSCSettingsPreconditioner, IEquatable<MUMPSPreconditoner>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MUMPSPreconditoner" /> class.

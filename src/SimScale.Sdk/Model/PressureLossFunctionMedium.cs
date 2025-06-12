@@ -39,13 +39,15 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: PressureLossFunctionMedium (required) (default to &quot;PRESSURE_LOSS_FUNCTION&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="pressureLossFunction">pressureLossFunction.</param>
+        /// <param name="porousMaterialType">porousMaterialType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureLossFunctionMedium(string type = "PRESSURE_LOSS_FUNCTION", string name = default(string), DimensionalFunctionPressure pressureLossFunction = default(DimensionalFunctionPressure), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureLossFunctionMedium(string type = "PRESSURE_LOSS_FUNCTION", string name = default(string), DimensionalFunctionPressure pressureLossFunction = default(DimensionalFunctionPressure), OneOfPressureLossFunctionMediumPorousMaterialType porousMaterialType = default(OneOfPressureLossFunctionMediumPorousMaterialType), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureLossFunctionMedium and cannot be null");
             this.Name = name;
             this.PressureLossFunction = pressureLossFunction;
+            this.PorousMaterialType = porousMaterialType;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -69,6 +71,12 @@ namespace SimScale.Sdk.Model
         public DimensionalFunctionPressure PressureLossFunction { get; set; }
 
         /// <summary>
+        /// Gets or Sets PorousMaterialType
+        /// </summary>
+        [DataMember(Name="porousMaterialType", EmitDefaultValue=false)]
+        public OneOfPressureLossFunctionMediumPorousMaterialType PorousMaterialType { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -85,6 +93,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  PressureLossFunction: ").Append(PressureLossFunction).Append("\n");
+            sb.Append("  PorousMaterialType: ").Append(PorousMaterialType).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -136,6 +145,11 @@ namespace SimScale.Sdk.Model
                     this.PressureLossFunction.Equals(input.PressureLossFunction))
                 ) && 
                 (
+                    this.PorousMaterialType == input.PorousMaterialType ||
+                    (this.PorousMaterialType != null &&
+                    this.PorousMaterialType.Equals(input.PorousMaterialType))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -157,6 +171,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.PressureLossFunction != null)
                     hashCode = hashCode * 59 + this.PressureLossFunction.GetHashCode();
+                if (this.PorousMaterialType != null)
+                    hashCode = hashCode * 59 + this.PorousMaterialType.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

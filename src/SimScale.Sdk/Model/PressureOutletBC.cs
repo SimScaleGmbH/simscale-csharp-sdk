@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         /// <param name="netRadiativeHeatFlux">netRadiativeHeatFlux.</param>
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
+        /// <param name="temperature">temperature.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureOutletBC(string type = "PRESSURE_OUTLET_V30", string name = default(string), OneOfPressureOutletBCPressure pressure = default(OneOfPressureOutletBCPressure), OneOfPressureOutletBCPressureRgh pressureRgh = default(OneOfPressureOutletBCPressureRgh), OneOfPressureOutletBCGaugePressure gaugePressure = default(OneOfPressureOutletBCGaugePressure), OneOfPressureOutletBCPhaseFractionsV2 phaseFractionsV2 = default(OneOfPressureOutletBCPhaseFractionsV2), OutletBackFlowMFValues massFractionsV2 = default(OutletBackFlowMFValues), HydrostaticPressure hydrostaticPressure = default(HydrostaticPressure), OneOfPressureOutletBCGaugePressureRgh gaugePressureRgh = default(OneOfPressureOutletBCGaugePressureRgh), OneOfPressureOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureOutletBCNetRadiativeHeatFlux), OneOfPressureOutletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureOutletBCRadiativeIntensityRay), InletOutletRHBC relativeHumidity = default(InletOutletRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureOutletBC(string type = "PRESSURE_OUTLET_V30", string name = default(string), OneOfPressureOutletBCPressure pressure = default(OneOfPressureOutletBCPressure), OneOfPressureOutletBCPressureRgh pressureRgh = default(OneOfPressureOutletBCPressureRgh), OneOfPressureOutletBCGaugePressure gaugePressure = default(OneOfPressureOutletBCGaugePressure), OneOfPressureOutletBCPhaseFractionsV2 phaseFractionsV2 = default(OneOfPressureOutletBCPhaseFractionsV2), OutletBackFlowMFValues massFractionsV2 = default(OutletBackFlowMFValues), HydrostaticPressure hydrostaticPressure = default(HydrostaticPressure), OneOfPressureOutletBCGaugePressureRgh gaugePressureRgh = default(OneOfPressureOutletBCGaugePressureRgh), OneOfPressureOutletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureOutletBCNetRadiativeHeatFlux), OneOfPressureOutletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureOutletBCRadiativeIntensityRay), InletOutletRHBC relativeHumidity = default(InletOutletRHBC), AmbientTBC temperature = default(AmbientTBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureOutletBC and cannot be null");
@@ -64,6 +65,7 @@ namespace SimScale.Sdk.Model
             this.NetRadiativeHeatFlux = netRadiativeHeatFlux;
             this.RadiativeIntensityRay = radiativeIntensityRay;
             this.RelativeHumidity = relativeHumidity;
+            this.Temperature = temperature;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -141,6 +143,12 @@ namespace SimScale.Sdk.Model
         public InletOutletRHBC RelativeHumidity { get; set; }
 
         /// <summary>
+        /// Gets or Sets Temperature
+        /// </summary>
+        [DataMember(Name="temperature", EmitDefaultValue=false)]
+        public AmbientTBC Temperature { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -166,6 +174,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  NetRadiativeHeatFlux: ").Append(NetRadiativeHeatFlux).Append("\n");
             sb.Append("  RadiativeIntensityRay: ").Append(RadiativeIntensityRay).Append("\n");
             sb.Append("  RelativeHumidity: ").Append(RelativeHumidity).Append("\n");
+            sb.Append("  Temperature: ").Append(Temperature).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -262,6 +271,11 @@ namespace SimScale.Sdk.Model
                     this.RelativeHumidity.Equals(input.RelativeHumidity))
                 ) && 
                 (
+                    this.Temperature == input.Temperature ||
+                    (this.Temperature != null &&
+                    this.Temperature.Equals(input.Temperature))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -301,6 +315,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.RadiativeIntensityRay.GetHashCode();
                 if (this.RelativeHumidity != null)
                     hashCode = hashCode * 59 + this.RelativeHumidity.GetHashCode();
+                if (this.Temperature != null)
+                    hashCode = hashCode * 59 + this.Temperature.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

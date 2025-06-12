@@ -24,12 +24,12 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfMarcSolverSettingsLinearSolver
+    /// OneOfAutomaticSimericsMeshSettingsRefinements
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(MumpsDirectSolver), "MUMPS_DIRECT")]
-    [JsonSubtypes.KnownSubType(typeof(SparseIterative), "SPARSE_ITERATIVE")]
-    public interface OneOfMarcSolverSettingsLinearSolver
+    [JsonSubtypes.KnownSubType(typeof(RegionRefinementSimerics), "REGION_REFINEMENT_SIMERICS")]
+    [JsonSubtypes.KnownSubType(typeof(SurfaceRefinementSimerics), "SURFACE_REFINEMENT_SIMERICS")]
+    public interface OneOfAutomaticSimericsMeshSettingsRefinements
     {
         /// <summary>
         /// Gets Type

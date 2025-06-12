@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// PBICGStabSolver
     /// </summary>
     [DataContract]
-    public partial class PBICGStabSolver : OneOfFluidSolversEpsilonDissipationRateFinalSolver, OneOfFluidSolversEpsilonDissipationRateSolver, OneOfFluidSolversOmegaDissipationRateFinalSolver, OneOfFluidSolversOmegaDissipationRateSolver, OneOfFluidSolversTemperatureFinalSolver, OneOfFluidSolversTemperatureSolver, OneOfFluidSolversTurbulentKineticEnergyFinalSolver, OneOfFluidSolversTurbulentKineticEnergySolver, OneOfFluidSolversVelocityFinalSolver, OneOfFluidSolversVelocitySolver, OneOfFluidSolversVoltageSolver, IEquatable<PBICGStabSolver>
+    public partial class PBICGStabSolver : OneOfFluidSolversEpsilonDissipationRateFinalSolver, OneOfFluidSolversEpsilonDissipationRateSolver, OneOfFluidSolversOmegaDissipationRateFinalSolver, OneOfFluidSolversOmegaDissipationRateSolver, OneOfFluidSolversRadiativeIntensityRaySolver, OneOfFluidSolversTemperatureFinalSolver, OneOfFluidSolversTemperatureSolver, OneOfFluidSolversTurbulentKineticEnergyFinalSolver, OneOfFluidSolversTurbulentKineticEnergySolver, OneOfFluidSolversVelocityFinalSolver, OneOfFluidSolversVelocitySolver, OneOfFluidSolversVoltageSolver, IEquatable<PBICGStabSolver>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PBICGStabSolver" /> class.

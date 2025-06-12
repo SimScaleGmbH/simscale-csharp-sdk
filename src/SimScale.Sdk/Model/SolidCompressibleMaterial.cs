@@ -35,16 +35,18 @@ namespace SimScale.Sdk.Model
         /// <param name="specie">specie.</param>
         /// <param name="transport">transport.</param>
         /// <param name="emissivity">emissivity (default to 0.9M).</param>
+        /// <param name="radiativeBehavior">radiativeBehavior.</param>
         /// <param name="electricConductivityType">electricConductivityType.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
         /// <param name="builtInMaterial">builtInMaterial.</param>
         /// <param name="materialLibraryReference">materialLibraryReference.</param>
-        public SolidCompressibleMaterial(string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfSolidCompressibleMaterialTransport transport = default(OneOfSolidCompressibleMaterialTransport), decimal? emissivity = default(decimal?), OneOfSolidCompressibleMaterialElectricConductivityType electricConductivityType = default(OneOfSolidCompressibleMaterialElectricConductivityType), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
+        public SolidCompressibleMaterial(string name = default(string), SpecieDefault specie = default(SpecieDefault), OneOfSolidCompressibleMaterialTransport transport = default(OneOfSolidCompressibleMaterialTransport), decimal? emissivity = default(decimal?), OneOfSolidCompressibleMaterialRadiativeBehavior radiativeBehavior = default(OneOfSolidCompressibleMaterialRadiativeBehavior), OneOfSolidCompressibleMaterialElectricConductivityType electricConductivityType = default(OneOfSolidCompressibleMaterialElectricConductivityType), TopologicalReference topologicalReference = default(TopologicalReference), string builtInMaterial = default(string), MaterialLibraryReference materialLibraryReference = default(MaterialLibraryReference))
         {
             this.Name = name;
             this.Specie = specie;
             this.Transport = transport;
             this.Emissivity = emissivity;
+            this.RadiativeBehavior = radiativeBehavior;
             this.ElectricConductivityType = electricConductivityType;
             this.TopologicalReference = topologicalReference;
             this.BuiltInMaterial = builtInMaterial;
@@ -74,6 +76,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="emissivity", EmitDefaultValue=false)]
         public decimal? Emissivity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RadiativeBehavior
+        /// </summary>
+        [DataMember(Name="radiativeBehavior", EmitDefaultValue=false)]
+        public OneOfSolidCompressibleMaterialRadiativeBehavior RadiativeBehavior { get; set; }
 
         /// <summary>
         /// Gets or Sets ElectricConductivityType
@@ -111,6 +119,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Specie: ").Append(Specie).Append("\n");
             sb.Append("  Transport: ").Append(Transport).Append("\n");
             sb.Append("  Emissivity: ").Append(Emissivity).Append("\n");
+            sb.Append("  RadiativeBehavior: ").Append(RadiativeBehavior).Append("\n");
             sb.Append("  ElectricConductivityType: ").Append(ElectricConductivityType).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  BuiltInMaterial: ").Append(BuiltInMaterial).Append("\n");
@@ -170,6 +179,11 @@ namespace SimScale.Sdk.Model
                     this.Emissivity.Equals(input.Emissivity))
                 ) && 
                 (
+                    this.RadiativeBehavior == input.RadiativeBehavior ||
+                    (this.RadiativeBehavior != null &&
+                    this.RadiativeBehavior.Equals(input.RadiativeBehavior))
+                ) && 
+                (
                     this.ElectricConductivityType == input.ElectricConductivityType ||
                     (this.ElectricConductivityType != null &&
                     this.ElectricConductivityType.Equals(input.ElectricConductivityType))
@@ -208,6 +222,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Transport.GetHashCode();
                 if (this.Emissivity != null)
                     hashCode = hashCode * 59 + this.Emissivity.GetHashCode();
+                if (this.RadiativeBehavior != null)
+                    hashCode = hashCode * 59 + this.RadiativeBehavior.GetHashCode();
                 if (this.ElectricConductivityType != null)
                     hashCode = hashCode * 59 + this.ElectricConductivityType.GetHashCode();
                 if (this.TopologicalReference != null)

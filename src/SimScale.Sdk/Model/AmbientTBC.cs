@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AmbientTBC
     /// </summary>
     [DataContract]
-    public partial class AmbientTBC : IEquatable<AmbientTBC>
+    public partial class AmbientTBC : OneOfFanBCTemperature, IEquatable<AmbientTBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AmbientTBC" /> class.

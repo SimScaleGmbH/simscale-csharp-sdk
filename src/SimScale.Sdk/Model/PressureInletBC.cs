@@ -53,7 +53,7 @@ namespace SimScale.Sdk.Model
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), TotalPBC pressure = default(TotalPBC), TotalPBC pressureRgh = default(TotalPBC), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTurbulence turbulence = default(OneOfPressureInletBCTurbulence), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), InletFixedPFValues phaseFractionsV2 = default(InletFixedPFValues), InletFixedMFValues massFractionsV2 = default(InletFixedMFValues), HydrostaticPressure hydrostaticPressure = default(HydrostaticPressure), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), OneOfPressureInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public PressureInletBC(string type = "PRESSURE_INLET_V31", string name = default(string), OneOfPressureInletBCPressure pressure = default(OneOfPressureInletBCPressure), OneOfPressureInletBCPressureRgh pressureRgh = default(OneOfPressureInletBCPressureRgh), OneOfPressureInletBCGaugePressure gaugePressure = default(OneOfPressureInletBCGaugePressure), TotalPBC gaugePressureRgh = default(TotalPBC), OneOfPressureInletBCTurbulence turbulence = default(OneOfPressureInletBCTurbulence), OneOfPressureInletBCTemperature temperature = default(OneOfPressureInletBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), FixedValuePFBC phaseFraction = default(FixedValuePFBC), InletFixedPFValues phaseFractionsV2 = default(InletFixedPFValues), InletFixedMFValues massFractionsV2 = default(InletFixedMFValues), HydrostaticPressure hydrostaticPressure = default(HydrostaticPressure), OneOfPressureInletBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfPressureInletBCNetRadiativeHeatFlux), OneOfPressureInletBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfPressureInletBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureInletBC and cannot be null");
@@ -92,13 +92,13 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Pressure
         /// </summary>
         [DataMember(Name="pressure", EmitDefaultValue=false)]
-        public TotalPBC Pressure { get; set; }
+        public OneOfPressureInletBCPressure Pressure { get; set; }
 
         /// <summary>
         /// Gets or Sets PressureRgh
         /// </summary>
         [DataMember(Name="pressureRgh", EmitDefaultValue=false)]
-        public TotalPBC PressureRgh { get; set; }
+        public OneOfPressureInletBCPressureRgh PressureRgh { get; set; }
 
         /// <summary>
         /// Gets or Sets GaugePressure

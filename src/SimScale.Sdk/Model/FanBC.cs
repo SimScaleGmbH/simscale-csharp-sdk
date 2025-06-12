@@ -49,7 +49,7 @@ namespace SimScale.Sdk.Model
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), FanPBC pressureRgh = default(FanPBC), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), OneOfFanBCTurbulence turbulence = default(OneOfFanBCTurbulence), FixedValueTBC temperature = default(FixedValueTBC), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), OneOfFanBCPressureRgh pressureRgh = default(OneOfFanBCPressureRgh), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), OneOfFanBCTurbulence turbulence = default(OneOfFanBCTurbulence), OneOfFanBCTemperature temperature = default(OneOfFanBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanBC and cannot be null");
@@ -90,7 +90,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets PressureRgh
         /// </summary>
         [DataMember(Name="pressureRgh", EmitDefaultValue=false)]
-        public FanPBC PressureRgh { get; set; }
+        public OneOfFanBCPressureRgh PressureRgh { get; set; }
 
         /// <summary>
         /// Gets or Sets GaugePressure
@@ -114,7 +114,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Temperature
         /// </summary>
         [DataMember(Name="temperature", EmitDefaultValue=false)]
-        public FixedValueTBC Temperature { get; set; }
+        public OneOfFanBCTemperature Temperature { get; set; }
 
         /// <summary>
         /// Please choose a boundary condition for passive scalar (T).

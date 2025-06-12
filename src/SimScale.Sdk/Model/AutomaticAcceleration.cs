@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AutomaticAcceleration
     /// </summary>
     [DataContract]
-    public partial class AutomaticAcceleration : OneOfMUMPSSolverMumpsAcceleration, IEquatable<AutomaticAcceleration>
+    public partial class AutomaticAcceleration : OneOfAdvancedMUMPSSettingsMumpsAcceleration, IEquatable<AutomaticAcceleration>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticAcceleration" /> class.

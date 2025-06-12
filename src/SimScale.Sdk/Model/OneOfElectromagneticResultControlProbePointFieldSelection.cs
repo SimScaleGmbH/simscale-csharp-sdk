@@ -30,6 +30,9 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(MagneticFluxDensityFieldSelection), "MAGNETIC_FLUX_DENSITY")]
     [JsonSubtypes.KnownSubType(typeof(MagneticFieldFieldSelection), "MAGNETIC_FIELD")]
     [JsonSubtypes.KnownSubType(typeof(ElectricCurrentDensityFieldSelection), "ELECTRIC_CURRENT_DENSITY")]
+    [JsonSubtypes.KnownSubType(typeof(ElectricPotentialFieldSelection), "ELECTRIC_POTENTIAL")]
+    [JsonSubtypes.KnownSubType(typeof(ElectricFieldFieldSelection), "ELECTRIC_FIELD")]
+    [JsonSubtypes.KnownSubType(typeof(ElectricDisplacementFieldFieldSelection), "ELECTRIC_DISPLACEMENT_FIELD")]
     public interface OneOfElectromagneticResultControlProbePointFieldSelection
     {
         /// <summary>

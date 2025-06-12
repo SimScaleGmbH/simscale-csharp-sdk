@@ -32,10 +32,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="EmbeddedBoundaryMeshing" /> class.
         /// </summary>
         /// <param name="sizing">sizing.</param>
+        /// <param name="numberOfBufferCells">numberOfBufferCells (default to 4M).</param>
         /// <param name="refinements">refinements.</param>
-        public EmbeddedBoundaryMeshing(OneOfEmbeddedBoundaryMeshingSizing sizing = default(OneOfEmbeddedBoundaryMeshingSizing), List<OneOfEmbeddedBoundaryMeshingRefinements> refinements = default(List<OneOfEmbeddedBoundaryMeshingRefinements>))
+        public EmbeddedBoundaryMeshing(OneOfEmbeddedBoundaryMeshingSizing sizing = default(OneOfEmbeddedBoundaryMeshingSizing), decimal? numberOfBufferCells = default(decimal?), List<OneOfEmbeddedBoundaryMeshingRefinements> refinements = default(List<OneOfEmbeddedBoundaryMeshingRefinements>))
         {
             this.Sizing = sizing;
+            this.NumberOfBufferCells = numberOfBufferCells;
             this.Refinements = refinements;
         }
         
@@ -44,6 +46,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="sizing", EmitDefaultValue=false)]
         public OneOfEmbeddedBoundaryMeshingSizing Sizing { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NumberOfBufferCells
+        /// </summary>
+        [DataMember(Name="numberOfBufferCells", EmitDefaultValue=false)]
+        public decimal? NumberOfBufferCells { get; set; }
 
         /// <summary>
         /// Gets or Sets Refinements
@@ -60,6 +68,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class EmbeddedBoundaryMeshing {\n");
             sb.Append("  Sizing: ").Append(Sizing).Append("\n");
+            sb.Append("  NumberOfBufferCells: ").Append(NumberOfBufferCells).Append("\n");
             sb.Append("  Refinements: ").Append(Refinements).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -101,6 +110,11 @@ namespace SimScale.Sdk.Model
                     this.Sizing.Equals(input.Sizing))
                 ) && 
                 (
+                    this.NumberOfBufferCells == input.NumberOfBufferCells ||
+                    (this.NumberOfBufferCells != null &&
+                    this.NumberOfBufferCells.Equals(input.NumberOfBufferCells))
+                ) && 
+                (
                     this.Refinements == input.Refinements ||
                     this.Refinements != null &&
                     input.Refinements != null &&
@@ -119,6 +133,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Sizing != null)
                     hashCode = hashCode * 59 + this.Sizing.GetHashCode();
+                if (this.NumberOfBufferCells != null)
+                    hashCode = hashCode * 59 + this.NumberOfBufferCells.GetHashCode();
                 if (this.Refinements != null)
                     hashCode = hashCode * 59 + this.Refinements.GetHashCode();
                 return hashCode;

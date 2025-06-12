@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AmbientPBC
     /// </summary>
     [DataContract]
-    public partial class AmbientPBC : IEquatable<AmbientPBC>
+    public partial class AmbientPBC : OneOfNaturalConvectionInletOutletBCPressureRgh, IEquatable<AmbientPBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AmbientPBC" /> class.
