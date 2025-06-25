@@ -30,6 +30,8 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(AbsolutePowerSource), "ABSOLUTE_V23")]
     [JsonSubtypes.KnownSubType(typeof(SpecificPowerSource), "SPECIFIC_V23")]
     [JsonSubtypes.KnownSubType(typeof(HeatExchangerSource), "HEAT_EXCHANGER_SOURCE")]
+    [JsonSubtypes.KnownSubType(typeof(TrAbsolutePowerSource), "TR_ABSOLUTE_POWER_SOURCE")]
+    [JsonSubtypes.KnownSubType(typeof(TrSpecificPowerSource), "TR_SPECIFIC_POWER_SOURCE")]
     public interface OneOfAdvancedConceptsPowerSources
     {
         /// <summary>

@@ -6,7 +6,7 @@
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D24FDFE3-1376-485C-9E4C-27C610DB1107}</ProjectGuid>
+    <ProjectGuid>{46CE237B-72A5-486E-9E41-84C101E747B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SimScale.Sdk</RootNamespace>

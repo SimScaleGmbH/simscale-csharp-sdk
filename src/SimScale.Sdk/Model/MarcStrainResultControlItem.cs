@@ -23,48 +23,48 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FanPBC
+    /// MarcStrainResultControlItem
     /// </summary>
     [DataContract]
-    public partial class FanPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfFanBCPressureRgh, IEquatable<FanPBC>
+    public partial class MarcStrainResultControlItem : OneOfMarcResultControlSolutionFields, IEquatable<MarcStrainResultControlItem>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="MarcStrainResultControlItem" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FanPBC() { }
+        protected MarcStrainResultControlItem() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="MarcStrainResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FanPBC (required) (default to &quot;FAN_PRESSURE&quot;).</param>
-        /// <param name="fanPressure">fanPressure.</param>
-        /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
-        public FanPBC(string type = "FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
+        /// <param name="type">Schema name: MarcStrainResultControlItem (required) (default to &quot;STRAIN&quot;).</param>
+        /// <param name="name">name.</param>
+        /// <param name="strainType">strainType.</param>
+        public MarcStrainResultControlItem(string type = "STRAIN", string name = default(string), OneOfMarcStrainResultControlItemStrainType strainType = default(OneOfMarcStrainResultControlItemStrainType))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPBC and cannot be null");
-            this.FanPressure = fanPressure;
-            this.EnvironmentalTotalPressure = environmentalTotalPressure;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcStrainResultControlItem and cannot be null");
+            this.Name = name;
+            this.StrainType = strainType;
         }
         
         /// <summary>
-        /// Schema name: FanPBC
+        /// Schema name: MarcStrainResultControlItem
         /// </summary>
-        /// <value>Schema name: FanPBC</value>
+        /// <value>Schema name: MarcStrainResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets FanPressure
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="fanPressure", EmitDefaultValue=false)]
-        public DimensionalFunctionPressure FanPressure { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnvironmentalTotalPressure
+        /// Gets or Sets StrainType
         /// </summary>
-        [DataMember(Name="environmentalTotalPressure", EmitDefaultValue=false)]
-        public DimensionalPressure EnvironmentalTotalPressure { get; set; }
+        [DataMember(Name="strainType", EmitDefaultValue=false)]
+        public OneOfMarcStrainResultControlItemStrainType StrainType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,10 +73,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FanPBC {\n");
+            sb.Append("class MarcStrainResultControlItem {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
-            sb.Append("  EnvironmentalTotalPressure: ").Append(EnvironmentalTotalPressure).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  StrainType: ").Append(StrainType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FanPBC);
+            return this.Equals(input as MarcStrainResultControlItem);
         }
 
         /// <summary>
-        /// Returns true if FanPBC instances are equal
+        /// Returns true if MarcStrainResultControlItem instances are equal
         /// </summary>
-        /// <param name="input">Instance of FanPBC to be compared</param>
+        /// <param name="input">Instance of MarcStrainResultControlItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FanPBC input)
+        public bool Equals(MarcStrainResultControlItem input)
         {
             if (input == null)
                 return false;
@@ -117,14 +117,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.FanPressure == input.FanPressure ||
-                    (this.FanPressure != null &&
-                    this.FanPressure.Equals(input.FanPressure))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.EnvironmentalTotalPressure == input.EnvironmentalTotalPressure ||
-                    (this.EnvironmentalTotalPressure != null &&
-                    this.EnvironmentalTotalPressure.Equals(input.EnvironmentalTotalPressure))
+                    this.StrainType == input.StrainType ||
+                    (this.StrainType != null &&
+                    this.StrainType.Equals(input.StrainType))
                 );
         }
 
@@ -139,10 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.FanPressure != null)
-                    hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
-                if (this.EnvironmentalTotalPressure != null)
-                    hashCode = hashCode * 59 + this.EnvironmentalTotalPressure.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.StrainType != null)
+                    hashCode = hashCode * 59 + this.StrainType.GetHashCode();
                 return hashCode;
             }
         }

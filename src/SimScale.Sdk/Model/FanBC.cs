@@ -29,6 +29,31 @@ namespace SimScale.Sdk.Model
     public partial class FanBC : OneOfCompressibleBoundaryConditions, OneOfConjugateHeatTransferBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfEmbeddedBoundaryBoundaryConditions, OneOfIncompressibleBoundaryConditions, IEquatable<FanBC>
     {
         /// <summary>
+        /// Defines Direction
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DirectionEnum
+        {
+            /// <summary>
+            /// Enum IN for value: IN
+            /// </summary>
+            [EnumMember(Value = "IN")]
+            IN = 1,
+
+            /// <summary>
+            /// Enum OUT for value: OUT
+            /// </summary>
+            [EnumMember(Value = "OUT")]
+            OUT = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets Direction
+        /// </summary>
+        [DataMember(Name="direction", EmitDefaultValue=false)]
+        public DirectionEnum? Direction { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="FanBC" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -38,6 +63,7 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">This boundary condition sets the &lt;b&gt;pressure&lt;/b&gt; based on the pressure drop specified as a function of the volumetric flow rate. &lt;a href&#x3D;&#39;https://www.simscale.com/knowledge-base/how-do-i-model-a-fan-curve-in-simscale/#external-fan-boundary-condition&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;  Schema name: FanBC (required) (default to &quot;FAN&quot;).</param>
         /// <param name="name">name.</param>
+        /// <param name="direction">direction (default to DirectionEnum.IN).</param>
         /// <param name="pressure">pressure.</param>
         /// <param name="pressureRgh">pressureRgh.</param>
         /// <param name="gaugePressure">gaugePressure.</param>
@@ -49,11 +75,12 @@ namespace SimScale.Sdk.Model
         /// <param name="radiativeIntensityRay">radiativeIntensityRay.</param>
         /// <param name="relativeHumidity">relativeHumidity.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public FanBC(string type = "FAN", string name = default(string), FanPBC pressure = default(FanPBC), OneOfFanBCPressureRgh pressureRgh = default(OneOfFanBCPressureRgh), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), OneOfFanBCTurbulence turbulence = default(OneOfFanBCTurbulence), OneOfFanBCTemperature temperature = default(OneOfFanBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
+        public FanBC(string type = "FAN", string name = default(string), DirectionEnum? direction = default(DirectionEnum?), FanPBC pressure = default(FanPBC), OneOfFanBCPressureRgh pressureRgh = default(OneOfFanBCPressureRgh), FanPBC gaugePressure = default(FanPBC), FanPBC gaugePressureRgh = default(FanPBC), OneOfFanBCTurbulence turbulence = default(OneOfFanBCTurbulence), OneOfFanBCTemperature temperature = default(OneOfFanBCTemperature), List<FixedValuePSBC> passiveScalars = default(List<FixedValuePSBC>), OneOfFanBCNetRadiativeHeatFlux netRadiativeHeatFlux = default(OneOfFanBCNetRadiativeHeatFlux), OneOfFanBCRadiativeIntensityRay radiativeIntensityRay = default(OneOfFanBCRadiativeIntensityRay), FixedValueRHBC relativeHumidity = default(FixedValueRHBC), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FanBC and cannot be null");
             this.Name = name;
+            this.Direction = direction;
             this.Pressure = pressure;
             this.PressureRgh = pressureRgh;
             this.GaugePressure = gaugePressure;
@@ -157,6 +184,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class FanBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  Pressure: ").Append(Pressure).Append("\n");
             sb.Append("  PressureRgh: ").Append(PressureRgh).Append("\n");
             sb.Append("  GaugePressure: ").Append(GaugePressure).Append("\n");
@@ -211,6 +239,10 @@ namespace SimScale.Sdk.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Direction == input.Direction ||
+                    this.Direction.Equals(input.Direction)
                 ) && 
                 (
                     this.Pressure == input.Pressure ||
@@ -283,6 +315,7 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.Direction.GetHashCode();
                 if (this.Pressure != null)
                     hashCode = hashCode * 59 + this.Pressure.GetHashCode();
                 if (this.PressureRgh != null)

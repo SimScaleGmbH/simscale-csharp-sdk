@@ -23,48 +23,48 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FanPBC
+    /// MultilinearModelMarc
     /// </summary>
     [DataContract]
-    public partial class FanPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfFanBCPressureRgh, IEquatable<FanPBC>
+    public partial class MultilinearModelMarc : IEquatable<MultilinearModelMarc>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="MultilinearModelMarc" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FanPBC() { }
+        protected MultilinearModelMarc() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="MultilinearModelMarc" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FanPBC (required) (default to &quot;FAN_PRESSURE&quot;).</param>
-        /// <param name="fanPressure">fanPressure.</param>
-        /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
-        public FanPBC(string type = "FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
+        /// <param name="type">Schema name: MultilinearModelMarc (required) (default to &quot;MULTILINEAR&quot;).</param>
+        /// <param name="stressStrainCurve">stressStrainCurve.</param>
+        /// <param name="hardeningRule">hardeningRule.</param>
+        public MultilinearModelMarc(string type = "MULTILINEAR", DimensionalFunctionPressure stressStrainCurve = default(DimensionalFunctionPressure), OneOfMultilinearModelMarcHardeningRule hardeningRule = default(OneOfMultilinearModelMarcHardeningRule))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPBC and cannot be null");
-            this.FanPressure = fanPressure;
-            this.EnvironmentalTotalPressure = environmentalTotalPressure;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for MultilinearModelMarc and cannot be null");
+            this.StressStrainCurve = stressStrainCurve;
+            this.HardeningRule = hardeningRule;
         }
         
         /// <summary>
-        /// Schema name: FanPBC
+        /// Schema name: MultilinearModelMarc
         /// </summary>
-        /// <value>Schema name: FanPBC</value>
+        /// <value>Schema name: MultilinearModelMarc</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets FanPressure
+        /// Gets or Sets StressStrainCurve
         /// </summary>
-        [DataMember(Name="fanPressure", EmitDefaultValue=false)]
-        public DimensionalFunctionPressure FanPressure { get; set; }
+        [DataMember(Name="stressStrainCurve", EmitDefaultValue=false)]
+        public DimensionalFunctionPressure StressStrainCurve { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnvironmentalTotalPressure
+        /// Gets or Sets HardeningRule
         /// </summary>
-        [DataMember(Name="environmentalTotalPressure", EmitDefaultValue=false)]
-        public DimensionalPressure EnvironmentalTotalPressure { get; set; }
+        [DataMember(Name="hardeningRule", EmitDefaultValue=false)]
+        public OneOfMultilinearModelMarcHardeningRule HardeningRule { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,10 +73,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FanPBC {\n");
+            sb.Append("class MultilinearModelMarc {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
-            sb.Append("  EnvironmentalTotalPressure: ").Append(EnvironmentalTotalPressure).Append("\n");
+            sb.Append("  StressStrainCurve: ").Append(StressStrainCurve).Append("\n");
+            sb.Append("  HardeningRule: ").Append(HardeningRule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FanPBC);
+            return this.Equals(input as MultilinearModelMarc);
         }
 
         /// <summary>
-        /// Returns true if FanPBC instances are equal
+        /// Returns true if MultilinearModelMarc instances are equal
         /// </summary>
-        /// <param name="input">Instance of FanPBC to be compared</param>
+        /// <param name="input">Instance of MultilinearModelMarc to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FanPBC input)
+        public bool Equals(MultilinearModelMarc input)
         {
             if (input == null)
                 return false;
@@ -117,14 +117,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.FanPressure == input.FanPressure ||
-                    (this.FanPressure != null &&
-                    this.FanPressure.Equals(input.FanPressure))
+                    this.StressStrainCurve == input.StressStrainCurve ||
+                    (this.StressStrainCurve != null &&
+                    this.StressStrainCurve.Equals(input.StressStrainCurve))
                 ) && 
                 (
-                    this.EnvironmentalTotalPressure == input.EnvironmentalTotalPressure ||
-                    (this.EnvironmentalTotalPressure != null &&
-                    this.EnvironmentalTotalPressure.Equals(input.EnvironmentalTotalPressure))
+                    this.HardeningRule == input.HardeningRule ||
+                    (this.HardeningRule != null &&
+                    this.HardeningRule.Equals(input.HardeningRule))
                 );
         }
 
@@ -139,10 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.FanPressure != null)
-                    hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
-                if (this.EnvironmentalTotalPressure != null)
-                    hashCode = hashCode * 59 + this.EnvironmentalTotalPressure.GetHashCode();
+                if (this.StressStrainCurve != null)
+                    hashCode = hashCode * 59 + this.StressStrainCurve.GetHashCode();
+                if (this.HardeningRule != null)
+                    hashCode = hashCode * 59 + this.HardeningRule.GetHashCode();
                 return hashCode;
             }
         }

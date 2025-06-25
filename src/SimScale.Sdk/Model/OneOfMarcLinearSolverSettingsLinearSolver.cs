@@ -28,6 +28,7 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(MumpsDirectSolver), "MUMPS_DIRECT")]
+    [JsonSubtypes.KnownSubType(typeof(PardisoDirectSolver), "PARDISO_DIRECT")]
     [JsonSubtypes.KnownSubType(typeof(SparseIterative), "SPARSE_ITERATIVE")]
     public interface OneOfMarcLinearSolverSettingsLinearSolver
     {

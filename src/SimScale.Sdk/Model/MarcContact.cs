@@ -54,6 +54,31 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="friction", EmitDefaultValue=false)]
         public FrictionEnum? Friction { get; set; }
         /// <summary>
+        /// Defines ContactFormulation
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ContactFormulationEnum
+        {
+            /// <summary>
+            /// Enum ONESIDED for value: ONE_SIDED
+            /// </summary>
+            [EnumMember(Value = "ONE_SIDED")]
+            ONESIDED = 1,
+
+            /// <summary>
+            /// Enum DOUBLESIDED for value: DOUBLE_SIDED
+            /// </summary>
+            [EnumMember(Value = "DOUBLE_SIDED")]
+            DOUBLESIDED = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets ContactFormulation
+        /// </summary>
+        [DataMember(Name="contactFormulation", EmitDefaultValue=false)]
+        public ContactFormulationEnum? ContactFormulation { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="MarcContact" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -63,12 +88,14 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: MarcContact (required) (default to &quot;CONTACT&quot;).</param>
         /// <param name="friction">friction (default to FrictionEnum.COULOMBBILINEAR).</param>
+        /// <param name="contactFormulation">contactFormulation (default to ContactFormulationEnum.DOUBLESIDED).</param>
         /// <param name="connections">connections.</param>
-        public MarcContact(string type = "CONTACT", FrictionEnum? friction = default(FrictionEnum?), List<OneOfMarcContactConnections> connections = default(List<OneOfMarcContactConnections>))
+        public MarcContact(string type = "CONTACT", FrictionEnum? friction = default(FrictionEnum?), ContactFormulationEnum? contactFormulation = default(ContactFormulationEnum?), List<OneOfMarcContactConnections> connections = default(List<OneOfMarcContactConnections>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcContact and cannot be null");
             this.Friction = friction;
+            this.ContactFormulation = contactFormulation;
             this.Connections = connections;
         }
         
@@ -95,6 +122,7 @@ namespace SimScale.Sdk.Model
             sb.Append("class MarcContact {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Friction: ").Append(Friction).Append("\n");
+            sb.Append("  ContactFormulation: ").Append(ContactFormulation).Append("\n");
             sb.Append("  Connections: ").Append(Connections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -140,6 +168,10 @@ namespace SimScale.Sdk.Model
                     this.Friction.Equals(input.Friction)
                 ) && 
                 (
+                    this.ContactFormulation == input.ContactFormulation ||
+                    this.ContactFormulation.Equals(input.ContactFormulation)
+                ) && 
+                (
                     this.Connections == input.Connections ||
                     this.Connections != null &&
                     input.Connections != null &&
@@ -159,6 +191,7 @@ namespace SimScale.Sdk.Model
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.Friction.GetHashCode();
+                hashCode = hashCode * 59 + this.ContactFormulation.GetHashCode();
                 if (this.Connections != null)
                     hashCode = hashCode * 59 + this.Connections.GetHashCode();
                 return hashCode;

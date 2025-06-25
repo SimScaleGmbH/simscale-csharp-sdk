@@ -24,13 +24,13 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfMarcContactConnections
+    /// OneOfMultilinearModelMarcHardeningRule
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(MarcBondedContactConnection), "BONDED")]
-    [JsonSubtypes.KnownSubType(typeof(MarcTouchingContactConnection), "TOUCHING")]
-    [JsonSubtypes.KnownSubType(typeof(MarcBondedAndTouchingContactConnection), "BONDED_AND_TOUCHING")]
-    public interface OneOfMarcContactConnections
+    [JsonSubtypes.KnownSubType(typeof(IsotropicPlasticHardeningMarc), "ISOTROPIC")]
+    [JsonSubtypes.KnownSubType(typeof(KinematicPlasticHardeningMarc), "KINEMATIC")]
+    [JsonSubtypes.KnownSubType(typeof(CombinedPlasticHardeningMarc), "COMBINED")]
+    public interface OneOfMultilinearModelMarcHardeningRule
     {
         /// <summary>
         /// Gets Type

@@ -23,48 +23,40 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FanPBC
+    /// CombinedPlasticHardeningMarc
     /// </summary>
     [DataContract]
-    public partial class FanPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfFanBCPressureRgh, IEquatable<FanPBC>
+    public partial class CombinedPlasticHardeningMarc : OneOfMultilinearModelMarcHardeningRule, IEquatable<CombinedPlasticHardeningMarc>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="CombinedPlasticHardeningMarc" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FanPBC() { }
+        protected CombinedPlasticHardeningMarc() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="CombinedPlasticHardeningMarc" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FanPBC (required) (default to &quot;FAN_PRESSURE&quot;).</param>
-        /// <param name="fanPressure">fanPressure.</param>
-        /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
-        public FanPBC(string type = "FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
+        /// <param name="type">Schema name: CombinedPlasticHardeningMarc (required) (default to &quot;COMBINED&quot;).</param>
+        /// <param name="kinematicFraction">kinematicFraction (default to 0.5M).</param>
+        public CombinedPlasticHardeningMarc(string type = "COMBINED", decimal? kinematicFraction = default(decimal?))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPBC and cannot be null");
-            this.FanPressure = fanPressure;
-            this.EnvironmentalTotalPressure = environmentalTotalPressure;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for CombinedPlasticHardeningMarc and cannot be null");
+            this.KinematicFraction = kinematicFraction;
         }
         
         /// <summary>
-        /// Schema name: FanPBC
+        /// Schema name: CombinedPlasticHardeningMarc
         /// </summary>
-        /// <value>Schema name: FanPBC</value>
+        /// <value>Schema name: CombinedPlasticHardeningMarc</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets FanPressure
+        /// Gets or Sets KinematicFraction
         /// </summary>
-        [DataMember(Name="fanPressure", EmitDefaultValue=false)]
-        public DimensionalFunctionPressure FanPressure { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EnvironmentalTotalPressure
-        /// </summary>
-        [DataMember(Name="environmentalTotalPressure", EmitDefaultValue=false)]
-        public DimensionalPressure EnvironmentalTotalPressure { get; set; }
+        [DataMember(Name="kinematicFraction", EmitDefaultValue=false)]
+        public decimal? KinematicFraction { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,10 +65,9 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FanPBC {\n");
+            sb.Append("class CombinedPlasticHardeningMarc {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
-            sb.Append("  EnvironmentalTotalPressure: ").Append(EnvironmentalTotalPressure).Append("\n");
+            sb.Append("  KinematicFraction: ").Append(KinematicFraction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +88,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FanPBC);
+            return this.Equals(input as CombinedPlasticHardeningMarc);
         }
 
         /// <summary>
-        /// Returns true if FanPBC instances are equal
+        /// Returns true if CombinedPlasticHardeningMarc instances are equal
         /// </summary>
-        /// <param name="input">Instance of FanPBC to be compared</param>
+        /// <param name="input">Instance of CombinedPlasticHardeningMarc to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FanPBC input)
+        public bool Equals(CombinedPlasticHardeningMarc input)
         {
             if (input == null)
                 return false;
@@ -117,14 +108,9 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.FanPressure == input.FanPressure ||
-                    (this.FanPressure != null &&
-                    this.FanPressure.Equals(input.FanPressure))
-                ) && 
-                (
-                    this.EnvironmentalTotalPressure == input.EnvironmentalTotalPressure ||
-                    (this.EnvironmentalTotalPressure != null &&
-                    this.EnvironmentalTotalPressure.Equals(input.EnvironmentalTotalPressure))
+                    this.KinematicFraction == input.KinematicFraction ||
+                    (this.KinematicFraction != null &&
+                    this.KinematicFraction.Equals(input.KinematicFraction))
                 );
         }
 
@@ -139,10 +125,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.FanPressure != null)
-                    hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
-                if (this.EnvironmentalTotalPressure != null)
-                    hashCode = hashCode * 59 + this.EnvironmentalTotalPressure.GetHashCode();
+                if (this.KinematicFraction != null)
+                    hashCode = hashCode * 59 + this.KinematicFraction.GetHashCode();
                 return hashCode;
             }
         }

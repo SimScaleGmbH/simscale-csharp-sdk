@@ -29,31 +29,6 @@ namespace SimScale.Sdk.Model
     public partial class HydrostaticFanPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfFanBCPressureRgh, IEquatable<HydrostaticFanPBC>
     {
         /// <summary>
-        /// Defines Direction
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DirectionEnum
-        {
-            /// <summary>
-            /// Enum IN for value: IN
-            /// </summary>
-            [EnumMember(Value = "IN")]
-            IN = 1,
-
-            /// <summary>
-            /// Enum OUT for value: OUT
-            /// </summary>
-            [EnumMember(Value = "OUT")]
-            OUT = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Direction
-        /// </summary>
-        [DataMember(Name="direction", EmitDefaultValue=false)]
-        public DirectionEnum? Direction { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="HydrostaticFanPBC" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -62,14 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="HydrostaticFanPBC" /> class.
         /// </summary>
         /// <param name="type">&lt;p&gt;This pressure formulation is suitable for atmospheric flows with perfect gas fluids: the pressure decreases with increasing height to keep the domain at hydrostatic equilibrium. The ambient pressure in the input sets the pressure at ground level.  Schema name: HydrostaticFanPBC (required) (default to &quot;HYDROSTATIC_ISOTHERMAL_FAN_PRESSURE&quot;).</param>
-        /// <param name="direction">direction (default to DirectionEnum.IN).</param>
         /// <param name="fanPressure">fanPressure.</param>
         /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
-        public HydrostaticFanPBC(string type = "HYDROSTATIC_ISOTHERMAL_FAN_PRESSURE", DirectionEnum? direction = default(DirectionEnum?), DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
+        public HydrostaticFanPBC(string type = "HYDROSTATIC_ISOTHERMAL_FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for HydrostaticFanPBC and cannot be null");
-            this.Direction = direction;
             this.FanPressure = fanPressure;
             this.EnvironmentalTotalPressure = environmentalTotalPressure;
         }
@@ -102,7 +75,6 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class HydrostaticFanPBC {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
             sb.Append("  EnvironmentalTotalPressure: ").Append(EnvironmentalTotalPressure).Append("\n");
             sb.Append("}\n");
@@ -145,10 +117,6 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Direction == input.Direction ||
-                    this.Direction.Equals(input.Direction)
-                ) && 
-                (
                     this.FanPressure == input.FanPressure ||
                     (this.FanPressure != null &&
                     this.FanPressure.Equals(input.FanPressure))
@@ -171,7 +139,6 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.Direction.GetHashCode();
                 if (this.FanPressure != null)
                     hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
                 if (this.EnvironmentalTotalPressure != null)

@@ -23,48 +23,48 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FanPBC
+    /// MarcDisplacementResultControlItem
     /// </summary>
     [DataContract]
-    public partial class FanPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfFanBCPressureRgh, IEquatable<FanPBC>
+    public partial class MarcDisplacementResultControlItem : OneOfMarcResultControlSolutionFields, IEquatable<MarcDisplacementResultControlItem>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="MarcDisplacementResultControlItem" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FanPBC() { }
+        protected MarcDisplacementResultControlItem() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="MarcDisplacementResultControlItem" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FanPBC (required) (default to &quot;FAN_PRESSURE&quot;).</param>
-        /// <param name="fanPressure">fanPressure.</param>
-        /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
-        public FanPBC(string type = "FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
+        /// <param name="type">Schema name: MarcDisplacementResultControlItem (required) (default to &quot;DISPLACEMENT&quot;).</param>
+        /// <param name="name">name.</param>
+        /// <param name="displacementType">displacementType.</param>
+        public MarcDisplacementResultControlItem(string type = "DISPLACEMENT", string name = default(string), GlobalDisplacement displacementType = default(GlobalDisplacement))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPBC and cannot be null");
-            this.FanPressure = fanPressure;
-            this.EnvironmentalTotalPressure = environmentalTotalPressure;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcDisplacementResultControlItem and cannot be null");
+            this.Name = name;
+            this.DisplacementType = displacementType;
         }
         
         /// <summary>
-        /// Schema name: FanPBC
+        /// Schema name: MarcDisplacementResultControlItem
         /// </summary>
-        /// <value>Schema name: FanPBC</value>
+        /// <value>Schema name: MarcDisplacementResultControlItem</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets FanPressure
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="fanPressure", EmitDefaultValue=false)]
-        public DimensionalFunctionPressure FanPressure { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnvironmentalTotalPressure
+        /// Gets or Sets DisplacementType
         /// </summary>
-        [DataMember(Name="environmentalTotalPressure", EmitDefaultValue=false)]
-        public DimensionalPressure EnvironmentalTotalPressure { get; set; }
+        [DataMember(Name="displacementType", EmitDefaultValue=false)]
+        public GlobalDisplacement DisplacementType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,10 +73,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FanPBC {\n");
+            sb.Append("class MarcDisplacementResultControlItem {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
-            sb.Append("  EnvironmentalTotalPressure: ").Append(EnvironmentalTotalPressure).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplacementType: ").Append(DisplacementType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FanPBC);
+            return this.Equals(input as MarcDisplacementResultControlItem);
         }
 
         /// <summary>
-        /// Returns true if FanPBC instances are equal
+        /// Returns true if MarcDisplacementResultControlItem instances are equal
         /// </summary>
-        /// <param name="input">Instance of FanPBC to be compared</param>
+        /// <param name="input">Instance of MarcDisplacementResultControlItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FanPBC input)
+        public bool Equals(MarcDisplacementResultControlItem input)
         {
             if (input == null)
                 return false;
@@ -117,14 +117,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.FanPressure == input.FanPressure ||
-                    (this.FanPressure != null &&
-                    this.FanPressure.Equals(input.FanPressure))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.EnvironmentalTotalPressure == input.EnvironmentalTotalPressure ||
-                    (this.EnvironmentalTotalPressure != null &&
-                    this.EnvironmentalTotalPressure.Equals(input.EnvironmentalTotalPressure))
+                    this.DisplacementType == input.DisplacementType ||
+                    (this.DisplacementType != null &&
+                    this.DisplacementType.Equals(input.DisplacementType))
                 );
         }
 
@@ -139,10 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.FanPressure != null)
-                    hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
-                if (this.EnvironmentalTotalPressure != null)
-                    hashCode = hashCode * 59 + this.EnvironmentalTotalPressure.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.DisplacementType != null)
+                    hashCode = hashCode * 59 + this.DisplacementType.GetHashCode();
                 return hashCode;
             }
         }

@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(LinearElasticMarcMaterialBehavior), "LINEAR_ELASTIC_MARC")]
     [JsonSubtypes.KnownSubType(typeof(HyperelasticMarcMaterialBehavior), "HYPERELASTIC_MARC")]
+    [JsonSubtypes.KnownSubType(typeof(ElastoplasticMarcMaterialBehavior), "ELASTOPLASTIC_MARC")]
     public interface OneOfMarcMaterialMarcMaterialBehavior
     {
         /// <summary>

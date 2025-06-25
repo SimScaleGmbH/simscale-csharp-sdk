@@ -30,6 +30,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(ResidualsConvergenceMethod), "RESIDUALS")]
     [JsonSubtypes.KnownSubType(typeof(DisplacementsConvergenceMethod), "DISPLACEMENTS")]
     [JsonSubtypes.KnownSubType(typeof(StrainEnergyConvergenceMethod), "STRAIN_ENERGY")]
+    [JsonSubtypes.KnownSubType(typeof(ResidualsOrDisplacementsConvergenceMethod), "RESIDUALS_OR_DISPLACEMENTS")]
     public interface OneOfMarcNonlinearSolverSettingsConvergenceMethod
     {
         /// <summary>

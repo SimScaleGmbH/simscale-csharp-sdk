@@ -23,48 +23,48 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// FanPBC
+    /// ElastoplasticMarcMaterialBehavior
     /// </summary>
     [DataContract]
-    public partial class FanPBC : OneOfCustomFluidBCGaugePressure, OneOfCustomFluidBCGaugePressureRgh, OneOfCustomFluidBCPressure, OneOfCustomFluidBCPressureRgh, OneOfFanBCPressureRgh, IEquatable<FanPBC>
+    public partial class ElastoplasticMarcMaterialBehavior : OneOfMarcMaterialMarcMaterialBehavior, IEquatable<ElastoplasticMarcMaterialBehavior>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="ElastoplasticMarcMaterialBehavior" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FanPBC() { }
+        protected ElastoplasticMarcMaterialBehavior() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FanPBC" /> class.
+        /// Initializes a new instance of the <see cref="ElastoplasticMarcMaterialBehavior" /> class.
         /// </summary>
-        /// <param name="type">Schema name: FanPBC (required) (default to &quot;FAN_PRESSURE&quot;).</param>
-        /// <param name="fanPressure">fanPressure.</param>
-        /// <param name="environmentalTotalPressure">environmentalTotalPressure.</param>
-        public FanPBC(string type = "FAN_PRESSURE", DimensionalFunctionPressure fanPressure = default(DimensionalFunctionPressure), DimensionalPressure environmentalTotalPressure = default(DimensionalPressure))
+        /// <param name="type">Schema name: ElastoplasticMarcMaterialBehavior (required) (default to &quot;ELASTOPLASTIC_MARC&quot;).</param>
+        /// <param name="elasticity">elasticity.</param>
+        /// <param name="plasticity">plasticity.</param>
+        public ElastoplasticMarcMaterialBehavior(string type = "ELASTOPLASTIC_MARC", ElasticityMarc elasticity = default(ElasticityMarc), PlasticityMarc plasticity = default(PlasticityMarc))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for FanPBC and cannot be null");
-            this.FanPressure = fanPressure;
-            this.EnvironmentalTotalPressure = environmentalTotalPressure;
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for ElastoplasticMarcMaterialBehavior and cannot be null");
+            this.Elasticity = elasticity;
+            this.Plasticity = plasticity;
         }
         
         /// <summary>
-        /// Schema name: FanPBC
+        /// Schema name: ElastoplasticMarcMaterialBehavior
         /// </summary>
-        /// <value>Schema name: FanPBC</value>
+        /// <value>Schema name: ElastoplasticMarcMaterialBehavior</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets FanPressure
+        /// Gets or Sets Elasticity
         /// </summary>
-        [DataMember(Name="fanPressure", EmitDefaultValue=false)]
-        public DimensionalFunctionPressure FanPressure { get; set; }
+        [DataMember(Name="elasticity", EmitDefaultValue=false)]
+        public ElasticityMarc Elasticity { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnvironmentalTotalPressure
+        /// Gets or Sets Plasticity
         /// </summary>
-        [DataMember(Name="environmentalTotalPressure", EmitDefaultValue=false)]
-        public DimensionalPressure EnvironmentalTotalPressure { get; set; }
+        [DataMember(Name="plasticity", EmitDefaultValue=false)]
+        public PlasticityMarc Plasticity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,10 +73,10 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FanPBC {\n");
+            sb.Append("class ElastoplasticMarcMaterialBehavior {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  FanPressure: ").Append(FanPressure).Append("\n");
-            sb.Append("  EnvironmentalTotalPressure: ").Append(EnvironmentalTotalPressure).Append("\n");
+            sb.Append("  Elasticity: ").Append(Elasticity).Append("\n");
+            sb.Append("  Plasticity: ").Append(Plasticity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +97,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FanPBC);
+            return this.Equals(input as ElastoplasticMarcMaterialBehavior);
         }
 
         /// <summary>
-        /// Returns true if FanPBC instances are equal
+        /// Returns true if ElastoplasticMarcMaterialBehavior instances are equal
         /// </summary>
-        /// <param name="input">Instance of FanPBC to be compared</param>
+        /// <param name="input">Instance of ElastoplasticMarcMaterialBehavior to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FanPBC input)
+        public bool Equals(ElastoplasticMarcMaterialBehavior input)
         {
             if (input == null)
                 return false;
@@ -117,14 +117,14 @@ namespace SimScale.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.FanPressure == input.FanPressure ||
-                    (this.FanPressure != null &&
-                    this.FanPressure.Equals(input.FanPressure))
+                    this.Elasticity == input.Elasticity ||
+                    (this.Elasticity != null &&
+                    this.Elasticity.Equals(input.Elasticity))
                 ) && 
                 (
-                    this.EnvironmentalTotalPressure == input.EnvironmentalTotalPressure ||
-                    (this.EnvironmentalTotalPressure != null &&
-                    this.EnvironmentalTotalPressure.Equals(input.EnvironmentalTotalPressure))
+                    this.Plasticity == input.Plasticity ||
+                    (this.Plasticity != null &&
+                    this.Plasticity.Equals(input.Plasticity))
                 );
         }
 
@@ -139,10 +139,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.FanPressure != null)
-                    hashCode = hashCode * 59 + this.FanPressure.GetHashCode();
-                if (this.EnvironmentalTotalPressure != null)
-                    hashCode = hashCode * 59 + this.EnvironmentalTotalPressure.GetHashCode();
+                if (this.Elasticity != null)
+                    hashCode = hashCode * 59 + this.Elasticity.GetHashCode();
+                if (this.Plasticity != null)
+                    hashCode = hashCode * 59 + this.Plasticity.GetHashCode();
                 return hashCode;
             }
         }
