@@ -65,6 +65,7 @@ namespace SimScale.Sdk.Model
         /// <param name="relaxationType">relaxationType (default to &quot;MANUAL&quot;).</param>
         /// <param name="relaxationFactor">relaxationFactor.</param>
         /// <param name="diagonalRelaxationFactor">diagonalRelaxationFactor.</param>
+        /// <param name="viscousWorkIncluded">Enabling this option makes the viscous work terms included everywhere in the domain. (default to false).</param>
         /// <param name="radiationResolution">radiationResolution (default to RadiationResolutionEnum.MODERATE).</param>
         /// <param name="momentumPredictor">momentumPredictor.</param>
         /// <param name="transonic">transonic (default to false).</param>
@@ -85,11 +86,12 @@ namespace SimScale.Sdk.Model
         /// <param name="solvers">solvers.</param>
         /// <param name="schemes">schemes.</param>
         /// <param name="stabilization">stabilization.</param>
-        public FluidNumerics(string relaxationType = default(string), RelaxationFactor relaxationFactor = default(RelaxationFactor), RelaxationFactor diagonalRelaxationFactor = default(RelaxationFactor), RadiationResolutionEnum? radiationResolution = default(RadiationResolutionEnum?), bool? momentumPredictor = default(bool?), bool? transonic = default(bool?), int? numOuterCorrectors = default(int?), int? numCorrectors = default(int?), int? numNonOrthogonalCorrectors = default(int?), decimal? smoothingParameter = default(decimal?), decimal? dampingCoefficient = default(decimal?), int? numAlphaSpreadIterations = default(int?), int? numAlphaSweepIterations = default(int?), bool? evaluateTurbulenceOnlyOnFinalIteration = default(bool?), int? pressureReferenceCell = default(int?), DimensionalPressure pressureReferenceValue = default(DimensionalPressure), DimensionalSpeed velocityLimit = default(DimensionalSpeed), decimal? maxVoltageInitialIterations = default(decimal?), decimal? voltageInitialTolerance = default(decimal?), ResidualControls residualControls = default(ResidualControls), FluidSolvers solvers = default(FluidSolvers), Schemes schemes = default(Schemes), Stabilization stabilization = default(Stabilization))
+        public FluidNumerics(string relaxationType = default(string), RelaxationFactor relaxationFactor = default(RelaxationFactor), RelaxationFactor diagonalRelaxationFactor = default(RelaxationFactor), bool? viscousWorkIncluded = default(bool?), RadiationResolutionEnum? radiationResolution = default(RadiationResolutionEnum?), bool? momentumPredictor = default(bool?), bool? transonic = default(bool?), int? numOuterCorrectors = default(int?), int? numCorrectors = default(int?), int? numNonOrthogonalCorrectors = default(int?), decimal? smoothingParameter = default(decimal?), decimal? dampingCoefficient = default(decimal?), int? numAlphaSpreadIterations = default(int?), int? numAlphaSweepIterations = default(int?), bool? evaluateTurbulenceOnlyOnFinalIteration = default(bool?), int? pressureReferenceCell = default(int?), DimensionalPressure pressureReferenceValue = default(DimensionalPressure), DimensionalSpeed velocityLimit = default(DimensionalSpeed), decimal? maxVoltageInitialIterations = default(decimal?), decimal? voltageInitialTolerance = default(decimal?), ResidualControls residualControls = default(ResidualControls), FluidSolvers solvers = default(FluidSolvers), Schemes schemes = default(Schemes), Stabilization stabilization = default(Stabilization))
         {
             this.RelaxationType = relaxationType;
             this.RelaxationFactor = relaxationFactor;
             this.DiagonalRelaxationFactor = diagonalRelaxationFactor;
+            this.ViscousWorkIncluded = viscousWorkIncluded;
             this.RadiationResolution = radiationResolution;
             this.MomentumPredictor = momentumPredictor;
             this.Transonic = transonic;
@@ -129,6 +131,13 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="diagonalRelaxationFactor", EmitDefaultValue=false)]
         public RelaxationFactor DiagonalRelaxationFactor { get; set; }
+
+        /// <summary>
+        /// Enabling this option makes the viscous work terms included everywhere in the domain.
+        /// </summary>
+        /// <value>Enabling this option makes the viscous work terms included everywhere in the domain.</value>
+        [DataMember(Name="viscousWorkIncluded", EmitDefaultValue=false)]
+        public bool? ViscousWorkIncluded { get; set; }
 
         /// <summary>
         /// Gets or Sets MomentumPredictor
@@ -257,6 +266,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  RelaxationType: ").Append(RelaxationType).Append("\n");
             sb.Append("  RelaxationFactor: ").Append(RelaxationFactor).Append("\n");
             sb.Append("  DiagonalRelaxationFactor: ").Append(DiagonalRelaxationFactor).Append("\n");
+            sb.Append("  ViscousWorkIncluded: ").Append(ViscousWorkIncluded).Append("\n");
             sb.Append("  RadiationResolution: ").Append(RadiationResolution).Append("\n");
             sb.Append("  MomentumPredictor: ").Append(MomentumPredictor).Append("\n");
             sb.Append("  Transonic: ").Append(Transonic).Append("\n");
@@ -325,6 +335,11 @@ namespace SimScale.Sdk.Model
                     this.DiagonalRelaxationFactor == input.DiagonalRelaxationFactor ||
                     (this.DiagonalRelaxationFactor != null &&
                     this.DiagonalRelaxationFactor.Equals(input.DiagonalRelaxationFactor))
+                ) && 
+                (
+                    this.ViscousWorkIncluded == input.ViscousWorkIncluded ||
+                    (this.ViscousWorkIncluded != null &&
+                    this.ViscousWorkIncluded.Equals(input.ViscousWorkIncluded))
                 ) && 
                 (
                     this.RadiationResolution == input.RadiationResolution ||
@@ -442,6 +457,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.RelaxationFactor.GetHashCode();
                 if (this.DiagonalRelaxationFactor != null)
                     hashCode = hashCode * 59 + this.DiagonalRelaxationFactor.GetHashCode();
+                if (this.ViscousWorkIncluded != null)
+                    hashCode = hashCode * 59 + this.ViscousWorkIncluded.GetHashCode();
                 hashCode = hashCode * 59 + this.RadiationResolution.GetHashCode();
                 if (this.MomentumPredictor != null)
                     hashCode = hashCode * 59 + this.MomentumPredictor.GetHashCode();

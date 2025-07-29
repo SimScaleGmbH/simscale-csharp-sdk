@@ -37,6 +37,7 @@ namespace SimScale.Sdk.Model
         /// <param name="velocityEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="velocity">velocity.</param>
         /// <param name="temperatureEquation">temperatureEquation.</param>
+        /// <param name="temperatureField">temperatureField (default to 0.8M).</param>
         /// <param name="densityField">densityField.</param>
         /// <param name="enthalpyEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="internalEnergyEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
@@ -54,7 +55,7 @@ namespace SimScale.Sdk.Model
         /// <param name="specificHumidityEquation">specificHumidityEquation (default to 0.7M).</param>
         /// <param name="ageOfFluidEquation">ageOfFluidEquation.</param>
         /// <param name="voltageField">voltageField (default to 0.5M).</param>
-        public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? velocity = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? turbulentKineticEnergy = default(decimal?), decimal? turbulentEnergyDissipationRate = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? internalEnergy = default(decimal?), decimal? gasMixtureTransport = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?), decimal? radiativeIntensityRayField = default(decimal?), decimal? specificHumidityEquation = default(decimal?), decimal? ageOfFluidEquation = default(decimal?), decimal? voltageField = default(decimal?))
+        public RelaxationFactor(decimal? pressureField = default(decimal?), decimal? pressureRghField = default(decimal?), decimal? passiveScalarEquation = default(decimal?), decimal? velocityEquation = default(decimal?), decimal? velocity = default(decimal?), decimal? temperatureEquation = default(decimal?), decimal? temperatureField = default(decimal?), decimal? densityField = default(decimal?), decimal? enthalpyEquation = default(decimal?), decimal? internalEnergyEquation = default(decimal?), decimal? turbulentKineticEnergyEquation = default(decimal?), decimal? omegaDissipationRateEquation = default(decimal?), decimal? epsilonDissipationRateEquation = default(decimal?), decimal? turbulentKineticEnergy = default(decimal?), decimal? turbulentEnergyDissipationRate = default(decimal?), decimal? nuTildaEquation = default(decimal?), decimal? netRadiativeHeatFluxField = default(decimal?), decimal? internalEnergy = default(decimal?), decimal? gasMixtureTransport = default(decimal?), decimal? radiativeIntensityRayEquation = default(decimal?), decimal? radiativeIntensityRayField = default(decimal?), decimal? specificHumidityEquation = default(decimal?), decimal? ageOfFluidEquation = default(decimal?), decimal? voltageField = default(decimal?))
         {
             this.PressureField = pressureField;
             this.PressureRghField = pressureRghField;
@@ -62,6 +63,7 @@ namespace SimScale.Sdk.Model
             this.VelocityEquation = velocityEquation;
             this.Velocity = velocity;
             this.TemperatureEquation = temperatureEquation;
+            this.TemperatureField = temperatureField;
             this.DensityField = densityField;
             this.EnthalpyEquation = enthalpyEquation;
             this.InternalEnergyEquation = internalEnergyEquation;
@@ -118,6 +120,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="temperatureEquation", EmitDefaultValue=false)]
         public decimal? TemperatureEquation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TemperatureField
+        /// </summary>
+        [DataMember(Name="temperatureField", EmitDefaultValue=false)]
+        public decimal? TemperatureField { get; set; }
 
         /// <summary>
         /// Gets or Sets DensityField
@@ -237,6 +245,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  VelocityEquation: ").Append(VelocityEquation).Append("\n");
             sb.Append("  Velocity: ").Append(Velocity).Append("\n");
             sb.Append("  TemperatureEquation: ").Append(TemperatureEquation).Append("\n");
+            sb.Append("  TemperatureField: ").Append(TemperatureField).Append("\n");
             sb.Append("  DensityField: ").Append(DensityField).Append("\n");
             sb.Append("  EnthalpyEquation: ").Append(EnthalpyEquation).Append("\n");
             sb.Append("  InternalEnergyEquation: ").Append(InternalEnergyEquation).Append("\n");
@@ -317,6 +326,11 @@ namespace SimScale.Sdk.Model
                     this.TemperatureEquation == input.TemperatureEquation ||
                     (this.TemperatureEquation != null &&
                     this.TemperatureEquation.Equals(input.TemperatureEquation))
+                ) && 
+                (
+                    this.TemperatureField == input.TemperatureField ||
+                    (this.TemperatureField != null &&
+                    this.TemperatureField.Equals(input.TemperatureField))
                 ) && 
                 (
                     this.DensityField == input.DensityField ||
@@ -426,6 +440,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Velocity.GetHashCode();
                 if (this.TemperatureEquation != null)
                     hashCode = hashCode * 59 + this.TemperatureEquation.GetHashCode();
+                if (this.TemperatureField != null)
+                    hashCode = hashCode * 59 + this.TemperatureField.GetHashCode();
                 if (this.DensityField != null)
                     hashCode = hashCode * 59 + this.DensityField.GetHashCode();
                 if (this.EnthalpyEquation != null)

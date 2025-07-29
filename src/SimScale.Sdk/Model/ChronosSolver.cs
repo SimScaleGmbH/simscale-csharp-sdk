@@ -29,6 +29,31 @@ namespace SimScale.Sdk.Model
     public partial class ChronosSolver : OneOfSolidNumericsSolver, IEquatable<ChronosSolver>
     {
         /// <summary>
+        /// Defines NonConvergenceAction
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NonConvergenceActionEnum
+        {
+            /// <summary>
+            /// Enum STOP for value: STOP
+            /// </summary>
+            [EnumMember(Value = "STOP")]
+            STOP = 1,
+
+            /// <summary>
+            /// Enum SWITCHTODIRECTSOLVER for value: SWITCH_TO_DIRECT_SOLVER
+            /// </summary>
+            [EnumMember(Value = "SWITCH_TO_DIRECT_SOLVER")]
+            SWITCHTODIRECTSOLVER = 2
+
+        }
+
+        /// <summary>
+        /// Gets or Sets NonConvergenceAction
+        /// </summary>
+        [DataMember(Name="nonConvergenceAction", EmitDefaultValue=false)]
+        public NonConvergenceActionEnum? NonConvergenceAction { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ChronosSolver" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,13 +64,15 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: ChronosSolver (required) (default to &quot;CHRONOS&quot;).</param>
         /// <param name="convergenceThreshold">Select the convergence tolerance. Can be smaller than with PETSc, and has a big impact on the newton convergence. It is recommended to start with a smaller value in case of convergence problems e.g. 1e-8 - 1e-10. (default to 0.0000010M).</param>
         /// <param name="maxIterations">Maximum number of iterations for Chronos. Should be 1000 for AMG (max 3000), and 5000 with FSAI (max 10000). (default to 1000).</param>
+        /// <param name="nonConvergenceAction">nonConvergenceAction (default to NonConvergenceActionEnum.SWITCHTODIRECTSOLVER).</param>
         /// <param name="advancedSettings">advancedSettings.</param>
-        public ChronosSolver(string type = "CHRONOS", decimal? convergenceThreshold = default(decimal?), int? maxIterations = default(int?), AdvancedChronosSettings advancedSettings = default(AdvancedChronosSettings))
+        public ChronosSolver(string type = "CHRONOS", decimal? convergenceThreshold = default(decimal?), int? maxIterations = default(int?), NonConvergenceActionEnum? nonConvergenceAction = default(NonConvergenceActionEnum?), AdvancedChronosSettings advancedSettings = default(AdvancedChronosSettings))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ChronosSolver and cannot be null");
             this.ConvergenceThreshold = convergenceThreshold;
             this.MaxIterations = maxIterations;
+            this.NonConvergenceAction = nonConvergenceAction;
             this.AdvancedSettings = advancedSettings;
         }
         
@@ -87,6 +114,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ConvergenceThreshold: ").Append(ConvergenceThreshold).Append("\n");
             sb.Append("  MaxIterations: ").Append(MaxIterations).Append("\n");
+            sb.Append("  NonConvergenceAction: ").Append(NonConvergenceAction).Append("\n");
             sb.Append("  AdvancedSettings: ").Append(AdvancedSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -138,6 +166,10 @@ namespace SimScale.Sdk.Model
                     this.MaxIterations.Equals(input.MaxIterations))
                 ) && 
                 (
+                    this.NonConvergenceAction == input.NonConvergenceAction ||
+                    this.NonConvergenceAction.Equals(input.NonConvergenceAction)
+                ) && 
+                (
                     this.AdvancedSettings == input.AdvancedSettings ||
                     (this.AdvancedSettings != null &&
                     this.AdvancedSettings.Equals(input.AdvancedSettings))
@@ -159,6 +191,7 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ConvergenceThreshold.GetHashCode();
                 if (this.MaxIterations != null)
                     hashCode = hashCode * 59 + this.MaxIterations.GetHashCode();
+                hashCode = hashCode * 59 + this.NonConvergenceAction.GetHashCode();
                 if (this.AdvancedSettings != null)
                     hashCode = hashCode * 59 + this.AdvancedSettings.GetHashCode();
                 return hashCode;

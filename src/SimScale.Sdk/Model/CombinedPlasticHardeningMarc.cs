@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// CombinedPlasticHardeningMarc
     /// </summary>
     [DataContract]
-    public partial class CombinedPlasticHardeningMarc : OneOfMultilinearModelMarcHardeningRule, IEquatable<CombinedPlasticHardeningMarc>
+    public partial class CombinedPlasticHardeningMarc : OneOfBilinearModelMarcHardeningRule, OneOfMultilinearModelMarcHardeningRule, IEquatable<CombinedPlasticHardeningMarc>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CombinedPlasticHardeningMarc" /> class.

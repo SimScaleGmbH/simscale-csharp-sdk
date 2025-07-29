@@ -39,17 +39,19 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: ElectromagneticAnalysis (required) (default to &quot;ELECTROMAGNETIC_ANALYSIS&quot;).</param>
         /// <param name="model">model.</param>
         /// <param name="materials">materials.</param>
+        /// <param name="initialConditions">initialConditions.</param>
         /// <param name="coils">coils.</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
-        public ElectromagneticAnalysis(string type = "ELECTROMAGNETIC_ANALYSIS", OneOfElectromagneticAnalysisModel model = default(OneOfElectromagneticAnalysisModel), List<ElectromagneticMaterial> materials = default(List<ElectromagneticMaterial>), List<Coil> coils = default(List<Coil>), List<OneOfElectromagneticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfElectromagneticAnalysisBoundaryConditions>), ElectromagneticResultControl resultControl = default(ElectromagneticResultControl), ElectromagneticNumerics numerics = default(ElectromagneticNumerics), ElectromagneticSimulationControl simulationControl = default(ElectromagneticSimulationControl))
+        public ElectromagneticAnalysis(string type = "ELECTROMAGNETIC_ANALYSIS", OneOfElectromagneticAnalysisModel model = default(OneOfElectromagneticAnalysisModel), List<ElectromagneticMaterial> materials = default(List<ElectromagneticMaterial>), ElectromagneticInitialConditions initialConditions = default(ElectromagneticInitialConditions), List<Coil> coils = default(List<Coil>), List<OneOfElectromagneticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfElectromagneticAnalysisBoundaryConditions>), ElectromagneticResultControl resultControl = default(ElectromagneticResultControl), ElectromagneticNumerics numerics = default(ElectromagneticNumerics), ElectromagneticSimulationControl simulationControl = default(ElectromagneticSimulationControl))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ElectromagneticAnalysis and cannot be null");
             this.Model = model;
             this.Materials = materials;
+            this.InitialConditions = initialConditions;
             this.Coils = coils;
             this.BoundaryConditions = boundaryConditions;
             this.ResultControl = resultControl;
@@ -75,6 +77,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="materials", EmitDefaultValue=false)]
         public List<ElectromagneticMaterial> Materials { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InitialConditions
+        /// </summary>
+        [DataMember(Name="initialConditions", EmitDefaultValue=false)]
+        public ElectromagneticInitialConditions InitialConditions { get; set; }
 
         /// <summary>
         /// Gets or Sets Coils
@@ -117,6 +125,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
             sb.Append("  Materials: ").Append(Materials).Append("\n");
+            sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
             sb.Append("  Coils: ").Append(Coils).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
             sb.Append("  ResultControl: ").Append(ResultControl).Append("\n");
@@ -173,6 +182,11 @@ namespace SimScale.Sdk.Model
                     this.Materials.SequenceEqual(input.Materials)
                 ) && 
                 (
+                    this.InitialConditions == input.InitialConditions ||
+                    (this.InitialConditions != null &&
+                    this.InitialConditions.Equals(input.InitialConditions))
+                ) && 
+                (
                     this.Coils == input.Coils ||
                     this.Coils != null &&
                     input.Coils != null &&
@@ -216,6 +230,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Model.GetHashCode();
                 if (this.Materials != null)
                     hashCode = hashCode * 59 + this.Materials.GetHashCode();
+                if (this.InitialConditions != null)
+                    hashCode = hashCode * 59 + this.InitialConditions.GetHashCode();
                 if (this.Coils != null)
                     hashCode = hashCode * 59 + this.Coils.GetHashCode();
                 if (this.BoundaryConditions != null)

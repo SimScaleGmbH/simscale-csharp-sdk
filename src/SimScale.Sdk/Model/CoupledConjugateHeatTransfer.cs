@@ -29,9 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class CoupledConjugateHeatTransfer : Analysis, IEquatable<CoupledConjugateHeatTransfer>
     {
         /// <summary>
-        /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt;
+        /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST&lt;/a&gt; ,&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#standard-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/p&gt;
         /// </summary>
-        /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt;</value>
+        /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST&lt;/a&gt; ,&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#standard-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/p&gt;</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TurbulenceModelEnum
         {
@@ -42,17 +42,23 @@ namespace SimScale.Sdk.Model
             NONE = 1,
 
             /// <summary>
+            /// Enum KEPSILON for value: KEPSILON
+            /// </summary>
+            [EnumMember(Value = "KEPSILON")]
+            KEPSILON = 2,
+
+            /// <summary>
             /// Enum KOMEGASST for value: KOMEGASST
             /// </summary>
             [EnumMember(Value = "KOMEGASST")]
-            KOMEGASST = 2
+            KOMEGASST = 3
 
         }
 
         /// <summary>
-        /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt;
+        /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST&lt;/a&gt; ,&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#standard-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/p&gt;
         /// </summary>
-        /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt;</value>
+        /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST&lt;/a&gt; ,&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#standard-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/p&gt;</value>
         [DataMember(Name="turbulenceModel", EmitDefaultValue=false)]
         public TurbulenceModelEnum? TurbulenceModel { get; set; }
         /// <summary>
@@ -158,7 +164,7 @@ namespace SimScale.Sdk.Model
         /// <param name="enableSolarLoad">Enables the &lt;b&gt;solar load&lt;/b&gt; model in the simulation. &lt;b&gt;Diffuse&lt;/b&gt; and/or &lt;b&gt;directional&lt;/b&gt; solar load contributions are specified in the &lt;b&gt;solar calculator&lt;/b&gt;. The solar load terms will heat the external faces of the simulation domain. Moreover, if transparent and/or semi-transparent boundaries are present, internal surfaces of the domain might also be heated. All &lt;b&gt;internal solids&lt;/b&gt; will be considered &lt;b&gt;opaque&lt;/b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="enableHumidityModel">&lt;b&gt;Humidity model&lt;/b&gt; to simulate wet air. First turn on the &lt;em&gt;compressible&lt;/em&gt; toggle to enable it. The simulation will take the effect of humid air on the flow field into account. Dry air is heavier than wet air and hence sinks. The model does not account for condensation and evaporation and is not applicable in cases where this is of concern, for example dehumidifiers. It is suitable for HVAC analysis and for temperature ranges of &lt;b&gt;0° to 100°C&lt;/b&gt;. &lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/global-settings/humidity-modeling/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="enableJouleHeating">Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation. (default to false).</param>
-        /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST.&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
+        /// <param name="turbulenceModel">Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST&lt;/a&gt; ,&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#standard-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/p&gt; (default to TurbulenceModelEnum.KOMEGASST).</param>
         /// <param name="timeDependency">timeDependency.</param>
         /// <param name="numOfPassiveSpecies">Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport of a scalar quantity within a fluid flow without affecting it. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/#passive-species&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to NumOfPassiveSpeciesEnum.NUMBER_0).</param>
         /// <param name="connectionGroups">connectionGroups.</param>

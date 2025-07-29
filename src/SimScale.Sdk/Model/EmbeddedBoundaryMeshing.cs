@@ -32,7 +32,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="EmbeddedBoundaryMeshing" /> class.
         /// </summary>
         /// <param name="sizing">sizing.</param>
-        /// <param name="numberOfBufferCells">numberOfBufferCells (default to 4M).</param>
+        /// <param name="numberOfBufferCells">Target number of cells for every cell size level. Higher number of buffer cells ensure smoother cell size transitions, which results in better accuracy but bigger computation costs. On the other hand, lower number of buffer cells will result in smaller computation costs but worse accuracy. &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/buffer_cells.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt; (default to 4M).</param>
         /// <param name="refinements">refinements.</param>
         public EmbeddedBoundaryMeshing(OneOfEmbeddedBoundaryMeshingSizing sizing = default(OneOfEmbeddedBoundaryMeshingSizing), decimal? numberOfBufferCells = default(decimal?), List<OneOfEmbeddedBoundaryMeshingRefinements> refinements = default(List<OneOfEmbeddedBoundaryMeshingRefinements>))
         {
@@ -48,8 +48,9 @@ namespace SimScale.Sdk.Model
         public OneOfEmbeddedBoundaryMeshingSizing Sizing { get; set; }
 
         /// <summary>
-        /// Gets or Sets NumberOfBufferCells
+        /// Target number of cells for every cell size level. Higher number of buffer cells ensure smoother cell size transitions, which results in better accuracy but bigger computation costs. On the other hand, lower number of buffer cells will result in smaller computation costs but worse accuracy. &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/buffer_cells.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;
         /// </summary>
+        /// <value>Target number of cells for every cell size level. Higher number of buffer cells ensure smoother cell size transitions, which results in better accuracy but bigger computation costs. On the other hand, lower number of buffer cells will result in smaller computation costs but worse accuracy. &lt;img src&#x3D;\&quot;/spec/resources/help/imgs/buffer_cells.png\&quot; class&#x3D;\&quot;helpPopupImage\&quot;/&gt;</value>
         [DataMember(Name="numberOfBufferCells", EmitDefaultValue=false)]
         public decimal? NumberOfBufferCells { get; set; }
 

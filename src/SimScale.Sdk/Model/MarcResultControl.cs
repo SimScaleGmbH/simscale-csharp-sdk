@@ -32,9 +32,13 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="MarcResultControl" /> class.
         /// </summary>
         /// <param name="solutionFields">solutionFields.</param>
-        public MarcResultControl(List<OneOfMarcResultControlSolutionFields> solutionFields = default(List<OneOfMarcResultControlSolutionFields>))
+        /// <param name="areaCalculation">areaCalculation.</param>
+        /// <param name="volumeCalculation">volumeCalculation.</param>
+        public MarcResultControl(List<OneOfMarcResultControlSolutionFields> solutionFields = default(List<OneOfMarcResultControlSolutionFields>), List<OneOfMarcResultControlAreaCalculation> areaCalculation = default(List<OneOfMarcResultControlAreaCalculation>), List<OneOfMarcResultControlVolumeCalculation> volumeCalculation = default(List<OneOfMarcResultControlVolumeCalculation>))
         {
             this.SolutionFields = solutionFields;
+            this.AreaCalculation = areaCalculation;
+            this.VolumeCalculation = volumeCalculation;
         }
         
         /// <summary>
@@ -42,6 +46,18 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="solutionFields", EmitDefaultValue=false)]
         public List<OneOfMarcResultControlSolutionFields> SolutionFields { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AreaCalculation
+        /// </summary>
+        [DataMember(Name="areaCalculation", EmitDefaultValue=false)]
+        public List<OneOfMarcResultControlAreaCalculation> AreaCalculation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VolumeCalculation
+        /// </summary>
+        [DataMember(Name="volumeCalculation", EmitDefaultValue=false)]
+        public List<OneOfMarcResultControlVolumeCalculation> VolumeCalculation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,6 +68,8 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class MarcResultControl {\n");
             sb.Append("  SolutionFields: ").Append(SolutionFields).Append("\n");
+            sb.Append("  AreaCalculation: ").Append(AreaCalculation).Append("\n");
+            sb.Append("  VolumeCalculation: ").Append(VolumeCalculation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,6 +109,18 @@ namespace SimScale.Sdk.Model
                     this.SolutionFields != null &&
                     input.SolutionFields != null &&
                     this.SolutionFields.SequenceEqual(input.SolutionFields)
+                ) && 
+                (
+                    this.AreaCalculation == input.AreaCalculation ||
+                    this.AreaCalculation != null &&
+                    input.AreaCalculation != null &&
+                    this.AreaCalculation.SequenceEqual(input.AreaCalculation)
+                ) && 
+                (
+                    this.VolumeCalculation == input.VolumeCalculation ||
+                    this.VolumeCalculation != null &&
+                    input.VolumeCalculation != null &&
+                    this.VolumeCalculation.SequenceEqual(input.VolumeCalculation)
                 );
         }
 
@@ -105,6 +135,10 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.SolutionFields != null)
                     hashCode = hashCode * 59 + this.SolutionFields.GetHashCode();
+                if (this.AreaCalculation != null)
+                    hashCode = hashCode * 59 + this.AreaCalculation.GetHashCode();
+                if (this.VolumeCalculation != null)
+                    hashCode = hashCode * 59 + this.VolumeCalculation.GetHashCode();
                 return hashCode;
             }
         }

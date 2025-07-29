@@ -30,6 +30,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(TotalStrain), "TOTAL")]
     [JsonSubtypes.KnownSubType(typeof(PrincipalTotalStrain), "PRINCIPAL_TOTAL")]
     [JsonSubtypes.KnownSubType(typeof(EquivalentElasticStrain), "EQUIVALENT_ELASTIC")]
+    [JsonSubtypes.KnownSubType(typeof(EquivalentPlasticStrain), "EQUIVALENT_PLASTIC")]
     public interface OneOfMarcStrainResultControlItemStrainType
     {
         /// <summary>

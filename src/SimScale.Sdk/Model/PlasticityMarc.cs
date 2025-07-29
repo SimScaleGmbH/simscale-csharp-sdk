@@ -32,7 +32,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="PlasticityMarc" /> class.
         /// </summary>
         /// <param name="plasticityModel">plasticityModel.</param>
-        public PlasticityMarc(MultilinearModelMarc plasticityModel = default(MultilinearModelMarc))
+        public PlasticityMarc(OneOfPlasticityMarcPlasticityModel plasticityModel = default(OneOfPlasticityMarcPlasticityModel))
         {
             this.PlasticityModel = plasticityModel;
         }
@@ -41,7 +41,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets PlasticityModel
         /// </summary>
         [DataMember(Name="plasticityModel", EmitDefaultValue=false)]
-        public MultilinearModelMarc PlasticityModel { get; set; }
+        public OneOfPlasticityMarcPlasticityModel PlasticityModel { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

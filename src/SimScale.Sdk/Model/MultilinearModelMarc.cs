@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MultilinearModelMarc
     /// </summary>
     [DataContract]
-    public partial class MultilinearModelMarc : IEquatable<MultilinearModelMarc>
+    public partial class MultilinearModelMarc : OneOfPlasticityMarcPlasticityModel, IEquatable<MultilinearModelMarc>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MultilinearModelMarc" /> class.

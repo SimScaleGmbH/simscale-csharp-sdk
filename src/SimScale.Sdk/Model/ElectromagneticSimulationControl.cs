@@ -110,13 +110,15 @@ namespace SimScale.Sdk.Model
         /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
         /// <param name="coreLossReferencePeriod">coreLossReferencePeriod.</param>
-        public ElectromagneticSimulationControl(ElectromagneticTransientControl transientMagneticsControl = default(ElectromagneticTransientControl), TimeStepWriteControl writeControl = default(TimeStepWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), DimensionalTime coreLossReferencePeriod = default(DimensionalTime))
+        /// <param name="timePeriodicAcceleration">Activate when the coil excitation is periodic to accelerate simulation. For more information, please refer to our &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/electromagnetics/#time-periodic-acceleration&#39; target&#x3D;&#39;_blank&#39;&gt;documentation&lt;/a&gt;. (default to false).</param>
+        public ElectromagneticSimulationControl(ElectromagneticTransientControl transientMagneticsControl = default(ElectromagneticTransientControl), TimeStepWriteControl writeControl = default(TimeStepWriteControl), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), DimensionalTime coreLossReferencePeriod = default(DimensionalTime), bool? timePeriodicAcceleration = default(bool?))
         {
             this.TransientMagneticsControl = transientMagneticsControl;
             this.WriteControl = writeControl;
             this.NumProcessors = numProcessors;
             this.MaxRunTime = maxRunTime;
             this.CoreLossReferencePeriod = coreLossReferencePeriod;
+            this.TimePeriodicAcceleration = timePeriodicAcceleration;
         }
         
         /// <summary>
@@ -144,6 +146,13 @@ namespace SimScale.Sdk.Model
         public DimensionalTime CoreLossReferencePeriod { get; set; }
 
         /// <summary>
+        /// Activate when the coil excitation is periodic to accelerate simulation. For more information, please refer to our &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/electromagnetics/#time-periodic-acceleration&#39; target&#x3D;&#39;_blank&#39;&gt;documentation&lt;/a&gt;.
+        /// </summary>
+        /// <value>Activate when the coil excitation is periodic to accelerate simulation. For more information, please refer to our &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/electromagnetics/#time-periodic-acceleration&#39; target&#x3D;&#39;_blank&#39;&gt;documentation&lt;/a&gt;.</value>
+        [DataMember(Name="timePeriodicAcceleration", EmitDefaultValue=false)]
+        public bool? TimePeriodicAcceleration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -156,6 +165,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  NumProcessors: ").Append(NumProcessors).Append("\n");
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
             sb.Append("  CoreLossReferencePeriod: ").Append(CoreLossReferencePeriod).Append("\n");
+            sb.Append("  TimePeriodicAcceleration: ").Append(TimePeriodicAcceleration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -213,6 +223,11 @@ namespace SimScale.Sdk.Model
                     this.CoreLossReferencePeriod == input.CoreLossReferencePeriod ||
                     (this.CoreLossReferencePeriod != null &&
                     this.CoreLossReferencePeriod.Equals(input.CoreLossReferencePeriod))
+                ) && 
+                (
+                    this.TimePeriodicAcceleration == input.TimePeriodicAcceleration ||
+                    (this.TimePeriodicAcceleration != null &&
+                    this.TimePeriodicAcceleration.Equals(input.TimePeriodicAcceleration))
                 );
         }
 
@@ -234,6 +249,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MaxRunTime.GetHashCode();
                 if (this.CoreLossReferencePeriod != null)
                     hashCode = hashCode * 59 + this.CoreLossReferencePeriod.GetHashCode();
+                if (this.TimePeriodicAcceleration != null)
+                    hashCode = hashCode * 59 + this.TimePeriodicAcceleration.GetHashCode();
                 return hashCode;
             }
         }

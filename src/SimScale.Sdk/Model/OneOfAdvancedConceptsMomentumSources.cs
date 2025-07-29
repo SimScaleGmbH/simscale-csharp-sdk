@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(AverageVelocityMomentumSource), "AVERAGE_VELOCITY")]
     [JsonSubtypes.KnownSubType(typeof(FanPressureDropMomentumSource), "FAN_PRESSURE_DROP")]
+    [JsonSubtypes.KnownSubType(typeof(FrictionVelocityMomentumSource), "FRICTION_VELOCITY_SOURCE")]
     public interface OneOfAdvancedConceptsMomentumSources
     {
         /// <summary>
