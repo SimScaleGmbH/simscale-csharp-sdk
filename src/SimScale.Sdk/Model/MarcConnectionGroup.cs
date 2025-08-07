@@ -23,10 +23,10 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// MarcContact
+    /// MarcConnectionGroup
     /// </summary>
     [DataContract]
-    public partial class MarcContact : IEquatable<MarcContact>
+    public partial class MarcConnectionGroup : IEquatable<MarcConnectionGroup>
     {
         /// <summary>
         /// Defines Friction
@@ -79,30 +79,30 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="contactFormulation", EmitDefaultValue=false)]
         public ContactFormulationEnum? ContactFormulation { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarcContact" /> class.
+        /// Initializes a new instance of the <see cref="MarcConnectionGroup" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MarcContact() { }
+        protected MarcConnectionGroup() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarcContact" /> class.
+        /// Initializes a new instance of the <see cref="MarcConnectionGroup" /> class.
         /// </summary>
-        /// <param name="type">Schema name: MarcContact (required) (default to &quot;CONTACT&quot;).</param>
+        /// <param name="type">Schema name: MarcConnectionGroup (required) (default to &quot;CONTACT&quot;).</param>
         /// <param name="friction">friction (default to FrictionEnum.COULOMBBILINEAR).</param>
         /// <param name="contactFormulation">contactFormulation (default to ContactFormulationEnum.DOUBLESIDED).</param>
         /// <param name="connections">connections.</param>
-        public MarcContact(string type = "CONTACT", FrictionEnum? friction = default(FrictionEnum?), ContactFormulationEnum? contactFormulation = default(ContactFormulationEnum?), List<OneOfMarcContactConnections> connections = default(List<OneOfMarcContactConnections>))
+        public MarcConnectionGroup(string type = "CONTACT", FrictionEnum? friction = default(FrictionEnum?), ContactFormulationEnum? contactFormulation = default(ContactFormulationEnum?), List<OneOfMarcConnectionGroupConnections> connections = default(List<OneOfMarcConnectionGroupConnections>))
         {
             // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcContact and cannot be null");
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcConnectionGroup and cannot be null");
             this.Friction = friction;
             this.ContactFormulation = contactFormulation;
             this.Connections = connections;
         }
         
         /// <summary>
-        /// Schema name: MarcContact
+        /// Schema name: MarcConnectionGroup
         /// </summary>
-        /// <value>Schema name: MarcContact</value>
+        /// <value>Schema name: MarcConnectionGroup</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -110,7 +110,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets Connections
         /// </summary>
         [DataMember(Name="connections", EmitDefaultValue=false)]
-        public List<OneOfMarcContactConnections> Connections { get; set; }
+        public List<OneOfMarcConnectionGroupConnections> Connections { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,7 +119,7 @@ namespace SimScale.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MarcContact {\n");
+            sb.Append("class MarcConnectionGroup {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Friction: ").Append(Friction).Append("\n");
             sb.Append("  ContactFormulation: ").Append(ContactFormulation).Append("\n");
@@ -144,15 +144,15 @@ namespace SimScale.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MarcContact);
+            return this.Equals(input as MarcConnectionGroup);
         }
 
         /// <summary>
-        /// Returns true if MarcContact instances are equal
+        /// Returns true if MarcConnectionGroup instances are equal
         /// </summary>
-        /// <param name="input">Instance of MarcContact to be compared</param>
+        /// <param name="input">Instance of MarcConnectionGroup to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MarcContact input)
+        public bool Equals(MarcConnectionGroup input)
         {
             if (input == null)
                 return false;

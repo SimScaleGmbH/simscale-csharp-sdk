@@ -41,7 +41,9 @@ namespace SimScale.Sdk.Model
         /// <param name="pressure">pressure.</param>
         /// <param name="isFollowerPressure">isFollowerPressure (default to true).</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public PressureBCMarc(string type = "PRESSURE", string name = default(string), DimensionalFunctionPressure pressure = default(DimensionalFunctionPressure), bool? isFollowerPressure = default(bool?), TopologicalReference topologicalReference = default(TopologicalReference))
+        /// <param name="activateLoadSteps">activateLoadSteps (default to false).</param>
+        /// <param name="loadStepUuids">loadStepUuids.</param>
+        public PressureBCMarc(string type = "PRESSURE", string name = default(string), DimensionalFunctionPressure pressure = default(DimensionalFunctionPressure), bool? isFollowerPressure = default(bool?), TopologicalReference topologicalReference = default(TopologicalReference), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureBCMarc and cannot be null");
@@ -49,6 +51,8 @@ namespace SimScale.Sdk.Model
             this.Pressure = pressure;
             this.IsFollowerPressure = isFollowerPressure;
             this.TopologicalReference = topologicalReference;
+            this.ActivateLoadSteps = activateLoadSteps;
+            this.LoadStepUuids = loadStepUuids;
         }
         
         /// <summary>
@@ -83,6 +87,18 @@ namespace SimScale.Sdk.Model
         public TopologicalReference TopologicalReference { get; set; }
 
         /// <summary>
+        /// Gets or Sets ActivateLoadSteps
+        /// </summary>
+        [DataMember(Name="activateLoadSteps", EmitDefaultValue=false)]
+        public bool? ActivateLoadSteps { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LoadStepUuids
+        /// </summary>
+        [DataMember(Name="loadStepUuids", EmitDefaultValue=false)]
+        public List<Guid?> LoadStepUuids { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +111,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Pressure: ").Append(Pressure).Append("\n");
             sb.Append("  IsFollowerPressure: ").Append(IsFollowerPressure).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
+            sb.Append("  ActivateLoadSteps: ").Append(ActivateLoadSteps).Append("\n");
+            sb.Append("  LoadStepUuids: ").Append(LoadStepUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +171,17 @@ namespace SimScale.Sdk.Model
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
+                ) && 
+                (
+                    this.ActivateLoadSteps == input.ActivateLoadSteps ||
+                    (this.ActivateLoadSteps != null &&
+                    this.ActivateLoadSteps.Equals(input.ActivateLoadSteps))
+                ) && 
+                (
+                    this.LoadStepUuids == input.LoadStepUuids ||
+                    this.LoadStepUuids != null &&
+                    input.LoadStepUuids != null &&
+                    this.LoadStepUuids.SequenceEqual(input.LoadStepUuids)
                 );
         }
 
@@ -175,6 +204,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.IsFollowerPressure.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
+                if (this.ActivateLoadSteps != null)
+                    hashCode = hashCode * 59 + this.ActivateLoadSteps.GetHashCode();
+                if (this.LoadStepUuids != null)
+                    hashCode = hashCode * 59 + this.LoadStepUuids.GetHashCode();
                 return hashCode;
             }
         }

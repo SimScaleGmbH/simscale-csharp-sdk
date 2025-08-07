@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MarcBondedAndTouchingContactConnection
     /// </summary>
     [DataContract]
-    public partial class MarcBondedAndTouchingContactConnection : OneOfMarcContactConnections, IEquatable<MarcBondedAndTouchingContactConnection>
+    public partial class MarcBondedAndTouchingContactConnection : OneOfMarcConnectionGroupConnections, IEquatable<MarcBondedAndTouchingContactConnection>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MarcBondedAndTouchingContactConnection" /> class.
@@ -41,7 +41,9 @@ namespace SimScale.Sdk.Model
         /// <param name="frictionCoefficient">frictionCoefficient (default to 0M).</param>
         /// <param name="contactBodies">contactBodies.</param>
         /// <param name="touchingFaces">touchingFaces.</param>
-        public MarcBondedAndTouchingContactConnection(string type = "BONDED_AND_TOUCHING", string name = default(string), decimal? frictionCoefficient = default(decimal?), TopologicalReference contactBodies = default(TopologicalReference), TopologicalReference touchingFaces = default(TopologicalReference))
+        /// <param name="activateLoadSteps">activateLoadSteps (default to false).</param>
+        /// <param name="loadStepUuids">loadStepUuids.</param>
+        public MarcBondedAndTouchingContactConnection(string type = "BONDED_AND_TOUCHING", string name = default(string), decimal? frictionCoefficient = default(decimal?), TopologicalReference contactBodies = default(TopologicalReference), TopologicalReference touchingFaces = default(TopologicalReference), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcBondedAndTouchingContactConnection and cannot be null");
@@ -49,6 +51,8 @@ namespace SimScale.Sdk.Model
             this.FrictionCoefficient = frictionCoefficient;
             this.ContactBodies = contactBodies;
             this.TouchingFaces = touchingFaces;
+            this.ActivateLoadSteps = activateLoadSteps;
+            this.LoadStepUuids = loadStepUuids;
         }
         
         /// <summary>
@@ -83,6 +87,18 @@ namespace SimScale.Sdk.Model
         public TopologicalReference TouchingFaces { get; set; }
 
         /// <summary>
+        /// Gets or Sets ActivateLoadSteps
+        /// </summary>
+        [DataMember(Name="activateLoadSteps", EmitDefaultValue=false)]
+        public bool? ActivateLoadSteps { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LoadStepUuids
+        /// </summary>
+        [DataMember(Name="loadStepUuids", EmitDefaultValue=false)]
+        public List<Guid?> LoadStepUuids { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +111,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  FrictionCoefficient: ").Append(FrictionCoefficient).Append("\n");
             sb.Append("  ContactBodies: ").Append(ContactBodies).Append("\n");
             sb.Append("  TouchingFaces: ").Append(TouchingFaces).Append("\n");
+            sb.Append("  ActivateLoadSteps: ").Append(ActivateLoadSteps).Append("\n");
+            sb.Append("  LoadStepUuids: ").Append(LoadStepUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +171,17 @@ namespace SimScale.Sdk.Model
                     this.TouchingFaces == input.TouchingFaces ||
                     (this.TouchingFaces != null &&
                     this.TouchingFaces.Equals(input.TouchingFaces))
+                ) && 
+                (
+                    this.ActivateLoadSteps == input.ActivateLoadSteps ||
+                    (this.ActivateLoadSteps != null &&
+                    this.ActivateLoadSteps.Equals(input.ActivateLoadSteps))
+                ) && 
+                (
+                    this.LoadStepUuids == input.LoadStepUuids ||
+                    this.LoadStepUuids != null &&
+                    input.LoadStepUuids != null &&
+                    this.LoadStepUuids.SequenceEqual(input.LoadStepUuids)
                 );
         }
 
@@ -175,6 +204,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ContactBodies.GetHashCode();
                 if (this.TouchingFaces != null)
                     hashCode = hashCode * 59 + this.TouchingFaces.GetHashCode();
+                if (this.ActivateLoadSteps != null)
+                    hashCode = hashCode * 59 + this.ActivateLoadSteps.GetHashCode();
+                if (this.LoadStepUuids != null)
+                    hashCode = hashCode * 59 + this.LoadStepUuids.GetHashCode();
                 return hashCode;
             }
         }
