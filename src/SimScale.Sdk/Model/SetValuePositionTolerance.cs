@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// SetValuePositionTolerance
     /// </summary>
     [DataContract]
-    public partial class SetValuePositionTolerance : OneOfBondedContactPositionTolerance, OneOfSlidingContactPositionTolerance, IEquatable<SetValuePositionTolerance>
+    public partial class SetValuePositionTolerance : OneOfBondedContactPositionTolerance, OneOfMarcBondedAndTouchingContactConnectionPositionTolerance, OneOfMarcBondedContactConnectionPositionTolerance, OneOfSlidingContactPositionTolerance, IEquatable<SetValuePositionTolerance>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetValuePositionTolerance" /> class.

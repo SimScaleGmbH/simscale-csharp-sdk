@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// OffPositionTolerance
     /// </summary>
     [DataContract]
-    public partial class OffPositionTolerance : OneOfBondedContactPositionTolerance, OneOfSlidingContactPositionTolerance, IEquatable<OffPositionTolerance>
+    public partial class OffPositionTolerance : OneOfBondedContactPositionTolerance, OneOfMarcBondedAndTouchingContactConnectionPositionTolerance, OneOfMarcBondedContactConnectionPositionTolerance, OneOfSlidingContactPositionTolerance, IEquatable<OffPositionTolerance>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OffPositionTolerance" /> class.

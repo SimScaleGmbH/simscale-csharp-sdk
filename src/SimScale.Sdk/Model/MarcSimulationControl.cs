@@ -105,11 +105,8 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarcSimulationControl" /> class.
         /// </summary>
-        /// <param name="endTime">endTime.</param>
-        /// <param name="initialTimeStep">initialTimeStep.</param>
-        /// <param name="minimumTimeStep">minimumTimeStep.</param>
-        /// <param name="maximumTimeStep">maximumTimeStep.</param>
-        /// <param name="writeFrequency">Output results are saved every n time steps. Use a value larger than one to reduce the size of the output data and speed up the postprocessing. (default to 1).</param>
+        /// <param name="timestepDefinition">timestepDefinition.</param>
+        /// <param name="outputWritingContainer">outputWritingContainer.</param>
         /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="manuallyAssignParallelization">manuallyAssignParallelization (default to false).</param>
         /// <param name="nprocds">nprocds (default to -1).</param>
@@ -117,13 +114,11 @@ namespace SimScale.Sdk.Model
         /// <param name="nts">nts (default to -1).</param>
         /// <param name="nsolver">nsolver (default to -1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
-        public MarcSimulationControl(DimensionalTime endTime = default(DimensionalTime), DimensionalTime initialTimeStep = default(DimensionalTime), DimensionalTime minimumTimeStep = default(DimensionalTime), DimensionalTime maximumTimeStep = default(DimensionalTime), int? writeFrequency = default(int?), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), bool? manuallyAssignParallelization = default(bool?), int? nprocds = default(int?), int? nte = default(int?), int? nts = default(int?), int? nsolver = default(int?), DimensionalTime maxRunTime = default(DimensionalTime))
+        /// <param name="livePostprocessing">livePostprocessing (default to false).</param>
+        public MarcSimulationControl(OneOfMarcSimulationControlTimestepDefinition timestepDefinition = default(OneOfMarcSimulationControlTimestepDefinition), MarcOutputWritingContainer outputWritingContainer = default(MarcOutputWritingContainer), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), bool? manuallyAssignParallelization = default(bool?), int? nprocds = default(int?), int? nte = default(int?), int? nts = default(int?), int? nsolver = default(int?), DimensionalTime maxRunTime = default(DimensionalTime), bool? livePostprocessing = default(bool?))
         {
-            this.EndTime = endTime;
-            this.InitialTimeStep = initialTimeStep;
-            this.MinimumTimeStep = minimumTimeStep;
-            this.MaximumTimeStep = maximumTimeStep;
-            this.WriteFrequency = writeFrequency;
+            this.TimestepDefinition = timestepDefinition;
+            this.OutputWritingContainer = outputWritingContainer;
             this.NumProcessors = numProcessors;
             this.ManuallyAssignParallelization = manuallyAssignParallelization;
             this.Nprocds = nprocds;
@@ -131,38 +126,20 @@ namespace SimScale.Sdk.Model
             this.Nts = nts;
             this.Nsolver = nsolver;
             this.MaxRunTime = maxRunTime;
+            this.LivePostprocessing = livePostprocessing;
         }
         
         /// <summary>
-        /// Gets or Sets EndTime
+        /// Gets or Sets TimestepDefinition
         /// </summary>
-        [DataMember(Name="endTime", EmitDefaultValue=false)]
-        public DimensionalTime EndTime { get; set; }
+        [DataMember(Name="timestepDefinition", EmitDefaultValue=false)]
+        public OneOfMarcSimulationControlTimestepDefinition TimestepDefinition { get; set; }
 
         /// <summary>
-        /// Gets or Sets InitialTimeStep
+        /// Gets or Sets OutputWritingContainer
         /// </summary>
-        [DataMember(Name="initialTimeStep", EmitDefaultValue=false)]
-        public DimensionalTime InitialTimeStep { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MinimumTimeStep
-        /// </summary>
-        [DataMember(Name="minimumTimeStep", EmitDefaultValue=false)]
-        public DimensionalTime MinimumTimeStep { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MaximumTimeStep
-        /// </summary>
-        [DataMember(Name="maximumTimeStep", EmitDefaultValue=false)]
-        public DimensionalTime MaximumTimeStep { get; set; }
-
-        /// <summary>
-        /// Output results are saved every n time steps. Use a value larger than one to reduce the size of the output data and speed up the postprocessing.
-        /// </summary>
-        /// <value>Output results are saved every n time steps. Use a value larger than one to reduce the size of the output data and speed up the postprocessing.</value>
-        [DataMember(Name="writeFrequency", EmitDefaultValue=false)]
-        public int? WriteFrequency { get; set; }
+        [DataMember(Name="outputWritingContainer", EmitDefaultValue=false)]
+        public MarcOutputWritingContainer OutputWritingContainer { get; set; }
 
         /// <summary>
         /// Gets or Sets ManuallyAssignParallelization
@@ -201,6 +178,12 @@ namespace SimScale.Sdk.Model
         public DimensionalTime MaxRunTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets LivePostprocessing
+        /// </summary>
+        [DataMember(Name="livePostprocessing", EmitDefaultValue=false)]
+        public bool? LivePostprocessing { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -208,11 +191,8 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class MarcSimulationControl {\n");
-            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
-            sb.Append("  InitialTimeStep: ").Append(InitialTimeStep).Append("\n");
-            sb.Append("  MinimumTimeStep: ").Append(MinimumTimeStep).Append("\n");
-            sb.Append("  MaximumTimeStep: ").Append(MaximumTimeStep).Append("\n");
-            sb.Append("  WriteFrequency: ").Append(WriteFrequency).Append("\n");
+            sb.Append("  TimestepDefinition: ").Append(TimestepDefinition).Append("\n");
+            sb.Append("  OutputWritingContainer: ").Append(OutputWritingContainer).Append("\n");
             sb.Append("  NumProcessors: ").Append(NumProcessors).Append("\n");
             sb.Append("  ManuallyAssignParallelization: ").Append(ManuallyAssignParallelization).Append("\n");
             sb.Append("  Nprocds: ").Append(Nprocds).Append("\n");
@@ -220,6 +200,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Nts: ").Append(Nts).Append("\n");
             sb.Append("  Nsolver: ").Append(Nsolver).Append("\n");
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
+            sb.Append("  LivePostprocessing: ").Append(LivePostprocessing).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -255,29 +236,14 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
-                    this.EndTime == input.EndTime ||
-                    (this.EndTime != null &&
-                    this.EndTime.Equals(input.EndTime))
+                    this.TimestepDefinition == input.TimestepDefinition ||
+                    (this.TimestepDefinition != null &&
+                    this.TimestepDefinition.Equals(input.TimestepDefinition))
                 ) && 
                 (
-                    this.InitialTimeStep == input.InitialTimeStep ||
-                    (this.InitialTimeStep != null &&
-                    this.InitialTimeStep.Equals(input.InitialTimeStep))
-                ) && 
-                (
-                    this.MinimumTimeStep == input.MinimumTimeStep ||
-                    (this.MinimumTimeStep != null &&
-                    this.MinimumTimeStep.Equals(input.MinimumTimeStep))
-                ) && 
-                (
-                    this.MaximumTimeStep == input.MaximumTimeStep ||
-                    (this.MaximumTimeStep != null &&
-                    this.MaximumTimeStep.Equals(input.MaximumTimeStep))
-                ) && 
-                (
-                    this.WriteFrequency == input.WriteFrequency ||
-                    (this.WriteFrequency != null &&
-                    this.WriteFrequency.Equals(input.WriteFrequency))
+                    this.OutputWritingContainer == input.OutputWritingContainer ||
+                    (this.OutputWritingContainer != null &&
+                    this.OutputWritingContainer.Equals(input.OutputWritingContainer))
                 ) && 
                 (
                     this.NumProcessors == input.NumProcessors ||
@@ -312,6 +278,11 @@ namespace SimScale.Sdk.Model
                     this.MaxRunTime == input.MaxRunTime ||
                     (this.MaxRunTime != null &&
                     this.MaxRunTime.Equals(input.MaxRunTime))
+                ) && 
+                (
+                    this.LivePostprocessing == input.LivePostprocessing ||
+                    (this.LivePostprocessing != null &&
+                    this.LivePostprocessing.Equals(input.LivePostprocessing))
                 );
         }
 
@@ -324,16 +295,10 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.EndTime != null)
-                    hashCode = hashCode * 59 + this.EndTime.GetHashCode();
-                if (this.InitialTimeStep != null)
-                    hashCode = hashCode * 59 + this.InitialTimeStep.GetHashCode();
-                if (this.MinimumTimeStep != null)
-                    hashCode = hashCode * 59 + this.MinimumTimeStep.GetHashCode();
-                if (this.MaximumTimeStep != null)
-                    hashCode = hashCode * 59 + this.MaximumTimeStep.GetHashCode();
-                if (this.WriteFrequency != null)
-                    hashCode = hashCode * 59 + this.WriteFrequency.GetHashCode();
+                if (this.TimestepDefinition != null)
+                    hashCode = hashCode * 59 + this.TimestepDefinition.GetHashCode();
+                if (this.OutputWritingContainer != null)
+                    hashCode = hashCode * 59 + this.OutputWritingContainer.GetHashCode();
                 hashCode = hashCode * 59 + this.NumProcessors.GetHashCode();
                 if (this.ManuallyAssignParallelization != null)
                     hashCode = hashCode * 59 + this.ManuallyAssignParallelization.GetHashCode();
@@ -347,6 +312,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Nsolver.GetHashCode();
                 if (this.MaxRunTime != null)
                     hashCode = hashCode * 59 + this.MaxRunTime.GetHashCode();
+                if (this.LivePostprocessing != null)
+                    hashCode = hashCode * 59 + this.LivePostprocessing.GetHashCode();
                 return hashCode;
             }
         }

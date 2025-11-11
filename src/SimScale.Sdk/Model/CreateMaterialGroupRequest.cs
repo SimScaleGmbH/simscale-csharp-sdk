@@ -38,14 +38,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="name">The name of the material group. (required).</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="_public">_public (default to false).</param>
         /// <param name="teamGroupId">The material group will be assigned to this team group id. This field can only be used by support group members..</param>
-        public CreateMaterialGroupRequest(string name = default(string), Object metadata = default(Object), bool? _public = default(bool?), int? teamGroupId = default(int?))
+        public CreateMaterialGroupRequest(string name = default(string), Object metadata = default(Object), int? teamGroupId = default(int?))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateMaterialGroupRequest and cannot be null");
             this.Metadata = metadata;
-            this.Public = _public;
             this.TeamGroupId = teamGroupId;
         }
         
@@ -61,12 +59,6 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public Object Metadata { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Public
-        /// </summary>
-        [DataMember(Name="public", EmitDefaultValue=false)]
-        public bool? Public { get; set; }
 
         /// <summary>
         /// The material group will be assigned to this team group id. This field can only be used by support group members.
@@ -85,7 +77,6 @@ namespace SimScale.Sdk.Model
             sb.Append("class CreateMaterialGroupRequest {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  Public: ").Append(Public).Append("\n");
             sb.Append("  TeamGroupId: ").Append(TeamGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -132,11 +123,6 @@ namespace SimScale.Sdk.Model
                     this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
-                    this.Public == input.Public ||
-                    (this.Public != null &&
-                    this.Public.Equals(input.Public))
-                ) && 
-                (
                     this.TeamGroupId == input.TeamGroupId ||
                     (this.TeamGroupId != null &&
                     this.TeamGroupId.Equals(input.TeamGroupId))
@@ -156,8 +142,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.Public != null)
-                    hashCode = hashCode * 59 + this.Public.GetHashCode();
                 if (this.TeamGroupId != null)
                     hashCode = hashCode * 59 + this.TeamGroupId.GetHashCode();
                 return hashCode;

@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(MooneyTypeHyperelasticModelMarc), "MOONEY_TYPE_MARC")]
     [JsonSubtypes.KnownSubType(typeof(OgdenHyperelasticModelMarc), "OGDEN_MARC")]
+    [JsonSubtypes.KnownSubType(typeof(MarlowHyperelasticModelMarc), "MARLOW_MARC")]
     public interface OneOfHyperelasticityHyperelasticModelMarc
     {
         /// <summary>

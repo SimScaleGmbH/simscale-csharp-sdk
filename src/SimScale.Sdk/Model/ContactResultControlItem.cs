@@ -41,10 +41,10 @@ namespace SimScale.Sdk.Model
             PRESSURE = 1,
 
             /// <summary>
-            /// Enum STATE for value: STATE
+            /// Enum RESULT for value: RESULT
             /// </summary>
-            [EnumMember(Value = "STATE")]
-            STATE = 2
+            [EnumMember(Value = "RESULT")]
+            RESULT = 2
 
         }
 

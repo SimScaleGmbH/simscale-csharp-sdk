@@ -28,7 +28,11 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(MarcTotalStrainType), "TOTAL")]
+    [JsonSubtypes.KnownSubType(typeof(MarcElasticStrainType), "ELASTIC")]
+    [JsonSubtypes.KnownSubType(typeof(MarcPlasticStrainType), "PLASTIC")]
     [JsonSubtypes.KnownSubType(typeof(MarcPrincipalTotalStrainType), "PRINCIPAL_TOTAL")]
+    [JsonSubtypes.KnownSubType(typeof(MarcPrincipalElasticStrainType), "PRINCIPAL_ELASTIC")]
+    [JsonSubtypes.KnownSubType(typeof(MarcPrincipalPlasticStrainType), "PRINCIPAL_PLASTIC")]
     [JsonSubtypes.KnownSubType(typeof(MarcEquivalentElasticStrainType), "EQUIVALENT_ELASTIC")]
     [JsonSubtypes.KnownSubType(typeof(MarcEquivalentPlasticStrainType), "EQUIVALENT_PLASTIC")]
     public interface OneOfMarcStrainFieldSelectionStrainType

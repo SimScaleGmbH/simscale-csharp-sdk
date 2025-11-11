@@ -33,6 +33,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(MarcContactFrictionStress), "FRICTION_STRESS")]
     [JsonSubtypes.KnownSubType(typeof(MarcContactGap), "GAP")]
     [JsonSubtypes.KnownSubType(typeof(MarcContactStatus), "STATUS")]
+    [JsonSubtypes.KnownSubType(typeof(MarcContactPressure), "PRESSURE")]
     public interface OneOfMarcContactResultControlItemContactType
     {
         /// <summary>

@@ -79,6 +79,37 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="contactFormulation", EmitDefaultValue=false)]
         public ContactFormulationEnum? ContactFormulation { get; set; }
         /// <summary>
+        /// Defines SeparationControl
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SeparationControlEnum
+        {
+            /// <summary>
+            /// Enum AUTOMATIC for value: AUTOMATIC
+            /// </summary>
+            [EnumMember(Value = "AUTOMATIC")]
+            AUTOMATIC = 1,
+
+            /// <summary>
+            /// Enum FORCE for value: FORCE
+            /// </summary>
+            [EnumMember(Value = "FORCE")]
+            FORCE = 2,
+
+            /// <summary>
+            /// Enum STRESS for value: STRESS
+            /// </summary>
+            [EnumMember(Value = "STRESS")]
+            STRESS = 3
+
+        }
+
+        /// <summary>
+        /// Gets or Sets SeparationControl
+        /// </summary>
+        [DataMember(Name="separationControl", EmitDefaultValue=false)]
+        public SeparationControlEnum? SeparationControl { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="MarcConnectionGroup" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -89,13 +120,15 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: MarcConnectionGroup (required) (default to &quot;CONTACT&quot;).</param>
         /// <param name="friction">friction (default to FrictionEnum.COULOMBBILINEAR).</param>
         /// <param name="contactFormulation">contactFormulation (default to ContactFormulationEnum.DOUBLESIDED).</param>
+        /// <param name="separationControl">separationControl (default to SeparationControlEnum.AUTOMATIC).</param>
         /// <param name="connections">connections.</param>
-        public MarcConnectionGroup(string type = "CONTACT", FrictionEnum? friction = default(FrictionEnum?), ContactFormulationEnum? contactFormulation = default(ContactFormulationEnum?), List<OneOfMarcConnectionGroupConnections> connections = default(List<OneOfMarcConnectionGroupConnections>))
+        public MarcConnectionGroup(string type = "CONTACT", FrictionEnum? friction = default(FrictionEnum?), ContactFormulationEnum? contactFormulation = default(ContactFormulationEnum?), SeparationControlEnum? separationControl = default(SeparationControlEnum?), List<OneOfMarcConnectionGroupConnections> connections = default(List<OneOfMarcConnectionGroupConnections>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcConnectionGroup and cannot be null");
             this.Friction = friction;
             this.ContactFormulation = contactFormulation;
+            this.SeparationControl = separationControl;
             this.Connections = connections;
         }
         
@@ -123,6 +156,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Friction: ").Append(Friction).Append("\n");
             sb.Append("  ContactFormulation: ").Append(ContactFormulation).Append("\n");
+            sb.Append("  SeparationControl: ").Append(SeparationControl).Append("\n");
             sb.Append("  Connections: ").Append(Connections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -172,6 +206,10 @@ namespace SimScale.Sdk.Model
                     this.ContactFormulation.Equals(input.ContactFormulation)
                 ) && 
                 (
+                    this.SeparationControl == input.SeparationControl ||
+                    this.SeparationControl.Equals(input.SeparationControl)
+                ) && 
+                (
                     this.Connections == input.Connections ||
                     this.Connections != null &&
                     input.Connections != null &&
@@ -192,6 +230,7 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.Friction.GetHashCode();
                 hashCode = hashCode * 59 + this.ContactFormulation.GetHashCode();
+                hashCode = hashCode * 59 + this.SeparationControl.GetHashCode();
                 if (this.Connections != null)
                     hashCode = hashCode * 59 + this.Connections.GetHashCode();
                 return hashCode;

@@ -54,6 +54,33 @@ namespace SimScale.Sdk.Model
         [DataMember(Name="surfaceElementType", EmitDefaultValue=false)]
         public SurfaceElementTypeEnum? SurfaceElementType { get; set; }
         /// <summary>
+        /// If a part can be extruded along multiple directions, choose whether to extrude along the shortest or the longest direction (e.g. a simple plate can be extruded along its thickness or the other two dimensions. Choose Shortest to extrude across the thickness).
+        /// </summary>
+        /// <value>If a part can be extruded along multiple directions, choose whether to extrude along the shortest or the longest direction (e.g. a simple plate can be extruded along its thickness or the other two dimensions. Choose Shortest to extrude across the thickness).</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ExtrusionDirectionEnum
+        {
+            /// <summary>
+            /// Enum SHORTEST for value: SHORTEST
+            /// </summary>
+            [EnumMember(Value = "SHORTEST")]
+            SHORTEST = 1,
+
+            /// <summary>
+            /// Enum LONGEST for value: LONGEST
+            /// </summary>
+            [EnumMember(Value = "LONGEST")]
+            LONGEST = 2
+
+        }
+
+        /// <summary>
+        /// If a part can be extruded along multiple directions, choose whether to extrude along the shortest or the longest direction (e.g. a simple plate can be extruded along its thickness or the other two dimensions. Choose Shortest to extrude across the thickness).
+        /// </summary>
+        /// <value>If a part can be extruded along multiple directions, choose whether to extrude along the shortest or the longest direction (e.g. a simple plate can be extruded along its thickness or the other two dimensions. Choose Shortest to extrude across the thickness).</value>
+        [DataMember(Name="extrusionDirection", EmitDefaultValue=false)]
+        public ExtrusionDirectionEnum? ExtrusionDirection { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="AutomaticSweepOn" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -65,13 +92,15 @@ namespace SimScale.Sdk.Model
         /// <param name="maximumNumberOfLayers">maximumNumberOfLayers (default to 500).</param>
         /// <param name="minimumNumberOfLayers">minimumNumberOfLayers (default to 2).</param>
         /// <param name="surfaceElementType">surfaceElementType (default to SurfaceElementTypeEnum.QUADDOMINANT).</param>
-        public AutomaticSweepOn(string type = "AUTOMATIC_SWEEP_MESHING_ON", int? maximumNumberOfLayers = default(int?), int? minimumNumberOfLayers = default(int?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?))
+        /// <param name="extrusionDirection">If a part can be extruded along multiple directions, choose whether to extrude along the shortest or the longest direction (e.g. a simple plate can be extruded along its thickness or the other two dimensions. Choose Shortest to extrude across the thickness). (default to ExtrusionDirectionEnum.SHORTEST).</param>
+        public AutomaticSweepOn(string type = "AUTOMATIC_SWEEP_MESHING_ON", int? maximumNumberOfLayers = default(int?), int? minimumNumberOfLayers = default(int?), SurfaceElementTypeEnum? surfaceElementType = default(SurfaceElementTypeEnum?), ExtrusionDirectionEnum? extrusionDirection = default(ExtrusionDirectionEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AutomaticSweepOn and cannot be null");
             this.MaximumNumberOfLayers = maximumNumberOfLayers;
             this.MinimumNumberOfLayers = minimumNumberOfLayers;
             this.SurfaceElementType = surfaceElementType;
+            this.ExtrusionDirection = extrusionDirection;
         }
         
         /// <summary>
@@ -105,6 +134,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  MaximumNumberOfLayers: ").Append(MaximumNumberOfLayers).Append("\n");
             sb.Append("  MinimumNumberOfLayers: ").Append(MinimumNumberOfLayers).Append("\n");
             sb.Append("  SurfaceElementType: ").Append(SurfaceElementType).Append("\n");
+            sb.Append("  ExtrusionDirection: ").Append(ExtrusionDirection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,6 +187,10 @@ namespace SimScale.Sdk.Model
                 (
                     this.SurfaceElementType == input.SurfaceElementType ||
                     this.SurfaceElementType.Equals(input.SurfaceElementType)
+                ) && 
+                (
+                    this.ExtrusionDirection == input.ExtrusionDirection ||
+                    this.ExtrusionDirection.Equals(input.ExtrusionDirection)
                 );
         }
 
@@ -176,6 +210,7 @@ namespace SimScale.Sdk.Model
                 if (this.MinimumNumberOfLayers != null)
                     hashCode = hashCode * 59 + this.MinimumNumberOfLayers.GetHashCode();
                 hashCode = hashCode * 59 + this.SurfaceElementType.GetHashCode();
+                hashCode = hashCode * 59 + this.ExtrusionDirection.GetHashCode();
                 return hashCode;
             }
         }

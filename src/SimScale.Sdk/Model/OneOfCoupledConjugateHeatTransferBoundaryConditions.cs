@@ -34,6 +34,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(WallBC), "WALL_V34")]
     [JsonSubtypes.KnownSubType(typeof(FanBC), "FAN")]
     [JsonSubtypes.KnownSubType(typeof(SymmetryBC), "SYMMETRY")]
+    [JsonSubtypes.KnownSubType(typeof(PeriodicBC), "PERIODIC")]
     [JsonSubtypes.KnownSubType(typeof(NaturalConvectionInletOutletBC), "NATURAL_CONVECTION_INLET_OUTLET")]
     public interface OneOfCoupledConjugateHeatTransferBoundaryConditions
     {

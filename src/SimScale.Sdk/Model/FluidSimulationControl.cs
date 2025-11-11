@@ -29,80 +29,6 @@ namespace SimScale.Sdk.Model
     public partial class FluidSimulationControl : IEquatable<FluidSimulationControl>
     {
         /// <summary>
-        /// &lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
-        public enum NumProcessorsEnum
-        {
-            /// <summary>
-            /// Enum NUMBER_MINUS_1 for value: -1
-            /// </summary>
-            NUMBER_MINUS_1 = -1,
-
-            /// <summary>
-            /// Enum NUMBER_1 for value: 1
-            /// </summary>
-            NUMBER_1 = 1,
-
-            /// <summary>
-            /// Enum NUMBER_2 for value: 2
-            /// </summary>
-            NUMBER_2 = 2,
-
-            /// <summary>
-            /// Enum NUMBER_4 for value: 4
-            /// </summary>
-            NUMBER_4 = 4,
-
-            /// <summary>
-            /// Enum NUMBER_8 for value: 8
-            /// </summary>
-            NUMBER_8 = 8,
-
-            /// <summary>
-            /// Enum NUMBER_16 for value: 16
-            /// </summary>
-            NUMBER_16 = 16,
-
-            /// <summary>
-            /// Enum NUMBER_32 for value: 32
-            /// </summary>
-            NUMBER_32 = 32,
-
-            /// <summary>
-            /// Enum NUMBER_48 for value: 48
-            /// </summary>
-            NUMBER_48 = 48,
-
-            /// <summary>
-            /// Enum NUMBER_64 for value: 64
-            /// </summary>
-            NUMBER_64 = 64,
-
-            /// <summary>
-            /// Enum NUMBER_96 for value: 96
-            /// </summary>
-            NUMBER_96 = 96,
-
-            /// <summary>
-            /// Enum NUMBER_128 for value: 128
-            /// </summary>
-            NUMBER_128 = 128,
-
-            /// <summary>
-            /// Enum NUMBER_192 for value: 192
-            /// </summary>
-            NUMBER_192 = 192
-
-        }
-
-        /// <summary>
-        /// &lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
-        /// </summary>
-        /// <value>&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
-        [DataMember(Name="numProcessors", EmitDefaultValue=false)]
-        public NumProcessorsEnum? NumProcessors { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="FluidSimulationControl" /> class.
         /// </summary>
         /// <param name="endTime">endTime.</param>
@@ -113,12 +39,12 @@ namespace SimScale.Sdk.Model
         /// <param name="adjustableTimestep">adjustableTimestep.</param>
         /// <param name="writeControl">writeControl.</param>
         /// <param name="relativeConvergenceCriteria">&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation is considered to be converged and will stop. The recommended value is 0.001.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation will move to the next time-step regardless of the &lt;i&gt;Number of iterations&lt;/i&gt;. The recommended value is 0.1.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Relative residual is defined as the residual in the current iteration divided by the maximum value of residual calculated up to that point.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Lower convergence criterion is demanded for &lt;b&gt;Steady-state simulations&lt;/b&gt; because the initial guess is typically farther from the correct solution.&lt;/br&gt;.</param>
-        /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumProcessorsEnum.NUMBER_MINUS_1).</param>
+        /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to -1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
         /// <param name="velocityScaling">&lt;p&gt;It affects the stability of the simulation. The default value of 0.1 is a good compromise between accuracy and computational requirements. Lower values of this parameter might increase the stability of the simulation at the cost of higher computational time.&lt;/p&gt; (default to 0.1M).</param>
         /// <param name="potentialFoamInitialization">This setting activates the solution of a potential flow field. The potential flow is used as initial condition for the actual simulation. This can accelerate convergence and improve stability during the first time steps. If you experience stability problems, this setting may bring some improvement. (default to false).</param>
         /// <param name="decomposeAlgorithm">decomposeAlgorithm.</param>
-        public FluidSimulationControl(DimensionalTime endTime = default(DimensionalTime), DimensionalTime adjointEndTime = default(DimensionalTime), int? numberOfIterations = default(int?), DimensionalTime deltaT = default(DimensionalTime), DimensionalFunctionTime variableDeltaT = default(DimensionalFunctionTime), OneOfFluidSimulationControlAdjustableTimestep adjustableTimestep = default(OneOfFluidSimulationControlAdjustableTimestep), OneOfFluidSimulationControlWriteControl writeControl = default(OneOfFluidSimulationControlWriteControl), decimal? relativeConvergenceCriteria = default(decimal?), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), decimal? velocityScaling = default(decimal?), bool? potentialFoamInitialization = default(bool?), OneOfFluidSimulationControlDecomposeAlgorithm decomposeAlgorithm = default(OneOfFluidSimulationControlDecomposeAlgorithm))
+        public FluidSimulationControl(DimensionalTime endTime = default(DimensionalTime), DimensionalTime adjointEndTime = default(DimensionalTime), int? numberOfIterations = default(int?), DimensionalTime deltaT = default(DimensionalTime), DimensionalFunctionTime variableDeltaT = default(DimensionalFunctionTime), OneOfFluidSimulationControlAdjustableTimestep adjustableTimestep = default(OneOfFluidSimulationControlAdjustableTimestep), OneOfFluidSimulationControlWriteControl writeControl = default(OneOfFluidSimulationControlWriteControl), decimal? relativeConvergenceCriteria = default(decimal?), int? numProcessors = default(int?), DimensionalTime maxRunTime = default(DimensionalTime), decimal? velocityScaling = default(decimal?), bool? potentialFoamInitialization = default(bool?), OneOfFluidSimulationControlDecomposeAlgorithm decomposeAlgorithm = default(OneOfFluidSimulationControlDecomposeAlgorithm))
         {
             this.EndTime = endTime;
             this.AdjointEndTime = adjointEndTime;
@@ -184,6 +110,13 @@ namespace SimScale.Sdk.Model
         /// <value>&lt;b&gt;Steady-state simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation is considered to be converged and will stop. The recommended value is 0.001.&lt;br&gt; &lt;b&gt;Transient simulation:&lt;/b&gt; This represents the relative error residuals that once attained by the solver the simulation will move to the next time-step regardless of the &lt;i&gt;Number of iterations&lt;/i&gt;. The recommended value is 0.1.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Relative residual is defined as the residual in the current iteration divided by the maximum value of residual calculated up to that point.&lt;/br&gt; &lt;br&gt; &lt;b&gt;Please note: &lt;/b&gt;Lower convergence criterion is demanded for &lt;b&gt;Steady-state simulations&lt;/b&gt; because the initial guess is typically farther from the correct solution.&lt;/br&gt;</value>
         [DataMember(Name="relativeConvergenceCriteria", EmitDefaultValue=false)]
         public decimal? RelativeConvergenceCriteria { get; set; }
+
+        /// <summary>
+        /// &lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;
+        /// </summary>
+        /// <value>&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt;</value>
+        [DataMember(Name="numProcessors", EmitDefaultValue=false)]
+        public int? NumProcessors { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxRunTime
@@ -308,7 +241,8 @@ namespace SimScale.Sdk.Model
                 ) && 
                 (
                     this.NumProcessors == input.NumProcessors ||
-                    this.NumProcessors.Equals(input.NumProcessors)
+                    (this.NumProcessors != null &&
+                    this.NumProcessors.Equals(input.NumProcessors))
                 ) && 
                 (
                     this.MaxRunTime == input.MaxRunTime ||
@@ -357,7 +291,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.WriteControl.GetHashCode();
                 if (this.RelativeConvergenceCriteria != null)
                     hashCode = hashCode * 59 + this.RelativeConvergenceCriteria.GetHashCode();
-                hashCode = hashCode * 59 + this.NumProcessors.GetHashCode();
+                if (this.NumProcessors != null)
+                    hashCode = hashCode * 59 + this.NumProcessors.GetHashCode();
                 if (this.MaxRunTime != null)
                     hashCode = hashCode * 59 + this.MaxRunTime.GetHashCode();
                 if (this.VelocityScaling != null)

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// ForceFieldSelection
     /// </summary>
     [DataContract]
-    public partial class ForceFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfSumFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<ForceFieldSelection>
+    public partial class ForceFieldSelection : OneOfAverageFieldsCalculationResultControlItemFieldSelection, OneOfMinMaxFieldsCalculationResultControlItemFieldSelection, OneOfSumFieldsCalculationResultControlItemFieldSelection, IEquatable<ForceFieldSelection>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ForceFieldSelection" /> class.

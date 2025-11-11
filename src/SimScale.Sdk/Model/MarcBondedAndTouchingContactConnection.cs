@@ -38,21 +38,23 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: MarcBondedAndTouchingContactConnection (required) (default to &quot;BONDED_AND_TOUCHING&quot;).</param>
         /// <param name="name">name.</param>
+        /// <param name="positionTolerance">positionTolerance.</param>
         /// <param name="frictionCoefficient">frictionCoefficient (default to 0M).</param>
+        /// <param name="activateLoadSteps">Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time. (default to false).</param>
+        /// <param name="loadStepUuids">loadStepUuids.</param>
         /// <param name="contactBodies">contactBodies.</param>
         /// <param name="touchingFaces">touchingFaces.</param>
-        /// <param name="activateLoadSteps">activateLoadSteps (default to false).</param>
-        /// <param name="loadStepUuids">loadStepUuids.</param>
-        public MarcBondedAndTouchingContactConnection(string type = "BONDED_AND_TOUCHING", string name = default(string), decimal? frictionCoefficient = default(decimal?), TopologicalReference contactBodies = default(TopologicalReference), TopologicalReference touchingFaces = default(TopologicalReference), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>))
+        public MarcBondedAndTouchingContactConnection(string type = "BONDED_AND_TOUCHING", string name = default(string), OneOfMarcBondedAndTouchingContactConnectionPositionTolerance positionTolerance = default(OneOfMarcBondedAndTouchingContactConnectionPositionTolerance), decimal? frictionCoefficient = default(decimal?), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>), TopologicalReference contactBodies = default(TopologicalReference), TopologicalReference touchingFaces = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcBondedAndTouchingContactConnection and cannot be null");
             this.Name = name;
+            this.PositionTolerance = positionTolerance;
             this.FrictionCoefficient = frictionCoefficient;
-            this.ContactBodies = contactBodies;
-            this.TouchingFaces = touchingFaces;
             this.ActivateLoadSteps = activateLoadSteps;
             this.LoadStepUuids = loadStepUuids;
+            this.ContactBodies = contactBodies;
+            this.TouchingFaces = touchingFaces;
         }
         
         /// <summary>
@@ -69,10 +71,29 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets PositionTolerance
+        /// </summary>
+        [DataMember(Name="positionTolerance", EmitDefaultValue=false)]
+        public OneOfMarcBondedAndTouchingContactConnectionPositionTolerance PositionTolerance { get; set; }
+
+        /// <summary>
         /// Gets or Sets FrictionCoefficient
         /// </summary>
         [DataMember(Name="frictionCoefficient", EmitDefaultValue=false)]
         public decimal? FrictionCoefficient { get; set; }
+
+        /// <summary>
+        /// Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.
+        /// </summary>
+        /// <value>Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.</value>
+        [DataMember(Name="activateLoadSteps", EmitDefaultValue=false)]
+        public bool? ActivateLoadSteps { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LoadStepUuids
+        /// </summary>
+        [DataMember(Name="loadStepUuids", EmitDefaultValue=false)]
+        public List<Guid?> LoadStepUuids { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactBodies
@@ -87,18 +108,6 @@ namespace SimScale.Sdk.Model
         public TopologicalReference TouchingFaces { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActivateLoadSteps
-        /// </summary>
-        [DataMember(Name="activateLoadSteps", EmitDefaultValue=false)]
-        public bool? ActivateLoadSteps { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LoadStepUuids
-        /// </summary>
-        [DataMember(Name="loadStepUuids", EmitDefaultValue=false)]
-        public List<Guid?> LoadStepUuids { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,11 +117,12 @@ namespace SimScale.Sdk.Model
             sb.Append("class MarcBondedAndTouchingContactConnection {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  PositionTolerance: ").Append(PositionTolerance).Append("\n");
             sb.Append("  FrictionCoefficient: ").Append(FrictionCoefficient).Append("\n");
-            sb.Append("  ContactBodies: ").Append(ContactBodies).Append("\n");
-            sb.Append("  TouchingFaces: ").Append(TouchingFaces).Append("\n");
             sb.Append("  ActivateLoadSteps: ").Append(ActivateLoadSteps).Append("\n");
             sb.Append("  LoadStepUuids: ").Append(LoadStepUuids).Append("\n");
+            sb.Append("  ContactBodies: ").Append(ContactBodies).Append("\n");
+            sb.Append("  TouchingFaces: ").Append(TouchingFaces).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,19 +168,14 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.PositionTolerance == input.PositionTolerance ||
+                    (this.PositionTolerance != null &&
+                    this.PositionTolerance.Equals(input.PositionTolerance))
+                ) && 
+                (
                     this.FrictionCoefficient == input.FrictionCoefficient ||
                     (this.FrictionCoefficient != null &&
                     this.FrictionCoefficient.Equals(input.FrictionCoefficient))
-                ) && 
-                (
-                    this.ContactBodies == input.ContactBodies ||
-                    (this.ContactBodies != null &&
-                    this.ContactBodies.Equals(input.ContactBodies))
-                ) && 
-                (
-                    this.TouchingFaces == input.TouchingFaces ||
-                    (this.TouchingFaces != null &&
-                    this.TouchingFaces.Equals(input.TouchingFaces))
                 ) && 
                 (
                     this.ActivateLoadSteps == input.ActivateLoadSteps ||
@@ -182,6 +187,16 @@ namespace SimScale.Sdk.Model
                     this.LoadStepUuids != null &&
                     input.LoadStepUuids != null &&
                     this.LoadStepUuids.SequenceEqual(input.LoadStepUuids)
+                ) && 
+                (
+                    this.ContactBodies == input.ContactBodies ||
+                    (this.ContactBodies != null &&
+                    this.ContactBodies.Equals(input.ContactBodies))
+                ) && 
+                (
+                    this.TouchingFaces == input.TouchingFaces ||
+                    (this.TouchingFaces != null &&
+                    this.TouchingFaces.Equals(input.TouchingFaces))
                 );
         }
 
@@ -198,16 +213,18 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.PositionTolerance != null)
+                    hashCode = hashCode * 59 + this.PositionTolerance.GetHashCode();
                 if (this.FrictionCoefficient != null)
                     hashCode = hashCode * 59 + this.FrictionCoefficient.GetHashCode();
-                if (this.ContactBodies != null)
-                    hashCode = hashCode * 59 + this.ContactBodies.GetHashCode();
-                if (this.TouchingFaces != null)
-                    hashCode = hashCode * 59 + this.TouchingFaces.GetHashCode();
                 if (this.ActivateLoadSteps != null)
                     hashCode = hashCode * 59 + this.ActivateLoadSteps.GetHashCode();
                 if (this.LoadStepUuids != null)
                     hashCode = hashCode * 59 + this.LoadStepUuids.GetHashCode();
+                if (this.ContactBodies != null)
+                    hashCode = hashCode * 59 + this.ContactBodies.GetHashCode();
+                if (this.TouchingFaces != null)
+                    hashCode = hashCode * 59 + this.TouchingFaces.GetHashCode();
                 return hashCode;
             }
         }

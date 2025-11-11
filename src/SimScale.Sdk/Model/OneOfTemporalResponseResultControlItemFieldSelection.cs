@@ -28,8 +28,7 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(DisplacementFieldSelection), "DISPLACEMENT")]
-    [JsonSubtypes.KnownSubType(typeof(ForceFieldSelection), "FORCE")]
-    [JsonSubtypes.KnownSubType(typeof(MomentFieldSelection), "MOMENT")]
+    [JsonSubtypes.KnownSubType(typeof(ContactFieldSelection), "CONTACT")]
     [JsonSubtypes.KnownSubType(typeof(StrainFieldSelection), "STRAIN")]
     [JsonSubtypes.KnownSubType(typeof(StressFieldSelection), "STRESS")]
     [JsonSubtypes.KnownSubType(typeof(VelocityFieldSelection), "VELOCITY")]

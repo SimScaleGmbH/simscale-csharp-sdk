@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This is a &lt;b&gt;pressure&lt;/b&gt; boundary condition representing a distributed load on the selection. It is applied normal to the surface of all face elements.&lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;The applied total force depends on the surface area of the selection.&lt;/li&gt;&lt;li&gt;The normal direction of the faces is computed only in the undeformed state and not updated for large deformations.&lt;/li&gt;&lt;li&gt;For transient analyses you may define a &lt;b&gt;time dependent&lt;/b&gt; value by uploading a table (csv-file).&lt;/li&gt;&lt;/ul&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/pressure/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
-    public partial class PressureBCMarc : IEquatable<PressureBCMarc>
+    public partial class PressureBCMarc : OneOfMarcAnalysisBoundaryConditions, IEquatable<PressureBCMarc>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PressureBCMarc" /> class.
@@ -40,19 +40,19 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name.</param>
         /// <param name="pressure">pressure.</param>
         /// <param name="isFollowerPressure">isFollowerPressure (default to true).</param>
-        /// <param name="topologicalReference">topologicalReference.</param>
-        /// <param name="activateLoadSteps">activateLoadSteps (default to false).</param>
+        /// <param name="activateLoadSteps">Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time. (default to false).</param>
         /// <param name="loadStepUuids">loadStepUuids.</param>
-        public PressureBCMarc(string type = "PRESSURE", string name = default(string), DimensionalFunctionPressure pressure = default(DimensionalFunctionPressure), bool? isFollowerPressure = default(bool?), TopologicalReference topologicalReference = default(TopologicalReference), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>))
+        /// <param name="topologicalReference">topologicalReference.</param>
+        public PressureBCMarc(string type = "PRESSURE", string name = default(string), DimensionalFunctionPressure pressure = default(DimensionalFunctionPressure), bool? isFollowerPressure = default(bool?), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PressureBCMarc and cannot be null");
             this.Name = name;
             this.Pressure = pressure;
             this.IsFollowerPressure = isFollowerPressure;
-            this.TopologicalReference = topologicalReference;
             this.ActivateLoadSteps = activateLoadSteps;
             this.LoadStepUuids = loadStepUuids;
+            this.TopologicalReference = topologicalReference;
         }
         
         /// <summary>
@@ -81,14 +81,9 @@ namespace SimScale.Sdk.Model
         public bool? IsFollowerPressure { get; set; }
 
         /// <summary>
-        /// Gets or Sets TopologicalReference
+        /// Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.
         /// </summary>
-        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
-        public TopologicalReference TopologicalReference { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ActivateLoadSteps
-        /// </summary>
+        /// <value>Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.</value>
         [DataMember(Name="activateLoadSteps", EmitDefaultValue=false)]
         public bool? ActivateLoadSteps { get; set; }
 
@@ -97,6 +92,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="loadStepUuids", EmitDefaultValue=false)]
         public List<Guid?> LoadStepUuids { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TopologicalReference
+        /// </summary>
+        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
+        public TopologicalReference TopologicalReference { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,9 +111,9 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Pressure: ").Append(Pressure).Append("\n");
             sb.Append("  IsFollowerPressure: ").Append(IsFollowerPressure).Append("\n");
-            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  ActivateLoadSteps: ").Append(ActivateLoadSteps).Append("\n");
             sb.Append("  LoadStepUuids: ").Append(LoadStepUuids).Append("\n");
+            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,11 +169,6 @@ namespace SimScale.Sdk.Model
                     this.IsFollowerPressure.Equals(input.IsFollowerPressure))
                 ) && 
                 (
-                    this.TopologicalReference == input.TopologicalReference ||
-                    (this.TopologicalReference != null &&
-                    this.TopologicalReference.Equals(input.TopologicalReference))
-                ) && 
-                (
                     this.ActivateLoadSteps == input.ActivateLoadSteps ||
                     (this.ActivateLoadSteps != null &&
                     this.ActivateLoadSteps.Equals(input.ActivateLoadSteps))
@@ -182,6 +178,11 @@ namespace SimScale.Sdk.Model
                     this.LoadStepUuids != null &&
                     input.LoadStepUuids != null &&
                     this.LoadStepUuids.SequenceEqual(input.LoadStepUuids)
+                ) && 
+                (
+                    this.TopologicalReference == input.TopologicalReference ||
+                    (this.TopologicalReference != null &&
+                    this.TopologicalReference.Equals(input.TopologicalReference))
                 );
         }
 
@@ -202,12 +203,12 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Pressure.GetHashCode();
                 if (this.IsFollowerPressure != null)
                     hashCode = hashCode * 59 + this.IsFollowerPressure.GetHashCode();
-                if (this.TopologicalReference != null)
-                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.ActivateLoadSteps != null)
                     hashCode = hashCode * 59 + this.ActivateLoadSteps.GetHashCode();
                 if (this.LoadStepUuids != null)
                     hashCode = hashCode * 59 + this.LoadStepUuids.GetHashCode();
+                if (this.TopologicalReference != null)
+                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;
             }
         }

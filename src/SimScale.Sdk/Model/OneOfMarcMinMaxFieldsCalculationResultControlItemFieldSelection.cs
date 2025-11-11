@@ -30,6 +30,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(MarcDisplacementFieldSelection), "DISPLACEMENT")]
     [JsonSubtypes.KnownSubType(typeof(MarcStressFieldSelection), "STRESS")]
     [JsonSubtypes.KnownSubType(typeof(MarcStrainFieldSelection), "STRAIN")]
+    [JsonSubtypes.KnownSubType(typeof(MarcContactFieldSelection), "CONTACT")]
     public interface OneOfMarcMinMaxFieldsCalculationResultControlItemFieldSelection
     {
         /// <summary>

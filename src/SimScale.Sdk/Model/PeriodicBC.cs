@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This boundary condition should be used on two faces of a system as if they are physically connected. It is required that the two faces are of same size and shape and the face elements of the mesh are congruent on both sides. Works for uploaded meshes only. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/boundary-conditions/periodic-boundary-condition/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
-    public partial class PeriodicBC : OneOfCompressibleBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, IEquatable<PeriodicBC>
+    public partial class PeriodicBC : OneOfCompressibleBoundaryConditions, OneOfConvectiveHeatTransferBoundaryConditions, OneOfCoupledConjugateHeatTransferBoundaryConditions, OneOfFlowDomainBoundariesXMAX, OneOfFlowDomainBoundariesXMIN, OneOfFlowDomainBoundariesYMAX, OneOfFlowDomainBoundariesYMIN, OneOfFlowDomainBoundariesZMAX, OneOfFlowDomainBoundariesZMIN, OneOfIncompressibleBoundaryConditions, OneOfMultiphaseBoundaryConditions, IEquatable<PeriodicBC>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PeriodicBC" /> class.

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// This is a boundary condition for the &lt;b&gt;displacement vector&lt;/b&gt; variable. You can define prescribed values for the displacement of the assigned groups in every coordinate direction (x,y,z) or leave it unconstrained in order to let the entity move freely. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose 0 as value in order to fix your selection.&lt;/li&gt;&lt;li&gt;Do not constrain entities in directions where a load boundary condition is applied.&lt;/li&gt;&lt;li&gt;Do not constrain entities with multiple Dirichlet boundary conditions in one direction (overconstrained).&lt;/li&gt;&lt;li&gt;Do not constrain slave entities of &lt;b&gt;Contact Constraints&lt;/b&gt; as they are constrained by the master in that direction (overconstrained).&lt;/li&gt;&lt;/ul&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/fixed-value-boundary-condition-type/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.
     /// </summary>
     [DataContract]
-    public partial class FixedValueBCMarc : IEquatable<FixedValueBCMarc>
+    public partial class FixedValueBCMarc : OneOfMarcAnalysisBoundaryConditions, IEquatable<FixedValueBCMarc>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedValueBCMarc" /> class.
@@ -39,18 +39,18 @@ namespace SimScale.Sdk.Model
         /// <param name="type">This is a boundary condition for the &lt;b&gt;displacement vector&lt;/b&gt; variable. You can define prescribed values for the displacement of the assigned groups in every coordinate direction (x,y,z) or leave it unconstrained in order to let the entity move freely. &lt;br /&gt;&lt;br /&gt;Important remarks: &lt;br /&gt;&lt;ul&gt;&lt;li&gt;Choose 0 as value in order to fix your selection.&lt;/li&gt;&lt;li&gt;Do not constrain entities in directions where a load boundary condition is applied.&lt;/li&gt;&lt;li&gt;Do not constrain entities with multiple Dirichlet boundary conditions in one direction (overconstrained).&lt;/li&gt;&lt;li&gt;Do not constrain slave entities of &lt;b&gt;Contact Constraints&lt;/b&gt; as they are constrained by the master in that direction (overconstrained).&lt;/li&gt;&lt;/ul&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/boundary-conditions/fixed-value-boundary-condition-type/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.  Schema name: FixedValueBCMarc (required) (default to &quot;FIXED_VALUE&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="displacement">displacement.</param>
-        /// <param name="topologicalReference">topologicalReference.</param>
-        /// <param name="activateLoadSteps">activateLoadSteps (default to false).</param>
+        /// <param name="activateLoadSteps">Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time. (default to false).</param>
         /// <param name="loadStepUuids">loadStepUuids.</param>
-        public FixedValueBCMarc(string type = "FIXED_VALUE", string name = default(string), DimensionalPartialVectorFunctionLength displacement = default(DimensionalPartialVectorFunctionLength), TopologicalReference topologicalReference = default(TopologicalReference), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>))
+        /// <param name="topologicalReference">topologicalReference.</param>
+        public FixedValueBCMarc(string type = "FIXED_VALUE", string name = default(string), DimensionalPartialVectorFunctionLength displacement = default(DimensionalPartialVectorFunctionLength), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedValueBCMarc and cannot be null");
             this.Name = name;
             this.Displacement = displacement;
-            this.TopologicalReference = topologicalReference;
             this.ActivateLoadSteps = activateLoadSteps;
             this.LoadStepUuids = loadStepUuids;
+            this.TopologicalReference = topologicalReference;
         }
         
         /// <summary>
@@ -73,14 +73,9 @@ namespace SimScale.Sdk.Model
         public DimensionalPartialVectorFunctionLength Displacement { get; set; }
 
         /// <summary>
-        /// Gets or Sets TopologicalReference
+        /// Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.
         /// </summary>
-        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
-        public TopologicalReference TopologicalReference { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ActivateLoadSteps
-        /// </summary>
+        /// <value>Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.</value>
         [DataMember(Name="activateLoadSteps", EmitDefaultValue=false)]
         public bool? ActivateLoadSteps { get; set; }
 
@@ -89,6 +84,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="loadStepUuids", EmitDefaultValue=false)]
         public List<Guid?> LoadStepUuids { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TopologicalReference
+        /// </summary>
+        [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
+        public TopologicalReference TopologicalReference { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,9 +102,9 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Displacement: ").Append(Displacement).Append("\n");
-            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("  ActivateLoadSteps: ").Append(ActivateLoadSteps).Append("\n");
             sb.Append("  LoadStepUuids: ").Append(LoadStepUuids).Append("\n");
+            sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -154,11 +155,6 @@ namespace SimScale.Sdk.Model
                     this.Displacement.Equals(input.Displacement))
                 ) && 
                 (
-                    this.TopologicalReference == input.TopologicalReference ||
-                    (this.TopologicalReference != null &&
-                    this.TopologicalReference.Equals(input.TopologicalReference))
-                ) && 
-                (
                     this.ActivateLoadSteps == input.ActivateLoadSteps ||
                     (this.ActivateLoadSteps != null &&
                     this.ActivateLoadSteps.Equals(input.ActivateLoadSteps))
@@ -168,6 +164,11 @@ namespace SimScale.Sdk.Model
                     this.LoadStepUuids != null &&
                     input.LoadStepUuids != null &&
                     this.LoadStepUuids.SequenceEqual(input.LoadStepUuids)
+                ) && 
+                (
+                    this.TopologicalReference == input.TopologicalReference ||
+                    (this.TopologicalReference != null &&
+                    this.TopologicalReference.Equals(input.TopologicalReference))
                 );
         }
 
@@ -186,12 +187,12 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Displacement != null)
                     hashCode = hashCode * 59 + this.Displacement.GetHashCode();
-                if (this.TopologicalReference != null)
-                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 if (this.ActivateLoadSteps != null)
                     hashCode = hashCode * 59 + this.ActivateLoadSteps.GetHashCode();
                 if (this.LoadStepUuids != null)
                     hashCode = hashCode * 59 + this.LoadStepUuids.GetHashCode();
+                if (this.TopologicalReference != null)
+                    hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;
             }
         }

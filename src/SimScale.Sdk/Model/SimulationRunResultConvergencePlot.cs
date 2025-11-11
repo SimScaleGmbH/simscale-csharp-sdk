@@ -39,12 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">type (required) (default to &quot;CONVERGENCE_PLOT&quot;).</param>
         /// <param name="resultId">The result ID.</param>
         /// <param name="download">download.</param>
-        public SimulationRunResultConvergencePlot(string type = "CONVERGENCE_PLOT", Guid? resultId = default(Guid?), SimulationRunResultDownload download = default(SimulationRunResultDownload))
+        /// <param name="availableExportFormats">Supported export format for this result..</param>
+        public SimulationRunResultConvergencePlot(string type = "CONVERGENCE_PLOT", Guid? resultId = default(Guid?), SimulationRunResultDownload download = default(SimulationRunResultDownload), List<string> availableExportFormats = default(List<string>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for SimulationRunResultConvergencePlot and cannot be null");
             this.ResultId = resultId;
             this.Download = download;
+            this.AvailableExportFormats = availableExportFormats;
         }
         
         /// <summary>
@@ -88,6 +90,20 @@ namespace SimScale.Sdk.Model
         public SimulationRunResultDownload Download { get; set; }
 
         /// <summary>
+        /// URL for opening the convergence plot in the Workbench.
+        /// </summary>
+        /// <value>URL for opening the convergence plot in the Workbench.</value>
+        [DataMember(Name="workbenchUrl", EmitDefaultValue=false)]
+        public string WorkbenchUrl { get; private set; }
+
+        /// <summary>
+        /// Supported export format for this result.
+        /// </summary>
+        /// <value>Supported export format for this result.</value>
+        [DataMember(Name="availableExportFormats", EmitDefaultValue=false)]
+        public List<string> AvailableExportFormats { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +117,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  ModifiedAt: ").Append(ModifiedAt).Append("\n");
             sb.Append("  Download: ").Append(Download).Append("\n");
+            sb.Append("  WorkbenchUrl: ").Append(WorkbenchUrl).Append("\n");
+            sb.Append("  AvailableExportFormats: ").Append(AvailableExportFormats).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +182,17 @@ namespace SimScale.Sdk.Model
                     this.Download == input.Download ||
                     (this.Download != null &&
                     this.Download.Equals(input.Download))
+                ) && 
+                (
+                    this.WorkbenchUrl == input.WorkbenchUrl ||
+                    (this.WorkbenchUrl != null &&
+                    this.WorkbenchUrl.Equals(input.WorkbenchUrl))
+                ) && 
+                (
+                    this.AvailableExportFormats == input.AvailableExportFormats ||
+                    this.AvailableExportFormats != null &&
+                    input.AvailableExportFormats != null &&
+                    this.AvailableExportFormats.SequenceEqual(input.AvailableExportFormats)
                 );
         }
 
@@ -188,6 +217,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ModifiedAt.GetHashCode();
                 if (this.Download != null)
                     hashCode = hashCode * 59 + this.Download.GetHashCode();
+                if (this.WorkbenchUrl != null)
+                    hashCode = hashCode * 59 + this.WorkbenchUrl.GetHashCode();
+                if (this.AvailableExportFormats != null)
+                    hashCode = hashCode * 59 + this.AvailableExportFormats.GetHashCode();
                 return hashCode;
             }
         }

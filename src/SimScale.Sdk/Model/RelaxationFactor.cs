@@ -32,12 +32,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="RelaxationFactor" /> class.
         /// </summary>
         /// <param name="pressureField">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
-        /// <param name="pressureRghField">pressureRghField (default to 0.7M).</param>
+        /// <param name="pressureRghField">pressureRghField.</param>
         /// <param name="passiveScalarEquation">passiveScalarEquation.</param>
         /// <param name="velocityEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="velocity">velocity.</param>
         /// <param name="temperatureEquation">temperatureEquation.</param>
-        /// <param name="temperatureField">temperatureField (default to 0.8M).</param>
+        /// <param name="temperatureField">temperatureField.</param>
         /// <param name="densityField">densityField.</param>
         /// <param name="enthalpyEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>
         /// <param name="internalEnergyEquation">&lt;p&gt;With this parameter you can initialize the under-relaxation of a field or equation. The solver will dynamically adapt this factor to improve stability.&lt;/p&gt;.</param>

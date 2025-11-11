@@ -38,17 +38,19 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">Schema name: MarcBondedContactConnection (required) (default to &quot;BONDED&quot;).</param>
         /// <param name="name">name.</param>
-        /// <param name="contactBodies">contactBodies.</param>
-        /// <param name="activateLoadSteps">activateLoadSteps (default to false).</param>
+        /// <param name="positionTolerance">positionTolerance.</param>
+        /// <param name="activateLoadSteps">Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time. (default to false).</param>
         /// <param name="loadStepUuids">loadStepUuids.</param>
-        public MarcBondedContactConnection(string type = "BONDED", string name = default(string), TopologicalReference contactBodies = default(TopologicalReference), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>))
+        /// <param name="contactBodies">contactBodies.</param>
+        public MarcBondedContactConnection(string type = "BONDED", string name = default(string), OneOfMarcBondedContactConnectionPositionTolerance positionTolerance = default(OneOfMarcBondedContactConnectionPositionTolerance), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>), TopologicalReference contactBodies = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcBondedContactConnection and cannot be null");
             this.Name = name;
-            this.ContactBodies = contactBodies;
+            this.PositionTolerance = positionTolerance;
             this.ActivateLoadSteps = activateLoadSteps;
             this.LoadStepUuids = loadStepUuids;
+            this.ContactBodies = contactBodies;
         }
         
         /// <summary>
@@ -65,14 +67,15 @@ namespace SimScale.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets ContactBodies
+        /// Gets or Sets PositionTolerance
         /// </summary>
-        [DataMember(Name="contactBodies", EmitDefaultValue=false)]
-        public TopologicalReference ContactBodies { get; set; }
+        [DataMember(Name="positionTolerance", EmitDefaultValue=false)]
+        public OneOfMarcBondedContactConnectionPositionTolerance PositionTolerance { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActivateLoadSteps
+        /// Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.
         /// </summary>
+        /// <value>Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.</value>
         [DataMember(Name="activateLoadSteps", EmitDefaultValue=false)]
         public bool? ActivateLoadSteps { get; set; }
 
@@ -81,6 +84,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="loadStepUuids", EmitDefaultValue=false)]
         public List<Guid?> LoadStepUuids { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContactBodies
+        /// </summary>
+        [DataMember(Name="contactBodies", EmitDefaultValue=false)]
+        public TopologicalReference ContactBodies { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,9 +101,10 @@ namespace SimScale.Sdk.Model
             sb.Append("class MarcBondedContactConnection {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ContactBodies: ").Append(ContactBodies).Append("\n");
+            sb.Append("  PositionTolerance: ").Append(PositionTolerance).Append("\n");
             sb.Append("  ActivateLoadSteps: ").Append(ActivateLoadSteps).Append("\n");
             sb.Append("  LoadStepUuids: ").Append(LoadStepUuids).Append("\n");
+            sb.Append("  ContactBodies: ").Append(ContactBodies).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,9 +150,9 @@ namespace SimScale.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.ContactBodies == input.ContactBodies ||
-                    (this.ContactBodies != null &&
-                    this.ContactBodies.Equals(input.ContactBodies))
+                    this.PositionTolerance == input.PositionTolerance ||
+                    (this.PositionTolerance != null &&
+                    this.PositionTolerance.Equals(input.PositionTolerance))
                 ) && 
                 (
                     this.ActivateLoadSteps == input.ActivateLoadSteps ||
@@ -154,6 +164,11 @@ namespace SimScale.Sdk.Model
                     this.LoadStepUuids != null &&
                     input.LoadStepUuids != null &&
                     this.LoadStepUuids.SequenceEqual(input.LoadStepUuids)
+                ) && 
+                (
+                    this.ContactBodies == input.ContactBodies ||
+                    (this.ContactBodies != null &&
+                    this.ContactBodies.Equals(input.ContactBodies))
                 );
         }
 
@@ -170,12 +185,14 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.ContactBodies != null)
-                    hashCode = hashCode * 59 + this.ContactBodies.GetHashCode();
+                if (this.PositionTolerance != null)
+                    hashCode = hashCode * 59 + this.PositionTolerance.GetHashCode();
                 if (this.ActivateLoadSteps != null)
                     hashCode = hashCode * 59 + this.ActivateLoadSteps.GetHashCode();
                 if (this.LoadStepUuids != null)
                     hashCode = hashCode * 59 + this.LoadStepUuids.GetHashCode();
+                if (this.ContactBodies != null)
+                    hashCode = hashCode * 59 + this.ContactBodies.GetHashCode();
                 return hashCode;
             }
         }

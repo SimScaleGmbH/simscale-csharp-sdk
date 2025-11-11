@@ -40,7 +40,7 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name.</param>
         /// <param name="fieldSelection">fieldSelection.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public MarcSumFieldsCalculationResultControlItem(string type = "SUM_FIELDS_CALCULATION", string name = default(string), MarcForceFieldSelection fieldSelection = default(MarcForceFieldSelection), TopologicalReference topologicalReference = default(TopologicalReference))
+        public MarcSumFieldsCalculationResultControlItem(string type = "SUM_FIELDS_CALCULATION", string name = default(string), OneOfMarcSumFieldsCalculationResultControlItemFieldSelection fieldSelection = default(OneOfMarcSumFieldsCalculationResultControlItemFieldSelection), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcSumFieldsCalculationResultControlItem and cannot be null");
@@ -66,7 +66,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets FieldSelection
         /// </summary>
         [DataMember(Name="fieldSelection", EmitDefaultValue=false)]
-        public MarcForceFieldSelection FieldSelection { get; set; }
+        public OneOfMarcSumFieldsCalculationResultControlItemFieldSelection FieldSelection { get; set; }
 
         /// <summary>
         /// Gets or Sets TopologicalReference

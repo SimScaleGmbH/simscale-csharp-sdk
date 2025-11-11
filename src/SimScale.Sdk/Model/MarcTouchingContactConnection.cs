@@ -40,19 +40,19 @@ namespace SimScale.Sdk.Model
         /// <param name="name">name.</param>
         /// <param name="frictionCoefficient">frictionCoefficient (default to 0M).</param>
         /// <param name="interferenceFit">interferenceFit.</param>
-        /// <param name="contactBodies">contactBodies.</param>
-        /// <param name="activateLoadSteps">activateLoadSteps (default to false).</param>
+        /// <param name="activateLoadSteps">Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time. (default to false).</param>
         /// <param name="loadStepUuids">loadStepUuids.</param>
-        public MarcTouchingContactConnection(string type = "TOUCHING", string name = default(string), decimal? frictionCoefficient = default(decimal?), InterferenceFit interferenceFit = default(InterferenceFit), TopologicalReference contactBodies = default(TopologicalReference), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>))
+        /// <param name="contactBodies">contactBodies.</param>
+        public MarcTouchingContactConnection(string type = "TOUCHING", string name = default(string), decimal? frictionCoefficient = default(decimal?), InterferenceFit interferenceFit = default(InterferenceFit), bool? activateLoadSteps = default(bool?), List<Guid?> loadStepUuids = default(List<Guid?>), TopologicalReference contactBodies = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for MarcTouchingContactConnection and cannot be null");
             this.Name = name;
             this.FrictionCoefficient = frictionCoefficient;
             this.InterferenceFit = interferenceFit;
-            this.ContactBodies = contactBodies;
             this.ActivateLoadSteps = activateLoadSteps;
             this.LoadStepUuids = loadStepUuids;
+            this.ContactBodies = contactBodies;
         }
         
         /// <summary>
@@ -81,14 +81,9 @@ namespace SimScale.Sdk.Model
         public InterferenceFit InterferenceFit { get; set; }
 
         /// <summary>
-        /// Gets or Sets ContactBodies
+        /// Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.
         /// </summary>
-        [DataMember(Name="contactBodies", EmitDefaultValue=false)]
-        public TopologicalReference ContactBodies { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ActivateLoadSteps
-        /// </summary>
+        /// <value>Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enabled, you can control exactly when (and for how long) this condition is applied. If this option is turned off, the boundary condition or contact is considered globally active and remains applied throughout the entire simulation time.</value>
         [DataMember(Name="activateLoadSteps", EmitDefaultValue=false)]
         public bool? ActivateLoadSteps { get; set; }
 
@@ -97,6 +92,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="loadStepUuids", EmitDefaultValue=false)]
         public List<Guid?> LoadStepUuids { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContactBodies
+        /// </summary>
+        [DataMember(Name="contactBodies", EmitDefaultValue=false)]
+        public TopologicalReference ContactBodies { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,9 +111,9 @@ namespace SimScale.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  FrictionCoefficient: ").Append(FrictionCoefficient).Append("\n");
             sb.Append("  InterferenceFit: ").Append(InterferenceFit).Append("\n");
-            sb.Append("  ContactBodies: ").Append(ContactBodies).Append("\n");
             sb.Append("  ActivateLoadSteps: ").Append(ActivateLoadSteps).Append("\n");
             sb.Append("  LoadStepUuids: ").Append(LoadStepUuids).Append("\n");
+            sb.Append("  ContactBodies: ").Append(ContactBodies).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,11 +169,6 @@ namespace SimScale.Sdk.Model
                     this.InterferenceFit.Equals(input.InterferenceFit))
                 ) && 
                 (
-                    this.ContactBodies == input.ContactBodies ||
-                    (this.ContactBodies != null &&
-                    this.ContactBodies.Equals(input.ContactBodies))
-                ) && 
-                (
                     this.ActivateLoadSteps == input.ActivateLoadSteps ||
                     (this.ActivateLoadSteps != null &&
                     this.ActivateLoadSteps.Equals(input.ActivateLoadSteps))
@@ -182,6 +178,11 @@ namespace SimScale.Sdk.Model
                     this.LoadStepUuids != null &&
                     input.LoadStepUuids != null &&
                     this.LoadStepUuids.SequenceEqual(input.LoadStepUuids)
+                ) && 
+                (
+                    this.ContactBodies == input.ContactBodies ||
+                    (this.ContactBodies != null &&
+                    this.ContactBodies.Equals(input.ContactBodies))
                 );
         }
 
@@ -202,12 +203,12 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.FrictionCoefficient.GetHashCode();
                 if (this.InterferenceFit != null)
                     hashCode = hashCode * 59 + this.InterferenceFit.GetHashCode();
-                if (this.ContactBodies != null)
-                    hashCode = hashCode * 59 + this.ContactBodies.GetHashCode();
                 if (this.ActivateLoadSteps != null)
                     hashCode = hashCode * 59 + this.ActivateLoadSteps.GetHashCode();
                 if (this.LoadStepUuids != null)
                     hashCode = hashCode * 59 + this.LoadStepUuids.GetHashCode();
+                if (this.ContactBodies != null)
+                    hashCode = hashCode * 59 + this.ContactBodies.GetHashCode();
                 return hashCode;
             }
         }

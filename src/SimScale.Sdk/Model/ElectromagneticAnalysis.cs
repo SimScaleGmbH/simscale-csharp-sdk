@@ -42,10 +42,11 @@ namespace SimScale.Sdk.Model
         /// <param name="initialConditions">initialConditions.</param>
         /// <param name="coils">coils.</param>
         /// <param name="boundaryConditions">boundaryConditions.</param>
+        /// <param name="advancedConcepts">advancedConcepts.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="numerics">numerics.</param>
         /// <param name="simulationControl">simulationControl.</param>
-        public ElectromagneticAnalysis(string type = "ELECTROMAGNETIC_ANALYSIS", OneOfElectromagneticAnalysisModel model = default(OneOfElectromagneticAnalysisModel), List<ElectromagneticMaterial> materials = default(List<ElectromagneticMaterial>), ElectromagneticInitialConditions initialConditions = default(ElectromagneticInitialConditions), List<Coil> coils = default(List<Coil>), List<OneOfElectromagneticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfElectromagneticAnalysisBoundaryConditions>), ElectromagneticResultControl resultControl = default(ElectromagneticResultControl), ElectromagneticNumerics numerics = default(ElectromagneticNumerics), ElectromagneticSimulationControl simulationControl = default(ElectromagneticSimulationControl))
+        public ElectromagneticAnalysis(string type = "ELECTROMAGNETIC_ANALYSIS", OneOfElectromagneticAnalysisModel model = default(OneOfElectromagneticAnalysisModel), List<ElectromagneticMaterial> materials = default(List<ElectromagneticMaterial>), ElectromagneticInitialConditions initialConditions = default(ElectromagneticInitialConditions), List<Coil> coils = default(List<Coil>), List<OneOfElectromagneticAnalysisBoundaryConditions> boundaryConditions = default(List<OneOfElectromagneticAnalysisBoundaryConditions>), ElectromagneticAdvancedConcepts advancedConcepts = default(ElectromagneticAdvancedConcepts), ElectromagneticResultControl resultControl = default(ElectromagneticResultControl), ElectromagneticNumerics numerics = default(ElectromagneticNumerics), ElectromagneticSimulationControl simulationControl = default(ElectromagneticSimulationControl))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ElectromagneticAnalysis and cannot be null");
@@ -54,6 +55,7 @@ namespace SimScale.Sdk.Model
             this.InitialConditions = initialConditions;
             this.Coils = coils;
             this.BoundaryConditions = boundaryConditions;
+            this.AdvancedConcepts = advancedConcepts;
             this.ResultControl = resultControl;
             this.Numerics = numerics;
             this.SimulationControl = simulationControl;
@@ -97,6 +99,12 @@ namespace SimScale.Sdk.Model
         public List<OneOfElectromagneticAnalysisBoundaryConditions> BoundaryConditions { get; set; }
 
         /// <summary>
+        /// Gets or Sets AdvancedConcepts
+        /// </summary>
+        [DataMember(Name="advancedConcepts", EmitDefaultValue=false)]
+        public ElectromagneticAdvancedConcepts AdvancedConcepts { get; set; }
+
+        /// <summary>
         /// Gets or Sets ResultControl
         /// </summary>
         [DataMember(Name="resultControl", EmitDefaultValue=false)]
@@ -128,6 +136,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  InitialConditions: ").Append(InitialConditions).Append("\n");
             sb.Append("  Coils: ").Append(Coils).Append("\n");
             sb.Append("  BoundaryConditions: ").Append(BoundaryConditions).Append("\n");
+            sb.Append("  AdvancedConcepts: ").Append(AdvancedConcepts).Append("\n");
             sb.Append("  ResultControl: ").Append(ResultControl).Append("\n");
             sb.Append("  Numerics: ").Append(Numerics).Append("\n");
             sb.Append("  SimulationControl: ").Append(SimulationControl).Append("\n");
@@ -199,6 +208,11 @@ namespace SimScale.Sdk.Model
                     this.BoundaryConditions.SequenceEqual(input.BoundaryConditions)
                 ) && 
                 (
+                    this.AdvancedConcepts == input.AdvancedConcepts ||
+                    (this.AdvancedConcepts != null &&
+                    this.AdvancedConcepts.Equals(input.AdvancedConcepts))
+                ) && 
+                (
                     this.ResultControl == input.ResultControl ||
                     (this.ResultControl != null &&
                     this.ResultControl.Equals(input.ResultControl))
@@ -236,6 +250,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Coils.GetHashCode();
                 if (this.BoundaryConditions != null)
                     hashCode = hashCode * 59 + this.BoundaryConditions.GetHashCode();
+                if (this.AdvancedConcepts != null)
+                    hashCode = hashCode * 59 + this.AdvancedConcepts.GetHashCode();
                 if (this.ResultControl != null)
                     hashCode = hashCode * 59 + this.ResultControl.GetHashCode();
                 if (this.Numerics != null)

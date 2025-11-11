@@ -128,9 +128,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
-        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
+        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to. This can be either the external version like &#x60;8.0&#x60;, or the internal version like &#x60;internal:53&#x60;. (optional, default to &quot;9.0&quot;)</param>
         /// <returns>MeshOperation</returns>
-        MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "8.0");
+        MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "9.0");
 
         /// <summary>
         /// Get information about the mesh operation
@@ -141,9 +141,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
-        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
+        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to. This can be either the external version like &#x60;8.0&#x60;, or the internal version like &#x60;internal:53&#x60;. (optional, default to &quot;9.0&quot;)</param>
         /// <returns>ApiResponse of MeshOperation</returns>
-        ApiResponse<MeshOperation> GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "8.0");
+        ApiResponse<MeshOperation> GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "9.0");
         /// <summary>
         /// Get the mesh operation event log
         /// </summary>
@@ -381,9 +381,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
-        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
+        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to. This can be either the external version like &#x60;8.0&#x60;, or the internal version like &#x60;internal:53&#x60;. (optional, default to &quot;9.0&quot;)</param>
         /// <returns>Task of MeshOperation</returns>
-        System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "8.0");
+        System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "9.0");
 
         /// <summary>
         /// Get information about the mesh operation
@@ -394,9 +394,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
-        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
+        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to. This can be either the external version like &#x60;8.0&#x60;, or the internal version like &#x60;internal:53&#x60;. (optional, default to &quot;9.0&quot;)</param>
         /// <returns>Task of ApiResponse (MeshOperation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "8.0");
+        System.Threading.Tasks.Task<ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "9.0");
         /// <summary>
         /// Get the mesh operation event log
         /// </summary>
@@ -1208,9 +1208,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
-        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
+        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to. This can be either the external version like &#x60;8.0&#x60;, or the internal version like &#x60;internal:53&#x60;. (optional, default to &quot;9.0&quot;)</param>
         /// <returns>MeshOperation</returns>
-        public MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "8.0")
+        public MeshOperation GetMeshOperation (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "9.0")
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperation> localVarResponse = GetMeshOperationWithHttpInfo(projectId, meshOperationId, meshingSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1222,9 +1222,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
-        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
+        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to. This can be either the external version like &#x60;8.0&#x60;, or the internal version like &#x60;internal:53&#x60;. (optional, default to &quot;9.0&quot;)</param>
         /// <returns>ApiResponse of MeshOperation</returns>
-        public SimScale.Sdk.Client.ApiResponse< MeshOperation > GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "8.0")
+        public SimScale.Sdk.Client.ApiResponse< MeshOperation > GetMeshOperationWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "9.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1233,10 +1233,6 @@ namespace SimScale.Sdk.Api
             // verify the required parameter 'meshOperationId' is set
             if (meshOperationId == null)
                 throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'meshOperationId' when calling MeshOperationsApi->GetMeshOperation");
-
-            // verify the required parameter 'meshingSpecSchemaVersion' is set
-            if (meshingSpecSchemaVersion == null)
-                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'meshingSpecSchemaVersion' when calling MeshOperationsApi->GetMeshOperation");
 
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
 
@@ -1256,7 +1252,10 @@ namespace SimScale.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
             localVarRequestOptions.PathParameters.Add("meshOperationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(meshOperationId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "meshingSpecSchemaVersion", meshingSpecSchemaVersion));
+            if (meshingSpecSchemaVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "meshingSpecSchemaVersion", meshingSpecSchemaVersion));
+            }
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
@@ -1282,9 +1281,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
-        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
+        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to. This can be either the external version like &#x60;8.0&#x60;, or the internal version like &#x60;internal:53&#x60;. (optional, default to &quot;9.0&quot;)</param>
         /// <returns>Task of MeshOperation</returns>
-        public async System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "8.0")
+        public async System.Threading.Tasks.Task<MeshOperation> GetMeshOperationAsync (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "9.0")
         {
              SimScale.Sdk.Client.ApiResponse<MeshOperation> localVarResponse = await GetMeshOperationAsyncWithHttpInfo(projectId, meshOperationId, meshingSpecSchemaVersion);
              return localVarResponse.Data;
@@ -1297,9 +1296,9 @@ namespace SimScale.Sdk.Api
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
         /// <param name="meshOperationId">The mesh operation ID</param>
-        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to</param>
+        /// <param name="meshingSpecSchemaVersion">Version of the schema the meshing spec should conform to. This can be either the external version like &#x60;8.0&#x60;, or the internal version like &#x60;internal:53&#x60;. (optional, default to &quot;9.0&quot;)</param>
         /// <returns>Task of ApiResponse (MeshOperation)</returns>
-        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "8.0")
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<MeshOperation>> GetMeshOperationAsyncWithHttpInfo (string projectId = default(string), Guid? meshOperationId = default(Guid?), string meshingSpecSchemaVersion = "9.0")
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -1308,10 +1307,6 @@ namespace SimScale.Sdk.Api
             // verify the required parameter 'meshOperationId' is set
             if (meshOperationId == null)
                 throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'meshOperationId' when calling MeshOperationsApi->GetMeshOperation");
-
-            // verify the required parameter 'meshingSpecSchemaVersion' is set
-            if (meshingSpecSchemaVersion == null)
-                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'meshingSpecSchemaVersion' when calling MeshOperationsApi->GetMeshOperation");
 
 
             SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
@@ -1332,7 +1327,10 @@ namespace SimScale.Sdk.Api
             
             localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
             localVarRequestOptions.PathParameters.Add("meshOperationId", SimScale.Sdk.Client.ClientUtils.ParameterToString(meshOperationId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "meshingSpecSchemaVersion", meshingSpecSchemaVersion));
+            if (meshingSpecSchemaVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(SimScale.Sdk.Client.ClientUtils.ParameterToMultiMap("", "meshingSpecSchemaVersion", meshingSpecSchemaVersion));
+            }
 
             // authentication (apiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))

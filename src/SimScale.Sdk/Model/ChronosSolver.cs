@@ -29,8 +29,9 @@ namespace SimScale.Sdk.Model
     public partial class ChronosSolver : OneOfSolidNumericsSolver, IEquatable<ChronosSolver>
     {
         /// <summary>
-        /// Defines NonConvergenceAction
+        /// Choose what happens if the linear solution with Chronos fails. Either stop the simulation, or rerun it with a direct solver (MUMPS)
         /// </summary>
+        /// <value>Choose what happens if the linear solution with Chronos fails. Either stop the simulation, or rerun it with a direct solver (MUMPS)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum NonConvergenceActionEnum
         {
@@ -49,8 +50,9 @@ namespace SimScale.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets NonConvergenceAction
+        /// Choose what happens if the linear solution with Chronos fails. Either stop the simulation, or rerun it with a direct solver (MUMPS)
         /// </summary>
+        /// <value>Choose what happens if the linear solution with Chronos fails. Either stop the simulation, or rerun it with a direct solver (MUMPS)</value>
         [DataMember(Name="nonConvergenceAction", EmitDefaultValue=false)]
         public NonConvergenceActionEnum? NonConvergenceAction { get; set; }
         /// <summary>
@@ -64,7 +66,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: ChronosSolver (required) (default to &quot;CHRONOS&quot;).</param>
         /// <param name="convergenceThreshold">Select the convergence tolerance. Can be smaller than with PETSc, and has a big impact on the newton convergence. It is recommended to start with a smaller value in case of convergence problems e.g. 1e-8 - 1e-10. (default to 0.0000010M).</param>
         /// <param name="maxIterations">Maximum number of iterations for Chronos. Should be 1000 for AMG (max 3000), and 5000 with FSAI (max 10000). (default to 1000).</param>
-        /// <param name="nonConvergenceAction">nonConvergenceAction (default to NonConvergenceActionEnum.SWITCHTODIRECTSOLVER).</param>
+        /// <param name="nonConvergenceAction">Choose what happens if the linear solution with Chronos fails. Either stop the simulation, or rerun it with a direct solver (MUMPS) (default to NonConvergenceActionEnum.SWITCHTODIRECTSOLVER).</param>
         /// <param name="advancedSettings">advancedSettings.</param>
         public ChronosSolver(string type = "CHRONOS", decimal? convergenceThreshold = default(decimal?), int? maxIterations = default(int?), NonConvergenceActionEnum? nonConvergenceAction = default(NonConvergenceActionEnum?), AdvancedChronosSettings advancedSettings = default(AdvancedChronosSettings))
         {

@@ -31,20 +31,32 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VariableGroupXYZTIMETEMP" /> class.
         /// </summary>
+        /// <param name="t">t.</param>
+        /// <param name="temperature">temperature.</param>
         /// <param name="x">x.</param>
         /// <param name="y">y.</param>
         /// <param name="z">z.</param>
-        /// <param name="t">t.</param>
-        /// <param name="temperature">temperature.</param>
-        public VariableGroupXYZTIMETEMP(UnitLength x = default(UnitLength), UnitLength y = default(UnitLength), UnitLength z = default(UnitLength), UnitTime t = default(UnitTime), UnitTemperature temperature = default(UnitTemperature))
+        public VariableGroupXYZTIMETEMP(UnitTime t = default(UnitTime), UnitTemperature temperature = default(UnitTemperature), UnitLength x = default(UnitLength), UnitLength y = default(UnitLength), UnitLength z = default(UnitLength))
         {
+            this.T = t;
+            this.Temperature = temperature;
             this.X = x;
             this.Y = y;
             this.Z = z;
-            this.T = t;
-            this.Temperature = temperature;
         }
         
+        /// <summary>
+        /// Gets or Sets T
+        /// </summary>
+        [DataMember(Name="T", EmitDefaultValue=false)]
+        public UnitTime T { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Temperature
+        /// </summary>
+        [DataMember(Name="Temperature", EmitDefaultValue=false)]
+        public UnitTemperature Temperature { get; set; }
+
         /// <summary>
         /// Gets or Sets X
         /// </summary>
@@ -64,18 +76,6 @@ namespace SimScale.Sdk.Model
         public UnitLength Z { get; set; }
 
         /// <summary>
-        /// Gets or Sets T
-        /// </summary>
-        [DataMember(Name="T", EmitDefaultValue=false)]
-        public UnitTime T { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Temperature
-        /// </summary>
-        [DataMember(Name="Temperature", EmitDefaultValue=false)]
-        public UnitTemperature Temperature { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,11 +83,11 @@ namespace SimScale.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VariableGroupXYZTIMETEMP {\n");
+            sb.Append("  T: ").Append(T).Append("\n");
+            sb.Append("  Temperature: ").Append(Temperature).Append("\n");
             sb.Append("  X: ").Append(X).Append("\n");
             sb.Append("  Y: ").Append(Y).Append("\n");
             sb.Append("  Z: ").Append(Z).Append("\n");
-            sb.Append("  T: ").Append(T).Append("\n");
-            sb.Append("  Temperature: ").Append(Temperature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +123,16 @@ namespace SimScale.Sdk.Model
 
             return 
                 (
+                    this.T == input.T ||
+                    (this.T != null &&
+                    this.T.Equals(input.T))
+                ) && 
+                (
+                    this.Temperature == input.Temperature ||
+                    (this.Temperature != null &&
+                    this.Temperature.Equals(input.Temperature))
+                ) && 
+                (
                     this.X == input.X ||
                     (this.X != null &&
                     this.X.Equals(input.X))
@@ -136,16 +146,6 @@ namespace SimScale.Sdk.Model
                     this.Z == input.Z ||
                     (this.Z != null &&
                     this.Z.Equals(input.Z))
-                ) && 
-                (
-                    this.T == input.T ||
-                    (this.T != null &&
-                    this.T.Equals(input.T))
-                ) && 
-                (
-                    this.Temperature == input.Temperature ||
-                    (this.Temperature != null &&
-                    this.Temperature.Equals(input.Temperature))
                 );
         }
 
@@ -158,16 +158,16 @@ namespace SimScale.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.T != null)
+                    hashCode = hashCode * 59 + this.T.GetHashCode();
+                if (this.Temperature != null)
+                    hashCode = hashCode * 59 + this.Temperature.GetHashCode();
                 if (this.X != null)
                     hashCode = hashCode * 59 + this.X.GetHashCode();
                 if (this.Y != null)
                     hashCode = hashCode * 59 + this.Y.GetHashCode();
                 if (this.Z != null)
                     hashCode = hashCode * 59 + this.Z.GetHashCode();
-                if (this.T != null)
-                    hashCode = hashCode * 59 + this.T.GetHashCode();
-                if (this.Temperature != null)
-                    hashCode = hashCode * 59 + this.Temperature.GetHashCode();
                 return hashCode;
             }
         }

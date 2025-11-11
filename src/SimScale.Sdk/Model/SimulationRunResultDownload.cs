@@ -58,10 +58,9 @@ namespace SimScale.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimulationRunResultDownload" /> class.
         /// </summary>
-        /// <param name="availableExportFormats">Supported export format for this result..</param>
-        public SimulationRunResultDownload(List<string> availableExportFormats = default(List<string>))
+        [JsonConstructorAttribute]
+        public SimulationRunResultDownload()
         {
-            this.AvailableExportFormats = availableExportFormats;
         }
         
         /// <summary>
@@ -86,20 +85,6 @@ namespace SimScale.Sdk.Model
         public string Url { get; private set; }
 
         /// <summary>
-        /// Can this result be exported and downloaded
-        /// </summary>
-        /// <value>Can this result be exported and downloaded</value>
-        [DataMember(Name="canExport", EmitDefaultValue=false)]
-        public bool? CanExport { get; private set; }
-
-        /// <summary>
-        /// Supported export format for this result.
-        /// </summary>
-        /// <value>Supported export format for this result.</value>
-        [DataMember(Name="availableExportFormats", EmitDefaultValue=false)]
-        public List<string> AvailableExportFormats { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,8 +96,6 @@ namespace SimScale.Sdk.Model
             sb.Append("  UncompressedSizeInBytes: ").Append(UncompressedSizeInBytes).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Compression: ").Append(Compression).Append("\n");
-            sb.Append("  CanExport: ").Append(CanExport).Append("\n");
-            sb.Append("  AvailableExportFormats: ").Append(AvailableExportFormats).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,17 +148,6 @@ namespace SimScale.Sdk.Model
                 (
                     this.Compression == input.Compression ||
                     this.Compression.Equals(input.Compression)
-                ) && 
-                (
-                    this.CanExport == input.CanExport ||
-                    (this.CanExport != null &&
-                    this.CanExport.Equals(input.CanExport))
-                ) && 
-                (
-                    this.AvailableExportFormats == input.AvailableExportFormats ||
-                    this.AvailableExportFormats != null &&
-                    input.AvailableExportFormats != null &&
-                    this.AvailableExportFormats.SequenceEqual(input.AvailableExportFormats)
                 );
         }
 
@@ -195,10 +167,6 @@ namespace SimScale.Sdk.Model
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
                 hashCode = hashCode * 59 + this.Compression.GetHashCode();
-                if (this.CanExport != null)
-                    hashCode = hashCode * 59 + this.CanExport.GetHashCode();
-                if (this.AvailableExportFormats != null)
-                    hashCode = hashCode * 59 + this.AvailableExportFormats.GetHashCode();
                 return hashCode;
             }
         }

@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MomentFieldSelection
     /// </summary>
     [DataContract]
-    public partial class MomentFieldSelection : OneOfSumFieldsCalculationResultControlItemFieldSelection, OneOfTemporalResponseResultControlItemFieldSelection, IEquatable<MomentFieldSelection>
+    public partial class MomentFieldSelection : OneOfSumFieldsCalculationResultControlItemFieldSelection, IEquatable<MomentFieldSelection>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MomentFieldSelection" /> class.

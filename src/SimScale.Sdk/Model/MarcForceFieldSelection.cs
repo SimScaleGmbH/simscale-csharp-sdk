@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// MarcForceFieldSelection
     /// </summary>
     [DataContract]
-    public partial class MarcForceFieldSelection : IEquatable<MarcForceFieldSelection>
+    public partial class MarcForceFieldSelection : OneOfMarcSumFieldsCalculationResultControlItemFieldSelection, IEquatable<MarcForceFieldSelection>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MarcForceFieldSelection" /> class.
