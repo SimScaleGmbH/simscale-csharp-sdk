@@ -79,6 +79,29 @@ namespace SimScale.Sdk.Api
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
+        /// <param name="reportFromStateRequest"></param>
+        /// <returns>ReportResponse</returns>
+        ReportResponse CreateReportFromPostprocessingState (string projectId = default(string), ReportFromStateRequest reportFromStateRequest = default(ReportFromStateRequest));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="reportFromStateRequest"></param>
+        /// <returns>ApiResponse of ReportResponse</returns>
+        ApiResponse<ReportResponse> CreateReportFromPostprocessingStateWithHttpInfo (string projectId = default(string), ReportFromStateRequest reportFromStateRequest = default(ReportFromStateRequest));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
         /// <param name="reportId">The report ID</param>
         /// <returns></returns>
         void DeleteReport (string projectId = default(string), Guid? reportId = default(Guid?));
@@ -249,6 +272,29 @@ namespace SimScale.Sdk.Api
         /// <param name="reportRequest"></param>
         /// <returns>Task of ApiResponse (ReportResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportResponse>> CreateReportAsyncWithHttpInfo (string projectId = default(string), ReportRequest reportRequest = default(ReportRequest));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="reportFromStateRequest"></param>
+        /// <returns>Task of ReportResponse</returns>
+        System.Threading.Tasks.Task<ReportResponse> CreateReportFromPostprocessingStateAsync (string projectId = default(string), ReportFromStateRequest reportFromStateRequest = default(ReportFromStateRequest));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="reportFromStateRequest"></param>
+        /// <returns>Task of ApiResponse (ReportResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportResponse>> CreateReportFromPostprocessingStateAsyncWithHttpInfo (string projectId = default(string), ReportFromStateRequest reportFromStateRequest = default(ReportFromStateRequest));
         /// <summary>
         /// 
         /// </summary>
@@ -758,6 +804,145 @@ namespace SimScale.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateReport", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="reportFromStateRequest"></param>
+        /// <returns>ReportResponse</returns>
+        public ReportResponse CreateReportFromPostprocessingState (string projectId = default(string), ReportFromStateRequest reportFromStateRequest = default(ReportFromStateRequest))
+        {
+             SimScale.Sdk.Client.ApiResponse<ReportResponse> localVarResponse = CreateReportFromPostprocessingStateWithHttpInfo(projectId, reportFromStateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="reportFromStateRequest"></param>
+        /// <returns>ApiResponse of ReportResponse</returns>
+        public SimScale.Sdk.Client.ApiResponse< ReportResponse > CreateReportFromPostprocessingStateWithHttpInfo (string projectId = default(string), ReportFromStateRequest reportFromStateRequest = default(ReportFromStateRequest))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling ReportsApi->CreateReportFromPostprocessingState");
+
+            // verify the required parameter 'reportFromStateRequest' is set
+            if (reportFromStateRequest == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'reportFromStateRequest' when calling ReportsApi->CreateReportFromPostprocessingState");
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = SimScale.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = SimScale.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.Data = reportFromStateRequest;
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< ReportResponse >("/projects/{projectId}/reports/from-state", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateReportFromPostprocessingState", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="reportFromStateRequest"></param>
+        /// <returns>Task of ReportResponse</returns>
+        public async System.Threading.Tasks.Task<ReportResponse> CreateReportFromPostprocessingStateAsync (string projectId = default(string), ReportFromStateRequest reportFromStateRequest = default(ReportFromStateRequest))
+        {
+             SimScale.Sdk.Client.ApiResponse<ReportResponse> localVarResponse = await CreateReportFromPostprocessingStateAsyncWithHttpInfo(projectId, reportFromStateRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="projectId">The project ID</param>
+        /// <param name="reportFromStateRequest"></param>
+        /// <returns>Task of ApiResponse (ReportResponse)</returns>
+        public async System.Threading.Tasks.Task<SimScale.Sdk.Client.ApiResponse<ReportResponse>> CreateReportFromPostprocessingStateAsyncWithHttpInfo (string projectId = default(string), ReportFromStateRequest reportFromStateRequest = default(ReportFromStateRequest))
+        {
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling ReportsApi->CreateReportFromPostprocessingState");
+
+            // verify the required parameter 'reportFromStateRequest' is set
+            if (reportFromStateRequest == null)
+                throw new SimScale.Sdk.Client.ApiException(400, "Missing required parameter 'reportFromStateRequest' when calling ReportsApi->CreateReportFromPostprocessingState");
+
+
+            SimScale.Sdk.Client.RequestOptions localVarRequestOptions = new SimScale.Sdk.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("projectId", SimScale.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.Data = reportFromStateRequest;
+
+            // authentication (apiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-KEY")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-KEY", this.Configuration.GetApiKeyWithPrefix("X-API-KEY"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ReportResponse>("/projects/{projectId}/reports/from-state", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateReportFromPostprocessingState", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

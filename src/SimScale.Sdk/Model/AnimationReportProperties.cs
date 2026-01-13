@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// AnimationReportProperties
     /// </summary>
     [DataContract]
-    public partial class AnimationReportProperties : OneOfReportProperties, IEquatable<AnimationReportProperties>
+    public partial class AnimationReportProperties : ReportProperties, IEquatable<AnimationReportProperties>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimationReportProperties" /> class.

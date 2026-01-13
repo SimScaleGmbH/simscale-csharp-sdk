@@ -39,13 +39,17 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Specify a constant electric potential (voltage) on a boundary or a body.  Schema name: FixedPotential (required) (default to &quot;FIXED_POTENTIAL&quot;).</param>
         /// <param name="name">name.</param>
         /// <param name="potential">potential.</param>
+        /// <param name="potentialRMS">potentialRMS.</param>
+        /// <param name="phase">phase.</param>
         /// <param name="topologicalReference">topologicalReference.</param>
-        public FixedPotential(string type = "FIXED_POTENTIAL", string name = default(string), DimensionalElectricPotential potential = default(DimensionalElectricPotential), TopologicalReference topologicalReference = default(TopologicalReference))
+        public FixedPotential(string type = "FIXED_POTENTIAL", string name = default(string), DimensionalElectricPotential potential = default(DimensionalElectricPotential), DimensionalElectricPotential potentialRMS = default(DimensionalElectricPotential), DimensionalAngle phase = default(DimensionalAngle), TopologicalReference topologicalReference = default(TopologicalReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for FixedPotential and cannot be null");
             this.Name = name;
             this.Potential = potential;
+            this.PotentialRMS = potentialRMS;
+            this.Phase = phase;
             this.TopologicalReference = topologicalReference;
         }
         
@@ -69,6 +73,18 @@ namespace SimScale.Sdk.Model
         public DimensionalElectricPotential Potential { get; set; }
 
         /// <summary>
+        /// Gets or Sets PotentialRMS
+        /// </summary>
+        [DataMember(Name="potentialRMS", EmitDefaultValue=false)]
+        public DimensionalElectricPotential PotentialRMS { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Phase
+        /// </summary>
+        [DataMember(Name="phase", EmitDefaultValue=false)]
+        public DimensionalAngle Phase { get; set; }
+
+        /// <summary>
         /// Gets or Sets TopologicalReference
         /// </summary>
         [DataMember(Name="topologicalReference", EmitDefaultValue=false)]
@@ -85,6 +101,8 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Potential: ").Append(Potential).Append("\n");
+            sb.Append("  PotentialRMS: ").Append(PotentialRMS).Append("\n");
+            sb.Append("  Phase: ").Append(Phase).Append("\n");
             sb.Append("  TopologicalReference: ").Append(TopologicalReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -136,6 +154,16 @@ namespace SimScale.Sdk.Model
                     this.Potential.Equals(input.Potential))
                 ) && 
                 (
+                    this.PotentialRMS == input.PotentialRMS ||
+                    (this.PotentialRMS != null &&
+                    this.PotentialRMS.Equals(input.PotentialRMS))
+                ) && 
+                (
+                    this.Phase == input.Phase ||
+                    (this.Phase != null &&
+                    this.Phase.Equals(input.Phase))
+                ) && 
+                (
                     this.TopologicalReference == input.TopologicalReference ||
                     (this.TopologicalReference != null &&
                     this.TopologicalReference.Equals(input.TopologicalReference))
@@ -157,6 +185,10 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Potential != null)
                     hashCode = hashCode * 59 + this.Potential.GetHashCode();
+                if (this.PotentialRMS != null)
+                    hashCode = hashCode * 59 + this.PotentialRMS.GetHashCode();
+                if (this.Phase != null)
+                    hashCode = hashCode * 59 + this.Phase.GetHashCode();
                 if (this.TopologicalReference != null)
                     hashCode = hashCode * 59 + this.TopologicalReference.GetHashCode();
                 return hashCode;

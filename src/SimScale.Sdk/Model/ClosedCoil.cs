@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// ClosedCoil
     /// </summary>
     [DataContract]
-    public partial class ClosedCoil : OneOfCoilTopology, IEquatable<ClosedCoil>
+    public partial class ClosedCoil : OneOfCoilTopology, OneOfElectricCurrentTopology, IEquatable<ClosedCoil>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ClosedCoil" /> class.

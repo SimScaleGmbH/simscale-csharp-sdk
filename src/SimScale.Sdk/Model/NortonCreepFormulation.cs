@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// NortonCreepFormulation
     /// </summary>
     [DataContract]
-    public partial class NortonCreepFormulation : OneOfLinearElasticMaterialBehaviorCreepFormulation, OneOfPlasticMaterialBehaviorCreepFormulation, IEquatable<NortonCreepFormulation>
+    public partial class NortonCreepFormulation : OneOfLinearElasticMaterialBehaviorCreepFormulation, IEquatable<NortonCreepFormulation>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NortonCreepFormulation" /> class.

@@ -35,12 +35,14 @@ namespace SimScale.Sdk.Model
         /// <param name="calculateCapacitances">Calculate the capacitance matrix of the conductive bodies.&lt;strong&gt;&lt;span style&#x3D;&#39;color: red;&#39;&gt;Note that the field solution will be modified.&lt;/span&gt;&lt;/strong&gt; (default to false).</param>
         /// <param name="forcesAndTorques">forcesAndTorques.</param>
         /// <param name="probePoints">probePoints.</param>
-        public ElectromagneticResultControl(bool? calculateInductances = default(bool?), bool? calculateCapacitances = default(bool?), List<ForceAndTorque> forcesAndTorques = default(List<ForceAndTorque>), List<ElectromagneticResultControlProbePoint> probePoints = default(List<ElectromagneticResultControlProbePoint>))
+        /// <param name="resistanceSets">resistanceSets.</param>
+        public ElectromagneticResultControl(bool? calculateInductances = default(bool?), bool? calculateCapacitances = default(bool?), List<ForceAndTorque> forcesAndTorques = default(List<ForceAndTorque>), List<ElectromagneticResultControlProbePoint> probePoints = default(List<ElectromagneticResultControlProbePoint>), List<ElectromagneticResistanceSet> resistanceSets = default(List<ElectromagneticResistanceSet>))
         {
             this.CalculateInductances = calculateInductances;
             this.CalculateCapacitances = calculateCapacitances;
             this.ForcesAndTorques = forcesAndTorques;
             this.ProbePoints = probePoints;
+            this.ResistanceSets = resistanceSets;
         }
         
         /// <summary>
@@ -70,6 +72,12 @@ namespace SimScale.Sdk.Model
         public List<ElectromagneticResultControlProbePoint> ProbePoints { get; set; }
 
         /// <summary>
+        /// Gets or Sets ResistanceSets
+        /// </summary>
+        [DataMember(Name="resistanceSets", EmitDefaultValue=false)]
+        public List<ElectromagneticResistanceSet> ResistanceSets { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +89,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  CalculateCapacitances: ").Append(CalculateCapacitances).Append("\n");
             sb.Append("  ForcesAndTorques: ").Append(ForcesAndTorques).Append("\n");
             sb.Append("  ProbePoints: ").Append(ProbePoints).Append("\n");
+            sb.Append("  ResistanceSets: ").Append(ResistanceSets).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +145,12 @@ namespace SimScale.Sdk.Model
                     this.ProbePoints != null &&
                     input.ProbePoints != null &&
                     this.ProbePoints.SequenceEqual(input.ProbePoints)
+                ) && 
+                (
+                    this.ResistanceSets == input.ResistanceSets ||
+                    this.ResistanceSets != null &&
+                    input.ResistanceSets != null &&
+                    this.ResistanceSets.SequenceEqual(input.ResistanceSets)
                 );
         }
 
@@ -156,6 +171,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ForcesAndTorques.GetHashCode();
                 if (this.ProbePoints != null)
                     hashCode = hashCode * 59 + this.ProbePoints.GetHashCode();
+                if (this.ResistanceSets != null)
+                    hashCode = hashCode * 59 + this.ResistanceSets.GetHashCode();
                 return hashCode;
             }
         }

@@ -29,6 +29,33 @@ namespace SimScale.Sdk.Model
     public partial class CoupledConjugateHeatTransfer : Analysis, IEquatable<CoupledConjugateHeatTransfer>
     {
         /// <summary>
+        /// Choose a radiation model:&lt;ul&gt;&lt;li&gt; Use the &lt;strong&gt;Discrete Ordinates&lt;/strong&gt; model if your geometry contains many complex surfaces or (semi) transparent solids.&lt;/li&gt;&lt;li&gt; Use the &lt;strong&gt;View Factors&lt;/strong&gt; model for faster computation on less complex geometries. &lt;strong&gt;Transparent solids are not supported with this model.&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;
+        /// </summary>
+        /// <value>Choose a radiation model:&lt;ul&gt;&lt;li&gt; Use the &lt;strong&gt;Discrete Ordinates&lt;/strong&gt; model if your geometry contains many complex surfaces or (semi) transparent solids.&lt;/li&gt;&lt;li&gt; Use the &lt;strong&gt;View Factors&lt;/strong&gt; model for faster computation on less complex geometries. &lt;strong&gt;Transparent solids are not supported with this model.&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RadiationModelEnum
+        {
+            /// <summary>
+            /// Enum FVDOM for value: FV_DOM
+            /// </summary>
+            [EnumMember(Value = "FV_DOM")]
+            FVDOM = 1,
+
+            /// <summary>
+            /// Enum VIEWFACTORS for value: VIEW_FACTORS
+            /// </summary>
+            [EnumMember(Value = "VIEW_FACTORS")]
+            VIEWFACTORS = 2
+
+        }
+
+        /// <summary>
+        /// Choose a radiation model:&lt;ul&gt;&lt;li&gt; Use the &lt;strong&gt;Discrete Ordinates&lt;/strong&gt; model if your geometry contains many complex surfaces or (semi) transparent solids.&lt;/li&gt;&lt;li&gt; Use the &lt;strong&gt;View Factors&lt;/strong&gt; model for faster computation on less complex geometries. &lt;strong&gt;Transparent solids are not supported with this model.&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;
+        /// </summary>
+        /// <value>Choose a radiation model:&lt;ul&gt;&lt;li&gt; Use the &lt;strong&gt;Discrete Ordinates&lt;/strong&gt; model if your geometry contains many complex surfaces or (semi) transparent solids.&lt;/li&gt;&lt;li&gt; Use the &lt;strong&gt;View Factors&lt;/strong&gt; model for faster computation on less complex geometries. &lt;strong&gt;Transparent solids are not supported with this model.&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;</value>
+        [DataMember(Name="radiationModel", EmitDefaultValue=false)]
+        public RadiationModelEnum? RadiationModel { get; set; }
+        /// <summary>
         /// Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST&lt;/a&gt; ,&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#standard-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/p&gt;
         /// </summary>
         /// <value>Choose a turbulence model for your CFD analysis:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;No turbulence&lt;/strong&gt;: Laminar&lt;/li&gt;&lt;li&gt;&lt;strong&gt;RANS&lt;/strong&gt;: &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-omega-sst/&#39; target&#x3D;&#39;_blank&#39;&gt;k-omega SST&lt;/a&gt; ,&lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/global-settings/k-epsilon/#standard-k-epsilon-model&#39; target&#x3D;&#39;_blank&#39;&gt;k-epsilon&lt;/a&gt;&lt;/p&gt;</value>
@@ -161,6 +188,7 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: CoupledConjugateHeatTransfer (required) (default to &quot;COUPLED_CONJUGATE_HEAT_TRANSFER&quot;).</param>
         /// <param name="isCompressible">&lt;ul&gt;&lt;li&gt;Toggle off &lt;em&gt;Compressible&lt;/em&gt; for small temperature variations within the domain, for example, in natural convection simulations (Boussinesq approximation). Use Gauge pressure (0 Pa). &lt;/li&gt;&lt;li&gt;Toggle on &lt;em&gt;Compressible&lt;/em&gt; to calculate resulting density variations within the domain based on pressure and temperature. Use Absolute pressure (for example, 101325 Pa at sea level)&lt;/li&gt;&lt;/ul&gt; (default to false).</param>
         /// <param name="enableRadiation">Heat transfer through radiation takes place in the form of electromagnetic waves and it can be calculated in the simulation. This phenomenon becomes more important when the temperature differences in the simulation domain are large. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/convective-heat-transfer-analysis/radiation/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
+        /// <param name="radiationModel">Choose a radiation model:&lt;ul&gt;&lt;li&gt; Use the &lt;strong&gt;Discrete Ordinates&lt;/strong&gt; model if your geometry contains many complex surfaces or (semi) transparent solids.&lt;/li&gt;&lt;li&gt; Use the &lt;strong&gt;View Factors&lt;/strong&gt; model for faster computation on less complex geometries. &lt;strong&gt;Transparent solids are not supported with this model.&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt; (default to RadiationModelEnum.FVDOM).</param>
         /// <param name="enableSolarLoad">Enables the &lt;b&gt;solar load&lt;/b&gt; model in the simulation. &lt;b&gt;Diffuse&lt;/b&gt; and/or &lt;b&gt;directional&lt;/b&gt; solar load contributions are specified in the &lt;b&gt;solar calculator&lt;/b&gt;. The solar load terms will heat the external faces of the simulation domain. Moreover, if transparent and/or semi-transparent boundaries are present, internal surfaces of the domain might also be heated. All &lt;b&gt;internal solids&lt;/b&gt; will be considered &lt;b&gt;opaque&lt;/b&gt;. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/analysis-types/conjugate-heat-transfer-analysis/solar-load/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="enableHumidityModel">&lt;b&gt;Humidity model&lt;/b&gt; to simulate wet air. First turn on the &lt;em&gt;compressible&lt;/em&gt; toggle to enable it. The simulation will take the effect of humid air on the flow field into account. Dry air is heavier than wet air and hence sinks. The model does not account for condensation and evaporation and is not applicable in cases where this is of concern, for example dehumidifiers. It is suitable for HVAC analysis and for temperature ranges of &lt;b&gt;0° to 100°C&lt;/b&gt;. &lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;a href&#x3D; https://www.simscale.com/docs/simulation-setup/global-settings/humidity-modeling/&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;. (default to false).</param>
         /// <param name="enableJouleHeating">Enabling &lt;b&gt;Joule heating&lt;/b&gt; gives you the possibility to solve a coupled electric conduction and conjugate heat transfer problem in a single simulation. (default to false).</param>
@@ -178,12 +206,13 @@ namespace SimScale.Sdk.Model
         /// <param name="simulationControl">simulationControl.</param>
         /// <param name="resultControl">resultControl.</param>
         /// <param name="contactHandlingMode">contactHandlingMode (default to ContactHandlingModeEnum.MANUAL).</param>
-        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), bool? enableSolarLoad = default(bool?), bool? enableHumidityModel = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfCoupledConjugateHeatTransferTimeDependency timeDependency = default(OneOfCoupledConjugateHeatTransferTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?))
+        public CoupledConjugateHeatTransfer(string type = "COUPLED_CONJUGATE_HEAT_TRANSFER", bool? isCompressible = default(bool?), bool? enableRadiation = default(bool?), RadiationModelEnum? radiationModel = default(RadiationModelEnum?), bool? enableSolarLoad = default(bool?), bool? enableHumidityModel = default(bool?), bool? enableJouleHeating = default(bool?), TurbulenceModelEnum? turbulenceModel = default(TurbulenceModelEnum?), OneOfCoupledConjugateHeatTransferTimeDependency timeDependency = default(OneOfCoupledConjugateHeatTransferTimeDependency), NumOfPassiveSpeciesEnum? numOfPassiveSpecies = default(NumOfPassiveSpeciesEnum?), List<FluidInterface> connectionGroups = default(List<FluidInterface>), FluidModel model = default(FluidModel), SolarCalculator solarCalculator = default(SolarCalculator), CoupledConjugateHeatTransferMaterials materials = default(CoupledConjugateHeatTransferMaterials), FluidInitialConditions initialConditions = default(FluidInitialConditions), List<OneOfCoupledConjugateHeatTransferBoundaryConditions> boundaryConditions = default(List<OneOfCoupledConjugateHeatTransferBoundaryConditions>), AdvancedConcepts advancedConcepts = default(AdvancedConcepts), FluidNumerics numerics = default(FluidNumerics), FluidSimulationControl simulationControl = default(FluidSimulationControl), FluidResultControls resultControl = default(FluidResultControls), ContactHandlingModeEnum? contactHandlingMode = default(ContactHandlingModeEnum?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CoupledConjugateHeatTransfer and cannot be null");
             this.IsCompressible = isCompressible;
             this.EnableRadiation = enableRadiation;
+            this.RadiationModel = radiationModel;
             this.EnableSolarLoad = enableSolarLoad;
             this.EnableHumidityModel = enableHumidityModel;
             this.EnableJouleHeating = enableJouleHeating;
@@ -322,6 +351,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  IsCompressible: ").Append(IsCompressible).Append("\n");
             sb.Append("  EnableRadiation: ").Append(EnableRadiation).Append("\n");
+            sb.Append("  RadiationModel: ").Append(RadiationModel).Append("\n");
             sb.Append("  EnableSolarLoad: ").Append(EnableSolarLoad).Append("\n");
             sb.Append("  EnableHumidityModel: ").Append(EnableHumidityModel).Append("\n");
             sb.Append("  EnableJouleHeating: ").Append(EnableJouleHeating).Append("\n");
@@ -387,6 +417,10 @@ namespace SimScale.Sdk.Model
                     this.EnableRadiation == input.EnableRadiation ||
                     (this.EnableRadiation != null &&
                     this.EnableRadiation.Equals(input.EnableRadiation))
+                ) && 
+                (
+                    this.RadiationModel == input.RadiationModel ||
+                    this.RadiationModel.Equals(input.RadiationModel)
                 ) && 
                 (
                     this.EnableSolarLoad == input.EnableSolarLoad ||
@@ -489,6 +523,7 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.IsCompressible.GetHashCode();
                 if (this.EnableRadiation != null)
                     hashCode = hashCode * 59 + this.EnableRadiation.GetHashCode();
+                hashCode = hashCode * 59 + this.RadiationModel.GetHashCode();
                 if (this.EnableSolarLoad != null)
                     hashCode = hashCode * 59 + this.EnableSolarLoad.GetHashCode();
                 if (this.EnableHumidityModel != null)

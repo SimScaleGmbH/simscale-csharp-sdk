@@ -33,6 +33,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(FixedSupportBC), "FIXED_SUPPORT")]
     [JsonSubtypes.KnownSubType(typeof(FixedValueBC), "FIXED_VALUE")]
     [JsonSubtypes.KnownSubType(typeof(PointMassBC), "POINT_MASS")]
+    [JsonSubtypes.KnownSubType(typeof(DistributedMassBC), "DISTRIBUTED_MASS")]
     [JsonSubtypes.KnownSubType(typeof(RemoteDisplacementLoadBC), "REMOTE_DISPLACEMENT_LOAD")]
     [JsonSubtypes.KnownSubType(typeof(SymmetryPlaneBC), "SYMMETRY_PLANE")]
     [JsonSubtypes.KnownSubType(typeof(CentrifugalForceBC), "CENTRIFUGAL_FORCE")]

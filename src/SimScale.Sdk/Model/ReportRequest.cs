@@ -38,10 +38,10 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="name">The name of the report. (required).</param>
         /// <param name="description">The description of the report..</param>
-        /// <param name="resultIds">The resultIds the report should be created for. (required).</param>
+        /// <param name="resultIds">The IDs of the results for which the report should be created. (required).</param>
         /// <param name="reportProperties">reportProperties (required).</param>
         /// <param name="reportId">If provided, the newly created report will have this value for its UUID..</param>
-        public ReportRequest(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), OneOfReportProperties reportProperties = default(OneOfReportProperties), Guid? reportId = default(Guid?))
+        public ReportRequest(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), ReportProperties reportProperties = default(ReportProperties), Guid? reportId = default(Guid?))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for ReportRequest and cannot be null");
@@ -68,9 +68,9 @@ namespace SimScale.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The resultIds the report should be created for.
+        /// The IDs of the results for which the report should be created.
         /// </summary>
-        /// <value>The resultIds the report should be created for.</value>
+        /// <value>The IDs of the results for which the report should be created.</value>
         [DataMember(Name="resultIds", EmitDefaultValue=false)]
         public List<Guid?> ResultIds { get; set; }
 
@@ -78,7 +78,7 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets ReportProperties
         /// </summary>
         [DataMember(Name="reportProperties", EmitDefaultValue=false)]
-        public OneOfReportProperties ReportProperties { get; set; }
+        public ReportProperties ReportProperties { get; set; }
 
         /// <summary>
         /// If provided, the newly created report will have this value for its UUID.

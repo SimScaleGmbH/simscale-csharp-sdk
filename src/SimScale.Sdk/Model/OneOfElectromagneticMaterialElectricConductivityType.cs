@@ -24,16 +24,15 @@ using OpenAPIDateConverter = SimScale.Sdk.Client.OpenAPIDateConverter;
 namespace SimScale.Sdk.Model
 {
     /// <summary>
-    /// OneOfReportProperties
+    /// OneOfElectromagneticMaterialElectricConductivityType
     /// </summary>
-    [JsonConverter(typeof(JsonSubtypes), "ReportType")]
-    [JsonSubtypes.KnownSubType(typeof(AnimationReportProperties), "ANIMATION")]
-    [JsonSubtypes.KnownSubType(typeof(ScreenshotReportProperties), "SCREENSHOT")]
-    public interface OneOfReportProperties
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(IsotropicElectricConductivityMethod), "ISOTROPIC_ELECTRIC_CONDUCTIVITY")]
+    public interface OneOfElectromagneticMaterialElectricConductivityType
     {
         /// <summary>
-        /// Gets ReportType
+        /// Gets Type
         /// </summary>
-        string ReportType { get; }
+        string Type { get; }
     }
 }

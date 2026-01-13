@@ -75,7 +75,7 @@ namespace SimScale.Sdk.Api
         /// Get Folder Info
         /// </summary>
         /// <remarks>
-        /// Get Folder metadata and current user permissions
+        /// Get Folder metadata and current user permissions.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
@@ -87,7 +87,7 @@ namespace SimScale.Sdk.Api
         /// Get Folder Info
         /// </summary>
         /// <remarks>
-        /// Get Folder metadata and current user permissions
+        /// Get Folder metadata and current user permissions.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
@@ -338,7 +338,7 @@ namespace SimScale.Sdk.Api
         /// Get Folder Info
         /// </summary>
         /// <remarks>
-        /// Get Folder metadata and current user permissions
+        /// Get Folder metadata and current user permissions.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
@@ -350,7 +350,7 @@ namespace SimScale.Sdk.Api
         /// Get Folder Info
         /// </summary>
         /// <remarks>
-        /// Get Folder metadata and current user permissions
+        /// Get Folder metadata and current user permissions.
         /// </remarks>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
@@ -935,7 +935,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Folder Info Get Folder metadata and current user permissions
+        /// Get Folder Info Get Folder metadata and current user permissions.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
@@ -948,7 +948,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Folder Info Get Folder metadata and current user permissions
+        /// Get Folder Info Get Folder metadata and current user permissions.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
@@ -1002,7 +1002,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Folder Info Get Folder metadata and current user permissions
+        /// Get Folder Info Get Folder metadata and current user permissions.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>
@@ -1016,7 +1016,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Get Folder Info Get Folder metadata and current user permissions
+        /// Get Folder Info Get Folder metadata and current user permissions.
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spaceId"></param>

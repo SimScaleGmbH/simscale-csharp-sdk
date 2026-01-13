@@ -108,11 +108,13 @@ namespace SimScale.Sdk.Model
         /// <param name="numProcessors">&lt;p&gt;Selecting more processor cores will speed up the simulation process. Choosing a smaller computation instance will save core hours. &lt;a href&#x3D;&#39;https://www.simscale.com/docs/simulation-setup/simulation-control-fluid/#number-of-processors&#39; target&#x3D;&#39;_blank&#39;&gt;Learn more&lt;/a&gt;.&lt;/p&gt; (default to NumProcessorsEnum.NUMBER_MINUS_1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
         /// <param name="executionMode">executionMode (default to &quot;SUCCESS&quot;).</param>
-        public TestsolverSimulationControl(NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), string executionMode = default(string))
+        /// <param name="executionModeConfig">executionModeConfig (default to &quot;{}&quot;).</param>
+        public TestsolverSimulationControl(NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), DimensionalTime maxRunTime = default(DimensionalTime), string executionMode = default(string), string executionModeConfig = default(string))
         {
             this.NumProcessors = numProcessors;
             this.MaxRunTime = maxRunTime;
             this.ExecutionMode = executionMode;
+            this.ExecutionModeConfig = executionModeConfig;
         }
         
         /// <summary>
@@ -128,6 +130,12 @@ namespace SimScale.Sdk.Model
         public string ExecutionMode { get; set; }
 
         /// <summary>
+        /// Gets or Sets ExecutionModeConfig
+        /// </summary>
+        [DataMember(Name="executionModeConfig", EmitDefaultValue=false)]
+        public string ExecutionModeConfig { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -138,6 +146,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  NumProcessors: ").Append(NumProcessors).Append("\n");
             sb.Append("  MaxRunTime: ").Append(MaxRunTime).Append("\n");
             sb.Append("  ExecutionMode: ").Append(ExecutionMode).Append("\n");
+            sb.Append("  ExecutionModeConfig: ").Append(ExecutionModeConfig).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,6 +194,11 @@ namespace SimScale.Sdk.Model
                     this.ExecutionMode == input.ExecutionMode ||
                     (this.ExecutionMode != null &&
                     this.ExecutionMode.Equals(input.ExecutionMode))
+                ) && 
+                (
+                    this.ExecutionModeConfig == input.ExecutionModeConfig ||
+                    (this.ExecutionModeConfig != null &&
+                    this.ExecutionModeConfig.Equals(input.ExecutionModeConfig))
                 );
         }
 
@@ -202,6 +216,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.MaxRunTime.GetHashCode();
                 if (this.ExecutionMode != null)
                     hashCode = hashCode * 59 + this.ExecutionMode.GetHashCode();
+                if (this.ExecutionModeConfig != null)
+                    hashCode = hashCode * 59 + this.ExecutionModeConfig.GetHashCode();
                 return hashCode;
             }
         }

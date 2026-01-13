@@ -32,12 +32,14 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="CreateAiPredictionResponse" /> class.
         /// </summary>
         /// <param name="predictionId">predictionId.</param>
+        /// <param name="resultId">resultId.</param>
         /// <param name="availableFields">availableFields.</param>
         /// <param name="confidenceScore">confidenceScore.</param>
         /// <param name="globalOutputs">globalOutputs.</param>
-        public CreateAiPredictionResponse(Guid? predictionId = default(Guid?), List<CreateAiPredictionResponseAvailableFields> availableFields = default(List<CreateAiPredictionResponseAvailableFields>), double? confidenceScore = default(double?), List<CreateAiPredictionResponseGlobalOutputs> globalOutputs = default(List<CreateAiPredictionResponseGlobalOutputs>))
+        public CreateAiPredictionResponse(Guid? predictionId = default(Guid?), Guid? resultId = default(Guid?), List<CreateAiPredictionResponseAvailableFields> availableFields = default(List<CreateAiPredictionResponseAvailableFields>), double? confidenceScore = default(double?), List<CreateAiPredictionResponseGlobalOutputs> globalOutputs = default(List<CreateAiPredictionResponseGlobalOutputs>))
         {
             this.PredictionId = predictionId;
+            this.ResultId = resultId;
             this.AvailableFields = availableFields;
             this.ConfidenceScore = confidenceScore;
             this.GlobalOutputs = globalOutputs;
@@ -48,6 +50,12 @@ namespace SimScale.Sdk.Model
         /// </summary>
         [DataMember(Name="predictionId", EmitDefaultValue=false)]
         public Guid? PredictionId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ResultId
+        /// </summary>
+        [DataMember(Name="resultId", EmitDefaultValue=false)]
+        public Guid? ResultId { get; set; }
 
         /// <summary>
         /// Gets or Sets AvailableFields
@@ -76,6 +84,7 @@ namespace SimScale.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class CreateAiPredictionResponse {\n");
             sb.Append("  PredictionId: ").Append(PredictionId).Append("\n");
+            sb.Append("  ResultId: ").Append(ResultId).Append("\n");
             sb.Append("  AvailableFields: ").Append(AvailableFields).Append("\n");
             sb.Append("  ConfidenceScore: ").Append(ConfidenceScore).Append("\n");
             sb.Append("  GlobalOutputs: ").Append(GlobalOutputs).Append("\n");
@@ -119,6 +128,11 @@ namespace SimScale.Sdk.Model
                     this.PredictionId.Equals(input.PredictionId))
                 ) && 
                 (
+                    this.ResultId == input.ResultId ||
+                    (this.ResultId != null &&
+                    this.ResultId.Equals(input.ResultId))
+                ) && 
+                (
                     this.AvailableFields == input.AvailableFields ||
                     this.AvailableFields != null &&
                     input.AvailableFields != null &&
@@ -148,6 +162,8 @@ namespace SimScale.Sdk.Model
                 int hashCode = 41;
                 if (this.PredictionId != null)
                     hashCode = hashCode * 59 + this.PredictionId.GetHashCode();
+                if (this.ResultId != null)
+                    hashCode = hashCode * 59 + this.ResultId.GetHashCode();
                 if (this.AvailableFields != null)
                     hashCode = hashCode * 59 + this.AvailableFields.GetHashCode();
                 if (this.ConfidenceScore != null)

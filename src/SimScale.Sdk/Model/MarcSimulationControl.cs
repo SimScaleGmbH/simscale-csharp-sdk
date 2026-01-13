@@ -114,7 +114,7 @@ namespace SimScale.Sdk.Model
         /// <param name="nts">nts (default to -1).</param>
         /// <param name="nsolver">nsolver (default to -1).</param>
         /// <param name="maxRunTime">maxRunTime.</param>
-        /// <param name="livePostprocessing">livePostprocessing (default to false).</param>
+        /// <param name="livePostprocessing">livePostprocessing (default to true).</param>
         public MarcSimulationControl(OneOfMarcSimulationControlTimestepDefinition timestepDefinition = default(OneOfMarcSimulationControlTimestepDefinition), MarcOutputWritingContainer outputWritingContainer = default(MarcOutputWritingContainer), NumProcessorsEnum? numProcessors = default(NumProcessorsEnum?), bool? manuallyAssignParallelization = default(bool?), int? nprocds = default(int?), int? nte = default(int?), int? nts = default(int?), int? nsolver = default(int?), DimensionalTime maxRunTime = default(DimensionalTime), bool? livePostprocessing = default(bool?))
         {
             this.TimestepDefinition = timestepDefinition;

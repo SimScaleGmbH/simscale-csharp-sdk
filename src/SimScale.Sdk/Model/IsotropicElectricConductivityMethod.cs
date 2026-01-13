@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// IsotropicElectricConductivityMethod
     /// </summary>
     [DataContract]
-    public partial class IsotropicElectricConductivityMethod : IEquatable<IsotropicElectricConductivityMethod>
+    public partial class IsotropicElectricConductivityMethod : OneOfElectromagneticMaterialElectricConductivityType, IEquatable<IsotropicElectricConductivityMethod>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IsotropicElectricConductivityMethod" /> class.

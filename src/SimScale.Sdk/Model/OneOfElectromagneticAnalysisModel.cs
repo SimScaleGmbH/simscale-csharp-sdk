@@ -28,6 +28,7 @@ namespace SimScale.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(Electrostatics), "ELECTROSTATICS")]
+    [JsonSubtypes.KnownSubType(typeof(TimeHarmonicElectrics), "TIME_HARMONIC_ELECTRICS")]
     [JsonSubtypes.KnownSubType(typeof(Magnetostatics), "MAGNETOSTATICS")]
     [JsonSubtypes.KnownSubType(typeof(TimeHarmonicMagnetics), "TIME_HARMONIC_MAGNETICS")]
     [JsonSubtypes.KnownSubType(typeof(TimeTransientMagnetics), "TIME_TRANSIENT_MAGNETICS")]

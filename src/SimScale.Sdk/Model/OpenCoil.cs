@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// OpenCoil
     /// </summary>
     [DataContract]
-    public partial class OpenCoil : OneOfCoilTopology, IEquatable<OpenCoil>
+    public partial class OpenCoil : OneOfCoilTopology, OneOfElectricCurrentTopology, IEquatable<OpenCoil>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenCoil" /> class.

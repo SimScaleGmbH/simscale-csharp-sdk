@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// StrainHardeningCreepFormulation
     /// </summary>
     [DataContract]
-    public partial class StrainHardeningCreepFormulation : OneOfLinearElasticMaterialBehaviorCreepFormulation, OneOfPlasticMaterialBehaviorCreepFormulation, IEquatable<StrainHardeningCreepFormulation>
+    public partial class StrainHardeningCreepFormulation : OneOfLinearElasticMaterialBehaviorCreepFormulation, IEquatable<StrainHardeningCreepFormulation>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StrainHardeningCreepFormulation" /> class.

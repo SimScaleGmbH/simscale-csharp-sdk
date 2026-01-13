@@ -34,11 +34,13 @@ namespace SimScale.Sdk.Model
         /// <param name="solutionFields">solutionFields.</param>
         /// <param name="areaCalculation">areaCalculation.</param>
         /// <param name="volumeCalculation">volumeCalculation.</param>
-        public MarcResultControl(List<OneOfMarcResultControlSolutionFields> solutionFields = default(List<OneOfMarcResultControlSolutionFields>), List<OneOfMarcResultControlAreaCalculation> areaCalculation = default(List<OneOfMarcResultControlAreaCalculation>), List<OneOfMarcResultControlVolumeCalculation> volumeCalculation = default(List<OneOfMarcResultControlVolumeCalculation>))
+        /// <param name="connectorPointData">connectorPointData.</param>
+        public MarcResultControl(List<OneOfMarcResultControlSolutionFields> solutionFields = default(List<OneOfMarcResultControlSolutionFields>), List<OneOfMarcResultControlAreaCalculation> areaCalculation = default(List<OneOfMarcResultControlAreaCalculation>), List<OneOfMarcResultControlVolumeCalculation> volumeCalculation = default(List<OneOfMarcResultControlVolumeCalculation>), List<MarcConnectorPointDataItem> connectorPointData = default(List<MarcConnectorPointDataItem>))
         {
             this.SolutionFields = solutionFields;
             this.AreaCalculation = areaCalculation;
             this.VolumeCalculation = volumeCalculation;
+            this.ConnectorPointData = connectorPointData;
         }
         
         /// <summary>
@@ -60,6 +62,12 @@ namespace SimScale.Sdk.Model
         public List<OneOfMarcResultControlVolumeCalculation> VolumeCalculation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ConnectorPointData
+        /// </summary>
+        [DataMember(Name="connectorPointData", EmitDefaultValue=false)]
+        public List<MarcConnectorPointDataItem> ConnectorPointData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -70,6 +78,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  SolutionFields: ").Append(SolutionFields).Append("\n");
             sb.Append("  AreaCalculation: ").Append(AreaCalculation).Append("\n");
             sb.Append("  VolumeCalculation: ").Append(VolumeCalculation).Append("\n");
+            sb.Append("  ConnectorPointData: ").Append(ConnectorPointData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +130,12 @@ namespace SimScale.Sdk.Model
                     this.VolumeCalculation != null &&
                     input.VolumeCalculation != null &&
                     this.VolumeCalculation.SequenceEqual(input.VolumeCalculation)
+                ) && 
+                (
+                    this.ConnectorPointData == input.ConnectorPointData ||
+                    this.ConnectorPointData != null &&
+                    input.ConnectorPointData != null &&
+                    this.ConnectorPointData.SequenceEqual(input.ConnectorPointData)
                 );
         }
 
@@ -139,6 +154,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.AreaCalculation.GetHashCode();
                 if (this.VolumeCalculation != null)
                     hashCode = hashCode * 59 + this.VolumeCalculation.GetHashCode();
+                if (this.ConnectorPointData != null)
+                    hashCode = hashCode * 59 + this.ConnectorPointData.GetHashCode();
                 return hashCode;
             }
         }

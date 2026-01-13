@@ -58,9 +58,10 @@ namespace SimScale.Sdk.Model
         /// <param name="epsilonDissipationRateFinalSolver">epsilonDissipationRateFinalSolver.</param>
         /// <param name="passiveScalarSolver">passiveScalarSolver.</param>
         /// <param name="radiativeIntensityRaySolver">radiativeIntensityRaySolver.</param>
+        /// <param name="internalNetRadiativeHeatFluxSolver">internalNetRadiativeHeatFluxSolver.</param>
         /// <param name="specificHumiditySolver">specificHumiditySolver.</param>
         /// <param name="voltageSolver">voltageSolver.</param>
-        public FluidSolvers(MULESSolver phaseFractionSolver = default(MULESSolver), OneOfFluidSolversVelocitySolver velocitySolver = default(OneOfFluidSolversVelocitySolver), OneOfFluidSolversVelocityFinalSolver velocityFinalSolver = default(OneOfFluidSolversVelocityFinalSolver), OneOfFluidSolversDensitySolver densitySolver = default(OneOfFluidSolversDensitySolver), OneOfFluidSolversDensityFinalSolver densityFinalSolver = default(OneOfFluidSolversDensityFinalSolver), OneOfFluidSolversPressureSolver pressureSolver = default(OneOfFluidSolversPressureSolver), OneOfFluidSolversPressureFinalSolver pressureFinalSolver = default(OneOfFluidSolversPressureFinalSolver), OneOfFluidSolversTemperatureSolver temperatureSolver = default(OneOfFluidSolversTemperatureSolver), OneOfFluidSolversTemperatureFinalSolver temperatureFinalSolver = default(OneOfFluidSolversTemperatureFinalSolver), OneOfFluidSolversPressureRghSolver pressureRghSolver = default(OneOfFluidSolversPressureRghSolver), OneOfFluidSolversPressureRghFinalSolver pressureRghFinalSolver = default(OneOfFluidSolversPressureRghFinalSolver), OneOfFluidSolversSolidEnthalpySolver solidEnthalpySolver = default(OneOfFluidSolversSolidEnthalpySolver), OneOfFluidSolversSolidEnthalpyFinalSolver solidEnthalpyFinalSolver = default(OneOfFluidSolversSolidEnthalpyFinalSolver), OneOfFluidSolversEnthalpySolver enthalpySolver = default(OneOfFluidSolversEnthalpySolver), OneOfFluidSolversEnthalpyFinalSolver enthalpyFinalSolver = default(OneOfFluidSolversEnthalpyFinalSolver), OneOfFluidSolversInternalEnergySolver internalEnergySolver = default(OneOfFluidSolversInternalEnergySolver), OneOfFluidSolversInternalEnergyFinalSolver internalEnergyFinalSolver = default(OneOfFluidSolversInternalEnergyFinalSolver), OneOfFluidSolversTurbulentKineticEnergySolver turbulentKineticEnergySolver = default(OneOfFluidSolversTurbulentKineticEnergySolver), OneOfFluidSolversTurbulentKineticEnergyFinalSolver turbulentKineticEnergyFinalSolver = default(OneOfFluidSolversTurbulentKineticEnergyFinalSolver), OneOfFluidSolversNuTildaSolver nuTildaSolver = default(OneOfFluidSolversNuTildaSolver), OneOfFluidSolversNuTildaFinalSolver nuTildaFinalSolver = default(OneOfFluidSolversNuTildaFinalSolver), OneOfFluidSolversOmegaDissipationRateSolver omegaDissipationRateSolver = default(OneOfFluidSolversOmegaDissipationRateSolver), OneOfFluidSolversOmegaDissipationRateFinalSolver omegaDissipationRateFinalSolver = default(OneOfFluidSolversOmegaDissipationRateFinalSolver), OneOfFluidSolversEpsilonDissipationRateSolver epsilonDissipationRateSolver = default(OneOfFluidSolversEpsilonDissipationRateSolver), OneOfFluidSolversEpsilonDissipationRateFinalSolver epsilonDissipationRateFinalSolver = default(OneOfFluidSolversEpsilonDissipationRateFinalSolver), OneOfFluidSolversPassiveScalarSolver passiveScalarSolver = default(OneOfFluidSolversPassiveScalarSolver), OneOfFluidSolversRadiativeIntensityRaySolver radiativeIntensityRaySolver = default(OneOfFluidSolversRadiativeIntensityRaySolver), OneOfFluidSolversSpecificHumiditySolver specificHumiditySolver = default(OneOfFluidSolversSpecificHumiditySolver), OneOfFluidSolversVoltageSolver voltageSolver = default(OneOfFluidSolversVoltageSolver))
+        public FluidSolvers(MULESSolver phaseFractionSolver = default(MULESSolver), OneOfFluidSolversVelocitySolver velocitySolver = default(OneOfFluidSolversVelocitySolver), OneOfFluidSolversVelocityFinalSolver velocityFinalSolver = default(OneOfFluidSolversVelocityFinalSolver), OneOfFluidSolversDensitySolver densitySolver = default(OneOfFluidSolversDensitySolver), OneOfFluidSolversDensityFinalSolver densityFinalSolver = default(OneOfFluidSolversDensityFinalSolver), OneOfFluidSolversPressureSolver pressureSolver = default(OneOfFluidSolversPressureSolver), OneOfFluidSolversPressureFinalSolver pressureFinalSolver = default(OneOfFluidSolversPressureFinalSolver), OneOfFluidSolversTemperatureSolver temperatureSolver = default(OneOfFluidSolversTemperatureSolver), OneOfFluidSolversTemperatureFinalSolver temperatureFinalSolver = default(OneOfFluidSolversTemperatureFinalSolver), OneOfFluidSolversPressureRghSolver pressureRghSolver = default(OneOfFluidSolversPressureRghSolver), OneOfFluidSolversPressureRghFinalSolver pressureRghFinalSolver = default(OneOfFluidSolversPressureRghFinalSolver), OneOfFluidSolversSolidEnthalpySolver solidEnthalpySolver = default(OneOfFluidSolversSolidEnthalpySolver), OneOfFluidSolversSolidEnthalpyFinalSolver solidEnthalpyFinalSolver = default(OneOfFluidSolversSolidEnthalpyFinalSolver), OneOfFluidSolversEnthalpySolver enthalpySolver = default(OneOfFluidSolversEnthalpySolver), OneOfFluidSolversEnthalpyFinalSolver enthalpyFinalSolver = default(OneOfFluidSolversEnthalpyFinalSolver), OneOfFluidSolversInternalEnergySolver internalEnergySolver = default(OneOfFluidSolversInternalEnergySolver), OneOfFluidSolversInternalEnergyFinalSolver internalEnergyFinalSolver = default(OneOfFluidSolversInternalEnergyFinalSolver), OneOfFluidSolversTurbulentKineticEnergySolver turbulentKineticEnergySolver = default(OneOfFluidSolversTurbulentKineticEnergySolver), OneOfFluidSolversTurbulentKineticEnergyFinalSolver turbulentKineticEnergyFinalSolver = default(OneOfFluidSolversTurbulentKineticEnergyFinalSolver), OneOfFluidSolversNuTildaSolver nuTildaSolver = default(OneOfFluidSolversNuTildaSolver), OneOfFluidSolversNuTildaFinalSolver nuTildaFinalSolver = default(OneOfFluidSolversNuTildaFinalSolver), OneOfFluidSolversOmegaDissipationRateSolver omegaDissipationRateSolver = default(OneOfFluidSolversOmegaDissipationRateSolver), OneOfFluidSolversOmegaDissipationRateFinalSolver omegaDissipationRateFinalSolver = default(OneOfFluidSolversOmegaDissipationRateFinalSolver), OneOfFluidSolversEpsilonDissipationRateSolver epsilonDissipationRateSolver = default(OneOfFluidSolversEpsilonDissipationRateSolver), OneOfFluidSolversEpsilonDissipationRateFinalSolver epsilonDissipationRateFinalSolver = default(OneOfFluidSolversEpsilonDissipationRateFinalSolver), OneOfFluidSolversPassiveScalarSolver passiveScalarSolver = default(OneOfFluidSolversPassiveScalarSolver), OneOfFluidSolversRadiativeIntensityRaySolver radiativeIntensityRaySolver = default(OneOfFluidSolversRadiativeIntensityRaySolver), PBICGStabSolver internalNetRadiativeHeatFluxSolver = default(PBICGStabSolver), OneOfFluidSolversSpecificHumiditySolver specificHumiditySolver = default(OneOfFluidSolversSpecificHumiditySolver), OneOfFluidSolversVoltageSolver voltageSolver = default(OneOfFluidSolversVoltageSolver))
         {
             this.PhaseFractionSolver = phaseFractionSolver;
             this.VelocitySolver = velocitySolver;
@@ -89,6 +90,7 @@ namespace SimScale.Sdk.Model
             this.EpsilonDissipationRateFinalSolver = epsilonDissipationRateFinalSolver;
             this.PassiveScalarSolver = passiveScalarSolver;
             this.RadiativeIntensityRaySolver = radiativeIntensityRaySolver;
+            this.InternalNetRadiativeHeatFluxSolver = internalNetRadiativeHeatFluxSolver;
             this.SpecificHumiditySolver = specificHumiditySolver;
             this.VoltageSolver = voltageSolver;
         }
@@ -256,6 +258,12 @@ namespace SimScale.Sdk.Model
         public OneOfFluidSolversRadiativeIntensityRaySolver RadiativeIntensityRaySolver { get; set; }
 
         /// <summary>
+        /// Gets or Sets InternalNetRadiativeHeatFluxSolver
+        /// </summary>
+        [DataMember(Name="internalNetRadiativeHeatFluxSolver", EmitDefaultValue=false)]
+        public PBICGStabSolver InternalNetRadiativeHeatFluxSolver { get; set; }
+
+        /// <summary>
         /// Gets or Sets SpecificHumiditySolver
         /// </summary>
         [DataMember(Name="specificHumiditySolver", EmitDefaultValue=false)]
@@ -302,6 +310,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  EpsilonDissipationRateFinalSolver: ").Append(EpsilonDissipationRateFinalSolver).Append("\n");
             sb.Append("  PassiveScalarSolver: ").Append(PassiveScalarSolver).Append("\n");
             sb.Append("  RadiativeIntensityRaySolver: ").Append(RadiativeIntensityRaySolver).Append("\n");
+            sb.Append("  InternalNetRadiativeHeatFluxSolver: ").Append(InternalNetRadiativeHeatFluxSolver).Append("\n");
             sb.Append("  SpecificHumiditySolver: ").Append(SpecificHumiditySolver).Append("\n");
             sb.Append("  VoltageSolver: ").Append(VoltageSolver).Append("\n");
             sb.Append("}\n");
@@ -474,6 +483,11 @@ namespace SimScale.Sdk.Model
                     this.RadiativeIntensityRaySolver.Equals(input.RadiativeIntensityRaySolver))
                 ) && 
                 (
+                    this.InternalNetRadiativeHeatFluxSolver == input.InternalNetRadiativeHeatFluxSolver ||
+                    (this.InternalNetRadiativeHeatFluxSolver != null &&
+                    this.InternalNetRadiativeHeatFluxSolver.Equals(input.InternalNetRadiativeHeatFluxSolver))
+                ) && 
+                (
                     this.SpecificHumiditySolver == input.SpecificHumiditySolver ||
                     (this.SpecificHumiditySolver != null &&
                     this.SpecificHumiditySolver.Equals(input.SpecificHumiditySolver))
@@ -548,6 +562,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.PassiveScalarSolver.GetHashCode();
                 if (this.RadiativeIntensityRaySolver != null)
                     hashCode = hashCode * 59 + this.RadiativeIntensityRaySolver.GetHashCode();
+                if (this.InternalNetRadiativeHeatFluxSolver != null)
+                    hashCode = hashCode * 59 + this.InternalNetRadiativeHeatFluxSolver.GetHashCode();
                 if (this.SpecificHumiditySolver != null)
                     hashCode = hashCode * 59 + this.SpecificHumiditySolver.GetHashCode();
                 if (this.VoltageSolver != null)

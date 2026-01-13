@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Import a new table for reference within a Simulation spec.
+        /// Import a new table for reference within a Simulation spec
         /// </summary>
         /// <remarks>
         /// Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
@@ -38,7 +38,7 @@ namespace SimScale.Sdk.Api
         TableImportResponse ImportTable (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest));
 
         /// <summary>
-        /// Import a new table for reference within a Simulation spec.
+        /// Import a new table for reference within a Simulation spec
         /// </summary>
         /// <remarks>
         /// Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
@@ -58,7 +58,7 @@ namespace SimScale.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Import a new table for reference within a Simulation spec.
+        /// Import a new table for reference within a Simulation spec
         /// </summary>
         /// <remarks>
         /// Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
@@ -70,7 +70,7 @@ namespace SimScale.Sdk.Api
         System.Threading.Tasks.Task<TableImportResponse> ImportTableAsync (string projectId = default(string), TableImportRequest tableImportRequest = default(TableImportRequest));
 
         /// <summary>
-        /// Import a new table for reference within a Simulation spec.
+        /// Import a new table for reference within a Simulation spec
         /// </summary>
         /// <remarks>
         /// Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
@@ -201,7 +201,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Import a new table for reference within a Simulation spec. Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
+        /// Import a new table for reference within a Simulation spec Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -214,7 +214,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Import a new table for reference within a Simulation spec. Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
+        /// Import a new table for reference within a Simulation spec Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -269,7 +269,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Import a new table for reference within a Simulation spec. Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
+        /// Import a new table for reference within a Simulation spec Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>
@@ -283,7 +283,7 @@ namespace SimScale.Sdk.Api
         }
 
         /// <summary>
-        /// Import a new table for reference within a Simulation spec. Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
+        /// Import a new table for reference within a Simulation spec Table import requires the following steps: 1. Request a temporary storage location via &#x60;POST /storage&#x60;. 2. Upload your table definition using the HTTP &#x60;PUT&#x60; method to the &#x60;url&#x60; provided in the temporary storage location response object. 3. Import via &#x60;POST /projects/{projectId}/tableimports&#x60; and include the &#x60;storageId&#x60; provided in the temporary storage location response object. 
         /// </summary>
         /// <exception cref="SimScale.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">The project ID</param>

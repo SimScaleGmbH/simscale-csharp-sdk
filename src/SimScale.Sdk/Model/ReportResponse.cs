@@ -91,15 +91,17 @@ namespace SimScale.Sdk.Model
         /// <param name="description">The description of the report..</param>
         /// <param name="resultIds">The resultIds the report has been created for..</param>
         /// <param name="reportProperties">reportProperties.</param>
+        /// <param name="reportFromStateProperties">reportFromStateProperties.</param>
         /// <param name="download">download.</param>
         /// <param name="failureReason">failureReason.</param>
-        public ReportResponse(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), OneOfReportProperties reportProperties = default(OneOfReportProperties), DownloadInfo download = default(DownloadInfo), ReportResponseFailureReason failureReason = default(ReportResponseFailureReason))
+        public ReportResponse(string name = default(string), string description = default(string), List<Guid?> resultIds = default(List<Guid?>), ReportProperties reportProperties = default(ReportProperties), ReportFromStateProperties reportFromStateProperties = default(ReportFromStateProperties), DownloadInfo download = default(DownloadInfo), ReportResponseFailureReason failureReason = default(ReportResponseFailureReason))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for ReportResponse and cannot be null");
             this.Description = description;
             this.ResultIds = resultIds;
             this.ReportProperties = reportProperties;
+            this.ReportFromStateProperties = reportFromStateProperties;
             this.Download = download;
             this.FailureReason = failureReason;
         }
@@ -157,7 +159,13 @@ namespace SimScale.Sdk.Model
         /// Gets or Sets ReportProperties
         /// </summary>
         [DataMember(Name="reportProperties", EmitDefaultValue=false)]
-        public OneOfReportProperties ReportProperties { get; set; }
+        public ReportProperties ReportProperties { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReportFromStateProperties
+        /// </summary>
+        [DataMember(Name="reportFromStateProperties", EmitDefaultValue=false)]
+        public ReportFromStateProperties ReportFromStateProperties { get; set; }
 
         /// <summary>
         /// Gets or Sets Download
@@ -188,6 +196,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ResultIds: ").Append(ResultIds).Append("\n");
             sb.Append("  ReportProperties: ").Append(ReportProperties).Append("\n");
+            sb.Append("  ReportFromStateProperties: ").Append(ReportFromStateProperties).Append("\n");
             sb.Append("  Download: ").Append(Download).Append("\n");
             sb.Append("  FailureReason: ").Append(FailureReason).Append("\n");
             sb.Append("}\n");
@@ -270,6 +279,11 @@ namespace SimScale.Sdk.Model
                     this.ReportProperties.Equals(input.ReportProperties))
                 ) && 
                 (
+                    this.ReportFromStateProperties == input.ReportFromStateProperties ||
+                    (this.ReportFromStateProperties != null &&
+                    this.ReportFromStateProperties.Equals(input.ReportFromStateProperties))
+                ) && 
+                (
                     this.Download == input.Download ||
                     (this.Download != null &&
                     this.Download.Equals(input.Download))
@@ -307,6 +321,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.ResultIds.GetHashCode();
                 if (this.ReportProperties != null)
                     hashCode = hashCode * 59 + this.ReportProperties.GetHashCode();
+                if (this.ReportFromStateProperties != null)
+                    hashCode = hashCode * 59 + this.ReportFromStateProperties.GetHashCode();
                 if (this.Download != null)
                     hashCode = hashCode * 59 + this.Download.GetHashCode();
                 if (this.FailureReason != null)

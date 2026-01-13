@@ -38,13 +38,11 @@ namespace SimScale.Sdk.Model
         /// </summary>
         /// <param name="type">&lt;p&gt;Choose the material behavior for your problem. &lt;/p&gt; &lt;br /&gt;&lt;br /&gt;Important remarks:&lt;br /&gt; &lt;ul&gt;&lt;li&gt;Choose &lt;b&gt;Linear elastic&lt;/b&gt; if the stress-strain relationship of your material is linear.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Elasto-plastic&lt;/b&gt; if the stress-strain relationship of your material is non-linear after some point e.g. yielding point.&lt;/li&gt;&lt;li&gt;Choose &lt;b&gt;Hyperelastic&lt;/b&gt; if your material responds elastically even at higher deformations.&lt;/li&gt;&lt;/ul&gt;   Schema name: PlasticMaterialBehavior (required) (default to &quot;PLASTIC&quot;).</param>
         /// <param name="elastoPlasticModel">elastoPlasticModel.</param>
-        /// <param name="creepFormulation">creepFormulation.</param>
-        public PlasticMaterialBehavior(string type = "PLASTIC", OneOfPlasticMaterialBehaviorElastoPlasticModel elastoPlasticModel = default(OneOfPlasticMaterialBehaviorElastoPlasticModel), OneOfPlasticMaterialBehaviorCreepFormulation creepFormulation = default(OneOfPlasticMaterialBehaviorCreepFormulation))
+        public PlasticMaterialBehavior(string type = "PLASTIC", OneOfPlasticMaterialBehaviorElastoPlasticModel elastoPlasticModel = default(OneOfPlasticMaterialBehaviorElastoPlasticModel))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for PlasticMaterialBehavior and cannot be null");
             this.ElastoPlasticModel = elastoPlasticModel;
-            this.CreepFormulation = creepFormulation;
         }
         
         /// <summary>
@@ -61,12 +59,6 @@ namespace SimScale.Sdk.Model
         public OneOfPlasticMaterialBehaviorElastoPlasticModel ElastoPlasticModel { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreepFormulation
-        /// </summary>
-        [DataMember(Name="creepFormulation", EmitDefaultValue=false)]
-        public OneOfPlasticMaterialBehaviorCreepFormulation CreepFormulation { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,7 +68,6 @@ namespace SimScale.Sdk.Model
             sb.Append("class PlasticMaterialBehavior {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ElastoPlasticModel: ").Append(ElastoPlasticModel).Append("\n");
-            sb.Append("  CreepFormulation: ").Append(CreepFormulation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,11 +111,6 @@ namespace SimScale.Sdk.Model
                     this.ElastoPlasticModel == input.ElastoPlasticModel ||
                     (this.ElastoPlasticModel != null &&
                     this.ElastoPlasticModel.Equals(input.ElastoPlasticModel))
-                ) && 
-                (
-                    this.CreepFormulation == input.CreepFormulation ||
-                    (this.CreepFormulation != null &&
-                    this.CreepFormulation.Equals(input.CreepFormulation))
                 );
         }
 
@@ -141,8 +127,6 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.ElastoPlasticModel != null)
                     hashCode = hashCode * 59 + this.ElastoPlasticModel.GetHashCode();
-                if (this.CreepFormulation != null)
-                    hashCode = hashCode * 59 + this.CreepFormulation.GetHashCode();
                 return hashCode;
             }
         }

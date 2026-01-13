@@ -38,6 +38,7 @@ namespace SimScale.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(VolumeHeatFlux), "VOLUME_HEAT_FLUX")]
     [JsonSubtypes.KnownSubType(typeof(ConvectiveHeatFlux), "CONVECTIVE_HEAT_FLUX")]
     [JsonSubtypes.KnownSubType(typeof(RadiationHeatFlux), "RADIATION_HEAT_FLUX")]
+    [JsonSubtypes.KnownSubType(typeof(ElectricCurrent), "ELECTRIC_CURRENT")]
     public interface OneOfElectromagneticAnalysisBoundaryConditions
     {
         /// <summary>

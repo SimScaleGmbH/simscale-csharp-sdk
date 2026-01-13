@@ -26,7 +26,7 @@ namespace SimScale.Sdk.Model
     /// ScreenshotReportProperties
     /// </summary>
     [DataContract]
-    public partial class ScreenshotReportProperties : OneOfReportProperties, IEquatable<ScreenshotReportProperties>
+    public partial class ScreenshotReportProperties : ReportProperties, IEquatable<ScreenshotReportProperties>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenshotReportProperties" /> class.
