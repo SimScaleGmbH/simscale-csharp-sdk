@@ -37,12 +37,12 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="SimulationSpec" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        /// <param name="version">The schema version of the simulation spec. This can be either the external version like &#x60;30.0&#x60;, or the internal version like &#x60;internal:549&#x60;. (required) (default to &quot;32.0&quot;).</param>
+        /// <param name="version">The schema version of the simulation spec. This can be either the external version like &#x60;30.0&#x60;, or the internal version like &#x60;internal:549&#x60;. (required) (default to &quot;33.0&quot;).</param>
         /// <param name="geometryId">The geometry ID of the simulation. (required).</param>
         /// <param name="meshId">The generated mesh ID which is to be used in the simulation. This field should be left empty for analysis types that do not require a generated mesh like &#39;INCOMPRESSIBLE_PACEFISH&#39;, &#39;WIND_COMFORT&#39;, and &#39;SIMERICS_ANALYSIS&#39;..</param>
         /// <param name="model">model (required).</param>
         /// <param name="parameters">parameters.</param>
-        public SimulationSpec(string name = default(string), string version = "32.0", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis), Dictionary<string, OneOfParameters> parameters = default(Dictionary<string, OneOfParameters>))
+        public SimulationSpec(string name = default(string), string version = "33.0", Guid? geometryId = default(Guid?), Guid? meshId = default(Guid?), Analysis model = default(Analysis), Dictionary<string, OneOfParameters> parameters = default(Dictionary<string, OneOfParameters>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SimulationSpec and cannot be null");

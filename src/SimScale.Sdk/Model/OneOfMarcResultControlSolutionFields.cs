@@ -29,6 +29,7 @@ namespace SimScale.Sdk.Model
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(MarcDisplacementResultControlItem), "DISPLACEMENT")]
     [JsonSubtypes.KnownSubType(typeof(MarcForceResultControlItem), "FORCE")]
+    [JsonSubtypes.KnownSubType(typeof(MarcPressureResultControlItem), "PRESSURE")]
     [JsonSubtypes.KnownSubType(typeof(MarcStressResultControlItem), "STRESS")]
     [JsonSubtypes.KnownSubType(typeof(MarcStrainResultControlItem), "STRAIN")]
     [JsonSubtypes.KnownSubType(typeof(MarcContactResultControlItem), "CONTACT")]

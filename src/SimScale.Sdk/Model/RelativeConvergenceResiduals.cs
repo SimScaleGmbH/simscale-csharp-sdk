@@ -39,12 +39,14 @@ namespace SimScale.Sdk.Model
         /// <param name="type">Schema name: RelativeConvergenceResiduals (required) (default to &quot;RELATIVE&quot;).</param>
         /// <param name="relativeForceTolerance">relativeForceTolerance (default to 0.05M).</param>
         /// <param name="relativeMomentTolerance">relativeMomentTolerance (default to 0M).</param>
-        public RelativeConvergenceResiduals(string type = "RELATIVE", decimal? relativeForceTolerance = default(decimal?), decimal? relativeMomentTolerance = default(decimal?))
+        /// <param name="relativeResidualAutoSwitch">relativeResidualAutoSwitch (default to false).</param>
+        public RelativeConvergenceResiduals(string type = "RELATIVE", decimal? relativeForceTolerance = default(decimal?), decimal? relativeMomentTolerance = default(decimal?), bool? relativeResidualAutoSwitch = default(bool?))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RelativeConvergenceResiduals and cannot be null");
             this.RelativeForceTolerance = relativeForceTolerance;
             this.RelativeMomentTolerance = relativeMomentTolerance;
+            this.RelativeResidualAutoSwitch = relativeResidualAutoSwitch;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace SimScale.Sdk.Model
         public decimal? RelativeMomentTolerance { get; set; }
 
         /// <summary>
+        /// Gets or Sets RelativeResidualAutoSwitch
+        /// </summary>
+        [DataMember(Name="relativeResidualAutoSwitch", EmitDefaultValue=false)]
+        public bool? RelativeResidualAutoSwitch { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +85,7 @@ namespace SimScale.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  RelativeForceTolerance: ").Append(RelativeForceTolerance).Append("\n");
             sb.Append("  RelativeMomentTolerance: ").Append(RelativeMomentTolerance).Append("\n");
+            sb.Append("  RelativeResidualAutoSwitch: ").Append(RelativeResidualAutoSwitch).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace SimScale.Sdk.Model
                     this.RelativeMomentTolerance == input.RelativeMomentTolerance ||
                     (this.RelativeMomentTolerance != null &&
                     this.RelativeMomentTolerance.Equals(input.RelativeMomentTolerance))
+                ) && 
+                (
+                    this.RelativeResidualAutoSwitch == input.RelativeResidualAutoSwitch ||
+                    (this.RelativeResidualAutoSwitch != null &&
+                    this.RelativeResidualAutoSwitch.Equals(input.RelativeResidualAutoSwitch))
                 );
         }
 
@@ -143,6 +157,8 @@ namespace SimScale.Sdk.Model
                     hashCode = hashCode * 59 + this.RelativeForceTolerance.GetHashCode();
                 if (this.RelativeMomentTolerance != null)
                     hashCode = hashCode * 59 + this.RelativeMomentTolerance.GetHashCode();
+                if (this.RelativeResidualAutoSwitch != null)
+                    hashCode = hashCode * 59 + this.RelativeResidualAutoSwitch.GetHashCode();
                 return hashCode;
             }
         }

@@ -116,7 +116,7 @@ namespace SimScale.Sdk.Model
         /// Initializes a new instance of the <see cref="AdvancedMUMPSSettings" /> class.
         /// </summary>
         /// <param name="forceSymmetric">Choose if you want to enforce a symmetric matrix. (default to false).</param>
-        /// <param name="enableSingularityDetection">Enable the check for singularities in the model. This is helpful for debugging, to spot problems with the setup. (default to false).</param>
+        /// <param name="enableSingularityDetection">Enable the check for singularities in the model. This is helpful for debugging, to spot problems with the setup. (default to true).</param>
         /// <param name="precisionSingularityDetection">Define the precision value for the detection of a singular matrix. Positive values enable the check, with 9 being a good starting point. Smaller values make the check more strict. This is an advanced option that should only be used to debug a model. (default to 9).</param>
         /// <param name="stopIfSingular">Choose if the calculation should be stopped if the problem turns out to be singular. (default to false).</param>
         /// <param name="matrixType">&lt;p&gt;Choose the type of your system matrix by directly selecting the appropriate type or using the &lt;b&gt;automatic detection&lt;/b&gt;. With the selection &lt;b&gt;automatic detection&lt;/b&gt; the matrix type &lt;b&gt;symmetric positive indefinite&lt;/b&gt; is selected if a symmetric system matrix is detected, and &lt;b&gt;asymmetric&lt;/b&gt; otherwise. (default to MatrixTypeEnum.AUTOMATICDETECTION).</param>
